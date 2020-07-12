@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/_static/css/banner-styles.css?v=_99BHQfY" />
+<link rel="stylesheet" type="text/css" href="/_static/css/iconochive.css?v=qtvMKcIJ" />
+<!-- End Wayback Rewrite JS Include -->
+
+
+<meta charset="UTF-8">
+<meta name="description" content="Physics Matlab, doing Physics with Matlab">
+<meta name="keywords" content="Physics, Matlab, Doing Physics with Matlab, Quantum Physics">
+<meta name="keywords" content="Computational Physics, Matlab Physics, Physics Matlab, Quantum Mechanics">
+<meta name="keywords" content="Hydrogen atom, Schrodinger Equation, Selection Rules, Hodgkin-Huxley">
+<meta name="author" content="Ian Cooper">
+
+<style> .s1
+    {
+    font-family:Calibri;
+	font-size:20px;
+	font-weight:10;
+	width: 960px;
+    color: black;
+    background-color: white;
+    align: left;}
+</style>
+ 
+<style> .s2
+    {
+    font-family:tahoma;
+	font-size:30px;
+	font-weight:700;
+	width: 960px;
+    color: blue;
+    background-color: white;
+    align: center;}
+ </style>
+ 
+ <style> .s3
+    {
+    font-family:Calibri;
+	font-size:20px;
+	font-weight:600;
+	width: 960px;
+    color: blue;
+    background-color: white;
+    align: center;}
+ </style>
+
+<style>p {text-indent:50px;}</style>
+
+<style> .s4 {
+
+color : black;
+}
+/* unvisited link */
+/*a:link {
+    color: #000000;
+}*/
+
+/* visited link */
+a:visited {
+    color: #000000;
+}
+
+/* mouse over link */
+a:hover {
+    color: #FF00FF;
+    background-color: #ffd9d9;
+}
+
+/* selected link */
+a:active {
+    color: #0000FF;
+}
+
+a {text-decoration: none;
+   color: #000000}
+
+</style>
+
+</head>
+<body>
+ 
+<div class="s2">
+<img src="Image1.gif" align="left"/>
+<p>   DOING PHYSICS WITH MATLAB</p>
+<p>   HOME PAGE</p>
+</div>
+<br>
+<p>The material on my website is based upon my individual rearch in computational physics (physical optics, plasma physics and neural networks)</p>
+<p>within the School of Physics, University of Sydney, N.S.W., Australia.</p>
+<p>Ian Cooper</p>
+<p>email: matlabvisualphysics@gmail.com</p>
+
+<br>
+
+<div class="s1">
+<table>
+    <col style="width:30%">
+    <col style="width:70%">
+    <tr>
+        <td align="center">
+	        <a href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/mscripts">
+                <img class="TextWrap" border="0" width="43" height="27" src="p0004.gif"> 
+            </a>
+        <td align="left">
+		    Directory to <strong><span style="color: red;">DOWNLOAD</span></strong> the Matlab Scripts
+		</td> 	
+	</tr>
+</table>
+</div>	
+
+<br>
+<br>
+
+
+<hr size="3" color="purple" width="96%">
+<div class="s3">
+<p>WHATS NEW: Additions and Updates</p>
+</div>
+
+<div class="s1">
+
+
+
+<ul>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/tpBlackbody.htm" target="blank">  Dec 2019 Blackbody Radiation: Sun and Earth, Hot Objects, Efficiency Incandescent Globe, Star Temperatures</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/npHHA.htm" target="blank">  Nov 2019 HODGKIN - HUXLEY Model for Membrane Currents</a>
+</li><br>
+
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/np001.htm" target="blank">  Nov 2019 Physics of Neurones: [1D] Nonlinear Dynamical Systems</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/op_michelson.htm" target="blank">  Oct 2019 Michelson Interferometer: Fringe Patterns</a>
+</li><br>
+
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/modRadioDecay.htm" target="blank">  Oct 2019 Radioactive Decay Chains: Rate equations solved using ode45</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/modAlphaScB.htm" target="blank">  Sept 2019 Alpha Particle Scattering: Solving the equation of motion using ode45</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/mecSatelliteA.htm" target="blank">  Sept 2019 Satellites Orbits: Solving the equation of motion using ode45</a>
+</li><br>
+
+
+<br>
+
+
+</ul>
+</div>
+
+
+<hr size="3" color="purple" width="96%">
+<div class="s3">
+<p>GETTING STARTED WITH MATLAB</p>
+</div>
+
+<div class="s1">
+<ul>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/matlabA.pdf">Matlab Basics</a>   
+</li><br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/matlabB.pdf">XY Plots</a>   
+</li><br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/matlabC.pdf">Advanced XY plotting techniques</a>   
+</li><br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/wav_shm_sine.pdf">Creating a simple GUI with input boxes: SHM and the Sine Function</a>   
+</li><br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/wm_beats.pdf">Creating and Saving Sounds: BEATS</a>
+</li><br>
+
+
+
+</ul>
+</div>
+
+<hr size="3" color="purple" width="96%">
+<div class="s3">
+<p>DATA ANALYSIS and MATHEMATICAL ROUTINES</p>
+</div>
+<div class="s1">
+<ul>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/da_linear_fit.pdf">Curve Fitting: Least squares fit to a straight line for linear, power and exponential relationships </a>
+</li><br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/da_weighted_fit.pdf">Curve Fitting: Weighted least squares fit for uncertainties in the y-data</a>
+</li><br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/math_qe.pdf">Solving Quadratic Equations: GUI and Function call</a>
+</li><br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/math_turning_points.pdf">Stationary Points of a function: Function to find the points of maximima and minima of a curve </a>
+</li><br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/cemVectors.pdf">VECTOR ANALYSIS: coordinates, vector algebra, dot product, cross product, [3D] rotation of axes </a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/cemDifferentialCalculus.pdf">DIFFERENTIAL CALCULUS: 1st and 2nd derivatives; gradient; divergence; curl; Laplacian </a>
+</li><br>
+
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/math_integration_1D.pdf">INTEGRATION: Numerical computation of one-dimensional integrals </a>
+</li><br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/math_simpson_1D.pdf">INTEGRATION: Estimate the value of the integral of the function y = f(x) between x = a and y = b </a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/math_integration_2D.pdf">INTEGRATION: Numerical computation of two-dimensional integrals - double or surface integrals </a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/math_ODE_A.htm" target="blank">ODE: Solving second order differential equations with the <b>ode45</b> solver (mass/spring system and van der Pol oscillator)</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/math_sinc_function.pdf">SINC FUNCTION: Characteristics of the unnormalized sinc function</a>
+</li><br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/op/doc/op_bessel1.pdf">BESSEL FUNCTION OF THE FIRST KIND: Fraunhofer Diffraction from a circular aperture</a>
+</li><br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/math_volume.pdf">SOLIDS OF REVOLUTION: [2D] and [3D] plots and an animation</a>
+</li><br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/em_swe.pdf">Finite Difference Time Development Method: [1D] Scalar Wave Equation</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/percolation.htm">PERCOLATION THEORY: A Matlab simulation of site percolation</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/wm_complex01.htm">Visualization of the phase of complex functions using COLOR</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/mathComplex1.pdf">A Visual Approach to Understanding Complex Functions</a>
+<p>John Sims   Biomedical Engineering Department, Federal University of ABC, Sao Bernardo Campus Brasil</p>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/maths_ft01.pdf"> FOURIER TRANSFORMS made easy (calculating a Fourier Transform has never been so easy)</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/mathComplex4.htm"> A VISUAL APPROACH: complex numbers and the Fourier Transform&gt;</a>
+<p>John Sims   Biomedical Engineering Department, Federal University of ABC, Sao Bernardo Campus Brasil</p>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/oscAliasing.htm">Signal Analysis: ALIASING (Sergio Furuie, School of Engineering, University of Sao Paulo, Brazil)</a>
+</li><br>
+
+<br>
+
+</ul>
+</div>
+
+<hr size="3" color="purple" width="96%">
+<div class="s3">
+<p>MECHANICS /   MECHANICAL SYSTEMS</p>
+</div>
+<div class="s1">
+<ul>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/mec_friction_1.pdf">Horizontal Motion with Resistance: drag and viscous drag force</a>
+</li><br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/mec_friction_2.pdf">Analytical and Numerical Analysis of Vertical Motion with Resistance: drag and viscous drag force, falling, drag coefficient</a>
+</li><br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/mec_spring_energy.htm">Animation of a vibrating spring: time variation of KE and PE</a>
+</li><br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/mec_slingshot.htm">Animation of the Slingshot Effect</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/osc_bungee.pdf">Physics of bungee jumps and bridge swings</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/hsp/sp/mod1/m1FreeFall.htm">Animation of the free fall vertical motion of an object: trajectory, displacement, velocity and acceleration time graphs</a>
+</li><br><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/mec_satellite.pdf">Satellite Motion GUI used for inputs. Finite difference method used to calculate a detailed description of the satellite motion</a>
+</li><br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/mecSatelliteA.htm" target="blank">Satellites Orbits: Solving the equation of motion using ode45</a>
+</li><br><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/cg001.htm">Secrets of Computer Graphics and Animations</a>
+</li><br>
+
+</ul>
+</div>
+
+<hr size="3" color="purple" width="96%">
+<div class="s3">
+<p>THERMAL PHYSICS</p>
+</div>
+<div class="s1">
+<ul>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/tp_conduction.pdf" target="blank">Thermal Conduction: Temperature gradient and energy flux calculations through a composite rod</a>
+</li><br>
+
+
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/tpBlackbody.htm" target="blank">Blackbody Radiation: Sun and Earth, Hot Objects, Efficiency Incandescent Globe, Star Temperatures</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/tp_equilibrium.htm" target="blank">Second Law of Thermodynamics - arrow of time: animation for the motion of gas molecules released from a corner of a room</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/tp_Newton.htm" target="blank">Newton's Law of Cooling: CSI Murder - time of death / Coffee cooling problem / First Order Differential Equations</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/tp_LE_Maxwell.html" target="blank">Live Editor: &nbsp;  Maxwell Distributuion of Speeds</a>
+</li><br>
+
+
+</ul>
+</div>
+
+<hr size="3" color="purple" width="96%">
+<div class="s3">
+<p>ELECTROMAGNETISM &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;         OPTICS   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;       ELECTROMAGNETIC WAVES</p>
+</div>
+<div class="s1">
+<ul>
+
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/cemVEA.pdf">Electric Field and Electric Potential due to various charge distributions</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/cemVEB.pdf">Electric Field and Electric Potential: &nbsp; &nbsp; Line Integral of the electric field</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/cemVEC.pdf">Electric Field and Electric Potential: &nbsp; &nbsp; Method of Images</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/cemVED.pdf">Electric Field and Electric Potential: &nbsp; &nbsp; Gauss's Law and Electric Flux</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/cemVEF.pdf">Electrostatics:&nbsp; &nbsp;   Diververgence &nbsp; &nbsp; / &nbsp; &nbsp;  Curl &nbsp; &nbsp;  / &nbsp; &nbsp;  Radial electric Fields</a>
+</li><br>
+
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/cemLaplaceA.pdf">Numerical solution of [2D] Poisson's and Laplace's equations: introduction and examples</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/cemLaplaceB.pdf">Numerical solution of [2D] Laplace's equation: Two concentric conductive squares</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/cemLaplaceC.pdf">Numerical solution of [2D] Poisson's and Laplace's equations: Examples using Dirchlet and Neumann boundary conditions</a>
+</li><br>
+
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/em_emf.htm">Animation: Electromagnetic Induction - induced current as magnet moves through a coil</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/em_motor.htm">Animation: DC Motor - Armature current, torque and rotation</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/em_motorsSim.htm">Physics of DC motors - How a motor works in lifting a load</a>
+</li><br>
+
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/em_vBE.pdf">Motion of charged particles through magnetic and electric fields: Numerical and graphical analysis</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/cemB01.pdf">Electromagnetic Induction: &nbsp; &nbspFaraday;'s Law &nbsp; &nbsp; / &nbsp; &nbsp; Mutual Inductance &nbsp; &nbsp; / &nbsp; &nbsp; Self Inductance</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/cemB03.pdf">Static Magnetic Fields:&nbsp; &nbsp; Divergence &nbsp; &nbsp; / &nbsp; &nbsp; Curl &nbsp; &nbsp; / &nbsp; &nbsp; Biot-Savart Law </a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/op1002.htm">ANIMATIONS: GIF and AVI FILES: POLARIZED LIGHT: Linear, Circular, Elliptical</a>
+	<p><b>John Sims</b> &nbsp; &nbsp; Biomedical Engineering Department, Universidade Federal do ABC, Brazil</p>
+</li><br>
+
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/wm_spectrum.pdf">Color plot of the visible spectrum for the wavelength range 380 nm to 780 nm</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/https://emfieldbook.com/" target="blank"> Engineering Electrodynamics: House of Maxwell's Electrodynamics (Vladimir Volman): link to an online textbook </a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/https://emfieldbook.com/blogposts/" target="blank"> Advanced electromagnetism problem sets using Matlab (Vladimir Volman) </a>
+</li><br>
+
+
+</ul>
+</div>
+
+<hr size="3" color="purple" width="96%">
+<div class="s3">
+<p>DYNAMICS OF OSCILLATING AND CHAOTIC SYSTEMS  /  SIGNAL ANALYSIS</p>
+</div>
+<div class="s1">
+<ul>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/wav_shm_sine.pdf">Creating a simple GUI with input boxes: SHM and the Sine Function</a>   
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/osc_bungee.pdf">Physics of bungee jumps and bridge swings</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/osc_string_driven.htm">Forced vibration of a string: RESONANCE - animations of a vibrating string due a vibrator</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/oscC001A.htm " target="blank">COUPLED OSCILLATORS:&gt; Part 1  &nbsp; Single Oscillator (Fourier Transform of Motion)</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/oscC002.htm" target="blank">COUPLED OSCILLATORS:  Part 2  &nbsp; Motion of Two Coupled Oscillators (Fourier Transform of Motion)</a>
+</li><br>
+
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/oscC00NA.htm" target="blank">COUPLED OSCILLATORS: Part 3  &nbsp; N oscillators - [1D] monatomic lattice</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/oscC00NDE.htm" target="blank">COUPLED OSCILLATORS:  Part 4  &nbsp; N oscillators - [1D] diatomic lattice </a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/osc_harmonic01.pdf">Modelling a Mass / Spring System: free oscillations, damping, force oscillations (impulsive and sinusoidal)</a>
+</li><br>
+<br>
+
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/mec_chaosA.pdf">Runge-Kutta Method for solutions to the differential equations governing oscillating and chaotic systems</a>
+</li><br>
+
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/chaos07A.htm">&nbsp; &nbsp; RIGID PENDULUM: &nbsp; Free damped and forced motions, resonance, chaotic motion </a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/chaos01.htm">&nbsp; &nbsp; DUFFING TWO-WELL OSCILLATOR: &nbsp; damped and forced motions, resonance, chaotic motion </a>
+</li><br>
+
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/chaos02.htm">&nbsp; &nbsp; POINCASE SCETIONS &nbsp; Duffing two-well oscillator</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/chaos10.pdf">&nbsp; &nbsp; PHASE PLANE ANALYSIS: &nbsp; Linear Systems</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/chaos10eye.pdf">&nbsp; &nbsp; PHASE PLANE ANALYSIS: &nbsp; Model of the retina: C-cell/H-cell negative feedback interaction</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/chaos11.pdf">&nbsp; &nbsp; PHASE PLANE ANALYSIS: &nbsp; Nonlinear Systems</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/cnsFN.pdf">&nbsp; &nbsp; The Fitzhugh-Nagumo Model for Spiking Neurons: Phase Plane Analysis </a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/math_ODE_A.htm" target="blank">ODE: Solving second order differential equations with the <b>ode45</b> solver (mass/spring system and van der Pol oscillator)</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/oscAliasing.htm">Signal Analysis: ALIASING (Sergio Furuie, School of Engineering, University of Sao Paulo, Brazil)</a>
+</li><br>
+
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/np001.htm" target="blank">  Physics of Neurones: [1D] Nonlinear Dynamical Systems</a>
+</li><br>
+
+</ul>
+</div>
+
+<hr size="3" color="purple" width="96%">
+<div class="s3">
+<p>WAVE MOTION</p>
+</div>
+<div class="s1">
+<ul>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/wm_ttw.htm">ANIMATIONS: GIF and AVI FILES: [1D] Travelling Harmonic Transverse Wave</a>
+	<p><b>John Sims</b> &nbsp; &nbsp; Biomedical Engineering Department, Universidade Federal do ABC, Brazil</p>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/hsp/sp/mod31/m31_wavesB.htm">WAVE MOTION ANIMATED GIFS: Travelling, Transverse, Longitudinal Waves</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/wm_beats.pdf">BEATS: Superposition of two sinusoidal waves of slightly different frequencies: Creating and saving sounds</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/wm_doppler.pdf">DOPPLER EFFECT: [2D] simulation for a moving source with sound effects and creation of animated gifs</a>
+</li><br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/wm_string_1.htm">Travelling waves along a string: Solving the wave equation for the transmission of energy along a string</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/hsp/sp/mod31/m31_RRN.htm">Refraction: Animations of a plane wave incident upon an interface separating two different medium</a>
+</li><br>
+
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/wm_Helmholtz.htm"> HELMHOLTZ EQUATION: Eigenvalue Problem: animation of standing waves on a rod</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/wm_Helmholtz2D.htm"> HELMHOLTZ EQUATION: Eigenvalue Problem: animation of standing waves on a rectangular membrane</a>
+</li><br>
+
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/wav_air_columns.pdf">Normal modes for air columns of varying cross-sectional area - musical instruments</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/em_swe.pdf">Animated solutions of the [1D] Scalar Wave Equation using the Finite Difference Time Development Method </a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/qp_duality.pdf">DIFFRACTION PHYICS: Single, Double, Particle with colour display corresponding with wavelength color</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/wm_complex01.htm">Visualization of the phase of complex functions using COLOR</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/maths_ft01.pdf"> FOURIER TRASFORMS made easy (calculating a Fourier transform has never been so easy)</a>
+</li><br>
+
+<br>
+
+
+</ul>
+</div>
+
+<hr size="3" color="purple" width="96%">
+<div class="s3">
+<p>CIRCUITS</p>
+</div>
+<div class="s1">
+<ul>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/circuits/CR001.pdf">DC CIRCUITS:Voltage divider, Max power transfer, Wheatstone Bridge</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/bp_circuits_01.pdf">Transient responses of RC circuits</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/circuits/Cac1.pdf">ac Circuits: A complete analysis of ac circuits without the trogonometry and algebra.
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/circuits/CacFilters.pdf">RC FILTERS:: A complete analysis of low, high and band pass filters without all the messy algebra.
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/circuits/CRLCs1.pdf">SERIES RESONANCE RLC series resonance circuit.
+	<p>An in-depth analysis of ac resonance circuits without all the algebra </p></a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/circuits/CRLCp1.pdf">PARALLEL RESONANCE RLC parallel voltage divider resonance circuit.
+	<p>An in-depth analysis of ac resonance circuits without all the algebra </p></a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/circuits/CN06.pdf">AC CIRCUIT ANALYSIS MADE SIMPE: Solving textbook problems with ease.</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/circuits/CNhome.htm">FINITE DIFFERENCE METHOD: Analysis and design of ac ciruits without solving any differential equations.
+    <p>Can investigate circuits with non-sinusoidal input signals.</p></a>
+</li><br>
+
+</ul>
+</div>
+
+<hr size="3" color="purple" width="96%">
+<div class="s3">
+<p>ATOMIC PHYSICS, NUCLEAR PHYSICS, QUANTUM PHYSICS, SPECIAL RELATIVITY</p>
+</div>
+<div class="s1">
+<ul>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/hsp/sp/mod8/m8Millikan.pdf">Millikan's Oil Drop Experiment: Notes and Analysis of Experimental Data</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/qp_duality.pdf">Wave Particle Duality</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/qp_se_fdm.pdf">Solving the time independent Schrodinger Equation for bound states using the finite difference method</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/qp_se_matrix.pdf">Solving the time independent Schrodinger Equation&gt; for bound states using a matirx method for finding the eigenvalues and eigenvectors of the energy operator </a>
+</li><br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/qp_se_time.htm">Time evolution of the wavefunction: stationary and compound states</a>
+</li><br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/qp_hydrogen.pdf">Hydrogen-like atoms and ions: solutions to the [3D] Schrodinger Equation </a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/qp_rules.pdf">Hydrogen atom - Transition Rates, Liftimes, Selection Rules, Animations of Compund States (Corrections March 2018: Duncan Carlsmith, University of Wisconsin-Madison)</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/qpAlphaDecay.pdf">Theory of Alpha Decay: Solving the Schrodinger Equation  - tunnelling - half-life as a function of the energy of the alpha particle (Badr Eddine El Fatehy Chfira
+University of Murcia (UMU, Spain)
+)</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/se_fdtd.pdf">Solving the [1D] Time Dependent Schrodinger Equation with the Finite Difference Time Development method</a>
+</li><br>
+
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/se_fdtdA.htm"> Time Dependent Schrodinger Equation: Animation of the Motion of a Wave Packet </a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/hsp/sp/mod72.htm" target="blank">  Nuclear Physics Calculations Made Simple : Binding energies, Q-values, Coulomb barrier, lifetime of Sun</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/modAlphaScB.htm" target="blank"> Alpha Particle Scattering: Solving the equation of motion using ode45</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/modRadioDecay.htm" target="blank">  Radioactive Decay Chains: Rate equations solved using ode45</a>
+</li><br>
+
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/hsp/sp/mod72.htm" target="blank"> Special Relativivty: Notes with animations created in Matlab</a>
+</li><br>
+
+
+<br>
+</ul>
+</div>
+
+<hr size="3" color="purple" width="96%">
+
+<div class="s3">
+<p>BIOPHYSICS &nbsp; &nbsp; &nbsp; &nbsp;  NEUROSCIENCE</p>
+</div>
+<div class="s1">
+<ul>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/bp_circuits_01.pdf">Transient responses of RC circuits</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/np001.htm" target="blank">  Physics of Neurones: [1D] Nonlinear Dynamical Systems</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/npHHA.htm" target="blank">  HODGKIN - HUXLEY Model for Membrane Currents</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/bp_HH_01.pdf">Hodgkin - Huxley Model: Membrane Current (OLD VERSION)</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/nsHomePage.htm">NEUROSCIENCE  home page</a>
+</li><br>
+
+
+</ul>
+</div>
+
+<br>
+<hr size="3" color="purple" width="96%">
+
+<div class="s3">
+<p>NUMERICAL ANALYSIS OF OPTICAL AND ELECTROMAGNETIC PHENOMENA </p>
+<p> &nbsp; (Online textbook under construction) </p>
+</div>
+<div class="s1">
+
+<br>
+
+<h3 style="color:#711C09"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Electromagnetic waves </h3>
+
+<ul>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/op1001.htm"> &nbsp; &nbsp; Propagation of electromagnetic waves in free space </a>
+</li><br>
+<br></ul>
+
+<h3 style="color:#711C09"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [1D] Finite Difference Time Development method (EM waves in non-magnetic media)</h3>
+
+<ul><li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/EH01.pdf"> &nbsp; &nbsp; Propagation of electromagnetic waves and the finite difference time development method</a>   
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/EHs01.htm"> &nbsp; &nbsp; Gaussian EM pulse propagating in non-lossy media </a>   
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/EHs02.htm"> &nbsp; &nbsp; Sinusoidal and modulated EM waves propagating in non-lossy media </a>   
+</li><br>
+
+<li> 
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/EHs03.htm"> &nbsp; &nbsp; Propagating EM waves striking a medium with a different dielectric constant</a>   
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/EHs04.htm"> &nbsp; &nbsp; Propagating EM waves in lossy dielectric media</a>   
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/EHs05.htm"> &nbsp; &nbsp; Propagating EM waves and interference effects with thin films</a>   
+</li><br>
+</ul><br>
+
+
+<h3 style="color:#711C09"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Polarization </h3>
+
+<ul>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/hsp/sp/mod7/m7polarisation.pdf" target="blank"> &nbsp; &nbsp; Visual Physics Online</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/op1002.htm" target="blank"> &nbsp; &nbsp; Vectorial nature of light</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/op1006A.htm" target="blank"> &nbsp; &nbsp; Mathematical foundations </a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/op1007.htm" target="blank"> &nbsp; &nbsp; Linear polarized light </a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/op1008A.htm" target="blank"> &nbsp; &nbsp; Circular and elliptical polarized light </a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/op1009.htm" target="blank"> &nbsp; &nbsp; Optical elements and the manipulation of the state of polarization </a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/op1005.htm" target="blank"> &nbsp; &nbsp; Matlab exercises </a>
+</li><br>
+
+<br>
+
+</ul>
+
+<h3 style="color:#711C09"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Coherence and Interference </h3>
+
+<ul>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/op1010B.htm" target="blank"> &nbsp; &nbsp; Fabry-Perot Interferometer</a>
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/op_michelson.htm" target="blank">  &nbsp; &nbsp; Michelson Interferometer: Fringe Patterns</a>
+</li><br>
+
+</ul>
+
+<h3 style="color:#711C09"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Scalar diffraction theory </h3>
+
+<ul>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/op/doc/op_diffraction_integrals_theory.pdf"> &nbsp; &nbsp; Scalar Diffraction theory: Diffraction Integrals </a>   
+</li>
+<br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/op/doc/op_irradiance.pdf"> &nbsp; &nbsp; Poynting Vector and Irradiance</a>   
+</li>
+<br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/op/doc/op_rs1.pdf"> &nbsp; &nbsp; NUMERICAL INTEGRATION METHODS:: Rayleigh-Somerfeld Diffraction Integral of the First Kind </a>   
+</li>
+<br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/op/doc/op_bessel1.pdf"> &nbsp; &nbsp; BESSEL FUNCTION OF THE FIRST KIND: Fraunhofer Diffraction from a circular aperture</a>
+</li>
+<br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/op/doc/op_rs1_rxy_01.pdf"> &nbsp; &nbsp; Diffraction from RECTANGULAR APERTURES</a>   
+</li>
+<br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/op/doc/op_rs1_rxy_02.pdf"> &nbsp; &nbsp; Diffraction from rectangular apertures:  DOUBLE SLIT</a>   
+</li>
+<br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/op/doc/op_rs1_rxy_cross.pdf"> &nbsp; &nbsp; Diffraction from RECTANGULAR APERTURES:  CROSS SHAPED APERTURE</a>   
+</li>
+<br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/op/doc/op_rs_triangle.pdf"> &nbsp; &nbsp; Diffraction from TRIANGULAR APERTURES</a>   
+</li>
+<br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/op/doc/op_rs1_circle.pdf"> &nbsp; &nbsp; Diffraction from CIRCULAR APERTURES: Rayleigh-Sommerfield Integral - near and far field calculations / energy enclosed within circles</a>   
+</li>
+<br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/op/doc/op_rs_point_source.pdf"> &nbsp; &nbsp; Diffraction from CIRCULAR APERTURES: POINT SOURCE illumination of aperture</a>   
+</li>
+<br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/op/doc/op_annular.pdf"> &nbsp; &nbsp; Diffraction from ANNULAR APERTURES: Rayleigh-Sommerfeld Integral</a>   
+</li>
+<br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/op/doc/op_rs_zones.pdf"> &nbsp; &nbsp; Diffraction from FRESNEL ZONE PLATES: Rayleigh-Sommerfeld Integral</a>   
+</li>
+<br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/op/doc/op_gui_circle.pdf"> &nbsp; &nbsp; GUI SIMULATION: Diffraction by a circular aperture</a>   
+</li>
+<br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/op/doc/op_rs_fb.pdf"> &nbsp; &nbsp; Convergent beams: IRRADIANCE IN THE FOCAL REGION: Rayleigh-Sommerfeld Integral</a>   
+</li>
+<br>
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/op/doc/op_gui_resolution.pdf"> &nbsp; &nbsp; GUI SIMULATION: Focussed Beam - Single source, Two Sources and Resolution</a>   
+</li><br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/qp_duality.pdf"> &nbsp; &nbsp; DIFFRACTION PHYICS: Single, Double, Particle with colour display corresponding with wavelength color</a>
+</li><br>
+
+<br>
+</ul>
+
+<ul>
+<h3 style="color:#711C09"> &nbsp; &nbsp; &nbsp; &nbsp; Beam Propagation </h3>
+<br>
+
+<li>
+    <a class="s4" href="https://web.archive.org/web/20191223024819/http://www.physics.usyd.edu.au/teach_res/mp/doc/op_beams_001.htm" target="blank"> Modelling the Behaviour of Gaussian Beams (Paraxial Regime)</a>
+</li><br>
+<br>
+</ul>
+
+</div>
+
+
+<div>
+<br><br>
+
+<!-- hitwebcounter Code START -->
+<a href="https://web.archive.org/web/20191223024819/http://www.hitwebcounter.com/" target="_blank">
+<img src="https://web.archive.org/web/20191223024819im_/http://hitwebcounter.com/counter/counter.php?page=7140247&amp;style=0006&amp;nbdigits=7&amp;type=page&amp;initCount=35000" title="Hit Web Stats" alt="Hit Web Stats" border="0">
+</a>                                        <br/>
+                                        <!-- hitwebcounter.com --><a href="https://web.archive.org/web/20191223024819/http://www.hitwebcounter.com/" title="" target="_blank" style="font-family: ; 
+                                        font-size: px; color: #; text-decoration:  ;">
+                                        </a>   
+
+</div>
+
+
+</body>
+</html>

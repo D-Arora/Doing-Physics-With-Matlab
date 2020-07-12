@@ -1,0 +1,591 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<title>Slingshot Effect</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Balloon Text Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma",sans-serif;}
+span.MsoPlaceholderText
+	{color:gray;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-link:"Balloon Text";
+	font-family:"Tahoma",sans-serif;}
+span.apple-converted-space
+	{mso-style-name:apple-converted-space;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-AU link=blue vlink=purple>
+
+<div class=WordSection1>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr>
+  <td width=211 valign=top style='width:158.0pt;border:solid white 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><img width=172 height=121 src="mec_slingshot_files/image001.jpg"
+  align=left hspace=12></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  </td>
+  <td width=917 valign=top style='width:687.5pt;border:solid white 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><a href="http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm"><b><span
+  style='font-size:12.0pt;line-height:150%;font-family:"Bookman Old Style",serif'>DOING
+  PHYSICS WITH MATLAB</span></b></a></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><b><span lang=EN-US style='font-size:12.0pt;line-height:150%;
+  font-family:"Bookman Old Style",serif;color:blue'>MECHANICS</span></b></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:14.2pt;margin-bottom:.0001pt;line-height:150%'><b><span
+  lang=EN-US style='font-size:12.0pt;line-height:150%;font-family:"Bookman Old Style",serif;
+  color:#E36C0A'>&nbsp; SLINGSHOT EFFECT</span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US style='font-size:12.0pt;font-family:"Tahoma",sans-serif;
+  color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US style='font-size:12.0pt;font-family:"Tahoma",sans-serif;
+  color:black'>Ian Cooper</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US style='font-size:12.0pt;font-family:"Tahoma",sans-serif;
+  color:black'>School of Physics, University of Sydney</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US style='font-size:12.0pt;font-family:"Tahoma",sans-serif;
+  color:black'>ian.cooper@sydney.edu.au</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><a href="http://www.physics.usyd.edu.au/teach_res/mp/mscripts"><b><span
+  lang=EN-US style='font-size:12.0pt;font-family:"Bookman Old Style",serif'>DOWNLOAD
+  DIRECTORY FOR MATLAB SCRIPTS</span></b></a></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:14.2pt;margin-bottom:.0001pt;line-height:150%'><span lang=EN-US
+  style='font-size:12.0pt;line-height:150%'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><b><span lang=EN-US style='font-size:12.0pt;color:#984806'>mec_slingshot.m</span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US style='font-size:12.0pt'>The mscript is used to
+  create an <b><span style='color:#7030A0'>animated gif</span></b><span
+  style='color:#7030A0'> </span>of the slingshot effect where a spacecraft
+  approaches a planet. The planet can be stationary or moving towards the
+  spacecraft. The motion of the spacecraft is animated and changes in the
+  kinetic energy and gravitational potential energy are displayed as well as
+  plots of the speed of the spacecraft and its separation distance from the planet.
+  A finite difference method is used to solve Newton’s Second Law for the
+  gravitational attraction between the spacecraft and planet. From the solution
+  you can calculate the trajectory of the spacecraft, its velocity, kinetic
+  energy, potential and total energies of the system as functions of time. </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><b><span lang=EN-US style='font-size:12.0pt;font-family:"Bookman Old Style",serif;
+  color:blue'>&nbsp;</span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><b><span style='font-size:12.0pt;font-family:"Bookman Old Style",serif;
+  color:#0000CC'>SLINGSHOT  EFFECT</span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>The <b><span style='color:#0000CC'>slingshot
+  effect</span></b><span style='color:#0000CC'> </span>is also known as a
+  planetary swing-by or a gravity-assist manoeuvre. It is performed to achieve
+  an increase in speed and/or a change of direction of a spacecraft as it
+  passes close to a planet. As it approaches, the spacecraft is caught by the
+  gravitational field of the planet, and swings around it. The speed acquired
+  is then sufficient to throw the spacecraft back out again, away from the
+  planet. By controlling the approach, the outcome of the manoeuvre can be
+  manipulated and the spacecraft can acquire some of the planet’s velocity,
+  relative to the Sun.</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>The manoeuvre can be analysed as an
+  elastic mechanical interaction, in which both momentum and kinetic energy are
+  conserved. As a result of the interaction, the spacecraft will have sped up
+  relative to the Sun, acquiring kinetic energy. The planet will have slowed
+  very marginally, losing an equivalent amount of kinetic energy. Remember that
+  <i>E<sub>K</sub></i> = ½<sub> </sub><i>m<sub> </sub>v</i><sup>2</sup> and the
+  mass of a planet is very large so that the change in velocity of the planet is
+  insignificant.</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>The slingshot effect uses the motion
+  of a planet to alter the path and speed of a spacecraft to manoeuvre it to
+  travel to the outer planets of our solar system, which would otherwise be
+  prohibitively expensive, if not impossible, to reach with current
+  technologies. </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>Consider a spacecraft on a trajectory
+  that will take it close to a planet, say Jupiter. As the spacecraft
+  approaches Jupiter which must be moving toward towards the spacecraft
+  relative to the Sun for the slingshot effect to work - Jupiter's gravity
+  pulls on the spacecraft, speeding it up. After passing the planet, the
+  gravity will continue pulling on the spacecraft, slowing it down, but since
+  Jupiter is moving, momentum and kinetic energy are transferred to the
+  spacecraft. While the speed of the spacecraft has remained the same as
+  measured with reference to Jupiter, the initial and final speeds may be quite
+  different as measured in the Sun's frame of reference. Depending on the
+  direction of the outbound leg of the trajectory, the spacecraft can gain a
+  significant fraction of the orbital speed of the planet. In the case of
+  Jupiter, this is over 13 km.s<sup>-1</sup>. </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>A spacecraft can gain kinetic energy
+  (increase its speed) through an elastic collision with a moving planet as
+  shown in the animation (figure 1).</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-size:12.0pt'><img
+  border=0 width=538 height=403 id="Picture 10"
+  src="mec_slingshot_files/image002.gif"></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>          Fig. 1.    Animation of the
+  collision between a spacecraft (black) and a planet (red).  </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>Figure 2 shows the trajectories of a spacecraft
+  and a moving planet. The positions of the spacecraft and planet are shown at
+  equal time intervals. The spacing between the positions is proportional to
+  their velocities.</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-size:12.0pt'><img
+  border=0 width=405 height=378 id="Picture 1"
+  src="mec_slingshot_files/image003.png"></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>          Fig.2   The trajectory of a
+  spacecraft during its interaction with a moving planet.</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>The planet is much more massive than
+  the spacecraft so in the elastic collision between them, the loss in momentum
+  of the planet and its kinetic energy are insignificant. The total energy (<i>E</i>
+  = <i>E<sub>P</sub></i> + <i>E<sub>K</sub></i>) of the spacecraft - planet
+  system is constant. As the spacecraft approaches closer to the planet its
+  gravitational potential energy must decrease and hence, its kinetic energy
+  must increase (figure 3).</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-size:12.0pt'><img
+  border=0 width=504 height=378 id="Picture 4"
+  src="mec_slingshot_files/image004.jpg"></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>          Fig. 3.   The total energy
+  of the system remains constant. As the spacecraft approaches the planet its <span
+  style='color:red'>kinetic energy</span></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>          increases while the <span
+  style='color:blue'>gravitational potential energy</span> decreases and the <span
+  style='color:red'>kinetic energy</span> decreases and <span style='color:
+  blue'>gravitational</span></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;color:blue'>          potential energy</span><span
+  style='font-size:12.0pt'> increases as the spacecraft moves away from the
+  planet.</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>Therefore, the spacecraft will have
+  its maximum speed when the distance between the spacecraft and planet is a
+  minimum. Initially the planet and spacecraft are approaching each other and during
+  the collision momentum is conserved, but, there is a net transferred of
+  momentum from the planet to the spacecraft so that the speed at which the
+  spacecraft recedes from the planet is greater than the speed at which it
+  approached (figure 4).</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-size:12.0pt'><img
+  border=0 width=538 height=403 id="Picture 5"
+  src="mec_slingshot_files/image005.jpg"></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>          Fig. 4.   The speed of the
+  spacecraft changes as it sweeps past the moving planet.</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>          The maximum speed of the
+  spacecraft occurs at the minimum separation distance.</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>If the planet was <b><span
+  style='color:#7030A0'>not</span></b> moving then the approach and recede
+  speeds are the same as shown in the animation (figure 5).</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-size:12.0pt'><img
+  border=0 width=538 height=403 id="Picture 6"
+  src="mec_slingshot_files/image006.gif"></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>            Fig. 5.   Animation of the
+  collision between a spacecraft (black) and a stationary planet (red).           </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>Figure 6 shows the trajectories of a
+  spacecraft and a stationary planet. The positions of the spacecraft and planet
+  are shown at equal time intervals. The spacing between the positions is
+  proportional to their velocities.</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-size:12.0pt'><img
+  border=0 width=448 height=335 id="Picture 7"
+  src="mec_slingshot_files/image007.png"></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>          Fig. 6.   The trajectory of
+  a spacecraft during its interaction with a stationary planet.</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>The planet is much more massive than
+  the spacecraft so in the elastic collision between them, the loss in momentum
+  of the planet and its kinetic energy are insignificant. The total energy (<i>E</i>
+  = <i>E<sub>P</sub></i> + <i>E<sub>K</sub></i>) of the spacecraft - planet
+  system is constant. As the spacecraft approaches closer to the planet its
+  gravitational potential energy must decrease and hence, its kinetic energy
+  must increase (figure 7). Since the planet is stationary, there is <b><span
+  style='color:#7030A0'>zero</span></b> transfer of momentum or energy to the
+  spacecraft, the approach speed and the speed of recession spacecraft are the
+  same.</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-size:12.0pt'><img
+  border=0 width=538 height=403 id="Picture 8"
+  src="mec_slingshot_files/image008.jpg"></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>         Fig. 7.   The total energy of
+  the system remains constant. As the spacecraft approaches the planet its
+  kinetic energy</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>        increases while the
+  gravitational potential energy decreases and the kinetic energy decreases and
+  gravitational</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>        potential energy increases as
+  the spacecraft moves away from the planet (figure 8).</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-size:12.0pt'><img
+  border=0 width=538 height=403 id="Picture 9"
+  src="mec_slingshot_files/image009.jpg"></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>          Fig. 8.   The speed of the
+  spacecraft changes as it sweeps past the stationary planet.</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>         The maximum speed of the
+  spacecraft occurs at the minimum separation distance.</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>         The approach speed and
+  receding speed are the same.</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>Consider a one dimensional head-on
+  elastic collision between two objects with masses <i>m</i><sub>1</sub> and <i>m</i><sub>2</sub>.
+  The initial velocities are <i>u</i><sub>1</sub> and <i>u</i><sub>2</sub> and
+  the final velocities are <i>v</i><sub>1</sub> and <i>v</i><sub>2</sub>. In
+  the collision both momentum and kinetic energy are conserved and it can be
+  shown that </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>     (1)               </span><span
+  style='font-size:11.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  position:relative;top:32.5pt'><img width=184 height=92
+  src="mec_slingshot_files/image011.png"></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'> </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>Collision with a stationary target (<i>m</i><sub>2</sub>):
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:12.0pt;line-height:150%'>     <i>m</i><sub>1</sub>=
+  1 kg   <i>m</i><sub>2</sub> = 1000 kg   <i>u</i><sub>1</sub> = +10 m.s<sup>-1</sup>    
+  <i>u</i><sub>2</sub> = 0 m.s<sup>-1</sup>    </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:12.0pt;line-height:150%'>     <i>v</i><sub>1</sub>
+  = - 9.98 m.s<sup>-1</sup>     <i>v</i><sub>2</sub> = + 0.02 m.s<sup>-1</sup></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:12.0pt;line-height:150%'>     Initial KE (<i>m</i><sub>1</sub>)
+  = 50 J     Initial KE (<i>m</i><sub>2</sub>) = 0 J     Total initial KE = 50
+  J</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:12.0pt;line-height:150%'>     Final KE (<i>m</i><sub>1</sub>) 
+  = 50 J      Final KE (<i>m</i><sub>2</sub>)  = 0 J     Total final KE   = 50
+  J</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:12.0pt;line-height:150%'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:3.55pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal'><span
+  style='font-size:12.0pt'>The speed of the incident particle (<i>m</i><sub>1</sub>)
+  is smaller after the collision as some momentum and energy is transferred to
+  the target particle (m<sub>2</sub>) during the elastic collision.</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>Collision with a moving target (<i>m</i><sub>2</sub>):
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:12.0pt;line-height:150%'>     <i>m</i><sub>1</sub>=
+  1 kg   <i>m</i><sub>2</sub> = 1000 kg   <i>u</i><sub>1</sub> = +10 m.s<sup>-1</sup>    
+  <i>u</i><sub>2</sub> = - 10 m.s<sup>-1</sup>    </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:12.0pt;line-height:150%'>     <i>v</i><sub>1</sub>
+  = - 29.96 m.s<sup>-1</sup>     <i>v</i><sub>2</sub> = - 9.96 m.s<sup>-1</sup></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:12.0pt;line-height:150%'>     Initial KE (<i>m</i><sub>1</sub>)
+  = 50 J     Initial KE (<i>m</i><sub>2</sub>) = 50 000 J     Total initial KE
+  = 50 050 J</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:12.0pt;line-height:150%'>     Final KE (<i>m</i><sub>1</sub>) 
+  = 449 J   Final KE (<i>m</i><sub>2</sub>)   =  49 601 J     Total final KE  
+  = 50 050 J</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>The speed of the incident particle (<i>m</i><sub>1</sub>)
+  is significantly larger after the collision (increased by factor 3) and has a
+  much larger final kinetic energy (increased by factor 9). Since <i>m</i><sub>1</sub>
+  &lt;&lt; <i>m</i><sub>2</sub> the speed and kinetic energy are much the same
+  for the target particle (<i>m</i><sub>2</sub>).</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:3.55pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:12.65pt'><b><span
+  style='font-size:12.0pt;color:#7030A0'>We can now consider the case
+  when&nbsp;<i>m</i><sub>2</sub>&nbsp;&gt;&gt;&nbsp;<i>m</i><sub>1</sub></span></b></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:3.55pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:12.65pt'><span
+  style='font-size:12.0pt;color:black'>In equation (1) divide the denominator
+  and numerator by&nbsp;<i>m</i><sub>2</sub></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:3.55pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:12.65pt'><span
+  style='font-size:12.0pt;color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:3.55pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:12.65pt'><span
+  style='font-size:12.0pt;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='position:relative;top:38.0pt'><img border=0 width=228 height=108
+  src="mec_slingshot_files/image012.png"></span></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:3.55pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:12.65pt'><span
+  style='font-size:12.0pt;color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:3.55pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:12.65pt'><span
+  style='font-size:12.0pt;color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:3.55pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:12.65pt'><span
+  style='font-size:12.0pt;color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:3.55pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:12.65pt'><span
+  style='font-size:12.0pt;color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:3.55pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:12.65pt'><b><span
+  style='font-size:12.0pt;color:#7030A0'>2&nbsp;</span></b><span
+  style='font-size:12.0pt;color:black'>represents the planet and&nbsp;</span><b><span
+  style='font-size:12.0pt;color:#7030A0'>1</span></b><span style='font-size:
+  12.0pt;color:black'>&nbsp;the spacecraft.</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:3.55pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:12.65pt'><span
+  style='font-size:12.0pt;color:black'>Let&nbsp;<i>u</i><sub>1</sub>&nbsp;&gt;
+  0 then&nbsp;<i>u</i><sub>2</sub>&nbsp;&lt; 0 and since&nbsp;<i>m</i><sub>2</sub>&nbsp;&gt;&gt;&nbsp;<i>m</i><sub>1</sub>&nbsp;&nbsp;then&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:3.55pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:12.65pt'><span
+  style='font-size:12.0pt;color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:3.55pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:12.65pt'><span
+  style='font-size:12.0pt;color:black'>          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+  <span style='position:relative;top:5.0pt'><img border=0 width=93 height=20
+  src="mec_slingshot_files/image013.png"></span></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:3.55pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:12.65pt'><span
+  style='font-size:12.0pt;color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:3.55pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:12.65pt'><span
+  style='font-size:12.0pt;color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:3.55pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:12.65pt'><span
+  style='font-size:12.0pt;color:black'>Equation (2) becomes</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:3.55pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:12.65pt'><span
+  style='font-size:12.0pt;color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:3.55pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:12.65pt'><span
+  style='font-size:12.0pt;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+  style='position:relative;top:20.0pt'><img border=0 width=268 height=64
+  src="mec_slingshot_files/image014.png"></span></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:3.55pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:12.65pt'><span
+  style='font-size:12.0pt;color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:3.55pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:12.65pt'><span
+  style='font-size:12.0pt;color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:3.55pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:12.65pt'><span
+  style='font-size:12.0pt;color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:3.55pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:12.65pt'><span
+  style='font-size:12.0pt;color:black'>Equation (3) tells us that the
+  spacecraft reverses direction and its speed increases whilst the velocity of
+  the planet is unchanged.</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:3.55pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:12.65pt'><span
+  style='font-size:12.0pt;color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><b><span style='font-size:12.0pt;color:#7030A0'>This is the reasoning
+  behind why the slingshot effect is used to increases its speed and kinetic
+  energy when passing a moving planet.</span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=189 valign=top style='width:5.0cm;border:solid white 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

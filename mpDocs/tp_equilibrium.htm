@@ -1,0 +1,1476 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 14">
+<meta name=Originator content="Microsoft Word 14">
+<link rel=File-List href="tp_equilibrium_files/filelist.xml">
+<link rel=Preview href="tp_equilibrium_files/preview.wmf">
+<link rel=Edit-Time-Data href="tp_equilibrium_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Second Law of Thermodynamics, arrow of tome</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Subject>Thermodynamics, Thermal Physics, Matlab</o:Subject>
+  <o:Author>Ian Cooper</o:Author>
+  <o:Keywords>Matlab, Doing Physics with Matlab, Computational Physics, Second Law of thermodynamics, entropy, arrow of time, equilibrium state</o:Keywords>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Admin</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>13</o:TotalTime>
+  <o:Created>2014-07-20T03:47:00Z</o:Created>
+  <o:LastSaved>2014-07-20T03:47:00Z</o:LastSaved>
+  <o:Pages>5</o:Pages>
+  <o:Words>1427</o:Words>
+  <o:Characters>8138</o:Characters>
+  <o:Category>Computational Physics, Matlab</o:Category>
+  <o:Lines>67</o:Lines>
+  <o:Paragraphs>19</o:Paragraphs>
+  <o:CharactersWithSpaces>9546</o:CharactersWithSpaces>
+  <o:Version>14.00</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<link rel=themeData href="tp_equilibrium_files/themedata.thmx">
+<link rel=colorSchemeMapping href="tp_equilibrium_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-AU</w:LidThemeOther>
+  <w:LidThemeAsian>ZH-CN</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SplitPgBreakAndParaMark/>
+  </w:Compatibility>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:\5B8B\4F53;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 680460288 22 0 262145 0;}
+@font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:\5B8B\4F53;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 680460288 22 0 262145 0;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-536870145 1073786111 1 0 415 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-520081665 -1073717157 41 0 66047 0;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 680460288 22 0 262145 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:SimSun;
+	mso-fareast-theme-font:minor-fareast;}
+a:link, span.MsoHyperlink
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Balloon Text Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-fareast-font-family:SimSun;
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-priority:1;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:SimSun;
+	mso-fareast-theme-font:minor-fareast;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Balloon Text";
+	font-family:"Tahoma","sans-serif";
+	mso-ascii-font-family:Tahoma;
+	mso-hansi-font-family:Tahoma;
+	mso-bidi-font-family:Tahoma;}
+p.msochpdefault, li.msochpdefault, div.msochpdefault
+	{mso-style-name:msochpdefault;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-fareast-font-family:SimSun;
+	mso-fareast-theme-font:minor-fareast;
+	mso-bidi-font-family:"Times New Roman";}
+p.msopapdefault, li.msopapdefault, div.msopapdefault
+	{mso-style-name:msopapdefault;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:SimSun;
+	mso-fareast-theme-font:minor-fareast;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:10.0pt;
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-hansi-font-family:Calibri;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 162.2pt 72.0pt 72.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-AU link=blue vlink=purple style='tab-interval:36.0pt'>
+
+<div class=WordSection1>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;mso-yfti-tbllook:1184;mso-padding-alt:0cm 0cm 0cm 0cm'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=331 valign=top style='width:7.0cm;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:#E36C0A;mso-ansi-language:EN-US'>&nbsp;</span></b></p>
+  </td>
+  <td width=969 valign=top style='width:581.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-left:14.2pt;line-height:150%'><!--[if gte vml 1]><v:shapetype
+   id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+   path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="Picture_x0020_2" o:spid="_x0000_s1026" type="#_x0000_t75"
+   style='position:absolute;left:0;text-align:left;margin-left:0;margin-top:0;
+   width:70.8pt;height:68.4pt;z-index:251658240;visibility:visible;
+   mso-wrap-style:square;mso-width-percent:0;mso-height-percent:0;
+   mso-wrap-distance-left:7.2pt;mso-wrap-distance-top:0;
+   mso-wrap-distance-right:7.2pt;mso-wrap-distance-bottom:0;
+   mso-position-horizontal:left;mso-position-horizontal-relative:text;
+   mso-position-vertical:absolute;mso-position-vertical-relative:line;
+   mso-width-percent:0;mso-height-percent:0;mso-width-relative:page;
+   mso-height-relative:page' o:allowoverlap="f">
+   <v:imagedata src="qp_se_time_files/image001.png"/>
+   <w:wrap type="square" anchory="line"/>
+  </v:shape><![endif]--><![if !vml]><img width=118 height=114
+  src="qp_se_time_files/image001.png" align=left hspace=10 v:shapes="Picture_x0020_2"><![endif]><b><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:blue;mso-ansi-language:EN-US'>&nbsp;</span></b><a
+  href="http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm"><b><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  mso-ansi-language:EN-US'>DOING PHYSICS WITH MATLAB</span></b></a></p>
+  <p class=MsoNormal style='margin-left:14.2pt;line-height:150%'><b><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:blue;mso-ansi-language:EN-US'>&nbsp;THERMAL PHYSICS</span></b></p>
+  <p class=MsoNormal style='margin-left:14.2pt;line-height:150%'><b><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:#E36C0A;mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>  
+  </span>SECOND LAW OF THERMODYNAMICS<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-left:14.2pt;line-height:150%'><span
+  style='mso-spacerun:yes'>                                         </span><b><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:#E36C0A;mso-ansi-language:EN-US'>Arrow of time</span></b></p>
+  <p class=MsoNormal style='line-height:115%'><b><span lang=EN-US
+  style='font-family:"Tahoma","sans-serif";color:#E36C0A;mso-ansi-language:
+  EN-US'>&nbsp;</span></b></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-family:"Tahoma","sans-serif";color:black;mso-ansi-language:EN-US'>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-family:"Tahoma","sans-serif";color:black;mso-ansi-language:EN-US'>Ian
+  Cooper</span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-family:"Tahoma","sans-serif";color:black;mso-ansi-language:EN-US'>School
+  of Physics, University of Sydney</span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-family:"Tahoma","sans-serif";color:black;mso-ansi-language:EN-US'>ian.cooper@sydney.edu.au</span></p>
+  <p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:blue;mso-ansi-language:EN-US'>&nbsp;</span></b></p>
+  <p class=MsoNormal style='line-height:115%'><a
+  href="http://www.physics.usyd.edu.au/teach_res/mp/mscripts"><b><span
+  lang=EN-US style='font-family:"Bookman Old Style","serif";mso-ansi-language:
+  EN-US'>DOWNLOAD DIRECTORY FOR MATLAB SCRIPTS</span></b></a></p>
+  <p class=MsoNormal style='margin-left:14.2pt;line-height:150%'><span
+  lang=EN-US style='mso-ansi-language:EN-US'>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=SpellE><b><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";color:#984806;
+  mso-ansi-language:EN-US'>tp_equilibrium.m</span></b></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='mso-ansi-language:EN-US'>The <span class=SpellE>mscript</span> is for
+  a simulation of the release of “perfume molecules” from a corner of a room
+  and predicting how these gas molecules will distribute themselves throughout
+  the room. The motion of the gas molecules can be saved as an <b
+  style='mso-bidi-font-weight:normal'><span style='color:#7030A0'>animated gif</span></b>.</span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='mso-ansi-language:EN-US'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+  115%'><span lang=EN-US style='mso-ansi-language:EN-US'>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:115%'><b><span lang=EN-US
+  style='font-size:14.0pt;line-height:115%;font-family:"Bookman Old Style","serif";
+  color:blue;mso-ansi-language:EN-US'>&nbsp;</span></b></p>
+  <p class=MsoNormal style='line-height:115%'><b><span lang=EN-US
+  style='font-size:14.0pt;line-height:115%;font-family:"Bookman Old Style","serif";
+  color:blue;mso-ansi-language:EN-US'>SECOND LAW OF THERMODYNAMICS</span></b></p>
+  <p class=MsoNormal style='line-height:115%'><b><span lang=EN-US
+  style='font-size:14.0pt;line-height:115%;font-family:"Bookman Old Style","serif";
+  color:blue;mso-ansi-language:EN-US'>&nbsp;</span></b></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='mso-ansi-language:EN-US'>&nbsp;</span><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'>The <b
+  style='mso-bidi-font-weight:normal'><span style='color:#7030A0'>Second Law of
+  Thermodynamics</span></b><span style='color:#7030A0'> </span>can be stated
+  as:<o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing align=center style='text-align:center;line-height:115%'><span
+  lang=EN-US style='font-family:"Tahoma","sans-serif";color:#7030A0;mso-ansi-language:
+  EN-US'>Natural process in an isolated system will always spontaneously evolve
+  to<o:p></o:p></span></p>
+  <p class=MsoNoSpacing align=center style='text-align:center;line-height:115%'><span
+  lang=EN-US style='font-family:"Tahoma","sans-serif";color:#7030A0;mso-ansi-language:
+  EN-US'>states of greater disorder (states of greater entropy – states of
+  greater probability)<o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'>We can think of the
+  concept of <b style='mso-bidi-font-weight:normal'><span style='color:red'>entropy</span></b>
+  as a <b style='mso-bidi-font-weight:normal'><span style='color:red'>measure
+  of the disorder of a system</span></b>.<o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><i style='mso-bidi-font-style:
+  normal'><span lang=EN-US style='font-family:"Calibri","sans-serif";
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;color:#984806;
+  mso-themecolor:accent6;mso-themeshade:128;mso-ansi-language:EN-US'>But what
+  do these statements mean?<o:p></o:p></span></i></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'>We will consider
+  the act of releasing a small quantity of perfume into a fully closed room
+  from one location within the room. Immediately after the perfume is released,
+  we can conclude that the perfume molecules are in an <b style='mso-bidi-font-weight:
+  normal'><span style='color:#7030A0'>orderly</span></b> state (state with the <b
+  style='mso-bidi-font-weight:normal'><span style='color:#7030A0'>lowest
+  entropy</span></b>) since all the molecules are located within a small volume
+  element of the room.<span style='mso-spacerun:yes'>  </span>After some time
+  interval, we know that the perfume can be detected through the room and the
+  perfume molecules will be uniformly spread around the room. This is the most <b
+  style='mso-bidi-font-weight:normal'><span style='color:#7030A0'>disordered</span></b>
+  state (state of <b style='mso-bidi-font-weight:normal'><span
+  style='color:#7030A0'>maximum entropy </span></b>state of <b
+  style='mso-bidi-font-weight:normal'><span style='color:#7030A0'>maximum
+  probability</span></b>). If we continuously monitor the motion of all the
+  perfume molecules we will never detect all the molecules again located in the
+  small volume element that they were released from, although in terms of the
+  principles of conservation of energy and momentum this state is not
+  forbidden.<span style='mso-spacerun:yes'>   </span>Why? Because if all the
+  perfume molecules were suddenly found within the initial volume element it
+  would be a violation of the Second Law of Thermodynamics.<o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'>We can help clarify
+  the meaning of order / disorder and entropy by using a simple model to
+  account for the behavior of the perfume gas molecules. We will consider the
+  gas to be enclosed within an area <i style='mso-bidi-font-style:normal'>A</i>
+  = <span class=GramE>10x10<span style='mso-spacerun:yes'>  </span><span
+  class=SpellE>a.u</span></span>., that is, we will consider the behavior of <i
+  style='mso-bidi-font-style:normal'>N</i> gas molecules from a two-dimensional
+  point of view. The enclosure is divided into 100 equal size boxes of area <span
+  class=SpellE><i style='mso-bidi-font-style:normal'>A<sub>box</sub></i></span>
+  = 1x1 <span class=SpellE>a.u</span>. At time <i style='mso-bidi-font-style:
+  normal'>t</i>&nbsp;=&nbsp;0 all the gas molecules are within the box
+  (outlined in <span style='color:red'>red</span>) located near the origin (0,
+  0) as shown in figure 1.<o:p></o:p></span></p>
+  <p class=MsoNoSpacing align=center style='text-align:center;line-height:115%'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_1"
+   o:spid="_x0000_i1029" type="#_x0000_t75" style='width:345.6pt;height:3in;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="tp_equilibrium_files/image001.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=576 height=360
+  src="tp_equilibrium_files/image002.jpg" v:shapes="Picture_x0020_1"><![endif]></span><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>          </span>Fig. 1.<span
+  style='mso-spacerun:yes'>   </span>The two-dimensional enclosure of the gas with
+  an area <i style='mso-bidi-font-style:normal'>A </i>= 10x10 <span
+  class=SpellE>a.u</span>. The area is subdivided<o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>          </span><span class=GramE>into</span> 100
+  boxes of area <span class=SpellE><i style='mso-bidi-font-style:normal'>A<sub>box</sub></i></span>
+  = 1x1 <span class=SpellE>a.u</span>. At time <i style='mso-bidi-font-style:
+  normal'>t</i> = 0, all the gas molecules (<i style='mso-bidi-font-style:normal'>N</i>
+  = 600) are released from the<o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>         </span><span class=GramE>box</span>
+  outlined in <span style='color:red'>red</span>. One of the gas molecules is
+  marked so that you can track its movements. <o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>        </span><span class=SpellE><b
+  style='mso-bidi-font-weight:normal'><span style='color:#984806;mso-themecolor:
+  accent6;mso-themeshade:128'>tp_equilibrium.m</span></b></span><o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'>The initial state
+  of the gas at <i style='mso-bidi-font-style:normal'>t</i> = 0 has the most
+  order since the molecules are located into the smallest volume element and
+  there is only one arrangement possible for this as all the molecules are in
+  one of the boxes. After the gas is released, each molecule moves a random
+  distance and direction in each time step. We are interested in how the
+  molecules arrange themselves in the 100 boxes as time flows. The movement of
+  the gas molecules is shown in the animation of figure 2.<o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing align=center style='text-align:center;line-height:115%'><span
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_4" o:spid="_x0000_i1028" type="#_x0000_t75" style='width:345.6pt;
+   height:3in;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="tp_equilibrium_files/image003.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=576 height=360
+  src="tp_equilibrium_files/image003.gif" v:shapes="Picture_x0020_4"><![endif]></span><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNoSpacing align=center style='text-align:center;line-height:115%'><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing style='margin-left:36.0pt;text-indent:-36.0pt;
+  line-height:115%'><span lang=EN-US style='font-family:"Calibri","sans-serif";
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>          </span>Fig. 2.<span
+  style='mso-spacerun:yes'>   </span>Animation of gas molecules released from
+  the red enclosed box at time <i style='mso-bidi-font-style:normal'>t</i> = 0.<o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'>The distribution of
+  the gas molecules evolves to states that are more probable. This means the
+  gas molecules after being released will eventually fill uniformly the entire
+  enclosure. The system evolves with time to the state which has its maximum
+  entropy and this corresponds to the most probable state.<span
+  style='mso-spacerun:yes'>  </span>The system evolves to an equilibrium state
+  in which each box has the same number of molecules in it since this is the
+  state in which there is the greatest number of ways in which the gas
+  molecules can arrange themselves in the 100 boxes.<o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'>Figures 3, 4 and 5 <span
+  class=GramE>( <span class=SpellE><b style='mso-bidi-font-weight:normal'><span
+  style='color:#984806;mso-themecolor:accent6;mso-themeshade:128'>tp</span></b></span></span><span
+  class=SpellE><b style='mso-bidi-font-weight:normal'><span style='color:#984806;
+  mso-themecolor:accent6;mso-themeshade:128'>_equilibrium.m</span></b></span><b
+  style='mso-bidi-font-weight:normal'><span style='color:#984806;mso-themecolor:
+  accent6;mso-themeshade:128'> </span></b>) show the percentage of the gas
+  molecules in the <span style='color:red'>red</span> box (unit area <span
+  class=SpellE><i style='mso-bidi-font-style:normal'>A<sub>box</sub></i></span>
+  = 1x1 <span class=SpellE>a.u</span>.) – the box from which the <i
+  style='mso-bidi-font-style:normal'>N</i> particles were released from.<span
+  style='mso-spacerun:yes'>  </span>Since there are 100 boxes, in the
+  equilibrium state (state with the maximum number of ways the particles can
+  arrange themselves </span><span lang=EN-US style='font-family:Wingdings;
+  mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-hansi-font-family:
+  Calibri;mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US;mso-char-type:
+  symbol;mso-symbol-font-family:Wingdings'><span style='mso-char-type:symbol;
+  mso-symbol-font-family:Wingdings'>à</span></span><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'> the most probable
+  state </span><span lang=EN-US style='font-family:Wingdings;mso-ascii-font-family:
+  Calibri;mso-ascii-theme-font:minor-latin;mso-hansi-font-family:Calibri;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US;mso-char-type:symbol;
+  mso-symbol-font-family:Wingdings'><span style='mso-char-type:symbol;
+  mso-symbol-font-family:Wingdings'>à</span></span><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'> state with the
+  maximum entropy) has <b style='mso-bidi-font-weight:normal'><span
+  style='color:red'>1.00 %</span></b><span style='color:red'> </span>of the
+  total <i style='mso-bidi-font-style:normal'>N</i> particles in the <span
+  style='color:red'>start box</span>. The mean and standard deviation for the
+  average percentage of particles in the start box in the time interval from <i
+  style='mso-bidi-font-style:normal'>t</i> = 120 to 200 <span class=SpellE>a.u</span>.
+  are shown in each figure. The standard deviation means that in 68% of the
+  measured time steps, the percentage was within one standard deviation of the
+  mean.<span style='mso-spacerun:yes'>  </span>In each figure, the bottom view
+  shows the y-axis scale reduced to 0 to 5% for the particles in the start box.
+  <o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing align=center style='text-align:center;line-height:115%'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_6"
+   o:spid="_x0000_i1027" type="#_x0000_t75" style='width:468pt;height:374.4pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="tp_equilibrium_files/image004.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=780 height=624
+  src="tp_equilibrium_files/image005.jpg" v:shapes="Picture_x0020_6"><![endif]><span
+  style='mso-spacerun:yes'> </span></span><span lang=EN-US style='font-family:
+  "Calibri","sans-serif";mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>          </span>Fig. 3.<span
+  style='mso-spacerun:yes'>   </span><i style='mso-bidi-font-style:normal'>N</i>
+  = 600 gas molecules. The average percentage of particles in the starting box
+  in the time interval<o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>         </span><span
+  style='mso-spacerun:yes'> </span><span class=GramE>from</span> <i
+  style='mso-bidi-font-style:normal'>t</i> = 120 to 200 <span class=SpellE>a.u</span>.
+  is<span style='mso-spacerun:yes'>  </span>(0.93 </span><span lang=EN-US
+  style='font-family:Symbol;mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+  minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;
+  mso-ansi-language:EN-US;mso-char-type:symbol;mso-symbol-font-family:Symbol'><span
+  style='mso-char-type:symbol;mso-symbol-font-family:Symbol'>±</span></span><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'> 0.36).
+  <o:p></o:p></span></p>
+  <p class=MsoNoSpacing align=center style='text-align:center;line-height:115%'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_8"
+   o:spid="_x0000_i1026" type="#_x0000_t75" style='width:468pt;height:374.4pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="tp_equilibrium_files/image006.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=780 height=624
+  src="tp_equilibrium_files/image007.jpg" v:shapes="Picture_x0020_8"><![endif]></span><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>          </span>Fig. 4.<span
+  style='mso-spacerun:yes'>   </span><i style='mso-bidi-font-style:normal'>N</i>
+  = 12 000 gas molecules. The average percentage of particles in the start box in
+  the time interval<o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>          </span><span class=GramE>from</span> <i
+  style='mso-bidi-font-style:normal'>t</i> = 120 to 200 <span class=SpellE>a.u</span>.
+  is<span style='mso-spacerun:yes'>  </span>(0.98 </span><span lang=EN-US
+  style='font-family:Symbol;mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+  minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;
+  mso-ansi-language:EN-US;mso-char-type:symbol;mso-symbol-font-family:Symbol'><span
+  style='mso-char-type:symbol;mso-symbol-font-family:Symbol'>±</span></span><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'> 0.08).
+  <o:p></o:p></span></p>
+  <p class=MsoNoSpacing align=center style='text-align:center;line-height:115%'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_9"
+   o:spid="_x0000_i1025" type="#_x0000_t75" style='width:468pt;height:374.4pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="tp_equilibrium_files/image008.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=780 height=624
+  src="tp_equilibrium_files/image009.jpg" v:shapes="Picture_x0020_9"><![endif]></span><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>         </span>Fig. 4.<span
+  style='mso-spacerun:yes'>   </span><i style='mso-bidi-font-style:normal'>N</i>
+  = 60 000 gas molecules. The average percentage of particles in the start box
+  in the time interval<o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>        </span><span class=GramE>from</span> <i
+  style='mso-bidi-font-style:normal'>t</i> = 120 to 200 <span class=SpellE>a.u</span>.
+  is<span style='mso-spacerun:yes'>  </span>(0.99 </span><span lang=EN-US
+  style='font-family:Symbol;mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+  minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;
+  mso-ansi-language:EN-US;mso-char-type:symbol;mso-symbol-font-family:Symbol'><span
+  style='mso-char-type:symbol;mso-symbol-font-family:Symbol'>±</span></span><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'> 0.04).
+  <o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'>Inspection of
+  figures 3, 4 and 5 show that as the number of particles increase, the mean
+  value approaches 1% and its uncertainty becomes smaller. It is clear that as <i
+  style='mso-bidi-font-style:normal'>N</i> gets larger, the distribution
+  becomes more uniform and the fluctuations from the mean value reduce. 60 000
+  particles was the maximum number of particles used in the three simulations.
+  Consider a gas enclosed in a volume <i style='mso-bidi-font-style:normal'>V</i>&nbsp;=&nbsp;1.00
+  m<sup>3</sup> at atmospheric pressure <i style='mso-bidi-font-style:normal'>p</i>
+  = 1.01x10<sup>5</sup> Pa and temperature <i style='mso-bidi-font-style:normal'>T</i>
+  = 300 K. In this volume there are 2.4x10<sup>25</sup> particles <span
+  class=GramE>( <i style='mso-bidi-font-style:normal'>p</i></span><i
+  style='mso-bidi-font-style:normal'><sub>&nbsp;</sub>V</i>&nbsp;= <i
+  style='mso-bidi-font-style:normal'>N<sub> </sub>k<sub> </sub>T </i>). In a
+  box of 1.00 m<sup>3</sup>, the gas molecules will certainly be uniformly
+  distribution and the any fluctuations away from this equilibrium state will
+  certainly be negligible. Hence, the process of the gas spreading around the
+  room is <b style='mso-bidi-font-weight:normal'><span style='color:#7030A0'>irreversible</span></b>.
+  Although it is possible that all the particles can return to the start box at
+  the same instant, there are no laws really preventing this, only that the
+  probability of this occurring is exceedingly small.<o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'>When the perfume is
+  released, the system of the enclosed gas spontaneously changes from a state
+  of low probability to one of higher probability, that is, the entropy of the
+  system increases. The relationship between probability and entropy is given
+  by<o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>          </span></span><b style='mso-bidi-font-weight:
+  normal'><i style='mso-bidi-font-style:normal'><span lang=EN-US
+  style='font-size:14.0pt;line-height:115%;font-family:"Calibri","sans-serif";
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-ansi-language:
+  EN-US'>S </span></i></b><b style='mso-bidi-font-weight:normal'><span
+  lang=EN-US style='font-size:14.0pt;line-height:115%;font-family:"Calibri","sans-serif";
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-ansi-language:
+  EN-US'>= <i style='mso-bidi-font-style:normal'>k</i> log<sub>e</sub>( <i
+  style='mso-bidi-font-style:normal'>w</i> )<o:p></o:p></span></b></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span class=GramE><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'>where</span></span><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'> <i
+  style='mso-bidi-font-style:normal'>S</i> is the entropy, <i style='mso-bidi-font-style:
+  normal'>k</i> is the Boltzmann constant and <i style='mso-bidi-font-style:
+  normal'>w</i> is “loosely” defined as the number of molecular arrangements
+  that correspond to the same macroscopic state. In our initial state (<i
+  style='mso-bidi-font-style:normal'>t</i> = 0), there is only one possible
+  arrangement of the particles – all the particles must be in the start box, <i
+  style='mso-bidi-font-style:normal'>w</i> = 1 </span><span lang=EN-US
+  style='font-family:Wingdings;mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+  minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;
+  mso-ansi-language:EN-US;mso-char-type:symbol;mso-symbol-font-family:Wingdings'><span
+  style='mso-char-type:symbol;mso-symbol-font-family:Wingdings'>à</span></span><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'> <i
+  style='mso-bidi-font-style:normal'>S</i> = 0. <o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'>The <b
+  style='mso-bidi-font-weight:normal'><span style='color:#7030A0'>Second Law of
+  Thermodynamics</span></b>, tells us that if an isolated system undergoes a
+  spontaneous process, its final state will be one in which the entropy <i
+  style='mso-bidi-font-style:normal'>S</i> and <span class=SpellE><i
+  style='mso-bidi-font-style:normal'>w</i> are</span> maximum.<o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-US style='font-size:14.0pt;line-height:115%;font-family:
+  "Bookman Old Style","serif";color:blue;mso-ansi-language:EN-US'>MATLAB <span
+  class=SpellE>MSCRIPT</span><o:p></o:p></span></b></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'>Setup for initial
+  position of particles in start box using the Matlab command <b
+  style='mso-bidi-font-weight:normal'><span style='color:#984806;mso-themecolor:
+  accent6;mso-themeshade:128'>rand</span></b> to give a set of numbers between
+  zero and one<o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>   </span>e.g.<span style='mso-spacerun:yes'>  
+  </span>rand(1,5)<span style='mso-spacerun:yes'>   </span></span><span
+  lang=EN-US style='font-family:Wingdings;mso-ascii-font-family:Calibri;
+  mso-ascii-theme-font:minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+  minor-latin;mso-ansi-language:EN-US;mso-char-type:symbol;mso-symbol-font-family:
+  Wingdings'><span style='mso-char-type:symbol;mso-symbol-font-family:Wingdings'>à</span></span><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>   </span>0.7612<span style='mso-spacerun:yes'>   
+  </span>0.7568<span style='mso-spacerun:yes'>    </span>0.3738<span
+  style='mso-spacerun:yes'>    </span>0.5126<span style='mso-spacerun:yes'>   
+  </span>0.9739<o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:forestgreen'><span style='mso-spacerun:yes'>  
+  </span>% initial position of N particles within unit box ------------------------</span><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:black'><span style='mso-spacerun:yes'>   </span>R =
+  1;<span style='mso-spacerun:yes'>                          </span></span><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:forestgreen'>% max step length</span><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:black'><span style='mso-spacerun:yes'>   </span>P =
+  rand(N,2);<span style='mso-spacerun:yes'>                  </span></span><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:forestgreen'>% initial (<span class=SpellE>x,y</span>)
+  coordinates of N particles</span><span style='font-family:"Courier New";
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:black'><span style='mso-spacerun:yes'>   </span>x =
+  P(:,1);</span><span style='font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:black'><span style='mso-spacerun:yes'>   </span>y =
+  P(:,2);</span><span style='font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'>Particle
+  coordinates are updated in a for loop using the Matlab command <span
+  class=SpellE><b style='mso-bidi-font-weight:normal'><span style='color:#984806;
+  mso-themecolor:accent6;mso-themeshade:128'>randn</span></b></span> to give
+  random numbers which are normally <o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>     </span>e.g.<span style='mso-spacerun:yes'> 
+  </span><span class=SpellE>randn</span>(1,5)<span style='mso-spacerun:yes'>  
+  </span></span><span lang=EN-US style='font-family:Wingdings;mso-ascii-font-family:
+  Calibri;mso-ascii-theme-font:minor-latin;mso-hansi-font-family:Calibri;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US;mso-char-type:symbol;
+  mso-symbol-font-family:Wingdings'><span style='mso-char-type:symbol;
+  mso-symbol-font-family:Wingdings'>à</span></span><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>  </span><span
+  style='mso-spacerun:yes'> </span>-0.0426<span style='mso-spacerun:yes'>   
+  </span>0.8961<span style='mso-spacerun:yes'>   </span>-2.1927<span
+  style='mso-spacerun:yes'>   </span>-1.3408<span style='mso-spacerun:yes'>   
+  </span>0.0100<o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:forestgreen'><span style='mso-spacerun:yes'>  
+  </span>% increment the position of each particle
+  --------------------------------<span style='mso-spacerun:yes'>    </span></span><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:black'><span style='mso-spacerun:yes'>   </span><span
+  class=SpellE>dP</span> = R.*<span class=SpellE>randn</span>(N,2);</span><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:black'><span style='mso-spacerun:yes'>   </span>dx = <span
+  class=SpellE>dP</span>(:,1);</span><span style='font-family:"Courier New";
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:black'><span style='mso-spacerun:yes'>   </span><span
+  class=SpellE>dy</span> = <span class=SpellE>dP</span>(:,2);</span><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:black'><span style='mso-spacerun:yes'> </span></span><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:forestgreen'><span style='mso-spacerun:yes'> 
+  </span>% updated position of each
+  particle---------------------------------------</span><span style='font-family:
+  "Courier New";mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:black'><span style='mso-spacerun:yes'>   </span>x = x
+  + dx;</span><span style='font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:black'><span style='mso-spacerun:yes'>   </span>y = y
+  + <span class=SpellE>dy</span>;</span><span style='font-family:"Courier New";
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span style='font-family:"Calibri","sans-serif";
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'> </span><span lang=EN-US><o:p></o:p></span></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'>The particles are
+  kept inside the enclose by reflections at the sides<o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:forestgreen'><span style='mso-spacerun:yes'>  
+  </span>% particle reflected of boundaries of the box
+  ----------------------------</span><span style='font-family:"Courier New";
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:blue'><span style='mso-spacerun:yes'>   </span>for</span><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:black'> c1 = 1:N</span><span style='font-family:"Courier New";
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:blue'><span style='mso-spacerun:yes'>      </span>if</span><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:black'> x(c1) &lt; 0; x(c1) = x(c1) +
+  abs(dx(c1));<span style='mso-spacerun:yes'>   </span></span><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:blue'>end</span><span style='font-size:10.0pt;
+  font-family:"Courier New";mso-fareast-font-family:"Times New Roman";
+  color:black'>;</span><span style='font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:blue'><span style='mso-spacerun:yes'>      </span>if</span><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:black'> y(c1) &lt; 0; y(c1) = y(c1) + abs(<span
+  class=SpellE>dy</span>(c1));<span style='mso-spacerun:yes'>   </span></span><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:blue'>end</span><span style='font-size:10.0pt;
+  font-family:"Courier New";mso-fareast-font-family:"Times New Roman";
+  color:black'>;</span><span style='font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:blue'><span style='mso-spacerun:yes'>      </span>if</span><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:black'> x(c1) &gt; 10; x(c1) = x(c1) -
+  abs(dx(c1));<span style='mso-spacerun:yes'>  </span></span><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:blue'>end</span><span style='font-size:10.0pt;
+  font-family:"Courier New";mso-fareast-font-family:"Times New Roman";
+  color:black'>;</span><span style='font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:blue'><span style='mso-spacerun:yes'>      </span>if</span><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:black'> y(c1) &gt; 10; y(c1) = y(c1) - abs(<span
+  class=SpellE>dy</span>(c1));<span style='mso-spacerun:yes'>  </span></span><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:blue'>end</span><span style='font-size:10.0pt;
+  font-family:"Courier New";mso-fareast-font-family:"Times New Roman";
+  color:black'>;</span><span style='font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:blue'><span style='mso-spacerun:yes'>   </span>end</span><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'>To count the number
+  of particles in the start box each time step, logical functions are used<o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>   </span>e.g.<span style='mso-spacerun:yes'>  
+  </span>z = rand(1,5)<span style='mso-spacerun:yes'>      </span></span><span
+  lang=EN-US style='font-family:Wingdings;mso-ascii-font-family:Calibri;
+  mso-ascii-theme-font:minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+  minor-latin;mso-ansi-language:EN-US;mso-char-type:symbol;mso-symbol-font-family:
+  Wingdings'><span style='mso-char-type:symbol;mso-symbol-font-family:Wingdings'>à</span></span><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>                                      </span><span
+  style='mso-spacerun:yes'>      </span>0.7635<span
+  style='mso-spacerun:yes'>    </span>0.0078<span style='mso-spacerun:yes'>   
+  </span>0.8026<span style='mso-spacerun:yes'>    </span>0.7228<span
+  style='mso-spacerun:yes'>    </span>0.7291<span style='mso-spacerun:yes'>   
+  </span>0.0627<span style='mso-spacerun:yes'>    </span>0.7569<span
+  style='mso-spacerun:yes'>    </span>0.6265<span style='mso-spacerun:yes'>   
+  </span>0.1902<span style='mso-spacerun:yes'>    </span>.6564<o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>            </span>z01 = z01 &lt; 0.5<span
+  style='mso-spacerun:yes'>   </span></span><span lang=EN-US style='font-family:
+  Wingdings;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+  mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;mso-ansi-language:
+  EN-US;mso-char-type:symbol;mso-symbol-font-family:Wingdings'><span
+  style='mso-char-type:symbol;mso-symbol-font-family:Wingdings'>à</span></span><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>     </span>0<span style='mso-spacerun:yes'>    
+  </span><span style='mso-spacerun:yes'>        </span>1<span
+  style='mso-spacerun:yes'>    </span><span
+  style='mso-spacerun:yes'>        </span><span
+  style='mso-spacerun:yes'> </span>0<span style='mso-spacerun:yes'>    </span><span
+  style='mso-spacerun:yes'>        </span><span
+  style='mso-spacerun:yes'> </span>0<span style='mso-spacerun:yes'>     </span><span
+  style='mso-spacerun:yes'>         </span>0<span style='mso-spacerun:yes'>    
+  </span><span style='mso-spacerun:yes'>        </span>1<span
+  style='mso-spacerun:yes'>     </span><span
+  style='mso-spacerun:yes'>       </span>0<span style='mso-spacerun:yes'>    
+  </span><span style='mso-spacerun:yes'>         </span>0<span
+  style='mso-spacerun:yes'>     </span><span
+  style='mso-spacerun:yes'>        </span>1<span style='mso-spacerun:yes'>   
+  </span><span style='mso-spacerun:yes'>        </span><span
+  style='mso-spacerun:yes'> </span>0<o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>            </span>z10<span
+  style='mso-spacerun:yes'>  </span>= z(z&lt;0.5)<span
+  style='mso-spacerun:yes'>    </span></span><span lang=EN-US style='font-family:
+  Wingdings;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+  mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;mso-ansi-language:
+  EN-US;mso-char-type:symbol;mso-symbol-font-family:Wingdings'><span
+  style='mso-char-type:symbol;mso-symbol-font-family:Wingdings'>à</span></span><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>   </span>0.0078<span style='mso-spacerun:yes'>   
+  </span>0.0627<span style='mso-spacerun:yes'>    </span>0.1902<o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>           </span>sum of numbers less than 0.5<span
+  style='mso-spacerun:yes'>    </span>sum(z01)<span style='mso-spacerun:yes'>  
+  </span></span><span lang=EN-US style='font-family:Wingdings;mso-ascii-font-family:
+  Calibri;mso-ascii-theme-font:minor-latin;mso-hansi-font-family:Calibri;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US;mso-char-type:symbol;
+  mso-symbol-font-family:Wingdings'><span style='mso-char-type:symbol;
+  mso-symbol-font-family:Wingdings'>à</span></span><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>   </span>3<o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:forestgreen'>% calculate the number of particles in
+  start box --------------------------</span><span style='font-family:"Courier New";
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  class=SpellE><span style='font-size:10.0pt;font-family:"Courier New";
+  mso-fareast-font-family:"Times New Roman";color:black'>box_x</span></span><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:black'> = ones(1,N);</span><span style='font-family:
+  "Courier New";mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  class=SpellE><span style='font-size:10.0pt;font-family:"Courier New";
+  mso-fareast-font-family:"Times New Roman";color:black'>box_y</span></span><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:black'> = ones(1,N);</span><span style='font-family:
+  "Courier New";mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  class=SpellE><span style='font-size:10.0pt;font-family:"Courier New";
+  mso-fareast-font-family:"Times New Roman";color:black'>box_x</span></span><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:black'>(x&gt;R) = 0;</span><span style='font-family:
+  "Courier New";mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  class=SpellE><span style='font-size:10.0pt;font-family:"Courier New";
+  mso-fareast-font-family:"Times New Roman";color:black'>box_y</span></span><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:black'>(y&gt;R) = 0;</span><span style='font-family:
+  "Courier New";mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  class=SpellE><span style='font-size:10.0pt;font-family:"Courier New";
+  mso-fareast-font-family:"Times New Roman";color:black'>N_box</span></span><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:black'>(c) = sum(<span class=SpellE>box_x</span> .* <span
+  class=SpellE>box_y</span>);</span><span style='font-family:"Courier New";
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span style='font-family:"Calibri","sans-serif";
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'>Calculating the
+  statistics for the start box<o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:forestgreen'><span style='mso-spacerun:yes'>  
+  </span>% calc. mean<span style='mso-spacerun:yes'>  </span><span
+  class=SpellE>std</span><span style='mso-spacerun:yes'>    </span><span
+  class=SpellE>sem</span> for no. of particles in start box ---------------</span><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:black'><span style='mso-spacerun:yes'>   </span><span
+  class=GramE>ns</span> = floor(0.6*<span class=SpellE>nt</span>);<span
+  style='mso-spacerun:yes'>                    </span></span><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:forestgreen'>% starting point for calc.</span><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:black'><span style='mso-spacerun:yes'>   </span><span
+  class=SpellE>N_avg</span> = (100/N) * mean(<span class=SpellE>N_box</span>(<span
+  class=SpellE>ns:end</span>));</span><span style='font-family:"Courier New";
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:black'><span style='mso-spacerun:yes'>   </span><span
+  class=SpellE>N_std</span> = (100/N) * <span class=SpellE>std</span>(<span
+  class=SpellE>N_box</span>(<span class=SpellE>ns:end</span>));</span><span
+  style='font-family:"Courier New";mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:black'><span style='mso-spacerun:yes'>   </span><span
+  class=SpellE>N_sem</span> = <span class=SpellE>N_std</span>/<span
+  class=SpellE>sqrt</span>(nt-ns+1);<o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:black'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";color:black'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span style='font-family:"Calibri","sans-serif";
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span style='font-family:"Calibri","sans-serif";
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm;line-height:
+  115%'><span lang=EN-US style='font-family:"Calibri","sans-serif";color:#984806;
+  mso-ansi-language:EN-US'>&nbsp;</span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-US style='mso-ansi-language:EN-US'>&nbsp;</span></p>
+  <b><span lang=EN-US style='font-size:12.0pt;line-height:115%;font-family:
+  "Bookman Old Style","serif";mso-fareast-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";color:blue;mso-ansi-language:EN-US;
+  mso-fareast-language:ZH-CN;mso-bidi-language:AR-SA'><br clear=all
+  style='page-break-before:always'>
+  </span></b>
+  <p class=MsoNormal style='line-height:115%'><b><span lang=EN-US
+  style='font-family:"Bookman Old Style","serif";color:blue;mso-ansi-language:
+  EN-US'>&nbsp;</span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='mso-ansi-language:EN-US'>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='mso-ansi-language:EN-US'>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='mso-ansi-language:EN-US'>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='mso-ansi-language:EN-US'>&nbsp;</span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:115%'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm;line-height:
+  115%'><span lang=EN-US style='mso-ansi-language:EN-US'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm;line-height:
+  115%'><span lang=EN-US style='mso-ansi-language:EN-US'>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='mso-ansi-language:EN-US'>&nbsp;</span></p>
+  <span lang=EN-US style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman","serif";
+  mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+  ZH-CN;mso-bidi-language:AR-SA'><br clear=all style='page-break-before:always'>
+  </span>
+  <p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:#E36C0A;mso-ansi-language:EN-US'>&nbsp;</span></b></p>
+  <p class=MsoNormal style='margin-left:14.2pt;line-height:150%'><b><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:#E36C0A;mso-ansi-language:EN-US'>&nbsp;</span></b></p>
+  <p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:#E36C0A;mso-ansi-language:EN-US'>&nbsp;</span></b></p>
+  </td>
+  <td width=437 valign=top style='width:261.95pt;padding:0cm 5.4pt 0cm 5.4pt'></td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+color:#E36C0A;mso-ansi-language:EN-US'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+color:#E36C0A;mso-ansi-language:EN-US'>&nbsp;</span></b></p>
+
+<span lang=EN-US style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif";
+mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+ZH-CN;mso-bidi-language:AR-SA'><br clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal style='margin-bottom:10.0pt;line-height:115%'><span
+lang=EN-US style='mso-ansi-language:EN-US'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-right:221.1pt'><span lang=EN-US
+style='mso-ansi-language:EN-US'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

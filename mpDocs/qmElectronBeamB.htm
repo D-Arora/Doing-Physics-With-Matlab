@@ -1,0 +1,1964 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 14">
+<meta name=Originator content="Microsoft Word 14">
+<link rel=File-List href="qmElectronBeamB_files/filelist.xml">
+<link rel=Edit-Time-Data href="qmElectronBeamB_files/editdata.mso">
+<link rel=OLE-Object-Data href="qmElectronBeamB_files/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Matlab Physics</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Subject>Quantum Mechanics, Doing Physics with Matlab</o:Subject>
+  <o:Author>Ian Cooper</o:Author>
+  <o:Keywords>quantum mechanics, step potential, Schrodinger equation, Matlab Physics, ode45 solver, electron beams, matter waves</o:Keywords>
+  <o:Description>mpQMA.pptx</o:Description>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Owner</o:LastAuthor>
+  <o:Revision>19</o:Revision>
+  <o:TotalTime>2218</o:TotalTime>
+  <o:Created>2020-01-05T19:05:00Z</o:Created>
+  <o:LastSaved>2020-01-08T04:55:00Z</o:LastSaved>
+  <o:Pages>9</o:Pages>
+  <o:Words>1803</o:Words>
+  <o:Characters>10279</o:Characters>
+  <o:Category>Quantum Mechanics</o:Category>
+  <o:Lines>85</o:Lines>
+  <o:Paragraphs>24</o:Paragraphs>
+  <o:CharactersWithSpaces>12058</o:CharactersWithSpaces>
+  <o:Version>14.00</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+<link rel=themeData href="qmElectronBeamB_files/themedata.thmx">
+<link rel=colorSchemeMapping href="qmElectronBeamB_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>125</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-AU</w:LidThemeOther>
+  <w:LidThemeAsian>ZH-CN</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-469750017 -1073732485 9 0 511 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-520081665 -1073717157 41 0 66047 0;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin-top:0cm;
+	margin-right:30.05pt;
+	margin-bottom:10.0pt;
+	margin-left:30.05pt;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+a:link, span.MsoHyperlink
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:blue;
+	mso-themecolor:hyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:purple;
+	mso-themecolor:followedhyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Balloon Text Char";
+	margin-top:0cm;
+	margin-right:30.05pt;
+	margin-bottom:0cm;
+	margin-left:30.05pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	margin-top:0cm;
+	margin-right:30.05pt;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:30.05pt;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:30.05pt;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:30.05pt;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Balloon Text";
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-ascii-font-family:Tahoma;
+	mso-hansi-font-family:Tahoma;
+	mso-bidi-font-family:Tahoma;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:16.0pt;
+	mso-ansi-font-size:16.0pt;
+	mso-bidi-font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-priority:59;
+	mso-style-unhide:no;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin-top:0cm;
+	mso-para-margin-right:30.05pt;
+	mso-para-margin-bottom:0cm;
+	mso-para-margin-left:30.05pt;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-AU link=blue vlink=purple style='tab-interval:36.0pt'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:49.25pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=841 valign=top style='width:630.75pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><b><span
+  style='font-size:20.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:blue'><a href="http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm"><span
+  style='color:blue'>DOING PHYSICS WITH MATLAB</span></a></span></b><b><span
+  lang=EN-US style='font-size:20.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman";
+  color:blue;mso-ansi-language:EN-US;mso-fareast-language:EN-US'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><b><span
+  style='font-size:20.0pt;line-height:150%;font-family:"Bookman Old Style","serif"'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal align=center style='margin:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:150%'><b><span style='font-size:20.0pt;
+  line-height:150%;font-family:"Bookman Old Style","serif";color:#E46C0A;
+  mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>QUANTUM MECHANICS<o:p></o:p></span></b></p>
+  <p class=MsoNormal align=center style='margin:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:150%'><b><span style='font-size:20.0pt;
+  line-height:150%;font-family:"Bookman Old Style","serif";color:#E46C0A;
+  mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>PARTICLE
+  SCATTERING AND BARRIER PENETRATION<o:p></o:p></span></b></p>
+  <p class=MsoNormal align=center style='margin:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:150%'><b><span style='font-size:20.0pt;
+  line-height:150%;font-family:"Bookman Old Style","serif";color:#E46C0A;
+  mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>ELECTRON BEAMS:
+  STEP POTENTIAL<o:p></o:p></span></b></p>
+  <p class=MsoNormal align=center style='margin:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:150%'><b><span style='font-size:20.0pt;
+  line-height:150%;font-family:"Bookman Old Style","serif";color:#E46C0A;
+  mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>BEAM ENERGY LESS
+  THAN STEP HEIGHT<span style='mso-spacerun:yes'>  </span>E &lt; U<sub>0<o:p></o:p></sub></span></b></p>
+  <p class=MsoNormal align=center style='margin:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:150%'><b><span style='font-size:20.0pt;
+  line-height:150%;font-family:"Bookman Old Style","serif";color:#E46C0A;
+  mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-bidi-font-weight:bold'>Ian Cooper<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-bidi-font-weight:bold'><a
+  href="mailto:matlabvisualphysics@gmail.com">matlabvisualphysics@gmail.com</a><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-bidi-font-weight:bold'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:10.0pt;
+  margin-left:0cm;line-height:150%'><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+  mso-bidi-font-weight:bold'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='margin-left:49.25pt;border-collapse:collapse;border:none;mso-border-alt:
+ solid #984806 1.5pt;mso-border-themecolor:accent6;mso-border-themeshade:128;
+ mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:
+ 1.5pt solid #984806;mso-border-insideh-themecolor:accent6;mso-border-insideh-themeshade:
+ 128;mso-border-insidev:1.5pt solid #984806;mso-border-insidev-themecolor:accent6;
+ mso-border-insidev-themeshade:128'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=841 valign=top style='width:630.75pt;border:solid #984806 1.5pt;
+  mso-border-themecolor:accent6;mso-border-themeshade:128;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'><span
+  style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'><a
+  href="http://www.physics.usyd.edu.au/teach_res/mp/mscripts/"><b
+  style='mso-bidi-font-weight:normal'>MATLAB SCRIPTS</b></a><b
+  style='mso-bidi-font-weight:normal'><span style='color:#000099'><span
+  style='mso-spacerun:yes'>   </span>(download files)<o:p></o:p></span></b></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-US style='mso-bidi-font-size:
+  12.0pt;line-height:115%;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;color:#000099;mso-ansi-language:EN-US;
+  mso-fareast-language:EN-US'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt'><span class=SpellE><b
+  style='mso-bidi-font-weight:normal'><span style='color:#984807;mso-themecolor:
+  accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>qmElectronBeamB.m</span></b></span><b style='mso-bidi-font-weight:
+  normal'><span style='color:#984807;mso-themecolor:accent6;mso-themeshade:
+  128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt'><b style='mso-bidi-font-weight:
+  normal'><span style='color:#984807;mso-themecolor:accent6;mso-themeshade:
+  128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'>Simulation of an
+  electron matter wave propagating along the X axis which encounters a barrier.
+  The physical system is described with a potential energy function that can be
+  approximated by a step potential. The energy <i style='mso-bidi-font-style:
+  normal'><span style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>E</span></i>
+  of the electron beam is less than the step height <i style='mso-bidi-font-style:
+  normal'><span style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>U</span></i><sub><span
+  style='font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>0</span></sub>.</p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'>The simulation
+  input parameters are specified in the INPUT section of the Script</p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:#3C763D'>% INPUTS
+  ==============================================================</span><span
+  style='mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:#3C763D'>% Energy of particles<span
+  style='mso-spacerun:yes'>  </span>[100 <span class=SpellE>eV</span>];</span><span
+  style='mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span><span class=SpellE>Es</span> = 50;</span><span
+  style='mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span></span><span style='mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:#3C763D'>% Step Potential: height of
+  step E &lt; U0<span style='mso-spacerun:yes'>   </span>[200 <span
+  class=SpellE>eV</span>]</span><span style='mso-bidi-font-size:12.0pt;
+  font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span>U0s = 200; </span><span style='mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span></span><span style='mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:#3C763D'>% X axis<span
+  style='mso-spacerun:yes'>  </span>[-0.5<span style='mso-spacerun:yes'> 
+  </span>0.5 nm]</span><span style='mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span><span class=SpellE>xMin</span> = -0.5;</span><span
+  style='mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span><span class=SpellE>xMax</span> = 0.5;</span><span
+  style='mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span></span><span style='mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:#3C763D'>% Grid points </span><span
+  style='mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span>N = 15501;</span><span style='mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt'><span style='font-size:20.0pt;
+  mso-bidi-font-size:11.0pt;line-height:115%'><span style='mso-spacerun:yes'> 
+  </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'>The Schrodinger
+  wave equation is solved numerically using the Matlab ordinary differential
+  equation solver <b style='mso-bidi-font-weight:normal'><span
+  style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>ode45</span></b>.
+  There are numerous solutions to this equation. To find a stable solution that
+  does not diverge to infinity it is necessary to perform the integration from
+  the largest to the smallest value of <i style='mso-bidi-font-style:normal'><span
+  style='font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>x</span></i>.
+  The function <b style='mso-bidi-font-weight:normal'><span style='color:#984807;
+  mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>flip</span></b> is
+  used to reverse the order of the X grid points.</p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:normal;
+  mso-layout-grid-align:none;text-autospace:none'>X grid </p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:normal;
+  mso-layout-grid-align:none;text-autospace:none'><span
+  style='mso-spacerun:yes'>              </span><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:"Courier New";color:black'>x = X.*<span
+  class=SpellE>linspace</span>(<span class=SpellE>xMin,xMax,N</span>);<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:normal;
+  mso-layout-grid-align:none;text-autospace:none'><span style='font-size:10.0pt;
+  font-family:"Courier New";color:black'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:normal;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  10.0pt;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+  color:black'>ode solver<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  10.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><span style='mso-spacerun:yes'>            </span><span
+  style='mso-spacerun:yes'>  </span></span><span class=SpellE><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:150%;
+  font-family:"Courier New";color:black'>xSpan</span></span><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:150%;
+  font-family:"Courier New";color:black'> = flip(x);</span><span
+  style='mso-bidi-font-size:12.0pt;line-height:150%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;line-height:150%;font-family:"Courier New";
+  color:black'><span style='mso-spacerun:yes'>       </span>u0 = [1,1i*k];</span><span
+  style='mso-bidi-font-size:12.0pt;line-height:150%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;line-height:150%;font-family:"Courier New";
+  color:black'><span style='mso-spacerun:yes'>       </span>options = <span
+  class=SpellE>odeset</span>(</span><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:150%;font-family:"Courier New";color:#A020F0'>'RelTol'</span><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:150%;
+  font-family:"Courier New";color:black'>,1e-6);</span><span style='mso-bidi-font-size:
+  12.0pt;line-height:150%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;line-height:150%;font-family:"Courier New";
+  color:black'><span style='mso-spacerun:yes'>       </span>[<span
+  class=SpellE>xR,u</span>] = ode45(@<span class=SpellE>FNode</span>, <span
+  class=SpellE>xSpan</span>, u0, options);</span><span style='mso-bidi-font-size:
+  12.0pt;line-height:150%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  12.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'>The initial
+  conditions are given by the array <span style='font-family:"Courier New"'>u0</span>:<span
+  style='mso-spacerun:yes'>  </span><span class=GramE><span style='font-family:
+  "Courier New"'>u0(</span></span><span style='font-family:"Courier New"'>1)</span>
+  gives the of the wavefunction and <span style='font-family:"Courier New"'>u0(2</span>)
+  the slope of the wavelength. The slope is given as the imaginary value of the
+  wave number <i style='mso-bidi-font-style:normal'><span style='font-family:
+  "Times New Roman","serif";mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:
+  minor-fareast;mso-bidi-theme-font:minor-fareast'>k</span></i>, <span
+  class=GramE>where </span><span style='position:relative;top:8.0pt;mso-text-raise:
+  -8.0pt'><!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600"
+   o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f"
+   stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:99pt;
+   height:26.25pt' o:ole="">
+   <v:imagedata src="qmElectronBeamB_files/image001.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=132 height=35
+  src="qmElectronBeamB_files/image002.png" v:shapes="_x0000_i1025"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1025"
+    DrawAspect="Content" ObjectID="_1640004205">
+   </o:OLEObject>
+  </xml><![endif]-->.</p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'>The solver <span
+  style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>ode45</span>
+  returns the X grid in reverse order (<span class=SpellE><span
+  style='font-family:"Courier New"'>xR</span></span>) and the wavefunction and
+  its first derivative (<span style='font-family:"Courier New"'>u</span>).</p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'>The function for
+  the Schrodinger equation is </p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:blue'>function</span><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:black'> du = <span class=SpellE>FNode</span>(<span class=SpellE>x,u</span>)</span><span
+  style='mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'> </span></span><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:"Courier New";color:blue'>global</span><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:black'> E K</span><span style='mso-bidi-font-size:12.0pt;font-family:
+  "Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'> </span></span><span style='mso-bidi-font-size:12.0pt;
+  font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span>U = pot(x);</span><span style='mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span>U = U*1.6e-19;</span><span
+  style='mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span>y = u(1);</span><span style='mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span><span class=SpellE>ydot</span> = u(2);</span><span
+  style='mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span>du = zeros(2,1);</span><span
+  style='mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span>du(1) = <span class=SpellE>ydot</span>;</span><span
+  style='mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span>du(2) = -K*(E-U)*y;</span><span
+  style='mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'> </span></span><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:"Courier New";color:blue'>end</span><span
+  style='mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:normal;
+  mso-layout-grid-align:none;text-autospace:none'><span style='font-size:12.0pt;
+  font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:normal;
+  mso-layout-grid-align:none;text-autospace:none'><span style='font-size:12.0pt;
+  font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:normal;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  12.0pt;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'>The step
+  potential is defined with the function<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:blue'>function</span><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:black'> U = pot(x)</span><span style='mso-bidi-font-size:12.0pt;
+  font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'> </span></span><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:"Courier New";color:#3C763D'>%
+  Potential energy function<span style='mso-spacerun:yes'>  </span>[<span
+  class=SpellE>eV</span>] </span><span style='mso-bidi-font-size:12.0pt;
+  font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>   </span></span><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:"Courier New";color:blue'>global</span><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:black'> U0s</span><span style='mso-bidi-font-size:12.0pt;font-family:
+  "Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>    </span></span><span style='mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>   </span>U = 0;</span><span style='mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>    </span></span><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:"Courier New";color:blue'>if</span><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:black'> x &gt; 0</span><span style='mso-bidi-font-size:12.0pt;
+  font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>        </span>U = U0s;</span><span
+  style='mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>    </span></span><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:"Courier New";color:blue'>end</span><span
+  style='mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'> </span></span><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:"Courier New";color:blue'>end</span><span
+  style='mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:normal;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  12.0pt;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'><span
+  style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'>The <span
+  class=SpellE>eigenfunction</span> <span style='font-family:"Courier New"'>psi</span>,
+  the complex conjugate of the wavefunction <span class=SpellE><span
+  style='font-family:"Courier New"'>psiC</span></span> and the probability
+  density <span class=SpellE><span style='font-family:"Courier New"'>PD</span></span>
+  (normalized to 1) are then computed.</p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='mso-spacerun:yes'> </span><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:#3C763D'>% <span class=SpellE>Eignenfunction</span></span><span
+  style='mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span>psi = u(:,1);</span><span style='mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span><span class=SpellE>psiS</span> = <span
+  class=SpellE>conj</span>(psi);</span><span style='mso-bidi-font-size:12.0pt;
+  font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span><span class=SpellE>psi_max</span> =
+  max(real(psi));</span><span style='mso-bidi-font-size:12.0pt;font-family:
+  "Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span></span><span style='mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:#3C763D'>% Probability Density</span><span
+  style='mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span><span class=SpellE>PD</span> = <span
+  class=SpellE>conj</span>(psi).*psi;</span><span style='mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span><span class=SpellE>PD</span> = PD./max(<span
+  class=SpellE>PD</span>);</span><span style='mso-bidi-font-size:12.0pt;
+  font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'>The de Broglie wavelength
+  of the electron matter is given <span class=GramE>by </span><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1026" type="#_x0000_t75" style='width:66.75pt;height:17.25pt'
+   o:ole="">
+   <v:imagedata src="qmElectronBeamB_files/image003.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=89 height=23
+  src="qmElectronBeamB_files/image004.png" v:shapes="_x0000_i1026"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1026"
+    DrawAspect="Content" ObjectID="_1640004206">
+   </o:OLEObject>
+  </xml><![endif]-->.</p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'>The de Broglie
+  wavelength <span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1027" type="#_x0000_t75" style='width:20.25pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="qmElectronBeamB_files/image005.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=27 height=29
+  src="qmElectronBeamB_files/image006.png" v:shapes="_x0000_i1027"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1027"
+    DrawAspect="Content" ObjectID="_1640004207">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>can also be
+  calculated from the standing wave pattern for the real part of the <span
+  class=SpellE>the</span> <span class=SpellE>eigenfunction</span> <span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1028" type="#_x0000_t75" style='width:33.75pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="qmElectronBeamB_files/image007.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=45 height=27
+  src="qmElectronBeamB_files/image008.png" v:shapes="_x0000_i1028"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1028"
+    DrawAspect="Content" ObjectID="_1640004208">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>using the Matlab <span
+  class=SpellE><span style='color:#984807;mso-themecolor:accent6;mso-themeshade:
+  128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>findpeaks</span></span> function</p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='mso-spacerun:yes'>   </span><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:#3C763D'>% Numerical estimate of wavelength from peak #2 and peak
+  #(N-1)</span><span style='mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span>[<span class=SpellE>pks</span>, <span
+  class=SpellE>locs</span>] =<span style='mso-spacerun:yes'>  </span><span
+  class=SpellE>findpeaks</span>(real(psi),x);</span><span style='mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span>LEN = length(<span class=SpellE>locs</span>);</span><span
+  style='mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.65pt;margin-bottom:.0001pt;line-height:normal;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span><span class=SpellE>wL_N</span> = (<span
+  class=SpellE>locs</span>(3) - <span class=SpellE>locs</span>(2) ) / (1);</span><span
+  style='mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'><span
+  style='mso-spacerun:yes'> </span><span class=GramE>where</span><span
+  style='mso-spacerun:yes'>  </span><span style='position:relative;top:7.0pt;
+  mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1029" type="#_x0000_t75"
+   style='width:20.25pt;height:21.75pt' o:ole="">
+   <v:imagedata src="qmElectronBeamB_files/image005.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=27 height=29
+  src="qmElectronBeamB_files/image006.png" v:shapes="_x0000_i1029"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1029"
+    DrawAspect="Content" ObjectID="_1640004209">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>is the distance
+  between the third and second peaks.<span style='mso-spacerun:yes'>  </span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'>You can compare
+  the two values of the wavelength to check the validly of the numerical
+  solution.<span style='mso-spacerun:yes'>     </span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'><span
+  style='mso-spacerun:yes'>   </span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'>The propagation
+  of the waves is animated, and the animation can be saved as a gif file by
+  setting <span class=SpellE><span style='color:#984807;mso-themecolor:accent6;
+  mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>f_gif</span></span><span style='color:#984807;mso-themecolor:
+  accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'> </span>= 1. The time dependent wavefunction is</p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'><span
+  style='mso-spacerun:yes'>            </span><span style='position:relative;
+  top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1030"
+   type="#_x0000_t75" style='width:123pt;height:23.25pt' o:ole="">
+   <v:imagedata src="qmElectronBeamB_files/image009.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=164 height=31
+  src="qmElectronBeamB_files/image010.png" v:shapes="_x0000_i1030"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1030"
+    DrawAspect="Content" ObjectID="_1640004210">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'>The X and Y
+  coordinates for the animated plot are:</p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:normal;
+  mso-layout-grid-align:none;text-autospace:none'><span
+  style='mso-spacerun:yes'>           </span><span style='font-size:10.0pt;
+  font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'> </span></span><span class=SpellE><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:black'>xP</span></span><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'> = <span class=SpellE>xR</span>./X;
+  <span class=SpellE>yP</span> = real(psi) .* real(<span class=SpellE>psiT</span>(c));</span><span
+  style='mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt'><span
+  style='mso-spacerun:yes'>  </span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:49.25pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=841 valign=top style='width:630.75pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:18.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  font-family:"Bookman Old Style","serif";color:#E46C0A;mso-themecolor:accent6;
+  mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>STEP POTENTIAL<span style='mso-spacerun:yes'>  </span><i
+  style='mso-bidi-font-style:normal'>E</i> &lt; <i style='mso-bidi-font-style:
+  normal'>U</i><sub>0</sub><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'>In this article, we shall investigate the solutions of
+  the time-independent Schrodinger wave equation for an electron where the
+  potential energy <span style='position:relative;top:6.0pt;mso-text-raise:
+  -6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1031" type="#_x0000_t75"
+   style='width:35.25pt;height:20.25pt' o:ole="">
+   <v:imagedata src="qmElectronBeamB_files/image011.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=47 height=27
+  src="qmElectronBeamB_files/image012.png" v:shapes="_x0000_i1031"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1031"
+    DrawAspect="Content" ObjectID="_1640004211">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>is represented by a
+  step function</p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'><span style='mso-spacerun:yes'>     </span>(1)<span
+  style='mso-spacerun:yes'>       </span><span style='position:relative;
+  top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1032"
+   type="#_x0000_t75" style='width:351.75pt;height:21.75pt' o:ole="">
+   <v:imagedata src="qmElectronBeamB_files/image013.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=469 height=29
+  src="qmElectronBeamB_files/image014.png" v:shapes="_x0000_i1032"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1032"
+    DrawAspect="Content" ObjectID="_1640004212">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'><span style='mso-spacerun:yes'> </span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'>This is an idealized potential which approximates many
+  potentials that occur in real situations. The results we obtain using our
+  idealized potential illustrate a number of characteristic quantum mechanical
+  phenomena. </p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'>We may think of <span style='position:relative;
+  top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1033"
+   type="#_x0000_t75" style='width:35.25pt;height:20.25pt' o:ole="">
+   <v:imagedata src="qmElectronBeamB_files/image011.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=47 height=27
+  src="qmElectronBeamB_files/image012.png" v:shapes="_x0000_i1033"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1033"
+    DrawAspect="Content" ObjectID="_1640004213">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>as an approximate
+  representation of the potential energy function for an electron moving along
+  the X axis of a system of two electrodes, separated by <span class=GramE>a
+  small gap which are</span> help at two voltages.</p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal align=center style='margin:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:150%;tab-stops:619.95pt'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="_x0000_i1058"
+   type="#_x0000_t75" style='width:447.75pt;height:272.25pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="qmElectronBeamB_files/image015.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=597 height=363
+  src="qmElectronBeamB_files/image016.png" v:shapes="_x0000_i1058"><![endif]></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:22.55pt;margin-bottom:
+  0cm;margin-left:30.4pt;margin-bottom:.0001pt;tab-stops:597.4pt'>Fig. 1.<span
+  style='mso-spacerun:yes'>  </span>Step potential function. The electron moves
+  along the X axis of two cylindrical electrodes held at different voltages.
+  The potential energy of the system is constant when an electron is inside
+  either electrode, but changes rapidly when passing from one to the other.</p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'>A step potential is a good approximation for the motion a
+  conduction electron moving near the surface of a metal. </p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'>For a classical particle, the subsequent motion when it
+  impacts the step barrier depends on the kinetic energy of the classical
+  particle and the height of the barrier as shown in figure 2.</p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal align=center style='margin:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:150%;tab-stops:619.95pt'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_7"
+   o:spid="_x0000_i1057" type="#_x0000_t75" style='width:618.75pt;height:336.75pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="qmElectronBeamB_files/image017.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=825 height=449
+  src="qmElectronBeamB_files/image018.png" v:shapes="Picture_x0020_7"><![endif]></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:22.55pt;margin-bottom:
+  0cm;margin-left:30.4pt;margin-bottom:.0001pt;tab-stops:597.4pt'>Fig. 2.<span
+  style='mso-spacerun:yes'>   </span>The total energy of a classical particle
+  is conserved<span class=GramE>, </span><span style='position:relative;
+  top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1034"
+   type="#_x0000_t75" style='width:140.25pt;height:15.75pt' o:ole="">
+   <v:imagedata src="qmElectronBeamB_files/image019.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=187 height=21
+  src="qmElectronBeamB_files/image020.png" v:shapes="_x0000_i1034"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1034"
+    DrawAspect="Content" ObjectID="_1640004214">
+   </o:OLEObject>
+  </xml><![endif]-->. If the incident particle has a total energy which is less
+  than the height of the step potential <span style='position:relative;
+  top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1035"
+   type="#_x0000_t75" style='width:47.25pt;height:21.75pt' o:ole="">
+   <v:imagedata src="qmElectronBeamB_files/image021.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=63 height=29
+  src="qmElectronBeamB_files/image022.png" v:shapes="_x0000_i1035"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1035"
+    DrawAspect="Content" ObjectID="_1640004215">
+   </o:OLEObject>
+  </xml><![endif]-->, then the particle will always be reflected (reflection
+  coefficient <i style='mso-bidi-font-style:normal'><span style='font-family:
+  "Times New Roman","serif";mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:
+  minor-fareast;mso-bidi-theme-font:minor-fareast'>R</span></i> = 1,
+  transmission coefficient <i style='mso-bidi-font-style:normal'><span
+  style='font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>T</span></i>
+  = 0). The particle cannot enter the region where <i style='mso-bidi-font-style:
+  normal'><span style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>U</span></i>
+  = <i style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>U</span></i><sub><span style='font-family:
+  "Times New Roman","serif";mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:
+  minor-fareast;mso-bidi-theme-font:minor-fareast'>0</span></sub>.<span
+  style='mso-spacerun:yes'>  </span>If the incident particle has a total energy
+  which is greater than the height of the step potential <span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1036" type="#_x0000_t75" style='width:47.25pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="qmElectronBeamB_files/image023.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=63 height=29
+  src="qmElectronBeamB_files/image024.png" v:shapes="_x0000_i1036"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1036"
+    DrawAspect="Content" ObjectID="_1640004216">
+   </o:OLEObject>
+  </xml><![endif]-->, then the particle will always be transmitted pass the
+  barrier (<i style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>R</span></i> = 0 and <i style='mso-bidi-font-style:
+  normal'><span style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>T</span></i>
+  = 1).</p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:22.55pt;margin-bottom:
+  0cm;margin-left:30.4pt;margin-bottom:.0001pt;tab-stops:597.4pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:22.55pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;tab-stops:597.4pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:625.35pt'>To
+  determine the motion of the electron according to quantum mechanics, we must
+  find a solution of the time independent Schrodinger equation, since the
+  potential energy function is independent of time. We can solve the
+  Schrodinger equation (equation 2) numerically using the Matlab ordinary
+  differential equation solver <b style='mso-bidi-font-weight:normal'><span
+  style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>ode45</span></b>.
+  It is often much easier to solve the Schrodinger equation numerically, rather
+  than doing lots of algebra to get an analytical solution. Also, for more
+  realistic potentials energy functions, there are no analytical solutions.</p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:619.95pt 625.35pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:625.35pt'><span
+  style='mso-spacerun:yes'>     </span>(2)<span style='mso-spacerun:yes'>      
+  </span><span style='position:relative;top:19.0pt;mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1037" type="#_x0000_t75" style='width:204.75pt;height:45.75pt'
+   o:ole="">
+   <v:imagedata src="qmElectronBeamB_files/image025.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=273 height=61
+  src="qmElectronBeamB_files/image026.png" v:shapes="_x0000_i1037"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1037"
+    DrawAspect="Content" ObjectID="_1640004217">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:625.35pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:625.35pt'>where
+  the solution is the <span class=SpellE><b style='mso-bidi-font-weight:normal'><span
+  style='color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:
+  #E46C0A;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>eigenfunction</span></b></span>
+  <span style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1038" type="#_x0000_t75" style='width:33.75pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="qmElectronBeamB_files/image027.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=45 height=27
+  src="qmElectronBeamB_files/image008.png" v:shapes="_x0000_i1038"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1038"
+    DrawAspect="Content" ObjectID="_1640004218">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>and the
+  corresponding <b style='mso-bidi-font-weight:normal'><span style='color:#E46C0A;
+  mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>wavefunction </span></b><span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1039" type="#_x0000_t75" style='width:47.25pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="qmElectronBeamB_files/image028.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=63 height=27
+  src="qmElectronBeamB_files/image029.png" v:shapes="_x0000_i1039"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1039"
+    DrawAspect="Content" ObjectID="_1640004219">
+   </o:OLEObject>
+  </xml><![endif]-->which includes the time dependency is</p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:625.35pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:625.35pt'><span
+  style='mso-spacerun:yes'>     </span>(3)<span style='mso-spacerun:yes'>     
+  </span><span style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1040" type="#_x0000_t75" style='width:198pt;height:23.25pt'
+   o:ole="">
+   <v:imagedata src="qmElectronBeamB_files/image030.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=264 height=31
+  src="qmElectronBeamB_files/image031.png" v:shapes="_x0000_i1040"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1040"
+    DrawAspect="Content" ObjectID="_1640004220">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:625.35pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'>The Script <span class=SpellE><b style='mso-bidi-font-weight:
+  normal'><span style='color:#984807;mso-themecolor:accent6;mso-themeshade:
+  128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>qmElectronBeamB.m</span></b></span><span style='color:#984807;
+  mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'> </span>solves the
+  Schrodinger equation (equation 2) for the case where an electron beam is
+  incident upon the step barrier with total energy which is less than the
+  height of the barrier <span style='position:relative;top:7.0pt;mso-text-raise:
+  -7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1041" type="#_x0000_t75"
+   style='width:47.25pt;height:21.75pt' o:ole="">
+   <v:imagedata src="qmElectronBeamB_files/image032.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=63 height=29
+  src="qmElectronBeamB_files/image022.png" v:shapes="_x0000_i1041"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1041"
+    DrawAspect="Content" ObjectID="_1640004221">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>(equation 4).</p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'><span style='mso-spacerun:yes'>     </span>(4)<span
+  style='mso-spacerun:yes'>       </span><span style='position:relative;
+  top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1042"
+   type="#_x0000_t75" style='width:248.25pt;height:21.75pt' o:ole="">
+   <v:imagedata src="qmElectronBeamB_files/image033.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=331 height=29
+  src="qmElectronBeamB_files/image034.png" v:shapes="_x0000_i1042"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1042"
+    DrawAspect="Content" ObjectID="_1640004222">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'>Figure 2 show an animation of the real part of the
+  wavefunction. The wavefunction has been normalized so that its maximum amplitude
+  is 1.</p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal align=center style='margin:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:150%;tab-stops:619.95pt'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_9"
+   o:spid="_x0000_i1056" type="#_x0000_t75" style='width:6in;height:270pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="qmElectronBeamB_files/image035.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=576 height=360
+  src="qmElectronBeamB_files/image035.gif" v:shapes="Picture_x0020_9"><![endif]></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:22.95pt;margin-bottom:
+  0cm;margin-left:30.0pt;margin-bottom:.0001pt;tab-stops:597.0pt'>Fig. 2.<span
+  style='mso-spacerun:yes'>   </span><i style='mso-bidi-font-style:normal'><span
+  style='font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>E</span></i>
+  = 50 <span class=SpellE>eV</span> and <i style='mso-bidi-font-style:normal'><span
+  style='font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>U</span></i><sub>0</sub>
+  = 200 <span class=SpellE>eV</span>. Real part of the wavefunction <span
+  style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1043" type="#_x0000_t75" style='width:78.75pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="qmElectronBeamB_files/image036.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=105 height=32
+  src="qmElectronBeamB_files/image037.png" v:shapes="_x0000_i1043"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1043"
+    DrawAspect="Content" ObjectID="_1640004223">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>as a function of <i
+  style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>x</span></i> and <i style='mso-bidi-font-style:
+  normal'><span style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>t</span></i>.
+  The resultant waveform is a standing wave. Note that the nodes are stationary
+  and the small penetration of the wavefunction into the classically forbidden
+  region <i style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>x</span></i> &gt; 0. </p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal align=center style='margin:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:150%;tab-stops:619.95pt'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_10"
+   o:spid="_x0000_i1055" type="#_x0000_t75" style='width:575.25pt;height:449.25pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="qmElectronBeamB_files/image038.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=767 height=599
+  src="qmElectronBeamB_files/image039.png" v:shapes="Picture_x0020_10"><![endif]></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:22.95pt;margin-bottom:
+  0cm;margin-left:30.0pt;margin-bottom:.0001pt;tab-stops:597.0pt'>Fig. 3.<span
+  style='mso-spacerun:yes'>   </span>Plots of the potential energy function,
+  the real and imaginary parts of the <span class=SpellE>eigenfunction</span> <span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1044" type="#_x0000_t75" style='width:33.75pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="qmElectronBeamB_files/image040.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=45 height=27
+  src="qmElectronBeamB_files/image008.png" v:shapes="_x0000_i1044"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1044"
+    DrawAspect="Content" ObjectID="_1640004225">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>and the normalized
+  probability density <span class=GramE>function </span><span style='position:
+  relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1045"
+   type="#_x0000_t75" style='width:75.75pt;height:23.25pt' o:ole="">
+   <v:imagedata src="qmElectronBeamB_files/image041.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=101 height=31
+  src="qmElectronBeamB_files/image042.png" v:shapes="_x0000_i1045"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1045"
+    DrawAspect="Content" ObjectID="_1640004226">
+   </o:OLEObject>
+  </xml><![endif]-->. A pure standing wave is created due to the interference
+  of the incident and reflected waves since the probability density function
+  varies from 0 to 1. The antinodes are regions where there is the highest
+  probability of locating an electron whereas at a node there is zero
+  probability of finding an electron. The location of the electron in the
+  region <i style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>x</span></i> &lt; 0 is very different to
+  the predictions of classical physics.</p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'>The solution of the Schrodinger equation is that of a <b
+  style='mso-bidi-font-weight:normal'><span style='color:#E46C0A;mso-themecolor:
+  accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>standing wave</span></b> as shown in figures 2 and 3. It is a
+  combination of an incident wave travelling to the right and a reflected wave
+  travelling to the left. The two propagating waves moving in opposite
+  directions are of equal intensities since the nodes are stationary points and
+  the normalized probability distribution varies from 0 to 1. Hence, the
+  amplitude of the incident wave is <span class=GramE><i style='mso-bidi-font-style:
+  normal'><span style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>A</span></i>
+  and</span> the amplitude of the reflected wave is <i style='mso-bidi-font-style:
+  normal'><span style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>B</span></i>,
+  must be equal, <i style='mso-bidi-font-style:normal'><span style='font-family:
+  "Times New Roman","serif";mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:
+  minor-fareast;mso-bidi-theme-font:minor-fareast'>A</span></i> = <i
+  style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>B</span></i>.</p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'>At a potential step (<i style='mso-bidi-font-style:normal'><span
+  style='font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>x</span></i>
+  = 0), the wave is either reflected or transmitted from the barrier. The <b
+  style='mso-bidi-font-weight:normal'><span style='color:#E46C0A;mso-themecolor:
+  accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>reflection coefficient</span></b><span style='color:#E46C0A;
+  mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'> </span>is <i
+  style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>R</span></i> and the <b style='mso-bidi-font-weight:
+  normal'><span style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+  color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:
+  #E46C0A;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>transmission
+  coefficient</span></b><span style='color:#E46C0A;mso-themecolor:accent6;
+  mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'> </span>is <i style='mso-bidi-font-style:normal'><span
+  style='font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>T</span></i>.
+  The reflection coefficient is equal to the ratio of the intensity of that
+  part of the wave that describes the reflected particle to the intensity of
+  that part that describes the incident particle. The transmission coefficient
+  is equal to the ratio of the intensity of that part of the wave that
+  describes the transmitted particle to the intensity of that part that
+  describes the incident particle. Since there is no absorption of energy, <i
+  style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>R</span></i> + <i style='mso-bidi-font-style:
+  normal'><span style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>T</span></i>
+  = 1</p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'><span style='mso-spacerun:yes'> </span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'>In the case where E &lt; <i style='mso-bidi-font-style:
+  normal'><span style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>U</span></i><sub>0</sub>,
+  the two waves of the same amplitude are moving at the same speed but in
+  opposite directions. Hence the reflection coefficient <i style='mso-bidi-font-style:
+  normal'><span style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>R</span></i>
+  is</p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'><span style='mso-spacerun:yes'>     </span>(5)<span
+  style='mso-spacerun:yes'>      </span><span style='position:relative;
+  top:15.0pt;mso-text-raise:-15.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1046"
+   type="#_x0000_t75" style='width:150.75pt;height:42pt' o:ole="">
+   <v:imagedata src="qmElectronBeamB_files/image043.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=201 height=56
+  src="qmElectronBeamB_files/image044.png" v:shapes="_x0000_i1046"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1046"
+    DrawAspect="Content" ObjectID="_1640004227">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'>Therefore, the transmission coefficient must be zero, <i
+  style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>T</span></i> = 0.</p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'>The fact that <i style='mso-bidi-font-style:normal'><span
+  style='font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>R</span></i>
+  = 1 means that a particle incident upon the potential step with total energy
+  less than the height of the step, has a probability of <b style='mso-bidi-font-weight:
+  normal'><span style='color:red'>one</span></b> of being reflected, - it is
+  always reflected. </p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'>This is in agreement with the predictions of classical
+  physics. </p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'>In the region <i style='mso-bidi-font-style:normal'><span
+  style='font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>x</span></i>
+  &gt; 0, the probability density is very small and decreases rapidly with
+  increasing <i style='mso-bidi-font-style:normal'><span style='font-family:
+  "Times New Roman","serif";mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:
+  minor-fareast;mso-bidi-theme-font:minor-fareast'>x</span></i>. Hence, there
+  is a finite probability of finding the electron in the region <i
+  style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>x</span></i> &gt; 0. In terms of classical
+  physics, it would be absolutely impossible to find the electron in the region
+  <i style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>x</span></i> &gt; 0 because there the
+  total energy is less than the potential energy, so the kinetic energy <span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1047" type="#_x0000_t75" style='width:78.75pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="qmElectronBeamB_files/image045.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=105 height=32
+  src="qmElectronBeamB_files/image046.png" v:shapes="_x0000_i1047"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1047"
+    DrawAspect="Content" ObjectID="_1640004228">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>is negative and the
+  momentum <i style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>p</span></i> is imaginary. This
+  phenomenon, called <span style='color:#E46C0A;mso-themecolor:accent6;
+  mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>penetration of the classically forbidden region</span>, is one of
+  the more striking predictions of quantum mechanics. The penetration of the
+  electron into the classical forbidden region does not mean that it is stored
+  there. The electron is definitely reflected from the step barrier. In this
+  instance, the electron is not behaving as a classical particle but more like
+  a classical wave. The smaller <span class=GramE>the </span><span
+  style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1051" type="#_x0000_t75" style='width:59.25pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="qmElectronBeamB_files/image047.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=79 height=32
+  src="qmElectronBeamB_files/image048.png" v:shapes="_x0000_i1051"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1051"
+    DrawAspect="Content" ObjectID="_1640004229">
+   </o:OLEObject>
+  </xml><![endif]-->, then the greater the penetration distance as shown in figures
+  4 and 5.</p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal align=center style='margin:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:150%;tab-stops:619.95pt'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_2"
+   o:spid="_x0000_i1054" type="#_x0000_t75" style='width:6in;height:270pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="qmElectronBeamB_files/image049.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=576 height=360
+  src="qmElectronBeamB_files/image049.gif" v:shapes="Picture_x0020_2"><![endif]></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:22.95pt;margin-bottom:
+  0cm;margin-left:30.0pt;margin-bottom:.0001pt;tab-stops:597.0pt'>Fig. 4.<span
+  style='mso-spacerun:yes'>    </span>Fig. 2.<span style='mso-spacerun:yes'>  
+  </span><i style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>E</span></i> = 198 <span class=SpellE>eV</span>
+  and <i style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>U</span></i><sub>0</sub> = 200 <span
+  class=SpellE>eV</span>. Real part of the wavefunction <span style='position:
+  relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1048"
+   type="#_x0000_t75" style='width:78.75pt;height:24pt' o:ole="">
+   <v:imagedata src="qmElectronBeamB_files/image036.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=105 height=32
+  src="qmElectronBeamB_files/image037.png" v:shapes="_x0000_i1048"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1048"
+    DrawAspect="Content" ObjectID="_1640004230">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>as a function of <i
+  style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>x</span></i> and <i style='mso-bidi-font-style:
+  normal'><span style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>t</span></i>.
+  The resultant waveform is a standing wave. Note that the nodes are stationary
+  and the penetration of the wavefunction into the classically forbidden region
+  <i style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>x</span></i> &gt; 0 is much greater than
+  shown in figure 2.</p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:22.95pt;margin-bottom:
+  0cm;margin-left:30.0pt;margin-bottom:.0001pt;tab-stops:597.0pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:22.95pt;margin-bottom:
+  0cm;margin-left:30.0pt;margin-bottom:.0001pt;tab-stops:597.0pt'><span
+  style='mso-spacerun:yes'> </span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:22.95pt;margin-bottom:
+  0cm;margin-left:30.0pt;margin-bottom:.0001pt;tab-stops:597.0pt'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_1"
+   o:spid="_x0000_i1053" type="#_x0000_t75" style='width:575.25pt;height:449.25pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="qmElectronBeamB_files/image050.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=767 height=599
+  src="qmElectronBeamB_files/image051.png" v:shapes="Picture_x0020_1"><![endif]></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:22.95pt;margin-bottom:
+  0cm;margin-left:30.0pt;margin-bottom:.0001pt;tab-stops:597.0pt'>Fig. 5.<span
+  style='mso-spacerun:yes'>   </span>Plots of the potential energy function,
+  the real and imaginary parts of the <span class=SpellE>eigenfunction</span> <span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1049" type="#_x0000_t75" style='width:33.75pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="qmElectronBeamB_files/image040.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=45 height=27
+  src="qmElectronBeamB_files/image008.png" v:shapes="_x0000_i1049"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1049"
+    DrawAspect="Content" ObjectID="_1640004231">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>and the normalized
+  probability density <span class=GramE>function </span><span style='position:
+  relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1050"
+   type="#_x0000_t75" style='width:75.75pt;height:23.25pt' o:ole="">
+   <v:imagedata src="qmElectronBeamB_files/image041.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=101 height=31
+  src="qmElectronBeamB_files/image042.png" v:shapes="_x0000_i1050"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1050"
+    DrawAspect="Content" ObjectID="_1640004232">
+   </o:OLEObject>
+  </xml><![endif]-->. A pure standing wave is created due to the interference
+  of the incident and reflected waves since the probability density function
+  varies from 0 to 1. The antinodes are regions where there is the highest
+  probability of locating an electron whereas at a node there is zero
+  probability of finding an electron. The penetration distance is much greater
+  than shown in figure 4 where <i style='mso-bidi-font-style:normal'><span
+  style='font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>E</span></i>
+  = 50 <span class=SpellE>eV</span>.</p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:22.95pt;margin-bottom:
+  0cm;margin-left:30.0pt;margin-bottom:.0001pt;tab-stops:597.0pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:22.95pt;margin-bottom:
+  0cm;margin-left:30.0pt;margin-bottom:.0001pt;tab-stops:597.0pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:22.95pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;tab-stops:597.0pt'><b
+  style='mso-bidi-font-weight:normal'><span style='color:#E46C0A;mso-themecolor:
+  accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>Example<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'>A conduction electron moves through a block of copper
+  with total energy <i style='mso-bidi-font-style:normal'><span
+  style='font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>E</span></i>
+  = 0.2 <span class=SpellE>eV</span>. To a good approximation, the surface acts
+  like a step barrier of height 4.0 <span class=SpellE>eV</span>. This step
+  barrier bounds the electron within the metal. We can estimate the penetration
+  distance using the following input parameters:</p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'><span style='mso-spacerun:yes'>     </span><span
+  style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>E = 0.2 <span
+  class=SpellE>eV</span><span style='mso-spacerun:yes'>     </span>U0 = 4.0 <span
+  class=SpellE>eV</span><span style='mso-spacerun:yes'>     </span><span
+  class=SpellE>xMin</span> = -10 nm<span style='mso-spacerun:yes'>     </span><span
+  class=SpellE>xMax</span> = 10 nm<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'>Figure 6 shows an enlarged view of the probability
+  density function. The penetration distance into the classically forbidden
+  region is about 0.1 nm. This penetration distance is of the order of atomic
+  dimensions. This penetration effect has very important consequences in atomic
+  and nuclear systems.</p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  tab-stops:619.95pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal align=center style='margin:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:150%;tab-stops:619.95pt'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_3"
+   o:spid="_x0000_i1052" type="#_x0000_t75" style='width:575.25pt;height:449.25pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="qmElectronBeamB_files/image052.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=767 height=599
+  src="qmElectronBeamB_files/image053.png" v:shapes="Picture_x0020_3"><![endif]></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:31.35pt;margin-bottom:
+  0cm;margin-left:30.0pt;margin-bottom:.0001pt;line-height:150%;tab-stops:597.0pt'>Fig.
+  6.<span style='mso-spacerun:yes'>  </span>Enlarged plot of the probability
+  density function using the <span style='color:#984807;mso-themecolor:accent6;
+  mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>zoom</span> function.<span style='mso-spacerun:yes'>  </span>The
+  penetration distance is in the order of 0.1 nm.</p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:30.0pt;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>

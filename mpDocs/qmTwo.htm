@@ -1,0 +1,1440 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 14">
+<meta name=Originator content="Microsoft Word 14">
+<base target="_blank">
+<link rel=File-List href="qmTwo_files/filelist.xml">
+<link rel=Edit-Time-Data href="qmTwo_files/editdata.mso">
+<link rel=OLE-Object-Data href="qmTwo_files/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Matlab Physics</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Ian Cooper</o:Author>
+  <o:Keywords>Matlab Physics, Schrodinger equation, two dimensional Schrodinger equation, scattering, Rutherford scattering, FDTD, finite difference time development, wave packet, Fourier Transform</o:Keywords>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Owner</o:LastAuthor>
+  <o:Revision>12</o:Revision>
+  <o:TotalTime>2562</o:TotalTime>
+  <o:Created>2020-05-02T06:19:00Z</o:Created>
+  <o:LastSaved>2020-05-03T06:40:00Z</o:LastSaved>
+  <o:Pages>5</o:Pages>
+  <o:Words>899</o:Words>
+  <o:Characters>5125</o:Characters>
+  <o:Category>Quantum Mechanics</o:Category>
+  <o:Lines>42</o:Lines>
+  <o:Paragraphs>12</o:Paragraphs>
+  <o:CharactersWithSpaces>6012</o:CharactersWithSpaces>
+  <o:Version>14.00</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+<link rel=themeData href="qmTwo_files/themedata.thmx">
+<link rel=colorSchemeMapping href="qmTwo_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>120</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-AU</w:LidThemeOther>
+  <w:LidThemeAsian>ZH-CN</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-469750017 -1073732485 9 0 511 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-520081665 -1073717157 41 0 66047 0;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+a:link, span.MsoHyperlink
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:blue;
+	mso-themecolor:hyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:purple;
+	mso-themecolor:followedhyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Balloon Text Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Balloon Text";
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-ascii-font-family:Tahoma;
+	mso-hansi-font-family:Tahoma;
+	mso-bidi-font-family:Tahoma;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:16.0pt;
+	mso-ansi-font-size:16.0pt;
+	mso-bidi-font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:745692053;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1914594020 -1539947784 201916441 201916443 201916431 201916441 201916443 201916431 201916441 201916443;}
+@list l0:level1
+	{mso-level-text:"\(%1\)";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:40.5pt;
+	text-indent:-18.0pt;}
+@list l0:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:76.5pt;
+	text-indent:-18.0pt;}
+@list l0:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:right;
+	margin-left:112.5pt;
+	text-indent:-9.0pt;}
+@list l0:level4
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:148.5pt;
+	text-indent:-18.0pt;}
+@list l0:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:184.5pt;
+	text-indent:-18.0pt;}
+@list l0:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:right;
+	margin-left:220.5pt;
+	text-indent:-9.0pt;}
+@list l0:level7
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:256.5pt;
+	text-indent:-18.0pt;}
+@list l0:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:292.5pt;
+	text-indent:-18.0pt;}
+@list l0:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:right;
+	margin-left:328.5pt;
+	text-indent:-9.0pt;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-priority:59;
+	mso-style-unhide:no;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-AU link=blue vlink=purple style='tab-interval:36.0pt'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:35.05pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=841 valign=top style='width:630.8pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><b style='mso-bidi-font-weight:normal'><span lang=EN-GB
+  style='font-size:18.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  font-family:"Bookman Old Style","serif";mso-ansi-language:EN-GB'><a
+  href="http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm">DOING PHYSICS
+  WITH MATLAB</a><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><b style='mso-bidi-font-weight:normal'><span lang=EN-GB
+  style='font-size:18.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  font-family:"Bookman Old Style","serif";color:#E46C0A;mso-themecolor:accent6;
+  mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000;mso-ansi-language:EN-GB'>TWO PARTICLES IN AN INFINITE POTENTIAL
+  WELL<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><b style='mso-bidi-font-weight:normal'><span lang=EN-GB
+  style='font-size:18.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  font-family:"Bookman Old Style","serif";color:#E46C0A;mso-themecolor:accent6;
+  mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000;mso-ansi-language:EN-GB'>Symmetric and <span class=SpellE>Antisymmetric</span>
+  States<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><b style='mso-bidi-font-weight:normal'><span lang=EN-GB
+  style='font-size:18.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  font-family:"Bookman Old Style","serif";color:#E46C0A;mso-themecolor:accent6;
+  mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000;mso-ansi-language:EN-GB'>Bosons and Fermions<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;mso-bidi-font-weight:bold'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;mso-bidi-font-weight:bold'>Ian Cooper<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;mso-bidi-font-weight:bold'>Any
+  comments, suggestions or corrections, please email me at<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;mso-bidi-font-weight:bold'><a
+  href="mailto:matlabvisualphysics@gmail.com">matlabvisualphysics@gmail.com</a></span><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span lang=EN-GB style='mso-ansi-language:EN-GB'><a
+  href="http://www.physics.usyd.edu.au/teach_res/hsp/sp/spHome.htm">VISUAL
+  PHYSICS ONLINE</a><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='line-height:150%'><span lang=EN-GB style='mso-ansi-language:
+EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='margin-left:35.05pt;border-collapse:collapse;border:none;mso-border-alt:
+ solid #984806 1.5pt;mso-border-themecolor:accent6;mso-border-themeshade:128;
+ mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:
+ 1.5pt solid #984806;mso-border-insideh-themecolor:accent6;mso-border-insideh-themeshade:
+ 128;mso-border-insidev:1.5pt solid #984806;mso-border-insidev-themecolor:accent6;
+ mso-border-insidev-themeshade:128'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=841 valign=top style='width:630.8pt;border:solid #984806 1.5pt;
+  mso-border-themecolor:accent6;mso-border-themeshade:128;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><b style='mso-bidi-font-weight:normal'><span lang=EN-GB
+  style='font-size:18.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  font-family:"Bookman Old Style","serif";color:#984807;mso-themecolor:accent6;
+  mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-ansi-language:EN-GB'>MATLAB<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span lang=EN-GB style='mso-ansi-language:EN-GB'><a
+  href="http://www.physics.usyd.edu.au/teach_res/mp/mscripts/">DOWNLOAD
+  DIRECTORY FOR SCRIPTS</a><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span class=SpellE><b style='mso-bidi-font-weight:normal'><span
+  lang=EN-GB style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-ansi-language:EN-GB'>qmTwo.m</span></b></span><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-GB style='color:#984807;
+  mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;mso-ansi-language:
+  EN-GB'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span lang=EN-GB style='mso-ansi-language:EN-GB'>Calculation of the
+  probability density function of finding two particles confined within an
+  infinite potential well. Within the Script you can change the quantum numbers
+  </span><i style='mso-bidi-font-style:normal'><span lang=EN-GB
+  style='font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  mso-ansi-language:EN-GB'>m</span></i><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'> and </span><i style='mso-bidi-font-style:normal'><span lang=EN-GB
+  style='font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  mso-ansi-language:EN-GB'>n</span></i><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'>. The Script can be modified to a Live Editor Script to better observe
+  the changes in the probability density as the values of </span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>m</span></i><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'> and </span><i style='mso-bidi-font-style:
+  normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>n</span></i><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'> are changed.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='line-height:150%'><span lang=EN-GB style='mso-ansi-language:
+EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:35.05pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=841 valign=top style='width:630.8pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>Consider two particles confined in an
+  infinite potential well (particle in a box)<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:22.5pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'> </span>(1)<span style='mso-spacerun:yes'>   </span><span
+  style='mso-spacerun:yes'>   </span><span style='mso-spacerun:yes'>   </span><span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shapetype
+   id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+   path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="_x0000_i1038" type="#_x0000_t75" style='width:402.75pt;
+   height:20.25pt' o:ole="">
+   <v:imagedata src="qmTwo_files/image001.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=537 height=27
+  src="qmTwo_files/image002.png" v:shapes="_x0000_i1038"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1038"
+    DrawAspect="Content" ObjectID="_1650029414">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>Assume that the particles do not interact
+  with each other. Then by analogy with our construction of the Schrödinger
+  equation for a single particle, the Schrodinger equation for our two
+  particles becomes<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><span style='mso-spacerun:yes'>       </span>(2)<span
+  style='mso-spacerun:yes'>       </span><span style='position:relative;
+  top:19.0pt;mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1025"
+   type="#_x0000_t75" style='width:422.25pt;height:47.25pt' o:ole="">
+   <v:imagedata src="qmTwo_files/image003.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=563 height=63
+  src="qmTwo_files/image004.png" v:shapes="_x0000_i1025"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1025"
+    DrawAspect="Content" ObjectID="_1650029416">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>The solution can be written as a product of
+  the wavefunctions for each particle<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><span style='mso-spacerun:yes'>       
+  </span>(3)<span style='mso-spacerun:yes'>      </span><span
+  style='mso-spacerun:yes'> </span><span style='position:relative;top:8.0pt;
+  mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1026" type="#_x0000_t75"
+   style='width:285pt;height:24pt' o:ole="">
+   <v:imagedata src="qmTwo_files/image005.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=380 height=32
+  src="qmTwo_files/image006.png" v:shapes="_x0000_i1026"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1026"
+    DrawAspect="Content" ObjectID="_1650029417">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>The solution of the Schrodinger equation for
+  a particle in a box is <o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><span style='mso-spacerun:yes'>       
+  </span>(4) <span style='mso-spacerun:yes'> </span><span
+  style='mso-spacerun:yes'>  </span><span style='mso-spacerun:yes'> </span><span
+  style='position:relative;top:16.0pt;mso-text-raise:-16.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1027" type="#_x0000_t75" style='width:341.25pt;height:44.25pt'
+   o:ole="">
+   <v:imagedata src="qmTwo_files/image007.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=455 height=59
+  src="qmTwo_files/image008.png" v:shapes="_x0000_i1027"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1027"
+    DrawAspect="Content" ObjectID="_1650029418">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>Therefore, a solution Schrodinger equation
+  for our two particles in a box on can be expressed as<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><span style='mso-spacerun:yes'>       </span>(5)<span
+  style='mso-spacerun:yes'>     </span><span style='position:relative;
+  top:15.0pt;mso-text-raise:-15.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1028"
+   type="#_x0000_t75" style='width:270pt;height:39.75pt' o:ole="">
+   <v:imagedata src="qmTwo_files/image009.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=360 height=53
+  src="qmTwo_files/image010.png" v:shapes="_x0000_i1028"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1028"
+    DrawAspect="Content" ObjectID="_1650029419">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>The energy </span><i style='mso-bidi-font-style:
+  normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>E</span></i><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'> of the state for quantum numbers <span
+  style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1029" type="#_x0000_t75" style='width:41.25pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="qmTwo_files/image011.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=55 height=32
+  src="qmTwo_files/image012.png" v:shapes="_x0000_i1029"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1029"
+    DrawAspect="Content" ObjectID="_1650029420">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>is given by<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><span style='mso-spacerun:yes'>      </span>(6)<span
+  style='mso-spacerun:yes'>   </span><span style='mso-spacerun:yes'> </span><span
+  style='position:relative;top:19.0pt;mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1030" type="#_x0000_t75" style='width:153pt;height:48pt' o:ole="">
+   <v:imagedata src="qmTwo_files/image013.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=204 height=64
+  src="qmTwo_files/image014.png" v:shapes="_x0000_i1030"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1030"
+    DrawAspect="Content" ObjectID="_1650029421">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;mso-ansi-language:
+  EN-GB'>How do we interpret the wavefunction?<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>The probability of finding particle 1 in a
+  small line length <span style='position:relative;top:3.0pt;mso-text-raise:
+  -3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1031" type="#_x0000_t75"
+   style='width:18.75pt;height:17.25pt' o:ole="">
+   <v:imagedata src="qmTwo_files/image015.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=25 height=23
+  src="qmTwo_files/image016.png" v:shapes="_x0000_i1031"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1031"
+    DrawAspect="Content" ObjectID="_1650029422">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>and at the same time
+  the probability of finding particle 2 in a small line length <span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1032" type="#_x0000_t75" style='width:18.75pt;height:17.25pt'
+   o:ole="">
+   <v:imagedata src="qmTwo_files/image017.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=25 height=23
+  src="qmTwo_files/image016.png" v:shapes="_x0000_i1032"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1032"
+    DrawAspect="Content" ObjectID="_1650029423">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>is<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><span style='mso-spacerun:yes'>    </span><span
+  style='mso-spacerun:yes'>  </span>(7)<span style='mso-spacerun:yes'>   
+  </span><span style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1049" type="#_x0000_t75" style='width:93pt;height:27pt' o:ole="">
+   <v:imagedata src="qmTwo_files/image018.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=124 height=36
+  src="qmTwo_files/image019.png" v:shapes="_x0000_i1049"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1049"
+    DrawAspect="Content" ObjectID="_1650029424">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>For the state (2, 3), in a very small
+  interval </span><i style='mso-bidi-font-style:normal'><span lang=EN-GB
+  style='font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  mso-ansi-language:EN-GB'>dx</span></i><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'>, the probability density of finding particle 1 at position <span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1033" type="#_x0000_t75" style='width:59.25pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="qmTwo_files/image020.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=79 height=29
+  src="qmTwo_files/image021.png" v:shapes="_x0000_i1033"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1033"
+    DrawAspect="Content" ObjectID="_1650029425">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>and particle 2 at <span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1034" type="#_x0000_t75" style='width:60.75pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="qmTwo_files/image022.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=81 height=29
+  src="qmTwo_files/image023.png" v:shapes="_x0000_i1034"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1034"
+    DrawAspect="Content" ObjectID="_1650029426">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>is<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><span style='mso-spacerun:yes'>     </span><span
+  style='mso-spacerun:yes'>      </span><span style='mso-spacerun:yes'> </span><span
+  style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1035" type="#_x0000_t75" style='width:131.25pt;height:27pt'
+   o:ole="">
+   <v:imagedata src="qmTwo_files/image024.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=175 height=36
+  src="qmTwo_files/image025.png" v:shapes="_x0000_i1035"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1035"
+    DrawAspect="Content" ObjectID="_1650029427">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>Now, we can calculate the probability density
+  of finding particle 2 at position <span style='position:relative;top:7.0pt;
+  mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1036" type="#_x0000_t75"
+   style='width:59.25pt;height:21.75pt' o:ole="">
+   <v:imagedata src="qmTwo_files/image020.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=79 height=29
+  src="qmTwo_files/image021.png" v:shapes="_x0000_i1036"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1036"
+    DrawAspect="Content" ObjectID="_1650029428">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>and particle 1 at <span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1037" type="#_x0000_t75" style='width:60.75pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="qmTwo_files/image022.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=81 height=29
+  src="qmTwo_files/image023.png" v:shapes="_x0000_i1037"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1037"
+    DrawAspect="Content" ObjectID="_1650029429">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><span style='mso-spacerun:yes'>     </span><span
+  style='mso-spacerun:yes'>  </span><span style='mso-spacerun:yes'>  </span><span
+  style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1039" type="#_x0000_t75" style='width:131.25pt;height:27pt'
+   o:ole="">
+   <v:imagedata src="qmTwo_files/image026.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=175 height=36
+  src="qmTwo_files/image027.png" v:shapes="_x0000_i1039"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1039"
+    DrawAspect="Content" ObjectID="_1650029430">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>The problem is <span class=GramE>this,</span>
+  we have assumed that the particles are i<b style='mso-bidi-font-weight:normal'><span
+  style='color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:
+  #E46C0A;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>dentical</span></b>.<span
+  style='mso-spacerun:yes'>  </span>We can’t tell which is which, and nobody
+  else can either.<span style='mso-spacerun:yes'>  </span>The <span
+  class=SpellE>indistinguishability</span> of elementary particles is not like
+  that of apparently identical macroscopic objects, where one could always
+  place some tiny mark.<span style='mso-spacerun:yes'>  </span>There is no way
+  to mark an electron.<span style='mso-spacerun:yes'>  </span>This means that
+  the best we can do is to talk about the probability of finding one electron
+  at position <span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1040" type="#_x0000_t75" style='width:14.25pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="qmTwo_files/image028.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=19 height=29
+  src="qmTwo_files/image029.png" v:shapes="_x0000_i1040"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1040"
+    DrawAspect="Content" ObjectID="_1650029431">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>and another at <span
+  class=GramE>position </span><span style='position:relative;top:7.0pt;
+  mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1041" type="#_x0000_t75"
+   style='width:15.75pt;height:21.75pt' o:ole="">
+   <v:imagedata src="qmTwo_files/image030.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=21 height=29
+  src="qmTwo_files/image031.png" v:shapes="_x0000_i1041"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1041"
+    DrawAspect="Content" ObjectID="_1650029432">
+   </o:OLEObject>
+  </xml><![endif]-->, we cannot specify which electron we find where.<span
+  style='mso-spacerun:yes'>  </span>Therefore, any alleged wavefunction that
+  gives different probabilities for finding the particle at <span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1042" type="#_x0000_t75" style='width:14.25pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="qmTwo_files/image028.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=19 height=29
+  src="qmTwo_files/image029.png" v:shapes="_x0000_i1042"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1042"
+    DrawAspect="Content" ObjectID="_1650029433">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>and another at <span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1043" type="#_x0000_t75" style='width:15.75pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="qmTwo_files/image030.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=21 height=29
+  src="qmTwo_files/image031.png" v:shapes="_x0000_i1043"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1043"
+    DrawAspect="Content" ObjectID="_1650029434">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>is <b
+  style='mso-bidi-font-weight:normal'><span style='color:red'>not</span></b>
+  physically meaningful even though the wavefunction is a solution of the
+  Schrodinger equation. Therefore, a wavefunction describing two identical
+  particles must have a <b style='mso-bidi-font-weight:normal'><span
+  style='color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:
+  #E46C0A;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>symmetric
+  probability distribution</span></b><o:p></o:p></span></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><span style='mso-spacerun:yes'> </span><span
+  style='mso-spacerun:yes'>   </span><span style='mso-spacerun:yes'>  </span>(8)<span
+  style='mso-spacerun:yes'>       </span><span style='position:relative;
+  top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1044"
+   type="#_x0000_t75" style='width:153.75pt;height:27pt' o:ole="">
+   <v:imagedata src="qmTwo_files/image032.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=205 height=36
+  src="qmTwo_files/image033.png" v:shapes="_x0000_i1044"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1044"
+    DrawAspect="Content" ObjectID="_1650029435">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span lang=EN-GB
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span lang=EN-GB
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'>From the above
+  example<o:p></o:p></span></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span lang=EN-GB
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>                 </span><span style='position:relative;
+  top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1045"
+   type="#_x0000_t75" style='width:170.25pt;height:27pt' o:ole="">
+   <v:imagedata src="qmTwo_files/image034.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=227 height=36
+  src="qmTwo_files/image035.png" v:shapes="_x0000_i1045"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1045"
+    DrawAspect="Content" ObjectID="_1650029436">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span lang=EN-GB
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span lang=EN-GB
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'>Therefore, the
+  wavefunction given by equation 5 is not a physically meaningful wave function
+  for two identical particles in a one-dimensional box.<o:p></o:p></span></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span lang=EN-GB
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span lang=EN-GB
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'>However, this
+  problem can be easily fixed by having different linear combinations of wavefunction
+  given by equation 5 that form <b style='mso-bidi-font-weight:normal'><span
+  style='color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:
+  #E46C0A;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>symmetric </span></b>or
+  <span class=SpellE><b style='mso-bidi-font-weight:normal'><span
+  style='color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:
+  #E46C0A;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>antisymmetric</span></b></span><b
+  style='mso-bidi-font-weight:normal'><span style='color:#E46C0A;mso-themecolor:
+  accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'> </span></b>wavefunctions that satisfy the Schrodinger equation,
+  have the same energy <i style='mso-bidi-font-style:normal'>E</i> and satisfy
+  the requirements when the two particles are swapped around.<o:p></o:p></span></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span lang=EN-GB
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-GB style='mso-bidi-font-size:16.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;color:#E46C0A;
+  mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000;mso-ansi-language:
+  EN-GB'>Symmetric Function<o:p></o:p></span></b></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span lang=EN-GB
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>     </span>(9A)<span
+  style='mso-spacerun:yes'>        </span><span style='position:relative;
+  top:18.0pt;mso-text-raise:-18.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1046"
+   type="#_x0000_t75" style='width:279pt;height:42.75pt' o:ole="">
+   <v:imagedata src="qmTwo_files/image036.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=372 height=57
+  src="qmTwo_files/image037.png" v:shapes="_x0000_i1046"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1046"
+    DrawAspect="Content" ObjectID="_1650029437">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-GB style='mso-bidi-font-size:16.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;color:#E46C0A;
+  mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000;mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span class=SpellE><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-GB style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;
+  mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000;mso-ansi-language:EN-GB'>Antisymmetric</span></b></span><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-GB style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;
+  mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000;mso-ansi-language:EN-GB'> Function<o:p></o:p></span></b></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span lang=EN-GB
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>     </span>(9B)<span
+  style='mso-spacerun:yes'>        </span><span style='position:relative;
+  top:18.0pt;mso-text-raise:-18.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1047"
+   type="#_x0000_t75" style='width:279.75pt;height:42.75pt' o:ole="">
+   <v:imagedata src="qmTwo_files/image038.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=373 height=57
+  src="qmTwo_files/image039.png" v:shapes="_x0000_i1047"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1047"
+    DrawAspect="Content" ObjectID="_1650029438">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span lang=EN-GB
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span lang=EN-GB
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'>Both symmetric and <span
+  class=SpellE>antisymmetric</span> wavefunctions arise in nature in describing
+  identical particles. All elementary particles are either <b style='mso-bidi-font-weight:
+  normal'><span style='color:#E46C0A;mso-themecolor:accent6;mso-themeshade:
+  191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>fermions</span></b>, which have <span class=SpellE><span
+  style='color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:
+  #E46C0A;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>antisymmetric</span></span><span
+  style='color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:
+  #E46C0A;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'> <span
+  class=SpellE>multiparticle</span> wavefunctions</span>, or <b
+  style='mso-bidi-font-weight:normal'><span style='color:#E46C0A;mso-themecolor:
+  accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>bosons</span></b>, which have <span style='color:#E46C0A;
+  mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>symmetric wavefunctions</span>.<span
+  style='mso-spacerun:yes'>  </span>Electrons, protons and neutrons are
+  fermions; photons, alpha particles and helium atoms are bosons.<span
+  style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span lang=EN-GB
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'>It is important to
+  realize that this requirement of symmetry of the probability distribution,
+  arising from the true <span class=SpellE>indistinguishability</span> of the
+  particles, has a large effect on the probability distribution, and,
+  furthermore, the effect is very different for fermions and bosons.<span
+  style='mso-spacerun:yes'>  </span>This can be shown by plotting the
+  probability distribution functions for symmetric and <span class=SpellE>antisymmetric</span>
+  states and then comparing them.<o:p></o:p></span></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span lang=EN-GB
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span lang=EN-GB
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'>The Script <span
+  class=SpellE><b style='mso-bidi-font-weight:normal'><span style='color:#984807;
+  mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>qmTwo.m</span></b></span><b
+  style='mso-bidi-font-weight:normal'><span style='color:#984807;mso-themecolor:
+  accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'> </span></b>is used to plot the probability density functions for
+  our two particles confined in the box so that you can compare the plots for
+  symmetric and <span class=SpellE>antisymmetric</span> states for different
+  values of <i style='mso-bidi-font-style:normal'>m</i> and <i
+  style='mso-bidi-font-style:normal'>n</i>. Figure 1 shows the example for <i
+  style='mso-bidi-font-style:normal'>m</i> = 2 and <i style='mso-bidi-font-style:
+  normal'>n</i> = 3. <o:p></o:p></span></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span lang=EN-GB
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormalCxSpMiddle align=center style='text-align:center;
+  line-height:150%'><span style='mso-bidi-font-size:16.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;mso-no-proof:
+  yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_1" o:spid="_x0000_i1052"
+   type="#_x0000_t75" style='width:4in;height:450pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="qmTwo_files/image040.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=384 height=600
+  src="qmTwo_files/image040.png" v:shapes="Picture_x0020_1"><![endif]></span><span
+  lang=EN-GB style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span lang=EN-GB
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>        </span>Fig. 1.<span
+  style='mso-spacerun:yes'>  </span>Symmetric and <span class=SpellE>antisymmetric</span>
+  states for <i style='mso-bidi-font-style:normal'>m</i> = 2 and <i
+  style='mso-bidi-font-style:normal'>n</i> = 3.<o:p></o:p></span></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span lang=EN-GB
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span lang=EN-GB
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'>The probability density
+  functions are very different. For the symmetric state, the highest probability
+  is that the two particles are close together (<i style='mso-bidi-font-style:
+  normal'>x</i><sub>1</sub> = <i style='mso-bidi-font-style:normal'>x</i><sub>2</sub>
+  = 0.2 and <i style='mso-bidi-font-style:normal'>x</i><sub>1</sub> = <i
+  style='mso-bidi-font-style:normal'>x</i><sub>2</sub> = 0.8). Such particles
+  are called <b style='mso-bidi-font-weight:normal'><span style='color:#E46C0A;
+  mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>bosons</span></b>.<o:p></o:p></span></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span lang=EN-GB
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span lang=EN-GB
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'>However, for the <span
+  class=SpellE>antisymmetric</span> case, the particles are most likely to be
+  found far from each other.</span><span lang=EN-GB style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'> </span><span lang=EN-GB style='mso-bidi-font-size:16.0pt;
+  line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+  mso-ansi-language:EN-GB'>In fact, there is zero probability that they will be
+  found at the same spot, <span class=GramE>because<span
+  style='mso-spacerun:yes'>  </span></span><span style='position:relative;
+  top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1048"
+   type="#_x0000_t75" style='width:99.75pt;height:27pt' o:ole="">
+   <v:imagedata src="qmTwo_files/image041.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=133 height=36
+  src="qmTwo_files/image042.png" v:shapes="_x0000_i1048"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1048"
+    DrawAspect="Content" ObjectID="_1650029439">
+   </o:OLEObject>
+  </xml><![endif]-->. Thus, two <b style='mso-bidi-font-weight:normal'><span
+  style='color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:
+  #E46C0A;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>fermions</span></b>
+  cannot be in the same quantum state. This is the <b style='mso-bidi-font-weight:
+  normal'><span style='color:#E46C0A;mso-themecolor:accent6;mso-themeshade:
+  191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>Pauli Exclusion Principle</span></b> — it is the basis of the
+  periodic table, and consequently of almost everything else.<o:p></o:p></span></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span lang=EN-GB
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span lang=EN-GB
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'>The plots below show
+  states with different quantum numbers. For each symmetric state it is most
+  likely that the particles will be close together and far apart for <span
+  class=SpellE>antisymmetric</span> states.<o:p></o:p></span></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span lang=EN-GB
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormalCxSpMiddle align=center style='text-align:center;
+  line-height:150%'><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_2" o:spid="_x0000_i1051" type="#_x0000_t75" style='width:4in;
+   height:450pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="qmTwo_files/image043.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=384 height=600
+  src="qmTwo_files/image043.png" v:shapes="Picture_x0020_2"><![endif]></span><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+  <p class=MsoNormalCxSpMiddle align=center style='text-align:center;
+  line-height:150%'><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormalCxSpMiddle align=center style='text-align:center;
+  line-height:150%'><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_3" o:spid="_x0000_i1050" type="#_x0000_t75" style='width:4in;
+   height:450pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="qmTwo_files/image044.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=384 height=600
+  src="qmTwo_files/image044.png" v:shapes="Picture_x0020_3"><![endif]></span><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><span style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+  <p class=MsoNormalCxSpMiddle style='line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='line-height:150%'><span lang=EN-GB style='mso-ansi-language:
+EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='line-height:150%'><span lang=EN-GB style='mso-ansi-language:
+EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='line-height:150%'><span lang=EN-GB style='mso-ansi-language:
+EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

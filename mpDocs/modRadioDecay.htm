@@ -1,0 +1,1650 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 14">
+<meta name=Originator content="Microsoft Word 14">
+<base target="_blank">
+<link rel=File-List href="modRadioDecay_files/filelist.xml">
+<link rel=Edit-Time-Data href="modRadioDecay_files/editdata.mso">
+<link rel=OLE-Object-Data href="modRadioDecay_files/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Matlab Physics</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Subject>Matlab Physics</o:Subject>
+  <o:Author>Ian Cooper</o:Author>
+  <o:Keywords>computational physics, Matlab, physics, radioactive decay, radioactive series, decay constant, half-life</o:Keywords>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Owner</o:LastAuthor>
+  <o:Revision>18</o:Revision>
+  <o:TotalTime>2199</o:TotalTime>
+  <o:Created>2019-09-26T20:33:00Z</o:Created>
+  <o:LastSaved>2019-10-08T22:21:00Z</o:LastSaved>
+  <o:Pages>6</o:Pages>
+  <o:Words>807</o:Words>
+  <o:Characters>4600</o:Characters>
+  <o:Category>Computational Physics</o:Category>
+  <o:Lines>38</o:Lines>
+  <o:Paragraphs>10</o:Paragraphs>
+  <o:CharactersWithSpaces>5397</o:CharactersWithSpaces>
+  <o:Version>14.00</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+<link rel=themeData href="modRadioDecay_files/themedata.thmx">
+<link rel=colorSchemeMapping href="modRadioDecay_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>125</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-AU</w:LidThemeOther>
+  <w:LidThemeAsian>X-NONE</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-469750017 -1073732485 9 0 511 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-520081665 -1073717157 41 0 66047 0;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin-top:0cm;
+	margin-right:30.05pt;
+	margin-bottom:10.0pt;
+	margin-left:30.05pt;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:Calibri;
+	mso-fareast-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-fareast-language:EN-US;}
+a:link, span.MsoHyperlink
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:blue;
+	mso-themecolor:hyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:purple;
+	mso-themecolor:followedhyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Balloon Text Char";
+	margin-top:0cm;
+	margin-right:30.05pt;
+	margin-bottom:0cm;
+	margin-left:30.05pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-fareast-font-family:Calibri;
+	mso-fareast-theme-font:minor-latin;
+	mso-fareast-language:EN-US;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-priority:1;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin-top:0cm;
+	margin-right:30.05pt;
+	margin-bottom:10.0pt;
+	margin-left:30.05pt;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:Calibri;
+	mso-fareast-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-fareast-language:EN-US;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	margin-top:0cm;
+	margin-right:30.05pt;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:Calibri;
+	mso-fareast-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-fareast-language:EN-US;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:30.05pt;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:Calibri;
+	mso-fareast-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-fareast-language:EN-US;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:30.05pt;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:Calibri;
+	mso-fareast-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-fareast-language:EN-US;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:30.05pt;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:Calibri;
+	mso-fareast-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-fareast-language:EN-US;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Balloon Text";
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-ascii-font-family:Tahoma;
+	mso-hansi-font-family:Tahoma;
+	mso-bidi-font-family:Tahoma;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:16.0pt;
+	mso-ansi-font-size:16.0pt;
+	mso-bidi-font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:Calibri;
+	mso-fareast-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-fareast-language:EN-US;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-fareast-language:EN-US;}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-priority:59;
+	mso-style-unhide:no;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin-top:0cm;
+	mso-para-margin-right:30.05pt;
+	mso-para-margin-bottom:10.0pt;
+	mso-para-margin-left:30.05pt;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-fareast-language:EN-US;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-AU link=blue vlink=purple style='tab-interval:36.0pt'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:27.95pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=803 valign=top style='width:602.45pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  200%'><b style='mso-bidi-font-weight:normal'><span lang=EN-GB
+  style='font-size:22.0pt;mso-bidi-font-size:11.0pt;line-height:200%;
+  font-family:"Bookman Old Style","serif";mso-ansi-language:EN-GB'><a
+  href="http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm">DOING PHYSICS
+  WITH MATLAB</a><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  200%'><b style='mso-bidi-font-weight:normal'><span lang=EN-GB
+  style='font-size:22.0pt;mso-bidi-font-size:11.0pt;line-height:200%;
+  color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:
+  #E46C0A;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000;mso-ansi-language:
+  EN-GB'>RADIOACTIVITY<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  200%'><b style='mso-bidi-font-weight:normal'><span lang=EN-GB
+  style='font-size:22.0pt;mso-bidi-font-size:11.0pt;line-height:200%;
+  color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:
+  #E46C0A;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000;mso-ansi-language:
+  EN-GB'>Solving ordinary differential equations with ode45<o:p></o:p></span></b></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:200%'><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:22.0pt;mso-bidi-font-size:11.0pt;line-height:200%;
+  color:#F79646;mso-themecolor:accent6;mso-fareast-language:ZH-CN;mso-no-proof:
+  yes'><!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600"
+   o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f"
+   stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="Picture_x0020_2" o:spid="_x0000_i1050" type="#_x0000_t75"
+   style='width:222.75pt;height:195.75pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="modRadioDecay_files/image001.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=297 height=261
+  src="modRadioDecay_files/image002.png" v:shapes="Picture_x0020_2"><![endif]></span></b><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='margin-left:27.95pt;border-collapse:collapse;border:none;mso-border-alt:
+ solid #984806 1.5pt;mso-border-themecolor:accent6;mso-border-themeshade:128;
+ mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:
+ 1.5pt solid #984806;mso-border-insideh-themecolor:accent6;mso-border-insideh-themeshade:
+ 128;mso-border-insidev:1.5pt solid #984806;mso-border-insidev-themecolor:accent6;
+ mso-border-insidev-themeshade:128'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=831 valign=top style='width:623.35pt;border:solid #984806 1.5pt;
+  mso-border-themecolor:accent6;mso-border-themeshade:128;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal'><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-GB style='font-size:18.0pt;
+  mso-bidi-font-size:11.0pt;font-family:"Bookman Old Style","serif";mso-ansi-language:
+  EN-GB'><a href="http://www.physics.usyd.edu.au/teach_res/mp/mscripts/">MATLAB
+  DOWNLOAD DIRECTORY</a><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  class=SpellE><b style='mso-bidi-font-weight:normal'><span lang=EN-GB
+  style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;mso-ansi-language:
+  EN-GB'>modRDecayA.m</span></b></span><b style='mso-bidi-font-weight:normal'><span
+  lang=EN-GB style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>Simulation: radioactive decay of an unstable
+  nuclei<span style='mso-spacerun:yes'>  </span><span style='position:relative;
+  top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1025"
+   type="#_x0000_t75" style='width:48.75pt;height:15.75pt' o:ole="">
+   <v:imagedata src="modRadioDecay_files/image003.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=65 height=21
+  src="modRadioDecay_files/image004.png" v:shapes="_x0000_i1025"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1025"
+    DrawAspect="Content" ObjectID="_1632118221">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  class=SpellE><b style='mso-bidi-font-weight:normal'><span lang=EN-GB
+  style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;mso-ansi-language:
+  EN-GB'>modRDecayB.m</span></b></span><b style='mso-bidi-font-weight:normal'><span
+  lang=EN-GB style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>Simulation: radioactive decay of an unstable
+  nuclei<span style='mso-spacerun:yes'>  </span><span style='position:relative;
+  top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1026"
+   type="#_x0000_t75" style='width:84pt;height:15.75pt' o:ole="">
+   <v:imagedata src="modRadioDecay_files/image005.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=112 height=21
+  src="modRadioDecay_files/image006.png" v:shapes="_x0000_i1026"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1026"
+    DrawAspect="Content" ObjectID="_1632118222">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  class=SpellE><b style='mso-bidi-font-weight:normal'><span lang=EN-GB
+  style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;mso-ansi-language:
+  EN-GB'>modRDecayC.m</span></b></span><b style='mso-bidi-font-weight:normal'><span
+  lang=EN-GB style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>Simulation: radioactive decay of unstable
+  nuclei (nuclear decay chain)<span style='mso-spacerun:yes'>  </span><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1027" type="#_x0000_t75" style='width:119.25pt;height:15.75pt'
+   o:ole="">
+   <v:imagedata src="modRadioDecay_files/image007.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=159 height=21
+  src="modRadioDecay_files/image008.png" v:shapes="_x0000_i1027"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1027"
+    DrawAspect="Content" ObjectID="_1632118223">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>Inputs: half-lives, initial numbers of
+  unstable radioactive nuclei and maximum simulation time.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>Calculations: The Matlab solver <b
+  style='mso-bidi-font-weight:normal'><span style='color:#984807;mso-themecolor:
+  accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>ode45</span></b> is used to solve the ordinary differential
+  equations describing a radioactive decay series.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:30.05pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=829 valign=top style='width:621.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-GB style='font-size:18.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:
+  #E46C0A;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000;mso-ansi-language:
+  EN-GB'>MODELLING RADIOACTIVE DECAY SERIES<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>It is easy solve the ordinary differential
+  equations describing both single-decay systems and multiple-decay nuclear
+  chains using the Matlab solver <b style='mso-bidi-font-weight:normal'><span
+  style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>ode45</span></b>. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>The fundamental equation is a simple rate
+  formula. For a single decay of an unstable parent to a stable daughter, the
+  rate at which the number </span><i style='mso-bidi-font-style:normal'><span
+  lang=EN-GB style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast;
+  mso-ansi-language:EN-GB'>N</span></i><sub><span lang=EN-GB style='font-family:
+  "Times New Roman","serif";mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:
+  major-fareast;mso-bidi-theme-font:major-fareast;mso-ansi-language:EN-GB'>1</span></sub><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'> of nuclei changes with time is
+  proportional to the number of nuclei itself<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><span style='mso-spacerun:yes'>    
+  </span>(1)<span style='mso-spacerun:yes'>          </span><span
+  style='position:relative;top:19.0pt;mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1028" type="#_x0000_t75" style='width:87.75pt;height:44.25pt'
+   o:ole="">
+   <v:imagedata src="modRadioDecay_files/image009.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=117 height=59
+  src="modRadioDecay_files/image010.png" v:shapes="_x0000_i1028"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1028"
+    DrawAspect="Content" ObjectID="_1632118224">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  class=GramE><span lang=EN-GB style='mso-ansi-language:EN-GB'>where</span></span><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'> <span style='position:relative;
+  top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1043"
+   type="#_x0000_t75" style='width:15pt;height:21.75pt' o:ole="">
+   <v:imagedata src="modRadioDecay_files/image011.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=20 height=29
+  src="modRadioDecay_files/image012.png" v:shapes="_x0000_i1043"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1043"
+    DrawAspect="Content" ObjectID="_1632118225">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>is the decay
+  constant <span style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1029" type="#_x0000_t75" style='width:51.75pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="modRadioDecay_files/image013.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=69 height=32
+  src="modRadioDecay_files/image014.png" v:shapes="_x0000_i1029"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1029"
+    DrawAspect="Content" ObjectID="_1632118226">
+   </o:OLEObject>
+  </xml><![endif]-->.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>The analytical solution of equation 1 is<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><span style='mso-spacerun:yes'>    
+  </span>(2)<span style='mso-spacerun:yes'>          </span><span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1030" type="#_x0000_t75" style='width:84.75pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="modRadioDecay_files/image015.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=113 height=32
+  src="modRadioDecay_files/image016.png" v:shapes="_x0000_i1030"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1030"
+    DrawAspect="Content" ObjectID="_1632118227">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  class=GramE><span lang=EN-GB style='mso-ansi-language:EN-GB'>where</span></span><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'> <span style='position:relative;
+  top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1031"
+   type="#_x0000_t75" style='width:24pt;height:21.75pt' o:ole="">
+   <v:imagedata src="modRadioDecay_files/image017.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=32 height=29
+  src="modRadioDecay_files/image018.png" v:shapes="_x0000_i1031"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1031"
+    DrawAspect="Content" ObjectID="_1632118228">
+   </o:OLEObject>
+  </xml><![endif]-->is the initial number of nuclei at time </span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>t</span></i><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'> = 0. The relationship between the
+  decay constant and the half-life is<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><span style='mso-spacerun:yes'>    
+  </span>(3)<span style='mso-spacerun:yes'>          </span><span
+  style='position:relative;top:15.0pt;mso-text-raise:-15.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1032" type="#_x0000_t75" style='width:69.75pt;height:39.75pt'
+   o:ole="">
+   <v:imagedata src="modRadioDecay_files/image019.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=93 height=53
+  src="modRadioDecay_files/image020.png" v:shapes="_x0000_i1032"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1032"
+    DrawAspect="Content" ObjectID="_1632118229">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>The solver <b style='mso-bidi-font-weight:
+  normal'><span style='color:#984807;mso-themecolor:accent6;mso-themeshade:
+  128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>oder45</span></b> is relative easy to setup to solve equation 1
+  as shown in the Script <span class=SpellE><b style='mso-bidi-font-weight:
+  normal'><span style='color:#984807;mso-themecolor:accent6;mso-themeshade:
+  128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>modRDecayA.m</span></b></span>. Figure 1 show the graphical
+  output for the simulation with input parameters </span><i style='mso-bidi-font-style:
+  normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>t</span></i><sub><span
+  lang=EN-GB style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  mso-ansi-language:EN-GB'>1/2</span></sub><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'> = 25 s and </span><i style='mso-bidi-font-style:normal'><span
+  lang=EN-GB style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  mso-ansi-language:EN-GB'>N</span></i><sub><span lang=EN-GB style='font-family:
+  "Times New Roman","serif";mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:
+  minor-fareast;mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>0</span></sub><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'> = 100. Inspection of the plot in
+  figure 1 clearly shows that the number of nuclei decreases by half in
+  successive time intervals which equal the half-live value. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-left:0cm;text-align:center'><span
+  style='mso-fareast-language:ZH-CN;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_5" o:spid="_x0000_i1049" type="#_x0000_t75" style='width:283.5pt;
+   height:248.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="modRadioDecay_files/image021.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=378 height=331
+  src="modRadioDecay_files/image022.png" v:shapes="Picture_x0020_5"><![endif]></span><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:27.95pt'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>Fig. 1.<span style='mso-spacerun:yes'> 
+  </span>The radioactive decay of parent unstable nuclei to a stable daughter.
+  The blue curve is the numerical solution and the red dots the theoretical
+  predictions. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:0cm'><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  10.0pt;margin-left:0cm;line-height:150%'><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'>The next more complicated system allows the daughter to <span
+  class=GramE>decay </span><span style='position:relative;top:8.0pt;mso-text-raise:
+  -8.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1033" type="#_x0000_t75"
+   style='width:96pt;height:24pt' o:ole="">
+   <v:imagedata src="modRadioDecay_files/image023.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=128 height=32
+  src="modRadioDecay_files/image024.png" v:shapes="_x0000_i1033"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1033"
+    DrawAspect="Content" ObjectID="_1632118230">
+   </o:OLEObject>
+  </xml><![endif]-->. The coupled ordinary differential equation for this
+  system are<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  10.0pt;margin-left:0cm;line-height:150%'><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'><span style='mso-spacerun:yes'>               </span><span
+  style='position:relative;top:19.0pt;mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1034" type="#_x0000_t75" style='width:87.75pt;height:44.25pt'
+   o:ole="">
+   <v:imagedata src="modRadioDecay_files/image025.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=117 height=59
+  src="modRadioDecay_files/image010.png" v:shapes="_x0000_i1034"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1034"
+    DrawAspect="Content" ObjectID="_1632118231">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  10.0pt;margin-left:0cm;line-height:150%'><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'><span style='mso-spacerun:yes'>     </span>(3)<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  10.0pt;margin-left:0cm;line-height:150%'><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'><span style='mso-spacerun:yes'>               </span><span
+  style='position:relative;top:19.0pt;mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1035" type="#_x0000_t75" style='width:140.25pt;height:44.25pt'
+   o:ole="">
+   <v:imagedata src="modRadioDecay_files/image026.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=187 height=59
+  src="modRadioDecay_files/image027.png" v:shapes="_x0000_i1035"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1035"
+    DrawAspect="Content" ObjectID="_1632118232">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  10.0pt;margin-left:0cm;line-height:150%'><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  10.0pt;margin-left:0cm;line-height:150%'><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'>The analytical solution to this problem is complicated. However, to
+  solve this problem numerically is easy. The Script <span class=SpellE><b
+  style='mso-bidi-font-weight:normal'><span style='color:#984807;mso-themecolor:
+  accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>modRDecayB.m</span></b></span><span style='color:#984807;
+  mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'> </span>is used to
+  solve the coupled differential equations given by equation 3. Sample results
+  are shown in figures 2<span class=GramE>,3</span> and 4.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  10.0pt;margin-left:0cm;line-height:150%'><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-left:0cm;text-align:center'><span
+  style='mso-fareast-language:ZH-CN;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_6" o:spid="_x0000_i1048" type="#_x0000_t75" style='width:283.5pt;
+   height:248.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="modRadioDecay_files/image028.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=378 height=331
+  src="modRadioDecay_files/image029.png" v:shapes="Picture_x0020_6"><![endif]></span><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:27.95pt'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>Fig.2.<span style='mso-spacerun:yes'>  
+  </span>The single decaying daughter nuclear decay chain. The half-lives of
+  the <span style='color:blue'>parent</span> and <span style='color:red'>daughter</span>
+  have similar values.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:0cm'><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-top:0cm;margin-right:-5.4pt;
+  margin-bottom:10.0pt;margin-left:0cm;text-align:center;line-height:150%'><span
+  style='mso-fareast-language:ZH-CN;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_7" o:spid="_x0000_i1047" type="#_x0000_t75" style='width:283.5pt;
+   height:248.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="modRadioDecay_files/image030.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=378 height=331
+  src="modRadioDecay_files/image031.png" v:shapes="Picture_x0020_7"><![endif]></span><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.0pt;margin-bottom:
+  10.0pt;margin-left:27.95pt'><span lang=EN-GB style='mso-ansi-language:EN-GB'>Fig.
+  3.<span style='mso-spacerun:yes'>   </span>The half-life of the <span
+  style='color:blue'>parent</span> is much larger than the half-life of the <span
+  style='color:red'>daughter</span>. The daughter nuclei decay quickly compared
+  to their parents. So, the number of daughter nuclei always remains small. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.0pt;margin-bottom:
+  10.0pt;margin-left:27.95pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-top:0cm;margin-right:-5.4pt;
+  margin-bottom:10.0pt;margin-left:0cm;text-align:center;line-height:150%'><span
+  style='mso-fareast-language:ZH-CN;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_8" o:spid="_x0000_i1046" type="#_x0000_t75" style='width:283.5pt;
+   height:248.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="modRadioDecay_files/image032.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=378 height=331
+  src="modRadioDecay_files/image033.png" v:shapes="Picture_x0020_8"><![endif]></span><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.0pt;margin-bottom:
+  10.0pt;margin-left:27.95pt'><span lang=EN-GB style='mso-ansi-language:EN-GB'>Fig.
+  4.<span style='mso-spacerun:yes'>   </span>The half-life of the <span
+  style='color:blue'>parent</span> is much smaller than the half-life of the <span
+  style='color:red'>daughter</span>. The daughter nuclei decay slowly compared
+  to their parents. So, the number of daughter nuclei can reach large values.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  10.0pt;margin-left:0cm;line-height:150%'><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  10.0pt;margin-left:0cm;line-height:150%'><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'>It is easy to model long nuclear decay chains. For example, we can
+  consider the nuclear decay chain for the transformation of <sup>234</sup>U<sub>92</sub>
+  to lead <sup>206</sup>Pb<sub>82</sub>. The dominant decays are<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  10.0pt;margin-left:0cm;line-height:150%'><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'><span style='mso-spacerun:yes'>     </span><span style='position:relative;
+  top:18.0pt;mso-text-raise:-18.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1036"
+   type="#_x0000_t75" style='width:350.25pt;height:44.25pt' o:ole="">
+   <v:imagedata src="modRadioDecay_files/image034.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=467 height=59
+  src="modRadioDecay_files/image035.png" v:shapes="_x0000_i1036"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1036"
+    DrawAspect="Content" ObjectID="_1632118233">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  10.0pt;margin-left:0cm;text-indent:15.0pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><span style='position:relative;top:7.0pt;
+  mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1037" type="#_x0000_t75"
+   style='width:351.75pt;height:24pt' o:ole="">
+   <v:imagedata src="modRadioDecay_files/image036.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=469 height=32
+  src="modRadioDecay_files/image037.png" v:shapes="_x0000_i1037"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1037"
+    DrawAspect="Content" ObjectID="_1632118234">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  10.0pt;margin-left:0cm;text-indent:15.0pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><span style='position:relative;top:7.0pt;
+  mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1041" type="#_x0000_t75"
+   style='width:360.75pt;height:24pt' o:ole="">
+   <v:imagedata src="modRadioDecay_files/image038.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=481 height=32
+  src="modRadioDecay_files/image039.png" v:shapes="_x0000_i1041"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1041"
+    DrawAspect="Content" ObjectID="_1632118235">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  10.0pt;margin-left:0cm;text-indent:15.0pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><span style='position:relative;top:9.0pt;
+  mso-text-raise:-9.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1038" type="#_x0000_t75"
+   style='width:308.25pt;height:26.25pt' o:ole="">
+   <v:imagedata src="modRadioDecay_files/image040.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=411 height=35
+  src="modRadioDecay_files/image041.png" v:shapes="_x0000_i1038"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1038"
+    DrawAspect="Content" ObjectID="_1632118236">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  10.0pt;margin-left:0cm;line-height:150%'><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  10.0pt;margin-left:0cm;line-height:150%'><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'>The Script <span class=SpellE><b style='mso-bidi-font-weight:normal'><span
+  style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>modRDecayC.m</span></b></span><span
+  style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'> </span>is used to
+  model the nuclear decay chain for U-234. The results are shown in figures 5A
+  and 5B. The initial number of U-234 nuclei is 10<sup>23</sup> which is about
+  10 grams.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  10.0pt;margin-left:0cm;line-height:150%'><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-top:0cm;margin-right:-5.4pt;
+  margin-bottom:10.0pt;margin-left:0cm;text-align:center;line-height:150%'><span
+  style='mso-fareast-language:ZH-CN;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_4" o:spid="_x0000_i1045" type="#_x0000_t75" style='width:283.5pt;
+   height:248.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="modRadioDecay_files/image042.emz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=378 height=331
+  src="modRadioDecay_files/image043.png" v:shapes="Picture_x0020_4"><![endif]></span><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  10.0pt;margin-left:27.95pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>Fig. 5A.<span style='mso-spacerun:yes'> 
+  </span>A two-daughter nuclear decay chain: <span style='position:relative;
+  top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1039"
+   type="#_x0000_t75" style='width:179.25pt;height:24pt' o:ole="">
+   <v:imagedata src="modRadioDecay_files/image044.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=239 height=32
+  src="modRadioDecay_files/image045.png" v:shapes="_x0000_i1039"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1039"
+    DrawAspect="Content" ObjectID="_1632118237">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  10.0pt;margin-left:0cm;line-height:150%'><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-top:0cm;margin-right:-5.4pt;
+  margin-bottom:10.0pt;margin-left:0cm;text-align:center;line-height:150%'><span
+  style='mso-fareast-language:ZH-CN;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_3" o:spid="_x0000_i1044" type="#_x0000_t75" style='width:359.25pt;
+   height:494.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="modRadioDecay_files/image046.emz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=479 height=659
+  src="modRadioDecay_files/image047.png" v:shapes="Picture_x0020_3"><![endif]></span><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  10.0pt;margin-left:27.95pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>Fig. 5B.<span style='mso-spacerun:yes'> 
+  </span>A two-daughter nuclear decay chain: <span style='position:relative;
+  top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1040"
+   type="#_x0000_t75" style='width:179.25pt;height:24pt' o:ole="">
+   <v:imagedata src="modRadioDecay_files/image044.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=239 height=32
+  src="modRadioDecay_files/image045.png" v:shapes="_x0000_i1040"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1040"
+    DrawAspect="Content" ObjectID="_1632118239">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  10.0pt;margin-left:0cm;line-height:150%'><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  10.0pt;margin-left:0cm;line-height:150%'><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'>The number of <span class=SpellE>Em</span> nuclei is essentially the
+  number of <span class=SpellE>Pb</span> nuclei and is equal to the initial
+  number of nuclei minus the sum of the numbers of the three decaying dominant
+  nuclei. So, at any time t<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-5.4pt;margin-bottom:
+  10.0pt;margin-left:0cm;line-height:150%'><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'><span style='mso-spacerun:yes'>           </span><span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1042" type="#_x0000_t75" style='width:434.25pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="modRadioDecay_files/image048.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=579 height=29
+  src="modRadioDecay_files/image049.png" v:shapes="_x0000_i1042"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1042"
+    DrawAspect="Content" ObjectID="_1632118240">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:0cm'><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'><span style='mso-spacerun:yes'>         </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:0cm'><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'><span style='mso-spacerun:yes'>   </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:0cm'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-GB style='font-size:18.0pt;mso-bidi-font-size:11.0pt;
+  line-height:115%;font-family:"Bookman Old Style","serif";color:#E46C0A;
+  mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000;mso-ansi-language:
+  EN-GB'>MATLAB SCRIPT</span></b><span lang=EN-GB style='font-size:18.0pt;
+  mso-bidi-font-size:11.0pt;line-height:115%;color:#E46C0A;mso-themecolor:accent6;
+  mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000;mso-ansi-language:EN-GB'><span style='mso-spacerun:yes'>  </span><span
+  style='mso-spacerun:yes'> </span><span style='mso-spacerun:yes'> </span></span><span
+  class=SpellE><b style='mso-bidi-font-weight:normal'><span lang=EN-GB
+  style='color:#632523;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #632523;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;mso-ansi-language:
+  EN-GB'>modRDecayC.m</span></b></span><b style='mso-bidi-font-weight:normal'><span
+  lang=EN-GB style='color:#632523;mso-themecolor:accent2;mso-themeshade:128;
+  mso-style-textfill-fill-color:#632523;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-left:0cm'><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-left:0cm'><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'>Input Section:<span style='mso-spacerun:yes'>  </span>The variable K
+  gives the values of the decay constant<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:blue'>global</span><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:115%;
+  font-family:"Courier New";color:black'> K</span><span style='mso-bidi-font-size:
+  12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'> </span></span><span style='mso-bidi-font-size:12.0pt;
+  line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:#3C763D'>% INPUTS
+  &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:#3C763D'>% Default values</span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:#3C763D'>%<span
+  style='mso-spacerun:yes'>   </span><span class=SpellE>tH</span> = 100 N0 =
+  100 <span class=SpellE>tMax</span> = 10*<span class=SpellE>tH</span></span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:#3C763D'><span
+  style='mso-spacerun:yes'> </span></span><span style='mso-bidi-font-size:12.0pt;
+  line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:#3C763D'>% Half-life<span
+  style='mso-spacerun:yes'>  </span><span class=SpellE>tH</span> / Initial
+  number of radioactive nuclei N0</span><span style='mso-bidi-font-size:12.0pt;
+  line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>   </span><span class=SpellE>tH</span>(1) = 2.5e5;</span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>   </span>N0(1) = 10^23;</span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>   </span><span class=SpellE>tH</span>(2) = 8.04e4;</span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>   </span>N0(2) = 0;</span><span style='mso-bidi-font-size:
+  12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>   </span><span class=SpellE>tH</span>(3) = 1.63e3;</span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>   </span>N0(3) = 0;</span><span style='mso-bidi-font-size:
+  12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>   </span></span><span style='mso-bidi-font-size:
+  12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'> </span></span><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;line-height:115%;font-family:"Courier New";
+  color:#3C763D'>% Maximum simulation time</span><span style='mso-bidi-font-size:
+  12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span><span class=SpellE>tMax</span> = 2.5e6;</span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:normal;
+  mso-layout-grid-align:none;text-autospace:none'><span style='font-size:10.0pt;
+  font-family:"Courier New";color:black'><span style='mso-spacerun:yes'> 
+  </span></span><span style='font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:normal;
+  mso-layout-grid-align:none;text-autospace:none'><span style='font-size:10.0pt;
+  font-family:"Courier New";color:black'><span style='mso-spacerun:yes'> 
+  </span></span><span style='font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:0cm'>Setup Section:</p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:#3C763D'>% SETUP
+  ===============================================================</span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:#3C763D'><span
+  style='mso-spacerun:yes'> </span></span><span style='mso-bidi-font-size:12.0pt;
+  line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:#3C763D'>% Decay constant
+  lambda<span style='mso-spacerun:yes'>  </span>K</span><span style='mso-bidi-font-size:
+  12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span>K = log(2)./<span class=SpellE>tH</span>;</span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:#3C763D'>% Time interval for
+  simulation</span><span style='mso-bidi-font-size:12.0pt;line-height:115%;
+  font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span><span class=SpellE>tSpan</span> = [0 <span
+  class=SpellE>tMax</span>];</span><span style='mso-bidi-font-size:12.0pt;
+  line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:#3C763D'>% Initial
+  conditions</span><span style='mso-bidi-font-size:12.0pt;line-height:115%;
+  font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span>u0 = N0;</span><span style='mso-bidi-font-size:
+  12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:#3C763D'>% Options</span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span>options = <span class=SpellE>odeset</span>(</span><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:115%;
+  font-family:"Courier New";color:#A020F0'>'RelTol'</span><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:115%;
+  font-family:"Courier New";color:black'>,1e-6,</span><span style='font-size:
+  12.0pt;mso-bidi-font-size:10.0pt;line-height:115%;font-family:"Courier New";
+  color:#A020F0'>'AbsTol'</span><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black'>,1e-6);</span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'> </span></span><span style='mso-bidi-font-size:12.0pt;
+  line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:#3C763D'>% Solve ODE </span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span>[<span class=SpellE>t,u</span>] = ode45(@<span
+  class=SpellE>EqM</span>, <span class=SpellE>tSpan</span>, u0, options);</span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span></span><span style='mso-bidi-font-size:
+  12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:#3C763D'>% <span
+  class=SpellE>Undecayed</span> nuclei as a function of time </span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span>N1 = u(:,1);<span
+  style='mso-spacerun:yes'>  </span></span><span style='mso-bidi-font-size:
+  12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span>N2 = u(:,2);</span><span style='mso-bidi-font-size:
+  12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span>N3 = u(:,3);</span><span style='mso-bidi-font-size:
+  12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:0cm'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-left:0cm'><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'>The function for the rate equations describing the decay chain is<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:blue'>function</span><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:115%;
+  font-family:"Courier New";color:black'> <span class=SpellE>uDot</span> = <span
+  class=SpellE>EqM</span>(<span class=SpellE>t,u</span>)</span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span></span><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;line-height:115%;font-family:"Courier New";
+  color:blue'>global</span><span style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black'> K</span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span><span class=SpellE>uDot</span> =
+  zeros(3,1);</span><span style='mso-bidi-font-size:12.0pt;line-height:115%;
+  font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span><span class=SpellE>uDot</span>(1) =
+  -K(1)*u(1);</span><span style='mso-bidi-font-size:12.0pt;line-height:115%;
+  font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span><span class=SpellE>uDot</span>(2) =
+  -K(2)*u(2) + K(1)*u(1);</span><span style='mso-bidi-font-size:12.0pt;
+  line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>  </span><span class=SpellE>uDot</span>(3) =
+  -K(3)*u(3) + K(2)*u(2);</span><span style='mso-bidi-font-size:12.0pt;
+  line-height:115%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:27.95pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  line-height:115%;font-family:"Courier New";color:blue'>end</span><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:115%;
+  font-family:"Courier New";color:black'><span style='mso-spacerun:yes'> 
+  </span></span><span style='font-size:12.0pt;line-height:115%;font-family:
+  "Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:0cm'><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:normal;
+mso-layout-grid-align:none;text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black'><span style='mso-spacerun:yes'>  </span></span><span
+style='font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><span
+style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:27.95pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=803 valign=top style='width:602.45pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:2.1pt;margin-bottom:.0001pt;line-height:200%'><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-GB style='font-size:20.0pt;
+  mso-bidi-font-size:11.0pt;line-height:200%;font-family:"Bookman Old Style","serif";
+  mso-ansi-language:EN-GB'><a
+  href="http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm">DOING PHYSICS
+  WITH MATLAB</a><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:2.1pt;margin-bottom:.0001pt;line-height:normal'><span
+  style='mso-bidi-font-size:12.0pt'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:2.1pt;margin-bottom:.0001pt;line-height:normal'><b
+  style='mso-bidi-font-weight:normal'><span style='mso-bidi-font-size:12.0pt'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:2.1pt;margin-bottom:.0001pt;line-height:150%'><span
+  style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'>If you
+  have any feedback, comments, suggestions or corrections please email:</span><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:2.1pt;margin-bottom:.0001pt;line-height:150%'><span
+  style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'>Ian
+  Cooper<span style='mso-spacerun:yes'>   </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:2.1pt;margin-bottom:.0001pt;line-height:150%'><span
+  style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'>MatlabVisualPhysics@gmail.com<span
+  style='mso-tab-count:1'> </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

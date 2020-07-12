@@ -1,0 +1,2036 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 15">
+<meta name=Originator content="Microsoft Word 15">
+<base target="_blank">
+<link rel=File-List href="mecChaosA3_files/filelist.xml">
+<link rel=Edit-Time-Data href="mecChaosA3_files/editdata.mso">
+<link rel=OLE-Object-Data href="mecChaosA3_files/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Matlab Physics</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Subject>Dynamics of oscillating and chaotic systems</o:Subject>
+  <o:Author>Ian Cooper</o:Author>
+  <o:Keywords>dynamics, chaos, chaotic systems, oscillations, Runge-Kutta, periodic motion</o:Keywords>
+  <o:Description>mec_chaosA2.m</o:Description>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Ian Cooper</o:LastAuthor>
+  <o:Revision>13</o:Revision>
+  <o:TotalTime>884</o:TotalTime>
+  <o:Created>2018-08-20T06:17:00Z</o:Created>
+  <o:LastSaved>2018-08-21T04:18:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>838</o:Words>
+  <o:Characters>4783</o:Characters>
+  <o:Category>Chaos</o:Category>
+  <o:Lines>39</o:Lines>
+  <o:Paragraphs>11</o:Paragraphs>
+  <o:CharactersWithSpaces>5610</o:CharactersWithSpaces>
+  <o:Version>16.00</o:Version>
+ </o:DocumentProperties>
+ <o:CustomDocumentProperties>
+  <o:MTWinEqns dt:dt="boolean">1</o:MTWinEqns>
+ </o:CustomDocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+<link rel=themeData href="mecChaosA3_files/themedata.thmx">
+<link rel=colorSchemeMapping href="mecChaosA3_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-AU</w:LidThemeOther>
+  <w:LidThemeAsian>ZH-CN</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
+  DefSemiHidden="false" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="375">
+  <w:LsdException Locked="false" Priority="0" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="0" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 7"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 8"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 9"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 9"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal Indent"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footnote text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="header"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footer"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index heading"/>
+  <w:LsdException Locked="false" Priority="35" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="table of figures"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="envelope address"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="envelope return"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footnote reference"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation reference"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="line number"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="page number"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="endnote reference"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="endnote text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="table of authorities"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="macro"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="toa heading"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 5"/>
+  <w:LsdException Locked="false" Priority="10" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Closing"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Signature"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="true"
+   UnhideWhenUsed="true" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Message Header"/>
+  <w:LsdException Locked="false" Priority="11" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Salutation"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Date"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text First Indent"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text First Indent 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Note Heading"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Block Text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Hyperlink"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="FollowedHyperlink"/>
+  <w:LsdException Locked="false" Priority="22" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Document Map"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Plain Text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="E-mail Signature"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Top of Form"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Bottom of Form"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal (Web)"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Acronym"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Address"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Cite"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Code"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Definition"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Keyboard"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Preformatted"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Sample"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Typewriter"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Variable"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal Table"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation subject"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="No List"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 7"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 8"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 7"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 8"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Contemporary"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Elegant"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Professional"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Subtle 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Subtle 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Balloon Text"/>
+  <w:LsdException Locked="false" Priority="39" Name="Table Grid"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Theme"/>
+  <w:LsdException Locked="false" SemiHidden="true" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" QFormat="true"
+   Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" QFormat="true"
+   Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" QFormat="true"
+   Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" QFormat="true"
+   Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" QFormat="true"
+   Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" QFormat="true"
+   Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" SemiHidden="true"
+   UnhideWhenUsed="true" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="TOC Heading"/>
+  <w:LsdException Locked="false" Priority="41" Name="Plain Table 1"/>
+  <w:LsdException Locked="false" Priority="42" Name="Plain Table 2"/>
+  <w:LsdException Locked="false" Priority="43" Name="Plain Table 3"/>
+  <w:LsdException Locked="false" Priority="44" Name="Plain Table 4"/>
+  <w:LsdException Locked="false" Priority="45" Name="Plain Table 5"/>
+  <w:LsdException Locked="false" Priority="40" Name="Grid Table Light"/>
+  <w:LsdException Locked="false" Priority="46" Name="Grid Table 1 Light"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark"/>
+  <w:LsdException Locked="false" Priority="51" Name="Grid Table 6 Colorful"/>
+  <w:LsdException Locked="false" Priority="52" Name="Grid Table 7 Colorful"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 1"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 1"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 1"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 2"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 2"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 2"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 3"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 3"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 3"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 4"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 4"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 5"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 5"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 5"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 6"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 6"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 6"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 6"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 6"/>
+  <w:LsdException Locked="false" Priority="46" Name="List Table 1 Light"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark"/>
+  <w:LsdException Locked="false" Priority="51" Name="List Table 6 Colorful"/>
+  <w:LsdException Locked="false" Priority="52" Name="List Table 7 Colorful"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 1"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 1"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 1"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 2"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 2"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 2"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 3"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 3"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 3"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 4"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 4"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 5"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 5"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 5"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 6"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 6"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 6"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 6"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Mention"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Smart Hyperlink"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Hashtag"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Unresolved Mention"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:\5B8B\4F53;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 680460288 22 0 262145 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:-536869121 1107305727 33554432 0 415 0;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-536859905 -1073732485 9 0 511 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-520081665 -1073717157 41 0 66047 0;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 680460288 22 0 262145 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:SimSun;
+	mso-ansi-language:EN-AU;
+	mso-fareast-language:EN-US;}
+h1
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 1 Char";
+	mso-style-next:Normal;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:12.0pt;
+	font-family:"Arial",sans-serif;
+	mso-fareast-font-family:SimSun;
+	mso-font-kerning:0pt;
+	mso-ansi-language:EN-AU;
+	mso-fareast-language:EN-US;}
+a:link, span.MsoHyperlink
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:#954F72;
+	mso-themecolor:followedhyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:SimSun;
+	mso-ansi-language:EN-AU;
+	mso-fareast-language:EN-US;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:SimSun;
+	mso-ansi-language:EN-AU;
+	mso-fareast-language:EN-US;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:SimSun;
+	mso-ansi-language:EN-AU;
+	mso-fareast-language:EN-US;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:SimSun;
+	mso-ansi-language:EN-AU;
+	mso-fareast-language:EN-US;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 1";
+	mso-ansi-font-size:12.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Arial",sans-serif;
+	mso-ascii-font-family:Arial;
+	mso-fareast-font-family:SimSun;
+	mso-hansi-font-family:Arial;
+	mso-bidi-font-family:Arial;
+	mso-fareast-language:EN-US;
+	font-weight:bold;}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{mso-style-name:msonormal;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:16.0pt;
+	mso-ansi-font-size:16.0pt;
+	mso-bidi-font-size:16.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:Calibri;
+	mso-bidi-theme-font:minor-latin;
+	mso-ansi-language:EN-AU;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:Calibri;
+	mso-bidi-theme-font:minor-latin;
+	mso-ansi-language:EN-AU;}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-priority:39;
+	mso-style-unhide:no;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:Calibri;
+	mso-bidi-theme-font:minor-latin;
+	mso-ansi-language:EN-AU;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink="#954F72" style='tab-interval:36.0pt'>
+
+<div class=WordSection1>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:70.5pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=851 valign=top style='width:638.25pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:200%'><span lang=EN-AU><a
+  href="http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm"><b><span
+  style='font-size:18.0pt;line-height:200%;font-family:"Bookman Old Style",serif'>DOING
+  PHYSICS WITH MATLAB</span></b></a></span><span class=MsoHyperlink><b><span
+  lang=EN-AU style='font-size:18.0pt;line-height:200%;font-family:"Bookman Old Style",serif'><o:p></o:p></span></b></span></p>
+  <p class=MsoNormal style='line-height:200%'><b><span lang=EN-AU
+  style='font-size:18.0pt;line-height:200%;font-family:"Bookman Old Style",serif;
+  color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>DYNAMICS OF
+  OSCILLATING AND CHAOTIC SYSTEMS</span></b><span lang=EN-AU style='color:#C55A11;
+  mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:18.0pt;line-height:115%;font-family:
+  "Bookman Old Style",serif;color:#C55A11;mso-themecolor:accent2;mso-themeshade:
+  191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>SIMULATION: DRIVEN AND DAMPED MOTION OF A PENDULUM<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:115%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:18.0pt;line-height:115%;font-family:
+  "Bookman Old Style",serif;color:#C55A11;mso-themecolor:accent2;mso-themeshade:
+  191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'><span style='mso-spacerun:yes'>                      </span>THE
+  ROAD TO CHAOS<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm'><span lang=EN-AU
+  style='font-family:"Tahoma",sans-serif;color:black;mso-bidi-font-weight:bold'>Ian
+  Cooper<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-family:"Tahoma",sans-serif;color:black;mso-bidi-font-weight:bold'>School
+  of Physics, University of Sydney<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:-12.75pt;line-height:150%'><span
+  lang=EN-AU style='font-family:"Tahoma",sans-serif;color:black'>ian.cooper@sydney.edu.au</span><span
+  lang=EN-AU style='font-family:"Tahoma",sans-serif'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><b><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style",serif;
+  color:blue'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU><a
+  href="http://www.physics.usyd.edu.au/teach_res/mp/mscripts"><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;line-height:
+  150%;font-family:"Bookman Old Style",serif;mso-bidi-font-family:Tahoma'>DOWNLOAD
+  DIRECTORY FOR MATLAB SCRIPTS</span></b></a></span><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:
+  "Bookman Old Style",serif;mso-bidi-font-family:Tahoma;color:#000099'><o:p></o:p></span></b></p>
+  <h1 style='line-height:150%'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;color:#843C0C;
+  mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>mec_chaos_A3.m</span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'><o:p></o:p></span></h1>
+  <p class=MsoNormal><span lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'>Runga-<span
+  class=SpellE>Kutta</span> method for solving the equation of motion for the
+  motion for a pendulum with viscous damping and an applied driving force
+  acting on the system.<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman"'><a
+  href="http://www.physics.usyd.edu.au/teach_res/mp/doc/mec_chaosA.pdf">View
+  background notes</a><o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:18.0pt;mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Bookman Old Style",serif;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;color:#7030A0'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:18.0pt;mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Bookman Old Style",serif;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;color:#7030A0'>INTRODUCTION<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'>The system we will simulate is a pendulum where a mass </span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;mso-ascii-font-family:"Times New Roman";mso-ascii-theme-font:
+  major-fareast;mso-hansi-font-family:"Times New Roman";mso-hansi-theme-font:
+  major-fareast;mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:
+  major-fareast'>m</span></i><i style='mso-bidi-font-style:normal'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'> </span></i><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'>is attached
+  to a rigid massless rod so that the centre of mass is a distance </span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;mso-ascii-font-family:"Times New Roman";mso-ascii-theme-font:
+  major-fareast;mso-hansi-font-family:"Times New Roman";mso-hansi-theme-font:
+  major-fareast;mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:
+  major-fareast'>L</span></i><i style='mso-bidi-font-style:normal'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'> </span></i><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'>from a
+  frictionless pivot. There is viscous damping of the motion and an applied
+  sinusoidal driving force acting on the pendulum. The system is constrained to
+  move in a plane. The net force acting on the system is the resultant force
+  due to the gravitational force <a name=MTBlankEqn><span style='position:relative;
+  top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+   coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+   filled="f" stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:62.25pt;
+   height:21.75pt' o:ole="">
+   <v:imagedata src="mecChaosA3_files/image029.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=83 height=29
+  src="mecChaosA3_files/image031.png" v:shapes="_x0000_i1025"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1025"
+    DrawAspect="Content" ObjectID="_1596366469">
+   </o:OLEObject>
+  </xml><![endif]--></a>; a viscous drag force </span><span lang=EN-AU><span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1026" type="#_x0000_t75" style='width:119.25pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="mecChaosA3_files/image033.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=159 height=29
+  src="mecChaosA3_files/image035.png" v:shapes="_x0000_i1026"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1026"
+    DrawAspect="Content" ObjectID="_1596366470">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'><span
+  style='mso-spacerun:yes'> </span>and an externally applied sinusoidal driving
+  force </span><span lang=EN-AU><span style='position:relative;top:8.0pt;
+  mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1027" type="#_x0000_t75"
+   style='width:144.75pt;height:24pt' o:ole="">
+   <v:imagedata src="mecChaosA3_files/image040.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=193 height=32
+  src="mecChaosA3_files/image037.png" v:shapes="_x0000_i1027"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1027"
+    DrawAspect="Content" ObjectID="_1596366471">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'>.<span
+  style='mso-spacerun:yes'>  </span>The motion is described in terms of the
+  angular displacement <span style='position:relative;top:3.0pt;mso-text-raise:
+  -3.0pt;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_4"
+   o:spid="_x0000_i1116" type="#_x0000_t75" style='width:12pt;height:15.75pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="mecChaosA3_files/image044.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=21
+  src="mecChaosA3_files/image038.png" v:shapes="Picture_x0020_4"><![endif]></span>,
+  the angular velocity <span style='position:relative;top:3.0pt;mso-text-raise:
+  -3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1029" type="#_x0000_t75"
+   style='width:14.25pt;height:12.75pt' o:ole="">
+   <v:imagedata src="mecChaosA3_files/image047.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=19 height=17
+  src="mecChaosA3_files/image039.png" v:shapes="_x0000_i1029"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1029"
+    DrawAspect="Content" ObjectID="_1596366472">
+   </o:OLEObject>
+  </xml><![endif]-->, and the angular acceleration <span style='position:relative;
+  top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1030"
+   type="#_x0000_t75" style='width:14.25pt;height:12.75pt' o:ole="">
+   <v:imagedata src="mecChaosA3_files/image049.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=19 height=17
+  src="mecChaosA3_files/image041.png" v:shapes="_x0000_i1030"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1030"
+    DrawAspect="Content" ObjectID="_1596366473">
+   </o:OLEObject>
+  </xml><![endif]-->.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'>The equation of motion of this system is governed by the
+  equation of motion<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'><span style='mso-spacerun:yes'>                      </span><span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1031" type="#_x0000_t75" style='width:57pt;height:18.75pt'
+   o:ole="">
+   <v:imagedata src="mecChaosA3_files/image051.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=76 height=25
+  src="mecChaosA3_files/image042.png" v:shapes="_x0000_i1031"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1031"
+    DrawAspect="Content" ObjectID="_1596366474">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'>where </span><span lang=EN-AU><span style='position:relative;
+  top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1032"
+   type="#_x0000_t75" style='width:11.25pt;height:12.75pt' o:ole="">
+   <v:imagedata src="mecChaosA3_files/image055.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=15 height=17
+  src="mecChaosA3_files/image043.png" v:shapes="_x0000_i1032"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1032"
+    DrawAspect="Content" ObjectID="_1596366475">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'>is the torque the pivot point, and <span style='position:relative;
+  top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1033"
+   type="#_x0000_t75" style='width:54pt;height:24pt' o:ole="">
+   <v:imagedata src="mecChaosA3_files/image057.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=72 height=32
+  src="mecChaosA3_files/image045.png" v:shapes="_x0000_i1033"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1033"
+    DrawAspect="Content" ObjectID="_1596366476">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>is the moment of
+  inertia about the pivot <span class=GramE>point.</span> In the simulation, </span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%'>g </span></i><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'>= 9.8 <span
+  class=GramE>m.s</span><sup>-2</sup> and </span><i style='mso-bidi-font-style:
+  normal'><span lang=EN-AU style='font-size:16.0pt;line-height:150%'>L </span></i><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'>= 9.8 m. The equation of motion then reduces to<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'><span style='mso-spacerun:yes'>                    </span><span
+  style='position:relative;top:16.0pt;mso-text-raise:-16.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1098" type="#_x0000_t75" style='width:234pt;height:44.25pt'
+   o:ole="">
+   <v:imagedata src="mecChaosA3_files/image010.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=312 height=59
+  src="mecChaosA3_files/image046.png" v:shapes="_x0000_i1098"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1098"
+    DrawAspect="Content" ObjectID="_1596366477">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'>The Matlab variables for the angular displacement, angular
+  velocity and angular acceleration are:<span style='mso-spacerun:yes'>  
+  </span><span style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1035" type="#_x0000_t75" style='width:183pt;height:18.75pt'
+   o:ole="">
+   <v:imagedata src="mecChaosA3_files/image061.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=244 height=25
+  src="mecChaosA3_files/image048.png" v:shapes="_x0000_i1035"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1035"
+    DrawAspect="Content" ObjectID="_1596366478">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'>The Runga-<span class=SpellE>Kutta</span> computes the angular
+  displacement and angular velocity at each time step. <o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'>The value of the damping constant </span><i style='mso-bidi-font-style:
+  normal'><span lang=EN-AU style='font-size:16.0pt;line-height:150%'>c </span></i><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'>and the force parameters </span><i style='mso-bidi-font-style:
+  normal'><span lang=EN-AU style='font-size:16.0pt;line-height:150%'>A </span></i><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'>and </span><span lang=EN-AU><span style='position:relative;
+  top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1036"
+   type="#_x0000_t75" style='width:30.75pt;height:21.75pt' o:ole="">
+   <v:imagedata src="mecChaosA3_files/image066.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=41 height=29
+  src="mecChaosA3_files/image050.png" v:shapes="_x0000_i1036"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1036"
+    DrawAspect="Content" ObjectID="_1596366479">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'>are changed
+  with the Runge-<span class=SpellE>Kutta</span> function<o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:20.0pt;mso-bidi-font-size:16.0pt;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>           </span></span><span class=GramE><span
+  style='mso-bidi-font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";mso-fareast-theme-font:minor-fareast;color:blue;mso-ansi-language:
+  EN-US;mso-fareast-language:ZH-CN'>function</span><span style='mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";mso-fareast-font-family:"Times New Roman";
+  mso-fareast-theme-font:minor-fareast;color:black;mso-ansi-language:EN-US;
+  mso-fareast-language:ZH-CN'><span style='mso-spacerun:yes'>  </span>y</span></span><span
+  style='mso-bidi-font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";mso-fareast-theme-font:minor-fareast;color:black;
+  mso-ansi-language:EN-US;mso-fareast-language:ZH-CN'> = <span class=SpellE>fn</span>(<span
+  class=SpellE>t,x,v</span>)</span><span style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New";mso-fareast-font-family:"Times New Roman";
+  mso-fareast-theme-font:minor-fareast;mso-ansi-language:EN-US;mso-fareast-language:
+  ZH-CN'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='mso-bidi-font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";mso-fareast-theme-font:minor-fareast;color:black;
+  mso-ansi-language:EN-US;mso-fareast-language:ZH-CN'><span
+  style='mso-spacerun:yes'>         </span>c = 0.25;</span><span
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+  mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast;
+  mso-ansi-language:EN-US;mso-fareast-language:ZH-CN'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='mso-bidi-font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";mso-fareast-theme-font:minor-fareast;color:black;
+  mso-ansi-language:EN-US;mso-fareast-language:ZH-CN'><span
+  style='mso-spacerun:yes'>         </span>A = 1;</span><span style='font-size:
+  16.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";mso-fareast-theme-font:minor-fareast;mso-ansi-language:
+  EN-US;mso-fareast-language:ZH-CN'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='mso-bidi-font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";mso-fareast-theme-font:minor-fareast;color:black;
+  mso-ansi-language:EN-US;mso-fareast-language:ZH-CN'><span
+  style='mso-spacerun:yes'>         </span><span class=SpellE>wExt</span> = 2;</span><span
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+  mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast;
+  mso-ansi-language:EN-US;mso-fareast-language:ZH-CN'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='mso-bidi-font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";mso-fareast-theme-font:minor-fareast;color:black;
+  mso-ansi-language:EN-US;mso-fareast-language:ZH-CN'><span
+  style='mso-spacerun:yes'>         </span>y = -(1 + A*cos(<span class=SpellE>wExt</span>*t))
+  * sin(x) - c * v;<span style='mso-spacerun:yes'>        </span></span><span
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+  mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast;
+  mso-ansi-language:EN-US;mso-fareast-language:ZH-CN'><o:p></o:p></span></p>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='mso-bidi-font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";mso-fareast-theme-font:minor-fareast;color:black;
+  mso-ansi-language:EN-US;mso-fareast-language:ZH-CN'><span
+  style='mso-spacerun:yes'>      </span></span><span style='mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";mso-fareast-font-family:"Times New Roman";
+  mso-fareast-theme-font:minor-fareast;color:blue;mso-ansi-language:EN-US;
+  mso-fareast-language:ZH-CN'>end</span><span style='font-size:16.0pt;
+  mso-bidi-font-size:12.0pt;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";mso-fareast-theme-font:minor-fareast;mso-ansi-language:
+  EN-US;mso-fareast-language:ZH-CN'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='font-size:16.0pt;
+  line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;mso-ansi-language:
+  EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:18.0pt;mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Bookman Old Style",serif;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;color:#7030A0'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:18.0pt;mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Bookman Old Style",serif;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;color:#7030A0'>SIMULATIONS <o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'>Adding a driving force increases the complexity of the phase
+  space plots and may lead to a chaotic motion of the pendulum.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:
+  "Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin;color:#7030A0'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:
+  "Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin;color:#7030A0'>Simulation #1</span></b><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#7030A0'><span style='mso-spacerun:yes'>   </span></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin'>Initial conditions<span
+  style='mso-spacerun:yes'>    </span></span><span lang=EN-AU><span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1059" type="#_x0000_t75" style='width:321.75pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="mecChaosA3_files/image069.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=429 height=27
+  src="mecChaosA3_files/image052.png" v:shapes="_x0000_i1059"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1059"
+    DrawAspect="Content" ObjectID="_1596366481">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'><span
+  style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin'>Damping<span
+  style='mso-spacerun:yes'>                  </span></span><span lang=EN-AU><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1053" type="#_x0000_t75" style='width:45pt;height:15.75pt'
+   o:ole="">
+   <v:imagedata src="mecChaosA3_files/image071.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=60 height=21
+  src="mecChaosA3_files/image053.png" v:shapes="_x0000_i1053"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1053"
+    DrawAspect="Content" ObjectID="_1596366482">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'><span
+  style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin'>Driving force<span
+  style='mso-spacerun:yes'>           </span></span><span lang=EN-AU><span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1039" type="#_x0000_t75" style='width:108pt;height:18.75pt'
+   o:ole="">
+   <v:imagedata src="mecChaosA3_files/image073.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=144 height=25
+  src="mecChaosA3_files/image054.png" v:shapes="_x0000_i1039"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1039"
+    DrawAspect="Content" ObjectID="_1596366483">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'><span
+  style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;mso-no-proof:
+  yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_1" o:spid="_x0000_i1115"
+   type="#_x0000_t75" style='width:417.75pt;height:630pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="mecChaosA3_files/image076.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=557 height=840
+  src="mecChaosA3_files/image076.png" v:shapes="Picture_x0020_1"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;mso-no-proof:
+  yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_6" o:spid="_x0000_i1114"
+   type="#_x0000_t75" style='width:417.75pt;height:270pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="mecChaosA3_files/image077.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=557 height=360
+  src="mecChaosA3_files/image077.png" v:shapes="Picture_x0020_6"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;mso-no-proof:
+  yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_7" o:spid="_x0000_i1113"
+   type="#_x0000_t75" style='width:417.75pt;height:270pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="mecChaosA3_files/image078.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=557 height=360
+  src="mecChaosA3_files/image078.png" v:shapes="Picture_x0020_7"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin'>After some transient behaviour,
+  the system stabilizes. The trajectory encircles the point </span><span
+  lang=EN-AU><span style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1043" type="#_x0000_t75" style='width:174pt;height:24pt' o:ole="">
+   <v:imagedata src="mecChaosA3_files/image079.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=232 height=32
+  src="mecChaosA3_files/image056.png" v:shapes="_x0000_i1043"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1043"
+    DrawAspect="Content" ObjectID="_1596366484">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span></span><span
+  lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'>and the
+  orbit becomes <b style='mso-bidi-font-weight:normal'><span style='color:#7030A0'>periodic</span></b>.<span
+  style='mso-spacerun:yes'>  </span>In phase space, the trajectory evolves
+  towards a closed orbit called a <b style='mso-bidi-font-weight:normal'><span
+  style='color:#7030A0'>limit cycle</span></b>. The period of the orbit is
+  twice that of the period of the driving frequency </span><span lang=EN-AU><span
+  style='position:relative;top:21.0pt;mso-text-raise:-21.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1044" type="#_x0000_t75" style='width:300.75pt;height:50.25pt'
+   o:ole="">
+   <v:imagedata src="mecChaosA3_files/image081.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=401 height=67
+  src="mecChaosA3_files/image058.png" v:shapes="_x0000_i1044"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1044"
+    DrawAspect="Content" ObjectID="_1596366485">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'><span
+  style='mso-spacerun:yes'> </span>.<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin'>The lower plot shows the limit
+  cycle more clearly as the plots shows the trajectory only after some time has
+  evolved from the initial conditions. This is done by changing the script for
+  the plot in Figure 2:<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-AU style='font-size:20.0pt;mso-bidi-font-size:
+  12.0pt;line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'><span
+  style='mso-spacerun:yes'>          </span></span><span style='mso-bidi-font-size:
+  10.0pt;line-height:150%;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";mso-fareast-theme-font:minor-fareast;color:black;
+  mso-ansi-language:EN-US;mso-fareast-language:ZH-CN'>XY = <span class=GramE>700:nT</span>;<span
+  style='mso-spacerun:yes'>           </span></span><span style='mso-bidi-font-size:
+  10.0pt;line-height:150%;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";mso-fareast-theme-font:minor-fareast;color:forestgreen;
+  mso-ansi-language:EN-US;mso-fareast-language:ZH-CN'>% <span class=SpellE>specifiy</span>
+  time interval for plotting<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;mso-layout-grid-align:none;
+  text-autospace:none'><span style='mso-bidi-font-size:10.0pt;line-height:150%;
+  font-family:"Courier New";mso-fareast-font-family:"Times New Roman";
+  mso-fareast-theme-font:minor-fareast;color:black;mso-ansi-language:EN-US;
+  mso-fareast-language:ZH-CN'><span style='mso-spacerun:yes'>      </span><span
+  class=SpellE>xP</span> = <span class=SpellE>xA</span>(XY)/pi; <span
+  class=SpellE>yP</span> = <span class=SpellE>vA</span>(XY);</span><span
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Courier New";mso-fareast-font-family:"Times New Roman";
+  mso-fareast-theme-font:minor-fareast;mso-ansi-language:EN-US;mso-fareast-language:
+  ZH-CN'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;mso-layout-grid-align:none;
+  text-autospace:none'><span style='mso-bidi-font-size:10.0pt;line-height:150%;
+  font-family:"Courier New";mso-fareast-font-family:"Times New Roman";
+  mso-fareast-theme-font:minor-fareast;color:black;mso-ansi-language:EN-US;
+  mso-fareast-language:ZH-CN'><span style='mso-spacerun:yes'>      </span>plot(<span
+  class=GramE>xP,yP</span>,</span><span style='mso-bidi-font-size:10.0pt;
+  line-height:150%;font-family:"Courier New";mso-fareast-font-family:"Times New Roman";
+  mso-fareast-theme-font:minor-fareast;color:#A020F0;mso-ansi-language:EN-US;
+  mso-fareast-language:ZH-CN'>'b'</span><span style='mso-bidi-font-size:10.0pt;
+  line-height:150%;font-family:"Courier New";mso-fareast-font-family:"Times New Roman";
+  mso-fareast-theme-font:minor-fareast;color:black;mso-ansi-language:EN-US;
+  mso-fareast-language:ZH-CN'>,</span><span style='mso-bidi-font-size:10.0pt;
+  line-height:150%;font-family:"Courier New";mso-fareast-font-family:"Times New Roman";
+  mso-fareast-theme-font:minor-fareast;color:#A020F0;mso-ansi-language:EN-US;
+  mso-fareast-language:ZH-CN'>'lineWidth'</span><span style='mso-bidi-font-size:
+  10.0pt;line-height:150%;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";mso-fareast-theme-font:minor-fareast;color:black;
+  mso-ansi-language:EN-US;mso-fareast-language:ZH-CN'>,2);<o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  10.0pt;line-height:150%;font-family:"Courier New";mso-fareast-font-family:
+  "Times New Roman";mso-fareast-theme-font:minor-fareast;color:black;
+  mso-ansi-language:EN-US;mso-fareast-language:ZH-CN;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_8" o:spid="_x0000_i1112" type="#_x0000_t75" style='width:6in;
+   height:486pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="mecChaosA3_files/image083.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=576 height=648
+  src="mecChaosA3_files/image083.gif" v:shapes="Picture_x0020_8"><![endif]></span><span
+  style='mso-bidi-font-size:10.0pt;line-height:150%;font-family:"Courier New";
+  mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast;
+  color:black;mso-ansi-language:EN-US;mso-fareast-language:ZH-CN'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;mso-layout-grid-align:none;
+  text-autospace:none'><span style='font-size:16.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-theme-font:minor-fareast;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin;color:black;mso-ansi-language:
+  EN-US;mso-fareast-language:ZH-CN'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'>The attractor at the fixed point in phase space is <span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1100" type="#_x0000_t75" style='width:86.25pt;height:18.75pt'
+   o:ole="">
+   <v:imagedata src="mecChaosA3_files/image059.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=115 height=25
+  src="mecChaosA3_files/image060.png" v:shapes="_x0000_i1100"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1100"
+    DrawAspect="Content" ObjectID="_1596366486">
+   </o:OLEObject>
+  </xml><![endif]-->.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'>Small changes in the initial conditions has little effect upon
+  the motion of the pendulum.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:
+  "Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin;color:#7030A0'>Simulation #2</span></b><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#7030A0'><span style='mso-spacerun:yes'>   </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin'>Initial conditions<span
+  style='mso-spacerun:yes'>    </span></span><span lang=EN-AU><span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1064" type="#_x0000_t75" style='width:321.75pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="mecChaosA3_files/image069.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=429 height=27
+  src="mecChaosA3_files/image052.png" v:shapes="_x0000_i1064"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1064"
+    DrawAspect="Content" ObjectID="_1596366487">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'><span
+  style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin'>Damping<span
+  style='mso-spacerun:yes'>                  </span></span><span lang=EN-AU><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1063" type="#_x0000_t75" style='width:45pt;height:15.75pt'
+   o:ole="">
+   <v:imagedata src="mecChaosA3_files/image071.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=60 height=21
+  src="mecChaosA3_files/image053.png" v:shapes="_x0000_i1063"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1063"
+    DrawAspect="Content" ObjectID="_1596366488">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'><span
+  style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin'>Driving force<span
+  style='mso-spacerun:yes'>           </span></span><span lang=EN-AU><span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1066" type="#_x0000_t75" style='width:129pt;height:18.75pt'
+   o:ole="">
+   <v:imagedata src="mecChaosA3_files/image019.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=172 height=25
+  src="mecChaosA3_files/image062.png" v:shapes="_x0000_i1066"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1066"
+    DrawAspect="Content" ObjectID="_1596366489">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'><span
+  style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin'>Small changes in the strength of
+  the driving force given by the variable may result in very different
+  trajectories of the pendulum.<o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;mso-no-proof:
+  yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_9" o:spid="_x0000_i1111"
+   type="#_x0000_t75" style='width:417.75pt;height:630pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="mecChaosA3_files/image021.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=557 height=840
+  src="mecChaosA3_files/image021.png" v:shapes="Picture_x0020_9"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#7030A0;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_10"
+   o:spid="_x0000_i1110" type="#_x0000_t75" style='width:417.75pt;height:270pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="mecChaosA3_files/image022.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=557 height=360
+  src="mecChaosA3_files/image022.png" v:shapes="Picture_x0020_10"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#7030A0'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#7030A0;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_11"
+   o:spid="_x0000_i1109" type="#_x0000_t75" style='width:6in;height:486pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="mecChaosA3_files/image023.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=576 height=648
+  src="mecChaosA3_files/image023.gif" v:shapes="Picture_x0020_11"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#7030A0'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin'>The increase in the driving
+  force causes the trajectory to wander in a haphazard manner that appears to
+  be chaotic but is not. The trajectory moves away from the fixed point
+  attractor at </span><span lang=EN-AU><span style='position:relative;
+  top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1071"
+   type="#_x0000_t75" style='width:86.25pt;height:18.75pt' o:ole="">
+   <v:imagedata src="mecChaosA3_files/image024.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=115 height=25
+  src="mecChaosA3_files/image063.png" v:shapes="_x0000_i1071"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1071"
+    DrawAspect="Content" ObjectID="_1596366490">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'><span
+  style='mso-spacerun:yes'> </span>and then spins in a clockwise sense until
+  the trajectory becomes stable and periodic again around the fixed point
+  attractor </span><span lang=EN-AU><span style='position:relative;top:6.0pt;
+  mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1075" type="#_x0000_t75"
+   style='width:96.75pt;height:18.75pt' o:ole="">
+   <v:imagedata src="mecChaosA3_files/image026.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=129 height=25
+  src="mecChaosA3_files/image064.png" v:shapes="_x0000_i1075"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1075"
+    DrawAspect="Content" ObjectID="_1596366491">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'>.
+  Its period in phase space is still twice that of the driving force.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:
+  "Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin;color:#7030A0'>Simulation #3</span></b><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#7030A0'><span style='mso-spacerun:yes'>   </span></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin'>Initial conditions<span
+  style='mso-spacerun:yes'>    </span></span><span lang=EN-AU><span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1085" type="#_x0000_t75" style='width:339.75pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="mecChaosA3_files/image028.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=453 height=27
+  src="mecChaosA3_files/image065.png" v:shapes="_x0000_i1085"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1085"
+    DrawAspect="Content" ObjectID="_1596366492">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'><span
+  style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin'>Damping<span
+  style='mso-spacerun:yes'>                  </span></span><span lang=EN-AU><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1079" type="#_x0000_t75" style='width:45pt;height:15.75pt'
+   o:ole="">
+   <v:imagedata src="mecChaosA3_files/image071.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=60 height=21
+  src="mecChaosA3_files/image053.png" v:shapes="_x0000_i1079"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1079"
+    DrawAspect="Content" ObjectID="_1596366493">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'><span
+  style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin'>Driving force<span
+  style='mso-spacerun:yes'>           </span></span><span lang=EN-AU><span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1081" type="#_x0000_t75" style='width:129pt;height:18.75pt'
+   o:ole="">
+   <v:imagedata src="mecChaosA3_files/image019.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=172 height=25
+  src="mecChaosA3_files/image062.png" v:shapes="_x0000_i1081"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1081"
+    DrawAspect="Content" ObjectID="_1596366494">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'><span
+  style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'>For the larger driving force, the trajectory is very sensitive changes
+  in any of the model parameters as shown by comparing the results for
+  simulations #2 and #3.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman";
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_12" o:spid="_x0000_i1108"
+   type="#_x0000_t75" style='width:417.75pt;height:630pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="mecChaosA3_files/image032.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=557 height=840
+  src="mecChaosA3_files/image032.png" v:shapes="Picture_x0020_12"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman"'><span
+  style='mso-spacerun:yes'> </span><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_13" o:spid="_x0000_i1107" type="#_x0000_t75" style='width:417.75pt;
+   height:270pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="mecChaosA3_files/image034.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=557 height=360
+  src="mecChaosA3_files/image034.png" v:shapes="Picture_x0020_13"><![endif]></span><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman";
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_19" o:spid="_x0000_i1106"
+   type="#_x0000_t75" style='width:6in;height:486pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="mecChaosA3_files/image036.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=576 height=648
+  src="mecChaosA3_files/image036.gif" v:shapes="Picture_x0020_19"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman"'>The
+  pendulum wanders between different attractor fixed points.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:12.0pt;
+  line-height:150%;font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman";
+  color:#7030A0'>Simulation #4<span style='mso-spacerun:yes'>   </span>The road
+  to chaos</span></b><b style='mso-bidi-font-weight:normal'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin'>Initial conditions<span
+  style='mso-spacerun:yes'>    </span></span><span lang=EN-AU><span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1090" type="#_x0000_t75" style='width:332.25pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="mecChaosA3_files/image067.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=443 height=27
+  src="mecChaosA3_files/image068.png" v:shapes="_x0000_i1090"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1090"
+    DrawAspect="Content" ObjectID="_1596366495">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'><span
+  style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin'>Damping<span
+  style='mso-spacerun:yes'>                  </span></span><span lang=EN-AU><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1086" type="#_x0000_t75" style='width:45pt;height:15.75pt'
+   o:ole="">
+   <v:imagedata src="mecChaosA3_files/image071.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=60 height=21
+  src="mecChaosA3_files/image053.png" v:shapes="_x0000_i1086"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1086"
+    DrawAspect="Content" ObjectID="_1596366496">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'><span
+  style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin'>Driving force<span
+  style='mso-spacerun:yes'>           </span></span><span lang=EN-AU><span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1092" type="#_x0000_t75" style='width:123pt;height:18.75pt'
+   o:ole="">
+   <v:imagedata src="mecChaosA3_files/image070.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=164 height=25
+  src="mecChaosA3_files/image072.png" v:shapes="_x0000_i1092"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1092"
+    DrawAspect="Content" ObjectID="_1596366497">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'><span
+  style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin'>For the larger driving force, the trajectory is very sensitive changes
+  in any of the model parameters. </span><span lang=EN-AU style='font-size:
+  16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman";
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_20" o:spid="_x0000_i1105"
+   type="#_x0000_t75" style='width:417.75pt;height:630pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="mecChaosA3_files/image074.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=557 height=840
+  src="mecChaosA3_files/image074.png" v:shapes="Picture_x0020_20"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman";
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_22" o:spid="_x0000_i1104"
+   type="#_x0000_t75" style='width:417.75pt;height:270pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="mecChaosA3_files/image075.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=557 height=360
+  src="mecChaosA3_files/image075.png" v:shapes="Picture_x0020_22"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman";
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_23" o:spid="_x0000_i1103"
+   type="#_x0000_t75" style='width:6in;height:486pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="mecChaosA3_files/image080.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=576 height=648
+  src="mecChaosA3_files/image080.gif" v:shapes="Picture_x0020_23"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman"'>The
+  motion of the pendulum has now become <b style='mso-bidi-font-weight:normal'><span
+  style='color:#7030A0'>chaotic</span></b>. The trajectory in phase space
+  wanders about aimlessly, sometimes the pendulum rotates clockwise and at
+  other times it rotates anticlockwise about the pivot point. It appears to be
+  pulled towards one of the stable points, then wanders away again to another
+  attractor fixed point.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman"'>Changing
+  the initial conditions very slightly for the angular velocity from </span><span
+  lang=EN-AU><span style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1094" type="#_x0000_t75" style='width:114pt;height:15.75pt'
+   o:ole="">
+   <v:imagedata src="mecChaosA3_files/image086.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=152 height=21
+  src="mecChaosA3_files/image091.png" v:shapes="_x0000_i1094"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1094"
+    DrawAspect="Content" ObjectID="_1596366498">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin'><span
+  style='mso-spacerun:yes'> </span>dramatically changes the phase space
+  trajectory as shown in the following diagrams. So, it is not possible to
+  predict the motion of the pendulum – the motion is truly chaotic.<o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman";
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_24" o:spid="_x0000_i1102"
+   type="#_x0000_t75" style='width:417.75pt;height:270pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="mecChaosA3_files/image089.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=557 height=360
+  src="mecChaosA3_files/image089.png" v:shapes="Picture_x0020_24"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman";
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_26" o:spid="_x0000_i1101"
+   type="#_x0000_t75" style='width:6in;height:486pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="mecChaosA3_files/image090.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=576 height=648
+  src="mecChaosA3_files/image090.gif" v:shapes="Picture_x0020_26"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=EN-AU style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Calibri",sans-serif;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

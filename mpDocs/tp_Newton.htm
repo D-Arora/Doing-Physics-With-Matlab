@@ -1,0 +1,2573 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 15">
+<meta name=Originator content="Microsoft Word 15">
+<base target="_blank">
+<link rel=File-List href="tp_Newton_files/filelist.xml">
+<link rel=Edit-Time-Data href="tp_Newton_files/editdata.mso">
+<link rel=OLE-Object-Data href="tp_Newton_files/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Newton's Law of Cooling: Matlab Simulation</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Subject>Newton's law of Cooling</o:Subject>
+  <o:Author>Ian Cooper</o:Author>
+  <o:Keywords>Newton's law of Cooling, Newton's Law of Cooling Matlab simulation, Matlab physics, Matlab thermal physics</o:Keywords>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Ian Cooper</o:LastAuthor>
+  <o:Revision>31</o:Revision>
+  <o:TotalTime>9662</o:TotalTime>
+  <o:Created>2017-01-14T05:43:00Z</o:Created>
+  <o:LastSaved>2017-01-22T22:59:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>1656</o:Words>
+  <o:Characters>9441</o:Characters>
+  <o:Category>Thermal Physics</o:Category>
+  <o:Lines>78</o:Lines>
+  <o:Paragraphs>22</o:Paragraphs>
+  <o:CharactersWithSpaces>11075</o:CharactersWithSpaces>
+  <o:Version>16.00</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+<link rel=dataStoreItem href="tp_Newton_files/item0045.xml"
+target="tp_Newton_files/props046.xml">
+<link rel=themeData href="tp_Newton_files/themedata.thmx">
+<link rel=colorSchemeMapping href="tp_Newton_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-AU</w:LidThemeOther>
+  <w:LidThemeAsian>ZH-CN</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
+  DefSemiHidden="false" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="372">
+  <w:LsdException Locked="false" Priority="0" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 7"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 8"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 9"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 9"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal Indent"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footnote text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="header"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footer"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index heading"/>
+  <w:LsdException Locked="false" Priority="35" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="table of figures"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="envelope address"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="envelope return"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footnote reference"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation reference"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="line number"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="page number"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="endnote reference"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="endnote text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="table of authorities"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="macro"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="toa heading"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 5"/>
+  <w:LsdException Locked="false" Priority="10" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Closing"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Signature"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="true"
+   UnhideWhenUsed="true" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Message Header"/>
+  <w:LsdException Locked="false" Priority="11" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Salutation"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Date"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text First Indent"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text First Indent 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Note Heading"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Block Text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Hyperlink"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="FollowedHyperlink"/>
+  <w:LsdException Locked="false" Priority="22" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Document Map"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Plain Text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="E-mail Signature"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Top of Form"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Bottom of Form"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal (Web)"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Acronym"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Address"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Cite"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Code"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Definition"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Keyboard"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Preformatted"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Sample"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Typewriter"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Variable"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal Table"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation subject"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="No List"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 7"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 8"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 7"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 8"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Contemporary"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Elegant"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Professional"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Subtle 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Subtle 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Balloon Text"/>
+  <w:LsdException Locked="false" Priority="39" Name="Table Grid"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Theme"/>
+  <w:LsdException Locked="false" SemiHidden="true" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" QFormat="true"
+   Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" QFormat="true"
+   Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" QFormat="true"
+   Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" QFormat="true"
+   Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" QFormat="true"
+   Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" QFormat="true"
+   Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" SemiHidden="true"
+   UnhideWhenUsed="true" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="TOC Heading"/>
+  <w:LsdException Locked="false" Priority="41" Name="Plain Table 1"/>
+  <w:LsdException Locked="false" Priority="42" Name="Plain Table 2"/>
+  <w:LsdException Locked="false" Priority="43" Name="Plain Table 3"/>
+  <w:LsdException Locked="false" Priority="44" Name="Plain Table 4"/>
+  <w:LsdException Locked="false" Priority="45" Name="Plain Table 5"/>
+  <w:LsdException Locked="false" Priority="40" Name="Grid Table Light"/>
+  <w:LsdException Locked="false" Priority="46" Name="Grid Table 1 Light"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark"/>
+  <w:LsdException Locked="false" Priority="51" Name="Grid Table 6 Colorful"/>
+  <w:LsdException Locked="false" Priority="52" Name="Grid Table 7 Colorful"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 1"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 1"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 1"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 2"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 2"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 2"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 3"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 3"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 3"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 4"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 4"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 5"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 5"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 5"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 6"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 6"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 6"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 6"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 6"/>
+  <w:LsdException Locked="false" Priority="46" Name="List Table 1 Light"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark"/>
+  <w:LsdException Locked="false" Priority="51" Name="List Table 6 Colorful"/>
+  <w:LsdException Locked="false" Priority="52" Name="List Table 7 Colorful"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 1"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 1"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 1"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 2"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 2"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 2"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 3"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 3"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 3"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 4"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 4"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 5"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 5"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 5"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 6"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 6"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 6"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 6"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Mention"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:1;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:0 0 0 0 0 0;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-536859905 -1073732485 9 0 511 0;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+@font-face
+	{font-family:"Segoe UI";
+	panose-1:2 11 5 2 4 2 4 2 2 3;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-469750017 -1073683329 9 0 511 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:105%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Comment Text Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+span.MsoCommentReference
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;}
+a:link, span.MsoHyperlink
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:#0563C1;
+	mso-themecolor:hyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:#954F72;
+	mso-themecolor:followedhyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"Comment Text";
+	mso-style-link:"Comment Subject Char";
+	mso-style-next:"Comment Text";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	font-weight:bold;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Balloon Text Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:9.0pt;
+	font-family:"Segoe UI",sans-serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+span.MsoPlaceholderText
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	color:gray;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-priority:1;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	line-height:105%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-ansi-language:EN-AU;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	line-height:105%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-ansi-language:EN-AU;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	line-height:105%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-ansi-language:EN-AU;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	line-height:105%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-ansi-language:EN-AU;}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{mso-style-name:msonormal;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+span.CommentTextChar
+	{mso-style-name:"Comment Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Comment Text";
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;}
+span.CommentSubjectChar
+	{mso-style-name:"Comment Subject Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-parent:"Comment Text Char";
+	mso-style-link:"Comment Subject";
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-weight:bold;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Balloon Text";
+	mso-ansi-font-size:9.0pt;
+	mso-bidi-font-size:9.0pt;
+	font-family:"Segoe UI",sans-serif;
+	mso-ascii-font-family:"Segoe UI";
+	mso-hansi-font-family:"Segoe UI";
+	mso-bidi-font-family:"Segoe UI";}
+span.apple-converted-space
+	{mso-style-name:apple-converted-space;
+	mso-style-unhide:no;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:10.0pt;
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-priority:39;
+	mso-style-unhide:no;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US link="#0563C1" vlink="#954F72" style='tab-interval:36.0pt'>
+
+<div class=WordSection1>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 width=1042
+ style='width:781.2pt;margin-left:98.85pt;border-collapse:collapse;border:none;
+ mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:
+ none;mso-border-insidev:none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width=358 colspan=2 valign=top style='width:268.25pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shapetype
+   id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+   path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="Picture_x0020_1" o:spid="_x0000_i1062" type="#_x0000_t75"
+   style='width:226.5pt;height:212.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="tp_Newton_files/image001.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img width=302 height=283
+  src="tp_Newton_files/image001.gif" v:shapes="Picture_x0020_1"><![endif]></span></p>
+  </td>
+  <td width=684 colspan=3 valign=top style='width:512.95pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><b style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;
+  font-family:"Bookman Old Style",serif;color:#C55A11;mso-themecolor:accent2;
+  mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><b style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;
+  font-family:"Bookman Old Style",serif;color:blue'><a
+  href="http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm"><span
+  style='color:#0000BF'>DOING PHYSICS WITH MATLAB</span></a></span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;font-family:
+  "Bookman Old Style",serif;color:#0000BF'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><b style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;
+  font-family:"Bookman Old Style",serif;color:blue'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><b style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;
+  font-family:"Bookman Old Style",serif;color:#C55A11;mso-themecolor:accent2;
+  mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><b style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;
+  line-height:150%;font-family:"Bookman Old Style",serif;color:#C55A11;
+  mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>THERMMAL PHYSICS<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><b style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;
+  line-height:150%;font-family:"Bookman Old Style",serif;color:#C55A11;
+  mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'><span
+  style='mso-spacerun:yes'>   </span>NEWTON’S LAW OF COOLING<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><b style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;
+  line-height:150%;font-family:"Bookman Old Style",serif;color:#C55A11;
+  mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'><span
+  style='mso-spacerun:yes'>      </span>CSI:<span style='mso-spacerun:yes'>  
+  </span>MURDER - TIME OF <span class=GramE>DEATH ?</span><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><b style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;
+  line-height:150%;font-family:"Bookman Old Style",serif;color:#C55A11;
+  mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'><span
+  style='mso-spacerun:yes'>      </span>COFFEE COOLING PROBLEM<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><b style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;
+  font-family:"Bookman Old Style",serif;color:#C55A11;mso-themecolor:accent2;
+  mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width=1042 colspan=5 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><b style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;color:blue'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><b style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;color:blue'><a
+  href="http://www.physics.usyd.edu.au/teach_res/mp/mscripts/"><span
+  style='color:blue'>Matlab DOWNLOAD directory</span></a><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><b style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;color:blue'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><b style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;color:blue'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'>The <span
+  class=GramE>function<span style='mso-spacerun:yes'>  </span><span
+  class=SpellE><b style='mso-bidi-font-weight:normal'><span style='color:#843C0C;
+  mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>tp</span></b></span></span><span
+  class=SpellE><b style='mso-bidi-font-weight:normal'><span style='color:#843C0C;
+  mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>_fn_Newton.m</span></b></span><span
+  style='mso-spacerun:yes'>  </span>can be used to solve many problems related
+  to Newton’s Law of Cooling. <o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'>Download
+  the mscript for the function and check that you understand the structure of
+  the coding and how the code performs the calculations.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'>The
+  function and its inputs are:<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:blue'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:blue'>function</span><span style='font-size:14.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'> <span class=GramE>[ ]</span> =
+  <span class=SpellE>tp_fn_Newton</span>(R,N,tMax,T0,Tenv, <span class=SpellE>flagC</span>)</span><span
+  style='font-size:18.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:black'><span style='mso-spacerun:yes'> </span></span><span
+  style='font-size:18.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:black'><span style='mso-spacerun:yes'>  </span></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:forestgreen'>% R<span style='mso-spacerun:yes'>     </span>Cooling
+  constant [1/min]</span><span style='font-size:18.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:black'><span style='mso-spacerun:yes'>  </span></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:forestgreen'>% N<span style='mso-spacerun:yes'>     </span>Number of
+  time steps </span><span style='font-size:18.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:black'><span style='mso-spacerun:yes'>  </span></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:forestgreen'>% <span class=SpellE><span class=GramE>tMax</span></span><span
+  class=GramE><span style='mso-spacerun:yes'>  </span>Time</span> interval for
+  simulation<span style='mso-spacerun:yes'>  </span>[minutes]</span><span
+  style='font-size:18.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:black'><span style='mso-spacerun:yes'>  </span></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:forestgreen'>% T0<span style='mso-spacerun:yes'>    </span>Initial
+  temperature of system [<span class=SpellE>degC</span>]</span><span
+  style='font-size:18.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:black'><span style='mso-spacerun:yes'>  </span></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:forestgreen'>% <span class=SpellE><span class=GramE>Tenv</span></span><span
+  class=GramE><span style='mso-spacerun:yes'>  </span>Temperature</span> of
+  surrounding environment<span style='mso-spacerun:yes'>  </span>[<span
+  class=SpellE>degc</span>]</span><span style='font-size:18.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:black'><span style='mso-spacerun:yes'>  </span></span><span
+  style='font-size:18.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:black'><span style='mso-spacerun:yes'>  </span></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:forestgreen'>% <span class=SpellE>flagC</span> == 1<span
+  style='mso-spacerun:yes'>     </span>% Plot numerical solution only for T vs
+  t</span><span style='font-size:18.0pt;mso-bidi-font-size:12.0pt;font-family:
+  "Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:black'><span style='mso-spacerun:yes'>  </span></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:forestgreen'>% <span class=SpellE>flagC</span> == 2<span
+  style='mso-spacerun:yes'>     </span>% Plot of numerical and analytical
+  solutions for T vs t</span><span style='font-size:18.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:black'><span style='mso-spacerun:yes'>  </span></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:forestgreen'>% <span class=SpellE>flagC</span> == 3<span
+  style='mso-spacerun:yes'>     </span>% Plot of numerical solution fitted to
+  data for cooling coffee <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:forestgreen'><span style='mso-spacerun:yes'>  </span>…</span><span
+  style='font-size:18.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width=1042 colspan=5 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td width=1042 colspan=5 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri'>The nature of the thermal energy
+  transferred from one place at a higher temperature to another place of lower temperature
+  is complicated and in general involves the processes of conduction,
+  convection and radiation.<span style='mso-spacerun:yes'>  </span>However, if
+  this temperature difference is not too large, the rate of change of
+  temperature can be approximated using Newton’s law of Cooling.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><b style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:#7030A0'>Newton's Law of Cooling</span></b><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'> states that
+  the rate of change of the temperature of an object is proportional to the
+  difference between its own temperature and the ambient temperature (i.e. the
+  temperature of its surrounding environment). Mathematically Newton’s Law of
+  Cooling can be written as a first order ordinary differential equation<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:12.75pt;margin-bottom:.0001pt;line-height:150%'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>(1)<span style='mso-spacerun:yes'>    </span></span><span
+  style='mso-bidi-font-family:Calibri'><span style='position:relative;
+  top:15.0pt;mso-text-raise:-15.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1026"
+   type="#_x0000_t75" style='width:153pt;height:39.75pt' o:ole="">
+   <v:imagedata src="tp_Newton_files/image032.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=204 height=53
+  src="tp_Newton_files/image033.png" v:shapes="_x0000_i1026"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1026"
+    DrawAspect="Content" ObjectID="_1546670732">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:12.75pt;margin-bottom:.0001pt;line-height:150%'><span
+  style='mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span lang=EN-AU style='mso-bidi-font-family:Calibri;mso-ansi-language:
+  EN-AU'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><i style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;font-family:"Times New Roman",serif'>T
+  </span></i><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:150%;mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>            </span>instantaneous temperature of the <span
+  class=GramE>object<span style='mso-spacerun:yes'>  </span>[</span> <span
+  class=SpellE><sup>o</sup>C</span> ]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><i style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;font-family:"Times New Roman",serif'>t</span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><span style='mso-spacerun:yes'>           
+  </span><span style='mso-spacerun:yes'>  </span><span class=GramE>time<span
+  style='mso-spacerun:yes'>  </span>[</span> s ]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><i style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:115%;font-family:"Times New Roman",serif'>R<span
+  style='mso-spacerun:yes'>    </span></span></i><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:115%;mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>        </span>cooling constant (depends on the
+  thermal energy transfer mechanism, the contact area with its surroundings and
+  the thermal<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri'><span style='mso-spacerun:yes'>  </span><span
+  style='mso-spacerun:yes'>             </span>properties of the <span
+  class=GramE>object<span style='mso-spacerun:yes'>  </span>[</span> min<sup>-1</sup>
+  ]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span class=SpellE><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  font-family:"Times New Roman",serif'>T<sub>env</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Times New Roman",serif'> </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>       </span>ambient temperature of the surrounding
+  environment (assumed <span class=GramE>constant)<span
+  style='mso-spacerun:yes'>   </span></span>[<span class=SpellE><sup>o</sup>C</span>
+  ]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:6.0pt;margin-bottom:.0001pt;line-height:150%'><span
+  style='mso-bidi-font-family:Calibri'><span style='position:relative;
+  top:2.0pt;mso-text-raise:-2.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1027"
+   type="#_x0000_t75" style='width:12pt;height:9pt' o:ole="">
+   <v:imagedata src="tp_Newton_files/image034.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=12
+  src="tp_Newton_files/image035.png" v:shapes="_x0000_i1027"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1027"
+    DrawAspect="Content" ObjectID="_1546670733">
+   </o:OLEObject>
+  </xml><![endif]--></span><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>        </span>minus sign: if </span><span
+  style='mso-bidi-font-family:Calibri'><span style='position:relative;
+  top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1028"
+   type="#_x0000_t75" style='width:66pt;height:21.75pt' o:ole="">
+   <v:imagedata src="tp_Newton_files/image037.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=88 height=29
+  src="tp_Newton_files/image038.png" v:shapes="_x0000_i1028"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1028"
+    DrawAspect="Content" ObjectID="_1546670734">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>then the temperature of the object will
+  decrease with time<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'>Newton’s
+  Law of Cooling given by equation 1 can be solved analytically or numerically
+  when the system’s initial temperature is </span><i style='mso-bidi-font-style:
+  normal'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;font-family:"Times New Roman",serif'>T<sub>0</sub>.</span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'><span
+  style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td width=1042 colspan=5 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><b style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  color:#7030A0'>Analytical Solution<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri'>Integrate both sides of equation 1<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri'><span style='mso-spacerun:yes'>      
+  </span><span style='mso-spacerun:yes'>         </span></span><span
+  style='mso-bidi-font-family:Calibri'><span style='position:relative;
+  top:70.0pt;mso-text-raise:-70.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1051"
+   type="#_x0000_t75" style='width:153pt;height:147.75pt' o:ole="">
+   <v:imagedata src="tp_Newton_files/image039.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=204 height=197
+  src="tp_Newton_files/image040.png" v:shapes="_x0000_i1051"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1051"
+    DrawAspect="Content" ObjectID="_1546670735">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5'>
+  <td width=1042 colspan=5 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><b style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  color:#7030A0'>Numerical Solution<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri'>A standard technique for the numerical
+  solution of differential equations involves converting the differential equation
+  into a finite difference equation. The Euler method can be used to solve
+  equation 1 numerically:<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri'><span style='mso-spacerun:yes'>    
+  </span></span><span style='mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>              </span><span style='position:relative;
+  top:33.0pt;mso-text-raise:-33.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1030"
+   type="#_x0000_t75" style='width:222.75pt;height:90.75pt' o:ole="">
+   <v:imagedata src="tp_Newton_files/image041.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=297 height=121
+  src="tp_Newton_files/image042.png" v:shapes="_x0000_i1030"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1030"
+    DrawAspect="Content" ObjectID="_1546670736">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6'>
+  <td width=1042 colspan=5 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;color:#7030A0'>MATLAB solutions for Newton’s Law of
+  Cooling<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'>The <span
+  class=GramE>function<span style='mso-spacerun:yes'>  </span><span
+  class=SpellE><b style='mso-bidi-font-weight:normal'><span style='color:#843C0C;
+  mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>tp</span></b></span></span><span
+  class=SpellE><b style='mso-bidi-font-weight:normal'><span style='color:#843C0C;
+  mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>_fn_Newton.m</span></b></span><span
+  style='mso-spacerun:yes'>  </span>can be used to solve many problems related
+  to Newton’s Law of Cooling. Equation 1 is solved both analytically and
+  numerically. Download the mscript for the function and check that you
+  understand the structure of the coding and how the code performs the
+  calculations.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'>The
+  function and its inputs are:<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:blue'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:blue'>function</span><span style='font-size:14.0pt;mso-bidi-font-size:
+  10.0pt;font-family:"Courier New";color:black'> <span class=GramE>[ ]</span> =
+  <span class=SpellE>tp_fn_Newton</span>(R,N,tMax,T0,Tenv, <span class=SpellE>flagC</span>)</span><span
+  style='font-size:18.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:black'><span style='mso-spacerun:yes'> </span></span><span
+  style='font-size:18.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:black'><span style='mso-spacerun:yes'>  </span></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:forestgreen'>% R<span style='mso-spacerun:yes'>     </span>Cooling
+  constant [1/min]</span><span style='font-size:18.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:black'><span style='mso-spacerun:yes'>  </span></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:forestgreen'>% N<span style='mso-spacerun:yes'>     </span>Number of
+  time steps </span><span style='font-size:18.0pt;mso-bidi-font-size:12.0pt;
+  font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:black'><span style='mso-spacerun:yes'>  </span></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:forestgreen'>% <span class=SpellE><span class=GramE>tMax</span></span><span
+  class=GramE><span style='mso-spacerun:yes'>  </span>Time</span> interval for
+  simulation<span style='mso-spacerun:yes'>  </span>[minutes]</span><span
+  style='font-size:18.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:black'><span style='mso-spacerun:yes'>  </span></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:forestgreen'>% T0<span style='mso-spacerun:yes'>    </span>Initial
+  temperature of system [<span class=SpellE>degC</span>]</span><span
+  style='font-size:18.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:black'><span style='mso-spacerun:yes'>  </span></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:forestgreen'>% <span class=SpellE><span class=GramE>Tenv</span></span><span
+  class=GramE><span style='mso-spacerun:yes'>  </span>Temperature</span> of
+  surrounding environment<span style='mso-spacerun:yes'>  </span>[<span
+  class=SpellE>degc</span>]</span><span style='font-size:18.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:black'><span style='mso-spacerun:yes'>  </span></span><span
+  style='font-size:18.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:black'><span style='mso-spacerun:yes'>  </span></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:forestgreen'>% <span class=SpellE>flagC</span> == 1<span
+  style='mso-spacerun:yes'>     </span>% Plot numerical solution only for T vs
+  t</span><span style='font-size:18.0pt;mso-bidi-font-size:12.0pt;font-family:
+  "Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:black'><span style='mso-spacerun:yes'>  </span></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:forestgreen'>% <span class=SpellE>flagC</span> == 2<span
+  style='mso-spacerun:yes'>     </span>% Plot of numerical and analytical
+  solutions for T vs t</span><span style='font-size:18.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:black'><span style='mso-spacerun:yes'>  </span></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:forestgreen'>% <span class=SpellE>flagC</span> == 3<span
+  style='mso-spacerun:yes'>     </span>% Plot of numerical solution fitted to
+  data for cooling coffee <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:forestgreen'><span style='mso-spacerun:yes'>  </span>…</span><span
+  style='font-size:18.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'>The
+  function is run from the Command Window, for example<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>     </span><span
+  style='mso-spacerun:yes'>   </span><span class=SpellE><b style='mso-bidi-font-weight:
+  normal'><span style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:
+  128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>tp_fn_<span class=GramE>Newton</span></span></b></span><span
+  class=GramE><b style='mso-bidi-font-weight:normal'><span style='color:#843C0C;
+  mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>(</span></b></span><b
+  style='mso-bidi-font-weight:normal'><span style='color:#843C0C;mso-themecolor:
+  accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>0.05,500,60,100,0,2);<o:p></o:p></span></b></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'>is used
+  for a simulation with the input parameters<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>         </span>R = 0.05<span
+  style='mso-spacerun:yes'>          </span>rate constant expressed in minutes<sup>-1</sup><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>         </span>N = 500<span
+  style='mso-spacerun:yes'>     </span><span
+  style='mso-spacerun:yes'>     </span>number of time steps<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>         </span><span class=SpellE>tMax</span> =
+  60<span style='mso-spacerun:yes'>     </span>length of simulation time in
+  minutes<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>         </span>T0 = 100<span
+  style='mso-spacerun:yes'>        </span>initial temperature of system in <span
+  class=SpellE><sup>o</sup>C</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>         </span><span class=SpellE>Tenv</span> =
+  0<span style='mso-spacerun:yes'>       </span>surrounding environmental
+  temperature in <span class=SpellE><sup>o</sup>C</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>         </span><span class=SpellE>FlagC</span> = 1
+  or 2 or 3<span style='mso-spacerun:yes'>     </span>determines the graphical
+  output to be displayed.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'>The
+  output of the function is displayed graphically and a summary of the input
+  and output parameters is shown in the Command Window as shown below:<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  font-family:"Courier New"'>&gt;&gt; <span class=SpellE>tp_fn_<span
+  class=GramE>Newton</span></span><span class=GramE>(</span>0.05,500,60,100,0,2);<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  font-family:"Courier New"'><span style='mso-spacerun:yes'>   </span>Cooling
+  constant <span style='mso-spacerun:yes'>              </span><span
+  class=GramE>R<span style='mso-spacerun:yes'>  </span>=</span> 5.000e-02<span
+  style='mso-spacerun:yes'>   </span>[1/min]<span style='mso-spacerun:yes'> 
+  </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  font-family:"Courier New"'><span style='mso-spacerun:yes'>   </span>Number of
+  time steps<span style='mso-spacerun:yes'>           </span><span class=GramE>N<span
+  style='mso-spacerun:yes'>  </span>=</span><span style='mso-spacerun:yes'> 
+  </span>500<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  font-family:"Courier New"'><span style='mso-spacerun:yes'>   </span>Time
+  interval for simulation<span style='mso-spacerun:yes'>   </span><span
+  class=SpellE><span class=GramE>tMax</span></span><span class=GramE><span
+  style='mso-spacerun:yes'>  </span>=</span><span style='mso-spacerun:yes'>  
+  </span>60<span style='mso-spacerun:yes'>   </span>[min]<span
+  style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  font-family:"Courier New"'><span style='mso-spacerun:yes'>  
+  </span>Environmental temperature<span style='mso-spacerun:yes'>      </span><span
+  class=SpellE><span class=GramE>Tenv</span></span><span class=GramE><span
+  style='mso-spacerun:yes'>  </span>=</span> 0.00<span
+  style='mso-spacerun:yes'>   </span>[<span class=SpellE>degC</span>]<span
+  style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  font-family:"Courier New"'><span style='mso-spacerun:yes'>   </span>Initial
+  temperature of <span class=GramE>system<span style='mso-spacerun:yes'> 
+  </span>T</span>0<span style='mso-spacerun:yes'>  </span>= 100.00<span
+  style='mso-spacerun:yes'>   </span>[<span class=SpellE>degC</span>]<span
+  style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  font-family:"Courier New"'><span style='mso-spacerun:yes'>   </span>Final
+  temperature of system<span style='mso-spacerun:yes'>    </span><span
+  class=GramE>Tend<span style='mso-spacerun:yes'>  </span>=</span> 4.93<span
+  style='mso-spacerun:yes'>   </span>[<span class=SpellE>degC</span>]<span
+  style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:7'>
+  <td width=521 colspan=3 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%;
+  tab-stops:1.0cm 70.9pt'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_7" o:spid="_x0000_i1061" type="#_x0000_t75" style='width:316.5pt;
+   height:225pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="tp_Newton_files/image012.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=422 height=300
+  src="tp_Newton_files/image012.png" v:shapes="Picture_x0020_7"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:115%;
+  mso-bidi-font-family:Calibri'>Fig. 1A.<span style='mso-spacerun:yes'>  
+  </span>Temperature of the system as it approaches the ambient temperature of
+  0 <span class=SpellE><sup>o</sup>C.</span><o:p></o:p></span></p>
+  </td>
+  <td width=521 colspan=2 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%;
+  tab-stops:1.0cm 70.9pt'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1060" type="#_x0000_t75" style='width:316.5pt;height:225pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="tp_Newton_files/image013.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=422 height=300
+  src="tp_Newton_files/image013.png" v:shapes="_x0000_i1060"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:115%;
+  mso-bidi-font-family:Calibri'>Fig. 1B.<span style='mso-spacerun:yes'>  
+  </span>The numerical and analytical solution of equation 1<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:115%;
+  mso-bidi-font-family:Calibri'><span style='mso-spacerun:yes'> </span>(N =
+  500).<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:115%;
+  mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:8'>
+  <td width=521 colspan=3 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>For a large number of time steps N = 500, there
+  is excellent agreement between the predictions of the numerical and
+  analytical computations as shown in figure 1B. Generally, the larger the
+  number of time steps for the numerical computation, the better the agreement
+  with the analytical predictions. Figure 2 (N = 10) shows poor agreement
+  between the numerical and analytical predictions when a small number of time
+  steps is used.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>One should always check when using numerical
+  methods that the step size is small enough so that you get accurate results.
+  You can often do this by continually doubling the size of N (halving the step
+  size) until there is no significant changes in the results of the
+  computation. <o:p></o:p></span></p>
+  </td>
+  <td width=521 colspan=2 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1059" type="#_x0000_t75" style='width:316.5pt;height:225pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="tp_Newton_files/image014.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=422 height=300
+  src="tp_Newton_files/image014.png" v:shapes="_x0000_i1059"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:115%;
+  mso-bidi-font-family:Calibri'>Fig. 2.<span style='mso-spacerun:yes'>  
+  </span>The numerical and analytical solution of equation 1<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:115%;
+  mso-bidi-font-family:Calibri'><span style='mso-spacerun:yes'> </span>(N =
+  10).<span style='mso-spacerun:yes'>   </span><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:9'>
+  <td width=1042 colspan=5 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><b style='mso-bidi-font-weight:
+  normal'><span style='font-size:16.0pt;font-family:"Bookman Old Style",serif;
+  mso-bidi-font-family:Calibri;color:#7030A0'>EXPLORATIONS ON NEWTON’S LAW OF
+  COOLING USING THE FUNCTION<span style='mso-spacerun:yes'>   </span><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>  </span></span><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
+  color:#843C0C;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #843C0C;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>function <span
+  class=GramE>[ ]</span> = <span class=SpellE>tp_fn_Newton</span>(R,N,tMax,T0,Tenv,
+  <span class=SpellE>flagC</span>)</span></b><b style='mso-bidi-font-weight:
+  normal'><span style='font-size:18.0pt;mso-bidi-font-size:12.0pt;font-family:
+  "Courier New";color:#843C0C;mso-themecolor:accent2;mso-themeshade:128;
+  mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri;color:#843C0C;
+  mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri;color:#7030A0'>1.<span
+  style='mso-spacerun:yes'>   </span>Exponential Decay<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>1.1<span style='mso-spacerun:yes'>   </span>By
+  varying the input parameter <span class=SpellE>tMax</span>, find the time it
+  takes the system to cool from 100 <span class=SpellE><sup>o</sup>C</span> to
+  0 <span class=SpellE><sup>o</sup>C</span> for a cooling <span class=GramE>constant<span
+  style='mso-spacerun:yes'>  </span>R</span> = 0.05.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>1.2<span style='mso-spacerun:yes'>  
+  </span>Find the times for the temperature of the system to drop from 100 <span
+  class=SpellE><sup>o</sup>C</span> to 50 <span class=SpellE><sup>o</sup>C</span>,
+  25.0 <span class=SpellE><sup>o</sup>C</span> and 12.5 <span class=SpellE><sup>o</sup>C.</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><span style='mso-spacerun:yes'>       
+  </span>What is the effective half-life time </span><i style='mso-bidi-font-style:
+  normal'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;font-family:"Times New Roman",serif'>t</span></i><sub><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  font-family:"Times New Roman",serif'>1/2</span></sub><i style='mso-bidi-font-style:
+  normal'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;font-family:"Times New Roman",serif'> </span></i><span style='font-size:
+  14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;mso-bidi-font-family:Calibri'>and
+  how is it related to the cooling constant R?<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>1.3<span style='mso-spacerun:yes'>   </span>How
+  long does it take for the temperature of the system to drop from 80 <span
+  class=SpellE><sup>o</sup>C</span> to 40 <span class=SpellE><sup>o</sup>C</span>?
+  Explain the result.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:10'>
+  <td width=1042 colspan=5 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri;color:#7030A0;
+  mso-no-proof:yes'>2.<span style='mso-spacerun:yes'>   </span>Coffeee Cooling
+  Problem<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>A hot cup of coffee left standing will always
+  cool down.<span style='mso-spacerun:yes'>  </span>An experiment was performed
+  in which the temperature of a hot cup of coffee was measured every minute for
+  20 minutes. The initial temperature of the coffee was 90 <span class=SpellE><sup>o</sup>C</span>
+  and the ambient temperature was 20 <span class=SpellE><sup>o</sup>C.</span>
+  The measurements are recorded in the mscript. <o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>Find the cooling constant R for the hot coffee
+  cup loosing thermal energy to its surroundings at a constant rate.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>Start with R = 0.01, N = 5000, <span
+  class=SpellE>tMax</span> = 60, T0 = 90, <span class=SpellE>Tenv</span> = 20, <span
+  class=SpellE>flagC</span> = 3<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><span style='mso-spacerun:yes'>  </span><b
+  style='mso-bidi-font-weight:normal'><span style='color:#843C0C;mso-themecolor:
+  accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>&gt;&gt; <span class=SpellE>tp_fn_<span class=GramE>Newton</span></span><span
+  class=GramE>(</span>0.01,5000,60,90,20,3);<o:p></o:p></span></b></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>How well does Newton’s Law of Cooling describe
+  the cooling of the coffee?<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>From the graphically output, find the value of
+  t<sub>1/2</sub> and calculate R. How does your calculated value of R compare
+  with the value of R used in the input?<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;mso-no-proof:yes'>It is a good idea to make your
+  own measurments for the cooling of the coffe and enter your data enter into
+  the mscript.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:11'>
+  <td width=521 colspan=3 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;mso-no-proof:yes'>Fig. 3.<span
+  style='mso-spacerun:yes'>   </span>Initial attempt<span
+  style='mso-spacerun:yes'>  </span>at fitting the exponetial decrease in
+  temperature to measured date for the coffee. The red cirles show the
+  measurements.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;mso-no-proof:yes'><span
+  style='mso-spacerun:yes'>    </span></span><span class=SpellE><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri;color:#843C0C;
+  mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>tp_fn_<span
+  class=GramE>Newton</span></span></b></span><span class=GramE><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri;color:#843C0C;
+  mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>(</span></b></span><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri;color:#843C0C;
+  mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>0.01,5000,60,90,20,3);<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;mso-no-proof:yes'><span
+  style='mso-spacerun:yes'> </span>Change the input parameters of the function
+  to get the best estimate of the cooling constant R.<o:p></o:p></span></p>
+  </td>
+  <td width=521 colspan=2 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_8" o:spid="_x0000_i1058" type="#_x0000_t75" style='width:316.5pt;
+   height:225pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="tp_Newton_files/image017.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=422 height=300
+  src="tp_Newton_files/image017.png" v:shapes="Picture_x0020_8"><![endif]><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:12'>
+  <td width=1042 colspan=5 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Bookman Old Style",serif;mso-bidi-font-family:
+  Calibri;color:#7030A0;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri;color:#7030A0;
+  mso-no-proof:yes'>3.<span style='mso-spacerun:yes'>   </span>CSI: MURDER –
+  time of death<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;mso-no-proof:
+  yes'>At the scene of a crime a dead person was found. Can you determine the
+  time of death?<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;mso-no-proof:
+  yes'>What details do you need to know?<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;mso-no-proof:
+  yes'>What meaurements need to be taken?<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;mso-no-proof:
+  yes'>The temperature of the body was measured to be 32.0 <sup>o</sup>C at
+  5.00 pm and at 28.5 <sup>o</sup>C on hour later at 6:00 pm. The room
+  temeprature was 22 <sup>o</sup>C. <o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;mso-no-proof:
+  yes'>Estimate an uncertainty in the time of death assuming that the room
+  temperature measurement could have fluctuated by 1<sup>o</sup>C.</span><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Bookman Old Style",serif;mso-bidi-font-family:
+  Calibri;color:#7030A0;mso-no-proof:yes'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Bookman Old Style",serif;mso-bidi-font-family:
+  Calibri;color:#7030A0;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></b></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:13'>
+  <td width=1042 colspan=5 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Bookman Old Style",serif;mso-bidi-font-family:
+  Calibri;color:#7030A0;mso-no-proof:yes'>EXPLORATION SOLUTIONS</span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Bookman Old Style",serif;mso-bidi-font-family:
+  Calibri'><o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:14'>
+  <td width=521 colspan=3 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri;color:#7030A0'>1.<span
+  style='mso-spacerun:yes'>   </span>Exponential Decay<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  class=SpellE><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:150%;font-family:"Courier New";color:#843C0C;mso-themecolor:accent2;
+  mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>tp_fn_<span class=GramE>Newton</span></span></span><span
+  class=GramE><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:150%;font-family:"Courier New";color:#843C0C;mso-themecolor:accent2;
+  mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>(</span></span><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Courier New";color:#843C0C;mso-themecolor:
+  accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>0.05,5000,200,100,0,2);<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>1.1<span style='mso-spacerun:yes'>    
+  </span>Time to reach ambient temperature ~ 120 minutes<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>1.2<span style='mso-spacerun:yes'>    
+  </span>T1 = 50 <span class=SpellE><sup>o</sup>C</span><span
+  style='mso-spacerun:yes'>     </span>t1 = 13.86 min<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><span style='mso-spacerun:yes'>          
+  </span>T2 = 25 <span class=SpellE><sup>o</sup>c</span><span
+  style='mso-spacerun:yes'>     </span>t2 = 27.71 min<span
+  style='mso-spacerun:yes'>                 </span>t2 – t1 = 13.85 min<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><span style='mso-spacerun:yes'>          
+  </span>T3 = 12.5 <span class=SpellE><sup>o</sup>C</span><span
+  style='mso-spacerun:yes'>      </span>t3 = <span class=GramE>41.56<span
+  style='mso-spacerun:yes'>  </span>min</span><span
+  style='mso-spacerun:yes'>           </span>t3 – t1 = 13.85<span
+  style='mso-spacerun:yes'>  </span>min<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><span style='mso-spacerun:yes'>          
+  </span>Half-life time interval = (13.85 </span><span style='mso-bidi-font-family:
+  Calibri'><span style='position:relative;top:2.0pt;mso-text-raise:-2.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1035" type="#_x0000_t75" style='width:12.75pt;height:14.25pt'
+   o:ole="">
+   <v:imagedata src="tp_Newton_files/image043.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=17 height=19
+  src="tp_Newton_files/image044.png" v:shapes="_x0000_i1035"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1035"
+    DrawAspect="Content" ObjectID="_1546670737">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>0.02<span class=GramE>)<span
+  style='mso-spacerun:yes'>  </span>min</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><span style='mso-spacerun:yes'>         
+  </span>(measurements using Data cursor)<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='mso-bidi-font-family:Calibri'><span style='position:relative;
+  top:19.0pt;mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1036"
+   type="#_x0000_t75" style='width:375pt;height:44.25pt' o:ole="">
+   <v:imagedata src="tp_Newton_files/image045.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=500 height=59
+  src="tp_Newton_files/image046.png" v:shapes="_x0000_i1036"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1036"
+    DrawAspect="Content" ObjectID="_1546670739">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>1.3<span style='mso-spacerun:yes'>    
+  </span>T1 = 80 <span class=SpellE><sup>o</sup>C</span><span
+  style='mso-spacerun:yes'>     </span>t1 = 4.44 min<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><span style='mso-spacerun:yes'>          
+  </span>T2 = 40 <span class=SpellE><sup>o</sup>c</span><span
+  style='mso-spacerun:yes'>     </span>t2 = 18.32 min<span
+  style='mso-spacerun:yes'>                 </span>t2 – t1 = 13.88 min<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><span style='mso-spacerun:yes'>          
+  </span></span><span style='mso-bidi-font-family:Calibri'><span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1037" type="#_x0000_t75" style='width:131.25pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="tp_Newton_files/image047.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=175 height=29
+  src="tp_Newton_files/image048.png" v:shapes="_x0000_i1037"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1037"
+    DrawAspect="Content" ObjectID="_1546670740">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td width=521 colspan=2 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_6" o:spid="_x0000_i1057" type="#_x0000_t75" style='width:316.5pt;
+   height:225pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="tp_Newton_files/image024.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=422 height=300
+  src="tp_Newton_files/image024.png" v:shapes="Picture_x0020_6"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:15'>
+  <td width=1042 colspan=5 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri;color:#7030A0'>2.<span
+  style='mso-spacerun:yes'>  </span>Coffee Cooling Problem<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>R = 0.04 is the best estimate.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>The predictions using Newton’s Cooling Law with
+  R = 0.04 agree very well with the measured temperatures of the coffee.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri;color:#843C0C;
+  mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'><span
+  style='mso-spacerun:yes'>  </span><span class=SpellE>tp_fn_<span class=GramE>Newton</span></span><span
+  class=GramE>(</span>0.041,5000,100,90,20,3);</span></b><b style='mso-bidi-font-weight:
+  normal'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri'><o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:16'>
+  <td width=521 colspan=3 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_9" o:spid="_x0000_i1056" type="#_x0000_t75" style='width:316.5pt;
+   height:225pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="tp_Newton_files/image025.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=422 height=300
+  src="tp_Newton_files/image025.png" v:shapes="Picture_x0020_9"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  </td>
+  <td width=521 colspan=2 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_10" o:spid="_x0000_i1055" type="#_x0000_t75" style='width:316.5pt;
+   height:225pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="tp_Newton_files/image026.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=422 height=300
+  src="tp_Newton_files/image026.png" v:shapes="Picture_x0020_10"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:17'>
+  <td width=1042 colspan=5 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>Take T1 = 80 <span class=SpellE><sup>o</sup>C</span><span
+  style='mso-spacerun:yes'>    </span>t1 = <span class=GramE>4.00<span
+  style='mso-spacerun:yes'>  </span>min</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>T1 -<span class=SpellE>Tenv</span> = (80 – 20<span
+  class=GramE>)<span style='mso-spacerun:yes'>  </span><span class=SpellE><sup>o</sup>C</span></span>
+  = 60 <span class=SpellE><sup>o</sup>C</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>To calculate </span><span style='mso-bidi-font-family:
+  Calibri'><span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1041" type="#_x0000_t75" style='width:21.75pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="tp_Newton_files/image049.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=29 height=29
+  src="tp_Newton_files/image050.png" v:shapes="_x0000_i1041"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1041"
+    DrawAspect="Content" ObjectID="_1546670741">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>you only have to measure the interval for the
+  temperature to drop by 30 <span class=SpellE><sup>o</sup>C.</span><span
+  style='mso-spacerun:yes'>  </span>Hence T2 = 50 <span class=SpellE><span
+  class=GramE><sup>o</sup>C</span></span><span class=GramE><span
+  style='mso-spacerun:yes'>  </span>and</span> t2 = 21.18<span
+  style='mso-spacerun:yes'>  </span>min<span style='mso-spacerun:yes'> 
+  </span>(measurements using Data Cursor in figure Window).<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>Therefore,<span style='mso-spacerun:yes'> 
+  </span></span><span style='font-size:14.0pt;line-height:150%;mso-bidi-font-family:
+  Calibri'><span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1042" type="#_x0000_t75" style='width:21.75pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="tp_Newton_files/image051.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=29 height=29
+  src="tp_Newton_files/image050.png" v:shapes="_x0000_i1042"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1042"
+    DrawAspect="Content" ObjectID="_1546670742">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>= (21.18 – 4.00<span
+  class=GramE>)<span style='mso-spacerun:yes'>  </span>min</span><span
+  style='mso-spacerun:yes'>   </span>=<span style='mso-spacerun:yes'> 
+  </span>17.2<span style='mso-spacerun:yes'>  </span>min<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='mso-bidi-font-family:Calibri'><span style='position:relative;
+  top:15.0pt;mso-text-raise:-15.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1043"
+   type="#_x0000_t75" style='width:240pt;height:39.75pt' o:ole="">
+   <v:imagedata src="tp_Newton_files/image052.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=320 height=53
+  src="tp_Newton_files/image053.png" v:shapes="_x0000_i1043"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1043"
+    DrawAspect="Content" ObjectID="_1546670743">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;line-height:150%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:18'>
+  <td width=1042 colspan=5 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri;color:#7030A0;
+  mso-no-proof:yes'>3.<span style='mso-spacerun:yes'>   </span>CSI: MURDER –
+  time of death<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>Measurements<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><span style='mso-spacerun:yes'>     </span><span
+  class=SpellE>Tenv</span> = (22 </span><span style='mso-bidi-font-family:Calibri'><span
+  style='position:relative;top:2.0pt;mso-text-raise:-2.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1044" type="#_x0000_t75" style='width:12.75pt;height:14.25pt'
+   o:ole="">
+   <v:imagedata src="tp_Newton_files/image054.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=17 height=19
+  src="tp_Newton_files/image044.png" v:shapes="_x0000_i1044"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1044"
+    DrawAspect="Content" ObjectID="_1546670744">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>1) <span class=SpellE><sup>o</sup>C</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><span style='mso-spacerun:yes'>     </span><span
+  class=SpellE>Tbody</span> = 37 <span class=SpellE><sup>o</sup>C</span><span
+  style='mso-spacerun:yes'>                </span>normal body temperature<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><span style='mso-spacerun:yes'>    </span>At
+  5:00 <span class=GramE>pm<span style='mso-spacerun:yes'>  </span>T</span> =
+  32.0 <span class=SpellE><sup>o</sup>C</span><span
+  style='mso-spacerun:yes'>     </span>At 6:00 pm<span
+  style='mso-spacerun:yes'>     </span>T = 28.5 <span class=SpellE><sup>o</sup>C</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>You need to calculate the cooling constant R
+  for the drop in temperature of the victim from 32.0 <span class=SpellE><sup>o</sup>C</span>
+  to 28.5 <span class=SpellE><span class=GramE><sup>o</sup>C</span></span><span
+  class=GramE><span style='mso-spacerun:yes'>  </span>in</span> 60 minutes.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>This is done by a trial and error process by
+  changing the value of R using the <span class=GramE>function<span
+  style='mso-spacerun:yes'>  </span><span class=SpellE><b style='mso-bidi-font-weight:
+  normal'><span style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:
+  128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>tp</span></b></span></span><span class=SpellE><b
+  style='mso-bidi-font-weight:normal'><span style='color:#843C0C;mso-themecolor:
+  accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>_fn_Newton.m</span></b></span><span style='color:#843C0C;
+  mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'><span
+  style='mso-spacerun:yes'>  </span></span>in the Matlab Command Window<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:115%;
+  mso-bidi-font-family:Calibri'>&gt;&gt; <span class=SpellE>tp_fn_Newton</span>(7.18e-3,5000,60,32,22,1)<span
+  style='mso-spacerun:yes'>      </span>returns the following output in the
+  Command Window<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:115%;
+  mso-bidi-font-family:Calibri'>Cooling constant<span
+  style='mso-spacerun:yes'>               </span><span class=GramE>R<span
+  style='mso-spacerun:yes'>  </span>=</span> 7.180e-03<span
+  style='mso-spacerun:yes'>   </span>[1/min]<span style='mso-spacerun:yes'> 
+  </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:115%;
+  mso-bidi-font-family:Calibri'>Number of time steps<span
+  style='mso-spacerun:yes'>           </span><span class=GramE>N<span
+  style='mso-spacerun:yes'>  </span>=</span> 5000<span
+  style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:115%;
+  mso-bidi-font-family:Calibri'>Time interval for simulation<span
+  style='mso-spacerun:yes'>   </span><span class=SpellE><span class=GramE>tMax</span></span><span
+  class=GramE><span style='mso-spacerun:yes'>  </span>=</span><span
+  style='mso-spacerun:yes'>   </span>60<span style='mso-spacerun:yes'>  
+  </span>[min]<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:115%;
+  mso-bidi-font-family:Calibri'>Environmental temperature<span
+  style='mso-spacerun:yes'>      </span><span class=SpellE><span class=GramE>Tenv</span></span><span
+  class=GramE><span style='mso-spacerun:yes'>  </span>=</span> 22.00<span
+  style='mso-spacerun:yes'>   </span>[<span class=SpellE>degC</span>]<span
+  style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:115%;
+  mso-bidi-font-family:Calibri'>Initial temperature of <span class=GramE>system<span
+  style='mso-spacerun:yes'>  </span>T</span>0<span style='mso-spacerun:yes'> 
+  </span>= 32.00<span style='mso-spacerun:yes'>   </span>[<span class=SpellE>degC</span>]<span
+  style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:115%;
+  mso-bidi-font-family:Calibri'>Final temperature of system<span
+  style='mso-spacerun:yes'>    </span><span class=GramE>Tend<span
+  style='mso-spacerun:yes'>  </span>=</span> 28.50<span
+  style='mso-spacerun:yes'>   </span>[<span class=SpellE>degC</span>]<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:115%;
+  mso-bidi-font-family:Calibri'>&gt;&gt; <span class=SpellE>tp_fn_Newton</span>(8.2e-3,5000,60,32,23,1);<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:115%;
+  mso-bidi-font-family:Calibri'>Cooling constant<span
+  style='mso-spacerun:yes'>               </span><span class=GramE>R<span
+  style='mso-spacerun:yes'>  </span>=</span> 8.200e-03<span
+  style='mso-spacerun:yes'>   </span>[1/min]<span style='mso-spacerun:yes'> 
+  </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:115%;
+  mso-bidi-font-family:Calibri'>Number of time steps<span
+  style='mso-spacerun:yes'>           </span><span class=GramE>N<span
+  style='mso-spacerun:yes'>  </span>=</span> 5000<span
+  style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:115%;
+  mso-bidi-font-family:Calibri'>Time interval for simulation<span
+  style='mso-spacerun:yes'>   </span><span class=SpellE><span class=GramE>tMax</span></span><span
+  class=GramE><span style='mso-spacerun:yes'>  </span>=</span><span
+  style='mso-spacerun:yes'>   </span>60<span style='mso-spacerun:yes'>  
+  </span>[min]<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:115%;
+  mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'> </span>Environmental temperature <span
+  style='mso-spacerun:yes'>     </span><span class=SpellE><span class=GramE>Tenv</span></span><span
+  class=GramE><span style='mso-spacerun:yes'>  </span>=</span> 23.00<span
+  style='mso-spacerun:yes'>   </span>[<span class=SpellE>degC</span>]<span
+  style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:115%;
+  mso-bidi-font-family:Calibri'><span style='mso-spacerun:yes'> </span>Initial
+  temperature of <span class=GramE>system<span style='mso-spacerun:yes'> 
+  </span>T</span>0<span style='mso-spacerun:yes'>  </span>= 32.00<span
+  style='mso-spacerun:yes'>   </span>[<span class=SpellE>degC</span>]<span
+  style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:115%;
+  mso-bidi-font-family:Calibri'><span style='mso-spacerun:yes'> </span>Final
+  temperature of system<span style='mso-spacerun:yes'>    </span><span
+  class=GramE>Tend<span style='mso-spacerun:yes'>  </span>=</span> 28.50<span
+  style='mso-spacerun:yes'>   </span>[<span class=SpellE>degC</span>]<span
+  style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>Take the value of R and its uncertainty to be<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><span style='mso-spacerun:yes'>     </span>R =
+  (7 </span><span style='mso-bidi-font-family:Calibri'><span style='position:
+  relative;top:2.0pt;mso-text-raise:-2.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1045"
+   type="#_x0000_t75" style='width:12.75pt;height:14.25pt' o:ole="">
+   <v:imagedata src="tp_Newton_files/image058.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=17 height=19
+  src="tp_Newton_files/image044.png" v:shapes="_x0000_i1045"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1045"
+    DrawAspect="Content" ObjectID="_1546670745">
+   </o:OLEObject>
+  </xml><![endif]--></span><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'> </span><span class=GramE>1)x</span>10<sup>-3</sup><span
+  style='mso-spacerun:yes'>   </span>min<sup>-1</sup><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>and execute the function to find the time the
+  time for the victim’s temperature to drop from 37 <span class=SpellE><sup>o</sup>C</span>
+  to 32 <span class=SpellE><sup>o</sup>C</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:19'>
+  <td width=347 valign=top style='width:260.4pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>R = 7x10<sup>-3</sup><span
+  style='mso-spacerun:yes'>   </span>min<sup>-1</sup><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_2" o:spid="_x0000_i1054" type="#_x0000_t75" style='width:255pt;
+   height:181.5pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="tp_Newton_files/image057.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=340 height=242
+  src="tp_Newton_files/image060.png" v:shapes="Picture_x0020_2"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>Time interval = 58 min<o:p></o:p></span></p>
+  </td>
+  <td width=347 colspan=3 valign=top style='width:260.4pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>R = 8x10<sup>-3</sup><span
+  style='mso-spacerun:yes'>   </span>min<sup>-1</sup><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_3" o:spid="_x0000_i1053" type="#_x0000_t75" style='width:255pt;
+   height:181.5pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="tp_Newton_files/image059.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=340 height=242
+  src="tp_Newton_files/image062.png" v:shapes="Picture_x0020_3"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>Time interval = 51 min<o:p></o:p></span></p>
+  </td>
+  <td width=347 valign=top style='width:260.4pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>R = 6x10<sup>-3</sup><span
+  style='mso-spacerun:yes'>   </span>min<sup>-1</sup><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_4" o:spid="_x0000_i1052" type="#_x0000_t75" style='width:255pt;
+   height:181.5pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="tp_Newton_files/image061.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=340 height=242
+  src="tp_Newton_files/image064.png" v:shapes="Picture_x0020_4"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>Time interval = 68 min<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:20;mso-yfti-lastrow:yes'>
+  <td width=1042 colspan=5 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>Our estimate for the time interval for the
+  temperature of the victim to drop from 37 <span class=SpellE><sup>o</sup>C</span>
+  to 32 <span class=SpellE><sup>o</sup>C</span> is (58 </span><span
+  style='mso-bidi-font-family:Calibri'><span style='position:relative;
+  top:2.0pt;mso-text-raise:-2.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1049"
+   type="#_x0000_t75" style='width:12.75pt;height:14.25pt' o:ole="">
+   <v:imagedata src="tp_Newton_files/image065.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=17 height=19
+  src="tp_Newton_files/image044.png" v:shapes="_x0000_i1049"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1049"
+    DrawAspect="Content" ObjectID="_1546670746">
+   </o:OLEObject>
+  </xml><![endif]--></span><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri'>10) min<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>Therefore, our best estimate for the time of
+  the murder is between<span style='mso-spacerun:yes'>   </span><b
+  style='mso-bidi-font-weight:normal'><span style='color:#7030A0'>3:50 pm and
+  4:10 pm</span></b>.<span style='mso-spacerun:yes'>        </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <![if !supportMisalignedColumns]>
+ <tr height=0>
+  <td width=355 style='border:none'></td>
+  <td width=13 style='border:none'></td>
+  <td width=188 style='border:none'></td>
+  <td width=154 style='border:none'></td>
+  <td width=355 style='border:none'></td>
+ </tr>
+ <![endif]>
+</table>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-AU
+style='mso-ansi-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+<div>
+<a href="http://www.reliablecounter.com" target="_blank"><img src="http://www.reliablecounter.com/count.php?page=www.physics.usyd.edu.au/teach_res/mp/doc/tp_Newton.htm&digit=style/plain/6/&reloads=0" alt="" title="" border="0"></a><br /><a href="http://www.arztwerbung.de" target="_blank" style="font-family: Geneva, Arial; font-size: 9px; color: #330010; text-decoration: none;">Praxismarketing</a>
+</div>
+
+</body>
+
+</html>

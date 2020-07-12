@@ -1,0 +1,724 @@
+% covid19ITALY.m
+
+% Revised:  2020 05 19
+
+% Mathemtatical model for the spread of the covid19 virus
+% Model for SOUTH KOREAL spread of virus
+% Data from https://www.worldometers.info/coronavirus/
+% Model specified by the variables in the INPUT SECTION of the Script
+
+% DOING PHYSICS WITH MATLAB: 
+%   http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% Documentation
+%   http://www.physics.usyd.edu.au/teach_res/mp/doc/sird19EA.htm
+% Download Scripts
+%   http://www.physics.usyd.edu.au/teach_res/mp/mscripts
+
+% Ian Cooper
+% email: matlabvisualphysics@gmail.com
+% Matlab 2019b
+
+% Populations: Data d / Model
+% Susceptible individuals:  Sd  S
+% Active infections (currently infected);  Id  I
+% Removed: Rm
+% Recovered:  Rd  R
+% Dead:  Dd  D
+
+
+clear 
+clc
+close all
+
+global Imax Rmax Dmax ITmax Smax
+
+
+% MODEL  ============================================================
+% Initialize arrays
+  num = 5000;                    % Model: number of time steps 
+  S  = zeros(num,1); S(1) = 1;   % Susceptible population
+  I = zeros(num,1);              % Active infected population
+  Rm = zeros(num,1);             % Removals form infected population  
+  R = zeros(num,1);  
+  D = zeros(num,1); 
+  
+% INPUTS  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   
+% Maximum number of days for model   [200]
+  tMax = 200;
+% Initial number of infections   [5e-2] 
+  I(1) = 1.3e-3;
+% Population scaling factor   [1e4]
+  f = 2.4e5;
+% S --> I  [0.40] 
+   a = 0.18;
+% I --> Rm  [0.039]
+   b = 0.037;
+
+% Starting Date
+  zSTART = datenum([2020 2 26]);
+   
+% SETUP ===============================================================   
+
+% TIME [days]
+  t = linspace(0,tMax,num)';
+  dt = t(2) - t(1);  
+% Time index
+  t_index = 50;  
+   
+% TIME EVOLUTION OF POPULATIONS  ======================================
+  Rm(1) = 100/f;
+for n = 1:num-1
+  dS = -a*S(n)*I(n)*dt;
+  dI = -dS;
+  dRm = b*I(n)*dt;
+ 
+  S(n+1) =  S(n)  + dS;
+  I(n+1) =  I(n)  + dI - dRm;
+  Rm(n+1) = Rm(n) + dRm;
+  
+end
+  
+% Scale populations
+  I = f.*I;
+  Rm = f.*Rm;
+  k0 = 1.6e-5;
+  D0 = 3.55e4;
+  D = D0.*(1 - exp(-k0.*Rm));
+  R = Rm - D;
+  Itot = I + Rm;
+ 
+  Imax = max(I);
+  Rmax = max(R);
+  Dmax = max(D);
+  Smax = f*max(S);
+  ITmax = max(Itot);  
+
+% Percentages: model
+  pI = 100*I(end) / Itot(end);
+  pR = 100*R(end) / Itot(end);
+  pD = 100*D(end) / Itot(end);
+  
+  
+% DATA  ===============================================================
+% Load data from sir function
+%  Col 1 Total Cases  Idtot / Col 2 Active Cases Id / Col 3 Deaths Dd
+  covid = sir;
+  Ndays = length(covid);
+  Idtot = covid(:,1);
+  Id    = covid(:,2);
+  Dd    = covid(:,3);
+  Rmd    = Idtot - Id - Dd;    % Removals
+  
+  Rd = Rmd; 
+  Idmax = max(Id);
+  Rdmax = max(Rd);
+  Ddmax = max(Dd);
+  ITdmax = max(Idtot);  
+    
+% Percentages: Data
+  pId = 100*Id(end) / Idtot(end);
+  pRd = 100*Rd(end) / Idtot(end);
+  pDd = 100*Dd(end) / Idtot(end);
+  
+% Exponential growth at begiing of virus spread
+  th = 5; t0 = -10; tE = 0 : 40;     %Ndays;
+  k = log(2)/th;
+  v0 = Idtot(1);
+  v = v0.*exp(k*(tE - t0));   
+
+  
+% GRAPHICS  ===========================================================
+
+figure(1)
+  set(gcf,'units','normalized');
+  set(gcf,'position',[0.02 0.02 0.435 0.80]);
+  set(gcf,'color','w');
+
+subplot(3,2,1)   % Total infections
+    xP = tE;
+    yP = v;
+    plot(xP,yP,'r','linewidth',1.2)
+   
+    hold on
+    xP = 1: Ndays;
+    yP = Idtot; 
+    plot(xP,yP,'b+')
+    hold on
+    xP = t; yP = Itot;
+    plot(xP,yP,'b','linewidth',2)
+    
+    ylim([0 1.2*ITmax])
+    grid on
+    xlabel('days elapsed')
+    ylabel('I_{tot}','FontName','Times New Roman')
+    title('Total Infections I_{tot}','fontweight','normal');
+    set(gca,'fontsize',12)  
+    set(gca,'Position', [0.0850 0.7093+0.04 0.3347 0.2157]);
+    yMax = ylim;
+    z = yMax(2);
+    plotMonths(z)
+    
+    
+subplot(3,2,2)  % INFECTIONS
+    xP = 1: Ndays;
+    yP = Id;
+    plot(xP,yP,'b+')   
+    hold on
+    
+%     xP = t_index; yP = Id(t_index);
+%     plot(xP,yP,'bo','markerfacecolor','b','markersize',8)
+    
+    xP = t; yP = I;
+    plot(xP,yP,'b','linewidth',2)
+    
+    grid on
+    title('Active Infections  I','fontweight','normal')
+    ylabel('I','FontName','Times New Roman') 
+    xlabel('days elapsed')
+    set(gca,'fontsize',12)
+    set(gca,'Position', [0.5703-0.04 0.7093+0.04 0.3347 0.2157]);
+    yMax = ylim;
+    z = yMax(2);
+    plotMonths(z)
+    
+    
+subplot(3,2,3)   % RECOVERIES
+    xP = 1: Ndays;
+    yP = Rd; 
+    plot(xP,yP,'k+')
+    hold on
+ 
+%     xP = t_index; yP = Rd(t_index);
+%     plot(xP,yP,'ko','markerfacecolor','k','markersize',8)
+%     
+    xP = t; yP = R;
+    plot(xP,yP,'k','linewidth',2)
+    
+    grid on
+    ylabel('R')
+    xlabel('days elapsed')
+    title('Recoveries  R','fontweight','normal')
+    set(gca,'fontsize',12)
+    set(gca,'Position', [0.0800 0.4096+0.04 0.3347 0.2157]);
+    yMax = ylim;
+    z = yMax(2);
+    plotMonths(z)
+    
+    
+ subplot(3,2,4)    % DEATHS
+    xP = 1: Ndays;
+    yP = Dd; 
+    plot(xP,yP,'r+')
+    hold on
+ 
+%     xP = t_index; yP = Dd(t_index);
+%     plot(xP,yP,'ro','markerfacecolor','r','markersize',8)
+    
+    xP = t; yP = D;
+    plot(xP,yP,'r','linewidth',2)
+   
+    grid on
+    ylabel('D')
+    xlabel('days elapsed')
+    title('Deaths  D','fontweight','normal')
+    set(gca,'fontsize',12) 
+    set(gca,'Position', [0.5703-0.04 0.4096+0.04 0.3347 0.2157]);
+    yMax = ylim;
+    z = yMax(2);
+    plotMonths(z)
+ 
+
+ subplot(3,2,5)
+    xP = t; yP = S;
+    plot(xP,yP,'b','linewidth',2)
+    hold on
+    
+    xlim([0 tMax])
+    ylim([0 1.1*Smax]/f)
+    grid on
+    xlabel('days elapsed')
+    ylabel('S') 
+    title('Susceptible Population S','fontweight','normal')
+    set(gca,'fontsize',12)    
+    set(gca,'Position', [0.0800 0.1100+0.04 0.3347 0.2157]);   
+     yMax = ylim;
+    z = yMax(2);
+    plotMonths(z)
+    
+    
+subplot(3,2,6)  
+   xlim([0 120])
+   ylim([0 250])
+   hh = 250; dh = -28;
+   
+   z = zSTART;
+   z = datetime(z,'ConvertFrom','datenum');
+   z.Format = 'dd-MMM-yyyy';
+   txt = cellstr(z) ; 
+   Htext = text(0,hh,txt,'fontsize',12);
+   set(Htext,'color','k')
+   
+   hh = hh+2*dh;
+   txt = 'MODEL PARAMETERS';
+   text(0,hh,txt,'fontsize',12)
+   
+   hh = hh+dh;
+   txt = sprintf('I(1) = %3.0e   f = %2.2e   a = %2.3f   b = %2.3f', I(1)/f, f,a ,b);
+   text(0,hh,txt,'fontsize',12)
+      
+   hh = hh+2*dh; 
+   txt = 'DATA';
+   text(0,hh,txt,'fontsize',12)
+   
+   z = zSTART;
+   z = z + Ndays-1;
+   z = datetime(z,'ConvertFrom','datenum');
+   z.Format = 'dd-MMM-yyyy';
+   txt = cellstr(z) ; 
+   text(20,hh,txt,'fontsize',12)
+    
+   hh = hh+dh;
+   z1 = Id(end); z2 = Rd(end); z3 = Dd(end); z4 = z1+z2+z3;  
+   txt = sprintf('I = %5.0f    R = %5.0f    D = %5.0f    I_{tot} = %5.0f', z1,z2,z3,z4);
+   text(6,hh,txt,'fontsize',12)
+   
+   % Recoveries and Deaths
+     hh = hh+dh;
+     txt = sprintf('percent: Active = %2.1f  Recoveries = %2.1f    Deaths = %2.1f   ',pId,pRd,pDd);
+     text(2,hh,txt,'fontsize',12)  
+   
+     hh = hh+2*dh; 
+     txt = 'MODEL PREDICTIONS';
+     text(0,hh,txt,'fontsize',12)
+   
+     z = zSTART;
+     z = z + tMax;
+     z = datetime(z,'ConvertFrom','datenum');
+     z.Format = 'dd-MMM-yyyy';
+     txt = cellstr(z) ; 
+     text(78,hh,txt,'fontsize',12)
+   
+     hh = hh+dh;
+     z1 = I(end); z2 = R(end); z3 = D(end); z4 = z1+z2+z3;  
+     txt = sprintf('I = %5.0f    R = %5.0f    D = %5.0f    I_{tot} = %5.0f', z1,z2,z3,z4);
+     text(6,hh,txt,'fontsize',12)
+
+     hh = hh+dh;
+     txt = 'Peak';
+     text(10,hh,txt,'fontsize',12)
+     z = find(I == Imax,1);
+     z = t(z) + zSTART;
+     z = datetime(z,'ConvertFrom','datenum');
+     z.Format = 'dd-MMM-yyyy';
+     txt = cellstr(z) ; 
+     text(30,hh,txt,'fontsize',12)
+   
+     txt = sprintf('I_{peak} = %5.0f',Imax);
+     text(80,hh,txt,'fontsize',12)
+   
+     hh = hh+dh;
+     txt = sprintf('percent: Active = %2.1f  Recoveries = %2.1f    Deaths = %2.1f   ',pI,pR,pD);
+     text(2,hh,txt,'fontsize',12)   
+        
+     axis off
+     set(gca,'Position', [0.5703-0.08 0.1100+0.04 0.3347 0.2157]);
+     
+
+ figure(2)  % ----------------------------------------------------------
+   set(gcf,'units','normalized');
+   set(gcf,'position',[0.460 0.05 0.2 0.25]);
+   set(gcf,'color','w');
+
+   xP = Rd+Dd; yP = Dd;
+   plot( xP,yP,'b+')
+   hold on
+   xP = Rm; yP = D;
+   plot( xP,yP,'r','linewidth',2)
+   grid on
+   ylabel('deaths D')
+   xlabel('removals R_m ')
+ %  title('D = D_0 [1 - exp( - k R_m)]','fontweight','normal')
+   txt = sprintf('D_0 = %2.0f', D0);
+   text(1.5e5,12e3,txt,'fontsize',12)
+   txt = sprintf('k = %2.1e',k0);
+   text(1.5e5,6e3,txt,'fontsize',12)
+   set(gca,'fontsize',12) 
+   
+
+figure(3)  % ----------------------------------------------------------
+   set(gcf,'units','normalized');
+   set(gcf,'position',[0.670 0.05 0.2 0.50]);
+   set(gcf,'color','w');
+
+subplot(2,1,1)   
+   yP = Rd+Dd; xP = Idtot;
+   plot( xP,yP,'b+')
+   hold on
+   yP = Rm; xP = Itot;
+   plot( xP,yP,'r','linewidth',2)
+   grid on
+   xlabel('infections   I_{tot}')
+   ylabel('removals   R_m')
+   set(gca,'fontsize',12)   
+
+ subplot(2,1,2)   
+   yP = Rd+Dd; xP = Id;
+   plot( xP,yP,'b+')
+   hold on
+   yP = Rm; xP = I;
+   plot( xP,yP,'r','linewidth',2)
+   grid on
+   xlabel('active infections   I')
+   ylabel('removals   R_m')
+   set(gca,'fontsize',12)   
+   
+figure(9)
+  set(gcf,'units','normalized');
+  set(gcf,'position',[0.46 0.4 0.2 0.50]);
+  set(gcf,'color','w');
+
+  subplot(3,1,1)
+    xP = Rd+Dd; yP = Dd;
+   plot( xP,yP,'b+')
+   hold on
+   xP = Rm; yP = D;
+   plot( xP,yP,'r','linewidth',2)
+   grid on
+   ylabel('deaths D')
+   xlabel('removals R_m ')
+ %  title('D = D_0 [1 - exp( - k R_m)]','fontweight','normal')
+   txt = sprintf('D_0 = %2.0f', D0);
+   text(1.65e5,15e3,txt,'fontsize',12)
+   txt = sprintf('k = %2.2e',k0);
+   text(1.65e5,6e3,txt,'fontsize',12)
+   set(gca,'fontsize',12)
+   
+ subplot(3,1,2)  
+   yP = Rd+Dd; xP = Id;
+   plot( xP,yP,'b+')
+   hold on
+   yP = Rm; xP = I;
+   plot( xP,yP,'r','linewidth',2)
+   grid on
+   xlabel('active infections   I')
+   ylabel('removals   R_m')
+   set(gca,'fontsize',12)   
+
+ subplot(3,1,3)  
+   yP = Rd+Dd; xP = Idtot;
+   plot( xP,yP,'b+')
+   hold on
+   yP = Rm; xP = Itot;
+   plot( xP,yP,'r','linewidth',2)
+   grid on
+   xlabel('infections   I_{tot}')
+   ylabel('removals   R_m')
+   set(gca,'fontsize',12)   
+
+   
+      
+   
+% FUNCTIONS ============================================================
+  
+function covid = sir
+c = 1;
+
+
+T = [470 455 12];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [655 593 17];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [889 822 21];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [1128 1049 29];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [1701 1577 41];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [2036 1835 52];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [2502 2263 79];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [3089 2706 107];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [3858 3296 148];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [4636 3912 197];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [5883 5016 233];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [7375 6387 366];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [9172 7985 463];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [10149 8514 631];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [12462 10590 827];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [15113 12838 1016];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [17660 14955 1266];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [21157 17750 1441];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [24747 20608 1809];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [27980 23073 2158];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [31506 26062 2503];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [35713 28710 2978];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [41035 33190 3405];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [47021 37860 4032];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [53578 42687 4825];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [59138 46638 5476];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [63927 50418 6077];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [69176 54030 6820];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [74386 57521 7503];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [80589 62013 8215];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [86498 66414 9134];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [92472 70065 10023];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [97689 73880 10779];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [101739 75528 11591 ];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [105792 77635 12428];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [110574 80572 13155];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [115242 83049 13915];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [119827 85388 14681];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [124632 88274 15362];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [128948 91246 15887];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [132547 93187 16523];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [135586 94067 17127];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [139422 95262 17669];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [139422 96877 18279];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [147577 98273 18279];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [152271 100269 19468];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [156363 102253 19899];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [159516 103616 20465];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [162488 104291 21067];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [165155 105418 21645];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [168941 106607 22170];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [172434 106962 22745];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [175925 107771 23227];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [178972 108257 23650];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [181228 108237 24114];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [183957 107699 24648];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [187327 107699 25085];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [189973 106848 25549];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [192994 106527 25969];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [195351 105847 26384];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [197675 106103 26644];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [199414 105813 26977];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [201505 105205 27359];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [203591 104657 27682];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [205463 101551 27967];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [207428 100943 28236];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [209328 100704 28710];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [210717 100179 28884];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [211938 99980 29079];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [213013 98467 29315];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [214457 91528 29684];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [215858 89624 29958];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [217185 87961 30201];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [218268 84842 30395];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [219070 83324 30560];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [219814 82488 30739];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [221216 81266 30911];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [222104 78457 31106];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [223096 76440 31368];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [223885 72070 31610];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [224760 70187 31763];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [225435 68351 31908];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [225886 66553 32007];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [226699 65129 32169 ];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [227364 62752 32330];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [228006 60960 32486];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [228658 59322 32616];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [229327 57752 32735];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [229858 56594 32785];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [230158 55300 32877];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [230555 52942 32955];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [231139 50966 33072];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [231732 47986 33142];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [232248 46175 33229];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [232664 43691 33340];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [232997 42075 33415];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [233197 41367 33475];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [233515 39893 33530];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [233836 39297 33601];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [234013 38429 33689];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [234531 36976 33774];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [234801 35877 33846];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [234998 35262 33899];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [235278 34730 33964];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [235561 32872 34043];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [235763 31710 34114];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [236142 30637 34167];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+% T = [];
+%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+% T = [];
+%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+% T = [];
+%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+% T = [];
+%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+% T = [];
+%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+% T = [];
+%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+% T = [];
+%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+% T = [];
+%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+% T = [];
+%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+% T = [];
+%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+% T = [];
+%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+% T = [];
+%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+% T = [];
+%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+% T = [];
+%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+% T = [];
+%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+% T = [];
+%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+% T = [];
+%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+% T = [];
+%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+% T = [];
+%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+% 
+% 
+
+
+
+
+end
+
+
+
+
+
+function  plotMonths(z)
+     
+       yMax = z;
+     % Months
+       m1 = [2020 02 26];    % day zero
+       m2 = [2020 03  1];    % 
+       m3 = [2020 04  1];    % 
+       m4 = [2020 05  1];    % 
+       m5 = [2020 06  1];    % 
+       m6 = [2020 07  1];    % 
+       m7 = [2020 08  1];    % 
+       m8 = [2020 09  1];    % 
+   
+      tm(1) = datenum(m1);
+      tm(2) = datenum(m2) - tm(1);
+      tm(3) = datenum(m3) - tm(1);
+      tm(4) = datenum(m4) - tm(1);
+      tm(5) = datenum(m5) - tm(1);
+      tm(6) = datenum(m6) - tm(1);
+      tm(7) = datenum(m7) - tm(1);
+      tm(8) = datenum(m8) - tm(1);
+   
+      for n = 2:8
+        plot([tm(n), tm(n)], [0, yMax],'linewidth',1,'color', [0.5 0.5 0.5]);
+        hold on
+      end
+      
+      ys = 0.94;
+      M = 'MAMJJAS';
+      for c = 1:6
+        text(5+tm(c+1), ys*yMax,M(c))
+      end
+
+end

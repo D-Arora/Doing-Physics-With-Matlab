@@ -1,0 +1,89 @@
+ html {
+ header
+ }
+ 
+ header, section
+ 
+ /* unvisited link */
+	/*a:link {
+    color: #000000;
+	}*/
+
+	/* visited link */
+	a:visited {
+    color: #000000;
+	}
+
+	/* mouse over link */
+	a:hover {
+    color: #FF00FF;
+    background-color: #ffd9d9;
+	}
+
+	/* selected link */
+	a:active {
+    color: #0000FF;
+	}
+
+	a {text-decoration: none;
+   color: #000000}
+
+	
+ 
+ header
+    {
+    font-family:Bookman Old Style;
+	font-size:30px;
+	font-weight: bold;
+	width: 960px;
+    color: blue;
+    background-color: white;
+	padding: 20px;
+	margin-left: 50px;
+    }
+	
+section.s2
+    {
+    font-family:Calibri;
+	font-size:16px;
+	font-weight:10;
+	width: 960px;
+    color: black;
+    background-color: white;
+	margin-left: 40px;
+    }
+
+section.s3
+    {
+    font-family:Bookman Old Style;
+	font-size:20px;
+	font-weight:bold;
+	width: 960px;
+    color: purple;
+    background-color: white;
+	margin-left: 40px;
+    }
+
+section.s5
+    {
+    font-family:Calibri;
+	font-size:20px;
+	font-weight:bold;
+	width: 960px;
+    color: black;
+    background-color: white;
+	margin-left: 50px;
+    }
+
+
+img.a1
+{
+	float:left;
+	margin-left:10px;
+	margin-right:30px;
+	margin-top:2px;
+	height: 150px;
+	width;150px" 
+}
+	
+ 

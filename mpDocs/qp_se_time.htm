@@ -1,0 +1,826 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Balloon Text Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-link:"Balloon Text";
+	font-family:"Tahoma","sans-serif";}
+.MsoChpDefault
+	{font-family:"Calibri","sans-serif";}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 162.2pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-AU link=blue vlink=purple>
+
+<div class=WordSection1>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr>
+  <td width=283 valign=top style='width:169.8pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:#E36C0A'>&nbsp;</span></b></p>
+  </td>
+  <td width=1146 valign=top style='width:687.5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-left:14.2pt;line-height:150%'><img
+  width=118 height=114 src="qp_se_time_files/image001.png" align=left
+  hspace=12><b><span lang=EN-US style='font-size:16.0pt;line-height:150%;
+  font-family:"Bookman Old Style","serif";color:blue'> </span></b><span
+  lang=EN-US><a href="http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm"><b><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif"'>DOING
+  PHYSICS WITH MATLAB</span></b></a></span></p>
+  <p class=MsoNormal style='margin-left:14.2pt;line-height:150%'><b><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:blue'> QUANTUM PHYSICS</span></b></p>
+  <p class=MsoNormal style='margin-left:14.2pt;line-height:150%'><b><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:#E36C0A'>SCHRODINGER EQUATION</span></b></p>
+  <p class=MsoNormal style='line-height:115%'><b><span lang=EN-US
+  style='font-family:"Tahoma","sans-serif";color:#E36C0A'>&nbsp;</span></b></p>
+  <p class=MsoNormal style='line-height:115%'><b><span lang=EN-US
+  style='font-family:"Tahoma","sans-serif";color:#E36C0A'>Time evolution of the
+  wavefunction  -  stationary and compound states</span></b></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-family:"Tahoma","sans-serif";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-family:"Tahoma","sans-serif";color:black'>Ian Cooper</span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-family:"Tahoma","sans-serif";color:black'>School of Physics,
+  University of Sydney</span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-family:"Tahoma","sans-serif";color:black'>ian.cooper@sydney.edu.au</span></p>
+  <p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:blue'>&nbsp;</span></b></p>
+  <p class=MsoNormal><span lang=EN-US><a
+  href="http://www.physics.usyd.edu.au/teach_res/mp/mscripts"><b><span
+  style='font-family:"Bookman Old Style","serif"'>DOWNLOAD DIRECTORY FOR MATLAB
+  SCRIPTS</span></b></a></span></p>
+  <p class=MsoNormal style='margin-left:14.2pt;line-height:150%'><span
+  lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='text-align:justify;text-justify:inter-ideograph'><span
+  lang=EN-US>The Matlab scripts are used to give the solution of the
+  Schrodinger Equation for a variety of potential energy functions using a
+  matrix method where the solutions are the eigenvalues and eigenfunctions of
+  the energy operator. Read the paper on the <a
+  href="http://www.physics.usyd.edu.au/teach_res/mp/doc/qp_se_matrix.pdf">Matrix
+  Method</a> before proceeding with this paper. </span></p>
+  <p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm'><span
+  lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Calibri","sans-serif";
+  color:#984806'>se_wells.m</span></b></p>
+  <p class=MsoNormal><span lang=EN-US>First m-script to be run when solving the
+  Schrodinger Equation using the Matrix Method. Most of the constants and all
+  the well parameters are declared in this file. You can select the type of
+  potential well from the Command Window when the m-script is run.  You alter
+  the m-script code to change the parameters that characterize the wells and
+  you can add to the m-script to define your own potential well. When this
+  m-script is run it clears all variables and closes all open Figure Windows.</span></p>
+  <p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Calibri","sans-serif";
+  color:#984806'>se_solve.m</span></b></p>
+  <p class=MsoNormal><span lang=EN-US>This m-script solves the Schrodinger Equation
+  using the Matrix Method after you have run the m-script </span><b><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";color:#984806'>se_wells.m</span></b><span
+  lang=EN-US>. The eigenvalues and corresponding eigenvectors are found for the
+  bound states of the selected potential well. </span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-family:"Calibri","sans-serif";
+  color:#984806'>&nbsp;</span></p>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Calibri","sans-serif";
+  color:#984806'>se_stationary.m</span></b></p>
+  <p class=MsoNormal><span lang=EN-US>To be run after </span><b><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";color:#984806'>se_wells.m</span></b><span
+  lang=EN-US> and </span><b><span lang=EN-US style='font-family:"Calibri","sans-serif";
+  color:#984806'>se_solve.m</span></b><span lang=EN-US>. You can investigate
+  and view the time evolution of an energy eigenstate and save the plot as an
+  animated gif.</span></p>
+  <p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Calibri","sans-serif";
+  color:#984806'>se_super.m</span></b></p>
+  <p class=MsoNormal><span lang=EN-US>To be run after </span><b><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";color:#984806'>se_wells.m</span><span
+  lang=EN-US> </span></b><span lang=EN-US>and </span><b><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";color:#984806'>se_solve.m</span></b><span
+  lang=EN-US>. You can investigate and view the time evolution of a compound
+  state and save the plot as an animated gif.</span></p>
+  <p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm'><span
+  lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal><b><span lang=EN-US style='font-size:14.0pt;font-family:
+  "Bookman Old Style","serif";color:blue'>&nbsp;</span></b></p>
+  <p class=MsoNormal><b><span lang=EN-US style='font-size:14.0pt;font-family:
+  "Bookman Old Style","serif";color:blue'>STATIONARY STATES AND SUPERPOSITION
+  PRINCIPLE</span></b></p>
+  <p class=MsoNormal><b><span lang=EN-US style='font-size:14.0pt;font-family:
+  "Bookman Old Style","serif";color:blue'>&nbsp;</span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>In wave
+  mechanics, the state of a system is described by a wavefunction that
+  satisfies the Schrodinger Equation and the boundary conditions imposed on the
+  system. For a one dimensional system, the Schrodinger Equation for a
+  potential energy function <i>U</i>(<i>x</i>) is</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>         (1)         <span
+  style='position:relative;top:15.0pt'><img border=0 width=352 height=61
+  src="qp_se_time_files/image002.png"></span></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>We will consider
+  only those solutions that are described by a state of definite energy by the
+  method of <b><span style='color:blue'>separation of variables</span></b> where
+  the wavefunction is expressed as</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>         (2)         <span
+  style='position:relative;top:5.0pt'><img border=0 width=155 height=27
+  src="qp_se_time_files/image003.png"></span></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>The substitution
+  of this wavefunction into the Schrodinger Equation, gives two ordinary
+  differential equations and for quantum state <i>n</i></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>         (3)         
+  <span style='position:relative;top:15.0pt'><img border=0 width=308 height=61
+  src="qp_se_time_files/image004.png"></span>    <span style='position:relative;
+  top:34.0pt'> </span></span><span lang=EN-US style='font-size:10.0pt;
+  line-height:150%'>time independent Schrodinger equation</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>         (4)         <span
+  style='position:relative;top:12.0pt'><img border=0 width=158 height=52
+  src="qp_se_time_files/image005.png"></span>            <i>n</i> = 1, 2, 3 , …      </span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>The solution of
+  the ordinary differential equation (4) is</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>         (5)         <span
+  style='position:relative;top:14.0pt'><img border=0 width=165 height=56
+  src="qp_se_time_files/image006.png"></span>   </span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>For <b><span
+  style='color:blue'>stationary states</span></b> which have a definite total
+  energy, the wavefunction is</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>         (6)         <span
+  style='position:relative;top:14.0pt'><img border=0 width=241 height=56
+  src="qp_se_time_files/image007.png"></span></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>If the energy of
+  the system is measured, the value <i>E<sub>n</sub></i> will certainly be
+  obtained. This is a special type of solution of the Schrodinger Equation.</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>Applying Born’s
+  rule, which states that the probability of finding the particles in a small
+  interval <i>dx</i> centered on <i>x</i> for the state <i>n</i> is</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>                        <span
+  style='position:relative;top:9.0pt'><img border=0 width=532 height=40
+  src="qp_se_time_files/image008.png"></span></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>Hence, the
+  probability is independent of time <i>t</i> and this is why it is called a <b><span
+  style='color:#7030A0'>stationary state</span></b>. The real and imaginary
+  parts of the wavefunction change with time but not the modulus. All parts
+  oscillate in phase (like a stationary normal mode of a vibrating guitar
+  string). The concept of stationary states is not one that is familiar to us
+  in the classical world as nothing is moving at all, the probability of
+  detecting an electron in any given region never changes. All the expectation
+  value such as position, momentum and energy are also independent of time.</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='position:relative;top:14.0pt'>Each stationary state wavefunction as
+  described by equation (6) describes a complex standing wave. A <b><span
+  style='color:blue'>standing wave</span></b> is one that oscillates without
+  propagation through space, with all points of the standing wave vibrating in
+  phase. The frequency and period of the vibration are</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='position:relative;top:14.0pt'>                         </span><span
+  lang=EN-US><span style='position:relative;top:15.0pt'><img border=0
+  width=273 height=56 src="qp_se_time_files/image009.png"></span></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='position:relative;top:14.0pt'>The standing wave has nodes fixed in
+  space. As <i>n</i> increases, the total energy <i>E<sub>n</sub></i> and
+  number of nodes increases, while the period of vibration <i>T<sub>n</sub></i>
+  decreases. </span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='position:relative;top:14.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='position:relative;top:14.0pt'>There is zero probability of locating
+  the particle bound in the well at each node. We can no longer think of the
+  particle moving from place to place in the well. In quantum physics, a
+  particle has no position until it is measured, so it makes no sense to think
+  of the particle moving about. There is no problem associated with the
+  particle having to travel through a nodal point, since the particle has no
+  position and velocity. When a measurement is made, it only tells us the
+  position and velocity at the instant after the measurement. Before the
+  measurement, the state is simply described by the wavefunction which gives us
+  the most complete description that is possible of the state of the system,
+  but it does not give us information about the position and velocity of the
+  particle.</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='position:relative;top:14.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='position:relative;top:14.0pt'>Figure (1) show the time evolution for a
+  number of time steps of the real and imaginary parts of the wavefunction and
+  the probability density for the stationary state <i>n</i> = 3 of the
+  truncated harmonic oscillator. The phase of the real and imaginary parts
+  change with time but the probability density is independent of time. </span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='position:relative;top:14.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  style='position:relative;top:14.0pt'><img border=0 width=567 height=387
+  id="Picture 132" src="qp_se_time_files/image010.png"></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm'><span
+  lang=EN-US>         </span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm'><span
+  lang=EN-US>         Fig. 1. The time evolution of the wavefunction’s real and
+  imaginary parts for the stationary state <i>n</i> = 3 for a truncated
+  parabolic well. The probability density does not change with time. </span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm'><span
+  lang=EN-US>         <span style='color:#984806'>[</span></span><b><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";color:#984806'>se_wells.m</span><span
+  lang=EN-US>   </span></b><b><span lang=EN-US style='font-family:"Calibri","sans-serif";
+  color:#984806'>se_solve.m    se_stationary.m</span></b><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";color:#984806'>]</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm'><span
+  lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm'><span
+  lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='position:relative;top:14.0pt'>An animation of the changes with time of
+  the wavefunction can be observed by running the m-script </span><b><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";color:#984806;
+  position:relative;top:14.0pt'>se_stationary.m</span></b><span lang=EN-US
+  style='position:relative;top:14.0pt'>.</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='position:relative;top:14.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal align=center style='margin-top:0cm;margin-right:42.15pt;
+  margin-bottom:0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-align:center;
+  text-indent:-1.0cm'><img border=0 width=672 height=504 id="Picture 2"
+  src="qp_se_time_files/image011.gif"></p>
+  <p class=MsoNormal align=center style='margin-top:0cm;margin-right:42.15pt;
+  margin-bottom:0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-align:center;
+  text-indent:-1.0cm'><span lang=EN-US>          Fig. 2. An animated gif of the
+  time evolution of the stationary state <i>n</i> = 3 for a truncated parabolic
+  well.</span><span lang=EN-US style='font-family:"Calibri","sans-serif";
+  color:#984806'> [<b>se_stationary.m</b>]</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm'><span
+  lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm'><span
+  lang=EN-US> </span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm'><span
+  lang=EN-US>&nbsp;</span></p>
+  <span lang=EN-US style='font-size:12.0pt;font-family:"Times New Roman","serif"'><br
+  clear=all style='page-break-before:always'>
+  </span>
+  <p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>Wavefunctions
+  have a very important property in that they obey the <b><span
+  style='color:blue'>superposition principle</span></b>:</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>If a set of
+  wavefunctions are solutions of the Schrodinger Equation, then any linear
+  combination of the wavefunctions is also a solution</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>                        <span
+  style='position:relative;top:14.0pt'><img border=0 width=114 height=45
+  src="qp_se_time_files/image012.png"></span>     where <i>a<sub>c</sub></i>
+  are arbitrary complex numbers</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>If the
+  wavefunctions <span style='position:relative;top:6.0pt'><img border=0
+  width=31 height=31 src="qp_se_time_files/image013.png"></span>are normalized
+  wavefunction and <span style='position:relative;top:2.0pt'><img border=0
+  width=23 height=21 src="qp_se_time_files/image014.png"></span>is also
+  normalized then</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>                        <span
+  style='position:relative;top:14.0pt'><img border=0 width=93 height=48
+  src="qp_se_time_files/image015.png"></span></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='position:relative;top:14.0pt'>The probability density of finding a
+  particle in a given length element <i>dx</i> is</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='position:relative;top:14.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='position:relative;top:14.0pt'>                        </span><span
+  lang=EN-US><span style='position:relative;top:5.0pt'><img border=0 width=130
+  height=31 src="qp_se_time_files/image016.png"></span></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='position:relative;top:14.0pt'>When the particle is in an eigenstates
+  with a definite energy <i>E<sub>n</sub></i> then </span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='position:relative;top:14.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='position:relative;top:14.0pt'>                        </span><span
+  lang=EN-US><span style='position:relative;top:6.0pt'><img border=0 width=342
+  height=31 src="qp_se_time_files/image017.png"></span></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>and so the
+  probability distribution does not change with time as shown in figure (1). Also,
+  the expectation value for the position of the particle <span
+  style='position:relative;top:7.0pt'><img border=0 width=31 height=33
+  src="qp_se_time_files/image018.png"></span> is not a function of time. However,
+  when the particle is in a compound state (more than one <i>a<sub>n</sub></i>
+  is nonzero), the probability density <span style='position:relative;
+  top:7.0pt'><img border=0 width=79 height=38
+  src="qp_se_time_files/image019.png"></span>, the expectation value for
+  position <span style='position:relative;top:7.0pt'><img border=0 width=31
+  height=33 src="qp_se_time_files/image018.png"></span>and probability of
+  locating the particle at each position all vary with time. </span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='position:relative;top:14.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='position:relative;top:14.0pt'>The expectation value for the total
+  energy is</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='position:relative;top:14.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='position:relative;top:14.0pt'>                        </span><span
+  lang=EN-US><span style='position:relative;top:14.0pt'><img border=0
+  width=285 height=56 src="qp_se_time_files/image020.png"></span></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>Using the fact
+  that the eigenfunctions are orthonormal</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>                        <span
+  style='position:relative;top:15.0pt'><img border=0 width=521 height=61
+  src="qp_se_time_files/image021.png"></span></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>and doing some
+  algebra it is not difficult to show that the expectation value for the total
+  energy is</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>         (7)          <span
+  style='position:relative;top:14.0pt'><img border=0 width=126 height=45
+  src="qp_se_time_files/image022.png"></span>         where <i>E<sub>c</sub></i>
+  are the eigenvalues</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>Any measurement
+  of the total energy of the system will always give one of the eigenvalues <i>E<sub>n</sub></i>
+  and not <span style='position:relative;top:7.0pt'><img border=0 width=35
+  height=33 src="qp_se_time_files/image023.png"></span>. If many identical
+  system with the compound wavefunction <span style='position:relative;
+  top:2.0pt'><img border=0 width=23 height=21
+  src="qp_se_time_files/image014.png"></span>were prepared and the total energy
+  measured for each system than the average value those measurements would be very
+  close to the expectation value <span style='position:relative;top:7.0pt'><img
+  border=0 width=35 height=33 src="qp_se_time_files/image023.png"></span>.</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%;text-autospace:none'><span
+  lang=EN-US>Run </span><b><span lang=EN-US style='font-family:"Calibri","sans-serif";
+  color:#984806'>se_wells.m</span></b><span lang=EN-US> and </span><b><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";color:#984806'>se_solve.m</span></b><span
+  lang=EN-US> for the default truncated parabolic well: </span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Calibri","sans-serif";color:#984806'>%
+  parabolic *****************************************************</span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Calibri","sans-serif";color:#984806'>case
+  5   </span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Calibri","sans-serif";color:#984806'>   
+  xMin = -0.2;                  % default = -0. nm</span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Calibri","sans-serif";color:#984806'>   
+  xMax = +0.2;                  % default = +0.2 nm</span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Calibri","sans-serif";color:#984806'>   
+  x1 = 0.2;                     % width default = 0.2 nm;</span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Calibri","sans-serif";color:#984806'>   
+  U1 = -400;                    % well depth default = -400 eV;</span></p>
+  <p class=MsoNormal style='line-height:150%;text-autospace:none'><span
+  lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%;text-autospace:none'><span
+  lang=EN-US>The energy eigenvalues for this potential well from </span><b><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";color:#984806'>se_solve.m</span></b><span
+  lang=EN-US> are:</span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-autospace:none'><span
+  lang=EN-US style='font-size:10.0pt;font-family:"Calibri","sans-serif";
+  color:#984806'>No. bound states found =  5   </span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-autospace:none'><span
+  lang=EN-US style='font-size:10.0pt;font-family:"Calibri","sans-serif";
+  color:#984806'> Quantum State / Eigenvalues  En  (eV)</span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-autospace:none'><span
+  lang=EN-US style='font-size:10.0pt;font-family:"Calibri","sans-serif";
+  color:#984806'>  1      -360.92   </span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-autospace:none'><span
+  lang=EN-US style='font-size:10.0pt;font-family:"Calibri","sans-serif";
+  color:#984806'>  2      -282.77   </span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-autospace:none'><span
+  lang=EN-US style='font-size:10.0pt;font-family:"Calibri","sans-serif";
+  color:#984806'>  3      -204.68   </span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-autospace:none'><span
+  lang=EN-US style='font-size:10.0pt;font-family:"Calibri","sans-serif";
+  color:#984806'>  4      -127.09   </span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-autospace:none'><span
+  lang=EN-US style='font-size:10.0pt;font-family:"Calibri","sans-serif";
+  color:#984806'>  5      -52.272  </span></p>
+  <p class=MsoNormal style='line-height:150%;text-autospace:none'><span
+  lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%;text-autospace:none'><span
+  lang=EN-US>The m-script </span><b><span lang=EN-US style='font-family:"Calibri","sans-serif";
+  color:#984806'>se_super.m</span></b><span lang=EN-US> adds any two of the
+  eigenfunctions to form a compound state. To investigate the addition of the
+  eigenstates 1 and 2, in the code for </span><b><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";color:#984806'>se_super.m</span></b><span
+  lang=EN-US> enter</span></p>
+  <p class=MsoNormal style='line-height:150%;text-autospace:none'><span
+  lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-left:1.0cm;text-indent:1.0cm;text-autospace:
+  none'><span style='font-size:10.0pt;font-family:"Calibri","sans-serif";
+  color:#984806'>qn(1) = 1; qn(2) = 2;       % states to be summed</span></p>
+  <p class=MsoNormal style='text-indent:2.0cm;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Calibri","sans-serif";color:#984806'>ac(1)
+  = 0.5; ac(2) = sqrt(1-ac(1)^2);     % coefficients  </span></p>
+  <p class=MsoNormal style='line-height:150%'>&nbsp;</p>
+  <p class=MsoNormal style='line-height:150%'>to form the compound state</p>
+  <p class=MsoNormal style='line-height:150%'>         (8)          <span
+  style='position:relative;top:14.0pt'><img border=0 width=518 height=56
+  src="qp_se_time_files/image024.png"></span></p>
+  <p class=MsoNormal style='line-height:150%'>&nbsp;</p>
+  <p class=MsoNormal style='line-height:150%'>The expectation value (eV) for
+  this compound state is displayed in the Command Window</p>
+  <p class=MsoNormal style='line-height:150%'>&nbsp;</p>
+  <p class=MsoNormal style='line-height:150%'>                   <span
+  style='font-family:"Calibri","sans-serif";color:#984806'>Eavg_s =  -302.3036         
+  </span><span style='font-size:10.0pt;line-height:150%'>see equation (7)</span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='font-family:"Calibri","sans-serif";
+  color:#984806'>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>Figure (3) shows
+  the time evolution of the compound state at times <i>t</i> = 0, <i>T</i>/4, <i>T</i>/2,
+  3<i>T</i>/4, <i>T</i>  where <i>T</i> is the period of the oscillation of the
+  wavefunction. The red curves are the real parts and the blue curves the
+  imaginary part of the compound wavefunction. The black curves shows the
+  variation with time of the probability density. For the compound state where <span
+  style='position:relative;top:6.0pt'><img border=0 width=193 height=31
+  src="qp_se_time_files/image025.png"></span>the probability curve oscillates
+  back and forth in the potential well with a period <i>T</i> where             <span
+  style='position:relative;top:16.0pt'><img border=0 width=104 height=58
+  src="qp_se_time_files/image026.png"></span></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>             </span></p>
+  <p class=MsoNormal align=center style='text-align:center'><img border=0
+  width=610 height=332 id="Picture 144" src="qp_se_time_files/image027.png"></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm'><span
+  lang=EN-US>         Fig. 3.    The time evolution of the wavefunction’s real
+  and imaginary parts for a compound state given by equation (8) for a
+  truncated parabolic well. The probability density changes with time as the
+  charge distribution oscillates back and forward in the potential well. Red
+  curves – real part <span style='position:relative;top:2.0pt'><img border=0
+  width=23 height=21 src="qp_se_time_files/image014.png"></span>, blue curves –
+  imaginary part<span style='position:relative;top:2.0pt'><img border=0
+  width=23 height=21 src="qp_se_time_files/image014.png"></span>and black
+  curves – probability density. </span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm'><span
+  lang=EN-US>         <span style='color:#984806'>[</span></span><b><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";color:#984806'>se_wells.m</span><span
+  lang=EN-US>   </span></b><b><span lang=EN-US style='font-family:"Calibri","sans-serif";
+  color:#984806'>se_solve.m    se_super.m</span></b><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";color:#984806'>]</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm'><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";color:#984806'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm'><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";color:#984806'>&nbsp;</span></p>
+  <p class=MsoNormal align=center style='margin-top:0cm;margin-right:42.15pt;
+  margin-bottom:0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-align:center;
+  text-indent:-1.0cm'><span style='font-family:"Calibri","sans-serif";
+  color:#984806'><img border=0 width=672 height=504 id="Picture 3"
+  src="qp_se_time_files/image028.gif"></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.7pt;margin-bottom:.0001pt'><span lang=EN-US>        Fig. 4.
+  An animated gif of the time evolution of the compound state <i>n</i> = 1 and <i>n</i>
+  = 2 for a truncated parabolic well.</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.7pt;margin-bottom:.0001pt'><span lang=EN-US>        </span><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";color:#984806'>[<b>se_super.m</b>]</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm'><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";color:#984806'>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>Therefore, the
+  expectation of the position of the electron <span style='position:relative;
+  top:7.0pt'><img border=0 width=31 height=33
+  src="qp_se_time_files/image018.png"></span>oscillates with the period <i>T</i>
+  as shown in figure (5). </span></p>
+  <p class=MsoNormal align=center style='text-align:center'><img border=0
+  width=672 height=504 id="Picture 1" src="qp_se_time_files/image029.png"><span
+  lang=EN-US><br clear=all style='page-break-before:always'>
+  </span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.7pt;margin-bottom:.0001pt'><span lang=EN-US>         Fig. 5.    The
+  time variation of the expectation value for the position of the electron<span
+  style='position:relative;top:7.0pt'><img border=0 width=31 height=33
+  src="qp_se_time_files/image018.png"></span>in the compound state</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.7pt;margin-bottom:.0001pt'><span lang=EN-US>        state <i>n</i>
+  = 1 and <i>n</i> = 2 for a truncated parabolic well. <i>T</i> = 5 .294×10<sup>-17&nbsp;</sup>s.   
+  <span style='color:#984806'>[</span></span><b><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";color:#984806'>se_wells.m</span><span
+  lang=EN-US>   </span></b><b><span lang=EN-US style='font-family:"Calibri","sans-serif";
+  color:#984806'>se_solve.m    se_super.m</span></b><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";color:#984806'>]</span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-US>&nbsp;</span></p>
+  <b><span lang=EN-US style='font-size:12.0pt;font-family:"Bookman Old Style","serif";
+  color:blue'><br clear=all style='page-break-before:always'>
+  </span></b>
+  <p class=MsoNormal><b><span lang=EN-US style='font-family:"Bookman Old Style","serif";
+  color:blue'>&nbsp;</span></b></p>
+  <p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+  style='font-size:14.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:blue'>RADIATION EMITTED BY THE SYSTEM</span></b></p>
+  <p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+  style='font-family:"Bookman Old Style","serif";color:blue'>&nbsp;</span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>In classical
+  electromagnetism, an accelerated charge radiates electromagnetic radiation at
+  a rate that increases with its acceleration. In quantum mechanics, the
+  acceleration of a particle is not defined and an electron in a given state
+  does not radiate energy. But, we can explain the radiation due to transitions
+  between states using a semi-classical approach by considering the expectation
+  value <span style='position:relative;top:7.0pt'><img border=0 width=31
+  height=33 src="qp_se_time_files/image018.png"></span>instead of the classical
+  well defined position coordinate <i>x</i>. Consider an electron in a stationary
+  eigenstate. Its expectation value <span style='position:relative;top:7.0pt'><img
+  border=0 width=31 height=33 src="qp_se_time_files/image018.png"></span>does
+  not depend upon time</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>                   <span
+  style='position:relative;top:11.0pt'><img border=0 width=472 height=47
+  src="qp_se_time_files/image030.png"></span></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>therefore, <span
+  style='position:relative;top:12.0pt'><img border=0 width=88 height=56
+  src="qp_se_time_files/image031.png"></span> and no energy is radiated.</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>So, <b><span
+  style='color:red'>a stationary state does not radiate</span></b>. However,
+  the bound particle is not alone in the universe, sooner or later the particle
+  will interact with its surroundings (photon, or some other particle, etc),
+  perturbing the energy so that the particle is no longer in a stationary
+  state. The particle will start in its initial stationary state, absorb a
+  photon for example, and then exist in a compound state where the coefficients
+  <i>a<sub>n</sub></i> are now time dependent. In the compound state, the
+  system does not have a definite energy and the expectation value <span
+  style='position:relative;top:7.0pt'><img border=0 width=31 height=33
+  src="qp_se_time_files/image018.png"></span>is now time dependent. Finally a
+  transition will occur to a lower energy eigenstates and a photon will be
+  emitted. The product <span style='position:relative;top:7.0pt'><img border=0
+  width=45 height=33 src="qp_se_time_files/image032.png"></span> where <i>q</i>
+  is the charge on the particle is the <i>x</i> component of an oscillating electric
+  dipole moment for which the frequency of the radiation emitted is</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>             <span
+  style='position:relative;top:12.0pt'><img border=0 width=102 height=55
+  src="qp_se_time_files/image033.png"></span>             </span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>For the our
+  compound state in the harmonic potential well, the variation the expectation
+  values with time depends on the exponential term</span></p>
+  <p class=MsoNormal style='text-indent:36.0pt;line-height:150%'><span
+  lang=EN-US><span style='position:relative;top:16.0pt'><img border=0
+  width=165 height=64 src="qp_se_time_files/image034.png"></span></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>and the
+  expectation value<span style='position:relative;top:7.0pt'><img border=0
+  width=31 height=33 src="qp_se_time_files/image018.png"></span>varies with
+  time as shown in figure (5) because of the variation with time of the
+  probability distribution. The frequency of oscillation of <span
+  style='position:relative;top:7.0pt'><img border=0 width=31 height=33
+  src="qp_se_time_files/image018.png"></span>is y given by <span
+  style='position:relative;top:12.0pt'><img border=0 width=102 height=55
+  src="qp_se_time_files/image033.png"></span>. Hence, the frequency of the
+  emitted photon is the same as the frequency at which the charge distribution
+  changes. Assume that the initial state of the system is the eigenstates <i>n</i>
+  = 2 and <i>E</i><sub>2</sub> = 282.7 eV. Then system is disturbed to produce
+  the compound state given by equation (8).  In this complex state, the charge
+  distribution oscillates with a frequency <i>f</i><sub>21</sub> and finally a
+  photon is emitted with frequency <i>f</i><sub>21</sub> as the system loses
+  energy and returns to the ground state</span></p>
+  <p class=MsoNormal style='line-height:150%'><i><span lang=EN-US>n</span></i><span
+  lang=EN-US> = 1, <i>E</i><sub>1</sub>= - 360.92 eV. The values of the
+  frequency and wavelength of the emitted photon for the transition are:</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>            <i>n</i>
+  = 2 </span><span lang=EN-US style='font-family:Wingdings'>à</span><span
+  lang=EN-US> <i>n</i> = 1     </span><span lang=EN-US style='font-family:Symbol'>D</span><i><span
+  lang=EN-US>n</span></i><span lang=EN-US> = +1       <i>f</i><sub>21</sub> =
+  1.89×10<sup>16</sup> Hz         </span><i><span lang=EN-US style='font-family:
+  Symbol'>l</span></i><sub><span lang=EN-US>21</span></sub><span lang=EN-US> =
+  1.59×10<sup>-8</sup> m   (UV) </span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>We will now
+  consider the compound state which is a summation of the two eigenstates   <i>n</i>
+  = 1 and <i>n</i> = 3</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>            (9)       </span><span
+  style='position:relative;top:14.0pt'><img border=0 width=518 height=56
+  src="qp_se_time_files/image035.png"></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>The time
+  evolution of the real and imaginary parts of the wavefunction and the
+  probability density are shown in figure (6). However, even though the
+  probability density changes with time, there is no sloshing back and forward
+  and the expectation value for position as <span style='position:relative;
+  top:7.0pt'><img border=0 width=62 height=33
+  src="qp_se_time_files/image036.png"></span>. Therefore, no radiation can be
+  emitted in the transition <i>n</i> = 3 </span><span lang=EN-US
+  style='font-family:Wingdings'>à</span><span lang=EN-US> <i>n</i> = 1 for our
+  harmonic oscillator potential well. So, in the case of the one-dimensional
+  harmonic oscillator, electric dipole radiation is emitted when <i>n</i>
+  decreases by 1 and absorbed only when <i>n</i> increases by 1. Thus, the
+  harmonic oscillator obeys the <b><span style='color:blue'>selection rule</span></b>
+  <span style='position:relative;top:3.0pt'><img border=0 width=68 height=23
+  src="qp_se_time_files/image037.png"></span>, and the only frequency emitted
+  or absorbed is the classical oscillator frequency <span style='position:relative;
+  top:13.0pt'><img border=0 width=100 height=58
+  src="qp_se_time_files/image038.png"></span>since the energy levels are
+  equally spaced¸ where</span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal><span lang=EN-US>            <i>m</i>         mass of
+  particle</span></p>
+  <p class=MsoNormal><span lang=EN-US>            <i>k<sub>s</sub></i>         spring
+  constant for system</span></p>
+  <p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><img border=0
+  width=567 height=315 id="Picture 166" src="qp_se_time_files/image039.png"></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm'><span
+  lang=EN-US>         Fig. 6.    The time evolution of the wavefunction’s real
+  and imaginary parts for a compound state given by equation (9) for a
+  truncated parabolic well. The probability density changes with time as the
+  charge distribution oscillates back and forward in the potential well. Red
+  curves – real part <span style='position:relative;top:2.0pt'><img border=0
+  width=23 height=21 src="qp_se_time_files/image014.png"></span>, blue curves –
+  imaginary part<span style='position:relative;top:2.0pt'><img border=0
+  width=23 height=21 src="qp_se_time_files/image014.png"></span>and black
+  curves – probability density. </span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm'><span
+  lang=EN-US>         <span style='color:#984806'>[</span></span><b><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";color:#984806'>se_wells.m</span><span
+  lang=EN-US>   </span></b><b><span lang=EN-US style='font-family:"Calibri","sans-serif";
+  color:#984806'>se_solve.m    se_super.m</span></b><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";color:#984806'>]</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm'><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";color:#984806'>&nbsp;</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><img border=0
+  width=672 height=504 id="Picture 5" src="qp_se_time_files/image040.gif"></p>
+  <p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.7pt;margin-bottom:.0001pt'><span lang=EN-US>        Fig. 7. 
+  An animated gif of the time evolution of the compound state <i>n</i> = 1 and <i>n</i>
+  = 3 for a truncated parabolic well. </span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.7pt;margin-bottom:.0001pt'><span lang=EN-US>       The time
+  variation of the expectation value for the position of the electronis <span
+  style='position:relative;top:7.0pt'><img border=0 width=31 height=33
+  src="qp_se_time_files/image018.png"></span> =  0.</span></p>
+  <p class=MsoNormal><span lang=EN-US>        <span style='color:#984806'>[</span></span><b><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";color:#984806'>se_wells.m</span><span
+  lang=EN-US>   </span></b><b><span lang=EN-US style='font-family:"Calibri","sans-serif";
+  color:#984806'>se_solve.m    se_super.m</span></b><span lang=EN-US
+  style='font-family:"Calibri","sans-serif";color:#984806'>]</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm'><span
+  lang=EN-US>         </span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm'><span
+  lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm'><b><span
+  lang=EN-US style='font-family:"Bookman Old Style","serif";color:blue'>Investigations</span></b></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm'><b><span
+  lang=EN-US style='font-family:"Bookman Old Style","serif";color:blue'>&nbsp;</span></b></p>
+  <p class=MsoNormal style='margin-left:2.0pt;text-indent:-2.0pt'><span
+  lang=EN-US>Run </span><b><span lang=EN-US style='font-family:"Calibri","sans-serif";
+  color:#984806'>se_wells.m</span><span lang=EN-US>, </span></b><b><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";color:#984806'>se_solve.m</span></b><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";color:#984806'> </span><span
+  lang=EN-US>and then </span><b><span lang=EN-US style='font-family:"Calibri","sans-serif";
+  color:#984806'>se_stationary.m</span></b><span lang=EN-US> and explore the
+  characteristics of the time evolution of stationary states. Determine the
+  frequency and period of the oscillations.</span></p>
+  <p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-36.0pt'><span
+  lang=EN-US>Run </span><b><span lang=EN-US style='font-family:"Calibri","sans-serif";
+  color:#984806'>se_wells.m</span><span lang=EN-US>, </span></b><b><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";color:#984806'>se_solve.m</span></b><span
+  lang=EN-US style='font-family:"Calibri","sans-serif";color:#984806'> </span><span
+  lang=EN-US>and then </span><b><span lang=EN-US style='font-family:"Calibri","sans-serif";
+  color:#984806'>se_super.m</span></b><span lang=EN-US> and explore the
+  characteristics of compound wavefunctions.</span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-36.0pt'><span
+  lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-36.0pt'><span
+  lang=EN-US>Select the truncated harmonic potential well and verify that
+  radiation is emitted only for transitions where <span style='position:relative;
+  top:3.0pt'><img border=0 width=68 height=23
+  src="qp_se_time_files/image037.png"></span>.</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm'><span
+  lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:42.15pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm'><span
+  lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+  <span lang=EN-US style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman","serif"'><br
+  clear=all style='page-break-before:always'>
+  </span>
+  <p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:#E36C0A'>&nbsp;</span></b></p>
+  <p class=MsoNormal style='margin-left:14.2pt;line-height:150%'><b><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:#E36C0A'>&nbsp;</span></b></p>
+  <p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:#E36C0A'>&nbsp;</span></b></p>
+  </td>
+  <td width=307 valign=top style='width:184.3pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:#E36C0A'>&nbsp;</span></b></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+color:#E36C0A'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+color:#E36C0A'>&nbsp;</span></b></p>
+
+<span lang=EN-US style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal style='margin-bottom:10.0pt;line-height:115%'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-right:221.1pt'><span lang=EN-US>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

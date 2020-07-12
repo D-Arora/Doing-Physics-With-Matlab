@@ -1,0 +1,697 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<title>Slingshot Effect</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Balloon Text Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";}
+span.MsoPlaceholderText
+	{color:gray;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-link:"Balloon Text";
+	font-family:"Tahoma","sans-serif";}
+.MsoChpDefault
+	{font-family:"Calibri","sans-serif";}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-AU link=blue vlink=purple>
+
+<div class=WordSection1>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr>
+  <td width=263 valign=top style='width:158.0pt;border:solid white 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><img width=215 height=151 src="osc_string_driven_files/image001.jpg"
+  align=left hspace=12></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  </td>
+  <td width=1146 valign=top style='width:687.5pt;border:solid white 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><a href="http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm"><b><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif"'>DOING
+  PHYSICS WITH MATLAB</span></b></a></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><b><span lang=EN-US style='font-size:16.0pt;line-height:150%;
+  font-family:"Bookman Old Style","serif";color:blue'>OSCILLATIONS</span></b></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:14.2pt;margin-bottom:.0001pt;line-height:150%'><b><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:#E36C0A'>&nbsp; FORCE VIBRATIONS OF A STRING</span></b></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:14.2pt;margin-bottom:.0001pt;line-height:150%'><b><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:#E36C0A'>     RESONANCE</span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US style='font-family:"Tahoma","sans-serif";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US style='font-size:12.0pt;font-family:"Tahoma","sans-serif";
+  color:black'>Ian Cooper</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US style='font-size:12.0pt;font-family:"Tahoma","sans-serif";
+  color:black'>School of Physics, University of Sydney</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US style='font-size:12.0pt;font-family:"Tahoma","sans-serif";
+  color:black'>ian.cooper@sydney.edu.au</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><a href="http://www.physics.usyd.edu.au/teach_res/mp/mscripts"><b><span
+  lang=EN-US style='font-size:12.0pt;font-family:"Bookman Old Style","serif"'>DOWNLOAD
+  DIRECTORY FOR MATLAB SCRIPTS</span></b></a></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:14.2pt;margin-bottom:.0001pt;line-height:150%'><span lang=EN-US>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><b><span style='font-size:14.0pt;color:#984806'>osc_string_drivem.m</span></b><b><span
+  lang=EN-US style='font-size:14.0pt;color:#984806'>&nbsp;</span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><b><span lang=EN-US style='font-size:14.0pt;color:#984806'>&nbsp;</span></b></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-3.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal'><span
+  lang=EN-US style='font-size:12.0pt'>mscript for the simulation of the forced
+  vibrations of a string fixed at both ends. The driving force produced by an
+  external vibrator is sinusoidal and the frequency of the driving force is
+  entered through the Command Window. The vibrations of the string are animated
+  in a Figure Window.</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal'><span
+  style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal'><span
+  style='font-size:12.0pt'>The animated gifs </span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal'><span
+  style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal'><span
+  style='font-size:12.0pt'>        <b><span style='color:#984806'>ag_osc_string_driven_****
+  .gif</span></b></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal'><span
+  style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal'><span
+  style='font-size:12.0pt'>can be downloaded from</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal'><span
+  style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal'><a
+  href="http://www.physics.usyd.edu.au/teach_res/mp/images/"><span
+  style='font-size:12.0pt'>http://www.physics.usyd.edu.au/teach_res/mp/images/</span></a></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal'><span
+  style='font-size:12.0pt'> </span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal'><b><span
+  style='font-size:14.0pt;font-family:"Bookman Old Style","serif";color:blue'>&nbsp;</span></b></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal'><b><span
+  style='font-size:14.0pt;font-family:"Bookman Old Style","serif";color:blue'>STANDING
+  WAVES</span></b></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal'><span
+  style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-3.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>When a taut string fixed at both
+  ends is disturbed, travelling wave propagate until they reach the ends where
+  they are reflected and travel back along the string. Each such reflection
+  gives rise to waves travelling in opposite directions. The waves along the
+  string interfere with each other according to the principle of superposition.</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-3.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><b><span
+  style='font-size:12.0pt;line-height:115%;color:#7030A0'>Standing waves</span></b><span
+  style='font-size:12.0pt;line-height:115%;color:#7030A0'> </span><span
+  style='font-size:12.0pt;line-height:115%'>can be setup along the string where
+  all points execute simple harmonic motion with the same phase and frequency. </span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-3.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-3.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>A standing wave is described by </span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>     (1)          </span><span
+  style='position:relative;top:7.0pt'><img border=0 width=188 height=33
+  src="osc_string_driven_files/image002.png"></span>                  <span
+  style='position:relative;top:12.0pt'><img border=0 width=362 height=52
+  src="osc_string_driven_files/image003.png"></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'>&nbsp;</p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-3.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>for a string of length </span><i><span
+  style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif"'>L</span></i><span
+  style='font-size:12.0pt;line-height:115%'>, to satisfy the boundary
+  conditions at </span><i><span style='font-size:12.0pt;line-height:115%;
+  font-family:"Times New Roman","serif"'>x</span></i><span style='font-size:
+  12.0pt;line-height:115%'> = 0, </span><i><span style='font-size:12.0pt;
+  line-height:115%;font-family:"Times New Roman","serif"'>y</span></i><span
+  style='font-size:12.0pt;line-height:115%'> = 0 and </span><i><span
+  style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif"'>x</span></i><span
+  style='font-size:12.0pt;line-height:115%'> = </span><i><span
+  style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif"'>L</span></i><span
+  style='font-size:12.0pt;line-height:115%'>, </span><i><span style='font-size:
+  12.0pt;line-height:115%;font-family:"Times New Roman","serif"'>y</span></i><span
+  style='font-size:12.0pt;line-height:115%'> = 0, the propagation </span><i><span
+  style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif"'>k</span></i><span
+  style='font-size:12.0pt;line-height:115%'> must have a set of discrete values</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>     (2)         </span><span
+  style='position:relative;top:5.0pt'><img border=0 width=197 height=27
+  src="osc_string_driven_files/image004.png"></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>Hence, the allowed wavelengths of the
+  string are</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>     (3)         </span><span
+  style='position:relative;top:12.0pt'><img border=0 width=171 height=52
+  src="osc_string_driven_files/image005.png"></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-3.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>For a standing wave, multiples of <span
+  style='position:relative;top:7.0pt'><img border=0 width=55 height=33
+  src="osc_string_driven_files/image006.png"></span> must fit into the length </span><i><span
+  style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif"'>L</span></i><span
+  style='font-size:12.0pt;line-height:115%'>. Fixed points that have the
+  largest displacement along the string are called <b><span style='color:#7030A0'>antinodes</span></b>
+  and points which have the zero amplitude are called <b><span
+  style='color:#7030A0'>nodes</span></b>. The antinodes are spaced at intervals
+  <span style='position:relative;top:7.0pt'><img border=0 width=55 height=33
+  src="osc_string_driven_files/image006.png"></span> apart and so the nodes are
+  also spaced at <span style='position:relative;top:7.0pt'><img border=0
+  width=55 height=33 src="osc_string_driven_files/image006.png"></span> intervals.</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-3.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>The speed of propagation </span><i><span
+  style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif"'>v</span></i><span
+  style='font-size:12.0pt;line-height:115%'> of the wave along the string
+  depends upon the string tension </span><i><span style='font-size:12.0pt;
+  line-height:115%;font-family:"Times New Roman","serif"'>F<sub>T</sub></span></i><span
+  style='font-size:12.0pt;line-height:115%'> and linear density </span><span
+  style='position:relative;top:5.0pt'><img border=0 width=20 height=22
+  src="osc_string_driven_files/image007.png"></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>     (4)          </span><span
+  style='position:relative;top:15.0pt'><img border=0 width=75 height=62
+  src="osc_string_driven_files/image008.png"></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-3.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-3.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>Using equations (1), (2) and (3) it
+  is clear that the frequencies for the vibration the standing waves in the
+  string form a <b><span style='color:#7030A0'>harmonic series</span></b><span
+  style='color:#7030A0'> </span>where </span><i><span style='font-size:12.0pt;
+  line-height:115%;font-family:"Times New Roman","serif"'>f</span></i><sub><span
+  style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif"'>1</span></sub><span
+  style='font-size:12.0pt;line-height:115%'> is called the <b><span
+  style='color:#7030A0'>fundamental</span></b> or the <b><span
+  style='color:#7030A0'>1<sup>st</sup> harmonic</span></b></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>     (5)          </span><span
+  style='position:relative;top:16.0pt'><img border=0 width=418 height=63
+  src="osc_string_driven_files/image009.png"></span> <span style='font-size:
+  12.0pt;line-height:115%'>     </span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-3.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>and </span><i><span
+  style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif"'>f<sub>n</sub></span></i><span
+  style='font-size:12.0pt;line-height:115%'> is the <b><i><span
+  style='color:#7030A0'>n</span></i><sup><span style='color:#7030A0'>th</span></sup><span
+  style='color:#7030A0'> harmonic</span></b>. The harmonics are referred to as
+  the <b><span style='color:#7030A0'>natural frequencies of vibration of the
+  system</span></b>.</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal'><span
+  style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal'><b><span
+  style='font-size:14.0pt;font-family:"Bookman Old Style","serif";color:blue'>RESONANCE</span></b></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-3.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal'><span
+  style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-3.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>In general, whenever a system
+  capable of oscillating is acted upon by a series of impulses having frequency
+  equal to nearly equal to one of the natural frequencies of oscillation of the
+  system, then, the system can oscillate with relatively large amplitude. This phenomenon
+  is called <b><span style='color:#7030A0'>resonance</span></b> and the system
+  is said to<b><span style='color:#7030A0'> resonate</span></b>.</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:115%'><span
+  style='font-size:12.0pt;line-height:115%'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><span style='font-size:12.0pt;line-height:115%'>In the Matlab
+  simulations using the mscript  <b><span style='color:#984806'>osc_string_drivem.m 
+  </span></b>we will consider a guitar string with parameters:</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><span style='font-size:12.0pt;line-height:115%'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><span style='font-size:12.0pt;line-height:115%'>       length  <i>L</i>
+  = 0.80 m     string tension  </span><i><span style='font-size:12.0pt;
+  line-height:115%;font-family:"Times New Roman","serif"'>F<sub>T</sub></span></i><span
+  style='font-size:12.0pt;line-height:115%'> = 400 N     <span
+  style='position:relative;top:5.0pt'><img border=0 width=20 height=22
+  src="osc_string_driven_files/image007.png"></span>= 4.00x10<sup>-4</sup> 
+  kg.m<sup>-1</sup>       </span>(parameters can be changed in mscript)</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><span style='font-size:12.0pt;line-height:115%'>The natural frequencies
+  of the string from equation (5) are</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><span style='font-size:12.0pt;line-height:115%'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><span style='font-size:12.0pt;line-height:115%'>     625 Hz,   1250
+  Hz,   1875 Hz ,   2500 Hz , 3125 Hz, …</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><span style='font-size:12.0pt;line-height:115%'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><span style='font-size:12.0pt;line-height:115%'>The mscript <b><span
+  style='color:#984806'>osc_string_drivem.m  </span></b>solves the
+  one-dimensional wave equation using a finite difference method . The boundary
+  conditions are a node at one end of the string </span><i><span
+  style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif"'>x</span></i><span
+  style='font-size:12.0pt;line-height:115%'> = </span><i><span
+  style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif"'>L</span></i><span
+  style='font-size:12.0pt;line-height:115%'>, </span><i><span style='font-size:
+  12.0pt;line-height:115%;font-family:"Times New Roman","serif"'>y</span></i><span
+  style='font-size:12.0pt;line-height:115%'> = 0 and an applied sinusoidal
+  driving force of frequency </span><i><span style='font-size:12.0pt;
+  line-height:115%;font-family:"Times New Roman","serif"'>f<sub>D</sub></span></i><span
+  style='font-size:12.0pt;line-height:115%'> at the other end</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><span style='font-size:12.0pt;line-height:115%'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><span style='font-size:12.0pt;line-height:115%'>     </span><i><span
+  style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif"'>x</span></i><span
+  style='font-size:12.0pt;line-height:115%'> = </span><span style='font-size:
+  12.0pt;line-height:115%;font-family:"Times New Roman","serif"'>0      </span><span
+  style='position:relative;top:7.0pt'><img border=0 width=152 height=33
+  src="osc_string_driven_files/image010.png"></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><span style='font-size:12.0pt;line-height:115%'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><span style='font-size:12.0pt;line-height:115%'>The value for the
+  frequency </span><i><span style='font-size:12.0pt;line-height:115%;
+  font-family:"Times New Roman","serif"'>f<sub>D</sub></span></i><span
+  style='font-size:12.0pt;line-height:115%'> of the driving stimulus is entered
+  in the Command Window and the respond of the string is animated in a Figure
+  Window. The value of the amplitude </span><i><span style='font-size:12.0pt;
+  line-height:115%;font-family:"Times New Roman","serif"'>A<sub>D</sub></span></i><span
+  style='font-size:12.0pt;line-height:115%'> can be changed in the mscript, its
+  default value is chosen to be small so that the end of the string at </span><i><span
+  style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif"'>x</span></i><span
+  style='font-size:12.0pt;line-height:115%'> = </span><span style='font-size:
+  12.0pt;line-height:115%'>0 is approximated as a node.</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:193.65pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal'><b><span
+  style='font-size:14.0pt;font-family:"Bookman Old Style","serif";color:blue'>THE
+  WAVE EQUATION</span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><span style='font-size:12.0pt;line-height:115%'>The one dimensional
+  wave equation can be expressed as</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><span style='font-size:12.0pt;line-height:115%'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><span style='font-size:12.0pt;line-height:115%'>     (6)       </span><span
+  style='position:relative;top:12.0pt'><img border=0 width=188 height=55
+  src="osc_string_driven_files/image011.png"></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><span style='font-size:12.0pt;line-height:115%'>Using a finite
+  difference method, the second partial derivatives are approximated by</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><span style='font-size:12.0pt;line-height:115%'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><span style='font-size:12.0pt;line-height:115%'>     (7)    </span><span
+  style='position:relative;top:16.0pt'><img border=0 width=385 height=63
+  src="osc_string_driven_files/image012.png"></span>         and         <span
+  style='position:relative;top:16.0pt'><img border=0 width=393 height=63
+  src="osc_string_driven_files/image013.png"></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><span style='font-size:12.0pt;line-height:115%'>Therefore, the wave
+  equation can be approximated to give an equation to estimate the value of </span><i><span
+  style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif"'>y</span></i><span
+  style='font-size:12.0pt;line-height:115%'> at time <span style='position:
+  relative;top:3.0pt'><img border=0 width=50 height=23
+  src="osc_string_driven_files/image014.png"></span> from the known values of </span><i><span
+  style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif"'>y</span></i><span
+  style='font-size:12.0pt;line-height:115%'> at times <span style='position:
+  relative;top:3.0pt'><img border=0 width=12 height=20
+  src="osc_string_driven_files/image015.png"></span> and <span
+  style='position:relative;top:3.0pt'><img border=0 width=50 height=23
+  src="osc_string_driven_files/image016.png"></span> </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><span style='font-size:12.0pt;line-height:115%'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><span style='font-size:12.0pt;line-height:115%'>     (8)        </span><span
+  style='position:relative;top:14.0pt'><img border=0 width=753 height=60
+  src="osc_string_driven_files/image017.png"></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>Matlab code for the driving force</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>     </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;text-autospace:none'><span style='font-size:12.0pt'>     </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:blue'>for</span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'> ct = 1:Nt</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+  color:black'>   y(ct,1) = A .* sin(wD .* t(ct));     </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:forestgreen'>% time
+  variation of driving force</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+  color:blue'>   end</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>Matlab code for solving wave equation</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;text-autospace:none'><span style='font-size:12.0pt'>      </span><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'>y =
+  zeros(Nt,Nx);           </span><span style='font-size:10.0pt;font-family:
+  "Courier New";color:forestgreen'>% initilize wave function</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+  color:black'>   y(:,end) = 0;               </span><span style='font-size:
+  10.0pt;font-family:"Courier New";color:forestgreen'>% boundary condition at
+  end of tube</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+  color:forestgreen'> </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+  color:forestgreen'>   % Solving the Wave equation by FDTD method
+  --------------------------------</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+  color:blue'>   for</span><span style='font-size:10.0pt;font-family:"Courier New";
+  color:black'> ct = 2 : Nt-1</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+  color:black'>      </span><span style='font-size:10.0pt;font-family:"Courier New";
+  color:blue'>for</span><span style='font-size:10.0pt;font-family:"Courier New";
+  color:black'> cx = 2 : Nx-1</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+  color:black'>          y(ct+1,cx) = 2*y(ct,cx) - y(ct-1,cx) + K * (y(ct,cx+1)
+  - 2* y(ct,cx) + y(ct,cx-1));</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+  color:black'>      </span><span style='font-size:10.0pt;font-family:"Courier New";
+  color:blue'>end</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;text-autospace:none'><span style='font-size:10.0pt;font-family:"Courier New";
+  color:blue'>   end</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><b><span style='font-size:12.0pt;font-family:"Bookman Old Style","serif";
+  color:blue'>SIMULATIONS</span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><b><span style='font-size:12.0pt;line-height:115%;color:#7030A0'>String
+  driven at its fundamental frequency  </span></b><b><i><span style='font-size:
+  12.0pt;line-height:115%;font-family:"Times New Roman","serif";color:#7030A0'>f</span></i></b><b><sub><span
+  style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif";
+  color:#7030A0'>1</span></sub></b><b><span style='font-size:12.0pt;line-height:
+  115%;color:#7030A0'> = 625  Hz</span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><span style='font-size:12.0pt;line-height:115%;color:black'>In our model
+  of the vibrating string any dissipative forces are ignored. When the driving
+  force matches any of the natural frequency of vibration of the string, energy
+  is continually being transferred from the driver to the string. As a
+  consequence, the amplitude of the oscillation grows and grows with time.</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;color:black'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><b><span style='font-size:12.0pt;color:#7030A0'>&nbsp;</span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'><img border=0 width=768 height=360
+  id="Picture 4" src="osc_string_driven_files/image018.gif"></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><b><span style='font-size:12.0pt;line-height:115%;color:#7030A0'>String
+  driven at 500 Hz</span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><span style='font-size:12.0pt;line-height:115%'>The driving frequency
+  is not equal to any of the natural frequency of vibration of the string. The
+  string does not resonate – the waves travelling forward and backward along
+  the string do not interfere to produce nodes and antinodes at fixed locations
+  along the string. Energy is not efficiently transferred from the vibrator to
+  the string and energy is also transferred back to the vibrator from the
+  string, so the amplitude of the oscillation remains small.</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'><img border=0 width=768 height=360
+  id="Picture 5" src="osc_string_driven_files/image019.gif"></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><b><span style='font-size:12.0pt;color:#7030A0'>String driven at a
+  frequency equal to the 2<sup>nd</sup> harmonic   <i>f<sub>D</sub></i> = 2 </span></b><b><i><span
+  style='font-size:12.0pt;font-family:"Times New Roman","serif";color:#7030A0'>f</span></i></b><b><sub><span
+  style='font-size:12.0pt;font-family:"Times New Roman","serif";color:#7030A0'>1</span></sub></b><b><span
+  style='font-size:12.0pt;color:#7030A0'> = 1250  Hz</span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'><img border=0 width=768 height=360
+  id="Picture 6" src="osc_string_driven_files/image020.gif"></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><b><span style='font-size:12.0pt;color:#7030A0'>&nbsp;</span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><b><span style='font-size:12.0pt;color:#7030A0'>String driven at a
+  frequency equal to the 3<sup>rd</sup> harmonic   <i>f<sub>D</sub></i> = 3 </span></b><b><i><span
+  style='font-size:12.0pt;font-family:"Times New Roman","serif";color:#7030A0'>f</span></i></b><b><sub><span
+  style='font-size:12.0pt;font-family:"Times New Roman","serif";color:#7030A0'>1</span></sub></b><b><span
+  style='font-size:12.0pt;color:#7030A0'> = 1875  Hz</span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'><img border=0 width=768 height=360
+  id="Picture 7" src="osc_string_driven_files/image021.gif"></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><b><span style='font-size:12.0pt;color:#7030A0'>String driven at a
+  frequency equal to the 4<sup>th</sup> harmonic   <i>f<sub>D</sub></i> = 4 </span></b><b><i><span
+  style='font-size:12.0pt;font-family:"Times New Roman","serif";color:#7030A0'>f</span></i></b><b><sub><span
+  style='font-size:12.0pt;font-family:"Times New Roman","serif";color:#7030A0'>1</span></sub></b><b><span
+  style='font-size:12.0pt;color:#7030A0'> = 2500  Hz</span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'><img border=0 width=768 height=360
+  id="Picture 8" src="osc_string_driven_files/image022.gif"></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><b><span style='font-size:12.0pt;color:#7030A0'>String driven at a
+  frequency equal to the 5<sup>th</sup> harmonic   <i>f<sub>D</sub></i> = 5 </span></b><b><i><span
+  style='font-size:12.0pt;font-family:"Times New Roman","serif";color:#7030A0'>f</span></i></b><b><sub><span
+  style='font-size:12.0pt;font-family:"Times New Roman","serif";color:#7030A0'>1</span></sub></b><b><span
+  style='font-size:12.0pt;color:#7030A0'> = 3125  Hz</span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'><img border=0 width=768 height=360
+  id="Picture 9" src="osc_string_driven_files/image023.gif"></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><span style='font-size:12.0pt;line-height:115%'>For a true standing
+  wave the nodes occur at fixed locations along the string and are point where
+  the string is permanently at rest. Hence, energy is<b><span style='color:
+  red'> not</span></b><span style='color:red'> </span>transported along the
+  string to the right or left. The energy remains “standing” in the string as
+  energy is continually being transferred between elastic potential energy and
+  vibrational kinetic energy in the region between the nodes.</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><span style='font-size:12.0pt;line-height:115%'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><span style='font-size:12.0pt;line-height:115%'>In our simulation of
+  the string’s vibrations, the end at </span><i><span style='font-size:12.0pt;
+  line-height:115%;font-family:"Times New Roman","serif"'>x</span></i><span
+  style='font-size:12.0pt;line-height:115%'> = 0 is not a “true” node since
+  this end of the string does not remain permanently at rest. If you carefully
+  observe the animated motion of the string you will also see that there are no
+  “true” nodes. There can’t be true nodes as energy must flow along the string
+  from the stimulus driving the oscillations at the end of the string. Energy
+  is continually added to the string by a vibrator, building up the amplitude
+  of the oscillation only at or near one of the natural frequencies of
+  vibration. When the string is excited at a frequency well away from a natural
+  frequency, the reflected waves reaching the end of the string at </span><i><span
+  style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif"'>x</span></i><span
+  style='font-size:12.0pt;line-height:115%'> = 0 are out of phase with the
+  external vibrator, hence energy can be transferred from the string back in to
+  the vibrator. The wave pattern is not fixed but wiggles about. On average,
+  the amplitude of the oscillation is small and not much different from that of
+  the vibrator. Hence, the string absorbs maximum energy from the vibrator at
+  resonance. Tuning a radio is an analogous process: the circuit resonates with
+  the transmitted signal and absorbs peak energy from the radio signal.</span> </p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=236 valign=top style='width:5.0cm;border:solid white 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'>&nbsp;</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>
