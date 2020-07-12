@@ -2,7 +2,7 @@
 % 19 april 2016
 % Ian Cooper
 % School of Physics, University of Sydney
-% ../mphome.htm
+% https://d-arora.github.io/Doing-Physics-With-Matlab/
 
 % Potential and Electric Field in [2D] region
 % [1D] quadrupole: 3 charges in a straight lines

@@ -7,7 +7,7 @@
 % 05 sep 2014
 % Ian Cooper   School of Physics   University of Sydney
 % cooper@physics.usyd.edu.au
-% ../mphome.htm
+% https://d-arora.github.io/Doing-Physics-With-Matlab/
 
 
 %% SINC FUNCTION  sin(x) / x **********************************************

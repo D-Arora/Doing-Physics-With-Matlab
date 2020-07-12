@@ -4,7 +4,7 @@
 % Simple model of membrane voltage: I_leak model
 
 % DOING PHYSICS WITH MATLAB: 
-%   ../mphome.htm
+%   https://d-arora.github.io/Doing-Physics-With-Matlab/
 % Documentation
 %   http://www.physics.usyd.edu.au/teach_res/mp/doc/np001.htm
 % Download Scripts

@@ -10,7 +10,7 @@
 %     the optical path difference between the two reflections
 
 % DOING PHYSICS WITH MATLAB: 
-%   ../mphome.htm
+%   https://d-arora.github.io/Doing-Physics-With-Matlab/
 % Documentation
 %   http://www.physics.usyd.edu.au/teach_res/mo/doc/op_michelson.htm
 % Download Scripts

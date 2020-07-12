@@ -2,7 +2,7 @@
 % 22 aug 2017
 % Ian Cooper
 % School of Physics, University of Sydney
-% ../mphome.htm
+% https://d-arora.github.io/Doing-Physics-With-Matlab/
 
 % calculations for an electron and a proton in a uniform electric field
 

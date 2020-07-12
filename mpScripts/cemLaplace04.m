@@ -2,7 +2,7 @@
 % 08 april 2016
 % Ian Cooper
 % School of Physics, University of Sydney
-% ../mphome.htm
+% https://d-arora.github.io/Doing-Physics-With-Matlab/
 
 % Solution of Laplace's equation
 % Two concentric metal squares

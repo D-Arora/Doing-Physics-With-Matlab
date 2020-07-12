@@ -2,7 +2,7 @@
 % 98 May 2016
 % Ian Cooper
 % School of Physics, University of Sydney
-% ../mphome.htm
+% https://d-arora.github.io/Doing-Physics-With-Matlab/
 
 % Electostatics - point charge
 %    partial derivatives

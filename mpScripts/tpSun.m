@@ -3,7 +3,7 @@
 % Blackbody spectrum of the Sun
 
 % DOING PHYSICS WITH MATLAB: 
-%   ../mphome.htm
+%   https://d-arora.github.io/Doing-Physics-With-Matlab/
 % Documentation
 %   http://www.physics.usyd.edu.au/teach_res/mp/doc/tpBlackbody.htm
 % Download Scripts

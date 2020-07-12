@@ -1,7 +1,7 @@
 % mec_spring_energy.m
 % Ian Cooper
 % School of Physics, University of Sydney
-% ../mphome.htm
+% https://d-arora.github.io/Doing-Physics-With-Matlab/
 
 clear all
 close all

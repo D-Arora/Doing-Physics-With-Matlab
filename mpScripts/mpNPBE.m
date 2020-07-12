@@ -14,7 +14,7 @@
 
 
 % DOING PHYSICS WITH MATLAB: 
-%   ../mphome.htm
+%   https://d-arora.github.io/Doing-Physics-With-Matlab/
 % Documentation
 %   http://www.physics.usyd.edu.au/teach_res/hsp/sp/mod72/mod72K1.htm
 % Download Scripts

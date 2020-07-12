@@ -17,7 +17,7 @@
 % School of Physics, University of Sydney
 
 % DOING PHYSICS ONLINE: 
-% ../mphome.htm
+% https://d-arora.github.io/Doing-Physics-With-Matlab/
 % Documentation
 % http://www.physics.usyd.edu.au/teach_res/mp/doc/mp001.htm
 

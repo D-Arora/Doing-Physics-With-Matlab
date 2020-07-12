@@ -2,7 +2,7 @@
 
 % Ian Cooper
 % School of Physics, University of Sydney
-% ../mphome.htm
+% https://d-arora.github.io/Doing-Physics-With-Matlab/
 
 % mscript for the numerical values of commonly used physical constants
 % All units are S.I. unless stated otherwise

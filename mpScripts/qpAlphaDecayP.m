@@ -8,7 +8,7 @@
 % DOING PHYSICS ONLINE: 
 % Ian Cooper  ian.cooper@sydney.edu.au
 % School of Physics, University of Sydney
-% ../mphome.htm
+% https://d-arora.github.io/Doing-Physics-With-Matlab/
 % Documentation
 % http://www.physics.usyd.edu.au/teach_res/mp/doc/qpAlphaDecay.pdf
 

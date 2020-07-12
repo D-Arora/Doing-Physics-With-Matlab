@@ -3,7 +3,7 @@
 %potentials
 % based on the se_fdm_alpha.m script of  Ian Cooper,School of Physics, University of Sydney
 % email: ian.cooper@sydney.edu.au
-% ../mphome.htm
+% https://d-arora.github.io/Doing-Physics-With-Matlab/
 % modification made by Badr-Eddine Elfatehy Chfira: badreddine.el@um.es
 
 close all

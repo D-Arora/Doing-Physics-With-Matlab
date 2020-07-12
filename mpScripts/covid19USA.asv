@@ -9,7 +9,7 @@
 % Model specified by the variables in the INPUT SECTION of the Script
 
 % DOING PHYSICS WITH MATLAB: 
-%   ../mphome.htm
+%   https://d-arora.github.io/Doing-Physics-With-Matlab/
 % Documentation
 %   http://www.physics.usyd.edu.au/teach_res/mp/doc/sird19EA.htm
 % Download Scripts

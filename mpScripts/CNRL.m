@@ -8,7 +8,7 @@
 % School of Physics, University of Sydney
  
 % DOING PHYSICS WITH MATLAB 
-%    ../mphome.htm
+%    https://d-arora.github.io/Doing-Physics-With-Matlab/
 % 180212
 
 clear all

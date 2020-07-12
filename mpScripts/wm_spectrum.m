@@ -10,7 +10,7 @@
 % 180712
 
 % DOING PHYSICS WITH MATLAB 
-%    ../mphome.htm
+%    https://d-arora.github.io/Doing-Physics-With-Matlab/
 
 clear 
 close all

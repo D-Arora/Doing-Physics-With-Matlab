@@ -9,7 +9,7 @@
 % 180712 / Matlab version R2018a
 
 % DOING PHYSICS WITH MATLAB 
-%    ../mphome.htm
+%    https://d-arora.github.io/Doing-Physics-With-Matlab/
 
 %clear 
 close all

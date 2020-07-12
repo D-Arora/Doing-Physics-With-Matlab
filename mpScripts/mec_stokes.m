@@ -3,7 +3,7 @@
 % 21 apr 2015
 % Ian Cooper   School of Physics   University of Sydney
 % cooper@physics.usyd.edu.au
-% ../mphome.htm
+% https://d-arora.github.io/Doing-Physics-With-Matlab/
 % Motion of an object falling through a fluid
 % Stokes Law - numerical calculation of a, v and x
 % S.I. units used for all physical quantities

@@ -2,7 +2,7 @@
 % 02 June 2016
 % Ian Cooper
 % School of Physics, University of Sydney
-% ../mphome.htm
+% https://d-arora.github.io/Doing-Physics-With-Matlab/
 
 % Magnetic field from a set of parallel wires
 %    Biot-Savart Law

@@ -4,7 +4,7 @@
 %   but what is a Fourier Transform?
 
 % DOING PHYSICS WITH MATLAB 
-%    ../mphome.htm
+%    https://d-arora.github.io/Doing-Physics-With-Matlab/
 % Documentation
 %    http://www.physics.usyd.edu.au/teach_res/mp/doc/mathComplex4.htm
 

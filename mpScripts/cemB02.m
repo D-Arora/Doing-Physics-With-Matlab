@@ -2,7 +2,7 @@
 % 08 May 2016
 % Ian Cooper
 % School of Physics, University of Sydney
-% ../mphome.htm
+% https://d-arora.github.io/Doing-Physics-With-Matlab/
 
 % Faraday's Law: mutual inductance M / self inductance L
 %    time dependent magnetic fields

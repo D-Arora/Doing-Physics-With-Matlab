@@ -6,7 +6,7 @@
 %  Lifetime of the Sun
 
 % DOING PHYSICS WITH MATLAB: 
-%   ../mphome.htm
+%   https://d-arora.github.io/Doing-Physics-With-Matlab/
 % Documentation
 %   http://www.physics.usyd.edu.au/teach_res/mp/doc/mp001.htm
 % Download Scripts

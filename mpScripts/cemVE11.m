@@ -2,7 +2,7 @@
 % 23 april 2016
 % Ian Cooper
 % School of Physics, University of Sydney
-% ../mphome.htm
+% https://d-arora.github.io/Doing-Physics-With-Matlab/
 
 % Computation of the electrical potential from the line 
 %   integral of the electric field

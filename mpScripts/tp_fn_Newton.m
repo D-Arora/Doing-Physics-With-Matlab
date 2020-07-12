@@ -4,7 +4,7 @@ function [ ] = tp_fn_Newton(R,N,tMax,T0,Tenv, flagC)
   % School of Physics, University of Sydney, Sydney, NSW, Australia
   % Email: ian.cooper@sydney.edu.au
   
-  % Web:   ../mphome.htm
+  % Web:   https://d-arora.github.io/Doing-Physics-With-Matlab/
   % R     Cooling constant [1/min]
   % N     Number of time steps 
   % tMax  Time interval for simulation  [minutes]

@@ -2,7 +2,7 @@
 
 % Ian Cooper
 % School of Physics, University of Sydney
-% ../mphome.htm
+% https://d-arora.github.io/Doing-Physics-With-Matlab/
 
 % ALPHA DECAY: relationship between half-lives and kinetic energy for
 %  polonium (1) and uranium (2)

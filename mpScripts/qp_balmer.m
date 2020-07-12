@@ -1,7 +1,7 @@
 % qp_balmer.m
 % Ian Cooper
 % School of Physics, University of Sydney
-% ../mphome.htm
+% https://d-arora.github.io/Doing-Physics-With-Matlab/
 % Plot of the line spectrum for the Balmer series
 
 

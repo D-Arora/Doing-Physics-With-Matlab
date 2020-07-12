@@ -2,7 +2,7 @@
 
 % Ian Cooper
 % School of Physics, Sydney University, ian.cooper@sydney.edu.au
-% ../mphome.htm
+% https://d-arora.github.io/Doing-Physics-With-Matlab/
 % 190708   R2018b
 
 % Numerical values for useful constants

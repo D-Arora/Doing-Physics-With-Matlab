@@ -11,7 +11,7 @@
 % 180827 / Matlab version R2018a
 
 % DOING PHYSICS WITH MATLAB 
-%     ../mphome.htm
+%     https://d-arora.github.io/Doing-Physics-With-Matlab/
 %   Reference documentation and notes
 %     http://www.physics.usyd.edu.au/teach_res/mp/doc/chaos02A.htm
 

@@ -2,7 +2,7 @@
 % 10 march 2016
 % Ian Cooper
 % School of Physics, University of Sydney
-% ../mphome.htm
+% https://d-arora.github.io/Doing-Physics-With-Matlab/
 
 % Orthogonal components of a [3D] vector
 % Inputs: V(1)   V(2)   V(3)   Cartesian component of vector V

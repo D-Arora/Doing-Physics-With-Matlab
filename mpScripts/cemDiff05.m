@@ -2,7 +2,7 @@
 % 18 march 2016
 % Ian Cooper
 % School of Physics, University of Sydney
-% ../mphome.htm
+% https://d-arora.github.io/Doing-Physics-With-Matlab/
 
 % CALCULATION OF THE LAPLACIAN
 %     [2D] scalar function  flag == 1;

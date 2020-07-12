@@ -2,7 +2,7 @@
 % 1 jun 2015
 % Ian Cooper   School of Physics   University of Sydney
 % cooper@physics.usyd.edu.au
-% ../mphome.htm
+% https://d-arora.github.io/Doing-Physics-With-Matlab/
 clear all
 close all
 clc

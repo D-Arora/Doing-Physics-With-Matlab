@@ -2,7 +2,7 @@
 
 % Ian Cooper
 % School of Physics, University of Sydney
-% ../mphome.htm
+% https://d-arora.github.io/Doing-Physics-With-Matlab/
 
 % Calculation of the theorical value of the half-life of an alpha emitter
 % All units are S.I. unless stated otherwise

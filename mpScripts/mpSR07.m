@@ -9,7 +9,7 @@
 % Moving rod as observed by stationary observer
 
 % DOING PHYSICS ONLINE 
-%    ../mphome.htm
+%    https://d-arora.github.io/Doing-Physics-With-Matlab/
 % Scripts
 %     http://www.physics.usyd.edu.au/teach_res/mp/mscripts/
 

@@ -4,7 +4,7 @@
 %    Woods-Saxon + Centrifugal + Coulomb
 
 % DOING PHYSICS WITH MATLAB     ian.cooper@sydney.edu.au
-%     ../mphome.htm
+%     https://d-arora.github.io/Doing-Physics-With-Matlab/
 % Documentation: http://www.physics.usyd.edu.au/teach_res/mp/doc/qpAlphaDecay.pdf: 
 % Script by Badr-Eddine Elfatehy Chfira: badreddine.el@um.es
 

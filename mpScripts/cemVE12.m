@@ -2,7 +2,7 @@
 % 27 Aapril 2016
 % Ian Cooper
 % School of Physics, University of Sydney
-% ../mphome.htm
+% https://d-arora.github.io/Doing-Physics-With-Matlab/
 
 % Potential and Electric Field in [2D] region
 % METHOD OF IMAGES:  charge and GROUNDED PLATE

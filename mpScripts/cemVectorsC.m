@@ -2,7 +2,7 @@
 % 10 march 2016
 % Ian Cooper
 % School of Physics, University of Sydney
-% ../mphome.htm
+% https://d-arora.github.io/Doing-Physics-With-Matlab/
 
 % ROTATION throug angle theta of the XY axes:  XY --> X'Y'
 % Vectors specified in Cartseain components

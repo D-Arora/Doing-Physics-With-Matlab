@@ -10,7 +10,7 @@
 % Ian Cooper
 % School of Physics, University of Sydney
 % email: ian.cooper@sydney.edu.au
-% ../mphome.htm
+% https://d-arora.github.io/Doing-Physics-With-Matlab/
 % Documentation
 % http://www.physics.usyd.edu.au/teach_res/mp/doc/qp_alpha_decay_BE.pdf
 

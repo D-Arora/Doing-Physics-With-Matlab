@@ -2,7 +2,7 @@
 % 10 march 2016
 % Ian Cooper
 % School of Physics, University of Sydney
-% ../mphome.htm
+% https://d-arora.github.io/Doing-Physics-With-Matlab/
 
 % Scalar (dot) product and vector (cross) product of vectors
 % Vectros specified in Cartseain components

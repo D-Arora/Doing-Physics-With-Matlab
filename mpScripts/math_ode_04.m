@@ -9,7 +9,7 @@
 % 190228 / Matlab version R2018b
 
 % DOING PHYSICS WITH MATLAB 
-%    ../mphome.htm
+%    https://d-arora.github.io/Doing-Physics-With-Matlab/
 % Reference page for documentation and notes
 %    http://www.physics.usyd.edu.au/teach_res/mp/doc/math_ODE_A.htm
 

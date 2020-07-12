@@ -20,7 +20,7 @@
 % 09606070 - SÃ£o Bernardo do Campo, SP - Brasil
 
 % DOING PHYSICS WITH MATLAB 
-%    ../mphome.htm
+%    https://d-arora.github.io/Doing-Physics-With-Matlab/
 
 
 clear all

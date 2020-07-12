@@ -5,7 +5,7 @@
 % The calculation for the plots may take more than 100 seconds.
 
 % DOING PHYSICS WITH MATLAB 
-%    ../mphome.htm
+%    https://d-arora.github.io/Doing-Physics-With-Matlab/
 
 % Matlab Version 2018a / 180915
 

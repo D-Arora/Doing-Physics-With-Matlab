@@ -4,7 +4,7 @@
 % Ian Cooper
 % School of Physics, University if Sydney
 % email: ian.cooper@sydney.edu.au
-% ../mphome.htm
+% https://d-arora.github.io/Doing-Physics-With-Matlab/
 
 close all
 clear 

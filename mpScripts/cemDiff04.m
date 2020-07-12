@@ -2,7 +2,7 @@
 % 18 march 2016
 % Ian Cooper
 % School of Physics, University of Sydney
-% ../mphome.htm
+% https://d-arora.github.io/Doing-Physics-With-Matlab/
 
 % DIVERGENCE and CURL OF A VECTOR FIELD
    

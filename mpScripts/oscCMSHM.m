@@ -3,7 +3,7 @@
 % Animation: Connection between circulation motion and SHM
 
 % DOING PHYSICS WITH MATLAB: 
-%   ../mphome.htm
+%   https://d-arora.github.io/Doing-Physics-With-Matlab/
 % VISUAL PHYSICS ONLINE
 %   http://www.physics.usyd.edu.au/teach_res/hsp/sp/spHome.htm
 % Documentation
