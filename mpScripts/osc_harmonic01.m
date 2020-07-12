@@ -10,7 +10,7 @@
 % School of Physics, University of Sydney
 
 % DOING PHYSICS WITH MATLAB 
-%    http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+%    ../mphome.htm
 
 
 close all
@@ -149,7 +149,7 @@ figure(3)
    set(gcf,'color','w'); 
 plot(t,a,'LineWidth',3);
 title(s)
-ylabel('acceleration  a  (m/s²)','FontSize',18)
+ylabel('acceleration  a  (m/sï¿½)','FontSize',18)
 xlabel('time  t  (s)','FontSize',18)
 grid on
 set(gca,'fontsize',14)
@@ -187,7 +187,7 @@ set(gca,'fontsize',14)
 
 subplot(3,1,3), plot(t,a,'LineWidth',3);
 %title(s)
-ylabel('accleration  a  (m/s²)','FontSize',18)
+ylabel('accleration  a  (m/sï¿½)','FontSize',18)
 xlabel('time  t  (s)','FontSize',18)
 grid on
 set(gca,'fontsize',14)

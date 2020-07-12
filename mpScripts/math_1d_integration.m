@@ -4,7 +4,7 @@
 % 12 may 2015
 % Ian Cooper   School of Physics   University of Sydney
 % cooper@physics.usyd.edu.au
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 
 % Calls the function
 %     simpson_1d.m

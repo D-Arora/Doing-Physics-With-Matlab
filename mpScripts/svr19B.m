@@ -10,7 +10,7 @@
 % Model specified by the variables in the INPUT SECTION of the Script
 
 % DOING PHYSICS WITH MATLAB: 
-%   http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+%   ../mphome.htm
 % Documentation
 %   http://www.physics.usyd.edu.au/teach_res/mp/doc/sird19E.htm
 % Download Scripts

@@ -7,7 +7,7 @@
 %  Variation of impact parameter y0
 
 % DOING PHYSICS WITH MATLAB: 
-%   http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+%   ../mphome.htm
 % Documentation
 %   http://www.physics.usyd.edu.au/teach_res/mp/doc/modAlphaSc.htm
 % Download Scripts

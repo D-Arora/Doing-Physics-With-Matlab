@@ -2,7 +2,7 @@
 % 10 march 2016
 % Ian Cooper
 % School of Physics, University of Sydney
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 
 % Scalar (dot) product and vector (cross) product of vectors
 % Vectros specified in Cartseain components

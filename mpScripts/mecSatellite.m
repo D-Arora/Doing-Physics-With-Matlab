@@ -6,7 +6,7 @@
 %   solving the equation of motion using the ode45 function
 
 % DOING PHYSICS WITH MATLAB: 
-%   http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+%   ../mphome.htm
 % Documentation
 %   http://www.physics.usyd.edu.au/teach_res/mp/doc/mecSatelliteA.htm
 % Download Scripts

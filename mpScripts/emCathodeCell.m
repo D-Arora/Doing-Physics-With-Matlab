@@ -4,7 +4,7 @@
 % CATHODE SPOTS
 
 % DOING PHYSICS WITH MATLAB: 
-%   http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+%   ../mphome.htm
 % Documentation
 %   http://www.physics.usyd.edu.au/teach_res/mp/doc/emCathodeCell.htm
 % Download Scripts

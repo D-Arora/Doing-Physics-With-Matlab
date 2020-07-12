@@ -2,7 +2,7 @@
 
 % Ian Cooper
 % School of Physics, University of Sydney
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 
 % mscript for the numerical values of commonly used physical constants
 % All units are S.I. unless stated otherwise

@@ -2,7 +2,7 @@
 
 % Ian Cooper
 % School of Physics, University of Sydney
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 
 % ALPHA DECAY: relationship between half-lives and kinetic energy for
 %  polonium (1) and uranium (2)

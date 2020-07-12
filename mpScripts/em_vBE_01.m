@@ -5,7 +5,7 @@
 % Default value and unit are given in ()
 % Ian Cooper   School of Physics   University of Sydney
 % ian.cooper@sydney.edu.au
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 
 clear all
 close all

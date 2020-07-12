@@ -4,7 +4,7 @@
 %  Variables x and k
 
 % DOING PHYSICS WITH MATLAB 
-%    http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+%    ../mphome.htm
 % Reference page for documentation and notes
 %    http://www.physics.usyd.edu.au/teach_res/mp/doc/maths_ft01.pdf
 % Sripts: Download Location

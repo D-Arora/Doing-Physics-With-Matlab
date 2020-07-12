@@ -4,7 +4,7 @@
 % Using ode45 to solve the ODE for radioactive decay: nuclear decay chain   
 
 % DOING PHYSICS WITH MATLAB: 
-%   http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+%   ../mphome.htm
 % Documentation
 %   http://www.physics.usyd.edu.au/teach_res/mp/doc/modRDecay.htm
 % Download Scripts

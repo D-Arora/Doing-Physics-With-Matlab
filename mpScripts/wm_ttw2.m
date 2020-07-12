@@ -19,7 +19,7 @@
 % School of Physics, University of Sydney
 % 180127
 % DOING PHYSICS WITH MATLAB 
-%    http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+%    ../mphome.htm
 %    http://www.physics.usyd.edu.au/teach_res/mp/doc/wm_ttw.htm
 
 

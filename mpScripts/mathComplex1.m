@@ -4,7 +4,7 @@
 % The phase of the complex function is displayed using colors
 
 % DOING PHYSICS WITH MATLAB 
-%    http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+%    ../mphome.htm
 
 % Matlab Version 2018a / 180912
 

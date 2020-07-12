@@ -1,7 +1,7 @@
 % qp_balmer.m
 % Ian Cooper
 % School of Physics, University of Sydney
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 % Plot of the line spectrum for the Balmer series
 
 

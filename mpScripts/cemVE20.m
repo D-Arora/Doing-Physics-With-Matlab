@@ -2,7 +2,7 @@
 % 98 May 2016
 % Ian Cooper
 % School of Physics, University of Sydney
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 
 % Electostatics - point charge
 %    partial derivatives

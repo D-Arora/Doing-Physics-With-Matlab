@@ -4,7 +4,7 @@ function [ ] = tp_fn_Newton(R,N,tMax,T0,Tenv, flagC)
   % School of Physics, University of Sydney, Sydney, NSW, Australia
   % Email: ian.cooper@sydney.edu.au
   
-  % Web:   http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+  % Web:   ../mphome.htm
   % R     Cooling constant [1/min]
   % N     Number of time steps 
   % tMax  Time interval for simulation  [minutes]

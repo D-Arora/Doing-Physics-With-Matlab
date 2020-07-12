@@ -10,7 +10,7 @@
 
 
 % DOING PHYSICS ONLINE 
-%    http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+%    ../mphome.htm
 % Scripts
 %     http://www.physics.usyd.edu.au/teach_res/mp/mscripts/
 

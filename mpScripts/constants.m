@@ -2,7 +2,7 @@
 
 % Ian Cooper
 % School of Physics, Sydney University, ian.cooper@sydney.edu.au
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 % 190708   R2018b
 
 % Numerical values for useful constants

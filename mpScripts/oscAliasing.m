@@ -4,7 +4,7 @@
 % Matlab 2018b  190417
 
 % DOING PHYSICS ONLINE 
-%    http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+%    ../mphome.htm
 % Documentation
 %    http://www.physics.usyd.edu.au/teach_res/mp/doc/oscAliasing.htm
 % Ian Cooper  ian.cooper@sydney.edu.au

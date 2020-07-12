@@ -10,7 +10,7 @@
 % Ian Cooper
 % School of Physics, University of Sydney
 % email: ian.cooper@sydney.edu.au
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 % Documentation
 % http://www.physics.usyd.edu.au/teach_res/mp/doc/qp_alpha_decay_BE.pdf
 

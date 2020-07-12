@@ -2,7 +2,7 @@
 % 23 april 2016
 % Ian Cooper
 % School of Physics, University of Sydney
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 
 % Computation of the electrical potential from the line 
 %   integral of the electric field

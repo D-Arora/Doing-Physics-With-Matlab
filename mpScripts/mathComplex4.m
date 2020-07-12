@@ -4,7 +4,7 @@
 % Phase Portrait at  a winding frequency fw
 
 % DOING PHYSICS WITH MATLAB 
-%    http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+%    ../mphome.htm
 
 % Matlab Version 2018a / 180915
 

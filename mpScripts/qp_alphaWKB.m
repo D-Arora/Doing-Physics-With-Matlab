@@ -3,7 +3,7 @@
 %potentials
 % based on the se_fdm_alpha.m script of  Ian Cooper,School of Physics, University of Sydney
 % email: ian.cooper@sydney.edu.au
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 % modification made by Badr-Eddine Elfatehy Chfira: badreddine.el@um.es
 
 close all

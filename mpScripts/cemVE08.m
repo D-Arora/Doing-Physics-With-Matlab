@@ -2,7 +2,7 @@
 % 19 april 2016
 % Ian Cooper
 % School of Physics, University of Sydney
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 
 % Potential and Electric Field in [2D] region
 % [1D] quadrupole: 3 charges in a straight lines

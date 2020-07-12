@@ -2,7 +2,7 @@
 % 18 march 2016
 % Ian Cooper
 % School of Physics, University of Sydney
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 
 % DIVERGENCE and CURL OF A VECTOR FIELD
    

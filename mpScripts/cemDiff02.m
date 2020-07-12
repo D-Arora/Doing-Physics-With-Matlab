@@ -2,7 +2,7 @@
 % 19 march 2016
 % Ian Cooper
 % School of Physics, University of Sydney
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 
 % GRADIENT FUNCTION  of f(x,y)
 %   meshgrid / [3D] plots: contourf and quiver

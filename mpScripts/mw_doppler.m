@@ -13,7 +13,7 @@
 % Ian Cooper
 % School of Physics, University of Sydney
 % email: ian.cooper@sydney.edu.au
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 % 170515
 
 

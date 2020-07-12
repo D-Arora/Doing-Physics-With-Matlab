@@ -5,7 +5,7 @@
 %   are shown as the object moves around a circle.  
 
 % DOING PHYSICS WITH MATLAB: 
-%   http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+%   ../mphome.htm
 % VISUAL PHYSICS ONLINE
 %   http://www.physics.usyd.edu.au/teach_res/hsp/sp/spHome.htm
 % Documentation

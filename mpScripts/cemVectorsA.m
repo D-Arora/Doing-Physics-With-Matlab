@@ -2,7 +2,7 @@
 % 10 march 2016
 % Ian Cooper
 % School of Physics, University of Sydney
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 
 % Orthogonal components of a [3D] vector
 % Inputs: V(1)   V(2)   V(3)   Cartesian component of vector V

@@ -3,7 +3,7 @@
 % Blackbody curves for different temperatures
 
 % DOING PHYSICS WITH MATLAB: 
-%   http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+%   ../mphome.htm
 % Documentation
 %   http://www.physics.usyd.edu.au/teach_res/mp/doc/tp_blackbody.pdf
 % Download Scripts

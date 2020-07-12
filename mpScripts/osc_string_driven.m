@@ -3,7 +3,7 @@
 % Ian Cooper
 % School of Physics, University of Sydney
 % Doing Physics online  
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 % email:  cooper@physics.usyd.edu.au
 
 

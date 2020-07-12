@@ -20,7 +20,7 @@
 % 09606070 - SÃ£o Bernardo do Campo, SP - Brasil
 
 % DOING PHYSICS WITH MATLAB 
-%    http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+%    ../mphome.htm
 
 
 clear all

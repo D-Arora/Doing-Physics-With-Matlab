@@ -8,7 +8,7 @@
 %            Define function in CELL 3 at end of Script
 
 % DOING PHYSICS WITH MATLAB: 
-%   http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+%   ../mphome.htm
 % Documentation
 %   http://www.physics.usyd.edu.au/teach_res/mp/doc/np001.htm
 % Download Scripts

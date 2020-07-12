@@ -3,7 +3,7 @@
 % Simulation of a car going around a curved road.
 
 % DOING PHYSICS WITH MATLAB: 
-%   http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+%   ../mphome.htm
 % VISUAL PHYSICS ONLINE
 %   http://www.physics.usyd.edu.au/teach_res/hsp/sp/spHome.htm
 % Documentation
@@ -14,7 +14,7 @@
 % Ian Cooper
 % School of Physics, University of Sydney
 % email: ian.cooper@sydney.edu.au
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 % 170517
 
 clear 

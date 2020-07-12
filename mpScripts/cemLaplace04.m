@@ -2,7 +2,7 @@
 % 08 april 2016
 % Ian Cooper
 % School of Physics, University of Sydney
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 
 % Solution of Laplace's equation
 % Two concentric metal squares

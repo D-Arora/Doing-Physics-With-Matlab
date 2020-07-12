@@ -2,7 +2,7 @@
 
 % Ian Cooper
 % School of Physics, Sydney University, ian.cooper@sydney.edu.au
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 % 19 sept 2017
 
 

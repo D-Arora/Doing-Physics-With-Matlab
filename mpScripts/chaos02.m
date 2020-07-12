@@ -10,7 +10,7 @@
 % 180827 / Matlab version R2018a
 
 % DOING PHYSICS WITH MATLAB 
-%     http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+%     ../mphome.htm
 %   Reference documentation and notes
 %     http://www.physics.usyd.edu.au/teach_res/mp/doc/chaos02.htm
 

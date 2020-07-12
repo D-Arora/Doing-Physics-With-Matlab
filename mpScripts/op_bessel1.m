@@ -3,7 +3,7 @@
 % 30 aug 2014
 % Ian Cooper   School of Physics   University of Sydney
 % cooper@physics.usyd.edu.au
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 
 % Plot of the Bessel function of the first kind
 % Plots of the Fraunhoffer diffraction pattern for a uniformly illuminated

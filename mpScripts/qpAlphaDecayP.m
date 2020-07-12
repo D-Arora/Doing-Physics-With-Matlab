@@ -8,7 +8,7 @@
 % DOING PHYSICS ONLINE: 
 % Ian Cooper  ian.cooper@sydney.edu.au
 % School of Physics, University of Sydney
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 % Documentation
 % http://www.physics.usyd.edu.au/teach_res/mp/doc/qpAlphaDecay.pdf
 

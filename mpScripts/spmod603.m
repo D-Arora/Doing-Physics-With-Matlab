@@ -2,7 +2,7 @@
 % 22 aug 2017
 % Ian Cooper
 % School of Physics, University of Sydney
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 
 % calculations for an electron and a proton in a uniform electric field
 

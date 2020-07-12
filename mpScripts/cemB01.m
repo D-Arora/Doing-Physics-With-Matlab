@@ -2,7 +2,7 @@
 % 07 May 2016
 % Ian Cooper
 % School of Physics, University of Sydney
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 
 % Faraday's Law: mutual inductance M / self inductance L
 %    time dependent magnetic fields

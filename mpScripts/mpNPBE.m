@@ -14,7 +14,7 @@
 
 
 % DOING PHYSICS WITH MATLAB: 
-%   http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+%   ../mphome.htm
 % Documentation
 %   http://www.physics.usyd.edu.au/teach_res/hsp/sp/mod72/mod72K1.htm
 % Download Scripts

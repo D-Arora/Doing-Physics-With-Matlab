@@ -8,7 +8,7 @@
 % 181010 / Matlab version R2018a
 
 % DOING PHYSICS WITH MATLAB 
-%    http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+%    ../mphome.htm
 
 % VISUAL PHYSICS ONLINE
 %    http://www.physics.usyd.edu.au/teach_res/hsp/sp/spHome.htm

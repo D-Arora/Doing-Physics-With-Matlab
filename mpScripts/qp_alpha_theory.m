@@ -2,7 +2,7 @@
 
 % Ian Cooper
 % School of Physics, University of Sydney
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 
 % Calculation of the theorical value of the half-life of an alpha emitter
 % All units are S.I. unless stated otherwise

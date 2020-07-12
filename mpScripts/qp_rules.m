@@ -21,7 +21,7 @@
 % School of Physics, University of Sydney
 % Email:  ian.cooper@sydney.edu.au
 % Doing Physics with Matlab
-%      http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+%      ../mphome.htm
 
 % Corrections:
 %    Duncan Carlsmith

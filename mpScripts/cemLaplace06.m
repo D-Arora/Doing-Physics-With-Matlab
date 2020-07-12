@@ -2,7 +2,7 @@
 % 28 march 2016
 % Ian Cooper
 % School of Physics, University of Sydney
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 
 % Solution of Poisson's equation
 % potential / electric field 

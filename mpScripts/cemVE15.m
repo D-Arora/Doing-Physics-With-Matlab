@@ -2,7 +2,7 @@
 % 28 April 2016
 % Ian Cooper
 % School of Physics, University of Sydney
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 
 % ELECTRIC FIELD
 %    GAUSS'S LAW: charges enclosed in a cube

@@ -2,7 +2,7 @@
 % 02 June 2016
 % Ian Cooper
 % School of Physics, University of Sydney
-% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+% ../mphome.htm
 
 % Magnetic field from a set of parallel wires
 %    Biot-Savart Law

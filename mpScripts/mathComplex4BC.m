@@ -4,12 +4,12 @@
 %   but what is a Fourier Transform?
 
 % DOING PHYSICS WITH MATLAB 
-%    http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+%    ../mphome.htm
 % Documentation
 %    http://www.physics.usyd.edu.au/teach_res/mp/doc/mathComplex4.htm
 
-% This script was inspiration from the youtube video ”But what is the Fourier Transform?
-%   A visual Introduction” by 3Blue1Brown
+% This script was inspiration from the youtube video ï¿½But what is the Fourier Transform?
+%   A visual Introductionï¿½ by 3Blue1Brown
 %   https://www.youtube.com/watch?v=spUNpyF58BY
 %   Matlab programs were developed to create similar figures
 %   and to connect the ideas presented in the video.
