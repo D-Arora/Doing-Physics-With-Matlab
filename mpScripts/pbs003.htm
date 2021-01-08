@@ -1,0 +1,2545 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 14">
+<meta name=Originator content="Microsoft Word 14">
+<base target="_blank">
+<link rel=File-List href="pbs003_files/filelist.xml">
+<link rel=Edit-Time-Data href="pbs003_files/editdata.mso">
+<link rel=OLE-Object-Data href="pbs003_files/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Matlab Physics</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Ian Cooper</o:Author>
+  <o:Keywords>ion channels, physics of neurons, Hodgkin-Huxley Model, gating variables, membrane potential, membrane currents, modelling behaviour of neurons, gate variables</o:Keywords>
+  <o:Description>npHHA.m&#13;&#10;npA.pptx</o:Description>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Owner</o:LastAuthor>
+  <o:Revision>10</o:Revision>
+  <o:TotalTime>3663</o:TotalTime>
+  <o:Created>2020-05-25T04:00:00Z</o:Created>
+  <o:LastSaved>2020-05-26T00:17:00Z</o:LastSaved>
+  <o:Pages>9</o:Pages>
+  <o:Words>1681</o:Words>
+  <o:Characters>9588</o:Characters>
+  <o:Category>Physics of neurons</o:Category>
+  <o:Lines>79</o:Lines>
+  <o:Paragraphs>22</o:Paragraphs>
+  <o:CharactersWithSpaces>11247</o:CharactersWithSpaces>
+  <o:Version>14.00</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+<link rel=dataStoreItem href="pbs003_files/item0079.xml"
+target="pbs003_files/props080.xml">
+<link rel=themeData href="pbs003_files/themedata.thmx">
+<link rel=colorSchemeMapping href="pbs003_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-AU</w:LidThemeOther>
+  <w:LidThemeAsian>ZH-CN</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-469750017 -1073732485 9 0 511 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-520081665 -1073717157 41 0 66047 0;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin-top:0cm;
+	margin-right:30.05pt;
+	margin-bottom:10.0pt;
+	margin-left:30.05pt;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+a:link, span.MsoHyperlink
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:blue;
+	mso-themecolor:hyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:purple;
+	mso-themecolor:followedhyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Balloon Text Char";
+	margin-top:0cm;
+	margin-right:30.05pt;
+	margin-bottom:0cm;
+	margin-left:30.05pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-priority:1;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:Calibri;
+	mso-bidi-theme-font:minor-latin;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	margin-top:0cm;
+	margin-right:30.05pt;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:30.05pt;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:30.05pt;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:30.05pt;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Balloon Text";
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-ascii-font-family:Tahoma;
+	mso-hansi-font-family:Tahoma;
+	mso-bidi-font-family:Tahoma;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:16.0pt;
+	mso-ansi-font-size:16.0pt;
+	mso-bidi-font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:235555899;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1863338196 201916417 201916419 201916421 201916417 201916419 201916421 201916417 201916419 201916421;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l0:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Wingdings;}
+@list l0:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l0:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l0:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Wingdings;}
+@list l0:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l0:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l0:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Wingdings;}
+@list l1
+	{mso-list-id:1583832142;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-608805352 201916417 201916419 201916421 201916417 201916419 201916421 201916417 201916419 201916421;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l1:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l1:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Wingdings;}
+@list l1:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l1:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l1:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Wingdings;}
+@list l1:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l1:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l1:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Wingdings;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-priority:59;
+	mso-style-unhide:no;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin-top:0cm;
+	mso-para-margin-right:30.05pt;
+	mso-para-margin-bottom:0cm;
+	mso-para-margin-left:30.05pt;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-AU link=blue vlink=purple style='tab-interval:36.0pt'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:56.3pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=832 valign=top style='width:22.0cm;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNoSpacing style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:2.1pt;margin-bottom:.0001pt;line-height:200%'><span
+  style='mso-bidi-font-size:11.0pt;line-height:200%'><a
+  href="http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm"><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:18.0pt;mso-bidi-font-size:
+  11.0pt;line-height:200%;color:blue'>DOING PHYSICS WITH MATLAB</span></b></a></span><span
+  class=MsoHyperlink><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:18.0pt;mso-bidi-font-size:11.0pt;line-height:200%;
+  color:blue'><o:p></o:p></span></b></span></p>
+  <p class=MsoNoSpacing style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:2.1pt;margin-bottom:.0001pt;line-height:200%'><span
+  lang=EN-GB style='mso-bidi-font-size:11.0pt;line-height:200%;mso-ansi-language:
+  EN-GB'><a href="http://www.physics.usyd.edu.au/teach_res/hsp/sp/spHome.htm"><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:18.0pt;mso-bidi-font-size:
+  11.0pt;line-height:200%;color:blue'>VISUAL PHYSICS ONLINE</span></b></a></span><span
+  lang=EN-GB style='font-size:26.0pt;mso-bidi-font-size:11.0pt;line-height:
+  200%;mso-ansi-language:EN-GB'> </span><span style='font-size:26.0pt;
+  mso-bidi-font-size:11.0pt;line-height:200%'><o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:2.1pt;margin-bottom:.0001pt;line-height:200%'><span
+  style='mso-bidi-font-size:11.0pt;line-height:200%'><a
+  href="http://www.physics.usyd.edu.au/teach_res/mp/pbsHome.htm"><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:18.0pt;mso-bidi-font-size:
+  11.0pt;line-height:200%;color:blue'>PHYSICS OF BIOLOGICAL SYSTEMS</span></b></a><span
+  class=MsoHyperlink><b style='mso-bidi-font-weight:normal'><span
+  style='color:blue'><o:p></o:p></span></b></span></span></p>
+  <p class=MsoNoSpacing style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:2.1pt;margin-bottom:.0001pt;line-height:200%'><span
+  style='mso-bidi-font-size:11.0pt;line-height:200%;color:#953735;mso-themecolor:
+  accent2;mso-themeshade:191;mso-style-textfill-fill-color:#953735;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'><span style='mso-spacerun:yes'> </span></span><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:18.0pt;mso-bidi-font-size:
+  11.0pt;line-height:200%;color:#E46C0A;mso-themecolor:accent6;mso-themeshade:
+  191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>COMPUTATIONAL NEUROSCIENCE</span></b><span style='font-size:18.0pt;
+  mso-bidi-font-size:11.0pt;line-height:200%;color:#E46C0A;mso-themecolor:accent6;
+  mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'><o:p></o:p></span></p>
+  <p class=MsoNoSpacing align=center style='margin-top:0cm;margin-right:30.05pt;
+  margin-bottom:0cm;margin-left:2.1pt;margin-bottom:.0001pt;text-align:center;
+  line-height:200%'><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:18.0pt;mso-bidi-font-size:11.0pt;line-height:200%;
+  color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:
+  #E46C0A;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>THE NEURON
+  MEMBRANE: ION CHANNELS AND GATE VARIABLES<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:2.1pt;margin-bottom:.0001pt;line-height:200%'><span
+  style='mso-bidi-font-size:16.0pt;line-height:200%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-bidi-font-weight:bold'>Ian Cooper<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:2.1pt;margin-bottom:.0001pt;line-height:200%'><span
+  style='mso-bidi-font-size:16.0pt;line-height:200%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-bidi-font-weight:bold'>Any comments,
+  suggestions or corrections, please email me at<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:2.1pt;margin-bottom:.0001pt;line-height:150%'><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:blue;mso-bidi-font-weight:bold'><span
+  style='mso-spacerun:yes'>        </span></span><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;mso-bidi-font-weight:bold'>matlabvisualphysics@gmail.com</span><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-GB style='font-size:20.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='margin-left:56.3pt;border-collapse:collapse;border:none;mso-border-alt:
+ solid #984806 1.5pt;mso-border-themecolor:accent6;mso-border-themeshade:128;
+ mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:
+ none;mso-border-insidev:none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=832 valign=top style='width:22.0cm;border:solid #984806 1.5pt;
+  mso-border-themecolor:accent6;mso-border-themeshade:128;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-left:0cm;line-height:150%'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:18.0pt;line-height:
+  150%;font-family:"Bookman Old Style","serif";color:#984807;mso-themecolor:
+  accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>MATLAB<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-left:0cm;line-height:150%'><span
+  style='font-size:18.0pt;mso-bidi-font-size:11.0pt;line-height:150%'><a
+  href="http://www.physics.usyd.edu.au/teach_res/mp/mscripts/">Download
+  Directory</a><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  class=SpellE><b style='mso-bidi-font-weight:normal'><span style='color:#984807;
+  mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>npHHA.m</span></b></span><b
+  style='mso-bidi-font-weight:normal'><span style='color:#984807;mso-themecolor:
+  accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'> <span style='mso-spacerun:yes'>      </span>bp_neuron_02.m<span
+  style='mso-spacerun:yes'>     </span>npIC.m</span><o:p></o:p></b></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-left:0cm'><span lang=EN-GB style='mso-ansi-language:
+EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:56.3pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=832 valign=top style='width:22.0cm;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><b style='mso-bidi-font-weight:
+  normal'><span style='font-size:18.0pt;mso-bidi-font-size:16.0pt;line-height:
+  150%;font-family:"Bookman Old Style","serif";mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:#E46C0A;mso-themecolor:accent6;
+  mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>INTRODUCTION<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><b style='mso-bidi-font-weight:
+  normal'><span style='font-size:18.0pt;mso-bidi-font-size:16.0pt;line-height:
+  150%;font-family:"Bookman Old Style","serif";mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:#E46C0A;mso-themecolor:accent6;
+  mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='margin-left:0cm;line-height:150%'><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%'>The equations of <a
+  href="http://www.physics.usyd.edu.au/teach_res/mp/doc/npHHA.htm">Hodgkin and
+  Huxley</a> provide a good description of the electrophysiological properties
+  of the giant axon of the squid. These equations capture the essence of spike
+  generation by sodium and potassium ion channels. The basic mechanism of
+  generating action potentials is a short in influx of sodium ions that is
+  followed by an efflux of potassium ions. Cortical neurons in vertebrates,
+  however, exhibit a much richer repertoire of electrophysiological properties
+  than the squid axon studied by Hodgkin and Huxley.</span> <span
+  style='mso-bidi-font-size:16.0pt;line-height:150%'>These properties are mostly
+  due to a larger variety of different ion channels.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:150%;mso-layout-grid-align:
+  none;text-autospace:none'><span style='mso-bidi-font-size:12.0pt;line-height:
+  150%;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  12.0pt;line-height:150%'>In biophysically based neural modelling, the
+  electrical properties of a neuron are represented in terms of an electrical
+  equivalent circuit. Capacitors are used to model the charge storage capacity of
+  the membranes (a</span><span style='mso-bidi-font-size:16.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;color:black'>
+  semipermeable cell membrane separates the interior of the cell from the
+  extracellular liquid and acts as a capacitor</span><span style='mso-bidi-font-size:
+  12.0pt;line-height:150%'>). Resistors are used to model the various types of
+  ion channels embedded in the membrane, and batteries are used to represent
+  the electrochemical potentials established by differing intracellular and
+  extracellular ion concentrations. Figure 1 shows the equivalent circuit used
+  by Hodgkin and Huxley in modelling a segment of squid giant axon.<span
+  style='mso-spacerun:yes'>  </span>The current across the membrane has two
+  major components, one associated with the membrane capacitance and one
+  associated with the flow of ions through resistive membrane channels. They </span><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black'>found three different types of
+  ion currents: Na<sup>+</sup>, K<sup>+</sup>, and a leak current that consists
+  mainly of <span class=SpellE>Cl</span><sup>-</sup> ions. The flow of ions
+  through a cell membrane of a neuron is controlled by special voltage
+  dependent ion channels: Na<sup>+</sup> ion channel, K<sup>+</sup> ion channel
+  and a leak ion channel for all other ions. The neuron can be stimulated by an
+  external current </span><span class=SpellE><i style='mso-bidi-font-style:
+  normal'><span style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:
+  "Times New Roman","serif";color:black'>I<sub>ext</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Times New Roman","serif";color:black'> </span></i><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black'>injected into the interior of
+  the neuron.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-top:0cm;margin-right:1.65pt;
+  margin-bottom:0cm;margin-left:-5.4pt;margin-bottom:.0001pt;text-align:center;
+  line-height:150%;mso-layout-grid-align:none;text-autospace:none'><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black;mso-no-proof:yes'><!--[if gte vml 1]><v:shapetype
+   id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+   path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="Picture_x0020_1" o:spid="_x0000_i1061" type="#_x0000_t75"
+   style='width:516.75pt;height:334.5pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="pbs003_files/image001.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=689 height=446
+  src="pbs003_files/image002.png" v:shapes="Picture_x0020_1"><![endif]></span><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:26.05pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;tab-stops:1.0cm 4.0cm;mso-layout-grid-align:
+  none;text-autospace:none'><span style='mso-bidi-font-size:12.0pt;line-height:
+  115%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:26.05pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;tab-stops:1.0cm 4.0cm;mso-layout-grid-align:
+  none;text-autospace:none'><span style='mso-bidi-font-size:12.0pt;line-height:
+  115%'>Fig.1.<span style='mso-spacerun:yes'>   </span>Hodgkin – Huxley model:
+  Electrical equivalent circuit for a short segment of squid giant axon.
+  Capacitor (capacitance </span><i style='mso-bidi-font-style:normal'><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>C<sub>m</sub></span></i><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%'> of the cell membrane);
+  Variable resistors (voltage-dependent Na<sup>+</sup> and K<sup>+ </sup><span
+  style='mso-spacerun:yes'> </span>conductances </span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:12.0pt;
+  line-height:115%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>G<sub>Na</sub></span></i></span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>, <span class=SpellE><i style='mso-bidi-font-style:
+  normal'>G<sub>K</sub></i></span></span><span style='mso-bidi-font-size:12.0pt;
+  line-height:115%'> ); fixed resistor (voltage-independent leakage conductance
+  <i style='mso-bidi-font-style:normal'>G<sub>L</sub></i>); Batteries (reversal
+  potentials Na<sup>+</sup>, K<sup>+</sup> , leakage:<span
+  style='mso-spacerun:yes'>  </span></span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:12.0pt;
+  line-height:115%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>E<sub>Na</sub></span></i></span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>, <span class=SpellE><i style='mso-bidi-font-style:
+  normal'>E<sub>K</sub></i></span>, <i style='mso-bidi-font-style:normal'>E<sub>L</sub></i></span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%'>); Membrane potential </span><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:12.0pt;
+  line-height:115%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>V</span></i><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%'> = </span><span
+  class=SpellE><i style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:
+  12.0pt;line-height:115%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>V<sub>m</sub></span></i></span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%'> = </span><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:12.0pt;
+  line-height:115%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>V<sub>in</sub></span></i><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'> - <span class=SpellE><i style='mso-bidi-font-style:
+  normal'>V<sub>out</sub></i></span></span><span style='mso-bidi-font-size:
+  12.0pt;line-height:115%'>;<span style='mso-spacerun:yes'>  </span>External stimulus
+  </span><span class=SpellE><i style='mso-bidi-font-style:normal'><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>I<sub>ext</sub></span></i></span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%'>; Current directions
+  (arrows:<span style='mso-spacerun:yes'>  </span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'>I<sub>ext</sub></i></span> outside </span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:Symbol;
+  mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-hansi-font-family:
+  Calibri;mso-hansi-theme-font:minor-latin;mso-char-type:symbol;mso-symbol-font-family:
+  Symbol'><span style='mso-char-type:symbol;mso-symbol-font-family:Symbol'>®</span></span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%'> inside (</span><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:12.0pt;
+  line-height:115%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>I</span></i><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%'> &lt;<span
+  style='mso-spacerun:yes'>  </span>0), <i style='mso-bidi-font-style:normal'><span
+  style='mso-spacerun:yes'> </span><span class=SpellE>I<sub>Na</sub></span></i>,
+  <span class=SpellE><i style='mso-bidi-font-style:normal'>I<sub>K</sub></i></span>
+  and <i style='mso-bidi-font-style:normal'>I<sub>L</sub></i> inside </span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:Symbol;
+  mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-hansi-font-family:
+  Calibri;mso-hansi-theme-font:minor-latin;mso-char-type:symbol;mso-symbol-font-family:
+  Symbol'><span style='mso-char-type:symbol;mso-symbol-font-family:Symbol'>®</span></span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%'> outside (</span><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:12.0pt;
+  line-height:115%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>I</span></i><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%'> &gt; 0).<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:26.05pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;tab-stops:1.0cm 4.0cm;mso-layout-grid-align:
+  none;text-autospace:none'><span style='mso-bidi-font-size:12.0pt;line-height:
+  115%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:26.05pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;tab-stops:1.0cm 4.0cm;mso-layout-grid-align:
+  none;text-autospace:none'><span style='mso-bidi-font-size:12.0pt;line-height:
+  115%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.7pt 4.0cm;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'>Electrical potential (voltage) </span><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;font-family:Symbol;mso-ascii-font-family:Calibri;
+  mso-ascii-theme-font:minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:
+  minor-latin;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+  mso-char-type:symbol;mso-symbol-font-family:Symbol'><span style='mso-char-type:
+  symbol;mso-symbol-font-family:Symbol'>D</span></span><i style='mso-bidi-font-style:
+  normal'><span style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:
+  "Times New Roman","serif";mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:
+  minor-fareast;mso-bidi-theme-font:minor-fareast'>V</span></i><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'>, current </span><i style='mso-bidi-font-style:
+  normal'><span style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:
+  "Times New Roman","serif";mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:
+  minor-fareast;mso-bidi-theme-font:minor-fareast'>I</span></i><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'> (</span><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'>area</span><span style='mso-bidi-font-size:16.0pt;line-height:
+  150%;font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'> <i
+  style='mso-bidi-font-style:normal'>A</i>, </span><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'>current density</span><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>
+  <i style='mso-bidi-font-style:normal'>J</i>)</span><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'>, resistance </span><i style='mso-bidi-font-style:normal'><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>R</span></i><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'> and conductance </span><i style='mso-bidi-font-style:normal'><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>G</span></i><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'> are related by the equations<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.7pt 4.0cm;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'><span style='mso-tab-count:1'>  </span><span style='position:
+  relative;top:12.0pt;mso-text-raise:-12.0pt'><span
+  style='mso-spacerun:yes'>                 </span><!--[if gte vml 1]><v:shape
+   id="_x0000_i1025" type="#_x0000_t75" style='width:408pt;height:39.75pt'
+   o:ole="">
+   <v:imagedata src="pbs003_files/image003.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=544 height=53
+  src="pbs003_files/image004.png" v:shapes="_x0000_i1025"><![endif]><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1025"
+    DrawAspect="Content" ObjectID="_1651993694">
+   </o:OLEObject>
+  </xml><![endif]--></span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:26.05pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;tab-stops:1.0cm 4.0cm;mso-layout-grid-align:
+  none;text-autospace:none'><span style='mso-bidi-font-size:12.0pt;line-height:
+  115%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-2.6pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>Electrical activity in neurons is sustained
+  and propagated by ion currents through neuron membranes as shown in figure 1.
+  Most of these <span class=SpellE>transmembrane</span> currents involve four
+  ionic species: sodium Na<sup>+</sup>, potassium K<sup>+</sup>, calcium Ca<sup>2+</sup>
+  and chloride (<span class=SpellE>Cl</span><sup>-</sup>). The concentrations
+  of these ions are different on the inside and outside of a cell. This creates
+  the electrochemical gradients which are the major driving forces of neural
+  activity. The <b style='mso-bidi-font-weight:normal'><span style='color:#E46C0A;
+  mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>extracellular</span></b>
+  medium has high concentration of Na<sup>+</sup> and <span class=SpellE>Cl</span><sup>-</sup>
+  and a relatively high concentration of Ca<sup>2+</sup>. The <b
+  style='mso-bidi-font-weight:normal'><span style='color:#E46C0A;mso-themecolor:
+  accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>intracellular</span> </b>medium has high concentration of K<sup>+</sup>
+  and negatively charged large molecules A<sup>-</sup>. The cell membrane has
+  large protein molecules forming <b style='mso-bidi-font-weight:normal'><span
+  style='color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:
+  #E46C0A;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>ion channels</span></b><span
+  style='color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:
+  #E46C0A;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'> </span>through
+  which ions (but not A<sup>-</sup>) can flow according to their
+  electrochemical gradients.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-2.6pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-2.6pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>The concentration asymmetry is maintained
+  through<o:p></o:p></span></p>
+  <p class=MsoListParagraphCxSpFirst style='margin-top:0cm;margin-right:-2.6pt;
+  margin-bottom:0cm;margin-left:36.0pt;margin-bottom:.0001pt;mso-add-space:
+  auto;text-indent:-18.0pt;line-height:150%;mso-list:l1 level1 lfo2'><![if !supportLists]><span
+  lang=EN-GB style='font-family:Symbol;mso-fareast-font-family:Symbol;
+  mso-bidi-font-family:Symbol;mso-ansi-language:EN-GB'><span style='mso-list:
+  Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><b style='mso-bidi-font-weight:normal'><span
+  lang=EN-GB style='color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;
+  mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000;mso-ansi-language:EN-GB'>Passive redistribution</span></b><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'>: The impermeable anions A<sup>-</sup>
+  attract more K<sup>+</sup> into the cell and repel more <span class=SpellE>Cl</span><sup>-</sup>
+  out of the cell.<o:p></o:p></span></p>
+  <p class=MsoListParagraphCxSpLast style='margin-top:0cm;margin-right:-2.6pt;
+  margin-bottom:0cm;margin-left:36.0pt;margin-bottom:.0001pt;mso-add-space:
+  auto;text-indent:-18.0pt;line-height:150%;mso-list:l1 level1 lfo2'><![if !supportLists]><span
+  lang=EN-GB style='font-family:Symbol;mso-fareast-font-family:Symbol;
+  mso-bidi-font-family:Symbol;mso-ansi-language:EN-GB'><span style='mso-list:
+  Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><b style='mso-bidi-font-weight:normal'><span
+  lang=EN-GB style='color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;
+  mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000;mso-ansi-language:EN-GB'>Active transport</span></b><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'>: Ions are pumped in and out of
+  the cell by ionic pumps. For example, the Na<sup>+</sup>/K<sup>+</sup> pump,
+  which pumps out three Na<sup>+</sup> ions for every two K<sup>+</sup> ions
+  pumped.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span lang=EN-GB
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span lang=EN-GB
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black;mso-ansi-language:EN-GB'>In the
+  Hodgkin – Huxley model only the movement of the sodium, potassium ions are
+  considered, all other ions are considered as part of the leak current. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><b style='mso-bidi-font-weight:
+  normal'><span style='font-size:18.0pt;mso-bidi-font-size:16.0pt;line-height:
+  150%;font-family:"Bookman Old Style","serif";mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:#E46C0A;mso-themecolor:accent6;
+  mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>ION CHANNELS<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:1.0cm;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%'><span style='mso-spacerun:yes'> </span>In this
+  section we give an overview of some of the ion channels encountered in
+  different neurons. The basic equation of detailed neuron models is more or
+  less the same as that of the Hodgkin-Huxley model except that it contains
+  more types of ion channels. The membrane potential </span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>V<sub>m</sub></span></i></span><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%'> of a neuron is given by<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.7pt 4.0cm;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.7pt 4.0cm;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'><span style='mso-spacerun:yes'>       </span>(1)<span
+  style='mso-spacerun:yes'>       </span><span style='position:relative;
+  top:18.0pt;mso-text-raise:-18.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1026"
+   type="#_x0000_t75" style='width:207pt;height:33.75pt' o:ole="">
+   <v:imagedata src="pbs003_files/image005.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=276 height=45
+  src="pbs003_files/image006.png" v:shapes="_x0000_i1026"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1026"
+    DrawAspect="Content" ObjectID="_1651993695">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.7pt 4.0cm;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span class=GramE><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'>where</span></span><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'> </span><i style='mso-bidi-font-style:normal'><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>c<sub>m</sub></span></i><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'><span style='mso-spacerun:yes'>  </span>is
+  the membrane capacity per unit area, </span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>J<sub>ext</sub></span></i></span><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'> is the synaptic input current density, and </span><span
+  class=SpellE><i style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>J<sub>c</sub></span></i></span><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'> </span><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'>is the current density through ion channel </span><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>c</span></i><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'>. As in the Hodgkin-Huxley model, sodium and
+  potassium currents are described by equations of the form<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'><span style='mso-spacerun:yes'>       </span>(2)<span
+  style='mso-spacerun:yes'>       </span><span style='position:relative;
+  top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1053"
+   type="#_x0000_t75" style='width:141pt;height:24.75pt' o:ole="">
+   <v:imagedata src="pbs003_files/image007.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=188 height=33
+  src="pbs003_files/image008.png" v:shapes="_x0000_i1053"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1053"
+    DrawAspect="Content" ObjectID="_1651993696">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span class=GramE><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'>where</span></span><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'> <span style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1027" type="#_x0000_t75" style='width:14.25pt;height:18.75pt'
+   o:ole="">
+   <v:imagedata src="pbs003_files/image009.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=19 height=25
+  src="pbs003_files/image010.png" v:shapes="_x0000_i1027"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1027"
+    DrawAspect="Content" ObjectID="_1651993697">
+   </o:OLEObject>
+  </xml><![endif]-->is the maximum conductance of ion channel </span><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>c</span></i><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'>, </span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>E<sub>c</sub></span></i></span><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'> is the reversal potential for ion </span><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>c</span></i><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'>, and </span><i style='mso-bidi-font-style:
+  normal'><span style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:
+  "Times New Roman","serif";mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:
+  minor-fareast;mso-bidi-theme-font:minor-fareast'>k</span></i><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'> and </span><i style='mso-bidi-font-style:
+  normal'><span style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:
+  "Times New Roman","serif";mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:
+  minor-fareast;mso-bidi-theme-font:minor-fareast'>h</span></i><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'> are activation and inactivation variables,
+  respectively. The <span class=GramE>exponents</span> </span><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>p</span></i><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'> and </span><i style='mso-bidi-font-style:
+  normal'><span style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:
+  "Times New Roman","serif";mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:
+  minor-fareast;mso-bidi-theme-font:minor-fareast'>q</span></i><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'> are integer parameters representing the
+  number of gates for ion channel </span><i style='mso-bidi-font-style:normal'><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>c</span></i><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'> (figure 3).<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.7pt 4.0cm;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.7pt 4.0cm;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'><span style='mso-spacerun:yes'>      </span>(3)<span
+  style='mso-spacerun:yes'>        </span><span style='position:relative;
+  top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1028"
+   type="#_x0000_t75" style='width:420.75pt;height:21.75pt' o:ole="">
+   <v:imagedata src="pbs003_files/image011.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=561 height=29
+  src="pbs003_files/image012.png" v:shapes="_x0000_i1028"><![endif]><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1028"
+    DrawAspect="Content" ObjectID="_1651993698">
+   </o:OLEObject>
+  </xml><![endif]--></span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.7pt 4.0cm;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.7pt 4.0cm;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-top:0cm;margin-right:1.65pt;
+  margin-bottom:0cm;margin-left:-5.4pt;margin-bottom:.0001pt;text-align:center;
+  line-height:150%;tab-stops:1.7pt 4.0cm;mso-layout-grid-align:none;text-autospace:
+  none'><span style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_12" o:spid="_x0000_i1060" type="#_x0000_t75" style='width:496.5pt;
+   height:318.75pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="pbs003_files/image013.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=662 height=425
+  src="pbs003_files/image014.png" v:shapes="Picture_x0020_12"><![endif]></span><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.0pt;margin-bottom:
+  0cm;margin-left:30.05pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span style='mso-bidi-font-size:16.0pt;line-height:115%;
+  mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'>Fig. 2.<span
+  style='mso-spacerun:yes'>   </span>Sign convention for currents. A positive
+  external current </span><span class=SpellE><span class=GramE><i><span
+  style='mso-bidi-font-size:16.0pt;line-height:115%;font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>I<sub>ext</sub></span></i></span></span><span
+  class=GramE><i><span style='mso-bidi-font-size:16.0pt;line-height:115%;
+  mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'><span
+  style='mso-spacerun:yes'>  </span></span></i><span style='mso-bidi-font-size:
+  16.0pt;line-height:115%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;mso-bidi-font-style:italic'>(</span></span><span
+  style='mso-bidi-font-size:16.0pt;line-height:115%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-bidi-font-style:italic'>outside to
+  inside)<i> </i></span><span style='mso-bidi-font-size:16.0pt;line-height:
+  115%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'>will tend
+  to depolarize the cell (i.e., make </span><span class=SpellE><i><span
+  style='mso-bidi-font-size:16.0pt;line-height:115%;font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>V<sub>m</sub></span></i></span><i><span
+  style='mso-bidi-font-size:16.0pt;line-height:115%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'> </span></i><span style='mso-bidi-font-size:
+  16.0pt;line-height:115%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'>more positive) while a positive ionic current </span><span
+  class=SpellE><i><span style='mso-bidi-font-size:16.0pt;line-height:115%;
+  font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>I<sub>ion</sub></span></i></span><i><span
+  style='mso-bidi-font-size:16.0pt;line-height:115%;font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'> </span></i><span style='mso-bidi-font-size:
+  16.0pt;line-height:115%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'>will tend to hyperpolarize the cell (i.e., make </span><span
+  style='mso-bidi-font-size:16.0pt;line-height:115%;font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>V = <span class=SpellE><i>V<sub>m</sub></i></span></span><i><span
+  style='mso-bidi-font-size:16.0pt;line-height:115%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'> </span></i><span style='mso-bidi-font-size:
+  16.0pt;line-height:115%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'>more negative).<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.7pt 4.0cm;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.7pt 4.0cm;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.7pt 4.0cm;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'>In a simple model, the Na<sup>+</sup> and K<sup>+</sup> ions are
+  considered to flow through ion channels where a series of gates determine the
+  conductance of the ion channel. The macroscopic conductances of the Hodgkin
+  &amp; Huxley model arise from the combined effects of a large number of
+  microscopic ion channels embedded in the membrane. Each individual ion
+  channel can be thought of as containing one or more physical gates that
+  regulate the flow of ions through the channel. The variation in </span><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>g</span></i><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'> values is determined by the set of <b
+  style='mso-bidi-font-weight:normal'><span style='color:#E46C0A;mso-themecolor:
+  accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>gate variables</span></b><span style='color:#E46C0A;mso-themecolor:
+  accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'><span style='mso-spacerun:yes'>  </span></span></span><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>k</span></i><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'> and </span><i style='mso-bidi-font-style:
+  normal'><span style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:
+  "Times New Roman","serif";mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:
+  minor-fareast;mso-bidi-theme-font:minor-fareast'>h</span></i><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'> and the number of gates</span><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>
+  p</span></i><span style='mso-bidi-font-size:16.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'> and </span><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>q</span></i><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.7pt;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='mso-bidi-font-size:16.0pt'>An <b style='mso-bidi-font-weight:
+  normal'><span style='color:#E46C0A;mso-themecolor:accent6;mso-themeshade:
+  191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>activation gate</span></b><span style='color:#E46C0A;mso-themecolor:
+  accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'> </span></span><i style='mso-bidi-font-style:normal'><span
+  style='mso-bidi-font-size:16.0pt;font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;color:#E46C0A;mso-themecolor:accent6;
+  mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>k</span></i><span style='mso-bidi-font-size:16.0pt;color:#E46C0A;
+  mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'><span
+  style='mso-spacerun:yes'>   </span></span><span style='mso-bidi-font-size:
+  16.0pt;font-family:Symbol;mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+  minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;
+  mso-char-type:symbol;mso-symbol-font-family:Symbol'><span style='mso-char-type:
+  symbol;mso-symbol-font-family:Symbol'>®</span></span><span style='mso-bidi-font-size:
+  16.0pt'> conductance increases with depolarization <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='mso-bidi-font-size:16.0pt'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='mso-bidi-font-size:16.0pt'>An <b style='mso-bidi-font-weight:
+  normal'><span style='color:#E46C0A;mso-themecolor:accent6;mso-themeshade:
+  191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>inactivation gate</span></b><span style='color:#E46C0A;
+  mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'> </span></span><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:16.0pt;
+  font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:
+  #E46C0A;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>h</span></i><span
+  style='mso-bidi-font-size:16.0pt;color:#E46C0A;mso-themecolor:accent6;
+  mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'> </span><span style='mso-bidi-font-size:16.0pt;font-family:Symbol;
+  mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-hansi-font-family:
+  Calibri;mso-hansi-theme-font:minor-latin;mso-char-type:symbol;mso-symbol-font-family:
+  Symbol'><span style='mso-char-type:symbol;mso-symbol-font-family:Symbol'>®</span></span><span
+  style='mso-bidi-font-size:16.0pt'> conductance decreases with depolarization <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.7pt;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.7pt;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><span style='mso-spacerun:yes'>       </span>The Na<sup>+</sup>
+  channel is controlled by 3 activation gates and 1 inactivation gate<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.7pt;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><span style='mso-spacerun:yes'>                     
+  </span><span style='position:relative;top:9.0pt;mso-text-raise:-9.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1029" type="#_x0000_t75" style='width:266.25pt;height:26.25pt'
+   o:ole="">
+   <v:imagedata src="pbs003_files/image015.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=355 height=35
+  src="pbs003_files/image016.png" v:shapes="_x0000_i1029"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1029"
+    DrawAspect="Content" ObjectID="_1651993699">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.7pt;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><span style='mso-spacerun:yes'>       </span>The K<sup>+</sup><span
+  style='mso-spacerun:yes'>  </span>channel is controlled by 4</span><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>n</span></i><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black'> activation gates <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.7pt;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><span style='mso-spacerun:yes'>                    
+  </span><span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1030" type="#_x0000_t75" style='width:224.25pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="pbs003_files/image017.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=299 height=32
+  src="pbs003_files/image018.png" v:shapes="_x0000_i1030"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1030"
+    DrawAspect="Content" ObjectID="_1651993701">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.7pt;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.7pt;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'>The value of the conductance </span><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  color:black'>g</span></i><span style='mso-bidi-font-size:16.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;color:black'>
+  depends upon the membrane voltage </span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  color:black'>V<sub>m</sub></span></i></span><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'> because the values of </span><i style='mso-bidi-font-style:
+  normal'><span style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:
+  "Times New Roman","serif";mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:
+  minor-fareast;mso-bidi-theme-font:minor-fareast;color:black'>n</span></i><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black'>, </span><i style='mso-bidi-font-style:
+  normal'><span style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:
+  "Times New Roman","serif";mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:
+  minor-fareast;mso-bidi-theme-font:minor-fareast;color:black'>m</span></i><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black'> and </span><i style='mso-bidi-font-style:
+  normal'><span style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:
+  "Times New Roman","serif";mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:
+  minor-fareast;mso-bidi-theme-font:minor-fareast;color:black'>h</span></i><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black'> depend on time, their previous
+  value at an earlier time and the membrane potential. The resting membrane
+  potential is given by the <span class=GramE>symbols<span
+  style='mso-spacerun:yes'>  </span><span class=SpellE><i style='mso-bidi-font-style:
+  normal'><span style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>V<sub>rest</sub></span></i></span></span>
+  or </span><span class=SpellE><i style='mso-bidi-font-style:normal'><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;color:black'>V<sub>r</sub></span></i></span><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black'>. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.7pt;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-top:0cm;margin-right:1.65pt;
+  margin-bottom:0cm;margin-left:-5.4pt;margin-bottom:.0001pt;text-align:center;
+  line-height:150%;tab-stops:1.7pt;mso-layout-grid-align:none;text-autospace:
+  none'><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_10"
+   o:spid="_x0000_i1059" type="#_x0000_t75" style='width:516.75pt;height:341.25pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="pbs003_files/image019.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=689 height=455
+  src="pbs003_files/image020.png" v:shapes="Picture_x0020_10"><![endif]></span><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.7pt;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><span style='mso-spacerun:yes'>       </span>Fig.
+  3.<span style='mso-spacerun:yes'>  </span>Ion channels and gate variables for
+  Na<sup>+</sup> and K<sup>+</sup>.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.7pt;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.7pt;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'>The rates of change of the gate variables are
+  described by the equations<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.7pt;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><span style='mso-spacerun:yes'>       </span>(4)<span
+  style='mso-spacerun:yes'>       </span><span style='position:relative;
+  top:15.0pt;mso-text-raise:-15.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1031"
+   type="#_x0000_t75" style='width:480.75pt;height:39.75pt' o:ole="">
+   <v:imagedata src="pbs003_files/image021.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=641 height=53
+  src="pbs003_files/image022.png" v:shapes="_x0000_i1031"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1031"
+    DrawAspect="Content" ObjectID="_1651993702">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.7pt;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:200%;tab-stops:1.7pt;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:200%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'>where the <span style='position:relative;top:3.0pt;
+  mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1032" type="#_x0000_t75"
+   style='width:14.25pt;height:12.75pt' o:ole="">
+   <v:imagedata src="pbs003_files/image023.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=19 height=17
+  src="pbs003_files/image024.png" v:shapes="_x0000_i1032"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1032"
+    DrawAspect="Content" ObjectID="_1651993703">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>’s and <span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1033" type="#_x0000_t75" style='width:15pt;height:18.75pt'
+   o:ole="">
+   <v:imagedata src="pbs003_files/image025.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=20 height=25
+  src="pbs003_files/image026.png" v:shapes="_x0000_i1033"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1033"
+    DrawAspect="Content" ObjectID="_1651993704">
+   </o:OLEObject>
+  </xml><![endif]-->’s are rate constants<span style='mso-spacerun:yes'>  
+  </span><span style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1034" type="#_x0000_t75" style='width:113.25pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="pbs003_files/image027.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=151 height=32
+  src="pbs003_files/image028.png" v:shapes="_x0000_i1034"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1034"
+    DrawAspect="Content" ObjectID="_1651993705">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:200%;tab-stops:1.7pt;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:200%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><span style='mso-spacerun:yes'>                   
+  </span><span style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1035" type="#_x0000_t75" style='width:33pt;height:12.75pt'
+   o:ole="">
+   <v:imagedata src="pbs003_files/image029.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=44 height=17
+  src="pbs003_files/image030.png" v:shapes="_x0000_i1035"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1035"
+    DrawAspect="Content" ObjectID="_1651993706">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>  </span>rate of closed
+  gates opening<span style='mso-spacerun:yes'>         </span><span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1036" type="#_x0000_t75" style='width:33.75pt;height:18.75pt'
+   o:ole="">
+   <v:imagedata src="pbs003_files/image031.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=45 height=25
+  src="pbs003_files/image032.png" v:shapes="_x0000_i1036"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1036"
+    DrawAspect="Content" ObjectID="_1651993707">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>  </span>rate of open gates
+  closing<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:200%;tab-stops:1.7pt;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:200%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><span style='mso-tab-count:1'>  </span><span
+  style='mso-spacerun:yes'>                   </span><span style='position:
+  relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1037"
+   type="#_x0000_t75" style='width:60pt;height:21.75pt' o:ole="">
+   <v:imagedata src="pbs003_files/image033.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=80 height=29
+  src="pbs003_files/image034.png" v:shapes="_x0000_i1037"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1037"
+    DrawAspect="Content" ObjectID="_1651993708">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>  </span>fraction of gates
+  opening per second<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:1.65pt;margin-bottom:
+  0cm;margin-left:-5.4pt;margin-bottom:.0001pt;line-height:200%;tab-stops:1.7pt;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:200%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><span style='mso-spacerun:yes'>                   
+  </span><span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1038" type="#_x0000_t75" style='width:18pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="pbs003_files/image035.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=24 height=29
+  src="pbs003_files/image036.png" v:shapes="_x0000_i1038"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1038"
+    DrawAspect="Content" ObjectID="_1651993709">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>             </span>fraction
+  of gates closing per second<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:250%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:250%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><span style='mso-spacerun:yes'>              </span><span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1039" type="#_x0000_t75" style='width:188.25pt;height:36.75pt'
+   o:ole="">
+   <v:imagedata src="pbs003_files/image037.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=251 height=49
+  src="pbs003_files/image038.png" v:shapes="_x0000_i1039"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1039"
+    DrawAspect="Content" ObjectID="_1651993710">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:250%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:250%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><span style='mso-spacerun:yes'>              </span><span
+  style='position:relative;top:19.0pt;mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1040" type="#_x0000_t75" style='width:416.25pt;height:44.25pt'
+   o:ole="">
+   <v:imagedata src="pbs003_files/image039.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=555 height=59
+  src="pbs003_files/image040.png" v:shapes="_x0000_i1040"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1040"
+    DrawAspect="Content" ObjectID="_1651993711">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:250%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:250%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><span style='mso-spacerun:yes'>             </span><span
+  style='position:relative;top:19.0pt;mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1041" type="#_x0000_t75" style='width:387pt;height:44.25pt'
+   o:ole="">
+   <v:imagedata src="pbs003_files/image041.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=516 height=59
+  src="pbs003_files/image042.png" v:shapes="_x0000_i1041"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1041"
+    DrawAspect="Content" ObjectID="_1651993712">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:250%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:250%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><span style='mso-spacerun:yes'>             </span><span
+  style='position:relative;top:19.0pt;mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1042" type="#_x0000_t75" style='width:440.25pt;height:44.25pt'
+   o:ole="">
+   <v:imagedata src="pbs003_files/image043.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=587 height=59
+  src="pbs003_files/image044.png" v:shapes="_x0000_i1042"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1042"
+    DrawAspect="Content" ObjectID="_1651993713">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'>The various functions for <span style='position:
+  relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1043"
+   type="#_x0000_t75" style='width:14.25pt;height:12.75pt' o:ole="">
+   <v:imagedata src="pbs003_files/image045.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=19 height=17
+  src="pbs003_files/image024.png" v:shapes="_x0000_i1043"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1043"
+    DrawAspect="Content" ObjectID="_1651993714">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>and <b
+  style='mso-bidi-font-weight:normal'><span style='mso-spacerun:yes'> </span></b><span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1044" type="#_x0000_t75" style='width:15pt;height:18.75pt'
+   o:ole="">
+   <v:imagedata src="pbs003_files/image046.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=20 height=25
+  src="pbs003_files/image026.png" v:shapes="_x0000_i1044"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1044"
+    DrawAspect="Content" ObjectID="_1651993715">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>are empirical
+  functions of </span><span class=SpellE><i style='mso-bidi-font-style:normal'><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;color:black'>V<sub>m</sub></span></i></span><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black'> that have been adjusted by
+  Hodgkin and Huxley to fit the data of the giant axon of the squid. Note: The
+  gain function of the Hodgkin-Huxley model is discontinuous at the firing
+  threshold.<o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:150%;mso-layout-grid-align:none;text-autospace:
+  none'><span style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;color:black;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_2" o:spid="_x0000_i1058" type="#_x0000_t75" style='width:575.25pt;
+   height:629.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="pbs003_files/image047.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=767 height=839
+  src="pbs003_files/image048.png" v:shapes="Picture_x0020_2"><![endif]></span><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><span style='mso-spacerun:yes'>      </span>Fig. 4. Plots
+  of the rate constants (</span><i style='mso-bidi-font-style:normal'><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;color:black'>T </span></i><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black'>= 20 <span class=SpellE><sup>o</sup>C</span>
+  and </span><span class=SpellE><i style='mso-bidi-font-style:normal'><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;color:black'>V<sub>rest</sub></span></i></span><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black'> = -65 mV).<span
+  style='mso-spacerun:yes'>       </span></span><span class=SpellE><span
+  style='font-size:10.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:#984807;mso-themecolor:accent6;
+  mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>npIC.m</span></span><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+  color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'><span
+  style='mso-spacerun:yes'>     </span></span><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'>In order to getter a better understanding of the
+  three gating variables ( </span><i style='mso-bidi-font-style:normal'><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;color:black'>x</span></i><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black'> = </span><i style='mso-bidi-font-style:
+  normal'><span style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:
+  "Times New Roman","serif";mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:
+  minor-fareast;mso-bidi-theme-font:minor-fareast;color:black'>m</span></i><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black'> or </span><i style='mso-bidi-font-style:
+  normal'><span style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:
+  "Times New Roman","serif";mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:
+  minor-fareast;mso-bidi-theme-font:minor-fareast;color:black'>n</span></i><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black'> or </span><i style='mso-bidi-font-style:
+  normal'><span style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:
+  "Times New Roman","serif";mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:
+  minor-fareast;mso-bidi-theme-font:minor-fareast;color:black'>h</span></i><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black'>)<span
+  style='mso-spacerun:yes'>  </span>given in equation 4, it is convenient to
+  rewrite each of the equations in the form<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><span style='mso-spacerun:yes'>       </span>(5A)<span
+  style='mso-spacerun:yes'>        </span><span style='position:relative;
+  top:15.0pt;mso-text-raise:-15.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1045"
+   type="#_x0000_t75" style='width:152.25pt;height:39.75pt' o:ole="">
+   <v:imagedata src="pbs003_files/image049.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=203 height=53
+  src="pbs003_files/image050.png" v:shapes="_x0000_i1045"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1045"
+    DrawAspect="Content" ObjectID="_1651993716">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><span style='mso-spacerun:yes'>       </span>(5B)<span
+  style='mso-spacerun:yes'>       </span><span style='position:relative;
+  top:19.0pt;mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1046"
+   type="#_x0000_t75" style='width:105.75pt;height:44.25pt' o:ole="">
+   <v:imagedata src="pbs003_files/image051.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=141 height=59
+  src="pbs003_files/image052.png" v:shapes="_x0000_i1046"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1046"
+    DrawAspect="Content" ObjectID="_1651993717">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><span style='mso-spacerun:yes'>       </span>(5C)<span
+  style='mso-spacerun:yes'>       </span><span style='position:relative;
+  top:19.0pt;mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1047"
+   type="#_x0000_t75" style='width:86.25pt;height:44.25pt' o:ole="">
+   <v:imagedata src="pbs003_files/image053.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=115 height=59
+  src="pbs003_files/image054.png" v:shapes="_x0000_i1047"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1047"
+    DrawAspect="Content" ObjectID="_1651993718">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>              </span><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1048" type="#_x0000_t75" style='width:66.75pt;height:17.25pt'
+   o:ole="">
+   <v:imagedata src="pbs003_files/image055.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=89 height=23
+  src="pbs003_files/image056.png" v:shapes="_x0000_i1048"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1048"
+    DrawAspect="Content" ObjectID="_1651993719">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>   </span>asymptotic value
+  of </span><i style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  color:black'>x</span></i><span style='mso-bidi-font-size:16.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;color:black'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><span style='mso-spacerun:yes'>       </span>(5D)<span
+  style='mso-spacerun:yes'>       </span><span style='position:relative;
+  top:19.0pt;mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1049"
+   type="#_x0000_t75" style='width:80.25pt;height:44.25pt' o:ole="">
+   <v:imagedata src="pbs003_files/image057.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=107 height=59
+  src="pbs003_files/image058.png" v:shapes="_x0000_i1049"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1049"
+    DrawAspect="Content" ObjectID="_1651993720">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>                </span>time
+  constant <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'>For a fixed voltage </span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  color:black'>V<sub>m</sub></span></i></span><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'>, the variable </span><i style='mso-bidi-font-style:
+  normal'><span style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:
+  "Times New Roman","serif";mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:
+  minor-fareast;mso-bidi-theme-font:minor-fareast;color:black'>x</span></i><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black'> approaches the value <span
+  style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1050" type="#_x0000_t75" style='width:50.25pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="pbs003_files/image059.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=67 height=32
+  src="pbs003_files/image060.png" v:shapes="_x0000_i1050"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1050"
+    DrawAspect="Content" ObjectID="_1651993721">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'> </span>with a time <span
+  class=GramE>constant </span><span style='position:relative;top:8.0pt;
+  mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1051" type="#_x0000_t75"
+   style='width:44.25pt;height:24pt' o:ole="">
+   <v:imagedata src="pbs003_files/image061.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=59 height=32
+  src="pbs003_files/image062.png" v:shapes="_x0000_i1051"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1051"
+    DrawAspect="Content" ObjectID="_1651993722">
+   </o:OLEObject>
+  </xml><![endif]-->.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-left:0cm'><span style='mso-bidi-font-size:
+  16.0pt;line-height:115%;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_3"
+   o:spid="_x0000_i1057" type="#_x0000_t75" style='width:575.25pt;height:629.25pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="pbs003_files/image063.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=767 height=839
+  src="pbs003_files/image064.png" v:shapes="Picture_x0020_3"><![endif]></span><span
+  style='mso-bidi-font-size:16.0pt;line-height:115%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%'>Fig. 5.<span
+  style='mso-spacerun:yes'>   </span>The steady values of (</span><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:12.0pt;
+  line-height:115%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>m</span></i><sub><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:Symbol;
+  mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-hansi-font-family:
+  Calibri;mso-hansi-theme-font:minor-latin;mso-char-type:symbol;mso-symbol-font-family:
+  Symbol'><span style='mso-char-type:symbol;mso-symbol-font-family:Symbol'>¥</span></span></sub><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%'>, </span><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:12.0pt;
+  line-height:115%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>h</span></i><sub><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:Symbol;
+  mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-hansi-font-family:
+  Calibri;mso-hansi-theme-font:minor-latin;mso-char-type:symbol;mso-symbol-font-family:
+  Symbol'><span style='mso-char-type:symbol;mso-symbol-font-family:Symbol'>¥</span></span></sub><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%'>, </span><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:12.0pt;
+  line-height:115%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>n</span></i><sub><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:Symbol;
+  mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-hansi-font-family:
+  Calibri;mso-hansi-theme-font:minor-latin;mso-char-type:symbol;mso-symbol-font-family:
+  Symbol'><span style='mso-char-type:symbol;mso-symbol-font-family:Symbol'>¥</span></span></sub><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%'>) and their corresponding
+  time constants (</span><i style='mso-bidi-font-style:normal'><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:Symbol;
+  mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-hansi-font-family:
+  Calibri;mso-hansi-theme-font:minor-latin;mso-char-type:symbol;mso-symbol-font-family:
+  Symbol'><span style='mso-char-type:symbol;mso-symbol-font-family:Symbol'>t</span></span></i><i
+  style='mso-bidi-font-style:normal'><sub><span style='mso-bidi-font-size:12.0pt;
+  line-height:115%'>m</span></sub></i><span style='mso-bidi-font-size:12.0pt;
+  line-height:115%'>, </span><i style='mso-bidi-font-style:normal'><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:Symbol;
+  mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-hansi-font-family:
+  Calibri;mso-hansi-theme-font:minor-latin;mso-char-type:symbol;mso-symbol-font-family:
+  Symbol'><span style='mso-char-type:symbol;mso-symbol-font-family:Symbol'>t</span></span></i><i
+  style='mso-bidi-font-style:normal'><sub><span style='mso-bidi-font-size:12.0pt;
+  line-height:115%'>h</span></sub></i><span style='mso-bidi-font-size:12.0pt;
+  line-height:115%'>, </span><i style='mso-bidi-font-style:normal'><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:Symbol;
+  mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-hansi-font-family:
+  Calibri;mso-hansi-theme-font:minor-latin;mso-char-type:symbol;mso-symbol-font-family:
+  Symbol'><span style='mso-char-type:symbol;mso-symbol-font-family:Symbol'>t</span></span></i><span
+  class=GramE><i style='mso-bidi-font-style:normal'><sub><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%'>n </span></sub></i><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%'>)</span></span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%'> as functions of the
+  membrane potential. The variables </span><i style='mso-bidi-font-style:normal'><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>m</span></i><span style='mso-bidi-font-size:
+  12.0pt;line-height:115%'> and </span><i style='mso-bidi-font-style:normal'><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>n</span></i><span style='mso-bidi-font-size:
+  12.0pt;line-height:115%'> are activating gate variables (increase in values
+  as </span><span class=SpellE><i style='mso-bidi-font-style:normal'><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>V<sub>m</sub></span></i></span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%'> increases).<span
+  style='mso-spacerun:yes'>  </span></span><span class=GramE><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:12.0pt;
+  line-height:115%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>h</span></i></span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%'> is an inactivating gate
+  variable (</span><i style='mso-bidi-font-style:normal'><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>h</span></i><span style='mso-bidi-font-size:
+  12.0pt;line-height:115%'> decrease as </span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:12.0pt;
+  line-height:115%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>V<sub>m</sub></span></i></span><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%'> increases). The
+  activation of the sodium ion channel (</span><i style='mso-bidi-font-style:
+  normal'><span style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:
+  "Times New Roman","serif";mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:
+  minor-fareast;mso-bidi-theme-font:minor-fareast'>m</span></i><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%'>) for the influx Na<sup>+</sup>
+  is much quicker than the response of the out flux of K<sup>+</sup> ions (</span><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:12.0pt;
+  line-height:115%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>n</span></i><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%'>) or the deactivation of
+  the sodium ion channels (</span><i style='mso-bidi-font-style:normal'><span
+  style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>h</span></i><span style='mso-bidi-font-size:
+  12.0pt;line-height:115%'>) since <span style='position:relative;top:7.0pt;
+  mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1052" type="#_x0000_t75"
+   style='width:125.25pt;height:21.75pt' o:ole="">
+   <v:imagedata src="pbs003_files/image065.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=167 height=29
+  src="pbs003_files/image066.png" v:shapes="_x0000_i1052"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1052"
+    DrawAspect="Content" ObjectID="_1651993723">
+   </o:OLEObject>
+  </xml><![endif]-->.<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:16.0pt;
+  line-height:115%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  color:black'>T </span></i><span style='mso-bidi-font-size:16.0pt;line-height:
+  115%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;color:black'>=
+  20 <span class=SpellE><sup>o</sup>C</span> and </span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:16.0pt;
+  line-height:115%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  color:black'>V<sub>rest</sub></span></i></span><span style='mso-bidi-font-size:
+  16.0pt;line-height:115%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'> = -65 mV<span
+  style='mso-spacerun:yes'>                       </span></span><span
+  class=SpellE><span style='font-size:10.0pt;line-height:115%;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;color:#984807;mso-themecolor:accent6;
+  mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>npIC.m</span></span><span style='mso-bidi-font-size:16.0pt;
+  line-height:115%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+  color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'><span
+  style='mso-spacerun:yes'>     </span></span><span style='mso-bidi-font-size:
+  12.0pt;line-height:115%'><span style='mso-spacerun:yes'>      </span><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;tab-stops:1.0cm 4.0cm;mso-layout-grid-align:
+  none;text-autospace:none'><span style='font-size:12.0pt'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:26.05pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;tab-stops:1.0cm 4.0cm;mso-layout-grid-align:
+  none;text-autospace:none'><span style='mso-bidi-font-size:12.0pt;line-height:
+  115%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;tab-stops:1.0cm 4.0cm;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:12.0pt'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;tab-stops:1.0cm 4.0cm;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:12.0pt'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;tab-stops:1.0cm 4.0cm;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:12.0pt'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:30.05pt;margin-bottom:.0001pt;line-height:normal;tab-stops:1.0cm;
+  mso-layout-grid-align:none;text-autospace:none'><b style='mso-bidi-font-weight:
+  normal'><span style='mso-bidi-font-size:14.0pt;font-family:"Bookman Old Style","serif";
+  color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:
+  #E46C0A;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>VOLTAGE-CLAMP
+  SIMULATIONS<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:30.05pt;margin-bottom:.0001pt;line-height:normal;tab-stops:1.0cm;
+  mso-layout-grid-align:none;text-autospace:none'><span style='font-size:14.0pt;
+  mso-bidi-font-size:12.0pt'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:30.05pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.0cm;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%'>In many of the experiments performed by Hodgkin and
+  Huxley, they held the membrane at a fixed voltage by inserting an electrode
+  into the axon of a squid. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:30.05pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.0cm;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-top:0cm;margin-right:0cm;
+  margin-bottom:0cm;margin-left:30.05pt;margin-bottom:.0001pt;text-align:center;
+  line-height:150%;tab-stops:1.0cm;mso-layout-grid-align:none;text-autospace:
+  none'><span style='mso-bidi-font-size:16.0pt;line-height:150%;mso-no-proof:
+  yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_8" o:spid="_x0000_i1056"
+   type="#_x0000_t75" style='width:552pt;height:257.25pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="pbs003_files/image067.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=736 height=343
+  src="pbs003_files/image068.png" v:shapes="Picture_x0020_8"><![endif]></span><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:30.05pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.0cm;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%'><span style='mso-spacerun:yes'>      </span><span
+  style='mso-tab-count:1'>     </span>Fig.<span style='mso-spacerun:yes'>  
+  </span>6.<span style='mso-spacerun:yes'>   </span>Voltage-clamp of a squid
+  axon.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:30.05pt;margin-bottom:.0001pt;line-height:150%;tab-stops:1.0cm;
+  mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  16.0pt;line-height:150%'><span style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%'>The Matlab m-script <b
+  style='mso-bidi-font-weight:normal'><span style='color:#984806;mso-themecolor:
+  accent6;mso-themeshade:128'>bp_neuron_02.m</span></b><span style='color:#984806;
+  mso-themecolor:accent6;mso-themeshade:128'> </span>can be used to calculate
+  and display the voltage-clamp, the current densities (<span class=SpellE><i
+  style='mso-bidi-font-style:normal'>J<sub>m</sub></i></span>, <span
+  class=SpellE><i style='mso-bidi-font-style:normal'>J<sub>L</sub></i></span>, <span
+  class=SpellE><i style='mso-bidi-font-style:normal'>J<sub>K</sub></i></span> and
+  <span class=SpellE><i style='mso-bidi-font-style:normal'>J<sub>Na</sub></i></span>),
+  the gate variables (<i style='mso-bidi-font-style:normal'>m</i>, <i
+  style='mso-bidi-font-style:normal'>m</i><sup>3</sup>, h and <i
+  style='mso-bidi-font-style:normal'>n</i>, <i style='mso-bidi-font-style:normal'>n</i><sup>4</sup>)
+  and the conductances (<span class=SpellE><i style='mso-bidi-font-style:normal'>g<sub>Na</sub></i></span>,
+  <span class=SpellE><i style='mso-bidi-font-style:normal'>g</i><sub>K</sub></span>).
+  Sample graphical outputs are shown in figure 7 for voltage clamps of +20 mV
+  and +80 mV.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:30.05pt;margin-bottom:.0001pt;line-height:150%'><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><b
+  style='mso-bidi-font-weight:normal'><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%'>Outline the m-script <span style='color:#984806;mso-themecolor:
+  accent6;mso-themeshade:128'>bp_neuron_02.m </span>structure<o:p></o:p></span></b></p>
+  <p class=MsoListParagraphCxSpFirst style='margin-top:0cm;margin-right:0cm;
+  margin-bottom:0cm;margin-left:21.3pt;margin-bottom:.0001pt;mso-add-space:
+  auto;text-indent:-21.3pt;line-height:150%;mso-list:l0 level1 lfo4;tab-stops:
+  1.0cm'><![if !supportLists]><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:Symbol;mso-fareast-font-family:Symbol;
+  mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%'>Default resting potential <span class=SpellE><i
+  style='mso-bidi-font-style:normal'>V<sub>r</sub></i></span> = -65 mV<o:p></o:p></span></p>
+  <p class=MsoListParagraphCxSpMiddle style='margin-top:0cm;margin-right:0cm;
+  margin-bottom:0cm;margin-left:21.3pt;margin-bottom:.0001pt;mso-add-space:
+  auto;text-indent:-21.3pt;line-height:150%;mso-list:l0 level1 lfo4'><![if !supportLists]><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:Symbol;
+  mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+  style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%'>Voltage clamp is given as a long pulse<o:p></o:p></span></p>
+  <p class=MsoListParagraphCxSpMiddle style='margin-top:0cm;margin-right:0cm;
+  margin-bottom:0cm;margin-left:21.3pt;margin-bottom:.0001pt;mso-add-space:
+  auto;text-indent:-21.3pt;line-height:150%;mso-list:l0 level1 lfo4'><![if !supportLists]><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:Symbol;
+  mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+  style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%'>Rate constants </span><i style='mso-bidi-font-style:normal'><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:Symbol;
+  mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-hansi-font-family:
+  Calibri;mso-hansi-theme-font:minor-latin;mso-char-type:symbol;mso-symbol-font-family:
+  Symbol'><span style='mso-char-type:symbol;mso-symbol-font-family:Symbol'>a</span></span></i><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%'> and </span><i
+  style='mso-bidi-font-style:normal'><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:Symbol;mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+  minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;
+  mso-char-type:symbol;mso-symbol-font-family:Symbol'><span style='mso-char-type:
+  symbol;mso-symbol-font-family:Symbol'>b</span></span></i><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%'> are calculated using the
+  functions <span class=SpellE><b style='mso-bidi-font-weight:normal'><span
+  style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>alpha.m</span></b></span><span
+  style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'> </span>and <span
+  class=SpellE><b style='mso-bidi-font-weight:normal'><span style='color:#984807;
+  mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>beta.m</span></b></span><o:p></o:p></span></p>
+  <p class=MsoListParagraphCxSpMiddle style='margin-top:0cm;margin-right:0cm;
+  margin-bottom:0cm;margin-left:21.3pt;margin-bottom:.0001pt;mso-add-space:
+  auto;text-indent:-21.3pt;line-height:150%;mso-list:l0 level1 lfo4'><![if !supportLists]><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:Symbol;
+  mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+  style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%'>As the time variable is incremented, the gates variables (<i
+  style='mso-bidi-font-style:normal'>n</i>, <i style='mso-bidi-font-style:normal'>m</i>,
+  <i style='mso-bidi-font-style:normal'>h</i>) then the conductances (<span
+  class=SpellE><i style='mso-bidi-font-style:normal'>g<sub>Na</sub></i></span>
+  and <span class=SpellE><i style='mso-bidi-font-style:normal'>g<sub>K</sub></i></span>)
+  then the current densities (<span class=SpellE><i style='mso-bidi-font-style:
+  normal'>J<sub>NA</sub></i></span>, <span class=SpellE><i style='mso-bidi-font-style:
+  normal'>J<sub>Na</sub></i></span> and <span class=SpellE><i style='mso-bidi-font-style:
+  normal'>J<sub>M</sub></i></span>) are calculated for each time step. The gate
+  variables are calculated from equation (12) by using <b style='mso-bidi-font-weight:
+  normal'><span style='color:#E46C0A;mso-themecolor:accent6;mso-themeshade:
+  191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>the finite difference method</span></b><span style='color:#E46C0A;
+  mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'> </span>to
+  approximate the first derivative:<o:p></o:p></span></p>
+  <p class=MsoListParagraphCxSpLast style='margin-top:0cm;margin-right:0cm;
+  margin-bottom:0cm;margin-left:21.3pt;margin-bottom:.0001pt;mso-add-space:
+  auto;line-height:normal'><span style='font-size:12.0pt'><o:p>&nbsp;</o:p></span></p>
+  <table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+   style='margin-left:12.5pt;border-collapse:collapse;border:none;mso-border-alt:
+   solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+   <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+    <td width=760 valign=top style='width:570.0pt;border:solid windowtext 1.0pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:
+    0cm;margin-left:30.05pt;margin-bottom:.0001pt;line-height:normal;
+    mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+    10.0pt;font-family:"Courier New";color:black'><o:p>&nbsp;</o:p></span></p>
+    <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:
+    0cm;margin-left:30.05pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+    text-autospace:none'><span class=SpellE><span style='font-size:12.0pt;
+    mso-bidi-font-size:10.0pt;line-height:115%;font-family:"Courier New";
+    color:black'>nt</span></span><span style='font-size:12.0pt;mso-bidi-font-size:
+    10.0pt;line-height:115%;font-family:"Courier New";color:black'>(c+1) = <span
+    class=SpellE>nt</span>(c) + <span class=SpellE>dt</span> * (An(c)
+    *(1-nt(c)) - <span class=SpellE>Bn</span>(c) * <span class=SpellE>nt</span>(c));
+    </span><span style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:
+    "Courier New"'><o:p></o:p></span></p>
+    <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:
+    0cm;margin-left:30.05pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+    text-autospace:none'><span class=SpellE><span style='font-size:12.0pt;
+    mso-bidi-font-size:10.0pt;line-height:115%;font-family:"Courier New";
+    color:black'>mt</span></span><span style='font-size:12.0pt;mso-bidi-font-size:
+    10.0pt;line-height:115%;font-family:"Courier New";color:black'>(c+1) = <span
+    class=SpellE>mt</span>(c) + <span class=SpellE>dt</span> * (Am(c)
+    *(1-mt(c)) - <span class=SpellE>Bm</span>(c) * <span class=SpellE>mt</span>(c));
+    </span><span style='mso-bidi-font-size:12.0pt;line-height:115%;font-family:
+    "Courier New"'><o:p></o:p></span></p>
+    <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:
+    0cm;margin-left:30.05pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+    text-autospace:none'><span class=SpellE><span style='font-size:12.0pt;
+    mso-bidi-font-size:10.0pt;line-height:115%;font-family:"Courier New";
+    color:black'>ht</span></span><span style='font-size:12.0pt;mso-bidi-font-size:
+    10.0pt;line-height:115%;font-family:"Courier New";color:black'>(c+1) = <span
+    class=SpellE>ht</span>(c) + <span class=SpellE>dt</span> * (Ah(c)
+    *(1-ht(c)) - <span class=SpellE>Bh</span>(c) * <span class=SpellE>ht</span>(c));
+    <o:p></o:p></span></p>
+    <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:
+    0cm;margin-left:30.05pt;margin-bottom:.0001pt;line-height:normal;
+    mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+    10.0pt;font-family:"Courier New";color:black'><o:p>&nbsp;</o:p></span></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'> </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:10.0pt;font-family:"Courier New";color:black'><span
+  style='mso-spacerun:yes'>    </span></span><span style='font-size:12.0pt;
+  font-family:"Courier New";color:black'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Courier New";color:black'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_17"
+   o:spid="_x0000_i1055" type="#_x0000_t75" style='width:549.75pt;height:341.25pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="pbs003_files/image069.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=733 height=455
+  src="pbs003_files/image070.jpg" v:shapes="Picture_x0020_17"><![endif]><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_18" o:spid="_x0000_i1054" type="#_x0000_t75" style='width:552pt;
+   height:343.5pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="pbs003_files/image071.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=736 height=458
+  src="pbs003_files/image072.jpg" v:shapes="Picture_x0020_18"><![endif]></span><span
+  style='font-size:12.0pt'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:26.05pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt'><span style='mso-bidi-font-size:
+  12.0pt;line-height:115%'>Fig. 7.<span style='mso-spacerun:yes'>  
+  </span>Variation in the gate variables, conductances and current densities
+  for a voltage-clamp applied to the axon. The depolarization produced by the
+  clamp causes a transient increase in Na<sup>+</sup> into the cell. The rise
+  in the K<sup>+</sup> current from the cell occurs more slowly and is
+  maintained as long as the membrane is depolarized. The rate of rise of the
+  Na+ and K+ currents increases with increasing size of the voltage clamp and
+  the peak values of Na<sup>+</sup> and K<sup>+</sup> currents are
+  significantly increased as the clamp voltage is increased, the peak values
+  are over 100 times the magnitudes in the resting membrane.<span
+  style='mso-spacerun:yes'>    </span><b style='mso-bidi-font-weight:normal'><span
+  style='color:#984806;mso-themecolor:accent6;mso-themeshade:128'>bp_neuron_02.m</span></b><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;tab-stops:1.0cm 4.0cm;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:12.0pt'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;tab-stops:1.0cm 4.0cm;mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:12.0pt'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-left:0cm;text-align:center'><span
+  style='mso-bidi-font-size:16.0pt;line-height:115%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:normal'><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>
