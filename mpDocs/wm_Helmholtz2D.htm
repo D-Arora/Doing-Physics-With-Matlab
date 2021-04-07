@@ -1,0 +1,1522 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 14">
+<meta name=Originator content="Microsoft Word 14">
+<base target="_blank">
+<link rel=File-List href="wm_Helmholtz2D_files/filelist.xml">
+<link rel=Edit-Time-Data href="wm_Helmholtz2D_files/editdata.mso">
+<link rel=OLE-Object-Data href="wm_Helmholtz2D_files/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Matlab Physics</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Subject>Waves</o:Subject>
+  <o:Author>Ian Cooper</o:Author>
+  <o:Keywords>Matlab physics, computational physics, Helmholtz equation, vibrating membrane</o:Keywords>
+  <o:Description>wm_Helmholtz2D.m&#13;&#10;op1.pptx</o:Description>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Owner</o:LastAuthor>
+  <o:Revision>17</o:Revision>
+  <o:TotalTime>115</o:TotalTime>
+  <o:Created>2018-11-05T09:48:00Z</o:Created>
+  <o:LastSaved>2021-04-07T11:27:00Z</o:LastSaved>
+  <o:Pages>6</o:Pages>
+  <o:Words>757</o:Words>
+  <o:Characters>4320</o:Characters>
+  <o:Category>Waves</o:Category>
+  <o:Company>University of Sydney</o:Company>
+  <o:Lines>36</o:Lines>
+  <o:Paragraphs>10</o:Paragraphs>
+  <o:CharactersWithSpaces>5067</o:CharactersWithSpaces>
+  <o:Version>14.00</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+<link rel=themeData href="wm_Helmholtz2D_files/themedata.thmx">
+<link rel=colorSchemeMapping href="wm_Helmholtz2D_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>125</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-AU</w:LidThemeOther>
+  <w:LidThemeAsian>ZH-CN</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" QFormat="true" Name="Hyperlink"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:\5B8B\4F53;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 680460288 22 0 262145 0;}
+@font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:\5B8B\4F53;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 680460288 22 0 262145 0;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-469750017 -1073732485 9 0 511 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-520081665 -1073717157 41 0 66047 0;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1610610945 1073750107 16 0 415 0;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 680460288 22 0 262145 0;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:14.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Verdana","sans-serif";
+	mso-fareast-font-family:SimSun;
+	mso-bidi-font-family:Calibri;
+	mso-bidi-theme-font:minor-latin;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	mso-style-qformat:yes;
+	mso-ansi-font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-hansi-font-family:Calibri;
+	mso-bidi-font-family:Calibri;
+	color:blue;
+	mso-text-animation:none;
+	text-decoration:none;
+	text-underline:none;
+	text-decoration:none;
+	text-line-through:none;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:#954F72;
+	mso-themecolor:followedhyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Balloon Text Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-fareast-font-family:SimSun;}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{mso-style-name:msonormal;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:SimSun;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Balloon Text";
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-ascii-font-family:Tahoma;
+	mso-hansi-font-family:Tahoma;
+	mso-bidi-font-family:Tahoma;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:14.0pt;
+	mso-ansi-font-size:14.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Verdana","sans-serif";
+	mso-ascii-font-family:Verdana;
+	mso-fareast-font-family:SimSun;
+	mso-hansi-font-family:Verdana;
+	mso-bidi-font-family:Calibri;
+	mso-bidi-theme-font:minor-latin;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:14.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Verdana","sans-serif";}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-priority:39;
+	mso-style-unhide:no;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:14.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Verdana","sans-serif";
+	mso-bidi-font-family:Calibri;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-AU link=blue vlink="#954F72" style='tab-interval:36.0pt'>
+
+<div class=WordSection1>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:35.05pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=841 valign=top style='width:630.8pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:200%'><b><span style='font-size:18.0pt;
+  mso-bidi-font-size:14.0pt;line-height:200%;font-family:"Calibri","sans-serif"'><a
+  href="https://d-arora.github.io/Doing-Physics-With-Matlab/"><span
+  style='mso-ansi-font-size:18.0pt;line-height:200%'>DOING PHYSICS WITH MATLAB</span><span
+  style='font-size:16.0pt;mso-bidi-font-size:14.0pt;line-height:200%;
+  font-family:"Verdana","sans-serif";font-weight:normal'><o:p></o:p></span></a></span></b></p>
+  <p class=MsoNormal style='line-height:200%'><span class=MsoHyperlink><b><span
+  style='mso-ansi-font-size:14.0pt;line-height:200%'><o:p>&nbsp;</o:p></span></b></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><b><span
+  style='font-size:18.0pt;mso-bidi-font-size:14.0pt;line-height:150%;
+  font-family:"Bookman Old Style","serif";mso-bidi-font-family:Calibri;
+  color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>HELMHOLTZ EQUATION</span></b><span
+  style='font-size:18.0pt;mso-bidi-font-size:14.0pt;line-height:150%;
+  font-family:"Bookman Old Style","serif";mso-bidi-font-family:Calibri;
+  color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><b><span
+  style='font-size:18.0pt;mso-bidi-font-size:14.0pt;line-height:150%;
+  font-family:"Bookman Old Style","serif";mso-bidi-font-family:Calibri;
+  color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>EINGENVALUE
+  PROBLEM: A VIBRATING MEMBRANE </span></b><b><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;font-family:"Bookman Old Style","serif";mso-bidi-font-family:
+  Calibri;color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><b><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:"Times New Roman";color:blue'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span style='font-size:16.0pt;mso-bidi-font-size:14.0pt;line-height:
+  150%;font-family:"Calibri","sans-serif";mso-bidi-font-family:Tahoma'><a
+  href="https://drive.google.com/drive/u/3/folders/1j09aAhfrVYpiMavajrgSvUMc89ksF9Jb"><span
+  style='mso-bidi-font-family:Tahoma'>DOWNLOAD DIRECTORY FOR MATLAB SCRIPTS</span><span
+  style='font-size:14.0pt;line-height:150%;font-family:"Verdana","sans-serif";
+  mso-bidi-font-family:Tahoma'><o:p></o:p></span></a></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='mso-bidi-font-size:14.0pt;color:#843C0C;mso-themecolor:accent2;
+  mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span style='mso-bidi-font-size:14.0pt;line-height:150%;color:#843C0C;
+  mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>wm_Helmholtz2D.m</span></b><b
+  style='mso-bidi-font-weight:normal'><span style='mso-bidi-font-size:14.0pt;
+  line-height:150%'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%'>Solution of the Helmholtz equation to model the
+  vibrations of a rectangular membrane which has a node around its perimeter.
+  The modes of vibration of the membrane are found by finding the eigenvalues
+  and corresponding eigenfunctions for the Helmholtz equation expressed in
+  matrix form. The INPUT section of the Script is used to enter the number of
+  time steps, number of spatial grid points, the dimensions of the membrane, the
+  transverse wave velocity and the mode of vibration for the standing wave. The
+  animated motion can be saved as an animated gif file by setting <span
+  class=SpellE>flagS</span> = 1. The Script could be altered so the animation
+  could be saved as an <span class=SpellE>avi</span> file and the input
+  parameters entered via the Command Window or using the Live Editor.<span
+  style='mso-spacerun:yes'>&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='mso-bidi-font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span style='mso-bidi-font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span style='mso-bidi-font-size:14.0pt'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span style='font-size:16.0pt;mso-bidi-font-size:14.0pt;line-height:
+  150%;font-family:"Bookman Old Style","serif";color:#7030A0'>THE HELMHOLTZ
+  EQUATION </span></b><b style='mso-bidi-font-weight:normal'><span
+  style='mso-bidi-font-size:14.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:#7030A0'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%'>Let&#8217;s consider a two-dimensional example of
+  the standing waves in an elastic membrane. If the rest position for the
+  membrane is the X-Y plane, so when it&#8217;s vibrating it&#8217;s moving up
+  and down in the Z-direction. The shape of the surface at any instant of time
+  is a function is given by the <span class=GramE>wavefunction </span></span><span
+  style='mso-bidi-font-family:Calibri'><span style='position:relative;
+  top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+   coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+   filled="f" stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:84pt;
+   height:20.25pt' o:ole="">
+   <v:imagedata src="wm_Helmholtz2D_files/image001.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=112 height=27
+  src="wm_Helmholtz2D_files/image002.png" v:shapes="_x0000_i1025"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1025"
+    DrawAspect="Content" ObjectID="_1679336028">
+   </o:OLEObject>
+  </xml><![endif]--></span><span style='mso-bidi-font-size:14.0pt;line-height:
+  150%'>. Our goal is to model the vibrations of the surface.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  style='mso-bidi-font-size:14.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_2" o:spid="_x0000_i1054"
+   type="#_x0000_t75" style='width:337.5pt;height:169.5pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="wm_Helmholtz2D_files/image003.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=450 height=226
+  src="wm_Helmholtz2D_files/image004.png" v:shapes="Picture_x0020_2"><![endif]></span><span
+  style='mso-bidi-font-size:14.0pt;line-height:150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Fig. 1.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Geometry for the vibrating
+  membrane.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%'><span style='mso-spacerun:yes'>&nbsp;</span>The
+  wavefunction must satisfy the [2D] wave equation<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(1A)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  style='mso-bidi-font-family:Calibri'><span style='position:relative;
+  top:15.0pt;mso-text-raise:-15.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1026"
+   type="#_x0000_t75" style='width:246pt;height:42.75pt' o:ole="">
+   <v:imagedata src="wm_Helmholtz2D_files/image005.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=328 height=57
+  src="wm_Helmholtz2D_files/image006.png" v:shapes="_x0000_i1026"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1026"
+    DrawAspect="Content" ObjectID="_1679336029">
+   </o:OLEObject>
+  </xml><![endif]--></span><span style='mso-bidi-font-size:14.0pt;line-height:
+  150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(1B)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  style='mso-bidi-font-family:Calibri'><span style='position:relative;
+  top:19.0pt;mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1027"
+   type="#_x0000_t75" style='width:321pt;height:47.25pt' o:ole="">
+   <v:imagedata src="wm_Helmholtz2D_files/image007.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=428 height=63
+  src="wm_Helmholtz2D_files/image008.png" v:shapes="_x0000_i1027"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1027"
+    DrawAspect="Content" ObjectID="_1679336030">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%'>To solve the wave equation 1B, we can use the method
+  of separation of variables where solutions have the form<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(2)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  style='mso-bidi-font-family:Calibri'><span style='position:relative;
+  top:9.0pt;mso-text-raise:-9.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1028"
+   type="#_x0000_t75" style='width:236.25pt;height:24.75pt' o:ole="">
+   <v:imagedata src="wm_Helmholtz2D_files/image009.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=315 height=33
+  src="wm_Helmholtz2D_files/image010.png" v:shapes="_x0000_i1028"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1028"
+    DrawAspect="Content" ObjectID="_1679336031">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-family:
+  Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-family:
+  Calibri'>Substituting equation 2 into 1B and dividing the result by <span
+  style='position:relative;top:9.0pt;mso-text-raise:-9.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1029" type="#_x0000_t75" style='width:87pt;height:24pt' o:ole="">
+   <v:imagedata src="wm_Helmholtz2D_files/image011.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=116 height=32
+  src="wm_Helmholtz2D_files/image012.png" v:shapes="_x0000_i1029"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1029"
+    DrawAspect="Content" ObjectID="_1679336032">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>gives<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-family:
+  Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:21.0pt;mso-text-raise:-21.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1030" type="#_x0000_t75" style='width:407.25pt;height:50.25pt'
+   o:ole="">
+   <v:imagedata src="wm_Helmholtz2D_files/image013.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=543 height=67
+  src="wm_Helmholtz2D_files/image014.png" v:shapes="_x0000_i1030"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1030"
+    DrawAspect="Content" ObjectID="_1679336033">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-family:
+  Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-family:
+  Calibri'>The functions of </span><i style='mso-bidi-font-style:normal'><span
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Times New Roman","serif"'>x </span></i><span style='mso-bidi-font-family:
+  Calibri'>and </span><i style='mso-bidi-font-style:normal'><span
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Times New Roman","serif"'>y </span></i><span style='mso-bidi-font-family:
+  Calibri'>must be independent, therefore<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-family:
+  Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-family:
+  Calibri'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(3A)<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:19.0pt;mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1031" type="#_x0000_t75" style='width:105pt;height:45.75pt'
+   o:ole="">
+   <v:imagedata src="wm_Helmholtz2D_files/image015.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=140 height=61
+  src="wm_Helmholtz2D_files/image016.png" v:shapes="_x0000_i1031"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1031"
+    DrawAspect="Content" ObjectID="_1679336034">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-family:
+  Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-family:
+  Calibri'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(3B)<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:19.0pt;mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1032" type="#_x0000_t75" style='width:107.25pt;height:48pt'
+   o:ole="">
+   <v:imagedata src="wm_Helmholtz2D_files/image017.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=143 height=64
+  src="wm_Helmholtz2D_files/image018.png" v:shapes="_x0000_i1032"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1032"
+    DrawAspect="Content" ObjectID="_1679336035">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-family:
+  Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:Calibri'>Equation 3 is the <b
+  style='mso-bidi-font-weight:normal'><span style='color:#7030A0'>Helmholtz
+  equation</span></b><span style='color:#7030A0'> </span>and represents a
+  time-independent form of the wave equation. </span><span style='mso-bidi-font-family:
+  Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:"Times New Roman";mso-fareast-language:
+  EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:"Times New Roman";mso-fareast-language:
+  EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span style='font-size:16.0pt;mso-bidi-font-size:14.0pt;line-height:
+  150%;font-family:"Bookman Old Style","serif";mso-bidi-font-family:Calibri;
+  color:#7030A0'>STANDING TRANSVERSE WAVES OF A VIBRATING MEMBRANE</span></b><b
+  style='mso-bidi-font-weight:normal'><span style='mso-bidi-font-size:14.0pt;
+  line-height:150%;font-family:"Bookman Old Style","serif";mso-bidi-font-family:
+  Calibri'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:Calibri'>The motion of
+  oscillating systems is a classic problem in <b style='mso-bidi-font-weight:
+  normal'><span style='color:#7030A0'>eigenvalue theory</span></b><span
+  style='color:#7030A0'> </span>which we can easily investigate using Matlab. <o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:Calibri'>For the X domain, we
+  can approximate the second derivative by the finite difference approximation
+  to give<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>(4)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  style='mso-bidi-font-family:Calibri'><span style='position:relative;
+  top:19.0pt;mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1033"
+   type="#_x0000_t75" style='width:392.25pt;height:47.25pt' o:ole="">
+   <v:imagedata src="wm_Helmholtz2D_files/image019.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=523 height=63
+  src="wm_Helmholtz2D_files/image020.png" v:shapes="_x0000_i1033"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1033"
+    DrawAspect="Content" ObjectID="_1679336036">
+   </o:OLEObject>
+  </xml><![endif]--></span><span style='mso-bidi-font-size:14.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:Calibri'>Let the X-domain be
+  divided into </span><span style='mso-bidi-font-family:Calibri'><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1034" type="#_x0000_t75" style='width:39pt;height:15.75pt'
+   o:ole="">
+   <v:imagedata src="wm_Helmholtz2D_files/image021.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=52 height=21
+  src="wm_Helmholtz2D_files/image022.png" v:shapes="_x0000_i1034"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1034"
+    DrawAspect="Content" ObjectID="_1679336037">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></span><span
+  style='mso-bidi-font-size:14.0pt;line-height:150%;mso-bidi-font-family:Calibri'>grid
+  points (1, 2, <span class=GramE>&#8230; ,</span> </span><i style='mso-bidi-font-style:
+  normal'><span style='font-size:16.0pt;mso-bidi-font-size:14.0pt;line-height:
+  150%;font-family:"Times New Roman","serif"'>N,</span></i><span
+  style='mso-bidi-font-family:Calibri'><span style='position:relative;
+  top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1035"
+   type="#_x0000_t75" style='width:36pt;height:15.75pt' o:ole="">
+   <v:imagedata src="wm_Helmholtz2D_files/image023.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=48 height=21
+  src="wm_Helmholtz2D_files/image024.png" v:shapes="_x0000_i1035"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1035"
+    DrawAspect="Content" ObjectID="_1679336038">
+   </o:OLEObject>
+  </xml><![endif]-->, </span><i style='mso-bidi-font-style:normal'><span
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Times New Roman","serif"'>N+</span></i><span style='mso-bidi-font-family:
+  Calibri'>2</span><span style='mso-bidi-font-size:14.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>) where the spacing between grid points is </span><span
+  style='mso-bidi-font-family:Calibri;position:relative;top:3.0pt;mso-text-raise:
+  -3.0pt;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_15"
+   o:spid="_x0000_i1053" type="#_x0000_t75" style='width:42pt;height:15.75pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="wm_Helmholtz2D_files/image025.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=56 height=21
+  src="wm_Helmholtz2D_files/image026.png" v:shapes="Picture_x0020_15"><![endif]></span><span
+  style='mso-bidi-font-family:Calibri'>. Therefore, the length of the X-domain <span
+  class=GramE>is </span><span style='position:relative;top:3.0pt;mso-text-raise:
+  -3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1036" type="#_x0000_t75"
+   style='width:36pt;height:15.75pt' o:ole="">
+   <v:imagedata src="wm_Helmholtz2D_files/image023.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=48 height=21
+  src="wm_Helmholtz2D_files/image024.png" v:shapes="_x0000_i1036"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1036"
+    DrawAspect="Content" ObjectID="_1679336039">
+   </o:OLEObject>
+  </xml><![endif]-->. We then apply </span><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:Calibri'>our approximation given
+  in equation 4 at each interior grid point (2, 3, 4, <span class=GramE>&#8230;
+  ,</span> N) to equation 3 and express the result in matrix form.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:Calibri'>For example, if </span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:16.0pt;mso-bidi-font-size:
+  14.0pt;line-height:150%;font-family:"Times New Roman","serif"'>N </span></i><span
+  style='mso-bidi-font-size:14.0pt;line-height:150%;mso-bidi-font-family:Calibri'>=
+  5 and the boundary conditions at the ends are </span><span style='mso-bidi-font-family:
+  Calibri'><span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1037" type="#_x0000_t75" style='width:137.25pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="wm_Helmholtz2D_files/image027.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=183 height=29
+  src="wm_Helmholtz2D_files/image028.png" v:shapes="_x0000_i1037"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1037"
+    DrawAspect="Content" ObjectID="_1679336040">
+   </o:OLEObject>
+  </xml><![endif]-->, then</span><span style='mso-bidi-font-size:14.0pt;
+  line-height:150%;mso-bidi-font-family:Calibri'> <o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-family:
+  Calibri'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(5)<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:57.0pt;mso-text-raise:-57.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1038" type="#_x0000_t75" style='width:317.25pt;height:122.25pt'
+   o:ole="">
+   <v:imagedata src="wm_Helmholtz2D_files/image029.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=423 height=163
+  src="wm_Helmholtz2D_files/image030.png" v:shapes="_x0000_i1038"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1038"
+    DrawAspect="Content" ObjectID="_1679336041">
+   </o:OLEObject>
+  </xml><![endif]--></span><span style='mso-bidi-font-size:14.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:Calibri'>since<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='mso-bidi-font-family:Calibri'><span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1039" type="#_x0000_t75" style='width:308.25pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="wm_Helmholtz2D_files/image031.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=411 height=32
+  src="wm_Helmholtz2D_files/image032.png" v:shapes="_x0000_i1039"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1039"
+    DrawAspect="Content" ObjectID="_1679336042">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-family:
+  Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1040" type="#_x0000_t75" style='width:237pt;height:24pt' o:ole="">
+   <v:imagedata src="wm_Helmholtz2D_files/image033.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=316 height=32
+  src="wm_Helmholtz2D_files/image034.png" v:shapes="_x0000_i1040"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1040"
+    DrawAspect="Content" ObjectID="_1679336043">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-family:
+  Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>. . . <o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-family:
+  Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1041" type="#_x0000_t75" style='width:426pt;height:24pt' o:ole="">
+   <v:imagedata src="wm_Helmholtz2D_files/image035.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=568 height=32
+  src="wm_Helmholtz2D_files/image036.png" v:shapes="_x0000_i1041"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1041"
+    DrawAspect="Content" ObjectID="_1679336044">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-family:
+  Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-family:
+  Calibri'>We now have a simple eigenvalue problem of the form<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-family:
+  Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1042" type="#_x0000_t75" style='width:96pt;height:24pt' o:ole="">
+   <v:imagedata src="wm_Helmholtz2D_files/image037.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=128 height=32
+  src="wm_Helmholtz2D_files/image038.png" v:shapes="_x0000_i1042"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1042"
+    DrawAspect="Content" ObjectID="_1679336045">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-family:
+  Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span class=GramE><span
+  style='mso-bidi-font-family:Calibri'>where</span></span><span
+  style='mso-bidi-font-family:Calibri'> <span style='position:relative;
+  top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1043"
+   type="#_x0000_t75" style='width:21pt;height:24pt' o:ole="">
+   <v:imagedata src="wm_Helmholtz2D_files/image039.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=28 height=32
+  src="wm_Helmholtz2D_files/image040.png" v:shapes="_x0000_i1043"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1043"
+    DrawAspect="Content" ObjectID="_1679336047">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>is the
+  eigenvalue and <span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1044" type="#_x0000_t75" style='width:21pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="wm_Helmholtz2D_files/image041.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=28 height=29
+  src="wm_Helmholtz2D_files/image042.png" v:shapes="_x0000_i1044"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1044"
+    DrawAspect="Content" ObjectID="_1679336048">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>is the
+  eigenfunction.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:Calibri'>For the Y domain, the
+  procedure is identical as given above for the X domain.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-family:
+  Calibri'>We are now able to solve equation 5 using the following Matlab code
+  and calculate the natural frequencies of vibration for the normal modes
+  specified by the integers </span><span class=SpellE><i style='mso-bidi-font-style:
+  normal'><span style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;font-family:"Times New Roman","serif"'>m<sub>X</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif"'>
+  </span></i><span style='mso-bidi-font-family:Calibri'>and </span><span
+  class=SpellE><i style='mso-bidi-font-style:normal'><span style='font-size:
+  16.0pt;mso-bidi-font-size:12.0pt;line-height:150%;font-family:"Times New Roman","serif"'>m<sub>Y</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;line-height:150%;font-family:"Times New Roman","serif"'>.</span></i><span
+  style='mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-family:
+  Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:forestgreen;
+  mso-ansi-language:EN-US'>% CALCULATIONS<span style='mso-spacerun:yes'>&nbsp;
+  </span>======================================================</span><span
+  lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:forestgreen;
+  mso-ansi-language:EN-US'>% Spatial <span class=SpellE>domian</span><span
+  style='mso-spacerun:yes'>&nbsp; </span>[m]</span><span lang=EN-US
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:115%;
+  font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp; </span>x = (0:N+1).*(LX/(N+1));</span><span
+  lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp; </span>y = (0:N+1).*(LY/(N+1));</span><span
+  lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp; </span></span><span lang=EN-US
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:115%;
+  font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:forestgreen;
+  mso-ansi-language:EN-US'>% Eigenvalue Matrix A: <span class=SpellE>eigenfunctions</span>
+  (<span class=SpellE>eignFN</span>) / eigenvalues (<span class=SpellE>eignV</span>)
+  </span><span lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:12.0pt;
+  line-height:115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp; </span>off = ones(N-1,1);</span><span
+  lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp; </span>A = 2*eye(N) - <span
+  class=SpellE>diag</span>(off,1) - <span class=SpellE>diag</span>(off,-1);</span><span
+  lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp;</span></span><span lang=EN-US
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:115%;
+  font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp; </span>[<span class=SpellE>eignFN</span>,
+  <span class=SpellE>eignV</span>] = <span class=SpellE>eig</span>(A);</span><span
+  lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp; </span></span><span lang=EN-US
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:115%;
+  font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:forestgreen;
+  mso-ansi-language:EN-US'>% Spatial Wavefunction<span
+  style='mso-spacerun:yes'>&nbsp; </span>US</span><span lang=EN-US
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:115%;
+  font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp; </span>USX = zeros(N+2,1);</span><span
+  lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp; </span>USX(2:N+1) = <span
+  class=SpellE>eignFN</span>(:,<span class=SpellE>mX</span>);</span><span
+  lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp; </span>USX = USX ./max(USX);</span><span
+  lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp;</span></span><span lang=EN-US
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:115%;
+  font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp; </span>USY = zeros(N+2,1);</span><span
+  lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp; </span><span class=SpellE>USY</span>(2:N+1)
+  = <span class=SpellE>eignFN</span>(:,<span class=SpellE>mY</span>);</span><span
+  lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp; </span>USY = USY ./max(USY);</span><span
+  lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp; </span></span><span lang=EN-US
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:115%;
+  font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp; </span><span class=SpellE>USXX</span>
+  = <span class=SpellE>meshgrid</span>(USX);</span><span lang=EN-US
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:115%;
+  font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp; </span><span class=SpellE>USYY</span>
+  = <span class=SpellE>meshgrid</span>(<span class=SpellE>USY</span>)';</span><span
+  lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp; </span></span><span lang=EN-US
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:115%;
+  font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp; </span>USS = USXX.*USYY;</span><span
+  lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp; </span></span><span lang=EN-US
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:115%;
+  font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:forestgreen;
+  mso-ansi-language:EN-US'>% Time dependent wavefunction UT</span><span
+  lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp; </span></span><span lang=EN-US
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:115%;
+  font-family:"Courier New";color:forestgreen;mso-ansi-language:EN-US'>%
+  propagation constant<span style='mso-spacerun:yes'>&nbsp; </span>[1/m]</span><span
+  lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span
+  class=SpellE>kX</span> = <span class=SpellE>sqrt</span>(<span class=SpellE>eignV</span>(<span
+  class=SpellE>mX,mX</span>)) .* (N+1)/LX;</span><span lang=EN-US
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:115%;
+  font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span
+  class=SpellE>kY</span> = <span class=SpellE>sqrt</span>(<span class=SpellE>eignV</span>(<span
+  class=SpellE>mY,mY</span>)) .* (N+1)/LY;</span><span lang=EN-US
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:115%;
+  font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>k = sqrt(kX^2
+  + kY^2);</span><span lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;line-height:115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp; </span></span><span lang=EN-US
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:115%;
+  font-family:"Courier New";color:forestgreen;mso-ansi-language:EN-US'>%
+  angular frequency<span style='mso-spacerun:yes'>&nbsp; </span>[rad/s]</span><span
+  lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp; </span><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;</span>w = v*k;</span><span lang=EN-US
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:115%;
+  font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp; </span></span><span lang=EN-US
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:115%;
+  font-family:"Courier New";color:forestgreen;mso-ansi-language:EN-US'>%
+  period<span style='mso-spacerun:yes'>&nbsp; </span>[s]</span><span
+  lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>T = 2*pi/w;</span><span
+  lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp; </span></span><span lang=EN-US
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:115%;
+  font-family:"Courier New";color:forestgreen;mso-ansi-language:EN-US'>%
+  frequency<span style='mso-spacerun:yes'>&nbsp; </span>[Hz]</span><span
+  lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>f = 1/T;</span><span
+  lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp; </span></span><span lang=EN-US
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:115%;
+  font-family:"Courier New";color:forestgreen;mso-ansi-language:EN-US'>%
+  time<span style='mso-spacerun:yes'>&nbsp; </span>[s]</span><span lang=EN-US
+  style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:115%;
+  font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>t = <span
+  class=SpellE>linspace</span>(0,1*<span class=SpellE>T,nT</span>);</span><span
+  lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp; </span></span><span lang=EN-US
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:115%;
+  font-family:"Courier New";color:forestgreen;mso-ansi-language:EN-US'>%
+  wavelength [m]</span><span lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;line-height:115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>lambda =
+  2*pi/k;</span><span lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;line-height:115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp;</span></span><span lang=EN-US
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:115%;
+  font-family:"Courier New";color:forestgreen;mso-ansi-language:EN-US'>% time
+  dependent wavefunction<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span
+  lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;line-height:115%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>UT =
+  cos(w.*t);<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span
+  lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:12.0pt;line-height:
+  115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:
+  12.0pt;line-height:115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-US style='mso-bidi-font-family:Calibri;color:#7030A0;
+  mso-ansi-language:EN-US'>Fundamental normal mode of vibration <span
+  class=SpellE>mX</span> = 1<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+  </span><span class=SpellE>mY</span> = 1 <o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='mso-bidi-font-family:Calibri;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  style='mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_3" o:spid="_x0000_i1052" type="#_x0000_t75" style='width:8in;
+   height:5in;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="wm_Helmholtz2D_files/image043.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=768 height=480
+  src="wm_Helmholtz2D_files/image043.gif" v:shapes="Picture_x0020_3"><![endif]></span><span
+  lang=EN-US style='mso-bidi-font-family:Calibri;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-US style='mso-bidi-font-family:Calibri;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  style='mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_1" o:spid="_x0000_i1051" type="#_x0000_t75" style='width:6in;
+   height:180pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="wm_Helmholtz2D_files/image044.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=576 height=240
+  src="wm_Helmholtz2D_files/image044.png" v:shapes="Picture_x0020_1"><![endif]></span><span
+  lang=EN-US style='mso-bidi-font-family:Calibri;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-US style='mso-bidi-font-family:Calibri;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-US style='mso-bidi-font-family:Calibri;color:#7030A0;
+  mso-ansi-language:EN-US'>Normal mode of vibration<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span><span class=SpellE>mX</span> =
+  1<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span class=SpellE>mY</span>
+  = 2<o:p></o:p></span></b></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  style='mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_6" o:spid="_x0000_i1050" type="#_x0000_t75" style='width:8in;
+   height:5in;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="wm_Helmholtz2D_files/image045.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=768 height=480
+  src="wm_Helmholtz2D_files/image045.gif" v:shapes="Picture_x0020_6"><![endif]></span><span
+  lang=EN-US style='mso-bidi-font-family:Calibri;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-US style='mso-bidi-font-family:Calibri;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  style='mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_7" o:spid="_x0000_i1049" type="#_x0000_t75" style='width:6in;
+   height:180pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="wm_Helmholtz2D_files/image046.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=576 height=240
+  src="wm_Helmholtz2D_files/image046.png" v:shapes="Picture_x0020_7"><![endif]></span><span
+  lang=EN-US style='mso-bidi-font-family:Calibri;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-US style='mso-bidi-font-family:Calibri;color:#7030A0;
+  mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-US style='mso-bidi-font-family:Calibri;color:#7030A0;
+  mso-ansi-language:EN-US'>Normal mode of vibration<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span class=SpellE>mX</span>
+  = 2<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span
+  class=SpellE>mY</span> = 1<o:p></o:p></span></b></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><b
+  style='mso-bidi-font-weight:normal'><span style='mso-bidi-font-family:Calibri;
+  color:#7030A0;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_4"
+   o:spid="_x0000_i1048" type="#_x0000_t75" style='width:8in;height:5in;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="wm_Helmholtz2D_files/image047.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=768 height=480
+  src="wm_Helmholtz2D_files/image047.gif" v:shapes="Picture_x0020_4"><![endif]></span></b><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-US style='mso-bidi-font-family:
+  Calibri;color:#7030A0;mso-ansi-language:EN-US'><o:p></o:p></span></b></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><b
+  style='mso-bidi-font-weight:normal'><span style='mso-bidi-font-family:Calibri;
+  color:#7030A0;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_5"
+   o:spid="_x0000_i1047" type="#_x0000_t75" style='width:6in;height:180pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="wm_Helmholtz2D_files/image048.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=576 height=240
+  src="wm_Helmholtz2D_files/image048.png" v:shapes="Picture_x0020_5"><![endif]></span></b><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-US style='mso-bidi-font-family:
+  Calibri;color:#7030A0;mso-ansi-language:EN-US'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-US style='mso-bidi-font-family:Calibri;color:#7030A0;
+  mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-US style='mso-bidi-font-family:Calibri;color:#7030A0;
+  mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-US style='mso-bidi-font-family:Calibri;color:#7030A0;
+  mso-ansi-language:EN-US'>Normal mode of vibration<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span><span class=SpellE>mX</span> =
+  2<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span class=SpellE>mY</span>
+  = 3</span></b><span lang=EN-US style='mso-bidi-font-family:Calibri;
+  mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  style='mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_8" o:spid="_x0000_i1046" type="#_x0000_t75" style='width:8in;
+   height:5in;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="wm_Helmholtz2D_files/image049.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=768 height=480
+  src="wm_Helmholtz2D_files/image049.gif" v:shapes="Picture_x0020_8"><![endif]></span><span
+  lang=EN-US style='mso-bidi-font-family:Calibri;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-US style='mso-bidi-font-family:Calibri;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  style='mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_9" o:spid="_x0000_i1045" type="#_x0000_t75" style='width:6in;
+   height:180pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="wm_Helmholtz2D_files/image050.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=576 height=240
+  src="wm_Helmholtz2D_files/image050.png" v:shapes="Picture_x0020_9"><![endif]></span><span
+  lang=EN-US style='mso-bidi-font-family:Calibri;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-US style='mso-bidi-font-family:Calibri;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='mso-bidi-font-family:Calibri;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='mso-bidi-font-family:Calibri;mso-ansi-language:EN-US'>The natural
+  frequencies of vibration for a rectangular membrane do not form a harmonic
+  integer series. The patterns show nodal lines separating <span class=SpellE>antinodal</span>
+  regions.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='mso-bidi-font-size:14.0pt;mso-bidi-font-family:
+"Times New Roman";mso-fareast-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+mso-fareast-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+mso-fareast-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:42.15pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=832 valign=top style='width:22.0cm;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm'><span
+  style='font-family:"Tahoma","sans-serif";color:black;mso-bidi-font-weight:
+  bold'>Ian Cooper</span><span style='font-size:12.0pt;line-height:150%;
+  font-family:"Tahoma","sans-serif";color:black;mso-bidi-font-weight:bold'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:-12.75pt;line-height:150%'><span
+  style='font-family:"Tahoma","sans-serif"'>matlabvisualphysics@gmail.com<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+  mso-fareast-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>
