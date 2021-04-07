@@ -1,0 +1,2021 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 14">
+<meta name=Originator content="Microsoft Word 14">
+<base target="_blank">
+<link rel=File-List href="m31_wavesB_files/filelist.xml">
+<link rel=Edit-Time-Data href="m31_wavesB_files/editdata.mso">
+<link rel=OLE-Object-Data href="m31_wavesB_files/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Travelling Waves</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Ian Cooper</o:Author>
+  <o:Keywords>animations for wave motion, travelling waves, transverse waves, longitudinal waves,vibrations, oscillations, simple harmonic motion, waves, wave motion, school physics, high school physics, HSC physics, physics on line</o:Keywords>
+  <o:Description>m31.ppt&#13;&#10;mp/mscripts/wM_travelling.m</o:Description>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Owner</o:LastAuthor>
+  <o:Revision>25</o:Revision>
+  <o:TotalTime>1874</o:TotalTime>
+  <o:Created>2017-05-19T00:44:00Z</o:Created>
+  <o:LastSaved>2021-04-07T05:12:00Z</o:LastSaved>
+  <o:Pages>11</o:Pages>
+  <o:Words>1640</o:Words>
+  <o:Characters>9353</o:Characters>
+  <o:Category>waves</o:Category>
+  <o:Lines>77</o:Lines>
+  <o:Paragraphs>21</o:Paragraphs>
+  <o:CharactersWithSpaces>10972</o:CharactersWithSpaces>
+  <o:Version>14.00</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+<link rel=themeData href="m31_wavesB_files/themedata.thmx">
+<link rel=colorSchemeMapping href="m31_wavesB_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>FullPage</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-AU</w:LidThemeOther>
+  <w:LidThemeAsian>ZH-CN</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="0" Name="footer"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" SemiHidden="false" UnhideWhenUsed="false"
+   Name="Normal Table"/>
+  <w:LsdException Locked="false" SemiHidden="false" UnhideWhenUsed="false"
+   Name="Table Web 3"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" SemiHidden="false" UnhideWhenUsed="false"
+   Name="Table Theme"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-469750017 -1073732485 9 0 511 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-520081665 -1073717157 41 0 66047 0;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1610610945 1073750107 16 0 415 0;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+@font-face
+	{font-family:"Segoe UI";
+	panose-1:2 11 5 2 4 2 4 2 2 3;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-469750017 -1073683329 9 0 511 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:105%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-noshow:yes;
+	mso-style-link:"Footer Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:center 234.0pt right 468.0pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#0563C1;
+	mso-themecolor:hyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:#954F72;
+	mso-themecolor:followedhyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Balloon Text Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-priority:1;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	line-height:105%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	line-height:105%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	line-height:105%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	line-height:105%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+span.FooterChar
+	{mso-style-name:"Footer Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:Footer;
+	mso-ansi-font-size:11.0pt;
+	mso-bidi-font-size:11.0pt;}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{mso-style-name:msonormal;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Balloon Text";
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-ascii-font-family:Tahoma;
+	mso-hansi-font-family:Tahoma;
+	mso-bidi-font-family:Tahoma;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:10.0pt;
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-priority:39;
+	mso-style-unhide:no;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-AU link="#0563C1" vlink="#954F72" style='tab-interval:36.0pt'>
+
+<div class=WordSection1>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:28.85pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+  height:12.7pt'>
+  <td width=840 valign=top style='width:629.9pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:12.7pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;tab-stops:3.0cm'><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+   coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+   filled="f" stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="Picture_x0020_1" o:spid="_x0000_s1026" type="#_x0000_t75"
+   style='position:absolute;margin-left:-5.55pt;margin-top:12.85pt;width:115.05pt;
+   height:113.25pt;z-index:251659264;visibility:visible;mso-wrap-style:square;
+   mso-width-percent:0;mso-height-percent:0;mso-wrap-distance-left:9pt;
+   mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+   mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+   mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+   mso-position-vertical-relative:text;mso-width-percent:0;
+   mso-height-percent:0;mso-width-relative:margin;mso-height-relative:margin'>
+   <v:imagedata src="m31_wavesB_files/image001.png" o:title="" croptop="3778f"
+    cropbottom="9009f" cropleft="12649f" cropright="12867f"/>
+   <w:wrap type="square"/>
+  </v:shape><![endif]--><![if !vml]><img width=153 height=151
+  src="m31_wavesB_files/image002.jpg" align=left hspace=12 v:shapes="Picture_x0020_1"><![endif]><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;font-family:
+  "Bookman Old Style","serif";mso-bidi-font-family:"Times New Roman";
+  color:#0000CC'><span style='mso-spacerun:yes'>&nbsp;</span><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;tab-stops:3.0cm'><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:16.0pt;font-family:"Bookman Old Style","serif";mso-bidi-font-family:
+  "Times New Roman";color:blue'><a
+  href="https://d-arora.github.io/VisualPhysics/"><span style='color:blue'>VISUAL
+  PHYSICS ONLINE<o:p></o:p></span></a></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;tab-stops:3.0cm'><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:16.0pt;font-family:"Bookman Old Style","serif";mso-bidi-font-family:
+  "Times New Roman";color:#CC0066'><span style='mso-spacerun:yes'>&nbsp;</span><span
+  style='mso-spacerun:yes'>&nbsp;</span><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;tab-stops:3.0cm'><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:16.0pt;font-family:"Bookman Old Style","serif";mso-bidi-font-family:
+  "Times New Roman";color:#CC3300'>WAVES <o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;tab-stops:3.0cm'><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:16.0pt;font-family:"Bookman Old Style","serif";mso-bidi-font-family:
+  "Times New Roman";color:#CC3300'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;tab-stops:3.0cm'><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:16.0pt;font-family:"Bookman Old Style","serif";mso-bidi-font-family:
+  "Times New Roman";color:#CC3300'><br style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:0cm'><b><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:#7030A0'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:0cm'><b><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:#7030A0'>WAVE MOTION</span></b><b><span lang=EN-US style='font-size:
+  16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";color:#7030A0;
+  mso-ansi-language:EN-US'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Segoe UI";
+  color:#111111;mso-ansi-language:EN-US;mso-no-proof:yes'>Most information
+  about our surroundings arrives as a wave: sounds are transpoted to our ears;
+  light to our eyes and electromagnetic radiaiton to our mobile phones. Through
+  wave motion, energy can be transferred from a source to a receiver without
+  the transfer of matter between the two points.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Segoe UI";
+  color:#111111;mso-ansi-language:EN-US;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Segoe UI";
+  color:#111111;mso-ansi-language:EN-US;mso-no-proof:yes'>A good visual example
+  are the waves on the surface of water. When a stone is dropped into a lake,
+  waves will be generate that travel outwards in expanding circles, with the
+  centres as the source of the disturbance. The wave propagates, not the water.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Segoe UI";
+  color:#111111;mso-ansi-language:EN-US;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:150%;mso-layout-grid-align:none;text-autospace:
+  none'><span style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Segoe UI";
+  color:#111111;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_1"
+   o:spid="_x0000_i1068" type="#_x0000_t75" style='width:391.5pt;height:215.25pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="m31_wavesB_files/image003.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=522 height=287
+  src="m31_wavesB_files/image004.png" v:shapes="Picture_x0020_1"><![endif]></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Segoe UI";
+  color:#111111;mso-ansi-language:EN-US;mso-no-proof:yes'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Segoe UI";
+  color:#111111;mso-ansi-language:EN-US;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Segoe UI";
+  color:#111111;mso-ansi-language:EN-US;mso-no-proof:yes'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Fig.1.<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Snap shot of
+  the waves on the surface of water.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Segoe UI";
+  color:#111111;mso-ansi-language:EN-US;mso-no-proof:yes'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>At each point, the water bobs up an down. The shape of the wave<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Segoe UI";
+  color:#111111;mso-ansi-language:EN-US;mso-no-proof:yes'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>can be approximated by a sine curve.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif";
+  mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Segoe UI";
+  color:#111111;mso-ansi-language:EN-US;mso-no-proof:yes'><span
+  style='mso-spacerun:yes'>&nbsp;</span></span><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif";
+  mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+line-height:105%'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:27.4pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width=842 colspan=2 valign=top style='width:631.35pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;line-height:
+  150%;font-family:"Bookman Old Style","serif";color:#7030A0'>DESCRIBING WAVES<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>Consider
+  a simple model for the propagation of a wave along the X axis which is
+  represented pictorially as a <b style='mso-bidi-font-weight:normal'><span
+  style='color:#7030A0'>sine function</span></b><span style='color:#7030A0'> </span>that
+  depends both on time </span><span style='font-size:16.0pt;line-height:150%'><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1025" type="#_x0000_t75" style='width:8.25pt;height:14.25pt'
+   o:ole="">
+   <v:imagedata src="m31_wavesB_files/image005.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=11 height=19
+  src="m31_wavesB_files/image006.png" v:shapes="_x0000_i1025"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1025"
+    DrawAspect="Content" ObjectID="_1679313548">
+   </o:OLEObject>
+  </xml><![endif]--></span><span style='font-size:16.0pt;line-height:150%;
+  font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;</span>and <span class=GramE>position </span></span><span
+  style='font-size:16.0pt;line-height:150%'><span style='position:relative;
+  top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1026"
+   type="#_x0000_t75" style='width:12pt;height:12.75pt' o:ole="">
+   <v:imagedata src="m31_wavesB_files/image007.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=17
+  src="m31_wavesB_files/image008.png" v:shapes="_x0000_i1026"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1026"
+    DrawAspect="Content" ObjectID="_1679313549">
+   </o:OLEObject>
+  </xml><![endif]--></span><span style='font-size:16.0pt;line-height:150%;
+  font-family:"Verdana","sans-serif"'>. The high points on the sine wave are
+  called <b style='mso-bidi-font-weight:normal'><span style='color:#7030A0'>crests</span></b>
+  and the low points are called <b style='mso-bidi-font-weight:normal'><span
+  style='color:#7030A0'>troughs</span></b> as shown in figure 1.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>The
+  <b style='mso-bidi-font-weight:normal'><span style='color:#7030A0'>amplitude</span></b>
+  </span><span style='font-size:16.0pt;line-height:150%'><span
+  style='position:relative;top:2.0pt;mso-text-raise:-2.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1027" type="#_x0000_t75" style='width:14.25pt;height:15pt'
+   o:ole="">
+   <v:imagedata src="m31_wavesB_files/image009.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=19 height=20
+  src="m31_wavesB_files/image010.png" v:shapes="_x0000_i1027"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1027"
+    DrawAspect="Content" ObjectID="_1679313550">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></span><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>of
+  the wave is the maximum disturbance of the wave from the mid-point between
+  the crest and trough to either the top of the crest or to the bottom of a
+  trough. The amplitude is a positive number. A loud sound has <span
+  class=GramE>a large</span> amplitude, whereas a weak radio signal has a small
+  amplitude. Approximately the energy carried by a wave is proportional to the
+  square of the wave amplitude.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>The
+  <b style='mso-bidi-font-weight:normal'><span style='color:#7030A0'>wavelength</span></b>
+  </span><span style='font-size:16.0pt;line-height:150%'><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1028" type="#_x0000_t75" style='width:12.75pt;height:15.75pt'
+   o:ole="">
+   <v:imagedata src="m31_wavesB_files/image011.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=17 height=21
+  src="m31_wavesB_files/image012.png" v:shapes="_x0000_i1028"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1028"
+    DrawAspect="Content" ObjectID="_1679313551">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></span><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>is
+  the distance between two adjacent crests or two adjacent troughs or between
+  any two successive identical parts of the wave.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>The
+  <b style='mso-bidi-font-weight:normal'><span style='color:#7030A0'>frequency</span></b>
+  </span><span style='font-size:16.0pt;line-height:150%'><span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1029" type="#_x0000_t75" style='width:15pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="m31_wavesB_files/image013.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=20 height=27
+  src="m31_wavesB_files/image014.png" v:shapes="_x0000_i1029"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1029"
+    DrawAspect="Content" ObjectID="_1679313552">
+   </o:OLEObject>
+  </xml><![endif]--></span><span style='font-size:16.0pt;line-height:150%;
+  font-family:"Verdana","sans-serif"'>of the wave is the number of vibrations
+  each part of the wave undergoes in one second.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span lang=EN-US style='font-size:16.0pt;line-height:150%;
+  font-family:"Verdana","sans-serif";mso-ansi-language:EN-US'>1 kHz = 10<sup>3</sup>
+  Hz (kilo)<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>1 MHz
+  = 10<sup>6</sup> Hz (mega)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>1GHz = 10<sup>9</sup>
+  Hz (giga)<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>The
+  <b style='mso-bidi-font-weight:normal'><span style='color:#7030A0'>period</span></b>
+  </span><span style='font-size:16.0pt;line-height:150%'><span
+  style='position:relative;top:2.0pt;mso-text-raise:-2.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1030" type="#_x0000_t75" style='width:12.75pt;height:15pt'
+   o:ole="">
+   <v:imagedata src="m31_wavesB_files/image015.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=17 height=20
+  src="m31_wavesB_files/image016.png" v:shapes="_x0000_i1030"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1030"
+    DrawAspect="Content" ObjectID="_1679313553">
+   </o:OLEObject>
+  </xml><![endif]--></span><span style='font-size:16.0pt;line-height:150%;
+  font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;</span>is the time interval for one complete
+  vibration.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:.15pt;margin-bottom:
+  8.0pt;margin-left:44.25pt;line-height:150%'><span style='font-size:16.0pt;
+  line-height:150%;font-family:"Verdana","sans-serif"'>(1)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:16.0pt;line-height:150%'><span
+  style='position:relative;top:19.0pt;mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1031" type="#_x0000_t75" style='width:114pt;height:44.25pt'
+   o:ole="">
+   <v:imagedata src="m31_wavesB_files/image017.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=152 height=59
+  src="m31_wavesB_files/image018.png" v:shapes="_x0000_i1031"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1031"
+    DrawAspect="Content" ObjectID="_1679313554">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:.15pt;margin-bottom:
+  8.0pt;margin-left:44.25pt;line-height:150%'><span style='font-size:16.0pt;
+  line-height:150%;font-family:"Verdana","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>AM radio waves are broadcast in the kHz range<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>FM radio waves are broadcast with MHz frequencies<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Microwaves have GHz frequencies<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Audible sounds are generally in the range from ~ 1 Hz to &lt; 20 kHz<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>The
+  energy carried by a wave is approximately proportional to the square of the
+  wave frequency. The higher the frequency the higher the transfer of energy in
+  a given time interval.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>The
+  <b style='mso-bidi-font-weight:normal'><span style='color:#7030A0'>speed</span></b>
+  </span><span style='font-size:16.0pt;line-height:150%'><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1032" type="#_x0000_t75" style='width:11.25pt;height:12.75pt'
+   o:ole="">
+   <v:imagedata src="m31_wavesB_files/image019.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=15 height=17
+  src="m31_wavesB_files/image020.png" v:shapes="_x0000_i1032"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1032"
+    DrawAspect="Content" ObjectID="_1679313555">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></span><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>of
+  a wave is related to its wavelength and its period (frequency). The wave
+  advances 1 wavelength in a time interval of 1 period, therefore, <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(2)<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:16.0pt;line-height:150%'><span
+  style='position:relative;top:15.0pt;mso-text-raise:-15.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1033" type="#_x0000_t75" style='width:78pt;height:39.75pt'
+   o:ole="">
+   <v:imagedata src="m31_wavesB_files/image021.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=104 height=53
+  src="m31_wavesB_files/image022.png" v:shapes="_x0000_i1033"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1033"
+    DrawAspect="Content" ObjectID="_1679313556">
+   </o:OLEObject>
+  </xml><![endif]--><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;</span><span style='color:#7030A0'>propagation
+  speed of the disturbance<o:p></o:p></span></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif";
+  color:#7030A0'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif";
+  color:#7030A0'>This relationship holds true for all types of waves, whether
+  they are water waves, sound waves, waves on strings or electromagnetic waves.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>It
+  is mathematically very convenient to define two other quantities in
+  describing waves: the <b style='mso-bidi-font-weight:normal'><span
+  style='color:#7030A0'>wave number</span></b><span style='color:#7030A0'> </span>or
+  <b style='mso-bidi-font-weight:normal'><span style='color:#7030A0'>propagation
+  constant</span></b><span style='color:#7030A0'> </span></span><span
+  style='font-size:16.0pt;line-height:150%'><span style='position:relative;
+  top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1034"
+   type="#_x0000_t75" style='width:12pt;height:17.25pt' o:ole="">
+   <v:imagedata src="m31_wavesB_files/image023.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=23
+  src="m31_wavesB_files/image024.png" v:shapes="_x0000_i1034"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1034"
+    DrawAspect="Content" ObjectID="_1679313557">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></span><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>and
+  the <b style='mso-bidi-font-weight:normal'><span style='color:#7030A0'>angular
+  <span class=GramE>frequency </span></span></b></span><span style='font-size:
+  16.0pt;line-height:150%'><span style='position:relative;top:3.0pt;mso-text-raise:
+  -3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1035" type="#_x0000_t75"
+   style='width:14.25pt;height:12.75pt' o:ole="">
+   <v:imagedata src="m31_wavesB_files/image025.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=19 height=17
+  src="m31_wavesB_files/image026.png" v:shapes="_x0000_i1035"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1035"
+    DrawAspect="Content" ObjectID="_1679313558">
+   </o:OLEObject>
+  </xml><![endif]--></span><span style='font-size:16.0pt;line-height:150%;
+  font-family:"Verdana","sans-serif"'>.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(3)<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:16.0pt;line-height:150%'><span
+  style='position:relative;top:15.0pt;mso-text-raise:-15.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1036" type="#_x0000_t75" style='width:114pt;height:39.75pt'
+   o:ole="">
+   <v:imagedata src="m31_wavesB_files/image027.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=152 height=53
+  src="m31_wavesB_files/image028.png" v:shapes="_x0000_i1036"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1036"
+    DrawAspect="Content" ObjectID="_1679313559">
+   </o:OLEObject>
+  </xml><![endif]--><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif";
+  color:#7030A0'>wave number of propagation constant<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>[ rad.m<sup>-1</sup> ]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(4)<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:16.0pt;line-height:150%'><span
+  style='position:relative;top:19.0pt;mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1037" type="#_x0000_t75" style='width:231pt;height:44.25pt'
+   o:ole="">
+   <v:imagedata src="m31_wavesB_files/image029.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=308 height=59
+  src="m31_wavesB_files/image030.png" v:shapes="_x0000_i1037"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1037"
+    DrawAspect="Content" ObjectID="_1679313560">
+   </o:OLEObject>
+  </xml><![endif]--></span><span style='font-size:16.0pt;line-height:150%;
+  font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='color:#7030A0'>angular frequency<span style='mso-spacerun:yes'>&nbsp;
+  </span>[ rad.s<sup>-1</sup> ]</span><span style='mso-spacerun:yes'>&nbsp;
+  </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>The
+  shape of a sinusoidal wave is given by<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>(5a)<span
+  style='mso-spacerun:yes'>&nbsp; </span></span><span style='font-size:16.0pt;
+  line-height:150%'><span style='position:relative;top:18.0pt;mso-text-raise:
+  -18.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1038" type="#_x0000_t75"
+   style='width:267.75pt;height:44.25pt' o:ole="">
+   <v:imagedata src="m31_wavesB_files/image031.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=357 height=59
+  src="m31_wavesB_files/image032.png" v:shapes="_x0000_i1038"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1038"
+    DrawAspect="Content" ObjectID="_1679313561">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:16.0pt;line-height:150%;font-family:
+  "Verdana","sans-serif";color:#7030A0'>wave travelling to the right (+ X
+  direction)</span><span style='font-size:16.0pt;line-height:150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>(5b)<span
+  style='mso-spacerun:yes'>&nbsp; </span></span><span style='font-size:16.0pt;
+  line-height:150%'><span style='position:relative;top:18.0pt;mso-text-raise:
+  -18.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1039" type="#_x0000_t75"
+   style='width:267.75pt;height:44.25pt' o:ole="">
+   <v:imagedata src="m31_wavesB_files/image033.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=357 height=59
+  src="m31_wavesB_files/image034.png" v:shapes="_x0000_i1039"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1039"
+    DrawAspect="Content" ObjectID="_1679313562">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;&nbsp;</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:16.0pt;line-height:150%;font-family:
+  "Verdana","sans-serif";color:#7030A0'>wave travelling to the left (- X
+  direction)</span><span style='font-size:16.0pt;line-height:150%;font-family:
+  "Verdana","sans-serif"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>The
+  symbol </span><span style='font-size:16.0pt;line-height:150%'><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1040" type="#_x0000_t75" style='width:9.75pt;height:12.75pt'
+   o:ole="">
+   <v:imagedata src="m31_wavesB_files/image035.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=13 height=17
+  src="m31_wavesB_files/image036.png" v:shapes="_x0000_i1040"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1040"
+    DrawAspect="Content" ObjectID="_1679313563">
+   </o:OLEObject>
+  </xml><![endif]--></span><span style='font-size:16.0pt;line-height:150%;
+  font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;</span>is used to describe the shape of the
+  wave and is called the <b style='mso-bidi-font-weight:normal'><span
+  style='color:#7030A0'>wave function</span></b> which depends upon the two
+  variables, position </span><span style='font-size:16.0pt;line-height:150%'><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1041" type="#_x0000_t75" style='width:12pt;height:12.75pt'
+   o:ole="">
+   <v:imagedata src="m31_wavesB_files/image037.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=17
+  src="m31_wavesB_files/image008.png" v:shapes="_x0000_i1041"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1041"
+    DrawAspect="Content" ObjectID="_1679313564">
+   </o:OLEObject>
+  </xml><![endif]--></span><span style='font-size:16.0pt;line-height:150%;
+  font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;</span>and <span class=GramE>time </span></span><span
+  style='font-size:16.0pt;line-height:150%'><span style='position:relative;
+  top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1042"
+   type="#_x0000_t75" style='width:8.25pt;height:14.25pt' o:ole="">
+   <v:imagedata src="m31_wavesB_files/image038.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=11 height=19
+  src="m31_wavesB_files/image006.png" v:shapes="_x0000_i1042"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1042"
+    DrawAspect="Content" ObjectID="_1679313565">
+   </o:OLEObject>
+  </xml><![endif]--></span><span style='font-size:16.0pt;line-height:150%;
+  font-family:"Verdana","sans-serif"'>.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>This symbol is not commonly used
+  &#8211; the wave function is mostly given by the Greek letter </span><span
+  style='font-size:16.0pt;line-height:150%'><span style='position:relative;
+  top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1043"
+   type="#_x0000_t75" style='width:15pt;height:15.75pt' o:ole="">
+   <v:imagedata src="m31_wavesB_files/image039.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=20 height=21
+  src="m31_wavesB_files/image040.png" v:shapes="_x0000_i1043"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1043"
+    DrawAspect="Content" ObjectID="_1679313566">
+   </o:OLEObject>
+  </xml><![endif]--></span><span style='font-size:16.0pt;line-height:150%;
+  font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;</span>(psi). <span style='mso-bidi-font-weight:
+  bold'>N.B.</span> could use <b><span style='color:#7030A0'>cos</span></b>
+  instead of <b><span style='color:#7030A0'>sin</span></b><span
+  style='color:#7030A0;mso-bidi-font-weight:bold'>.</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>The
+  term </span><span style='font-size:16.0pt;line-height:150%'><span
+  style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1044" type="#_x0000_t75" style='width:66pt;height:24pt' o:ole="">
+   <v:imagedata src="m31_wavesB_files/image041.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=88 height=32
+  src="m31_wavesB_files/image042.png" v:shapes="_x0000_i1044"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1044"
+    DrawAspect="Content" ObjectID="_1679313568">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;&nbsp;</span></span><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>or
+  its equivalents is called the <b style='mso-bidi-font-weight:normal'><span
+  style='color:#7030A0'>phase</span></b> of the wave. The velocity </span><span
+  style='font-size:16.0pt;line-height:150%'><span style='position:relative;
+  top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1045"
+   type="#_x0000_t75" style='width:11.25pt;height:12.75pt' o:ole="">
+   <v:imagedata src="m31_wavesB_files/image043.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=15 height=17
+  src="m31_wavesB_files/image020.png" v:shapes="_x0000_i1045"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1045"
+    DrawAspect="Content" ObjectID="_1679313569">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></span><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>of
+  the wave is often called the <b style='mso-bidi-font-weight:normal'><span
+  style='color:#7030A0'>phase velocity</span></b>, since it describes the
+  velocity of the shape (phase) of the wave. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>Equations
+  5a and 5b describe a <b style='mso-bidi-font-weight:normal'><span
+  style='color:#7030A0'>travelling sinusoidal wave</span></b><span
+  style='color:#7030A0'> </span>(<b style='mso-bidi-font-weight:normal'><span
+  style='color:#7030A0'>harmonic wave</span></b>). Because the wave function
+  depends both on time and position, it is impossible to draw a simple graph of
+  the wave function. The function must be animated or shown as a graph at a
+  fixed time or a graph showing the variation with time at a fixed location. </span><span
+  style='font-size:16.0pt;line-height:150%'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes;mso-row-margin-right:.4pt'>
+  <td width=841 valign=top style='width:630.8pt;padding:0cm 5.4pt 0cm 5.4pt'></td>
+  <td style='mso-cell-special:placeholder;border:none;padding:0cm 0cm 0cm 0cm'
+  width=1><p class='MsoNormal'>&nbsp;</td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+line-height:105%'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:27.95pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=841 valign=top style='width:630.8pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-right:.15pt;text-align:center'><span
+  style='font-size:16.0pt;line-height:105%;font-family:"Verdana","sans-serif";
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_23" o:spid="_x0000_i1067"
+   type="#_x0000_t75" style='width:462pt;height:187.5pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="m31_wavesB_files/image044.png" o:title="" croptop="7906f"
+    cropbottom="12327f" cropleft="10222f"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=616 height=250
+  src="m31_wavesB_files/image045.png" v:shapes="Picture_x0020_23"><![endif]></span><span
+  style='font-size:16.0pt;line-height:105%;font-family:"Verdana","sans-serif"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:115%'><span
+  style='font-size:16.0pt;line-height:115%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Fig. 2a.
+  A harmonic wave: at any position </span><span style='font-size:16.0pt;
+  line-height:115%'><span style='position:relative;top:3.0pt;mso-text-raise:
+  -3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1046" type="#_x0000_t75"
+   style='width:12pt;height:12.75pt' o:ole="">
+   <v:imagedata src="m31_wavesB_files/image046.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=17
+  src="m31_wavesB_files/image008.png" v:shapes="_x0000_i1046"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1046"
+    DrawAspect="Content" ObjectID="_1679313570">
+   </o:OLEObject>
+  </xml><![endif]--></span><span style='font-size:16.0pt;line-height:115%;
+  font-family:"Verdana","sans-serif"'>, the disturbance<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:115%'><span
+  style='font-size:16.0pt;line-height:115%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  class=GramE>is</span> a sinusoidal function of time </span><span
+  style='font-size:16.0pt;line-height:115%'><span style='position:relative;
+  top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1047"
+   type="#_x0000_t75" style='width:8.25pt;height:14.25pt' o:ole="">
+   <v:imagedata src="m31_wavesB_files/image047.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=11 height=19
+  src="m31_wavesB_files/image006.png" v:shapes="_x0000_i1047"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1047"
+    DrawAspect="Content" ObjectID="_1679313571">
+   </o:OLEObject>
+  </xml><![endif]--></span><span style='font-size:16.0pt;line-height:115%;
+  font-family:"Verdana","sans-serif"'>.<o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-right:.15pt;text-align:center'><span
+  style='font-size:16.0pt;line-height:105%'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+line-height:105%'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:28.55pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=840 valign=top style='width:630.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-right:.15pt;text-align:center'><span
+  style='font-size:16.0pt;line-height:105%;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_26" o:spid="_x0000_i1066" type="#_x0000_t75" style='width:471.75pt;
+   height:210pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="m31_wavesB_files/image048.png" o:title="" croptop="4516f"
+    cropbottom="12384f" cropleft="10036f"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=629 height=280
+  src="m31_wavesB_files/image049.png" v:shapes="Picture_x0020_26"><![endif]></span><span
+  style='font-size:16.0pt;line-height:105%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:115%'><span
+  style='font-size:16.0pt;line-height:115%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Fig. 2b.
+  A harmonic wave: at any time </span><span style='font-size:16.0pt;line-height:
+  115%'><span style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1048" type="#_x0000_t75" style='width:8.25pt;height:14.25pt'
+   o:ole="">
+   <v:imagedata src="m31_wavesB_files/image047.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=11 height=19
+  src="m31_wavesB_files/image006.png" v:shapes="_x0000_i1048"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1048"
+    DrawAspect="Content" ObjectID="_1679313572">
+   </o:OLEObject>
+  </xml><![endif]--></span><span style='font-size:16.0pt;line-height:115%;
+  font-family:"Verdana","sans-serif"'>, the disturbance<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:115%'><span
+  style='font-size:16.0pt;line-height:115%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  class=GramE>is</span> a sinusoidal function of position </span><span
+  style='font-size:16.0pt;line-height:115%'><span style='position:relative;
+  top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1049"
+   type="#_x0000_t75" style='width:12pt;height:12.75pt' o:ole="">
+   <v:imagedata src="m31_wavesB_files/image046.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=17
+  src="m31_wavesB_files/image008.png" v:shapes="_x0000_i1049"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1049"
+    DrawAspect="Content" ObjectID="_1679313573">
+   </o:OLEObject>
+  </xml><![endif]--></span><span style='font-size:16.0pt;line-height:115%;
+  font-family:"Verdana","sans-serif"'>.</span><span style='font-size:16.0pt;
+  line-height:115%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:16.0pt;line-height:115%;font-family:
+  "Verdana","sans-serif"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+line-height:105%'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:27.95pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=841 valign=top style='width:630.8pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-right:.15pt;text-align:center;
+  line-height:150%'><span style='font-size:16.0pt;line-height:150%;font-family:
+  "Verdana","sans-serif";mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_7"
+   o:spid="_x0000_i1065" type="#_x0000_t75" style='width:374.25pt;height:290.25pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="m31_wavesB_files/image050.png" o:title="" cropleft="7113f"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=499 height=387
+  src="m31_wavesB_files/image051.png" v:shapes="Picture_x0020_7"><![endif]></span><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Fig. 3.<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Wave or
+  propagation velocity (phase velocity<span class=GramE>) </span></span><span
+  style='font-size:16.0pt;line-height:150%'><span style='position:relative;
+  top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1050"
+   type="#_x0000_t75" style='width:11.25pt;height:12.75pt' o:ole="">
+   <v:imagedata src="m31_wavesB_files/image052.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=15 height=17
+  src="m31_wavesB_files/image020.png" v:shapes="_x0000_i1050"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1050"
+    DrawAspect="Content" ObjectID="_1679313574">
+   </o:OLEObject>
+  </xml><![endif]-->.<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+line-height:105%'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='margin-left:27.95pt;border-collapse:collapse;border:none;mso-border-alt:
+ solid #833C0B .5pt;mso-border-themecolor:accent2;mso-border-themeshade:128;
+ mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:
+ .5pt solid #833C0B;mso-border-insideh-themecolor:accent2;mso-border-insideh-themeshade:
+ 128;mso-border-insidev:.5pt solid #833C0B;mso-border-insidev-themecolor:accent2;
+ mso-border-insidev-themeshade:128'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=841 valign=top style='width:630.8pt;border:solid #833C0B 1.0pt;
+  mso-border-themecolor:accent2;mso-border-themeshade:128;mso-border-alt:solid #833C0B .5pt;
+  mso-border-themecolor:accent2;mso-border-themeshade:128;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-right:.15pt'><b style='mso-bidi-font-weight:
+  normal'><span style='font-size:16.0pt;line-height:105%;font-family:"Verdana","sans-serif";
+  color:#843C0C;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #843C0C;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>Exercise<o:p></o:p></span></b></p>
+  <p class=MsoNormal align=center style='margin-right:.15pt;text-align:center'><span
+  style='font-size:16.0pt;line-height:105%;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_11" o:spid="_x0000_i1064" type="#_x0000_t75" style='width:8in;
+   height:5in;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="m31_wavesB_files/image053.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=768 height=480
+  src="m31_wavesB_files/image053.gif" v:shapes="Picture_x0020_11"><![endif]></span><span
+  style='font-size:16.0pt;line-height:105%'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-right:.15pt;text-align:center'><span
+  style='font-size:16.0pt;line-height:105%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+  line-height:105%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+  line-height:105%;font-family:"Verdana","sans-serif"'>Calculate the following
+  parameters from the animation of a travelling wave:<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+  line-height:105%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>amplitude<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>wavelength<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>period<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>phase velocity<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+  line-height:105%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>frequency<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>angular
+  velocity<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>wave
+  number<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+  line-height:105%;font-family:"Verdana","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+  line-height:105%;font-family:"Verdana","sans-serif"'>Describe the motion of
+  the particle (<span style='color:red'>red</span>) located at </span><span
+  style='font-size:16.0pt;line-height:105%'><span style='position:relative;
+  top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1051"
+   type="#_x0000_t75" style='width:42.75pt;height:15.75pt' o:ole="">
+   <v:imagedata src="m31_wavesB_files/image054.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=57 height=21
+  src="m31_wavesB_files/image055.png" v:shapes="_x0000_i1051"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1051"
+    DrawAspect="Content" ObjectID="_1679313575">
+   </o:OLEObject>
+  </xml><![endif]--></span><span style='font-size:16.0pt;line-height:105%;
+  font-family:"Verdana","sans-serif"'>m.<span style='mso-spacerun:yes'>&nbsp;
+  </span></span><span style='font-size:16.0pt;line-height:105%'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+line-height:105%'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+line-height:105%'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:27.95pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=841 valign=top style='width:630.8pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-right:.15pt'><b style='mso-bidi-font-weight:
+  normal'><span style='font-size:16.0pt;line-height:105%;font-family:"Bookman Old Style","serif";
+  color:#7030A0'>TRANSVERSE and COMPRESSIONAL (LONGITUDINAL) WAVES<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>Many
+  types of waves can be classified as transverse waves or longitudinal
+  (compressional) waves.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;line-height:
+  150%;font-family:"Verdana","sans-serif";color:#7030A0'>Transverse wave</span></b><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif";
+  color:#7030A0'> </span><span style='font-size:16.0pt;line-height:150%;
+  font-family:"Verdana","sans-serif"'>&#8211; the particles of the medium
+  vibrate up and down in a direction <span style='color:red'>transverse</span>
+  (<span style='color:red'>perpendicular</span>) to the motion of the wave. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>Examples:
+  waves on a stretched string, electromagnetic waves.<o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-right:.15pt;text-align:center'><span
+  style='font-size:16.0pt;line-height:105%;font-family:"Verdana","sans-serif";
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_12" o:spid="_x0000_i1063"
+   type="#_x0000_t75" style='width:453.75pt;height:339.75pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="m31_wavesB_files/image056.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=605 height=453
+  src="m31_wavesB_files/image057.png" v:shapes="Picture_x0020_12"><![endif]></span><span
+  style='font-size:16.0pt;line-height:105%;font-family:"Verdana","sans-serif"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:115%'><span
+  style='font-size:16.0pt;line-height:115%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Fig. 4.<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Transverse
+  wave &#8211; the particle marked + moves up and down<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:115%'><span
+  style='font-size:16.0pt;line-height:115%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span class=GramE>executing</span> simple harmonic motion. The wave
+  advances 1 wavelength<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:115%'><span
+  style='font-size:16.0pt;line-height:115%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span class=GramE>in</span> a time interval of 1 period. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:115%'><span
+  style='font-size:16.0pt;line-height:115%;font-family:"Verdana","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-right:.15pt;text-align:center;
+  line-height:115%'><span style='font-size:16.0pt;line-height:115%;font-family:
+  "Verdana","sans-serif";mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_17"
+   o:spid="_x0000_i1062" type="#_x0000_t75" style='width:8in;height:5in;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="m31_wavesB_files/image058.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=768 height=480
+  src="m31_wavesB_files/image058.gif" v:shapes="Picture_x0020_17"><![endif]></span><span
+  style='font-size:16.0pt;line-height:115%;font-family:"Verdana","sans-serif"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+  line-height:105%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Fig. 5.<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Animation of
+  a travelling transverse wave moving to the right. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+  line-height:105%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Each particle executes SHM as they move up and down at right angles<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+  line-height:105%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span class=GramE>to</span> the propagation direction.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+  line-height:105%;font-family:"Verdana","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+  line-height:105%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;line-height:
+  150%;font-family:"Verdana","sans-serif";color:#7030A0'>Longitudinal
+  (compressional) wave</span></b><span style='font-size:16.0pt;line-height:
+  150%;font-family:"Verdana","sans-serif";color:#7030A0'> </span><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>&#8211;
+  the vibration of the particles of the medium vibrate along the same direction
+  as the wave is propagating.</span><span style='font-size:16.0pt;line-height:
+  150%;font-family:"Arial","sans-serif";color:black;mso-font-kerning:12.0pt'> </span><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>The
+  wave is characterised by a series of alternate <i><span style='color:#7030A0'>condensations</span></i>
+  (<span style='color:#7030A0'>compressions</span>) and <i><span
+  style='color:#7030A0'>rarefactions</span></i> (<span style='color:#7030A0'>expansions</span>).
+  The plots in figure 2 also represent a longitudinal wave - the wave function
+  gives the displacement in the direction the wave is travelling. The
+  compressions correspond to the crests and the rarefactions are the troughs. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>Example:
+  sound waves in air.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+  line-height:105%;font-family:"Verdana","sans-serif";mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_13" o:spid="_x0000_i1061" type="#_x0000_t75" style='width:623.25pt;
+   height:435pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="m31_wavesB_files/image059.png" o:title="" croptop="4582f"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=831 height=580
+  src="m31_wavesB_files/image060.png" v:shapes="Picture_x0020_13"><![endif]></span><span
+  style='font-size:16.0pt;line-height:105%;font-family:"Verdana","sans-serif"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:115%'><span
+  style='font-size:16.0pt;line-height:115%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Fig. 5.<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Longitudinal
+  wave &#8211; the particle marked + moves backward and<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:115%'><span
+  style='font-size:16.0pt;line-height:115%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span class=GramE>forward</span> executing simple harmonic motion. The
+  wave advances<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:115%'><span
+  style='font-size:16.0pt;line-height:115%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;</span>1 wavelength in a time
+  interval of 1 period. The particles oscillate over<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:115%'><span
+  style='font-size:16.0pt;line-height:115%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>very small distances, whereas the wave itself propagates over much
+  larger<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:115%'><span
+  style='font-size:16.0pt;line-height:115%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span class=GramE>distances</span>. The wavelength is the distance
+  between adjacent compressions<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:115%'><span
+  style='font-size:16.0pt;line-height:115%;font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span class=GramE>or</span> between adjacent rarefactions.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:115%'><span
+  style='font-size:16.0pt;line-height:115%;font-family:"Verdana","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:115%'><span
+  style='font-size:16.0pt;line-height:115%;font-family:"Verdana","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-right:.15pt;text-align:center;
+  line-height:115%'><span style='font-size:16.0pt;line-height:115%;mso-no-proof:
+  yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_14" o:spid="_x0000_i1060"
+   type="#_x0000_t75" alt="Description: Image result for image longitudinal wave"
+   style='width:499.5pt;height:123.75pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="m31_wavesB_files/image061.gif" o:title="Image result for image longitudinal wave"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=666 height=165
+  src="m31_wavesB_files/image061.gif"
+  alt="Description: Image result for image longitudinal wave" v:shapes="Picture_x0020_14"><![endif]></span><span
+  style='font-size:16.0pt;line-height:115%;font-family:"Verdana","sans-serif"'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-right:.15pt;text-align:center;
+  line-height:115%'><span style='font-size:16.0pt;line-height:115%;font-family:
+  "Verdana","sans-serif"'><span style='mso-spacerun:yes'>&nbsp;</span>Motion
+  along a slinky<o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-right:.15pt;text-align:center;
+  line-height:115%'><span style='font-size:16.0pt;line-height:115%;font-family:
+  "Verdana","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-right:.15pt;text-align:center;
+  line-height:115%'><span style='font-size:16.0pt;line-height:115%;font-family:
+  "Verdana","sans-serif";mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_15"
+   o:spid="_x0000_i1059" type="#_x0000_t75" style='width:358.5pt;height:229.5pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="m31_wavesB_files/image062.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=478 height=306
+  src="m31_wavesB_files/image063.png" v:shapes="Picture_x0020_15"><![endif]></span><span
+  style='font-size:16.0pt;line-height:115%;font-family:"Verdana","sans-serif"'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-right:.15pt;text-align:center;
+  line-height:115%'><span style='font-size:16.0pt;line-height:115%;font-family:
+  "Verdana","sans-serif"'>Sound wave generated by a tuning fork<o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-right:.15pt;text-align:center;
+  line-height:115%'><span style='font-size:16.0pt;line-height:115%;font-family:
+  "Verdana","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-right:.15pt;text-align:center;
+  line-height:115%'><span style='font-size:16.0pt;line-height:115%;font-family:
+  "Verdana","sans-serif";mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_16"
+   o:spid="_x0000_i1058" type="#_x0000_t75" style='width:414pt;height:204.75pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="m31_wavesB_files/image064.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=552 height=273
+  src="m31_wavesB_files/image065.png" v:shapes="Picture_x0020_16"><![endif]></span><span
+  style='font-size:16.0pt;line-height:115%;font-family:"Verdana","sans-serif"'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-right:.15pt;text-align:center;
+  line-height:115%'><span style='font-size:16.0pt;line-height:115%;font-family:
+  "Verdana","sans-serif"'>Sound wave travelling through the air<o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-right:.15pt;text-align:center;
+  line-height:115%'><span style='font-size:16.0pt;line-height:115%;font-family:
+  "Verdana","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-right:.15pt;text-align:center;
+  line-height:115%'><span style='font-size:16.0pt;line-height:115%;font-family:
+  "Verdana","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-right:.15pt;text-align:center;
+  line-height:115%'><span style='font-size:16.0pt;line-height:115%;font-family:
+  "Verdana","sans-serif";mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_18"
+   o:spid="_x0000_i1057" type="#_x0000_t75" style='width:8in;height:90.75pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="m31_wavesB_files/image066.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=768 height=121
+  src="m31_wavesB_files/image066.gif" v:shapes="Picture_x0020_18"><![endif]></span><span
+  style='font-size:16.0pt;line-height:115%;font-family:"Verdana","sans-serif"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+  line-height:105%'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+line-height:105%'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:27.95pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=841 valign=top style='width:630.8pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;line-height:
+  150%;font-family:"Verdana","sans-serif";color:#7030A0'>Earthquakes<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>Both
+  transverse and longitudinal waves are produced when an earthquake occurs. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><b><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif";
+  color:#7030A0'>S waves</span></b><span style='font-size:16.0pt;line-height:
+  150%;font-family:"Verdana","sans-serif";color:#7030A0'> </span><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>(shear
+  waves) </span><span style='font-size:16.0pt;line-height:150%'><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1052" type="#_x0000_t75" style='width:11.25pt;height:12.75pt'
+   o:ole="">
+   <v:imagedata src="m31_wavesB_files/image067.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=15 height=17
+  src="m31_wavesB_files/image020.png" v:shapes="_x0000_i1052"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1052"
+    DrawAspect="Content" ObjectID="_1679313576">
+   </o:OLEObject>
+  </xml><![endif]--></span><span style='font-size:16.0pt;line-height:150%;
+  font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;</span>~ 5&nbsp;km.s<sup>-<span class=GramE>1<span
+  style='mso-spacerun:yes'>&nbsp; </span><span style='vertical-align:baseline'>&#8211;</span></span></sup><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>transverse waves that travel
+  through the body of the Earth. However, they can&#8217;t pass through the
+  liquid core of the Earth.</span><span lang=EN-US style='font-size:16.0pt;
+  line-height:150%;font-family:"Verdana","sans-serif";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><b><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif";
+  color:#7030A0'>P waves</span></b><span style='font-size:16.0pt;line-height:
+  150%;font-family:"Verdana","sans-serif";color:#7030A0'> </span><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>(pressure
+  waves) </span><span style='font-size:16.0pt;line-height:150%'><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1053" type="#_x0000_t75" style='width:11.25pt;height:12.75pt'
+   o:ole="">
+   <v:imagedata src="m31_wavesB_files/image068.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=15 height=17
+  src="m31_wavesB_files/image020.png" v:shapes="_x0000_i1053"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1053"
+    DrawAspect="Content" ObjectID="_1679313577">
+   </o:OLEObject>
+  </xml><![endif]--></span><span style='font-size:16.0pt;line-height:150%;
+  font-family:"Verdana","sans-serif"'><span
+  style='mso-spacerun:yes'>&nbsp;</span>~ 9 km.s<sup>-<span class=GramE>1<span
+  style='mso-spacerun:yes'>&nbsp; </span><span style='vertical-align:baseline'>&#8211;</span></span></sup><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>longitudinal waves that travel
+  through the body of the Earth. Only longitudinal waves can travel through a
+  fluid, because any transverse motion would experience zero restoring force
+  since a fluid is readily deformable. Since P waves are detected diametrically
+  across the Earth, but not S waves, infers that the Earth&#8217;s core must be
+  liquid.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><b><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif";
+  color:#7030A0'>L waves </span></b><span style='font-size:16.0pt;line-height:
+  150%;font-family:"Verdana","sans-serif";mso-bidi-font-weight:bold'>(surface
+  waves)</span><span style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>
+  &#8211; travel along the Earth&#8217;s surface. The motion is essentially
+  elliptical (transverse + longitudinal). These waves are mainly responsible
+  for the damage caused by earthquakes.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-right:.15pt;text-align:center;
+  line-height:150%'><span style='font-size:16.0pt;line-height:150%;font-family:
+  "Verdana","sans-serif";mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_3"
+   o:spid="_x0000_i1056" type="#_x0000_t75" style='width:363.75pt;height:129pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="m31_wavesB_files/image069.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=485 height=172
+  src="m31_wavesB_files/image070.png" v:shapes="Picture_x0020_3"><![endif]></span><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+  line-height:105%'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+line-height:105%'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:27.95pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=841 valign=top style='width:630.8pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-right:.15pt'><b style='mso-bidi-font-weight:
+  normal'><span style='font-size:16.0pt;line-height:105%;font-family:"Verdana","sans-serif";
+  color:#7030A0'>Water waves<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>A
+  water wave is a surface wave that moves along the boundary between the water
+  and the air. The motion of each water molecule at the surface is elliptical
+  and so is a combination of transverse and longitudinal motions. Below the
+  surface, the motion is only longitudinal. <o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-right:.15pt;text-align:center'><span
+  style='font-size:16.0pt;line-height:105%;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_5" o:spid="_x0000_i1055" type="#_x0000_t75" style='width:534.75pt;
+   height:268.5pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="m31_wavesB_files/image071.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=713 height=358
+  src="m31_wavesB_files/image072.png" v:shapes="Picture_x0020_5"><![endif]></span><span
+  style='font-size:16.0pt;line-height:105%'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+line-height:105%'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:27.95pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=832 valign=top style='width:22.0cm;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-right:.15pt'><b style='mso-bidi-font-weight:
+  normal'><span style='font-size:16.0pt;line-height:105%;font-family:"Verdana","sans-serif";
+  color:#7030A0'>Tsunami<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>Tsunami
+  is the name given to the very long waves on the ocean generated by
+  earthquakes or other events which suddenly displace a large volume of water.
+  &quot;Tsunami&quot; is from &quot;harbor wave&quot; in Japanese. A tsunami is
+  distinct from ordinary wind-driven ocean waves in that its source of energy
+  is a water displacement event. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>The
+  wave speeds for tsunamis are very high in deep water. The tsunami of December
+  26, 2004 travelled from near the island of Sumatra to the east coast of
+  Africa in just over seven hours. It was initiated by an earthquake of
+  magnitude 9 off the western coast of northern Sumatra.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>The
+  wave speed depends upon wavelength and the depth of the water for tsunamis at
+  sea. As waves enter shallower water, their wavelength and wave speed
+  diminishes, causing their <b style='mso-bidi-font-weight:normal'><span
+  style='color:#7030A0'>amplitudes to greatly increase</span></b>. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>Tsunami
+  waves are distinguished from ordinary ocean waves by their great length
+  between wave crests, often exceeding 100 km in the deep ocean water, and by
+  the time between these crests, ranging from 10 minutes to an hour. As they
+  reach the shallow waters of the coast, the waves slow down and the water can
+  pile up into a wall of destruction tens of meters or more in height. The
+  effect can be amplified where a bay or harbour funnels the wave as it moves
+  inland. Large tsunamis have been known to rise over 30 meters. Even a tsunami
+  3 - 6 meters high can be very destructive and cause many deaths and injuries.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt;line-height:150%'><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Verdana","sans-serif"'>Some
+  tsunamis consist of a single crest while others develop a broad trough in
+  advance of the main wave and a succession of smaller waves behind. It is the
+  preceding trough, together with man's curiosity, that has been the cause of
+  much loss of life. People attracted by the very low water as the tsunami
+  approaches have gone out to walk on the newly exposed sea floor and have been
+  drowned as the rising pulse flooded shoreward.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+  line-height:105%;font-family:"Verdana","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+  line-height:105%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Depth of
+  water (m)<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>10<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>50<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>200<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>2000<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>4000<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>7000<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+  line-height:105%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Velocity
+  (km.h<sup>-1</sup> )<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>40<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>80<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>160<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>500<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>700<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='mso-spacerun:yes'>&nbsp;</span>950<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+  line-height:105%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Wavelength
+  (km)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>10<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>20<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>50<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>150<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>200<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>280<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+  line-height:105%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+  line-height:105%'><span style='mso-spacerun:yes'>&nbsp;&nbsp; </span><b
+  style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:normal'><span
+  style='color:#7030A0'>amazing numbers !!!</span></i></b><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+  line-height:105%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-right:.15pt;text-align:center'><span
+  style='font-size:16.0pt;line-height:105%;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_6" o:spid="_x0000_i1054" type="#_x0000_t75" style='width:523.5pt;
+   height:156pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="m31_wavesB_files/image073.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=698 height=208
+  src="m31_wavesB_files/image074.png" v:shapes="Picture_x0020_6"><![endif]></span><span
+  style='font-size:16.0pt;line-height:105%'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+line-height:105%'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+line-height:105%'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+line-height:105%'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:27.95pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=841 valign=top style='width:630.8pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+  line-height:105%'><a
+  href="https://d-arora.github.io/Doing-Physics-With-Matlab/">Doing Physics
+  with Matlab<o:p></o:p></a></span></p>
+  <p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+  line-height:105%'><a
+  href="https://drive.google.com/drive/u/3/folders/1j09aAhfrVYpiMavajrgSvUMc89ksF9Jb">Download
+  <span class=SpellE>mscripts</span><o:p></o:p></a></span></p>
+  <p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+  line-height:105%'>Animation produced with <span class=SpellE><b
+  style='mso-bidi-font-weight:normal'><span style='color:#843C0C;mso-themecolor:
+  accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>wm_travelling.m</span></b></span><b style='mso-bidi-font-weight:
+  normal'><span style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:
+  128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'><o:p></o:p></span></b></span></p>
+  <p class=MsoNormal style='margin-right:.15pt'><b style='mso-bidi-font-weight:
+  normal'><span style='font-size:16.0pt;line-height:105%;color:#843C0C;
+  mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span style='font-size:16.0pt;
+  line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'>If
+  you have any feedback, comments, suggestions or corrections please email:</span><span
+  style='font-size:16.0pt;line-height:150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='font-size:16.0pt;
+  line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'>Ian
+  Cooper<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;</span>matlabvisualphysics@gmail.com<b
+  style='mso-bidi-font-weight:normal'><span style='color:#385623;mso-themecolor:
+  accent6;mso-themeshade:128'><o:p></o:p></span></b></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+line-height:105%'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+line-height:105%'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-right:.15pt'><span style='font-size:16.0pt;
+line-height:105%'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+</body>
+
+</html>
