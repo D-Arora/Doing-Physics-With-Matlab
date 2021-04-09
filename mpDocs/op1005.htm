@@ -1,0 +1,1879 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 14">
+<meta name=Originator content="Microsoft Word 14">
+<base target="_blank">
+<link rel=File-List href="op1005_files/filelist.xml">
+<link rel=Edit-Time-Data href="op1005_files/editdata.mso">
+<link rel=OLE-Object-Data href="op1005_files/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Matlab Physics</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Ian Cooper</o:Author>
+  <o:Keywords>electromagnetic waves, Jones vectors,  Jones matrices, polarization, light polarization, Matlab physics, computational physics, optics, electromagnetism</o:Keywords>
+  <o:Description>op1.pptx&#13;&#10;op_003.m&#13;&#10;</o:Description>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Owner</o:LastAuthor>
+  <o:Revision>25</o:Revision>
+  <o:TotalTime>1688</o:TotalTime>
+  <o:Created>2018-11-13T20:57:00Z</o:Created>
+  <o:LastSaved>2021-04-09T09:18:00Z</o:LastSaved>
+  <o:Pages>11</o:Pages>
+  <o:Words>1246</o:Words>
+  <o:Characters>7104</o:Characters>
+  <o:Category>Polarization</o:Category>
+  <o:Lines>59</o:Lines>
+  <o:Paragraphs>16</o:Paragraphs>
+  <o:CharactersWithSpaces>8334</o:CharactersWithSpaces>
+  <o:Version>14.00</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+<link rel=themeData href="op1005_files/themedata.thmx">
+<link rel=colorSchemeMapping href="op1005_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>125</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-AU</w:LidThemeOther>
+  <w:LidThemeAsian>ZH-CN</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" QFormat="true" Name="Hyperlink"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-469750017 -1073732485 9 0 511 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-520081665 -1073717157 41 0 66047 0;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:modern;
+	mso-font-pitch:fixed;
+	mso-font-signature:-536869121 64767 1 0 415 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:150%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-bidi-font-family:Calibri;
+	mso-bidi-theme-font:minor-latin;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	mso-style-qformat:yes;
+	mso-ansi-font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-hansi-font-family:Calibri;
+	mso-bidi-font-family:Calibri;
+	color:blue;
+	mso-text-animation:none;
+	text-decoration:none;
+	text-underline:none;
+	text-decoration:none;
+	text-line-through:none;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:#954F72;
+	mso-themecolor:followedhyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+pre
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"HTML Preformatted Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Balloon Text Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+span.HTMLPreformattedChar
+	{mso-style-name:"HTML Preformatted Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"HTML Preformatted";
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";
+	mso-ansi-language:EN-US;}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{mso-style-name:msonormal;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+span.s41
+	{mso-style-name:s41;
+	mso-style-unhide:no;
+	color:forestgreen;}
+span.s0
+	{mso-style-name:s0;
+	mso-style-unhide:no;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Balloon Text";
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-ascii-font-family:Tahoma;
+	mso-hansi-font-family:Tahoma;
+	mso-bidi-font-family:Tahoma;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:16.0pt;
+	mso-ansi-font-size:16.0pt;
+	mso-bidi-font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-bidi-font-family:Calibri;
+	mso-bidi-theme-font:minor-latin;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-bidi-font-family:Calibri;
+	mso-bidi-theme-font:minor-latin;}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-priority:39;
+	mso-style-unhide:no;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-bidi-font-family:Calibri;
+	mso-bidi-theme-font:minor-latin;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-AU link=blue vlink="#954F72" style='tab-interval:36.0pt'>
+
+<div class=WordSection1>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:13.8pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=821 valign=top style='width:615.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:22.0pt;mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;color:blue'><a
+  href="https://d-arora.github.io/Doing-Physics-With-Matlab/"><span
+  style='mso-ansi-font-size:22.0pt;line-height:150%'>DOING PHYSICS WITH MATLAB</span><span
+  style='mso-ansi-font-size:22.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'><o:p></o:p></span></a></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:20.0pt;mso-bidi-font-size:
+  16.0pt;line-height:150%;color:blue'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal align=center style='text-align:center'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:20.0pt;mso-bidi-font-size:
+  16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";color:#C55A11;
+  mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>NUMERICAL ANALYSIS
+  OF OPTICAL AND ELECTROMAGNETIC PHENOMENA<o:p></o:p></span></b></p>
+  <p class=MsoNormal align=center style='text-align:center'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:20.0pt;mso-bidi-font-size:
+  16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";color:#843C0C;
+  mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>MATLAB EXERCISES:
+  POLARIZED LIGHT</span></b><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:20.0pt;mso-bidi-font-size:16.0pt;line-height:150%;
+  font-family:"Bookman Old Style","serif";color:#C55A11;mso-themecolor:accent2;
+  mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'><o:p></o:p></span></b></p>
+  <p class=MsoNormal><span style='mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+  minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin'>Ian
+  Cooper<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+  minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin'>matlabvisulaphysics@gmail.com<o:p></o:p></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:20.0pt;mso-bidi-font-size:16.0pt;line-height:150%;
+  font-family:"Bookman Old Style","serif";color:#C55A11;mso-themecolor:accent2;
+  mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:18.0pt;mso-bidi-font-size:16.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;color:blue'><a
+  href="https://drive.google.com/drive/u/3/folders/1j09aAhfrVYpiMavajrgSvUMc89ksF9Jb"><span
+  style='mso-ansi-font-size:18.0pt;line-height:150%'>Matlab Script Download</span><span
+  style='mso-ansi-font-size:18.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'> Directory</span><span style='font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'><o:p></o:p></span></a></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #843C0C;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>op_003.m</span><o:p></o:p></b></p>
+  <p class=MsoNormal style='line-height:115%'>Animation to show the
+  polarization of light in an XY plane for a light wave propagating in the +Z
+  direction (direction out of the screen, so that you are looking back at the
+  source). The Jones vector parameters A<sub>1</sub>, B<sub>1</sub> and C<sub>1</sub>
+  are entered in the INPUT section of the Script. In the CALCULATION section of
+  the Script, the normalized Jones parameters A, B, and C for the Jones vector
+  and the X and Y components of the electric field are calculated. The state of
+  polarization of light is characterised by an elliptical orbit as shown in an
+  animated graphical plot. The animation can be saved as an animated gif file
+  by setting the variable <span class=SpellE><span style='color:#843C0C;
+  mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>flagS</span></span><span
+  style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #843C0C;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'> = 1</span>. The
+  Script calls the function <span class=SpellE><b style='mso-bidi-font-weight:
+  normal'><span style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:
+  128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>arrow.m</span></b></span><span style='color:#843C0C;mso-themecolor:
+  accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'> </span>to draw the electric field vector.</p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #843C0C;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>op_005.m</span><o:p></o:p></b></p>
+  <p class=MsoNormal>Animation of electric field vector in space and time.</p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #843C0C;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>op_004.m</span><o:p></o:p></b></p>
+  <p class=MsoNormal>Animation of polarized light incident upon optical
+  elements, and the emergent polarized light. The incident polarized light is
+  specified by its Jones Vector and optical elements by their Jones Matrices.
+  The emergent polarized light is given by its normalized Jones Vector.</p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal>Many of the exercise are based on problems from <i
+  style='mso-bidi-font-style:normal'>Introduction to Optics</i>, F.L. Pedrotti
+  and L.S. Pedrotti.</p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>Exercise 1 <o:p></o:p></span></b></p>
+  <p class=MsoNormal>What are the normalized Jones Vectors for each of the
+  following EM waves and give their mode of polarization of each.</p>
+  <p class=MsoNormal>1.1<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><a name=MTBlankEqn><span style='position:relative;top:8.0pt;
+  mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+   coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+   filled="f" stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:273pt;
+   height:26.25pt' o:ole="">
+   <v:imagedata src="op1005_files/image001.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=364 height=35
+  src="op1005_files/image002.png" v:shapes="_x0000_i1025"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1025"
+    DrawAspect="Content" ObjectID="_1679501225">
+   </o:OLEObject>
+  </xml><![endif]--></a></p>
+  <p class=MsoNormal>1.2<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1026" type="#_x0000_t75" style='width:366.75pt;height:26.25pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image003.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=489 height=35
+  src="op1005_files/image004.png" v:shapes="_x0000_i1026"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1026"
+    DrawAspect="Content" ObjectID="_1679501226">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal>1.3<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1027" type="#_x0000_t75" style='width:315.75pt;height:26.25pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image005.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=421 height=35
+  src="op1005_files/image006.png" v:shapes="_x0000_i1027"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1027"
+    DrawAspect="Content" ObjectID="_1679501227">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal>1.4<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1028" type="#_x0000_t75" style='width:312pt;height:26.25pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image007.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=416 height=35
+  src="op1005_files/image008.png" v:shapes="_x0000_i1028"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1028"
+    DrawAspect="Content" ObjectID="_1679501228">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>Solution 1<o:p></o:p></span></b></p>
+  <p class=MsoNormal>We need to make use of the following</p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:12.0pt;mso-text-raise:-12.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1029" type="#_x0000_t75" style='width:204.75pt;height:32.25pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image009.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=273 height=43
+  src="op1005_files/image010.png" v:shapes="_x0000_i1029"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1029"
+    DrawAspect="Content" ObjectID="_1679501229">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1030" type="#_x0000_t75" style='width:114pt;height:24.75pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image011.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=152 height=33
+  src="op1005_files/image012.png" v:shapes="_x0000_i1030"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1030"
+    DrawAspect="Content" ObjectID="_1679501230">
+   </o:OLEObject>
+  </xml><![endif]--><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='position:relative;top:9.0pt;mso-text-raise:-9.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1031" type="#_x0000_t75" style='width:138pt;height:27pt' o:ole="">
+   <v:imagedata src="op1005_files/image013.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=184 height=36
+  src="op1005_files/image014.png" v:shapes="_x0000_i1031"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1031"
+    DrawAspect="Content" ObjectID="_1679501231">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:23.0pt;mso-text-raise:-23.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1032" type="#_x0000_t75" style='width:180.75pt;height:54pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image015.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=241 height=72
+  src="op1005_files/image016.png" v:shapes="_x0000_i1032"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1032"
+    DrawAspect="Content" ObjectID="_1679501232">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:9.0pt;mso-text-raise:-9.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1033" type="#_x0000_t75" style='width:57.75pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image017.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=77 height=32
+  src="op1005_files/image018.png" v:shapes="_x0000_i1033"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1033"
+    DrawAspect="Content" ObjectID="_1679501233">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:9.0pt;mso-text-raise:-9.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1034" type="#_x0000_t75" style='width:459.75pt;height:27pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image019.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=613 height=36
+  src="op1005_files/image020.png" v:shapes="_x0000_i1034"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1034"
+    DrawAspect="Content" ObjectID="_1679501234">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal>The <b style='mso-bidi-font-weight:normal'><span
+  style='color:#7030A0'>normalized Jones </span></b>vector is defined as</p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:28.0pt;mso-text-raise:-28.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1035" type="#_x0000_t75" style='width:317.25pt;height:59.25pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image021.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=423 height=79
+  src="op1005_files/image022.png" v:shapes="_x0000_i1035"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1035"
+    DrawAspect="Content" ObjectID="_1679501235">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:23.0pt;mso-text-raise:-23.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1036" type="#_x0000_t75" style='width:168pt;height:54pt' o:ole="">
+   <v:imagedata src="op1005_files/image023.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=224 height=72
+  src="op1005_files/image024.png" v:shapes="_x0000_i1036"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1036"
+    DrawAspect="Content" ObjectID="_1679501236">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal>where</p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:18.0pt;mso-text-raise:-18.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1037" type="#_x0000_t75" style='width:458.25pt;height:44.25pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image025.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=611 height=59
+  src="op1005_files/image026.png" v:shapes="_x0000_i1037"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1037"
+    DrawAspect="Content" ObjectID="_1679501237">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal>Given <span style='position:relative;top:7.0pt;mso-text-raise:
+  -7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1038" type="#_x0000_t75"
+   style='width:26.25pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op1005_files/image027.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=35 height=29
+  src="op1005_files/image028.png" v:shapes="_x0000_i1038"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1038"
+    DrawAspect="Content" ObjectID="_1679501238">
+   </o:OLEObject>
+  </xml><![endif]-->and <span style='position:relative;top:9.0pt;mso-text-raise:
+  -9.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1039" type="#_x0000_t75"
+   style='width:45.75pt;height:27pt' o:ole="">
+   <v:imagedata src="op1005_files/image029.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=61 height=36
+  src="op1005_files/image030.png" v:shapes="_x0000_i1039"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1039"
+    DrawAspect="Content" ObjectID="_1679501239">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;&nbsp;</span>you can
+  use the Matlab Live Editor <b style='mso-bidi-font-weight:normal'><span
+  style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #843C0C;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>opLE005.mlx</span></b><span
+  style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #843C0C;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'> </span>to
+  calculate the Jones Vectors and the Script <b style='mso-bidi-font-weight:
+  normal'><span style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:
+  128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>op_003.m</span></b><span style='color:#843C0C;mso-themecolor:
+  accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'> </span>or <b style='mso-bidi-font-weight:normal'><span
+  style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #843C0C;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>op_005.m</span></b><span
+  style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #843C0C;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'> </span>to view
+  the state of the polarization.</p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal>1.1<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>linearly polarized at -45<sup>o</sup></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;line-height:
+  115%;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";color:forestgreen;mso-ansi-language:
+  EN-US'>% INPUTS</span><span lang=EN-US style='font-size:10.5pt;line-height:
+  115%;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";color:black;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;line-height:
+  115%;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";color:black;mso-ansi-language:EN-US'>E0x
+  = 1;<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;line-height:
+  115%;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";color:black;mso-ansi-language:EN-US'>E0y
+  = -1;<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;line-height:
+  115%;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";color:black;mso-ansi-language:EN-US'>phi
+  = 0;<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;line-height:
+  115%;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";color:forestgreen;mso-ansi-language:
+  EN-US'>% OUPUTS</span><span lang=EN-US style='font-size:10.5pt;line-height:
+  115%;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";color:black;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;line-height:
+  115%;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";color:black;mso-ansi-language:EN-US'>A1
+  = E0x<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;line-height:
+  115%;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";color:black;mso-ansi-language:EN-US'>B1
+  = E0y * cos(phi)<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;line-height:
+  115%;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";color:black;mso-ansi-language:EN-US'>C1
+  = E0y * sin(phi)<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;line-height:
+  115%;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";color:black;mso-ansi-language:EN-US'>N
+  = sqrt(A1^2 + B1^2 + C1^2)<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;line-height:
+  115%;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";color:black;mso-ansi-language:EN-US'>A
+  = A1/N<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;line-height:
+  115%;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";color:black;mso-ansi-language:EN-US'>B
+  = B1/N<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:7.5pt;line-height:115%;background:
+  #F7F7F7'><span lang=EN-US style='font-size:10.5pt;line-height:115%;
+  font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+  "Times New Roman";color:black;mso-ansi-language:EN-US'>C = C1/N<o:p></o:p></span></p>
+  <pre style='line-height:115%'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>A1 = 1</pre>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+  lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New";
+  mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;</span>B1 = -1<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+  lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New";
+  mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>C1 = 0<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+  lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New";
+  mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>N = 1.4142<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+  lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New";
+  mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>A = 0.7071<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+  lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New";
+  mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>B = -0.7071<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+  lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New";
+  mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>C = 0<o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_16"
+   o:spid="_x0000_i1096" type="#_x0000_t75" style='width:425.25pt;height:303.75pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op1005_files/image031.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=567 height=405
+  src="op1005_files/image031.gif" v:shapes="Picture_x0020_16"><![endif]></span></p>
+  <p class=MsoNormal>1.2<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>linearly polarized at +45<sup>o</sup></p>
+  <p class=MsoNormal><span style='position:relative;top:9.0pt;mso-text-raise:
+  -9.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1040" type="#_x0000_t75"
+   style='width:156pt;height:24pt' o:ole="">
+   <v:imagedata src="op1005_files/image032.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=208 height=32
+  src="op1005_files/image033.png" v:shapes="_x0000_i1040"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1040"
+    DrawAspect="Content" ObjectID="_1679501240">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_18"
+   o:spid="_x0000_i1095" type="#_x0000_t75" style='width:425.25pt;height:303.75pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op1005_files/image034.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=567 height=405
+  src="op1005_files/image034.gif" v:shapes="Picture_x0020_18"><![endif]></span></p>
+  <p class=MsoNormal>1.3<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>right elliptical polarization</p>
+  <p class=MsoNormal><span style='position:relative;top:9.0pt;mso-text-raise:
+  -9.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1041" type="#_x0000_t75"
+   style='width:197.25pt;height:24pt' o:ole="">
+   <v:imagedata src="op1005_files/image035.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=263 height=32
+  src="op1005_files/image036.png" v:shapes="_x0000_i1041"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1041"
+    DrawAspect="Content" ObjectID="_1679501241">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_20"
+   o:spid="_x0000_i1094" type="#_x0000_t75" style='width:425.25pt;height:303.75pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op1005_files/image037.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=567 height=405
+  src="op1005_files/image037.gif" v:shapes="Picture_x0020_20"><![endif]></span></p>
+  <p class=MsoNormal>1.4<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>left circularly polarized</p>
+  <p class=MsoNormal><span style='position:relative;top:9.0pt;mso-text-raise:
+  -9.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1042" type="#_x0000_t75"
+   style='width:177pt;height:24pt' o:ole="">
+   <v:imagedata src="op1005_files/image038.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=236 height=32
+  src="op1005_files/image039.png" v:shapes="_x0000_i1042"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1042"
+    DrawAspect="Content" ObjectID="_1679501242">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_22"
+   o:spid="_x0000_i1093" type="#_x0000_t75" style='width:425.25pt;height:303.75pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op1005_files/image040.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=567 height=405
+  src="op1005_files/image040.gif" v:shapes="Picture_x0020_22"><![endif]></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>Exercise 2<o:p></o:p></span></b></p>
+  <p class=MsoNormal>For each EM wave give its amplitude, propagation direction
+  and mode of polarization.</p>
+  <p class=MsoNormal>2.1<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:9.0pt;mso-text-raise:-9.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1043" type="#_x0000_t75" style='width:170.25pt;height:27pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image041.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=227 height=36
+  src="op1005_files/image042.png" v:shapes="_x0000_i1043"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1043"
+    DrawAspect="Content" ObjectID="_1679501243">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal>2.2<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:12.0pt;mso-text-raise:-12.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1044" type="#_x0000_t75" style='width:201.75pt;height:32.25pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image043.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=269 height=43
+  src="op1005_files/image044.png" v:shapes="_x0000_i1044"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1044"
+    DrawAspect="Content" ObjectID="_1679501244">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal>2.3<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:12.0pt;mso-text-raise:-12.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1045" type="#_x0000_t75" style='width:234.75pt;height:32.25pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image045.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=313 height=43
+  src="op1005_files/image046.png" v:shapes="_x0000_i1045"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1045"
+    DrawAspect="Content" ObjectID="_1679501245">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>Solutions 2</span><o:p></o:p></b></p>
+  <p class=MsoNormal>You Scripts <b style='mso-bidi-font-weight:normal'><span
+  style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #843C0C;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>opLE005.mlx</span></b><span
+  style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #843C0C;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'> </span>and <b
+  style='mso-bidi-font-weight:normal'><span style='color:#843C0C;mso-themecolor:
+  accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>op_003.m </span></b>or<b style='mso-bidi-font-weight:normal'><span
+  style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #843C0C;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'> op_005.m</span></b></p>
+  <p class=MsoNormal>2.1</p>
+  <p class=MsoNormal><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:9.0pt;mso-text-raise:-9.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1046" type="#_x0000_t75" style='width:161.25pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image047.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=215 height=32
+  src="op1005_files/image048.png" v:shapes="_x0000_i1046"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1046"
+    DrawAspect="Content" ObjectID="_1679501246">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>Amplitude
+  = 3.00<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>travelling in +Z direction<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>linearly polarized
+  in X-direction</p>
+  <p class=MsoNormal>2.2</p>
+  <p class=MsoNormal><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:9.0pt;mso-text-raise:-9.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1047" type="#_x0000_t75" style='width:161.25pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image049.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=215 height=32
+  src="op1005_files/image050.png" v:shapes="_x0000_i1047"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1047"
+    DrawAspect="Content" ObjectID="_1679501247">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><span style='mso-spacerun:yes'>&nbsp;&nbsp;
+  </span>Amplitude = 3.61<span style='mso-spacerun:yes'>&nbsp;
+  </span>travelling in +Z direction<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>linearly polarized at 56.3<sup>o</sup>
+  in X-direction</p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_13"
+   o:spid="_x0000_i1092" type="#_x0000_t75" style='width:425.25pt;height:303.75pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op1005_files/image051.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=567 height=405
+  src="op1005_files/image051.gif" v:shapes="Picture_x0020_13"><![endif]></span></p>
+  <p class=MsoNormal>2.3<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:9.0pt;mso-text-raise:-9.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1048" type="#_x0000_t75" style='width:192pt;height:24pt' o:ole="">
+   <v:imagedata src="op1005_files/image052.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=256 height=32
+  src="op1005_files/image053.png" v:shapes="_x0000_i1048"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1048"
+    DrawAspect="Content" ObjectID="_1679501248">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal>Amplitude = 5.00<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>travelling in +Z direction<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>right elliptical polarized
+  </p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_14"
+   o:spid="_x0000_i1091" type="#_x0000_t75" style='width:425.25pt;height:303.75pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op1005_files/image054.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=567 height=405
+  src="op1005_files/image054.gif" v:shapes="Picture_x0020_14"><![endif]></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>Exercise 3</span><o:p></o:p></b></p>
+  <p class=MsoNormal>Two linearly polarized beans are given by </p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:12.0pt;mso-text-raise:-12.0pt;
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_31" o:spid="_x0000_i1090"
+   type="#_x0000_t75" style='width:224.25pt;height:32.25pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="op1005_files/image055.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=299 height=43
+  src="op1005_files/image056.png" v:shapes="Picture_x0020_31"><![endif]></span></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:12.0pt;mso-text-raise:-12.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1049" type="#_x0000_t75" style='width:228pt;height:32.25pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image057.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=304 height=43
+  src="op1005_files/image058.png" v:shapes="_x0000_i1049"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1049"
+    DrawAspect="Content" ObjectID="_1679501249">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal>What is the angle between the two planes of polarization?</p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>Solution 3</span><o:p></o:p></b></p>
+  <p class=MsoNormal>We can run the Script <b style='mso-bidi-font-weight:normal'><span
+  style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #843C0C;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>op_003.m</span></b><span
+  style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #843C0C;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'> </span>for both
+  waves and determines the angles of inclination of each electric field vector.
+  Note the constants <span style='position:relative;top:7.0pt;mso-text-raise:
+  -7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1050" type="#_x0000_t75"
+   style='width:27.75pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op1005_files/image059.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=37 height=29
+  src="op1005_files/image060.png" v:shapes="_x0000_i1050"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1050"
+    DrawAspect="Content" ObjectID="_1679501250">
+   </o:OLEObject>
+  </xml><![endif]-->and <span style='position:relative;top:7.0pt;mso-text-raise:
+  -7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1051" type="#_x0000_t75"
+   style='width:24.75pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op1005_files/image061.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=33 height=29
+  src="op1005_files/image062.png" v:shapes="_x0000_i1051"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1051"
+    DrawAspect="Content" ObjectID="_1679501251">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>only affect the
+  amplitudes and do not affect the directions of the plane of polarization, so
+  we can <span class=GramE>take </span><span style='position:relative;
+  top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1052"
+   type="#_x0000_t75" style='width:86.25pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op1005_files/image063.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=115 height=29
+  src="op1005_files/image064.png" v:shapes="_x0000_i1052"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1052"
+    DrawAspect="Content" ObjectID="_1679501252">
+   </o:OLEObject>
+  </xml><![endif]-->.<span style='mso-spacerun:yes'>&nbsp; </span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_15"
+   o:spid="_x0000_i1089" type="#_x0000_t75" style='width:425.25pt;height:303.75pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op1005_files/image065.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=567 height=405
+  src="op1005_files/image065.gif" v:shapes="Picture_x0020_15"><![endif]></span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_17"
+   o:spid="_x0000_i1088" type="#_x0000_t75" style='width:425.25pt;height:303.75pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op1005_files/image066.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=567 height=405
+  src="op1005_files/image066.gif" v:shapes="Picture_x0020_17"><![endif]></span></p>
+  <p class=MsoNormal><span style='position:relative;top:7.0pt;mso-text-raise:
+  -7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1053" type="#_x0000_t75"
+   style='width:332.25pt;height:24.75pt' o:ole="">
+   <v:imagedata src="op1005_files/image067.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=443 height=33
+  src="op1005_files/image068.png" v:shapes="_x0000_i1053"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1053"
+    DrawAspect="Content" ObjectID="_1679501253">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal>The angle between two vectors can be determined from the <b
+  style='mso-bidi-font-weight:normal'><span style='color:#7030A0'>dot product</span></b><span
+  style='color:#7030A0'> </span>of the two vectors</p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:19.0pt;mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1054" type="#_x0000_t75" style='width:297.75pt;height:45.75pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image069.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=397 height=61
+  src="op1005_files/image070.png" v:shapes="_x0000_i1054"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1054"
+    DrawAspect="Content" ObjectID="_1679501255">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal>The two vectors for the calculation are the Jones Vector
+  for each EM wave. The calculation can be done using the Live editor <span
+  class=GramE>Script<span style='mso-spacerun:yes'>&nbsp; </span><b
+  style='mso-bidi-font-weight:normal'><span style='color:#843C0C;mso-themecolor:
+  accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>opLE005.m</span></b></span>. The dot product is calculated using
+  the Matlab function <b style='mso-bidi-font-weight:normal'><span
+  style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #843C0C;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>dot </span></b>and
+  the magnitude of a vector is found using the <b style='mso-bidi-font-weight:
+  normal'><span style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:
+  128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>norm</span></b> function.</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  12.9pt;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;
+  font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+  "Times New Roman";color:black;mso-ansi-language:EN-US'>E10x = 2;<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  12.9pt;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;
+  font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+  "Times New Roman";color:black;mso-ansi-language:EN-US'>E10y = -1;<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  12.9pt;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;
+  font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+  "Times New Roman";color:black;mso-ansi-language:EN-US'>phi1 = 0;<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  12.9pt;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;
+  font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+  "Times New Roman";color:black;mso-ansi-language:EN-US'>E20x = 1;<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  12.9pt;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;
+  font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+  "Times New Roman";color:black;mso-ansi-language:EN-US'>E20y = 4;<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  12.9pt;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;
+  font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+  "Times New Roman";color:black;mso-ansi-language:EN-US'>phi2 = 0;<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  12.9pt;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;
+  font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+  "Times New Roman";color:black;mso-ansi-language:EN-US'>A1 = E10x<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  12.9pt;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;
+  font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+  "Times New Roman";color:black;mso-ansi-language:EN-US'>B1 = E10y * cos(phi1)<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  12.9pt;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;
+  font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+  "Times New Roman";color:black;mso-ansi-language:EN-US'>C1 = E10y * sin(phi1)<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  12.9pt;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;
+  font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+  "Times New Roman";color:black;mso-ansi-language:EN-US'>V1 = [A1; B1+1i*C1]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  12.9pt;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;
+  font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+  "Times New Roman";color:black;mso-ansi-language:EN-US'>A2 = E20x<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  12.9pt;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;
+  font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+  "Times New Roman";color:black;mso-ansi-language:EN-US'>B2 = E20y * cos(phi2)<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  12.9pt;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;
+  font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+  "Times New Roman";color:black;mso-ansi-language:EN-US'>C2 = E20y * sin(phi2)<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  12.9pt;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;
+  font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+  "Times New Roman";color:black;mso-ansi-language:EN-US'>V2 = [A2; B2+1i*C2]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  12.9pt;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;
+  font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+  "Times New Roman";color:black;mso-ansi-language:EN-US'>V1dotV2 = dot(V1,V2)<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  12.9pt;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;
+  font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+  "Times New Roman";color:black;mso-ansi-language:EN-US'>magV1 = norm(V1)<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  12.9pt;background:#F7F7F7'><span lang=EN-US style='font-size:10.5pt;
+  font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+  "Times New Roman";color:black;mso-ansi-language:EN-US'>magV2 = norm(V2)<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:7.5pt;line-height:12.9pt;background:
+  #F7F7F7'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+  mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman";
+  color:black;mso-ansi-language:EN-US'>theta = <span class=SpellE>acosd</span>(V1dotV2/(magV1*magV2))<o:p></o:p></span></p>
+  <pre style='margin-left:22.75pt'>A1 = 2</pre><pre style='margin-left:22.75pt'>B1 = -1</pre><pre
+  style='margin-left:22.75pt'>C1 = 0</pre><pre style='margin-left:22.75pt'>V1 = <span
+  style='font-size:9.0pt;font-family:Consolas;color:#B3B3B3'>2&times;1</span></pre><pre
+  style='margin-left:22.75pt'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>2</pre><pre
+  style='margin-left:22.75pt'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>-1</pre><pre
+  style='margin-left:22.75pt'>A2 = 1</pre><pre style='margin-left:22.75pt'>B2 = 4</pre><pre
+  style='margin-left:22.75pt'>C2 = 0</pre><pre style='margin-left:22.75pt'>V2 = <span
+  style='font-size:9.0pt;font-family:Consolas;color:#B3B3B3'>2&times;1</span></pre><pre
+  style='margin-left:22.75pt'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>1</pre><pre
+  style='margin-left:22.75pt'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>4</pre><pre
+  style='margin-left:22.75pt'>V1dotV2 = -2</pre><pre style='margin-left:22.75pt'>magV1 = 2.2361</pre><pre
+  style='margin-left:22.75pt'>magV2 = 4.1231</pre><pre style='margin-left:22.75pt'>theta = 102.5288</pre>
+  <p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>So, the
+  angle between the plane of polarization is 102.5<sup>o</sup>.<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000;mso-ansi-language:
+  EN-US'>Exercise 4</span></b><b style='mso-bidi-font-weight:normal'><span
+  lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></b></p>
+  <p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>A light
+  beam which is linearly polarized vertically is incident upon a series of
+  optical elements: a half-wave plate with its fast axis at 45<sup>o</sup>;
+  then a linear polarizer with transmission axis at 45<sup>o</sup>; and then a
+  quarter-wave plate with its fast axis horizontal. Find the state of
+  polarization as the light passes through each optical element.<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000;mso-ansi-language:
+  EN-US'>Solution 4<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></b><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+  style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #843C0C;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;mso-ansi-language:
+  EN-US'>op_004.m</span></b><b style='mso-bidi-font-weight:normal'><span
+  lang=EN-US style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;
+  mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000;mso-ansi-language:EN-US'><o:p></o:p></span></b></p>
+  <p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>We need
+  to take the fast axis of the half-wave plate to be horizontal. So, we can
+  rotate the half-wave plate by -45<sup>o</sup> and the rotate the plane of the
+  incident vertical polarized light also by 45<sup>o</sup>. After passing
+  through the half-wave plate, we rotate the plane of polarization through an
+  angle of +45<sup>o</sup>. We then consider the linear polarizer with TA at 45<sup>o</sup>
+  and then the quarter-wave plate.<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Rotation of vertical polarized light by -45<sup>o</sup><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='position:relative;top:20.0pt;mso-text-raise:-20.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1055" type="#_x0000_t75" style='width:219.75pt;height:48pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image071.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=293 height=64
+  src="op1005_files/image072.png" v:shapes="_x0000_i1055"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1055"
+    DrawAspect="Content" ObjectID="_1679501256">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:20.0pt;mso-text-raise:-20.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1056" type="#_x0000_t75" style='width:182.25pt;height:48pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image073.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=243 height=64
+  src="op1005_files/image074.png" v:shapes="_x0000_i1056"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1056"
+    DrawAspect="Content" ObjectID="_1679501257">
+   </o:OLEObject>
+  </xml><![endif]--><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>linear polarized
+  at 45<sup>o</sup></span></p>
+  <p class=MsoNormal><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_42" o:spid="_x0000_i1087" type="#_x0000_t75" style='width:604.5pt;
+   height:270pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op1005_files/image075.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=806 height=360
+  src="op1005_files/image075.gif" v:shapes="Picture_x0020_42"><![endif]></span></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Half-wave plate (fast axis horizontal)</p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:20.0pt;mso-text-raise:-20.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1057" type="#_x0000_t75" style='width:209.25pt;height:48pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image076.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=279 height=64
+  src="op1005_files/image077.png" v:shapes="_x0000_i1057"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1057"
+    DrawAspect="Content" ObjectID="_1679501258">
+   </o:OLEObject>
+  </xml><![endif]--><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>linear polarized
+  at -45<sup>o</sup></span></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_2"
+   o:spid="_x0000_i1086" type="#_x0000_t75" style='width:604.5pt;height:270pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op1005_files/image078.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=806 height=360
+  src="op1005_files/image078.gif" v:shapes="Picture_x0020_2"><![endif]></span></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Rotate plane of polarization by +45<sup>o</sup></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:20.0pt;mso-text-raise:-20.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1058" type="#_x0000_t75" style='width:210pt;height:48pt' o:ole="">
+   <v:imagedata src="op1005_files/image079.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=280 height=64
+  src="op1005_files/image080.png" v:shapes="_x0000_i1058"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1058"
+    DrawAspect="Content" ObjectID="_1679501259">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:20.0pt;mso-text-raise:-20.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1059" type="#_x0000_t75" style='width:270.75pt;height:48pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image081.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=361 height=64
+  src="op1005_files/image082.png" v:shapes="_x0000_i1059"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1059"
+    DrawAspect="Content" ObjectID="_1679501260">
+   </o:OLEObject>
+  </xml><![endif]--><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>horizontal linear
+  polarized </span></p>
+  <p class=MsoNormal><span style='mso-spacerun:yes'>&nbsp;</span><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_3"
+   o:spid="_x0000_i1085" type="#_x0000_t75" style='width:604.5pt;height:270pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op1005_files/image083.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=806 height=360
+  src="op1005_files/image083.gif" v:shapes="Picture_x0020_3"><![endif]></span></p>
+  <p class=MsoNormal>The half-plate oriented at 45<sup>o</sup> changes the
+  polarization from vertical to horizontal.</p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Linear polarizer TA at 45<sup>o<o:p></o:p></sup></p>
+  <p class=MsoNormal><sup><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></sup><span style='position:relative;top:20.0pt;mso-text-raise:-20.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1060" type="#_x0000_t75" style='width:264.75pt;height:48pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image084.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=353 height=64
+  src="op1005_files/image085.png" v:shapes="_x0000_i1060"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1060"
+    DrawAspect="Content" ObjectID="_1679501261">
+   </o:OLEObject>
+  </xml><![endif]--><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>linear polarized
+  at 45<sup>o</sup></span></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Quarter wave plate (fast axis horizontal)</p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:20.0pt;mso-text-raise:-20.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1061" type="#_x0000_t75" style='width:182.25pt;height:48pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image086.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=243 height=64
+  src="op1005_files/image087.png" v:shapes="_x0000_i1061"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1061"
+    DrawAspect="Content" ObjectID="_1679501262">
+   </o:OLEObject>
+  </xml><![endif]--><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  class=GramE><b style='mso-bidi-font-weight:normal'><span style='color:#C55A11;
+  mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>left</span></b></span><b
+  style='mso-bidi-font-weight:normal'><span style='color:#C55A11;mso-themecolor:
+  accent2;mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'> circular</span></b>.</p>
+  <p class=MsoNormal><span style='mso-spacerun:yes'>&nbsp;</span><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_4"
+   o:spid="_x0000_i1084" type="#_x0000_t75" style='width:604.5pt;height:270pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op1005_files/image088.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=806 height=360
+  src="op1005_files/image088.gif" v:shapes="Picture_x0020_4"><![endif]></span></p>
+  <p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>We can
+  multiple the Jones Matrices in the Command Window to find the output Jones
+  Vector:<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Vin =
+  [1;0]<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>M1 = [1
+  1;-1 1]<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>M2 = [1
+  0;0 -1]<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>M3 = [1
+  -1;1 1]<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>M4 = [1
+  1;1 1]<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>M5 = [1
+  0;0 1i]<o:p></o:p></span></p>
+  <p class=MsoNormal><span class=SpellE><span lang=EN-US style='mso-ansi-language:
+  EN-US'>Vout</span></span><span lang=EN-US style='mso-ansi-language:EN-US'> =
+  M5*M4*M3*M2*M1*Vin<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span></span><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1062" type="#_x0000_t75" style='width:18.75pt;height:12.75pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image089.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=25 height=17
+  src="op1005_files/image090.png" v:shapes="_x0000_i1062"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1062"
+    DrawAspect="Content" ObjectID="_1679501263">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='line-height:normal'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span><span class=SpellE>Vout</span>
+  =<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>2.0000 + 0.0000i</p>
+  <p class=MsoNormal style='line-height:normal'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>0.0000 + 2.0000i<span style='mso-ansi-language:EN-US'> <span
+  lang=EN-US><o:p></o:p></span></span></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:20.0pt;mso-text-raise:-20.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1063" type="#_x0000_t75" style='width:156pt;height:48pt' o:ole="">
+   <v:imagedata src="op1005_files/image091.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=208 height=64
+  src="op1005_files/image092.png" v:shapes="_x0000_i1063"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1063"
+    DrawAspect="Content" ObjectID="_1679501264">
+   </o:OLEObject>
+  </xml><![endif]--><sup><span style='mso-spacerun:yes'>&nbsp;</span><o:p></o:p></sup></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>Exercise 5<o:p></o:p></span></b></p>
+  <p class=MsoNormal>State the polarization mode for each of the following
+  Jones Vectors and the amplitude of the electric field.</p>
+  <p class=MsoNormal>(1)<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span><span
+  style='position:relative;top:20.0pt;mso-text-raise:-20.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1064" type="#_x0000_t75" style='width:32.25pt;height:48pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image093.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=43 height=64
+  src="op1005_files/image094.png" v:shapes="_x0000_i1064"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1064"
+    DrawAspect="Content" ObjectID="_1679501265">
+   </o:OLEObject>
+  </xml><![endif]--><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>(2)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span><span style='position:relative;
+  top:20.0pt;mso-text-raise:-20.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1065"
+   type="#_x0000_t75" style='width:24pt;height:48pt' o:ole="">
+   <v:imagedata src="op1005_files/image095.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=32 height=64
+  src="op1005_files/image096.png" v:shapes="_x0000_i1065"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1065"
+    DrawAspect="Content" ObjectID="_1679501266">
+   </o:OLEObject>
+  </xml><![endif]--><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>(3)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span><span style='position:relative;
+  top:20.0pt;mso-text-raise:-20.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1066"
+   type="#_x0000_t75" style='width:54.75pt;height:48pt' o:ole="">
+   <v:imagedata src="op1005_files/image097.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=73 height=64
+  src="op1005_files/image098.png" v:shapes="_x0000_i1066"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1066"
+    DrawAspect="Content" ObjectID="_1679501267">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>Solution 5</span><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:128;
+  mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>op_003.m<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>op_005.m</span><o:p></o:p></b></p>
+  <p class=MsoNormal>(5.1)<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>In
+  our analysis of polarization, we have taken the X component of the electric
+  field to real. Therefore, we can multiply the given Jones Vector by <span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1067" type="#_x0000_t75" style='width:18.75pt;height:18pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image099.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=25 height=24
+  src="op1005_files/image100.png" v:shapes="_x0000_i1067"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1067"
+    DrawAspect="Content" ObjectID="_1679501268">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>to <span
+  class=GramE>give<span style='mso-spacerun:yes'>&nbsp; </span></span><span
+  style='position:relative;top:20.0pt;mso-text-raise:-20.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1068" type="#_x0000_t75" style='width:29.25pt;height:48pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image101.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=39 height=64
+  src="op1005_files/image102.png" v:shapes="_x0000_i1068"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1068"
+    DrawAspect="Content" ObjectID="_1679501269">
+   </o:OLEObject>
+  </xml><![endif]-->. The amplitude of the EM wave is given by the
+  normalization factor <span style='position:relative;top:4.0pt;mso-text-raise:
+  -4.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1069" type="#_x0000_t75"
+   style='width:129.75pt;height:26.25pt' o:ole="">
+   <v:imagedata src="op1005_files/image103.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=173 height=35
+  src="op1005_files/image104.png" v:shapes="_x0000_i1069"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1069"
+    DrawAspect="Content" ObjectID="_1679501270">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>its value can
+  be found in the Command Window.</p>
+  <p class=MsoNormal><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>linearly polarized at an angle of 18.4<sup>o</sup><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>amplitude = <span style='position:relative;top:4.0pt;mso-text-raise:
+  -4.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1070" type="#_x0000_t75"
+   style='width:30pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op1005_files/image105.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=40 height=29
+  src="op1005_files/image106.png" v:shapes="_x0000_i1070"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1070"
+    DrawAspect="Content" ObjectID="_1679501271">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_23"
+   o:spid="_x0000_i1083" type="#_x0000_t75" style='width:425.25pt;height:303.75pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op1005_files/image107.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=567 height=405
+  src="op1005_files/image107.gif" v:shapes="Picture_x0020_23"><![endif]></span></p>
+  <p class=MsoNormal>(5.2)<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span><span
+  style='position:relative;top:20.0pt;mso-text-raise:-20.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1071" type="#_x0000_t75" style='width:129.75pt;height:48pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image108.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=173 height=64
+  src="op1005_files/image109.png" v:shapes="_x0000_i1071"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1071"
+    DrawAspect="Content" ObjectID="_1679501272">
+   </o:OLEObject>
+  </xml><![endif]--><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>right
+  circularly polarized<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+  </span>amplitude = <span style='position:relative;top:4.0pt;mso-text-raise:
+  -4.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1072" type="#_x0000_t75"
+   style='width:24pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op1005_files/image110.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=32 height=29
+  src="op1005_files/image111.png" v:shapes="_x0000_i1072"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1072"
+    DrawAspect="Content" ObjectID="_1679501273">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_25"
+   o:spid="_x0000_i1082" type="#_x0000_t75" style='width:425.25pt;height:303.75pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op1005_files/image112.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=567 height=405
+  src="op1005_files/image112.gif" v:shapes="Picture_x0020_25"><![endif]></span></p>
+  <p class=MsoNormal>(5.3)<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span><span
+  style='position:relative;top:20.0pt;mso-text-raise:-20.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1073" type="#_x0000_t75" style='width:54.75pt;height:48pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image097.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=73 height=64
+  src="op1005_files/image098.png" v:shapes="_x0000_i1073"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1073"
+    DrawAspect="Content" ObjectID="_1679501274">
+   </o:OLEObject>
+  </xml><![endif]--><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;</span>left elliptical
+  polarization</p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:9.0pt;mso-text-raise:-9.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1074" type="#_x0000_t75" style='width:5in;height:24pt' o:ole="">
+   <v:imagedata src="op1005_files/image113.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=480 height=32
+  src="op1005_files/image114.png" v:shapes="_x0000_i1074"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1074"
+    DrawAspect="Content" ObjectID="_1679501275">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>phase difference<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span><span
+  style='position:relative;top:9.0pt;mso-text-raise:-9.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1075" type="#_x0000_t75" style='width:234.75pt;height:27pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image115.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=313 height=36
+  src="op1005_files/image116.png" v:shapes="_x0000_i1075"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1075"
+    DrawAspect="Content" ObjectID="_1679501276">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Inclination
+  of ellipse<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1076" type="#_x0000_t75" style='width:72.75pt;height:21pt'
+   o:ole="">
+   <v:imagedata src="op1005_files/image117.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=97 height=28
+  src="op1005_files/image118.png" v:shapes="_x0000_i1076"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1076"
+    DrawAspect="Content" ObjectID="_1679501277">
+   </o:OLEObject>
+  </xml><![endif]--><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;</span>w.r.t X axis </p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_1"
+   o:spid="_x0000_i1081" type="#_x0000_t75" style='width:425.25pt;height:303.75pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op1005_files/image119.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=567 height=405
+  src="op1005_files/image119.gif" v:shapes="Picture_x0020_1"><![endif]></span></p>
+  <p class=MsoNormal>Using the Script <b style='mso-bidi-font-weight:normal'><span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>op_005.m</span></b></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_5"
+   o:spid="_x0000_i1080" type="#_x0000_t75" style='width:6in;height:438pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op1005_files/image120.png" o:title="" cropbottom="7546f"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=576 height=584
+  src="op1005_files/image121.png" v:shapes="Picture_x0020_5"><![endif]></span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_6"
+   o:spid="_x0000_i1079" type="#_x0000_t75" style='width:6in;height:270pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op1005_files/image122.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=576 height=360
+  src="op1005_files/image122.png" v:shapes="Picture_x0020_6"><![endif]></span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_7"
+   o:spid="_x0000_i1078" type="#_x0000_t75" style='width:316.5pt;height:270pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op1005_files/image123.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=422 height=360
+  src="op1005_files/image123.gif" v:shapes="Picture_x0020_7"><![endif]></span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_8"
+   o:spid="_x0000_i1077" type="#_x0000_t75" style='width:7in;height:252pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op1005_files/image124.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=672 height=336
+  src="op1005_files/image124.gif" v:shapes="Picture_x0020_8"><![endif]></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>
