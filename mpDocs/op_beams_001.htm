@@ -1,0 +1,2787 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 14">
+<meta name=Originator content="Microsoft Word 14">
+<base target="_blank">
+<link rel=File-List href="op_beams_001_files/filelist.xml">
+<link rel=Edit-Time-Data href="op_beams_001_files/editdata.mso">
+<link rel=OLE-Object-Data href="op_beams_001_files/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Matlab Physics</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Ian Cooper</o:Author>
+  <o:Keywords>electromagnetic waves, Jones vectors,  Jones matrices, polarization, light polarization, Matlab physics, computational physics, optics, electromagnetism</o:Keywords>
+  <o:Description>op1.pptx&#13;&#10;op_003.m&#13;&#10;</o:Description>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Owner</o:LastAuthor>
+  <o:Revision>51</o:Revision>
+  <o:TotalTime>3664</o:TotalTime>
+  <o:Created>2019-01-24T02:22:00Z</o:Created>
+  <o:LastSaved>2021-04-09T10:52:00Z</o:LastSaved>
+  <o:Pages>15</o:Pages>
+  <o:Words>2454</o:Words>
+  <o:Characters>13994</o:Characters>
+  <o:Category>Polarization</o:Category>
+  <o:Lines>116</o:Lines>
+  <o:Paragraphs>32</o:Paragraphs>
+  <o:CharactersWithSpaces>16416</o:CharactersWithSpaces>
+  <o:Version>14.00</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+<link rel=themeData href="op_beams_001_files/themedata.thmx">
+<link rel=colorSchemeMapping href="op_beams_001_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>125</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-AU</w:LidThemeOther>
+  <w:LidThemeAsian>ZH-CN</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" QFormat="true" Name="Hyperlink"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-469750017 -1073732485 9 0 511 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-520081665 -1073717157 41 0 66047 0;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:150%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-bidi-font-family:Calibri;
+	mso-bidi-theme-font:minor-latin;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	mso-style-qformat:yes;
+	mso-ansi-font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-hansi-font-family:Calibri;
+	mso-bidi-font-family:Calibri;
+	color:blue;
+	mso-text-animation:none;
+	text-decoration:none;
+	text-underline:none;
+	text-decoration:none;
+	text-line-through:none;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:#954F72;
+	mso-themecolor:followedhyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Balloon Text Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-priority:1;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-bidi-font-family:Calibri;
+	mso-bidi-theme-font:minor-latin;}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{mso-style-name:msonormal;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Balloon Text";
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-ascii-font-family:Tahoma;
+	mso-hansi-font-family:Tahoma;
+	mso-bidi-font-family:Tahoma;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:16.0pt;
+	mso-ansi-font-size:16.0pt;
+	mso-bidi-font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-bidi-font-family:Calibri;
+	mso-bidi-theme-font:minor-latin;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-bidi-font-family:Calibri;
+	mso-bidi-theme-font:minor-latin;}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-priority:39;
+	mso-style-unhide:no;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-bidi-font-family:Calibri;
+	mso-bidi-theme-font:minor-latin;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-AU link=blue vlink="#954F72" style='tab-interval:36.0pt'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:13.8pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=821 valign=top style='width:615.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:22.0pt;mso-bidi-font-size:
+  16.0pt;line-height:150%;color:blue'><a
+  href="https://d-arora.github.io/Doing-Physics-With-Matlab/"><span
+  style='mso-ansi-font-size:22.0pt;line-height:150%'>DOING PHYSICS WITH MATLAB</span></a><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:20.0pt;mso-bidi-font-size:
+  16.0pt;line-height:150%;color:blue'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal align=center style='text-align:center'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:20.0pt;mso-bidi-font-size:
+  16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";color:#C55A11;
+  mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>NUMERICAL ANALYSIS
+  OF OPTICAL AND ELECTROMAGNETIC PHENOMENA<o:p></o:p></span></b></p>
+  <p class=MsoNormal align=center style='text-align:center'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:20.0pt;mso-bidi-font-size:
+  16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";color:#843C0C;
+  mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>MODELLING THE
+  BEHAVIOUR OF GAUSSIAN BEAMS<o:p></o:p></span></b></p>
+  <p class=MsoNormal align=center style='text-align:center'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:20.0pt;mso-bidi-font-size:
+  16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";color:#843C0C;
+  mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>(PARAXIAL REGIME)</span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:20.0pt;mso-bidi-font-size:
+  16.0pt;line-height:150%;font-family:"Bookman Old Style","serif";color:#C55A11;
+  mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'><o:p></o:p></span></b></p>
+  <p class=MsoNormal><span style='mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+  minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span style='mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+  minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin'>Ian
+  Cooper<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+  minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin'><a
+  href="mailto:matlabvisulaphysics@gmail.com"><span style='mso-ascii-font-family:
+  Calibri;mso-ascii-theme-font:minor-latin;mso-hansi-font-family:Calibri;
+  mso-hansi-theme-font:minor-latin;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin'>matlabvisulaphysics@gmail.com</span></a><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+  minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:20.0pt;mso-bidi-font-size:16.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;color:blue'><a
+  href="https://drive.google.com/drive/u/3/folders/1j09aAhfrVYpiMavajrgSvUMc89ksF9Jb"><span
+  style='mso-ansi-font-size:20.0pt;line-height:150%'>Matlab Script Download</span><span
+  style='mso-ansi-font-size:20.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'> Directory<o:p></o:p></span></a></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #843C0C;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #843C0C;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>op_beams_001.m</span><o:p></o:p></b></p>
+  <p class=MsoNormal>The Script is used to model the behaviour of a Gaussian
+  beam propagating in the Z direction with spherical wavefronts in the paraxial
+  region. The beam is specified by its <span style='color:#C55A11;mso-themecolor:
+  accent2;mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>wavelength</span> (visible part of the electromagnetic spectrum),<span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'> power </span>and
+  the value of its <span style='color:#C55A11;mso-themecolor:accent2;
+  mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>waist</span>. Also, the XY and XZ planes for the irradiance
+  calculations and plots are also specified in the INPUT Section of the Script.
+  The following parameters are computed in the CALCULATION Section of the
+  Script: the Z axis grid,<span style='mso-spacerun:yes'>&nbsp; </span><span
+  style='position:relative;top:2.0pt;mso-text-raise:-2.0pt'><!--[if gte vml 1]><v:shapetype
+   id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+   path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:11.25pt;
+   height:11.25pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image001.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=15 height=15
+  src="op_beams_001_files/image002.png" v:shapes="_x0000_i1025"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1025"
+    DrawAspect="Content" ObjectID="_1679507300">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>[m]; Rayleigh
+  range,<span style='mso-spacerun:yes'>&nbsp; </span><span style='position:
+  relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1026"
+   type="#_x0000_t75" style='width:18pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image003.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=24 height=29
+  src="op_beams_001_files/image004.png" v:shapes="_x0000_i1026"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1026"
+    DrawAspect="Content" ObjectID="_1679507301">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>[m]; the ratio,
+  <span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1027" type="#_x0000_t75" style='width:90pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image005.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=120 height=29
+  src="op_beams_001_files/image006.png" v:shapes="_x0000_i1027"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1027"
+    DrawAspect="Content" ObjectID="_1679507302">
+   </o:OLEObject>
+  </xml><![endif]-->; beam divergence angle, <span style='position:relative;
+  top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1028"
+   type="#_x0000_t75" style='width:12pt;height:15.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image007.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=21
+  src="op_beams_001_files/image008.png" v:shapes="_x0000_i1028"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1028"
+    DrawAspect="Content" ObjectID="_1679507303">
+   </o:OLEObject>
+  </xml><![endif]-->; beam spot size, <span style='position:relative;
+  top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1029"
+   type="#_x0000_t75" style='width:14.25pt;height:12.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image009.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=19 height=17
+  src="op_beams_001_files/image010.png" v:shapes="_x0000_i1029"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1029"
+    DrawAspect="Content" ObjectID="_1679507304">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>[m]; <span
+  class=SpellE>Gouy</span> phase angle, <span style='position:relative;
+  top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1030"
+   type="#_x0000_t75" style='width:12pt;height:18.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image011.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=25
+  src="op_beams_001_files/image012.png" v:shapes="_x0000_i1030"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1030"
+    DrawAspect="Content" ObjectID="_1679507305">
+   </o:OLEObject>
+  </xml><![endif]-->; axial irradiance (<span style='position:relative;
+  top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1031"
+   type="#_x0000_t75" style='width:60.75pt;height:18.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image013.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=81 height=25
+  src="op_beams_001_files/image014.png" v:shapes="_x0000_i1031"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1031"
+    DrawAspect="Content" ObjectID="_1679507306">
+   </o:OLEObject>
+  </xml><![endif]-->), <span style='position:relative;top:7.0pt;mso-text-raise:
+  -7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1032" type="#_x0000_t75"
+   style='width:18pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image015.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=24 height=29
+  src="op_beams_001_files/image016.png" v:shapes="_x0000_i1032"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1032"
+    DrawAspect="Content" ObjectID="_1679507307">
+   </o:OLEObject>
+  </xml><![endif]-->; radial irradiance (<span class=SpellE>XY</span> plane at <span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1033" type="#_x0000_t75" style='width:18pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image017.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=24 height=29
+  src="op_beams_001_files/image018.png" v:shapes="_x0000_i1033"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1033"
+    DrawAspect="Content" ObjectID="_1679507308">
+   </o:OLEObject>
+  </xml><![endif]-->), <span style='position:relative;top:7.0pt;mso-text-raise:
+  -7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1034" type="#_x0000_t75"
+   style='width:17.25pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image019.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=23 height=29
+  src="op_beams_001_files/image020.png" v:shapes="_x0000_i1034"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1034"
+    DrawAspect="Content" ObjectID="_1679507309">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>and <span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1035" type="#_x0000_t75" style='width:27.75pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image021.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=37 height=29
+  src="op_beams_001_files/image022.png" v:shapes="_x0000_i1035"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1035"
+    DrawAspect="Content" ObjectID="_1679507310">
+   </o:OLEObject>
+  </xml><![endif]-->; irradiance displayed in <span class=SpellE>XZ</span>
+  plane, <span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1036" type="#_x0000_t75" style='width:27.75pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image023.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=37 height=29
+  src="op_beams_001_files/image024.png" v:shapes="_x0000_i1036"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1036"
+    DrawAspect="Content" ObjectID="_1679507311">
+   </o:OLEObject>
+  </xml><![endif]-->; phase, <span style='position:relative;top:6.0pt;
+  mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1037" type="#_x0000_t75"
+   style='width:14.25pt;height:15.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image025.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=19 height=21
+  src="op_beams_001_files/image026.png" v:shapes="_x0000_i1037"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1037"
+    DrawAspect="Content" ObjectID="_1679507312">
+   </o:OLEObject>
+  </xml><![endif]-->. The calculation outputs are displayed in a series of
+  Figure Windows.<span style='mso-spacerun:yes'>&nbsp; </span>For different
+  simulations, most of the parameters only need to be changed in the INPUT
+  Section of the Script. The Script calls <span class=SpellE><b
+  style='mso-bidi-font-weight:normal'><span style='color:#843C0C;mso-themecolor:
+  accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>ColorCode.m</span></b></span><span style='color:#843C0C;
+  mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'> </span>which
+  assigns the <span class=SpellE>color</span> of a plot to the wavelength <span
+  class=SpellE>color</span>.</p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:18.0pt;mso-bidi-font-size:16.0pt;line-height:150%;
+  font-family:"Bookman Old Style","serif";color:#C55A11;mso-themecolor:accent2;
+  mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>INTRODUCTION<o:p></o:p></span></b></p>
+  <p class=MsoNormal>Lasers are widely used in many fields today. Having a
+  mathematical description of laser light is essential. The light emitted from
+  a laser is composed of a narrow band of wavelengths, such that we can assume
+  the light is monochromatic. The light emitted from the laser is usually
+  collimated as it propagates in a straight line as a narrow beam. As a
+  starting point, we will assume the beam to be unpolarized and the light
+  intensity to have a Gaussian profile in any plane that is normal to the
+  direction of propagation. This mode is referred to as the <b
+  style='mso-bidi-font-weight:normal'><span style='color:#C55A11;mso-themecolor:
+  accent2;mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>TEM<sub>00</sub></span></b> mode and it describes the output of
+  most lasers.</p>
+  <p class=MsoNormal><span style='mso-spacerun:yes'>&nbsp;</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_12"
+   o:spid="_x0000_i1166" type="#_x0000_t75" style='width:249.75pt;height:160.5pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op_beams_001_files/image027.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=333 height=214
+  src="op_beams_001_files/image028.png" v:shapes="Picture_x0020_12"><![endif]></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:35.7pt;margin-bottom:
+  8.0pt;margin-left:30.45pt;line-height:115%'>Fig. 1.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Red light emitted from a <span
+  class=SpellE>HeNe</span> laser. The light is seen due to scattering. The
+  light propagates as a collimated beam in a straight line with slight
+  divergence in its cross-section.</p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal><span style='mso-spacerun:yes'>&nbsp;</span>The light
+  emitted from a laser can be modelled by solving the [3D] scalar wave equation
+  for the electric field <span style='position:relative;top:8.0pt;mso-text-raise:
+  -8.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1038" type="#_x0000_t75"
+   style='width:75pt;height:24pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image029.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=100 height=32
+  src="op_beams_001_files/image030.png" v:shapes="_x0000_i1038"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1038"
+    DrawAspect="Content" ObjectID="_1679507314">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(1)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:20.0pt;mso-text-raise:-20.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1039" type="#_x0000_t75" style='width:239.25pt;height:50.25pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image031.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=319 height=67
+  src="op_beams_001_files/image032.png" v:shapes="_x0000_i1039"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1039"
+    DrawAspect="Content" ObjectID="_1679507315">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal>We will assume that a monochromatic beam with a circular
+  cross-section propagates in free spaces and that the electric field can be
+  expressed as a product of its spatial part and time dependent part</p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(2)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1040" type="#_x0000_t75" style='width:464.25pt;height:26.25pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image033.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=619 height=35
+  src="op_beams_001_files/image034.png" v:shapes="_x0000_i1040"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1040"
+    DrawAspect="Content" ObjectID="_1679507316">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal>Substitution of equation 2 into equation 1 gives the <b
+  style='mso-bidi-font-weight:normal'><span style='color:#C55A11;mso-themecolor:
+  accent2;mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>Helmholtz equation</span></b></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(3)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1041" type="#_x0000_t75" style='width:213pt;height:26.25pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image035.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=284 height=35
+  src="op_beams_001_files/image036.png" v:shapes="_x0000_i1041"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1041"
+    DrawAspect="Content" ObjectID="_1679507317">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal>We will only consider the solution for a wave propagating
+  in the Z direction where</p>
+  <p class=MsoNormal><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='mso-spacerun:yes'>&nbsp;&nbsp;</span>(4)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1042" type="#_x0000_t75" style='width:192.75pt;height:26.25pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image037.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=257 height=35
+  src="op_beams_001_files/image038.png" v:shapes="_x0000_i1042"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1042"
+    DrawAspect="Content" ObjectID="_1679507318">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal>The term <span style='position:relative;top:3.0pt;
+  mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1043" type="#_x0000_t75"
+   style='width:30pt;height:21pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image039.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=40 height=28
+  src="op_beams_001_files/image040.png" v:shapes="_x0000_i1043"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1043"
+    DrawAspect="Content" ObjectID="_1679507319">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>accounts for
+  the wave oscillation along the propagation direction.</p>
+  <p class=MsoNormal>Substitution of equation 4 into equation 3 gives</p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(5)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:20.0pt;mso-text-raise:-20.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1044" type="#_x0000_t75" style='width:270.75pt;height:48pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image041.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=361 height=64
+  src="op_beams_001_files/image042.png" v:shapes="_x0000_i1044"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1044"
+    DrawAspect="Content" ObjectID="_1679507320">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal>We will assume that there is a slow decrease in the
+  amplitude of the wave as the wave propagates in the Z direction and only
+  consider the wave far from the origin but close to the</p>
+  <p class=MsoNormal>Z axis such that <span style='position:relative;
+  top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1045"
+   type="#_x0000_t75" style='width:39.75pt;height:14.25pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image043.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=53 height=19
+  src="op_beams_001_files/image044.png" v:shapes="_x0000_i1045"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1045"
+    DrawAspect="Content" ObjectID="_1679507321">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span><span
+  class=GramE>and </span><span style='position:relative;top:6.0pt;mso-text-raise:
+  -6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1046" type="#_x0000_t75"
+   style='width:41.25pt;height:17.25pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image045.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=55 height=23
+  src="op_beams_001_files/image046.png" v:shapes="_x0000_i1046"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1046"
+    DrawAspect="Content" ObjectID="_1679507322">
+   </o:OLEObject>
+  </xml><![endif]-->. Thus, we can say that <span style='position:relative;
+  top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1047"
+   type="#_x0000_t75" style='width:81pt;height:24pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image047.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=108 height=32
+  src="op_beams_001_files/image048.png" v:shapes="_x0000_i1047"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1047"
+    DrawAspect="Content" ObjectID="_1679507323">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>varies slowly
+  with z, and thus we can neglect the <span class=GramE>term </span><span
+  style='position:relative;top:20.0pt;mso-text-raise:-20.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1048" type="#_x0000_t75" style='width:50.25pt;height:48pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image049.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=67 height=64
+  src="op_beams_001_files/image050.png" v:shapes="_x0000_i1048"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1048"
+    DrawAspect="Content" ObjectID="_1679507324">
+   </o:OLEObject>
+  </xml><![endif]-->.<span style='mso-spacerun:yes'>&nbsp; </span>Therefore,
+  the wave equation can be expressed as</p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(6)<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:20.0pt;mso-text-raise:-20.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1049" type="#_x0000_t75" style='width:215.25pt;height:48pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image051.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=287 height=64
+  src="op_beams_001_files/image052.png" v:shapes="_x0000_i1049"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1049"
+    DrawAspect="Content" ObjectID="_1679507325">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal>This is known as the <b style='mso-bidi-font-weight:normal'><span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>paraxial wave
+  equation</span></b>. Without going into all the mathematical details, a
+  solution to paraxial wave equation is</p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(7)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:23.0pt;mso-text-raise:-23.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1050" type="#_x0000_t75" style='width:557.25pt;height:54pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image053.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=743 height=72
+  src="op_beams_001_files/image054.png" v:shapes="_x0000_i1050"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1050"
+    DrawAspect="Content" ObjectID="_1679507326">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal>where </p>
+  <p class=MsoNormal><span style='position:relative;top:7.0pt;mso-text-raise:
+  -7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1051" type="#_x0000_t75"
+   style='width:18.75pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image055.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=25 height=29
+  src="op_beams_001_files/image056.png" v:shapes="_x0000_i1051"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1051"
+    DrawAspect="Content" ObjectID="_1679507327">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span><span
+  class=GramE>is</span> the amplitude of the wave.</p>
+  <p class=MsoNormal><span style='mso-spacerun:yes'>&nbsp;</span></p>
+  <p class=MsoNormal><span style='position:relative;top:7.0pt;mso-text-raise:
+  -7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1052" type="#_x0000_t75"
+   style='width:18.75pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image057.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=25 height=29
+  src="op_beams_001_files/image058.png" v:shapes="_x0000_i1052"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1052"
+    DrawAspect="Content" ObjectID="_1679507328">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span><span
+  class=GramE>is</span> the <b style='mso-bidi-font-weight:normal'><span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>beam waist</span></b>.<span
+  style='mso-spacerun:yes'>&nbsp; </span></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><span style='position:relative;
+  top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1053"
+   type="#_x0000_t75" style='width:33pt;height:20.25pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image059.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=44 height=27
+  src="op_beams_001_files/image060.png" v:shapes="_x0000_i1053"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1053"
+    DrawAspect="Content" ObjectID="_1679507329">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span><span
+  class=GramE>is</span> the radius of the beam at position <i style='mso-bidi-font-style:
+  normal'><span style='font-family:"Times New Roman","serif"'>z </span></i>at
+  which the amplitude has decreased by the factor 1/<i style='mso-bidi-font-style:
+  normal'><span style='font-family:"Times New Roman","serif"'>e </span></i>from
+  its axial value or where the irradiance is 1/<i style='mso-bidi-font-style:
+  normal'><span style='font-family:"Times New Roman","serif"'>e</span></i><sup><span
+  style='font-family:"Times New Roman","serif"'>2</span></sup> of its axial
+  value. <span style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1054" type="#_x0000_t75" style='width:33pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image059.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=44 height=27
+  src="op_beams_001_files/image060.png" v:shapes="_x0000_i1054"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1054"
+    DrawAspect="Content" ObjectID="_1679507330">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span><span
+  class=GramE>is</span> known as the <b style='mso-bidi-font-weight:normal'><span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>beam spot</span></b>.
+  </p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><span style='position:relative;
+  top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1055"
+   type="#_x0000_t75" style='width:33pt;height:20.25pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image061.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=44 height=27
+  src="op_beams_001_files/image062.png" v:shapes="_x0000_i1055"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1055"
+    DrawAspect="Content" ObjectID="_1679507331">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span><span
+  class=GramE>is</span> the <b style='mso-bidi-font-weight:normal'><span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>radius of
+  curvature of the wavefront</span></b><span style='color:#C55A11;mso-themecolor:
+  accent2;mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'> </span>(surface that contains all points of the wave that have
+  the same phase) at position <i style='mso-bidi-font-style:normal'><span
+  style='font-family:"Times New Roman","serif"'>z</span></i>.<span
+  style='mso-spacerun:yes'>&nbsp; </span>As the beam propagates in the +Z
+  direction, the width of the beam expands, and this is measured by the beam
+  spot as it increases with <i style='mso-bidi-font-style:normal'><span
+  style='font-family:"Times New Roman","serif"'>z.</span></i> For the expanding
+  beam, its wavefront must have a spherical shape because a wave always
+  propagates in a direction perpendicular to its wavefront.</p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><span style='position:relative;
+  top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1056"
+   type="#_x0000_t75" style='width:30.75pt;height:20.25pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image063.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=41 height=27
+  src="op_beams_001_files/image064.png" v:shapes="_x0000_i1056"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1056"
+    DrawAspect="Content" ObjectID="_1679507332">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span><span
+  class=GramE>is</span> the <span class=SpellE><b style='mso-bidi-font-weight:
+  normal'><span style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:
+  191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>Gouy</span></b></span><b style='mso-bidi-font-weight:normal'><span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'> phase</span></b>.</p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><span style='position:relative;
+  top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1057"
+   type="#_x0000_t75" style='width:18pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image065.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=24 height=29
+  src="op_beams_001_files/image004.png" v:shapes="_x0000_i1057"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1057"
+    DrawAspect="Content" ObjectID="_1679507333">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>is the <b
+  style='mso-bidi-font-weight:normal'><span style='color:#C55A11;mso-themecolor:
+  accent2;mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>Rayleigh range<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(8)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1058" type="#_x0000_t75" style='width:92.25pt;height:24.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image066.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=123 height=33
+  src="op_beams_001_files/image067.png" v:shapes="_x0000_i1058"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1058"
+    DrawAspect="Content" ObjectID="_1679507334">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal align=center style='text-align:center;tab-stops:97.8pt'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_28"
+   o:spid="_x0000_i1165" type="#_x0000_t75" style='width:514.5pt;height:208.5pt;
+   visibility:visible;mso-wrap-style:square' o:bordertopcolor="red"
+   o:borderleftcolor="red" o:borderbottomcolor="red" o:borderrightcolor="red">
+   <v:imagedata src="op_beams_001_files/image068.png" o:title=""/>
+   <w:bordertop type="single" width="6"/>
+   <w:borderleft type="single" width="6"/>
+   <w:borderbottom type="single" width="6"/>
+   <w:borderright type="single" width="6"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=688 height=280
+  src="op_beams_001_files/image069.png" v:shapes="Picture_x0020_28"><![endif]></span></p>
+  <p class=MsoNormal align=center style='text-align:center;tab-stops:97.8pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'>The paraxial approximation is
+  only valid when <span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1059" type="#_x0000_t75" style='width:51pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image070.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=68 height=29
+  src="op_beams_001_files/image071.png" v:shapes="_x0000_i1059"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1059"
+    DrawAspect="Content" ObjectID="_1679507335">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>and is not
+  accurate for strongly diverging beams.</p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><span
+  style='mso-spacerun:yes'>&nbsp;</span></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'>We can better understand the
+  solution of the scalar paraxial wave equation by running the Script <b
+  style='mso-bidi-font-weight:normal'><span style='color:#843C0C;mso-themecolor:
+  accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>op_beams_001.m </span></b>with the following input parameters:</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:10.0pt;font-family:"Courier New";color:forestgreen;
+  mso-ansi-language:EN-US'>% INPUTS
+  ==============================================================</span><span
+  lang=EN-US style='font-size:12.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:10.0pt;font-family:"Courier New";color:forestgreen;
+  mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>&nbsp;</span></span><span
+  lang=EN-US style='font-size:12.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:10.0pt;font-family:"Courier New";color:forestgreen;
+  mso-ansi-language:EN-US'>% Max power transmitted in beam<span
+  style='mso-spacerun:yes'>&nbsp; </span>[W]</span><span lang=EN-US
+  style='font-size:12.0pt;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:10.0pt;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'>P0 = 1e-3;</span><span lang=EN-US style='font-size:12.0pt;font-family:
+  "Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:10.0pt;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp;</span></span><span lang=EN-US
+  style='font-size:12.0pt;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:10.0pt;font-family:"Courier New";color:forestgreen;
+  mso-ansi-language:EN-US'>% beam waist<span style='mso-spacerun:yes'>&nbsp;
+  </span>[m]</span><span lang=EN-US style='font-size:12.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:10.0pt;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'>w0 = 0.5e-3;</span><span lang=EN-US style='font-size:12.0pt;
+  font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:10.0pt;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp;</span></span><span lang=EN-US
+  style='font-size:12.0pt;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:10.0pt;font-family:"Courier New";color:forestgreen;
+  mso-ansi-language:EN-US'>% wavelength<span style='mso-spacerun:yes'>&nbsp;
+  </span>[m]</span><span lang=EN-US style='font-size:12.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span class=SpellE><span
+  lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black;
+  mso-ansi-language:EN-US'>wL</span></span><span lang=EN-US style='font-size:
+  10.0pt;font-family:"Courier New";color:black;mso-ansi-language:EN-US'> =
+  632.8e-9;</span><span lang=EN-US style='font-size:12.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:10.0pt;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp;</span></span><span lang=EN-US
+  style='font-size:12.0pt;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:10.0pt;font-family:"Courier New";color:forestgreen;
+  mso-ansi-language:EN-US'>% Length of Z domain in multiples of <span
+  class=SpellE>zR</span> :<span style='mso-spacerun:yes'>&nbsp; </span>z = <span
+  class=SpellE>nZ</span> * <span class=SpellE>zR</span></span><span lang=EN-US
+  style='font-size:12.0pt;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span class=SpellE><span
+  lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black;
+  mso-ansi-language:EN-US'>nZ</span></span><span lang=EN-US style='font-size:
+  10.0pt;font-family:"Courier New";color:black;mso-ansi-language:EN-US'> = 5;</span><span
+  lang=EN-US style='font-size:12.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:10.0pt;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp;</span></span><span lang=EN-US
+  style='font-size:12.0pt;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:10.0pt;font-family:"Courier New";color:forestgreen;
+  mso-ansi-language:EN-US'>% Number of grid points in calculations<span
+  style='mso-spacerun:yes'>&nbsp; </span>(must be an odd number)</span><span
+  lang=EN-US style='font-size:12.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:10.0pt;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'>N = 501;</span><span lang=EN-US style='font-size:12.0pt;font-family:
+  "Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:10.0pt;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp;</span></span><span lang=EN-US
+  style='font-size:12.0pt;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:10.0pt;font-family:"Courier New";color:forestgreen;
+  mso-ansi-language:EN-US'>% Z position of XY plane for radial irradiance
+  plots:<span style='mso-spacerun:yes'>&nbsp; </span><span class=SpellE>zPR</span>
+  = <span class=SpellE>zP</span> / <span class=SpellE>zR</span></span><span
+  lang=EN-US style='font-size:12.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:10.0pt;font-family:"Courier New";color:forestgreen;
+  mso-ansi-language:EN-US'>%<span style='mso-spacerun:yes'>&nbsp;&nbsp;
+  </span>[<span class=SpellE>e,g</span>,<span style='mso-spacerun:yes'>&nbsp;
+  </span><span class=SpellE>zPR</span> = 0, 1, 2, ... ]</span><span lang=EN-US
+  style='font-size:12.0pt;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span class=SpellE><span
+  lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black;
+  mso-ansi-language:EN-US'>zPR</span></span><span lang=EN-US style='font-size:
+  10.0pt;font-family:"Courier New";color:black;mso-ansi-language:EN-US'> = 4;</span><span
+  lang=EN-US style='font-size:12.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:10.0pt;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp;</span></span><span lang=EN-US
+  style='font-size:12.0pt;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:10.0pt;font-family:"Courier New";color:forestgreen;
+  mso-ansi-language:EN-US'>% Max radial distance for radial irradiance plot: <span
+  class=SpellE>Rmax</span> = <span class=SpellE>nR</span> * w0</span><span
+  lang=EN-US style='font-size:12.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span class=SpellE><span
+  lang=EN-US style='font-size:10.0pt;font-family:"Courier New";color:black;
+  mso-ansi-language:EN-US'>nR</span></span><span lang=EN-US style='font-size:
+  10.0pt;font-family:"Courier New";color:black;mso-ansi-language:EN-US'> = 5;</span><span
+  lang=EN-US style='font-size:12.0pt;font-family:"Courier New";mso-ansi-language:
+  EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal;mso-layout-grid-align:none;text-autospace:none'><span lang=EN-US
+  style='font-size:12.0pt;font-family:"Courier New";mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'>All the figures in this document
+  where created using the script <b style='mso-bidi-font-weight:normal'><span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>op_beams_001.m</span></b><span
+  style='color:black'>.</span></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><b style='mso-bidi-font-weight:
+  normal'><span style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:
+  191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><b style='mso-bidi-font-weight:
+  normal'><span style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:
+  191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>Beam spot <a name=MTBlankEqn><span style='position:relative;
+  top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1060"
+   type="#_x0000_t75" style='width:33pt;height:20.25pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image072.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=44 height=27
+  src="op_beams_001_files/image060.png" v:shapes="_x0000_i1060"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1060"
+    DrawAspect="Content" ObjectID="_1679507336">
+   </o:OLEObject>
+  </xml><![endif]--></a><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'>At position <i style='mso-bidi-font-style:
+  normal'><span style='font-family:"Times New Roman","serif"'>z </span></i>along
+  the axis, the beam spot <b style='mso-bidi-font-weight:normal'><span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'><span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1061" type="#_x0000_t75" style='width:33pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image072.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=44 height=27
+  src="op_beams_001_files/image060.png" v:shapes="_x0000_i1061"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1061"
+    DrawAspect="Content" ObjectID="_1679507337">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></span></b>parameters
+  is given by</p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(9)<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1062" type="#_x0000_t75" style='width:149.25pt;height:30pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image073.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=199 height=40
+  src="op_beams_001_files/image074.png" v:shapes="_x0000_i1062"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1062"
+    DrawAspect="Content" ObjectID="_1679507338">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal align=center style='text-align:center;tab-stops:97.8pt'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_41"
+   o:spid="_x0000_i1164" type="#_x0000_t75" style='width:5in;height:270pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op_beams_001_files/image075.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=480 height=360
+  src="op_beams_001_files/image075.png" v:shapes="Picture_x0020_41"><![endif]></span></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Fig. 2.<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Beam spot <span
+  class=SpellE><i style='mso-bidi-font-style:normal'><span style='font-family:
+  "Times New Roman","serif"'>w </span></i>as</span> a function of position <i
+  style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif"'>z</span></i>.</p>
+  <p class=MsoNormal style='tab-stops:97.8pt'>When <i style='mso-bidi-font-style:
+  normal'><span style='font-family:"Times New Roman","serif"'>z </span></i>= 0,
+  we <span class=GramE>have </span><span style='position:relative;top:7.0pt;
+  mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1063" type="#_x0000_t75"
+   style='width:93pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image076.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=124 height=29
+  src="op_beams_001_files/image077.png" v:shapes="_x0000_i1063"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1063"
+    DrawAspect="Content" ObjectID="_1679507339">
+   </o:OLEObject>
+  </xml><![endif]-->. <span class=GramE>This the</span> smallest value that <span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1064" type="#_x0000_t75" style='width:33pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image078.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=44 height=27
+  src="op_beams_001_files/image060.png" v:shapes="_x0000_i1064"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1064"
+    DrawAspect="Content" ObjectID="_1679507340">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>can have. Thus,
+  <i style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif"'>z
+  =</span></i> 0 is a special point in the propagation of the beam. For <i
+  style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif"'>z
+  </span></i>&gt; 0 the beam spot increases. Also, in the negative Z direction
+  the beam spot also increases. When the beam is focused by a lens there is
+  always a minimum width of the beam at the focal point such that the beam spot
+  is equal to the value of the <span class=GramE>waist </span><span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1065" type="#_x0000_t75" style='width:69pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image079.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=92 height=29
+  src="op_beams_001_files/image080.png" v:shapes="_x0000_i1065"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1065"
+    DrawAspect="Content" ObjectID="_1679507341">
+   </o:OLEObject>
+  </xml><![endif]-->.</p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'>It is important to note that the
+  Raleigh range is an indicator of the divergence of the beam. When <span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1066" type="#_x0000_t75" style='width:42pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image081.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=56 height=29
+  src="op_beams_001_files/image082.png" v:shapes="_x0000_i1066"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1066"
+    DrawAspect="Content" ObjectID="_1679507342">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>we <span
+  class=GramE>have </span><span style='position:relative;top:7.0pt;mso-text-raise:
+  -7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1067" type="#_x0000_t75"
+   style='width:123pt;height:24.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image083.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=164 height=33
+  src="op_beams_001_files/image084.png" v:shapes="_x0000_i1067"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1067"
+    DrawAspect="Content" ObjectID="_1679507343">
+   </o:OLEObject>
+  </xml><![endif]-->. This is a turning point in the propagation of the light
+  as the beam spot makes the transition from being nearly constant to
+  increasing linearly as shown in figure 2. </p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'>When <span style='position:relative;
+  top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1068"
+   type="#_x0000_t75" style='width:42pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image085.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=56 height=29
+  src="op_beams_001_files/image086.png" v:shapes="_x0000_i1068"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1068"
+    DrawAspect="Content" ObjectID="_1679507344">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>the ray
+  description of the propagation of the light breaks down as the beam spot
+  slowly increases. When <span style='position:relative;top:7.0pt;mso-text-raise:
+  -7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1069" type="#_x0000_t75"
+   style='width:47.25pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image087.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=63 height=29
+  src="op_beams_001_files/image088.png" v:shapes="_x0000_i1069"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1069"
+    DrawAspect="Content" ObjectID="_1679507345">
+   </o:OLEObject>
+  </xml><![endif]-->, the beam spot expands linearly as </p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(10)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:15.0pt;mso-text-raise:-15.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1070" type="#_x0000_t75" style='width:447pt;height:42.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image089.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=596 height=57
+  src="op_beams_001_files/image090.png" v:shapes="_x0000_i1070"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1070"
+    DrawAspect="Content" ObjectID="_1679507346">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><span class=GramE>where</span> <span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1071" type="#_x0000_t75" style='width:12pt;height:15.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image091.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=21
+  src="op_beams_001_files/image008.png" v:shapes="_x0000_i1071"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1071"
+    DrawAspect="Content" ObjectID="_1679507347">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>is the limiting
+  value of the divergence and is called the <b style='mso-bidi-font-weight:
+  normal'><span style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:
+  191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>divergence angle of the beam</span></b><span style='color:black'>.</span><span
+  style='mso-spacerun:yes'>&nbsp; </span>The <span style='color:#FF66FF'>magenta
+  line</span> in figure 2 shows the divergence of the beam <span class=GramE>for
+  </span><span style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1072" type="#_x0000_t75" style='width:68.25pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image092.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=91 height=27
+  src="op_beams_001_files/image093.png" v:shapes="_x0000_i1072"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1072"
+    DrawAspect="Content" ObjectID="_1679507348">
+   </o:OLEObject>
+  </xml><![endif]-->. </p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(11)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:19.0pt;mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1073" type="#_x0000_t75" style='width:60pt;height:44.25pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image094.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=80 height=59
+  src="op_beams_001_files/image095.png" v:shapes="_x0000_i1073"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1073"
+    DrawAspect="Content" ObjectID="_1679507349">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><span
+  style='mso-spacerun:yes'>&nbsp;</span></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'>Note: the smaller the value of <span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1074" type="#_x0000_t75" style='width:18pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image096.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=24 height=29
+  src="op_beams_001_files/image004.png" v:shapes="_x0000_i1074"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1074"
+    DrawAspect="Content" ObjectID="_1679507350">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>the quicker the
+  beam will expand in a linear manner and the smaller the value of the waist,
+  the larger the divergence angle of the beam. Because the divergence is
+  inversely proportional to the spot size, for a given <span class=GramE>wavelength
+  </span><span style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1075" type="#_x0000_t75" style='width:12.75pt;height:15.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image097.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=17 height=21
+  src="op_beams_001_files/image098.png" v:shapes="_x0000_i1075"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1075"
+    DrawAspect="Content" ObjectID="_1679507351">
+   </o:OLEObject>
+  </xml><![endif]-->, a Gaussian beam that is focused to a small spot diverges
+  rapidly as it propagates away from the focus. Conversely, to minimize the
+  divergence of a laser beam in the far field (and increase its peak intensity
+  at large distances) it must have a large cross-section (<span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1076" type="#_x0000_t75" style='width:18.75pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image099.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=25 height=29
+  src="op_beams_001_files/image058.png" v:shapes="_x0000_i1076"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1076"
+    DrawAspect="Content" ObjectID="_1679507352">
+   </o:OLEObject>
+  </xml><![endif]-->) at the waist and thus a large diameter where it is
+  launched, <span class=GramE>since </span><span style='position:relative;
+  top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1077"
+   type="#_x0000_t75" style='width:65.25pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image100.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=87 height=29
+  src="op_beams_001_files/image101.png" v:shapes="_x0000_i1077"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1077"
+    DrawAspect="Content" ObjectID="_1679507353">
+   </o:OLEObject>
+  </xml><![endif]-->. This relationship between beam width and divergence is a
+  fundamental characteristic of diffraction, and of the Fourier transform which
+  describes Fraunhofer diffraction. Since the Gaussian beam model uses the
+  paraxial approximation, it fails when wavefronts are tilted by more than
+  about 30&deg; from the axis of the beam. From the above expression for
+  divergence, this means the Gaussian beam model is only accurate for beams
+  with waists <span class=GramE>where </span><span style='position:relative;
+  top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1078"
+   type="#_x0000_t75" style='width:93.75pt;height:24.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image102.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=125 height=33
+  src="op_beams_001_files/image103.png" v:shapes="_x0000_i1078"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1078"
+    DrawAspect="Content" ObjectID="_1679507354">
+   </o:OLEObject>
+  </xml><![endif]-->.</p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'>The shape of a Gaussian beam of a
+  given wavelength <span style='position:relative;top:3.0pt;mso-text-raise:
+  -3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1079" type="#_x0000_t75"
+   style='width:12.75pt;height:15.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image104.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=17 height=21
+  src="op_beams_001_files/image098.png" v:shapes="_x0000_i1079"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1079"
+    DrawAspect="Content" ObjectID="_1679507355">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>is governed
+  solely by one parameter, the <b style='mso-bidi-font-weight:normal'><span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>beam <span
+  class=GramE>waist<span style='font-weight:normal'> </span></span></span></b><span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1080" type="#_x0000_t75" style='width:18.75pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image105.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=25 height=29
+  src="op_beams_001_files/image058.png" v:shapes="_x0000_i1080"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1080"
+    DrawAspect="Content" ObjectID="_1679507356">
+   </o:OLEObject>
+  </xml><![endif]-->. This is a measure of the beam size at the point of its
+  focus (<span style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1081" type="#_x0000_t75" style='width:35.25pt;height:15.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image106.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=47 height=21
+  src="op_beams_001_files/image107.png" v:shapes="_x0000_i1081"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1081"
+    DrawAspect="Content" ObjectID="_1679507357">
+   </o:OLEObject>
+  </xml><![endif]-->) and corresponds to the smallest value of the beam spot
+  parameter. From <span class=GramE>waist </span><span style='position:relative;
+  top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1082"
+   type="#_x0000_t75" style='width:18.75pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image105.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=25 height=29
+  src="op_beams_001_files/image058.png" v:shapes="_x0000_i1082"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1082"
+    DrawAspect="Content" ObjectID="_1679507358">
+   </o:OLEObject>
+  </xml><![endif]-->, other parameters describing the beam geometry are
+  determined, such as, the Rayleigh range <span style='position:relative;
+  top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1083"
+   type="#_x0000_t75" style='width:18pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image108.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=24 height=29
+  src="op_beams_001_files/image004.png" v:shapes="_x0000_i1083"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1083"
+    DrawAspect="Content" ObjectID="_1679507359">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>and asymptotic
+  beam divergence <span style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1084" type="#_x0000_t75" style='width:12pt;height:15.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image109.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=21
+  src="op_beams_001_files/image008.png" v:shapes="_x0000_i1084"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1084"
+    DrawAspect="Content" ObjectID="_1679507360">
+   </o:OLEObject>
+  </xml><![endif]-->.</p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><b style='mso-bidi-font-weight:
+  normal'><span style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:
+  191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>Radius of curvature of the wavefront</span></b><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1085" type="#_x0000_t75" style='width:33pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image110.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=44 height=27
+  src="op_beams_001_files/image062.png" v:shapes="_x0000_i1085"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1085"
+    DrawAspect="Content" ObjectID="_1679507361">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(12)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1086" type="#_x0000_t75" style='width:113.25pt;height:24.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image111.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=151 height=33
+  src="op_beams_001_files/image112.png" v:shapes="_x0000_i1086"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1086"
+    DrawAspect="Content" ObjectID="_1679507362">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'>The phase term in equation (7) </p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:23.0pt;mso-text-raise:-23.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1087" type="#_x0000_t75" style='width:348.75pt;height:54pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image113.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=465 height=72
+  src="op_beams_001_files/image114.png" v:shapes="_x0000_i1087"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1087"
+    DrawAspect="Content" ObjectID="_1679507363">
+   </o:OLEObject>
+  </xml><![endif]--><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'>gives the curvature of the
+  wavefront which is spherical with radius <span style='position:relative;
+  top:6.0pt;mso-text-raise:-6.0pt;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_48" o:spid="_x0000_i1163" type="#_x0000_t75" style='width:33pt;
+   height:21pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op_beams_001_files/image115.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=44 height=28
+  src="op_beams_001_files/image116.png" v:shapes="Picture_x0020_48"><![endif]></span>.<span
+  style='mso-spacerun:yes'>&nbsp; </span>Figure 3 shows the variation in the
+  radius of curvature <span style='position:relative;top:6.0pt;mso-text-raise:
+  -6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1088" type="#_x0000_t75"
+   style='width:33pt;height:20.25pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image117.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=44 height=27
+  src="op_beams_001_files/image062.png" v:shapes="_x0000_i1088"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1088"
+    DrawAspect="Content" ObjectID="_1679507364">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>as a function
+  of <i style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif"'>z.</span></i></p>
+  <p class=MsoNormal align=center style='text-align:center;tab-stops:97.8pt'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_8"
+   o:spid="_x0000_i1162" type="#_x0000_t75" style='width:5in;height:270pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op_beams_001_files/image118.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=480 height=360
+  src="op_beams_001_files/image118.png" v:shapes="Picture_x0020_8"><![endif]></span></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Fig.3.<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Radius of
+  curvature of the wavefront as a function of z.</p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'>When <i style='mso-bidi-font-style:
+  normal'><span style='font-family:"Times New Roman","serif"'>z </span></i>= 0
+  we <span class=GramE>have </span><span style='position:relative;top:6.0pt;
+  mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1089" type="#_x0000_t75"
+   style='width:84pt;height:20.25pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image119.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=112 height=27
+  src="op_beams_001_files/image120.png" v:shapes="_x0000_i1089"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1089"
+    DrawAspect="Content" ObjectID="_1679507365">
+   </o:OLEObject>
+  </xml><![endif]-->, the wavefront is a plane wave and at this point all parts
+  of the wave are moving in the same direction. </p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><span class=GramE>When </span><span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1090" type="#_x0000_t75" style='width:47.25pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image121.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=63 height=29
+  src="op_beams_001_files/image088.png" v:shapes="_x0000_i1090"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1090"
+    DrawAspect="Content" ObjectID="_1679507366">
+   </o:OLEObject>
+  </xml><![endif]-->, then <span style='position:relative;top:6.0pt;mso-text-raise:
+  -6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1091" type="#_x0000_t75"
+   style='width:57pt;height:20.25pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image122.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=76 height=27
+  src="op_beams_001_files/image123.png" v:shapes="_x0000_i1091"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1091"
+    DrawAspect="Content" ObjectID="_1679507367">
+   </o:OLEObject>
+  </xml><![endif]-->. The wavefront is a nearly a spherical surface traveling
+  away from <i style='mso-bidi-font-style:normal'><span style='font-family:
+  "Times New Roman","serif"'>z </span></i>= 0. This is the geometric optics
+  limit. When we focus a beam of light we expect the light rays to go in
+  straight lines to and from the focal point (<i style='mso-bidi-font-style:
+  normal'><span style='font-family:"Times New Roman","serif"'>z </span></i>=
+  0). This is correct <span class=GramE>if </span><span style='position:relative;
+  top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1092"
+   type="#_x0000_t75" style='width:51.75pt;height:24pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image124.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=69 height=32
+  src="op_beams_001_files/image125.png" v:shapes="_x0000_i1092"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1092"
+    DrawAspect="Content" ObjectID="_1679507368">
+   </o:OLEObject>
+  </xml><![endif]-->. <span class=GramE>For </span><span style='position:relative;
+  top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1093"
+   type="#_x0000_t75" style='width:47.25pt;height:24pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image126.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=63 height=32
+  src="op_beams_001_files/image127.png" v:shapes="_x0000_i1093"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1093"
+    DrawAspect="Content" ObjectID="_1679507369">
+   </o:OLEObject>
+  </xml><![endif]-->, the wave aspect of the light applies. </p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'>When <span style='position:relative;
+  top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1094"
+   type="#_x0000_t75" style='width:42pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image128.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=56 height=29
+  src="op_beams_001_files/image082.png" v:shapes="_x0000_i1094"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1094"
+    DrawAspect="Content" ObjectID="_1679507370">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>then <span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1095" type="#_x0000_t75" style='width:107.25pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image129.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=143 height=29
+  src="op_beams_001_files/image130.png" v:shapes="_x0000_i1095"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1095"
+    DrawAspect="Content" ObjectID="_1679507371">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span><span
+  class=GramE>which is the minimum value of the radius of curvature and
+  corresponds to the turning point between ray-optics and wave-optics.</span></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><span class=SpellE><b
+  style='mso-bidi-font-weight:normal'><span style='color:#C55A11;mso-themecolor:
+  accent2;mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>Gouy</span></b></span><b style='mso-bidi-font-weight:normal'><span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'> phase</span></b><span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1096" type="#_x0000_t75" style='width:30.75pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image131.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=41 height=27
+  src="op_beams_001_files/image064.png" v:shapes="_x0000_i1096"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1096"
+    DrawAspect="Content" ObjectID="_1679507372">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(13)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:20.0pt;mso-text-raise:-20.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1097" type="#_x0000_t75" style='width:117pt;height:48pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image132.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=156 height=64
+  src="op_beams_001_files/image133.png" v:shapes="_x0000_i1097"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1097"
+    DrawAspect="Content" ObjectID="_1679507373">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'>The <span class=SpellE>Gouy</span>
+  phase slightly shifts the phase of the wavefront of the wave as a whole. For
+  a focused beam, the dependence of the <span class=SpellE>Gouy</span> phase as
+  a function of <i style='mso-bidi-font-style:normal'><span style='font-family:
+  "Times New Roman","serif"'>z </span></i>is displayed in figure 4.</p>
+  <p class=MsoNormal align=center style='text-align:center;tab-stops:97.8pt'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_9"
+   o:spid="_x0000_i1161" type="#_x0000_t75" style='width:5in;height:270pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op_beams_001_files/image134.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=480 height=360
+  src="op_beams_001_files/image134.png" v:shapes="Picture_x0020_9"><![endif]></span></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Fig.4.<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Goy phase
+  plot for a focused Gaussian beam.</p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='tab-stops:97.8pt'>As <span style='position:relative;
+  top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1098"
+   type="#_x0000_t75" style='width:54pt;height:15pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image135.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=72 height=20
+  src="op_beams_001_files/image136.png" v:shapes="_x0000_i1098"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1098"
+    DrawAspect="Content" ObjectID="_1679507374">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>the <span
+  class=SpellE>Gouy</span> phase asymptotes <span class=GramE>to </span><span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1099" type="#_x0000_t75" style='width:86.25pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image137.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=115 height=27
+  src="op_beams_001_files/image138.png" v:shapes="_x0000_i1099"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1099"
+    DrawAspect="Content" ObjectID="_1679507375">
+   </o:OLEObject>
+  </xml><![endif]-->. Thus, only a <span style='position:relative;top:3.0pt;
+  mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1100" type="#_x0000_t75"
+   style='width:14.25pt;height:12.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image139.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=19 height=17
+  src="op_beams_001_files/image140.png" v:shapes="_x0000_i1100"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1100"
+    DrawAspect="Content" ObjectID="_1679507376">
+   </o:OLEObject>
+  </xml><![endif]-->phase shift occurs from <span style='position:relative;
+  top:2.0pt;mso-text-raise:-2.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1101"
+   type="#_x0000_t75" style='width:48pt;height:12pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image141.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=64 height=16
+  src="op_beams_001_files/image142.png" v:shapes="_x0000_i1101"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1101"
+    DrawAspect="Content" ObjectID="_1679507377">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span><span
+  class=GramE>to </span><span style='position:relative;top:2.0pt;mso-text-raise:
+  -2.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1102" type="#_x0000_t75"
+   style='width:48pt;height:12.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image143.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=64 height=17
+  src="op_beams_001_files/image144.png" v:shapes="_x0000_i1102"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1102"
+    DrawAspect="Content" ObjectID="_1679507378">
+   </o:OLEObject>
+  </xml><![endif]-->. This results in inversion of a signal that has passed
+  through the <span class=GramE>waist </span><span style='position:relative;
+  top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1103"
+   type="#_x0000_t75" style='width:102.75pt;height:24pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image145.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=137 height=32
+  src="op_beams_001_files/image146.png" v:shapes="_x0000_i1103"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1103"
+    DrawAspect="Content" ObjectID="_1679507379">
+   </o:OLEObject>
+  </xml><![endif]-->, that corresponds to the inversion obtained with the
+  ray-tracing approximation (Geometrical Optics).</p>
+  <p class=MsoNormal style='tab-stops:97.8pt'><span
+  style='mso-spacerun:yes'>&nbsp;</span>The most rapid change in phase occurs
+  in the region from <span style='position:relative;top:7.0pt;mso-text-raise:
+  -7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1104" type="#_x0000_t75"
+   style='width:53.25pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image147.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=71 height=29
+  src="op_beams_001_files/image148.png" v:shapes="_x0000_i1104"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1104"
+    DrawAspect="Content" ObjectID="_1679507380">
+   </o:OLEObject>
+  </xml><![endif]-->to <span style='position:relative;top:7.0pt;mso-text-raise:
+  -7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1105" type="#_x0000_t75"
+   style='width:53.25pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image149.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=71 height=29
+  src="op_beams_001_files/image150.png" v:shapes="_x0000_i1105"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1105"
+    DrawAspect="Content" ObjectID="_1679507381">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>and <span
+  class=GramE>when </span><span style='position:relative;top:7.0pt;mso-text-raise:
+  -7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1106" type="#_x0000_t75"
+   style='width:53.25pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image151.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=71 height=29
+  src="op_beams_001_files/image148.png" v:shapes="_x0000_i1106"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1106"
+    DrawAspect="Content" ObjectID="_1679507382">
+   </o:OLEObject>
+  </xml><![endif]-->, then <span style='position:relative;top:7.0pt;mso-text-raise:
+  -7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1107" type="#_x0000_t75"
+   style='width:129pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image152.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=172 height=29
+  src="op_beams_001_files/image153.png" v:shapes="_x0000_i1107"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1107"
+    DrawAspect="Content" ObjectID="_1679507383">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>and <span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1108" type="#_x0000_t75" style='width:53.25pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image154.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=71 height=29
+  src="op_beams_001_files/image150.png" v:shapes="_x0000_i1108"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1108"
+    DrawAspect="Content" ObjectID="_1679507384">
+   </o:OLEObject>
+  </xml><![endif]-->, then <span style='position:relative;top:7.0pt;mso-text-raise:
+  -7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1109" type="#_x0000_t75"
+   style='width:129pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image155.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=172 height=29
+  src="op_beams_001_files/image156.png" v:shapes="_x0000_i1109"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1109"
+    DrawAspect="Content" ObjectID="_1679507385">
+   </o:OLEObject>
+  </xml><![endif]-->.<span style='mso-spacerun:yes'>&nbsp; </span>The <span
+  class=SpellE>Gouy</span> phase shift along the beam remains within the range <span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1110" type="#_x0000_t75" style='width:42pt;height:17.25pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image157.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=56 height=23
+  src="op_beams_001_files/image158.png" v:shapes="_x0000_i1110"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1110"
+    DrawAspect="Content" ObjectID="_1679507386">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>(for a
+  fundamental Gaussian beam) and is not observable in most experiments.
+  However, it is of theoretical importance and takes on a greater range for
+  higher-order Gaussian modes. </p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>ENERGY: Irradiance
+  (Intensity)<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span></b><b
+  style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:normal'><span
+  style='font-family:"Times New Roman","serif";color:#C55A11;mso-themecolor:
+  accent2;mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>S</span></i></b><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Times New Roman","serif";color:#C55A11;mso-themecolor:
+  accent2;mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>(<i style='mso-bidi-font-style:normal'>r</i>, <i
+  style='mso-bidi-font-style:normal'>z</i>)<i style='mso-bidi-font-style:normal'><span
+  style='mso-spacerun:yes'>&nbsp; </span></i></span></b><b style='mso-bidi-font-weight:
+  normal'><span style='mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+  mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;color:#C55A11;
+  mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>and power</span></b><b
+  style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:normal'><span
+  style='font-family:"Times New Roman","serif";color:#C55A11;mso-themecolor:
+  accent2;mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'> P</span></i></b><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Times New Roman","serif";color:#C55A11;mso-themecolor:
+  accent2;mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>(<i style='mso-bidi-font-style:normal'>z</i>)</span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Times New Roman","serif"'><o:p></o:p></span></b></p>
+  <p class=MsoNormal>The <b style='mso-bidi-font-weight:normal'><span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>irradiance</span></b>
+  (intensity) <i style='mso-bidi-font-style:normal'><span style='font-family:
+  "Times New Roman","serif";mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:
+  major-fareast;mso-bidi-theme-font:major-fareast'>S</span></i> is the time
+  average flow of energy per unit time per unit area [W.m<sup>-2</sup>]. The
+  irradiance <i style='mso-bidi-font-style:normal'><span style='font-family:
+  "Times New Roman","serif"'>S </span></i>can be calculated from the electric
+  field <i style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif"'>E
+  </span></i>of the wave from equation 14</p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(14)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:18.0pt;mso-text-raise:-18.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1111" type="#_x0000_t75" style='width:95.25pt;height:44.25pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image159.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=127 height=59
+  src="op_beams_001_files/image160.png" v:shapes="_x0000_i1111"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1111"
+    DrawAspect="Content" ObjectID="_1679507388">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal>The symbol <i style='mso-bidi-font-style:normal'><span
+  style='font-family:"Times New Roman","serif"'>S </span></i>is used for the
+  irradiance in the Script and notes and not the more commonly used letter <i
+  style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif"'>I</span></i>.
+  <i style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif"'>c
+  </span></i>is the speed of light and <span style='position:relative;
+  top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1112"
+   type="#_x0000_t75" style='width:17.25pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image161.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=23 height=29
+  src="op_beams_001_files/image162.png" v:shapes="_x0000_i1112"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1112"
+    DrawAspect="Content" ObjectID="_1679507389">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>is the
+  permittivity of free space. </p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal>For our propagating Gaussian beam, the electric field <i
+  style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif"'>E
+  </span></i>is given by equation 7, so the irradiance <i style='mso-bidi-font-style:
+  normal'><span style='font-family:"Times New Roman","serif"'>S </span></i>is</p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(15A)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:23.0pt;mso-text-raise:-23.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1113" type="#_x0000_t75" style='width:320.25pt;height:54pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image163.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=427 height=72
+  src="op_beams_001_files/image164.png" v:shapes="_x0000_i1113"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1113"
+    DrawAspect="Content" ObjectID="_1679507390">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><span style='mso-spacerun:yes'>&nbsp;</span>or</p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(15B)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:23.0pt;mso-text-raise:-23.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1114" type="#_x0000_t75" style='width:392.25pt;height:54pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image165.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=523 height=72
+  src="op_beams_001_files/image166.png" v:shapes="_x0000_i1114"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1114"
+    DrawAspect="Content" ObjectID="_1679507391">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(9)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1115" type="#_x0000_t75" style='width:149.25pt;height:30pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image073.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=199 height=40
+  src="op_beams_001_files/image074.png" v:shapes="_x0000_i1115"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1115"
+    DrawAspect="Content" ObjectID="_1679507392">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal>The maximum irradiance occurs at the location <span
+  style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1116" type="#_x0000_t75" style='width:86.25pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image167.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=115 height=32
+  src="op_beams_001_files/image168.png" v:shapes="_x0000_i1116"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1116"
+    DrawAspect="Content" ObjectID="_1679507393">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>where</p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='mso-spacerun:yes'>&nbsp;</span>(15C)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:18.0pt;mso-text-raise:-18.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1117" type="#_x0000_t75" style='width:119.25pt;height:44.25pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image169.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=159 height=59
+  src="op_beams_001_files/image170.png" v:shapes="_x0000_i1117"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1117"
+    DrawAspect="Content" ObjectID="_1679507394">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal>The variation of the intensity along the Z axis <span
+  style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1118" type="#_x0000_t75" style='width:47.25pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image171.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=63 height=32
+  src="op_beams_001_files/image172.png" v:shapes="_x0000_i1118"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1118"
+    DrawAspect="Content" ObjectID="_1679507395">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>is given by</p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(15D)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:22.0pt;mso-text-raise:-22.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1119" type="#_x0000_t75" style='width:408pt;height:53.25pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image173.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=544 height=71
+  src="op_beams_001_files/image174.png" v:shapes="_x0000_i1119"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1119"
+    DrawAspect="Content" ObjectID="_1679507396">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;</span></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal>Figure 5 shows a plot of the axial irradiance <i
+  style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif"'>S<sub>z</sub>
+  </span></i>as a function of <i style='mso-bidi-font-style:normal'><span
+  style='font-family:"Times New Roman","serif"'>z</span></i>.</p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_86"
+   o:spid="_x0000_i1160" type="#_x0000_t75" style='width:5in;height:270pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op_beams_001_files/image175.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=480 height=360
+  src="op_beams_001_files/image175.png" v:shapes="Picture_x0020_86"><![endif]></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:35.7pt;margin-bottom:
+  8.0pt;margin-left:23.35pt;line-height:115%'>Fig. 5.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Axial irradiance <span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1120" type="#_x0000_t75" style='width:18pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image176.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=24 height=29
+  src="op_beams_001_files/image016.png" v:shapes="_x0000_i1120"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1120"
+    DrawAspect="Content" ObjectID="_1679507397">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>as a function
+  of position <i style='mso-bidi-font-style:normal'><span style='font-family:
+  "Times New Roman","serif"'>z </span></i>along the axis of the beam. The
+  maximum value of the irradiance from equation 15C <span class=GramE>is<span
+  style='mso-spacerun:yes'>&nbsp; </span></span><span style='position:relative;
+  top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1121"
+   type="#_x0000_t75" style='width:174pt;height:24.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image177.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=232 height=33
+  src="op_beams_001_files/image178.png" v:shapes="_x0000_i1121"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1121"
+    DrawAspect="Content" ObjectID="_1679507398">
+   </o:OLEObject>
+  </xml><![endif]-->. Note, at <span style='position:relative;top:7.0pt;
+  mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1122" type="#_x0000_t75"
+   style='width:42pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image179.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=56 height=29
+  src="op_beams_001_files/image082.png" v:shapes="_x0000_i1122"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1122"
+    DrawAspect="Content" ObjectID="_1679507399">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>the on-axis
+  irradiance is one-half the maximum irradiance at the <span class=GramE>waist </span><span
+  style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1123" type="#_x0000_t75" style='width:47.25pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image180.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=63 height=32
+  src="op_beams_001_files/image181.png" v:shapes="_x0000_i1123"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1123"
+    DrawAspect="Content" ObjectID="_1679507400">
+   </o:OLEObject>
+  </xml><![endif]-->: <span style='position:relative;top:7.0pt;mso-text-raise:
+  -7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1124" type="#_x0000_t75"
+   style='width:105.75pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image182.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=141 height=29
+  src="op_beams_001_files/image183.png" v:shapes="_x0000_i1124"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1124"
+    DrawAspect="Content" ObjectID="_1679507401">
+   </o:OLEObject>
+  </xml><![endif]-->.<span style='mso-spacerun:yes'>&nbsp; </span></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal><span class=GramE>When </span><span style='position:relative;
+  top:12.0pt;mso-text-raise:-12.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1125"
+   type="#_x0000_t75" style='width:198.75pt;height:32.25pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image184.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=265 height=43
+  src="op_beams_001_files/image185.png" v:shapes="_x0000_i1125"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1125"
+    DrawAspect="Content" ObjectID="_1679507402">
+   </o:OLEObject>
+  </xml><![endif]-->, then <span style='position:relative;top:16.0pt;
+  mso-text-raise:-16.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1126" type="#_x0000_t75"
+   style='width:74.25pt;height:41.25pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image186.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=99 height=55
+  src="op_beams_001_files/image187.png" v:shapes="_x0000_i1126"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1126"
+    DrawAspect="Content" ObjectID="_1679507403">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span><span
+  class=SpellE>and</span> <span style='position:relative;top:15.0pt;mso-text-raise:
+  -15.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1127" type="#_x0000_t75"
+   style='width:98.25pt;height:39.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image188.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=131 height=53
+  src="op_beams_001_files/image189.png" v:shapes="_x0000_i1127"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1127"
+    DrawAspect="Content" ObjectID="_1679507404">
+   </o:OLEObject>
+  </xml><![endif]-->. Therefore, the amplitude of the wave decreases with increasing
+  <i style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif"'>z
+  </span></i>in the same manner as a spherical wave.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal>The radial irradiance <i style='mso-bidi-font-style:normal'><span
+  style='font-family:"Times New Roman","serif"'>S<sub>r</sub> </span></i>is the
+  variation in the irradiance in the XY plane located at position <i
+  style='mso-bidi-font-style:normal'>z</i>. and typical plots are shown in
+  figure 6.</p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(15E)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:23.0pt;mso-text-raise:-23.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1128" type="#_x0000_t75" style='width:404.25pt;height:54pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image190.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=539 height=72
+  src="op_beams_001_files/image191.png" v:shapes="_x0000_i1128"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1128"
+    DrawAspect="Content" ObjectID="_1679507405">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_13"
+   o:spid="_x0000_i1159" type="#_x0000_t75" style='width:5in;height:270pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op_beams_001_files/image192.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=480 height=360
+  src="op_beams_001_files/image192.png" v:shapes="Picture_x0020_13"><![endif]></span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_10"
+   o:spid="_x0000_i1158" type="#_x0000_t75" style='width:5in;height:270pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op_beams_001_files/image193.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=480 height=360
+  src="op_beams_001_files/image193.png" v:shapes="Picture_x0020_10"><![endif]></span></p>
+  <p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:35.7pt;margin-bottom:
+  8.0pt;margin-left:30.45pt;line-height:normal'>Fig. 6.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>The variation in the
+  radial irradiance <i style='mso-bidi-font-style:normal'><span
+  style='font-family:"Times New Roman","serif"'>S&shy; </span></i>at two <i
+  style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif"'>z
+  </span></i>positions along the axis. The <span class=GramE>profile of the
+  plots are</span> also a Gaussian function as is the amplitude of the wave.</p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal>Figure 7 shows the radial irradiance <i style='mso-bidi-font-style:
+  normal'><span style='font-family:"Times New Roman","serif"'>S<sub>r</sub> </span></i>as
+  a [3D] plot and as image that may be viewed on a screen for the same two <i
+  style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif"'>z
+  </span></i>positions as in figure 6.</p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_14"
+   o:spid="_x0000_i1157" type="#_x0000_t75" style='width:5in;height:540pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op_beams_001_files/image194.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=480 height=720
+  src="op_beams_001_files/image194.png" v:shapes="Picture_x0020_14"><![endif]></span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_11"
+   o:spid="_x0000_i1156" type="#_x0000_t75" style='width:5in;height:540pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op_beams_001_files/image195.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=480 height=720
+  src="op_beams_001_files/image195.png" v:shapes="Picture_x0020_11"><![endif]></span></p>
+  <p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Fig. 7.<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Beam
+  profile: Radial irradiance <i style='mso-bidi-font-style:normal'><span
+  style='font-family:"Times New Roman","serif"'>S<sub>r</sub></span></i>. </p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal>Figure 8 shows the beam in the XZ plane and how the beam
+  diverges and how its intensity decreases with increasing <i style='mso-bidi-font-style:
+  normal'><span style='font-family:"Times New Roman","serif"'>z </span></i>distance
+  from the waist at <i style='mso-bidi-font-style:normal'><span
+  style='font-family:"Times New Roman","serif"'>z </span></i>= 0.</p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_1"
+   o:spid="_x0000_i1155" type="#_x0000_t75" style='width:5in;height:180pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op_beams_001_files/image196.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=480 height=240
+  src="op_beams_001_files/image196.png" v:shapes="Picture_x0020_1"><![endif]></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:35.7pt;margin-bottom:
+  8.0pt;margin-left:30.45pt'>Fig. 8.<span style='mso-spacerun:yes'>&nbsp;&nbsp;
+  </span>Profile of the beam in the XZ plane. The yellow lines show the beam
+  spot as shown in figure 2.<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal>The power <i style='mso-bidi-font-style:normal'><span
+  style='font-family:"Times New Roman","serif"'>P </span></i>transmitted
+  through a circular disk of radius <span class=SpellE><i style='mso-bidi-font-style:
+  normal'><span style='font-family:"Times New Roman","serif"'>r<sub>P</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif"'>
+  </span></i><span style='mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+  minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin'>in
+  an <span class=SpellE>XY</span> plane at position </span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif"'>z<sub>P</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif"'>
+  </span></i><span style='mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+  minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin'>is</span>
+  </p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:12.0pt;mso-text-raise:-12.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1129" type="#_x0000_t75" style='width:171pt;height:35.25pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image197.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=228 height=47
+  src="op_beams_001_files/image198.png" v:shapes="_x0000_i1129"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1129"
+    DrawAspect="Content" ObjectID="_1679507406">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:23.0pt;mso-text-raise:-23.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1130" type="#_x0000_t75" style='width:389.25pt;height:54pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image199.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=519 height=72
+  src="op_beams_001_files/image200.png" v:shapes="_x0000_i1130"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1130"
+    DrawAspect="Content" ObjectID="_1679507407">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:23.0pt;mso-text-raise:-23.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1131" type="#_x0000_t75" style='width:344.25pt;height:54pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image201.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=459 height=72
+  src="op_beams_001_files/image202.png" v:shapes="_x0000_i1131"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1131"
+    DrawAspect="Content" ObjectID="_1679507408">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:22.0pt;mso-text-raise:-22.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1132" type="#_x0000_t75" style='width:303pt;height:53.25pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image203.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=404 height=71
+  src="op_beams_001_files/image204.png" v:shapes="_x0000_i1132"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1132"
+    DrawAspect="Content" ObjectID="_1679507409">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:24.0pt;mso-text-raise:-24.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1133" type="#_x0000_t75" style='width:327.75pt;height:59.25pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image205.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=437 height=79
+  src="op_beams_001_files/image206.png" v:shapes="_x0000_i1133"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1133"
+    DrawAspect="Content" ObjectID="_1679507410">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:23.0pt;mso-text-raise:-23.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1134" type="#_x0000_t75" style='width:282pt;height:54pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image207.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=376 height=72
+  src="op_beams_001_files/image208.png" v:shapes="_x0000_i1134"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1134"
+    DrawAspect="Content" ObjectID="_1679507411">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(16A)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:23.0pt;mso-text-raise:-23.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1135" type="#_x0000_t75" style='width:189.75pt;height:54pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image209.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=253 height=72
+  src="op_beams_001_files/image210.png" v:shapes="_x0000_i1135"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1135"
+    DrawAspect="Content" ObjectID="_1679507412">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal>When <span style='position:relative;top:7.0pt;mso-text-raise:
+  -7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1136" type="#_x0000_t75"
+   style='width:51pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image211.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=68 height=29
+  src="op_beams_001_files/image212.png" v:shapes="_x0000_i1136"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1136"
+    DrawAspect="Content" ObjectID="_1679507413">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>then <span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1137" type="#_x0000_t75" style='width:69pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image213.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=92 height=29
+  src="op_beams_001_files/image214.png" v:shapes="_x0000_i1137"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1137"
+    DrawAspect="Content" ObjectID="_1679507414">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(16B)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:22.0pt;mso-text-raise:-22.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1138" type="#_x0000_t75" style='width:138.75pt;height:51.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image215.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=185 height=69
+  src="op_beams_001_files/image216.png" v:shapes="_x0000_i1138"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1138"
+    DrawAspect="Content" ObjectID="_1679507415">
+   </o:OLEObject>
+  </xml><![endif]--><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>total
+  power transmitted by the beam</p>
+  <p class=MsoNormal><span style='mso-spacerun:yes'>&nbsp;</span></p>
+  <p class=MsoNormal>If we know the total power <span style='position:relative;
+  top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1139"
+   type="#_x0000_t75" style='width:17.25pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image217.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=23 height=29
+  src="op_beams_001_files/image218.png" v:shapes="_x0000_i1139"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1139"
+    DrawAspect="Content" ObjectID="_1679507416">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>transmitted by
+  the beam, we can then calculate the electric field amplitude <span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1140" type="#_x0000_t75" style='width:18.75pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image219.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=25 height=29
+  src="op_beams_001_files/image056.png" v:shapes="_x0000_i1140"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1140"
+    DrawAspect="Content" ObjectID="_1679507417">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>and the maximum
+  irradiance<span style='mso-spacerun:yes'>&nbsp; </span>of the beam <span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1141" type="#_x0000_t75" style='width:18pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image220.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=24 height=29
+  src="op_beams_001_files/image221.png" v:shapes="_x0000_i1141"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1141"
+    DrawAspect="Content" ObjectID="_1679507418">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(17A)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:22.0pt;mso-text-raise:-22.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1142" type="#_x0000_t75" style='width:114.75pt;height:51pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image222.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=153 height=68
+  src="op_beams_001_files/image223.png" v:shapes="_x0000_i1142"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1142"
+    DrawAspect="Content" ObjectID="_1679507419">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(17B)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:13.0pt;mso-text-raise:-13.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1143" type="#_x0000_t75" style='width:94.5pt;height:43.5pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image224.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=126 height=58
+  src="op_beams_001_files/image225.png" v:shapes="_x0000_i1143"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1143"
+    DrawAspect="Content" ObjectID="_1679507420">
+   </o:OLEObject>
+  </xml><![endif]--><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal>Figure 9 shows the percentage power that would pass
+  through a circular aperture of varying radius placed perpendicular to the
+  beam at the beam waist. </p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_15"
+   o:spid="_x0000_i1154" type="#_x0000_t75" style='width:5in;height:270pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op_beams_001_files/image226.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=480 height=360
+  src="op_beams_001_files/image226.png" v:shapes="Picture_x0020_15"><![endif]></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:35.7pt;margin-bottom:
+  8.0pt;margin-left:30.45pt;line-height:115%'>Fig. 9.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>The percentage power that would
+  pass through a circular aperture of varying radius placed perpendicular to
+  the beam at the beam waist. 86% of the light passes through the aperture when
+  the radius of the aperture is equal to the beam waist.</p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:35.7pt;margin-bottom:
+  8.0pt;margin-left:30.45pt;line-height:115%'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:35.7pt;margin-bottom:
+  8.0pt;margin-left:30.45pt;line-height:115%'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-right:35.7pt;line-height:115%'><b
+  style='mso-bidi-font-weight:normal'><span style='color:#C55A11;mso-themecolor:
+  accent2;mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>Phase of the wave</span></b><span style='color:#C55A11;
+  mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'><span
+  style='mso-spacerun:yes'>&nbsp; </span></span><span style='position:relative;
+  top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1144"
+   type="#_x0000_t75" style='width:14.25pt;height:15.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image227.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=19 height=21
+  src="op_beams_001_files/image026.png" v:shapes="_x0000_i1144"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1144"
+    DrawAspect="Content" ObjectID="_1679507421">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='margin-right:35.7pt;line-height:115%'>We can
+  examine the change of phase of the wave along the time Z axis from equation 7
+  when <span style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1145" type="#_x0000_t75" style='width:35.25pt;height:18.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image228.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=47 height=25
+  src="op_beams_001_files/image229.png" v:shapes="_x0000_i1145"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1145"
+    DrawAspect="Content" ObjectID="_1679507422">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span><span
+  class=GramE>and </span><span style='position:relative;top:6.0pt;mso-text-raise:
+  -6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1146" type="#_x0000_t75"
+   style='width:36.75pt;height:18.75pt' o:ole="">
+   <v:imagedata src="op_beams_001_files/image230.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=49 height=25
+  src="op_beams_001_files/image231.png" v:shapes="_x0000_i1146"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1146"
+    DrawAspect="Content" ObjectID="_1679507423">
+   </o:OLEObject>
+  </xml><![endif]-->.</p>
+  <p class=MsoNormal style='margin-right:35.7pt;line-height:115%'>(7)</p>
+  <p class=MsoNormal style='margin-right:35.7pt;line-height:115%'><span
+  style='position:relative;top:23.0pt;mso-text-raise:-23.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1147" type="#_x0000_t75" style='width:483.75pt;height:54pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image232.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=645 height=72
+  src="op_beams_001_files/image233.png" v:shapes="_x0000_i1147"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1147"
+    DrawAspect="Content" ObjectID="_1679507424">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='margin-right:35.7pt;line-height:115%'>(18)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:26.0pt;mso-text-raise:-26.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1148" type="#_x0000_t75" style='width:500.25pt;height:60pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image234.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=667 height=80
+  src="op_beams_001_files/image235.png" v:shapes="_x0000_i1148"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1148"
+    DrawAspect="Content" ObjectID="_1679507425">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-right:35.7pt;line-height:115%'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-right:35.7pt;line-height:115%'>The phase of
+  the wave can be found using the Matlab command <b style='mso-bidi-font-weight:
+  normal'><span style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:
+  128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>angle</span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;mso-layout-grid-align:
+  none;text-autospace:none'><span lang=EN-US style='font-size:12.0pt;
+  mso-bidi-font-size:16.0pt;line-height:150%;font-family:"Courier New";
+  color:black;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span lang=EN-US
+  style='font-size:10.0pt;line-height:150%;font-family:"Courier New";
+  color:forestgreen;mso-ansi-language:EN-US'>% phase of the wave along the Z
+  axis</span><span lang=EN-US style='font-size:12.0pt;line-height:150%;
+  font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;mso-layout-grid-align:
+  none;text-autospace:none'><span lang=EN-US style='font-size:10.0pt;
+  line-height:150%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span
+  class=SpellE>E_chi</span> = E0 .* (1./sqrt(1+z_zR.^2)) .* <span class=SpellE>exp</span>(1i*(k.*<span
+  class=SpellE>zR</span>.*<span class=SpellE>z_zR</span> - <span class=SpellE>atan</span>(<span
+  class=SpellE>z_zR</span>)));</span><span lang=EN-US style='font-size:12.0pt;
+  line-height:150%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;mso-layout-grid-align:
+  none;text-autospace:none'><span lang=EN-US style='font-size:10.0pt;
+  line-height:150%;font-family:"Courier New";color:black;mso-ansi-language:
+  EN-US'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>chi = angle(<span
+  class=SpellE>E_chi</span>);</span><span lang=EN-US style='font-size:12.0pt;
+  line-height:150%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-size:12.0pt;mso-bidi-font-size:16.0pt;line-height:115%;
+  font-family:"Courier New";color:black;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:150%'><span lang=EN-US
+  style='mso-bidi-font-size:12.0pt;line-height:150%;mso-ansi-language:EN-US'>The
+  phase along the Z axis is displayed in figure 10. <o:p></o:p></span></p>
+  <p class=MsoNoSpacing align=center style='text-align:center;line-height:150%'><span
+  style='mso-bidi-font-size:12.0pt;line-height:150%;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_2" o:spid="_x0000_i1153" type="#_x0000_t75" style='width:5in;
+   height:270pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op_beams_001_files/image236.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=480 height=360
+  src="op_beams_001_files/image236.png" v:shapes="Picture_x0020_2"><![endif]></span><span
+  lang=EN-US style='mso-bidi-font-size:12.0pt;line-height:150%;mso-ansi-language:
+  EN-US'><o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='margin-top:0cm;margin-right:43.4pt;margin-bottom:
+  0cm;margin-left:29.85pt;margin-bottom:.0001pt;line-height:115%'><span
+  lang=EN-US style='mso-bidi-font-size:12.0pt;line-height:115%;mso-ansi-language:
+  EN-US'>Fig.10.<span style='mso-spacerun:yes'>&nbsp; </span>Phase in the
+  electric field along the Z axis of the beam. <o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='margin-top:0cm;margin-right:43.4pt;margin-bottom:
+  0cm;margin-left:29.85pt;margin-bottom:.0001pt;line-height:115%'><span
+  lang=EN-US style='mso-bidi-font-size:12.0pt;line-height:115%;color:#BF9000;
+  mso-themecolor:accent4;mso-themeshade:191;mso-style-textfill-fill-color:#BF9000;
+  mso-style-textfill-fill-themecolor:accent4;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000;mso-ansi-language:
+  EN-US'>??? <span class=GramE>not</span> sure if the graph is correct &#8211;
+  get very rapid changes ???</span><span lang=EN-US style='mso-bidi-font-size:
+  12.0pt;line-height:115%;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNoSpacing style='line-height:115%'><span lang=EN-US
+  style='font-size:12.0pt;line-height:115%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span style='mso-spacerun:yes'>&nbsp; </span></p>
+  <p class=MsoNormal>You can easily change any of the parameters and
+  immediately see the resulting changes. For example: wavelength for blue light
+  <span style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1149" type="#_x0000_t75" style='width:78pt;height:18.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image237.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=104 height=25
+  src="op_beams_001_files/image238.png" v:shapes="_x0000_i1149"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1149"
+    DrawAspect="Content" ObjectID="_1679507426">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_3"
+   o:spid="_x0000_i1152" type="#_x0000_t75" style='width:5in;height:540pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op_beams_001_files/image239.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=480 height=720
+  src="op_beams_001_files/image239.png" v:shapes="Picture_x0020_3"><![endif]></span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_4"
+   o:spid="_x0000_i1151" type="#_x0000_t75" style='width:5in;height:180pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op_beams_001_files/image240.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=480 height=240
+  src="op_beams_001_files/image240.png" v:shapes="Picture_x0020_4"><![endif]></span></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Fig. 11.<span
+  style='mso-spacerun:yes'>&nbsp; </span>Beam profile plots for blue <span
+  class=GramE>light<span style='mso-spacerun:yes'>&nbsp; </span></span><span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1150" type="#_x0000_t75" style='width:78pt;height:18.75pt'
+   o:ole="">
+   <v:imagedata src="op_beams_001_files/image237.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=104 height=25
+  src="op_beams_001_files/image238.png" v:shapes="_x0000_i1150"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1150"
+    DrawAspect="Content" ObjectID="_1679507427">
+   </o:OLEObject>
+  </xml><![endif]-->.</p>
+  <p class=MsoNormal><span style='mso-spacerun:yes'>&nbsp; </span></p>
+  <p class=MsoNormal><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:13.8pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=803 valign=top style='width:602.45pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>

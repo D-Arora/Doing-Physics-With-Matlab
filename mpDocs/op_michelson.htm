@@ -1,0 +1,2011 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 14">
+<meta name=Originator content="Microsoft Word 14">
+<base target="_blank">
+<link rel=File-List href="op_michelson_files/filelist.xml">
+<link rel=Edit-Time-Data href="op_michelson_files/editdata.mso">
+<link rel=OLE-Object-Data href="op_michelson_files/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Matlab Physics</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Subject>Matlab Physics</o:Subject>
+  <o:Author>Ian Cooper</o:Author>
+  <o:Keywords>Michelson interferometer, optics, interferometers, interference, fringe patterns, Matlab, computational physics</o:Keywords>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Owner</o:LastAuthor>
+  <o:Revision>30</o:Revision>
+  <o:TotalTime>2345</o:TotalTime>
+  <o:Created>2019-07-20T06:48:00Z</o:Created>
+  <o:LastSaved>2021-04-09T10:51:00Z</o:LastSaved>
+  <o:Pages>12</o:Pages>
+  <o:Words>1532</o:Words>
+  <o:Characters>8738</o:Characters>
+  <o:Category>Matlab, Optics</o:Category>
+  <o:Lines>72</o:Lines>
+  <o:Paragraphs>20</o:Paragraphs>
+  <o:CharactersWithSpaces>10250</o:CharactersWithSpaces>
+  <o:Version>14.00</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+<link rel=themeData href="op_michelson_files/themedata.thmx">
+<link rel=colorSchemeMapping href="op_michelson_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>135</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-AU</w:LidThemeOther>
+  <w:LidThemeAsian>ZH-CN</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" QFormat="true" Name="Hyperlink"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:PMingLiU;
+	panose-1:2 1 6 1 0 1 1 1 1 1;
+	mso-font-alt:\65B0\7D30\660E\9AD4;
+	mso-font-charset:136;
+	mso-generic-font-family:auto;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:1 134742016 16 0 1048576 0;}
+@font-face
+	{font-family:PMingLiU;
+	panose-1:2 1 6 1 0 1 1 1 1 1;
+	mso-font-alt:\65B0\7D30\660E\9AD4;
+	mso-font-charset:136;
+	mso-generic-font-family:auto;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:1 134742016 16 0 1048576 0;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-469750017 -1073732485 9 0 511 0;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+@font-face
+	{font-family:"Segoe UI";
+	panose-1:2 11 5 2 4 2 4 2 2 3;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-469750017 -1073683329 9 0 511 0;}
+@font-face
+	{font-family:"\@PMingLiU";
+	mso-font-charset:136;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:-1610611969 684719354 22 0 1048577 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-fareast-font-family:PMingLiU;
+	mso-bidi-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	mso-style-qformat:yes;
+	mso-ansi-font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-hansi-font-family:Calibri;
+	mso-bidi-font-family:Calibri;
+	color:blue;
+	mso-text-animation:none;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:#954F72;
+	mso-themecolor:followedhyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+address
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"HTML Address Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-bidi-font-family:"Times New Roman";
+	font-style:normal;
+	mso-bidi-font-style:italic;
+	text-decoration:underline;
+	text-underline:single;}
+cite
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	font-style:normal;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Balloon Text Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:9.0pt;
+	font-family:"Segoe UI","sans-serif";
+	mso-fareast-font-family:PMingLiU;}
+span.HTMLAddressChar
+	{mso-style-name:"HTML Address Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"HTML Address";
+	mso-bidi-font-style:italic;
+	text-decoration:underline;
+	text-underline:single;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Balloon Text";
+	mso-ansi-font-size:9.0pt;
+	mso-bidi-font-size:9.0pt;
+	font-family:"Segoe UI","sans-serif";
+	mso-ascii-font-family:"Segoe UI";
+	mso-hansi-font-family:"Segoe UI";
+	mso-bidi-font-family:"Segoe UI";}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{mso-style-name:msonormal;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:PMingLiU;}
+p.Style1, li.Style1, div.Style1
+	{mso-style-name:Style1;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-fareast-font-family:PMingLiU;
+	mso-bidi-font-family:"Times New Roman";
+	text-decoration:underline;
+	text-underline:single;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:16.0pt;
+	mso-ansi-font-size:16.0pt;
+	mso-bidi-font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-fareast-font-family:PMingLiU;
+	mso-hansi-font-family:Calibri;
+	mso-bidi-font-family:Calibri;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	font-family:"Calibri","sans-serif";}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-priority:39;
+	mso-style-unhide:no;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-bidi-font-family:"Times New Roman";}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-AU link=blue vlink="#954F72" style='tab-interval:36.0pt'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:20.9pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=841 valign=top style='width:630.75pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:22.0pt;mso-bidi-font-size:
+  16.0pt;line-height:115%;font-family:"Bookman Old Style","serif"'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:22.0pt;mso-bidi-font-size:
+  16.0pt;line-height:115%;font-family:"Bookman Old Style","serif"'><a
+  href="https://d-arora.github.io/Doing-Physics-With-Matlab/"><span
+  style='mso-ansi-font-size:22.0pt;line-height:115%;mso-ascii-font-family:"Bookman Old Style";
+  mso-hansi-font-family:"Bookman Old Style";mso-bidi-font-family:"Times New Roman"'>DOING
+  PHYSICS WITH MATLAB<o:p></o:p></span></a></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:22.0pt;mso-bidi-font-size:
+  16.0pt;line-height:115%;font-family:"Bookman Old Style","serif"'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center'><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:22.0pt;mso-bidi-font-size:16.0pt;line-height:115%;
+  font-family:"Bookman Old Style","serif";color:#C55A11;mso-themecolor:accent2;
+  mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>MICHELSON INTERFEROMETER<o:p></o:p></span></b></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center'><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:22.0pt;mso-bidi-font-size:16.0pt;line-height:115%;
+  font-family:"Bookman Old Style","serif";color:#C55A11;mso-themecolor:accent2;
+  mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>Fringe Patterns</span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><b
+  style='mso-bidi-font-weight:normal'>Ian Cooper<o:p></o:p></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><b
+  style='mso-bidi-font-weight:normal'>Email:<span
+  style='mso-spacerun:yes'>&nbsp; </span>matlabvisualphysics@gmail.com<o:p></o:p></b></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='margin-left:20.9pt;border-collapse:collapse;border:none;mso-border-alt:
+ solid #833C0B 1.5pt;mso-border-themecolor:accent2;mso-border-themeshade:128;
+ mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:
+ none;mso-border-insidev:none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=841 valign=top style='width:630.75pt;border:solid #833C0B 1.5pt;
+  mso-border-themecolor:accent2;mso-border-themeshade:128;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:18.0pt;mso-bidi-font-size:
+  16.0pt;line-height:115%;font-family:"Bookman Old Style","serif";color:#843C0C;
+  mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:18.0pt;mso-bidi-font-size:
+  16.0pt;line-height:115%;font-family:"Bookman Old Style","serif";color:#843C0C;
+  mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>MATLAB SCRIPTS<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:18.0pt;mso-bidi-font-size:
+  16.0pt;line-height:115%'><a
+  href="https://drive.google.com/drive/u/3/folders/1j09aAhfrVYpiMavajrgSvUMc89ksF9Jb"><span
+  style='mso-ansi-font-size:18.0pt;line-height:115%;mso-bidi-font-family:"Times New Roman"'>MATLAB
+  DOWN LOAD DIRECTORY<o:p></o:p></span></a></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  class=SpellE><b style='mso-bidi-font-weight:normal'><span style='color:#843C0C;
+  mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>opMichA.m</span></b></span><b
+  style='mso-bidi-font-weight:normal'><span style='color:#843C0C;mso-themecolor:
+  accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>Plane wave
+  illumination of Michelson Interferometer. The mirrors are aligned
+  perpendicular to the beam. An animation is displayed of the view on a
+  detector screen as the distance between the mirrors is changes. The Michelson
+  Interferometer can be used to measure small distance and an example of
+  measuring plant growth is used. Calls the function <span class=SpellE><b
+  style='mso-bidi-font-weight:normal'><span style='color:#843C0C;mso-themecolor:
+  accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>ColorCode.m</span></b></span>.</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  class=SpellE><b style='mso-bidi-font-weight:normal'><span style='color:#843C0C;
+  mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>opMichB.m</span></b></span><b
+  style='mso-bidi-font-weight:normal'><span style='color:#843C0C;mso-themecolor:
+  accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>Plane wave
+  illumination of Michelson Interferometer with one of the mirrors tilted by a
+  small angle w.r.t. the X axis. A vertical fringe pattern is shown on the
+  detector screen. Calls the function <span class=SpellE><b style='mso-bidi-font-weight:
+  normal'><span style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:
+  128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>ColorCode.m</span></b></span>.</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  class=SpellE><b style='mso-bidi-font-weight:normal'><span style='color:#843C0C;
+  mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>opMichC.m</span></b></span><b
+  style='mso-bidi-font-weight:normal'><span style='color:#843C0C;mso-themecolor:
+  accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>Point
+  source illumination of Michelson Interferometer produces circular fringes.
+  Input parameters: wavelength and virtual source separation. Calls the
+  function <span class=SpellE><b style='mso-bidi-font-weight:normal'><span
+  style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #843C0C;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>ColorCode.m</span></b></span>.</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:20.9pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=841 valign=top style='width:630.75pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:18.0pt;mso-bidi-font-size:
+  16.0pt;line-height:115%;font-family:"Bookman Old Style","serif";color:#C55A11;
+  mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>MICHELSON
+  INTERFEROMETER<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'>In the <b style='mso-bidi-font-weight:normal'><span style='color:#C55A11;
+  mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>Michelson
+  interferometer</span></b>, light from a source is split into two beams at a
+  beam splitter (partially reflecting mirror). One beam travels to a fixed
+  mirror M<sub>1</sub> and is reflected back to the beam splitter while the
+  other beam is reflected from a movable mirror M<sub>2</sub> back to the beam
+  splitter. The two beams recombine and are then detected as shown in figure
+  1.<span style='mso-spacerun:yes'>&nbsp; </span>The two beams must be mutually
+  coherent for interference fringes to be observed.<span
+  style='mso-spacerun:yes'>&nbsp; </span>This process is known as <span
+  style='color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>interference by
+  division of amplitude</span>. It is assumed that the beam splitter divides
+  the two beams equally and is oriented at 45<sup>o</sup> to the source beam. </p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center'><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shapetype
+   id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+   path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="Picture_x0020_1" o:spid="_x0000_i1083" type="#_x0000_t75"
+   style='width:404.25pt;height:303.75pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op_michelson_files/image001.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=539 height=405
+  src="op_michelson_files/image002.png" v:shapes="Picture_x0020_1"><![endif]></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Fig. 1.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Michelson interferometer.</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>When the two
+  beams combine at the detector, there is a <a name=MTBlankEqn><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1025" type="#_x0000_t75" style='width:14.25pt;height:12.75pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image003.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=19 height=17
+  src="op_michelson_files/image004.png" v:shapes="_x0000_i1025"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1025"
+    DrawAspect="Content" ObjectID="_1679507026">
+   </o:OLEObject>
+  </xml><![endif]--></a>phase difference between them because of the <span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1026" type="#_x0000_t75" style='width:14.25pt;height:12.75pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image005.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=19 height=17
+  src="op_michelson_files/image004.png" v:shapes="_x0000_i1026"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1026"
+    DrawAspect="Content" ObjectID="_1679507028">
+   </o:OLEObject>
+  </xml><![endif]-->phase change at the beam splitter for the beam reflected
+  from mirror M<sub>2</sub>.</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'>A <b style='mso-bidi-font-weight:normal'><span style='color:#C55A11;
+  mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>linear optical
+  equivalent</span></b><span style='color:#C55A11;mso-themecolor:accent2;
+  mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'> </span>of the Michelson interferometer helps to understand the
+  optical path differences (figure 2). The mirror M<sub>1</sub> is replaced
+  with its virtual image M<sub>1</sub><sub><span style='font-family:"Times New Roman","serif"'>I</span></sub>
+  seen when looking into the beam splitter from the source. The source aperture
+  is replaced by its virtual image S<sub><span style='font-family:"Times New Roman","serif"'>I</span></sub>
+  as seen looking into the beam splitter from the position of mirror M<sub>2</sub>.
+  The detected interference pattern is the same as would be generated by a
+  source S<sub><span style='font-family:"Times New Roman","serif"'>I</span></sub>
+  that is reflected from two distinct mirrors M<sub>2</sub> and M<sub>1</sub><sub><span
+  style='font-family:"Times New Roman","serif"'>I</span></sub>, separated by a <span
+  class=GramE>distance </span><span style='position:relative;top:8.0pt;
+  mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1027" type="#_x0000_t75"
+   style='width:89.25pt;height:24pt' o:ole="">
+   <v:imagedata src="op_michelson_files/image006.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=119 height=32
+  src="op_michelson_files/image007.png" v:shapes="_x0000_i1027"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1027"
+    DrawAspect="Content" ObjectID="_1679507029">
+   </o:OLEObject>
+  </xml><![endif]-->.</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center'><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_5" o:spid="_x0000_i1082" type="#_x0000_t75" style='width:375pt;
+   height:232.5pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op_michelson_files/image008.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=500 height=310
+  src="op_michelson_files/image009.png" v:shapes="Picture_x0020_5"><![endif]></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Fig. 2.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Linear optical equivalent
+  arrangement of the Michelson interferometer.</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'>For the rays that travels along the central path of the interferometer,
+  the optical path difference between the light reflected from the two mirrors
+  M<sub>1</sub><sub><span style='font-family:"Times New Roman","serif"'>I </span></sub>and
+  M<sub>2</sub> <span class=GramE>is </span><span style='position:relative;
+  top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1028"
+   type="#_x0000_t75" style='width:39pt;height:24pt' o:ole="">
+   <v:imagedata src="op_michelson_files/image010.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=52 height=32
+  src="op_michelson_files/image011.png" v:shapes="_x0000_i1028"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1028"
+    DrawAspect="Content" ObjectID="_1679507030">
+   </o:OLEObject>
+  </xml><![endif]-->.</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'>At the centre of the detector</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>destructive interference &#8211; dark spot<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1029" type="#_x0000_t75" style='width:200.25pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image012.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=267 height=32
+  src="op_michelson_files/image013.png" v:shapes="_x0000_i1029"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1029"
+    DrawAspect="Content" ObjectID="_1679507031">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>constructive interference &#8211; bright spot<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:10.0pt;mso-text-raise:-10.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1030" type="#_x0000_t75" style='width:119.25pt;height:27.75pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image014.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=159 height=37
+  src="op_michelson_files/image015.png" v:shapes="_x0000_i1030"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1030"
+    DrawAspect="Content" ObjectID="_1679507032">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><b style='mso-bidi-font-weight:normal'><span style='font-size:18.0pt;
+  mso-bidi-font-size:16.0pt;line-height:150%;color:#C55A11;mso-themecolor:accent2;
+  mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>Illumination by a monochromatic plane wave<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify;text-justify:inter-ideograph;line-height:150%'>Assume the two mirrors
+  M<sub>1</sub><sub><span style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+  mso-bidi-theme-font:major-fareast'>I</span></sub> and M<sub>2</sub> are
+  illuminated by an incident plane wave. The mirror M2 is titled at an angle <span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1031" type="#_x0000_t75" style='width:30.75pt;height:17.25pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image016.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=41 height=23
+  src="op_michelson_files/image017.png" v:shapes="_x0000_i1031"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1031"
+    DrawAspect="Content" ObjectID="_1679507033">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>with respect to
+  the X axis as shown in figure 3. Let the Origin of the coordinate system be
+  the centre of mirror M2. The waves are reflected normally by mirror M1I (wave
+  1) and at an angle <span style='position:relative;top:3.0pt;mso-text-raise:
+  -3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1032" type="#_x0000_t75"
+   style='width:12pt;height:15.75pt' o:ole="">
+   <v:imagedata src="op_michelson_files/image018.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=21
+  src="op_michelson_files/image019.png" v:shapes="_x0000_i1032"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1032"
+    DrawAspect="Content" ObjectID="_1679507034">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>to the Z axis
+  by mirror M2 (wave 2).</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify;text-justify:inter-ideograph;line-height:150%'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:150%'><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1081" type="#_x0000_t75" style='width:383.25pt;height:232.5pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op_michelson_files/image020.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=511 height=310
+  src="op_michelson_files/image021.png" v:shapes="_x0000_i1081"><![endif]></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:22.95pt;margin-bottom:
+  0cm;margin-left:30.0pt;margin-bottom:.0001pt;text-align:justify;text-justify:
+  inter-ideograph'>Fig. 3.<span style='mso-spacerun:yes'>&nbsp;&nbsp;
+  </span>Illumination by monochromatic waves with mirror M2 titled at an angle <span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1033" type="#_x0000_t75" style='width:30.75pt;height:17.25pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image016.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=41 height=23
+  src="op_michelson_files/image017.png" v:shapes="_x0000_i1033"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1033"
+    DrawAspect="Content" ObjectID="_1679507035">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>with respect to
+  the X axis. Fringes of equal thickness are generated.</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify;text-justify:inter-ideograph;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify;text-justify:inter-ideograph;line-height:150%'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify;text-justify:inter-ideograph;line-height:150%'>The electric fields
+  for the two plane waves at the point <span style='position:relative;
+  top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1034"
+   type="#_x0000_t75" style='width:57pt;height:24pt' o:ole="">
+   <v:imagedata src="op_michelson_files/image022.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=76 height=32
+  src="op_michelson_files/image023.png" v:shapes="_x0000_i1034"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1034"
+    DrawAspect="Content" ObjectID="_1679507036">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>on the screen
+  of the detector are</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify;text-justify:inter-ideograph;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(1A)<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1035" type="#_x0000_t75" style='width:183.75pt;height:29.25pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image024.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=245 height=39
+  src="op_michelson_files/image025.png" v:shapes="_x0000_i1035"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1035"
+    DrawAspect="Content" ObjectID="_1679507037">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify;text-justify:inter-ideograph;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(1B)<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1036" type="#_x0000_t75" style='width:206.25pt;height:27pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image026.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=275 height=36
+  src="op_michelson_files/image027.png" v:shapes="_x0000_i1036"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1036"
+    DrawAspect="Content" ObjectID="_1679507038">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify;text-justify:inter-ideograph;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify;text-justify:inter-ideograph;line-height:150%'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify;text-justify:inter-ideograph;line-height:150%'>Then, the resultant
+  electric field <span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1037" type="#_x0000_t75" style='width:26.25pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image028.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=35 height=29
+  src="op_michelson_files/image029.png" v:shapes="_x0000_i1037"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1037"
+    DrawAspect="Content" ObjectID="_1679507039">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>at the detector
+  is the superposition of the fields <span style='position:relative;top:7.0pt;
+  mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1038" type="#_x0000_t75"
+   style='width:27pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op_michelson_files/image030.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=36 height=29
+  src="op_michelson_files/image031.png" v:shapes="_x0000_i1038"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1038"
+    DrawAspect="Content" ObjectID="_1679507040">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span><span
+  class=GramE>and </span><span style='position:relative;top:7.0pt;mso-text-raise:
+  -7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1039" type="#_x0000_t75"
+   style='width:29.25pt;height:21.75pt' o:ole="">
+   <v:imagedata src="op_michelson_files/image032.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=39 height=29
+  src="op_michelson_files/image033.png" v:shapes="_x0000_i1039"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1039"
+    DrawAspect="Content" ObjectID="_1679507041">
+   </o:OLEObject>
+  </xml><![endif]-->.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1040" type="#_x0000_t75" style='width:108pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image034.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=144 height=29
+  src="op_michelson_files/image035.png" v:shapes="_x0000_i1040"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1040"
+    DrawAspect="Content" ObjectID="_1679507042">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:13.0pt;mso-text-raise:-13.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1041" type="#_x0000_t75" style='width:338.25pt;height:33.75pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image036.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=451 height=45
+  src="op_michelson_files/image037.png" v:shapes="_x0000_i1041"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1041"
+    DrawAspect="Content" ObjectID="_1679507043">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(3)<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:25.0pt;mso-text-raise:-25.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1042" type="#_x0000_t75" style='width:453.75pt;height:57.75pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image038.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=605 height=77
+  src="op_michelson_files/image039.png" v:shapes="_x0000_i1042"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1042"
+    DrawAspect="Content" ObjectID="_1679507044">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>The
+  intensity <span style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1043" type="#_x0000_t75" style='width:12.75pt;height:15.75pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image040.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=17 height=21
+  src="op_michelson_files/image041.png" v:shapes="_x0000_i1043"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1043"
+    DrawAspect="Content" ObjectID="_1679507045">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>of the combined
+  beam at the detector screen is</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1044" type="#_x0000_t75" style='width:78pt;height:24.75pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image042.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=104 height=33
+  src="op_michelson_files/image043.png" v:shapes="_x0000_i1044"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1044"
+    DrawAspect="Content" ObjectID="_1679507046">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>and after
+  much algebra</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:13.0pt;mso-text-raise:-13.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1045" type="#_x0000_t75" style='width:398.25pt;height:33.75pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image044.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=531 height=45
+  src="op_michelson_files/image045.png" v:shapes="_x0000_i1045"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1045"
+    DrawAspect="Content" ObjectID="_1679507047">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(4)<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:13.0pt;mso-text-raise:-13.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1046" type="#_x0000_t75" style='width:413.25pt;height:33.75pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image046.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=551 height=45
+  src="op_michelson_files/image047.png" v:shapes="_x0000_i1046"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1046"
+    DrawAspect="Content" ObjectID="_1679507048">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:18.0pt;mso-bidi-font-size:
+  16.0pt;line-height:115%;color:#C55A11;mso-themecolor:accent2;mso-themeshade:
+  191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>Mirrors precisely aligned at right angles to the beam<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>If the two
+  mirrors are precisely parallel <span style='position:relative;top:8.0pt;
+  mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1047" type="#_x0000_t75"
+   style='width:48pt;height:24pt' o:ole="">
+   <v:imagedata src="op_michelson_files/image048.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=64 height=32
+  src="op_michelson_files/image049.png" v:shapes="_x0000_i1047"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1047"
+    DrawAspect="Content" ObjectID="_1679507049">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>as shown in
+  figure 2, then the intensity on the screen is</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1048" type="#_x0000_t75" style='width:147.75pt;height:26.25pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image050.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=197 height=35
+  src="op_michelson_files/image051.png" v:shapes="_x0000_i1048"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1048"
+    DrawAspect="Content" ObjectID="_1679507050">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>and the
+  whole area of the screen will be uniformly illuminated. </p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'>The screen will be dark when the difference in the optical path lengths
+  of the two beams are an integral multiple of a wavelength and bright when the
+  there is an odd multiple of a half-wavelength (figures 4 and 5).</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Dark (destructive interference)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1049" type="#_x0000_t75" style='width:183.75pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image052.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=245 height=27
+  src="op_michelson_files/image053.png" v:shapes="_x0000_i1049"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1049"
+    DrawAspect="Content" ObjectID="_1679507051">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Bright (constructive interference)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1050" type="#_x0000_t75" style='width:132pt;height:24pt' o:ole="">
+   <v:imagedata src="op_michelson_files/image054.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=176 height=32
+  src="op_michelson_files/image055.png" v:shapes="_x0000_i1050"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1050"
+    DrawAspect="Content" ObjectID="_1679507052">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center'><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_8" o:spid="_x0000_i1080" type="#_x0000_t75" style='width:359.25pt;
+   height:269.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op_michelson_files/image056.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=479 height=359
+  src="op_michelson_files/image057.png" v:shapes="Picture_x0020_8"><![endif]></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.2pt;margin-bottom:
+  0cm;margin-left:30.1pt;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.2pt;margin-bottom:
+  0cm;margin-left:30.1pt;margin-bottom:.0001pt'>Fig. 4.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>The detector screen <i
+  style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif"'>S<sub>D</sub>
+  </span></i>intensity as a function of the optical path length difference <span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1051" type="#_x0000_t75" style='width:53.25pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image058.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=71 height=27
+  src="op_michelson_files/image059.png" v:shapes="_x0000_i1051"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1051"
+    DrawAspect="Content" ObjectID="_1679507053">
+   </o:OLEObject>
+  </xml><![endif]-->for the reflections from the two mirrors.</p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.2pt;margin-bottom:
+  0cm;margin-left:30.1pt;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center'><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_30" o:spid="_x0000_i1079" type="#_x0000_t75" style='width:261pt;
+   height:226.5pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op_michelson_files/image060.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=348 height=302
+  src="op_michelson_files/image060.gif" v:shapes="Picture_x0020_30"><![endif]></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Fig. 5.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Variation in the detector screen
+  intensity as the position of mirror M<sub>2</sub> changes.</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'>Figure 5 shows that the number <span style='position:relative;
+  top:9.0pt;mso-text-raise:-9.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1052"
+   type="#_x0000_t75" style='width:18.75pt;height:24pt' o:ole="">
+   <v:imagedata src="op_michelson_files/image061.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=25 height=32
+  src="op_michelson_files/image062.png" v:shapes="_x0000_i1052"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1052"
+    DrawAspect="Content" ObjectID="_1679507054">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>of fringes that
+  cross the centre of the detector screen when M<sub>2</sub> is moved a
+  distance is given <span class=GramE>by </span><span style='position:relative;
+  top:9.0pt;mso-text-raise:-9.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1053"
+   type="#_x0000_t75" style='width:87pt;height:24pt' o:ole="">
+   <v:imagedata src="op_michelson_files/image063.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=116 height=32
+  src="op_michelson_files/image064.png" v:shapes="_x0000_i1053"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1053"
+    DrawAspect="Content" ObjectID="_1679507055">
+   </o:OLEObject>
+  </xml><![endif]-->.<span style='mso-spacerun:yes'>&nbsp; </span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='margin-left:20.9pt;border-collapse:collapse;border:none;mso-border-alt:
+ solid #C45911 1.5pt;mso-border-themecolor:accent2;mso-border-themeshade:191;
+ mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:
+ 1.5pt solid #C45911;mso-border-insideh-themecolor:accent2;mso-border-insideh-themeshade:
+ 191;mso-border-insidev:1.5pt solid #C45911;mso-border-insidev-themecolor:accent2;
+ mso-border-insidev-themeshade:191'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=841 valign=top style='width:630.75pt;border:solid #C45911 1.5pt;
+  mso-border-themecolor:accent2;mso-border-themeshade:191;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span style='font-size:18.0pt;mso-bidi-font-size:16.0pt;line-height:
+  150%;color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>Example<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span
+  style='mso-spacerun:yes'>&nbsp;</span>Plant Growth<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'>The Michelson interferometer can
+  be used to measure small displacement accurately. For example, it is possible
+  to measure the growth rate of a plant. The plant was attached to the movable
+  mirror M<sub>2</sub> and its position was adjusted to give a black field of
+  view on the detector screen. A helium-neon laser was used with a wavelength
+  0f 632.8 nm. As the plant grew, the distance between the mirrors increased.
+  So, the fringe pattern changed in a manner as observed in the animation of
+  figure 5. In an 8.0 hour period, <span style='position:relative;top:8.0pt;
+  mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1054" type="#_x0000_t75"
+   style='width:69pt;height:24pt' o:ole="">
+   <v:imagedata src="op_michelson_files/image065.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=92 height=32
+  src="op_michelson_files/image066.png" v:shapes="_x0000_i1054"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1054"
+    DrawAspect="Content" ObjectID="_1679507056">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>dark fringes
+  crossed the field of view. Estimate the growth rate of the plant in mm.h<sup>-1</sup>
+  and its uncertainty.<span style='mso-spacerun:yes'>&nbsp; </span></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal>The calculation can be done using the Script <span
+  class=SpellE><span style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:
+  128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>opMichA.m</span></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.55pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:10.0pt;line-height:
+  115%;font-family:"Courier New";color:forestgreen;mso-ansi-language:EN-US'>%
+  Plant Growth Calculation</span><span lang=EN-US style='font-size:12.0pt;
+  line-height:115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.55pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:10.0pt;line-height:
+  115%;font-family:"Courier New";color:forestgreen;mso-ansi-language:EN-US'>%
+  wavelength [m]</span><span lang=EN-US style='font-size:12.0pt;line-height:
+  115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.55pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:10.0pt;line-height:
+  115%;font-family:"Courier New";color:black;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>&nbsp; </span><span class=SpellE>wL</span> =
+  632.8e-9;</span><span lang=EN-US style='font-size:12.0pt;line-height:115%;
+  font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.55pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:10.0pt;line-height:
+  115%;font-family:"Courier New";color:forestgreen;mso-ansi-language:EN-US'>% Time
+  interval<span style='mso-spacerun:yes'>&nbsp; </span>[h]</span><span
+  lang=EN-US style='font-size:12.0pt;line-height:115%;font-family:"Courier New";
+  mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.55pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:10.0pt;line-height:
+  115%;font-family:"Courier New";color:black;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>&nbsp; </span>dt = 8;</span><span lang=EN-US
+  style='font-size:12.0pt;line-height:115%;font-family:"Courier New";
+  mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.55pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:10.0pt;line-height:
+  115%;font-family:"Courier New";color:forestgreen;mso-ansi-language:EN-US'>%
+  Number of fringes</span><span lang=EN-US style='font-size:12.0pt;line-height:
+  115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.55pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:10.0pt;line-height:
+  115%;font-family:"Courier New";color:black;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>&nbsp; </span><span class=SpellE>nf</span> = 3420;</span><span
+  lang=EN-US style='font-size:12.0pt;line-height:115%;font-family:"Courier New";
+  mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.55pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:10.0pt;line-height:
+  115%;font-family:"Courier New";color:forestgreen;mso-ansi-language:EN-US'>%
+  distance moved by plant on mirror 2 [mm]</span><span lang=EN-US
+  style='font-size:12.0pt;line-height:115%;font-family:"Courier New";
+  mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.55pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:10.0pt;line-height:
+  115%;font-family:"Courier New";color:black;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>&nbsp; </span><span class=SpellE>dP</span> = (<span
+  class=SpellE>nf</span> * <span class=SpellE>wL</span> /2) * 1e3;</span><span
+  lang=EN-US style='font-size:12.0pt;line-height:115%;font-family:"Courier New";
+  mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.55pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:10.0pt;line-height:
+  115%;font-family:"Courier New";color:forestgreen;mso-ansi-language:EN-US'>%
+  rate of growth<span style='mso-spacerun:yes'>&nbsp; </span>[mm/h]</span><span
+  lang=EN-US style='font-size:12.0pt;line-height:115%;font-family:"Courier New";
+  mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.55pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:10.0pt;line-height:
+  115%;font-family:"Courier New";color:black;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>&nbsp; </span><span class=SpellE>dPdt</span> = <span
+  class=SpellE>dP</span>/<span class=SpellE>dt</span>;</span><span lang=EN-US
+  style='font-size:12.0pt;line-height:115%;font-family:"Courier New";
+  mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.55pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:10.0pt;line-height:
+  115%;font-family:"Courier New";color:black;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>&nbsp; </span></span><span lang=EN-US
+  style='font-size:12.0pt;line-height:115%;font-family:"Courier New";
+  mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.55pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:10.0pt;line-height:
+  115%;font-family:"Courier New";color:black;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>&nbsp; </span><span class=SpellE>disp</span>(</span><span
+  lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New";
+  color:#A020F0;mso-ansi-language:EN-US'>'Inputs<span
+  style='mso-spacerun:yes'>&nbsp; </span>'</span><span lang=EN-US
+  style='font-size:10.0pt;line-height:115%;font-family:"Courier New";
+  color:black;mso-ansi-language:EN-US'>)</span><span lang=EN-US
+  style='font-size:12.0pt;line-height:115%;font-family:"Courier New";
+  mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.55pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:10.0pt;line-height:
+  115%;font-family:"Courier New";color:black;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>&nbsp; </span><span class=SpellE>fprintf</span>(</span><span
+  lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New";
+  color:#A020F0;mso-ansi-language:EN-US'>'<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>wavelength = %3.1e<span
+  style='mso-spacerun:yes'>&nbsp; </span>m<span style='mso-spacerun:yes'>&nbsp;
+  </span>\n'</span><span lang=EN-US style='font-size:10.0pt;line-height:115%;
+  font-family:"Courier New";color:black;mso-ansi-language:EN-US'>,<span
+  class=SpellE>wL</span>);</span><span lang=EN-US style='font-size:12.0pt;
+  line-height:115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.55pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:10.0pt;line-height:
+  115%;font-family:"Courier New";color:black;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>&nbsp; </span><span class=SpellE>fprintf</span>(</span><span
+  lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New";
+  color:#A020F0;mso-ansi-language:EN-US'>'<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>time interval = %3.1f<span
+  style='mso-spacerun:yes'>&nbsp; </span>h<span style='mso-spacerun:yes'>&nbsp;
+  </span>\n'</span><span lang=EN-US style='font-size:10.0pt;line-height:115%;
+  font-family:"Courier New";color:black;mso-ansi-language:EN-US'>,<span
+  class=SpellE>dt</span>);</span><span lang=EN-US style='font-size:12.0pt;
+  line-height:115%;font-family:"Courier New";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.55pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:10.0pt;line-height:
+  115%;font-family:"Courier New";color:black;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>&nbsp; </span><span class=SpellE>fprintf</span>(</span><span
+  lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New";
+  color:#A020F0;mso-ansi-language:EN-US'>'<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>fringes<span
+  style='mso-spacerun:yes'>&nbsp; </span>= %3.0f<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>\n'</span><span
+  lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New";
+  color:black;mso-ansi-language:EN-US'>,<span class=SpellE>nf</span>);</span><span
+  lang=EN-US style='font-size:12.0pt;line-height:115%;font-family:"Courier New";
+  mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.55pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:10.0pt;line-height:
+  115%;font-family:"Courier New";color:black;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>&nbsp; </span><span class=SpellE>disp</span>(</span><span
+  lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New";
+  color:#A020F0;mso-ansi-language:EN-US'>'Outputs<span
+  style='mso-spacerun:yes'>&nbsp; </span>'</span><span lang=EN-US
+  style='font-size:10.0pt;line-height:115%;font-family:"Courier New";
+  color:black;mso-ansi-language:EN-US'>)</span><span lang=EN-US
+  style='font-size:12.0pt;line-height:115%;font-family:"Courier New";
+  mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.55pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:10.0pt;line-height:
+  115%;font-family:"Courier New";color:black;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>&nbsp; </span><span class=SpellE>fprintf</span>(</span><span
+  lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New";
+  color:#A020F0;mso-ansi-language:EN-US'>'<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>growth distance = %3.5f<span
+  style='mso-spacerun:yes'>&nbsp; </span>mm<span
+  style='mso-spacerun:yes'>&nbsp; </span>\n'</span><span lang=EN-US
+  style='font-size:10.0pt;line-height:115%;font-family:"Courier New";
+  color:black;mso-ansi-language:EN-US'>,<span class=SpellE>dP</span>);</span><span
+  lang=EN-US style='font-size:12.0pt;line-height:115%;font-family:"Courier New";
+  mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:29.55pt;margin-bottom:.0001pt;mso-layout-grid-align:none;
+  text-autospace:none'><span lang=EN-US style='font-size:10.0pt;line-height:
+  115%;font-family:"Courier New";color:black;mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>&nbsp; </span><span class=SpellE>fprintf</span>(</span><span
+  lang=EN-US style='font-size:10.0pt;line-height:115%;font-family:"Courier New";
+  color:#A020F0;mso-ansi-language:EN-US'>'<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>rate of growth<span
+  style='mso-spacerun:yes'>&nbsp; </span>= %3.5f<span
+  style='mso-spacerun:yes'>&nbsp; </span>mm/h<span
+  style='mso-spacerun:yes'>&nbsp; </span>\n'</span><span lang=EN-US
+  style='font-size:10.0pt;line-height:115%;font-family:"Courier New";
+  color:black;mso-ansi-language:EN-US'>,<span class=SpellE>dPdt</span>);</span><span
+  lang=EN-US style='font-size:12.0pt;line-height:115%;font-family:"Courier New";
+  mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:normal'><span lang=EN-US
+  style='font-size:12.0pt;mso-bidi-font-size:16.0pt;font-family:"Courier New";
+  mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:normal'><span style='font-size:12.0pt;
+  mso-bidi-font-size:16.0pt;font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt;
+  line-height:115%;font-family:"Courier New"'>Inputs<span
+  style='mso-spacerun:yes'>&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt;
+  line-height:115%;font-family:"Courier New"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>wavelength = 6.3e-07<span
+  style='mso-spacerun:yes'>&nbsp; </span>m<span style='mso-spacerun:yes'>&nbsp;
+  </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt;
+  line-height:115%;font-family:"Courier New"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>time interval = 8.0<span
+  style='mso-spacerun:yes'>&nbsp; </span>h<span style='mso-spacerun:yes'>&nbsp;
+  </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt;
+  line-height:115%;font-family:"Courier New"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>fringes<span
+  style='mso-spacerun:yes'>&nbsp; </span>= 3410<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt;
+  line-height:115%;font-family:"Courier New"'>Outputs<span
+  style='mso-spacerun:yes'>&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt;
+  line-height:115%;font-family:"Courier New"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>growth distance = 1.07892<span
+  style='mso-spacerun:yes'>&nbsp; </span>mm<span
+  style='mso-spacerun:yes'>&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt;
+  line-height:115%;font-family:"Courier New"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>rate of growth<span
+  style='mso-spacerun:yes'>&nbsp; </span>= 0.13487<span
+  style='mso-spacerun:yes'>&nbsp; </span>mm/h</span><span style='font-size:
+  12.0pt;mso-bidi-font-size:16.0pt;line-height:115%'><span
+  style='mso-spacerun:yes'>&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt;
+  line-height:115%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt;
+  line-height:115%;font-family:"Courier New"'>Inputs<span
+  style='mso-spacerun:yes'>&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt;
+  line-height:115%;font-family:"Courier New"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>fringes<span
+  style='mso-spacerun:yes'>&nbsp; </span>= 3415<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt;
+  line-height:115%;font-family:"Courier New"'>Outputs<span
+  style='mso-spacerun:yes'>&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt;
+  line-height:115%;font-family:"Courier New"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>growth distance = 1.08051<span
+  style='mso-spacerun:yes'>&nbsp; </span>mm<span
+  style='mso-spacerun:yes'>&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt;
+  line-height:115%;font-family:"Courier New"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>rate of growth<span
+  style='mso-spacerun:yes'>&nbsp; </span>= 0.13506<span
+  style='mso-spacerun:yes'>&nbsp; </span>mm/h</span><span style='font-size:
+  12.0pt;mso-bidi-font-size:16.0pt;line-height:115%'><span
+  style='mso-spacerun:yes'>&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt;
+  line-height:115%;font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt;
+  line-height:115%;font-family:"Courier New"'>Inputs<span
+  style='mso-spacerun:yes'>&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt;
+  line-height:115%;font-family:"Courier New"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>fringes<span
+  style='mso-spacerun:yes'>&nbsp; </span>= 3420<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt;
+  line-height:115%;font-family:"Courier New"'>Outputs<span
+  style='mso-spacerun:yes'>&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt;
+  line-height:115%;font-family:"Courier New"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>growth distance = 1.08209<span
+  style='mso-spacerun:yes'>&nbsp; </span>mm<span
+  style='mso-spacerun:yes'>&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt;
+  line-height:115%;font-family:"Courier New"'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>rate of growth<span
+  style='mso-spacerun:yes'>&nbsp; </span>= 0.13526<span
+  style='mso-spacerun:yes'>&nbsp; </span>mm/h<span
+  style='mso-spacerun:yes'>&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:16.0pt;
+  line-height:115%;font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span style='mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+  minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;
+  mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'>Growth
+  rate<span style='mso-spacerun:yes'>&nbsp; </span>= </span><span
+  style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1055" type="#_x0000_t75" style='width:117pt;height:24pt' o:ole="">
+   <v:imagedata src="op_michelson_files/image067.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=156 height=32
+  src="op_michelson_files/image068.png" v:shapes="_x0000_i1055"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1055"
+    DrawAspect="Content" ObjectID="_1679507057">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+  minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;
+  mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;</span>mm.h<sup>-1</sup><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:20.9pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=841 valign=top style='width:630.75pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:18.0pt;mso-bidi-font-size:16.0pt;line-height:115%;
+  color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>Mirror M2 rotated
+  about the Y axis<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:18.0pt;mso-bidi-font-size:16.0pt;line-height:115%;
+  color:#C55A11;mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:
+  #C55A11;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Waves reflected by
+  M2 at an angle <span style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1056" type="#_x0000_t75" style='width:12pt;height:15.75pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image069.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=21
+  src="op_michelson_files/image019.png" v:shapes="_x0000_i1056"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1056"
+    DrawAspect="Content" ObjectID="_1679507058">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>to the Z axis</span></b></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='line-height:150%'>The intensity of the detector
+  screen is due to the interference of the two plane waves. The wavefronts from
+  the reflection from mirror M&shy;<sub>1</sub><sub><span style='font-family:
+  "Times New Roman","serif";mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:
+  major-fareast;mso-bidi-theme-font:major-fareast'>I</span></sub> are parallel
+  to the screen, while the wavefronts from the reflection from mirror M<sub>2</sub>
+  are tilted at an angle to the screen (figure 3).<span
+  style='mso-spacerun:yes'>&nbsp; </span>The resultant interference pattern
+  shows a series of vertical bright and dark equally spaced fringes. The angle <span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1057" type="#_x0000_t75" style='width:30.75pt;height:17.25pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image070.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=41 height=23
+  src="op_michelson_files/image017.png" v:shapes="_x0000_i1057"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1057"
+    DrawAspect="Content" ObjectID="_1679507059">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>is the tilt of
+  mirror M2 w.r.t. the X axis and <span style='position:relative;top:3.0pt;
+  mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1058" type="#_x0000_t75"
+   style='width:12pt;height:15.75pt' o:ole="">
+   <v:imagedata src="op_michelson_files/image071.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=21
+  src="op_michelson_files/image019.png" v:shapes="_x0000_i1058"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1058"
+    DrawAspect="Content" ObjectID="_1679507060">
+   </o:OLEObject>
+  </xml><![endif]-->is the angle of the plane wave from mirror M2 w.r.t. to the
+  Z axis as shown in figure 3. </p>
+  <p class=MsoNormal style='line-height:150%'>The fringes are given by the
+  equation</p>
+  <p class=MsoNormal style='line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>(4)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:13.0pt;mso-text-raise:-13.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1059" type="#_x0000_t75" style='width:335.25pt;height:33.75pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image072.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=447 height=45
+  src="op_michelson_files/image073.png" v:shapes="_x0000_i1059"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1059"
+    DrawAspect="Content" ObjectID="_1679507061">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='line-height:150%'>Using equation 4, the spacing <span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1060" type="#_x0000_t75" style='width:29.25pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image074.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=39 height=29
+  src="op_michelson_files/image075.png" v:shapes="_x0000_i1060"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1060"
+    DrawAspect="Content" ObjectID="_1679507062">
+   </o:OLEObject>
+  </xml><![endif]-->between two adjacent bright or dark fringes at positions <span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1061" type="#_x0000_t75" style='width:24pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image076.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=32 height=29
+  src="op_michelson_files/image077.png" v:shapes="_x0000_i1061"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1061"
+    DrawAspect="Content" ObjectID="_1679507063">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>and <span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1062" type="#_x0000_t75" style='width:26.25pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image078.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=35 height=29
+  src="op_michelson_files/image079.png" v:shapes="_x0000_i1062"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1062"
+    DrawAspect="Content" ObjectID="_1679507064">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>is given by equation
+  5, since a sine squared function has a period of <span style='position:relative;
+  top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1063"
+   type="#_x0000_t75" style='width:14.25pt;height:12.75pt' o:ole="">
+   <v:imagedata src="op_michelson_files/image080.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=19 height=17
+  src="op_michelson_files/image004.png" v:shapes="_x0000_i1063"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1063"
+    DrawAspect="Content" ObjectID="_1679507065">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>rad. </p>
+  <p class=MsoNormal style='line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1064" type="#_x0000_t75" style='width:113.25pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image081.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=151 height=32
+  src="op_michelson_files/image082.png" v:shapes="_x0000_i1064"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1064"
+    DrawAspect="Content" ObjectID="_1679507066">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:13.0pt;mso-text-raise:-13.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1065" type="#_x0000_t75" style='width:548.25pt;height:33.75pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image083.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=731 height=45
+  src="op_michelson_files/image084.png" v:shapes="_x0000_i1065"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1065"
+    DrawAspect="Content" ObjectID="_1679507067">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>(5)<span
+  style='mso-spacerun:yes'>&nbsp; </span><span style='position:relative;
+  top:15.0pt;mso-text-raise:-15.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1066"
+   type="#_x0000_t75" style='width:78.75pt;height:39.75pt' o:ole="">
+   <v:imagedata src="op_michelson_files/image085.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=105 height=53
+  src="op_michelson_files/image086.png" v:shapes="_x0000_i1066"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1066"
+    DrawAspect="Content" ObjectID="_1679507068">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></p>
+  <p class=MsoNormal style='line-height:150%'>When </p>
+  <p class=MsoNormal style='line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1067" type="#_x0000_t75" style='width:318.75pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image087.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=425 height=32
+  src="op_michelson_files/image088.png" v:shapes="_x0000_i1067"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1067"
+    DrawAspect="Content" ObjectID="_1679507069">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='line-height:150%'>the fringes disappear and the
+  screen becomes uniformly illuminated as described above.</p>
+  <p class=MsoNormal style='line-height:150%'>The fringe separation becomes
+  smaller as the wavelength decreases and the tilt angle becomes larger. When
+  mirror M<sub>2</sub> is moved, then the fringes move in a horizontal
+  direction across the detector screen.</p>
+  <p class=MsoNormal style='line-height:150%'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='line-height:150%'>The Michelson interferometer is
+  modelled for plane wave illumination with the Script <span class=SpellE><span
+  style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #843C0C;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>opMichB.m</span></span><span
+  style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #843C0C;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'> </span>and the
+  Live Editor Script <span class=SpellE><span style='color:#843C0C;mso-themecolor:
+  accent2;mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>opMichBLE.mlx</span></span>. Using the Live Editor with the
+  numeric sliders, one can change the wavelength, mirror separation distance
+  and the tilt angle and immediately observe the changes in the interference
+  pattern.</p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Times New Roman","serif";mso-fareast-font-family:"Times New Roman";
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_9" o:spid="_x0000_i1078"
+   type="#_x0000_t75" style='width:345.75pt;height:550.5pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="op_michelson_files/image089.png" o:title="" croptop="4033f"
+    cropbottom="5770f"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=461 height=734
+  src="op_michelson_files/image090.png" v:shapes="Picture_x0020_9"><![endif]></span><span
+  lang=EN-US style='font-size:12.0pt;font-family:"Times New Roman","serif";
+  mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Times New Roman","serif";mso-fareast-font-family:"Times New Roman";
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_10" o:spid="_x0000_i1077"
+   type="#_x0000_t75" style='width:345.75pt;height:592.5pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="op_michelson_files/image091.png" o:title="" cropbottom="5601f"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=461 height=790
+  src="op_michelson_files/image092.png" v:shapes="Picture_x0020_10"><![endif]></span><span
+  lang=EN-US style='font-size:12.0pt;font-family:"Times New Roman","serif";
+  mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Times New Roman","serif";mso-fareast-font-family:"Times New Roman";
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_11" o:spid="_x0000_i1076"
+   type="#_x0000_t75" style='width:345.75pt;height:603pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="op_michelson_files/image093.png" o:title="" cropbottom="4649f"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=461 height=804
+  src="op_michelson_files/image094.png" v:shapes="Picture_x0020_11"><![endif]></span><span
+  lang=EN-US style='font-size:12.0pt;font-family:"Times New Roman","serif";
+  mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:22.95pt;margin-bottom:
+  0cm;margin-left:30.0pt;margin-bottom:.0001pt'><span lang=EN-US
+  style='mso-bidi-font-size:12.0pt;line-height:115%;mso-ascii-font-family:Calibri;
+  mso-ascii-theme-font:minor-latin;mso-fareast-font-family:"Times New Roman";
+  mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-US'>Fig. 6.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Fringes of equal thickness are
+  generated when mirror M2 is tilted. The fringe spacing is reduced as the
+  wavelength is decreased and the tilt angle is increased as predicted by
+  equation 5.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:22.95pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt'><span lang=EN-US style='mso-bidi-font-size:
+  12.0pt;line-height:115%;mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+  minor-latin;mso-fareast-font-family:"Times New Roman";mso-hansi-font-family:
+  Calibri;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:22.95pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt'><span lang=EN-US style='mso-bidi-font-size:
+  12.0pt;line-height:115%;mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+  minor-latin;mso-fareast-font-family:"Times New Roman";mso-hansi-font-family:
+  Calibri;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US style='font-size:12.0pt;font-family:"Times New Roman","serif";
+  mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US'><span
+  style='mso-spacerun:yes'>&nbsp;</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><b style='mso-bidi-font-weight:normal'><span style='font-size:18.0pt;
+  mso-bidi-font-size:16.0pt;line-height:150%;color:#C55A11;mso-themecolor:accent2;
+  mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>Illumination by a monochromatic point source<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'>You can calculate the fringe pattern for point source illumination using
+  the script <span class=SpellE><b style='mso-bidi-font-weight:normal'><span
+  style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #843C0C;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>opMichC.m</span></b></span>.</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'>The input parameters are the wavelength, the distance between the
+  virtual sources and the maximum viewing angle. The spherical waves produce
+  circular fringes on a viewing screen.</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'>A dark spot is located at the centre of the fringe pattern if the
+  distance between the virtual source points </p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1068" type="#_x0000_t75" style='width:162.75pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image095.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=217 height=27
+  src="op_michelson_files/image096.png" v:shapes="_x0000_i1068"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1068"
+    DrawAspect="Content" ObjectID="_1679507070">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'>A bright spot is located at the centre of the fringe pattern if the
+  distance between the virtual source points </p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1069" type="#_x0000_t75" style='width:213.75pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image097.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=285 height=32
+  src="op_michelson_files/image098.png" v:shapes="_x0000_i1069"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1069"
+    DrawAspect="Content" ObjectID="_1679507071">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span class=GramE><i style='mso-bidi-font-style:normal'><span
+  style='font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>m</span></i></span>
+  is called the order of the fringe.</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'>Three examples are shown below.</p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:150%'><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_4" o:spid="_x0000_i1075" type="#_x0000_t75" style='width:339.75pt;
+   height:430.5pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op_michelson_files/image099.png" o:title="" croptop="2250f"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=453 height=574
+  src="op_michelson_files/image100.png" v:shapes="Picture_x0020_4"><![endif]></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Fig.
+  7A.<span style='mso-spacerun:yes'>&nbsp; </span>Circular fringe pattern: <span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1070" type="#_x0000_t75" style='width:170.25pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image101.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=227 height=27
+  src="op_michelson_files/image102.png" v:shapes="_x0000_i1070"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1070"
+    DrawAspect="Content" ObjectID="_1679507072">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:150%'><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_6" o:spid="_x0000_i1074" type="#_x0000_t75" style='width:339.75pt;
+   height:445.5pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op_michelson_files/image103.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=453 height=594
+  src="op_michelson_files/image104.png" v:shapes="Picture_x0020_6"><![endif]></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Fig.
+  7B.<span style='mso-spacerun:yes'>&nbsp; </span>Circular fringe pattern: <span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1071" type="#_x0000_t75" style='width:182.25pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image105.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=243 height=27
+  src="op_michelson_files/image106.png" v:shapes="_x0000_i1071"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1071"
+    DrawAspect="Content" ObjectID="_1679507073">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:150%'><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_7" o:spid="_x0000_i1073" type="#_x0000_t75" style='width:339.75pt;
+   height:445.5pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op_michelson_files/image107.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=453 height=594
+  src="op_michelson_files/image108.png" v:shapes="Picture_x0020_7"><![endif]></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Fig. 7C.<span
+  style='mso-spacerun:yes'>&nbsp; </span>Circular fringe pattern: <span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1072" type="#_x0000_t75" style='width:176.25pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="op_michelson_files/image109.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=235 height=27
+  src="op_michelson_files/image110.png" v:shapes="_x0000_i1072"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1072"
+    DrawAspect="Content" ObjectID="_1679507074">
+   </o:OLEObject>
+  </xml><![endif]--></p>
+  <p class=MsoNormal><span style='mso-spacerun:yes'>&nbsp; </span></p>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>
