@@ -1,0 +1,1641 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 14">
+<meta name=Originator content="Microsoft Word 14">
+<base target="_blank">
+<link rel=File-List href="pbs004_files/filelist.xml">
+<link rel=Edit-Time-Data href="pbs004_files/editdata.mso">
+<link rel=OLE-Object-Data href="pbs004_files/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Matlab Physics</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Ian Cooper</o:Author>
+  <o:Keywords>ion channels, physics of neurons, Hodgkin-Huxley Model, gating variables, membrane potential, membrane currents, modelling behaviour of neurons, gate variables</o:Keywords>
+  <o:Description>npHHA.m&#13;&#10;npA.pptx</o:Description>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Owner</o:LastAuthor>
+  <o:Revision>6</o:Revision>
+  <o:TotalTime>3725</o:TotalTime>
+  <o:Created>2020-05-25T05:33:00Z</o:Created>
+  <o:LastSaved>2021-04-13T23:34:00Z</o:LastSaved>
+  <o:Pages>5</o:Pages>
+  <o:Words>1080</o:Words>
+  <o:Characters>6158</o:Characters>
+  <o:Category>Physics of neurons</o:Category>
+  <o:Lines>51</o:Lines>
+  <o:Paragraphs>14</o:Paragraphs>
+  <o:CharactersWithSpaces>7224</o:CharactersWithSpaces>
+  <o:Version>14.00</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+<link rel=themeData href="pbs004_files/themedata.thmx">
+<link rel=colorSchemeMapping href="pbs004_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>125</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-AU</w:LidThemeOther>
+  <w:LidThemeAsian>ZH-CN</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-469750017 -1073732485 9 0 511 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-520081665 -1073717157 41 0 66047 0;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin-top:0cm;
+	margin-right:30.05pt;
+	margin-bottom:10.0pt;
+	margin-left:30.05pt;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	mso-themecolor:hyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:purple;
+	mso-themecolor:followedhyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Balloon Text Char";
+	margin-top:0cm;
+	margin-right:30.05pt;
+	margin-bottom:0cm;
+	margin-left:30.05pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-priority:1;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:Calibri;
+	mso-bidi-theme-font:minor-latin;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	margin-top:0cm;
+	margin-right:30.05pt;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:30.05pt;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:30.05pt;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:30.05pt;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Balloon Text";
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-ascii-font-family:Tahoma;
+	mso-hansi-font-family:Tahoma;
+	mso-bidi-font-family:Tahoma;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:16.0pt;
+	mso-ansi-font-size:16.0pt;
+	mso-bidi-font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:559554930;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1613968222 64778948 201916441 201916443 201916431 201916441 201916443 201916431 201916441 201916443;}
+@list l0:level1
+	{mso-level-text:"\(%1\)";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l0:level4
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l0:level7
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l1
+	{mso-list-id:1583832142;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-608805352 201916417 201916419 201916421 201916417 201916419 201916421 201916417 201916419 201916421;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l1:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l1:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Wingdings;}
+@list l1:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l1:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l1:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Wingdings;}
+@list l1:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l1:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l1:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Wingdings;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-priority:59;
+	mso-style-unhide:no;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin-top:0cm;
+	mso-para-margin-right:30.05pt;
+	mso-para-margin-bottom:0cm;
+	mso-para-margin-left:30.05pt;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-AU link=blue vlink=purple style='tab-interval:36.0pt'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:56.3pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=832 valign=top style='width:22.0cm;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNoSpacing style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:30.05pt;margin-bottom:.0001pt;line-height:200%'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:18.0pt;mso-bidi-font-size:
+  11.0pt;line-height:200%'><a
+  href="https://d-arora.github.io/Doing-Physics-With-Matlab/">DOING PHYSICS
+  WITH MATLAB<o:p></o:p></a></span></b></p>
+  <p class=MsoNoSpacing style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:30.05pt;margin-bottom:.0001pt;line-height:200%'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:18.0pt;mso-bidi-font-size:
+  11.0pt;line-height:200%'><span style='color:#E46C0A;mso-themecolor:accent6;
+  mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>COMPUTATIONAL NEUROSCIENCE</span></span></b><span
+  style='font-size:18.0pt;mso-bidi-font-size:11.0pt;line-height:200%;
+  color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:
+  #E46C0A;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'><o:p></o:p></span></p>
+  <p class=MsoNoSpacing align=center style='margin-top:0cm;margin-right:30.05pt;
+  margin-bottom:0cm;margin-left:30.05pt;margin-bottom:.0001pt;text-align:center;
+  line-height:200%'><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:18.0pt;mso-bidi-font-size:11.0pt;line-height:200%;
+  color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:
+  #E46C0A;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>NEURON MEMBRANE
+  CURRENTS <o:p></o:p></span></b></p>
+  <p class=MsoNoSpacing align=center style='margin-top:0cm;margin-right:30.05pt;
+  margin-bottom:0cm;margin-left:30.05pt;margin-bottom:.0001pt;text-align:center;
+  line-height:200%'><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:18.0pt;mso-bidi-font-size:11.0pt;line-height:200%;
+  color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:
+  #E46C0A;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>REVERSAL (NERNST
+  &#8211; EQUILIBRIUM) POTENTIALS<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  200%'><span style='mso-bidi-font-size:16.0pt;line-height:200%;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;mso-bidi-font-weight:bold'>Ian Cooper<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  200%'><span style='mso-bidi-font-size:16.0pt;line-height:200%;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;mso-bidi-font-weight:bold'>Any
+  comments, suggestions or corrections, please email me at<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:blue;mso-bidi-font-weight:bold'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-bidi-font-weight:bold'>matlabvisualphysics@gmail.com</span><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-GB style='font-size:20.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='margin-left:56.3pt;border-collapse:collapse;border:none;mso-border-alt:
+ solid #984806 1.5pt;mso-border-themecolor:accent6;mso-border-themeshade:128;
+ mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:
+ none;mso-border-insidev:none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=832 valign=top style='width:22.0cm;border:solid #984806 1.5pt;
+  mso-border-themecolor:accent6;mso-border-themeshade:128;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-left:0cm;line-height:150%'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:18.0pt;line-height:
+  150%;font-family:"Bookman Old Style","serif";color:#984807;mso-themecolor:
+  accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>MATLAB<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-left:0cm;line-height:150%'><span
+  style='font-size:18.0pt;mso-bidi-font-size:11.0pt;line-height:150%'><a
+  href="https://drive.google.com/drive/u/3/folders/1j09aAhfrVYpiMavajrgSvUMc89ksF9Jb">Download
+  Directory<o:p></o:p></a></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-left:0cm'><span lang=EN-GB style='mso-ansi-language:
+EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:56.3pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=832 valign=top style='width:22.0cm;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-2.6pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-GB style='font-size:18.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:
+  #E46C0A;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000;mso-ansi-language:
+  EN-GB'>INTRODUCTION<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-2.6pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-2.6pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>Electrical activity in neurones is sustained
+  and propagated by ion currents through <span class=GramE>neurone<span
+  style='mso-spacerun:yes'>&nbsp; </span>membranes</span> as shown in figure 1.
+  Most of these <span class=SpellE>transmembrane</span> currents involve four
+  ionic species: sodium Na<sup>+</sup>, potassium K<sup>+</sup>, calcium Ca<sup>2+</sup>
+  and chloride (<span class=SpellE>Cl</span><sup>-</sup>). The concentrations
+  of these ions are different on the inside and outside of a cell. This creates
+  the electrochemical gradients which are the major driving forces of neural activity.
+  The <b style='mso-bidi-font-weight:normal'><span style='color:#E46C0A;
+  mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>extracellular</span></b>
+  medium has high concentration of Na<sup>+</sup> and <span class=SpellE>Cl</span><sup>-</sup>
+  and a relatively high concentration of Ca<sup>2+</sup>. The <b
+  style='mso-bidi-font-weight:normal'><span style='color:#E46C0A;mso-themecolor:
+  accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>intracellular</span> </b>medium has high concentration of K<sup>+</sup>
+  and negatively charged large molecules A<sup>-</sup>. The cell membrane has
+  large protein molecules forming <b style='mso-bidi-font-weight:normal'><span
+  style='color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:
+  #E46C0A;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>ion channels</span></b><span
+  style='color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:
+  #E46C0A;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'> </span>through
+  which ions (but not A<sup>-</sup>) can flow according to their
+  electrochemical gradients.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-2.6pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-2.6pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>The concentration asymmetry is maintained
+  through<o:p></o:p></span></p>
+  <p class=MsoListParagraphCxSpFirst style='margin-top:0cm;margin-right:-2.6pt;
+  margin-bottom:0cm;margin-left:36.0pt;margin-bottom:.0001pt;mso-add-space:
+  auto;text-indent:-18.0pt;line-height:150%;mso-list:l1 level1 lfo2'><![if !supportLists]><span
+  lang=EN-GB style='font-family:Symbol;mso-fareast-font-family:Symbol;
+  mso-bidi-font-family:Symbol;mso-ansi-language:EN-GB'><span style='mso-list:
+  Ignore'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><b style='mso-bidi-font-weight:normal'><span
+  lang=EN-GB style='color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;
+  mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000;mso-ansi-language:EN-GB'>Passive redistribution</span></b><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'>: The impermeable anions A<sup>-</sup>
+  attract more K<sup>+</sup> into the cell and repel more <span class=SpellE>Cl</span><sup>-</sup>
+  out of the cell.<o:p></o:p></span></p>
+  <p class=MsoListParagraphCxSpLast style='margin-top:0cm;margin-right:-2.6pt;
+  margin-bottom:0cm;margin-left:36.0pt;margin-bottom:.0001pt;mso-add-space:
+  auto;text-indent:-18.0pt;line-height:150%;mso-list:l1 level1 lfo2'><![if !supportLists]><span
+  lang=EN-GB style='font-family:Symbol;mso-fareast-font-family:Symbol;
+  mso-bidi-font-family:Symbol;mso-ansi-language:EN-GB'><span style='mso-list:
+  Ignore'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><b style='mso-bidi-font-weight:normal'><span
+  lang=EN-GB style='color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;
+  mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000;mso-ansi-language:EN-GB'>Active transport</span></b><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'>: Ions are pumped in and out of
+  the cell by ionic pumps. For example, the Na<sup>+</sup>/K<sup>+</sup> pump,
+  which pumps out three Na<sup>+</sup> ions for every two K<sup>+</sup> ions
+  pumped.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  style='mso-no-proof:yes'><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+   coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+   filled="f" stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="Picture_x0020_1" o:spid="_x0000_i1042" type="#_x0000_t75"
+   style='width:588pt;height:389.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="pbs004_files/image001.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=784 height=519
+  src="pbs004_files/image002.png" v:shapes="Picture_x0020_1"><![endif]></span><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Fig. 1.<span
+  style='mso-spacerun:yes'>&nbsp; </span><span
+  style='mso-spacerun:yes'>&nbsp;</span>Electrophysiology of a neurone.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-GB style='font-size:18.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:
+  #E46C0A;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000;mso-ansi-language:
+  EN-GB'>Nernst or Equilibrium Potential<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>There are two forces that drive each ion
+  species through the membrane channel.<o:p></o:p></span></p>
+  <p class=MsoListParagraphCxSpFirst style='margin-top:0cm;margin-right:30.05pt;
+  margin-bottom:0cm;margin-left:0cm;margin-bottom:.0001pt;mso-add-space:auto;
+  text-indent:-33.3pt;line-height:150%;mso-list:l0 level1 lfo4'><![if !supportLists]><span
+  lang=EN-GB style='mso-fareast-font-family:Calibri;mso-fareast-theme-font:
+  minor-latin;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+  mso-ansi-language:EN-GB'><span style='mso-list:Ignore'>(1)<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><b style='mso-bidi-font-weight:normal'><span
+  lang=EN-GB style='color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;
+  mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000;mso-ansi-language:EN-GB'>Concentration gradient</span></b><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'>: ions diffuse down the
+  concentration gradient. For example, the K<sup>+</sup> ions diffuse out of
+  the cell because K<sup>+</sup> concentration inside <span class=GramE>is</span>
+  higher than outside. <o:p></o:p></span></p>
+  <p class=MsoListParagraphCxSpLast style='margin-top:0cm;margin-right:30.05pt;
+  margin-bottom:0cm;margin-left:0cm;margin-bottom:.0001pt;mso-add-space:auto;
+  text-indent:-33.3pt;line-height:150%;mso-list:l0 level1 lfo4'><![if !supportLists]><span
+  lang=EN-GB style='mso-fareast-font-family:Calibri;mso-fareast-theme-font:
+  minor-latin;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+  mso-ansi-language:EN-GB'><span style='mso-list:Ignore'>(2)<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><b style='mso-bidi-font-weight:normal'><span
+  lang=EN-GB style='color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;
+  mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000;mso-ansi-language:EN-GB'>Electric potential gradient</span></b><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'>: as ions diffuse across the
+  membrane a charge imbalance occurs producing a potential difference between
+  the inside and outside of the cell. For the K<sup>+</sup> ions exiting the
+  cell, they carry positive charge with them and leave a net negative charge
+  inside the cell (consisting mostly of impermeable anions A<sup>-</sup>),
+  thereby producing the outward K<sup>+</sup> current. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-2.6pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>The positive and negative charges accumulate
+  on the opposite sides of the membrane<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-2.6pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  class=GramE><span lang=EN-GB style='mso-ansi-language:EN-GB'>surface</span></span><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'> creating an electric potential
+  gradient across the membrane. This potential difference is called the <span
+  class=SpellE>transmembrane</span> potential or <b style='mso-bidi-font-weight:
+  normal'><span style='color:#E46C0A;mso-themecolor:accent6;mso-themeshade:
+  191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>membrane voltage</span></b><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-2.6pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(1)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1025" type="#_x0000_t75" style='width:120.75pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="pbs004_files/image003.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=161 height=29
+  src="pbs004_files/image004.png" v:shapes="_x0000_i1025"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1025"
+    DrawAspect="Content" ObjectID="_1679898041">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-2.6pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  class=GramE><span lang=EN-GB style='mso-ansi-language:EN-GB'>where</span></span><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'> the extracellular potential is
+  the reference potential such that </span><span style='position:relative;
+  top:7.0pt;mso-text-raise:-7.0pt;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_3" o:spid="_x0000_i1041" type="#_x0000_t75" style='width:65.25pt;
+   height:22.5pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="pbs004_files/image005.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=87 height=30
+  src="pbs004_files/image006.png" v:shapes="Picture_x0020_3"><![endif]></span><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'>.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-2.6pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-2.6pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>This potential slows down the diffusion of K<sup>+</sup>,
+  since K<sup>+</sup> ions are attracted to the negatively charged interior and
+  repelled from the positively charged exterior of the membrane. At some point <span
+  class=GramE>an equilibrium</span> is achieved. When the concentration
+  gradient and the electric potential gradient exert equal and opposite forces
+  on the ions, the net cross-membrane current is zero. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-2.6pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-2.6pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>The value of such an <b style='mso-bidi-font-weight:
+  normal'><span style='color:#E46C0A;mso-themecolor:accent6;mso-themeshade:
+  191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>equilibrium potential </span></b>depends on the ionic species and
+  it is given by the <b style='mso-bidi-font-weight:normal'><span
+  style='color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:
+  #E46C0A;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>Nernst equation</span></b><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-2.6pt;margin-bottom:
+  0cm;margin-left:18.0pt;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'>(2)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:23.0pt;mso-text-raise:-23.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1026" type="#_x0000_t75" style='width:165.75pt;height:54pt'
+   o:ole="">
+   <v:imagedata src="pbs004_files/image007.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=221 height=72
+  src="pbs004_files/image008.png" v:shapes="_x0000_i1026"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1026"
+    DrawAspect="Content" ObjectID="_1679898042">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:-2.6pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>where [</span><i style='mso-bidi-font-style:
+  normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>Ion</span></i><span
+  class=GramE><span lang=EN-GB style='mso-ansi-language:EN-GB'>]<sub>in</sub></span></span><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'> and [</span><i style='mso-bidi-font-style:
+  normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>Ion</span></i><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'>]<sub>out</sub> are concentrations
+  of the ions inside and outside the cell respectively, </span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>R</span></i><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'> is the universal gas constant (</span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>R</span></i><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'> = 8.3155 J.mol<sup>-1</sup>.K<sup>-1</sup>),
+  </span><i style='mso-bidi-font-style:normal'><span lang=EN-GB
+  style='font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  mso-ansi-language:EN-GB'>T</span></i><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'> is temperature in degrees Kelvin, </span><i style='mso-bidi-font-style:
+  normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>F</span></i><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'> is Faraday&#8217;s (</span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>F</span></i><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'> = (96 485<span
+  style='mso-spacerun:yes'>&nbsp; </span>C.mol<sup>-1</sup>), </span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>z</span></i><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'> is the valence of the ion (</span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>z</span></i><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'> = 1 for Na<sup>+</sup> and K<sup>+</sup>,
+  </span><i style='mso-bidi-font-style:normal'><span lang=EN-GB
+  style='font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  mso-ansi-language:EN-GB'>z</span></i><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'> = -1 for <span class=SpellE>Cl</span><sup>-</sup>, and </span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>z</span></i><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'> = 2 for Ca<sup>2+</sup>).<span
+  style='mso-spacerun:yes'>&nbsp; </span></span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>E<sub>ion</sub></span></i></span><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'> is also called the <b
+  style='mso-bidi-font-weight:normal'><span style='color:#E46C0A;mso-themecolor:
+  accent6;mso-themeshade:191;mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'>reversal potential</span></b>.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-top:0cm;margin-right:30.05pt;
+  margin-bottom:0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:center;
+  line-height:150%'><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_5" o:spid="_x0000_i1040" type="#_x0000_t75" style='width:294.75pt;
+   height:210.75pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="pbs004_files/image009.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=393 height=281
+  src="pbs004_files/image010.png" v:shapes="Picture_x0020_5"><![endif]></span><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:58.35pt;margin-bottom:
+  0cm;margin-left:30.05pt;margin-bottom:.0001pt'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>Fig. 2.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Diffusion of K<sup>+</sup> ions
+  down the concentration creates an increasing electric force directed in the
+  direction opposite to the force due to the concentration difference until the
+  diffusion and electrical forces balance each other. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-GB style='font-size:18.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;font-family:"Bookman Old Style","serif";
+  color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:
+  #E46C0A;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000;mso-ansi-language:
+  EN-GB'>Membrane Currents<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'>We can model the movement of ions
+  across the membrane as an electric circuit as shown in figure 3.<o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-top:0cm;margin-right:30.05pt;
+  margin-bottom:0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:center;
+  line-height:150%'><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_8" o:spid="_x0000_i1039" type="#_x0000_t75" style='width:532.5pt;
+   height:317.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="pbs004_files/image011.png" o:title="" croptop="7380f"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=710 height=423
+  src="pbs004_files/image012.png" v:shapes="Picture_x0020_8"><![endif]></span><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Fig. 3.<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Equivalent
+  circuit representation of a nerve cell membrane.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:30.05pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'>In the neuroscience literature,
+  there is often some confusion and inconsistencies in the use of scientific
+  language and the units used for physical quantities. For example, the terms
+  conductance and conductance per unit area are often not distinguished and </span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>g</span></i><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'> maybe the conductance or
+  conductance per unit area with units S or S.cm<sup>-2</sup>. In <span
+  class=SpellE>Izhikevich&#8217;s</span> book, he gives the <span
+  style='color:red'>current</span> in <span style='position:relative;
+  top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1027"
+   type="#_x0000_t75" style='width:14.25pt;height:15.75pt' o:ole="">
+   <v:imagedata src="pbs004_files/image013.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=19 height=21
+  src="pbs004_files/image014.png" v:shapes="_x0000_i1027"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1027"
+    DrawAspect="Content" ObjectID="_1679898043">
+   </o:OLEObject>
+  </xml><![endif]-->A.cm<sup>-2</sup>, which is clearly wrong.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'>In the Scripts to model the
+  dynamic behaviour of neurones, <span class=SpellE>S.I</span>. units are used
+  for all input parameters and calculations. However, results may be expressed
+  in non <span class=SpellE>S.I</span>. units, for example, mV for voltage.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'>The current through a resistive
+  element can be expressed by the equation<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(3)<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1028" type="#_x0000_t75" style='width:99.75pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="pbs004_files/image015.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=133 height=27
+  src="pbs004_files/image016.png" v:shapes="_x0000_i1028"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1028"
+    DrawAspect="Content" ObjectID="_1679898044">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>I</span></i><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>current<span
+  style='mso-spacerun:yes'>&nbsp; </span>[ampere<span
+  style='mso-spacerun:yes'>&nbsp; </span>A]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>V</span></i><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>potential difference<span
+  style='mso-spacerun:yes'>&nbsp; </span>[volts<span
+  style='mso-spacerun:yes'>&nbsp; </span>V]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>R</span></i><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>resistance<span
+  style='mso-spacerun:yes'>&nbsp; </span>[ohm<span
+  style='mso-spacerun:yes'>&nbsp; </span><span style='position:relative;
+  top:2.0pt;mso-text-raise:-2.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1029"
+   type="#_x0000_t75" style='width:15.75pt;height:15pt' o:ole="">
+   <v:imagedata src="pbs004_files/image017.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=21 height=20
+  src="pbs004_files/image018.png" v:shapes="_x0000_i1029"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1029"
+    DrawAspect="Content" ObjectID="_1679898045">
+   </o:OLEObject>
+  </xml><![endif]-->]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>G</span></i><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>conductance<span
+  style='mso-spacerun:yes'>&nbsp; </span>[Siemens<span
+  style='mso-spacerun:yes'>&nbsp; </span>S<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>1 S<span
+  style='mso-spacerun:yes'>&nbsp; </span><span style='position:relative;
+  top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1030"
+   type="#_x0000_t75" style='width:39pt;height:23.25pt' o:ole="">
+   <v:imagedata src="pbs004_files/image019.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=52 height=31
+  src="pbs004_files/image020.png" v:shapes="_x0000_i1030"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1030"
+    DrawAspect="Content" ObjectID="_1679898046">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'>This equation can also can also be
+  expressed in expressed in terms of the current density<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(4)<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1031" type="#_x0000_t75" style='width:197.25pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="pbs004_files/image021.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=263 height=27
+  src="pbs004_files/image022.png" v:shapes="_x0000_i1031"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1031"
+    DrawAspect="Content" ObjectID="_1679898047">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-GB
+  style='font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  mso-ansi-language:EN-GB'>A</span></i></span><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>area<span
+  style='mso-spacerun:yes'>&nbsp; </span>[m]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>J</span></i><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>current
+  density<span style='mso-spacerun:yes'>&nbsp; </span>[A.m<sup>-2</sup>]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>g</span></i><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>specific conductance<span
+  style='mso-spacerun:yes'>&nbsp; </span>[S.m<sup>-2</sup>]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'>The major ion currents shown in
+  figure 2, can be expressed as<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(5)<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1032" type="#_x0000_t75" style='width:273.75pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="pbs004_files/image023.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=365 height=29
+  src="pbs004_files/image024.png" v:shapes="_x0000_i1032"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1032"
+    DrawAspect="Content" ObjectID="_1679898048">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>X</span></i><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span class=GramE>ion<span style='mso-spacerun:yes'>&nbsp; </span>(</span>e.g.
+  <span style='mso-spacerun:yes'>&nbsp;&nbsp;</span>Na<sup>+</sup><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>K<sup>+</sup><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>leakage)<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-GB
+  style='font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  mso-ansi-language:EN-GB'>V<sub>M</sub></span></i></span><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>membrane
+  potential (voltage)<span style='mso-spacerun:yes'>&nbsp; </span>[volt<span
+  style='mso-spacerun:yes'>&nbsp; </span>V]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>E<sub>X</sub></span></i><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>equilibrium (Nernst) potential<span style='mso-spacerun:yes'>&nbsp;
+  </span>[V]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'>When the conductance is constant,
+  the current is said to be <b style='mso-bidi-font-weight:normal'><span
+  style='color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;mso-style-textfill-fill-color:
+  #E46C0A;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>ohmic</span></b>.
+  In general, ionic currents in neurones are not ohmic, since the conductance
+  may depend upon time, membrane <span class=GramE>potential,</span> and
+  pharmacological agents (e.g. neurotransmitters). It is the time-dependent
+  variation of conductances that allow a neurone to generate an action
+  potential (spike).<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'>The membrane acts like a capacitor
+  &#8211; an insulator (membrane) surrounded by the extracellular and
+  intracellular fluids (conductive plates). When the membrane potential
+  changes, a current is generated to charge or discharge the capacitor. The
+  capacitor current is given by the time derivative of the voltage<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(6)<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:19.0pt;mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1033" type="#_x0000_t75" style='width:276.75pt;height:44.25pt'
+   o:ole="">
+   <v:imagedata src="pbs004_files/image025.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=369 height=59
+  src="pbs004_files/image026.png" v:shapes="_x0000_i1033"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1033"
+    DrawAspect="Content" ObjectID="_1679898049">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>C<sub>M</sub></span></i><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>capacitance<span style='mso-spacerun:yes'>&nbsp; </span>[F]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  class=SpellE><i style='mso-bidi-font-style:normal'><span lang=EN-GB
+  style='font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  mso-ansi-language:EN-GB'>c<sub>M</sub></span></i></span><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'> <span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>specific
+  capacitance<span style='mso-spacerun:yes'>&nbsp; </span>[F.m<sup>-2</sup>]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'>The equivalent circuit to
+  represent the electrical properties of membranes is shown in figure 3.
+  According to Kirchhoff&#8217;s Current Law, the sum of the currents entering
+  and leaving a junction must add to zero. Hence across the membrane<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(7)<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1034" type="#_x0000_t75" style='width:5in;height:21.75pt' o:ole="">
+   <v:imagedata src="pbs004_files/image027.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=480 height=29
+  src="pbs004_files/image028.png" v:shapes="_x0000_i1034"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1034"
+    DrawAspect="Content" ObjectID="_1679898050">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'>Therefore, we can write an &#8220;equation
+  of motion&#8221; to describe the dynamical system of a neurone as<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(8)<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1035" type="#_x0000_t75" style='width:294pt;height:24pt' o:ole="">
+   <v:imagedata src="pbs004_files/image029.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=392 height=32
+  src="pbs004_files/image030.png" v:shapes="_x0000_i1035"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1035"
+    DrawAspect="Content" ObjectID="_1679898051">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'>Note: <span style='position:relative;
+  top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1036"
+   type="#_x0000_t75" style='width:108pt;height:21.75pt' o:ole="">
+   <v:imagedata src="pbs004_files/image031.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=144 height=29
+  src="pbs004_files/image032.png" v:shapes="_x0000_i1036"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1036"
+    DrawAspect="Content" ObjectID="_1679898052">
+   </o:OLEObject>
+  </xml><![endif]--><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>are
+  inward currents (outside to inside)<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1037" type="#_x0000_t75" style='width:102pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="pbs004_files/image033.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=136 height=29
+  src="pbs004_files/image034.png" v:shapes="_x0000_i1037"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1037"
+    DrawAspect="Content" ObjectID="_1679898053">
+   </o:OLEObject>
+  </xml><![endif]--><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>are
+  outward currents (inside to outside)<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'>The membrane potential is
+  typically bounded by the equilibrium potentials<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1038" type="#_x0000_t75" style='width:170.25pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="pbs004_files/image035.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=227 height=29
+  src="pbs004_files/image036.png" v:shapes="_x0000_i1038"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1038"
+    DrawAspect="Content" ObjectID="_1679898054">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'>One example of the application of
+  equation (8) is the <a
+  href="https://d-arora.github.io/Doing-Physics-With-Matlab/mpDocs/npHHA.htm">Hodgkin-Huxley
+  Model</a>.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:4.5pt;margin-bottom:
+  0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+  style='mso-ansi-language:EN-GB'>For different models of a neurone, equation
+  (8) can be solved using the Matlab ordinary differential equation solver <b
+  style='mso-bidi-font-weight:normal'><span style='color:#984807;mso-themecolor:
+  accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>ode45</span></b>.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-left:0cm'><span lang=EN-GB style='mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>
