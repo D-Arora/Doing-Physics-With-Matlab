@@ -1,0 +1,2395 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 14">
+<meta name=Originator content="Microsoft Word 14">
+<base target="_blank">
+<link rel=File-List href="ns802_files/filelist.xml">
+<link rel=Edit-Time-Data href="ns802_files/editdata.mso">
+<link rel=OLE-Object-Data href="ns802_files/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Izhikevich Neuron model</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Subject>Neuron Models  Izhikevich</o:Subject>
+  <o:Author>Ian Cooper</o:Author>
+  <o:Keywords>Izhikevich Neuron model, computational neuroscience, spiking neurons, spiking neuron models with Matlab</o:Keywords>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Owner</o:LastAuthor>
+  <o:Revision>6</o:Revision>
+  <o:TotalTime>8182</o:TotalTime>
+  <o:Created>2021-04-26T21:50:00Z</o:Created>
+  <o:LastSaved>2021-04-26T22:10:00Z</o:LastSaved>
+  <o:Pages>7</o:Pages>
+  <o:Words>1873</o:Words>
+  <o:Characters>10681</o:Characters>
+  <o:Category>neuron modeeling with Matlab</o:Category>
+  <o:Lines>89</o:Lines>
+  <o:Paragraphs>25</o:Paragraphs>
+  <o:CharactersWithSpaces>12529</o:CharactersWithSpaces>
+  <o:Version>14.00</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+<link rel=dataStoreItem href="ns802_files/item0072.xml"
+target="ns802_files/props073.xml">
+<link rel=themeData href="ns802_files/themedata.thmx">
+<link rel=colorSchemeMapping href="ns802_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>125</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-AU</w:LidThemeOther>
+  <w:LidThemeAsian>ZH-CN</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-469750017 -1073732485 9 0 511 0;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+@font-face
+	{font-family:"Segoe UI";
+	panose-1:2 11 5 2 4 2 4 2 2 3;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-469750017 -1073683329 9 0 511 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:105%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Comment Text Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+span.MsoCommentReference
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#0563C1;
+	mso-themecolor:hyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:#954F72;
+	mso-themecolor:followedhyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"Comment Text";
+	mso-style-link:"Comment Subject Char";
+	mso-style-next:"Comment Text";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	font-weight:bold;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Balloon Text Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:9.0pt;
+	font-family:"Segoe UI","sans-serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+span.MsoPlaceholderText
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	color:gray;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-priority:1;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	line-height:105%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	line-height:105%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	line-height:105%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	line-height:105%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+span.CommentTextChar
+	{mso-style-name:"Comment Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Comment Text";
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;}
+span.CommentSubjectChar
+	{mso-style-name:"Comment Subject Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-parent:"Comment Text Char";
+	mso-style-link:"Comment Subject";
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-weight:bold;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Balloon Text";
+	mso-ansi-font-size:9.0pt;
+	mso-bidi-font-size:9.0pt;
+	font-family:"Segoe UI","sans-serif";
+	mso-ascii-font-family:"Segoe UI";
+	mso-hansi-font-family:"Segoe UI";
+	mso-bidi-font-family:"Segoe UI";}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{mso-style-name:msonormal;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+span.apple-converted-space
+	{mso-style-name:apple-converted-space;
+	mso-style-unhide:no;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:10.0pt;
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-priority:39;
+	mso-style-unhide:no;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-AU link="#0563C1" vlink="#954F72" style='tab-interval:36.0pt'>
+
+<div class=WordSection1>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 width=1042
+ style='width:781.2pt;margin-left:98.85pt;border-collapse:collapse;border:none;
+ mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:
+ none;mso-border-insidev:none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width=358 colspan=3 valign=top style='width:268.25pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shapetype
+   id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+   path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="Picture_x0020_1" o:spid="_x0000_i1057" type="#_x0000_t75"
+   alt="Description: image345" style='width:228.75pt;height:202.5pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image001.gif" o:title="image345"/>
+  </v:shape><![endif]--><![if !vml]><img width=305 height=270
+  src="ns802_files/image001.gif" alt="Description: image345" v:shapes="Picture_x0020_1"><![endif]></span></p>
+  </td>
+  <td width=684 colspan=4 valign=top style='width:512.95pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><b style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;
+  font-family:"Bookman Old Style","serif";color:#C55A11;mso-themecolor:accent2;
+  mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><b style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;
+  font-family:"Bookman Old Style","serif";color:blue'><a
+  href="https://d-arora.github.io/Doing-Physics-With-Matlab/"><span
+  style='color:blue'>DOING PHYSICS WITH MATLAB</span></a><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><b style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;
+  font-family:"Bookman Old Style","serif";color:#C55A11;mso-themecolor:accent2;
+  mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><b style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;
+  font-family:"Bookman Old Style","serif";color:#C55A11;mso-themecolor:accent2;
+  mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><b style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;
+  line-height:115%;font-family:"Bookman Old Style","serif";color:#C55A11;
+  mso-themecolor:accent2;mso-themeshade:191;mso-style-textfill-fill-color:#C55A11;
+  mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=75000'>IZHIKEVICH
+  QUADRATIC MODEL FOR SPIKING NEURONS<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width=1042 colspan=7 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:18.0pt;mso-bidi-font-size:11.0pt;color:blue'><a
+  href="https://drive.google.com/drive/u/3/folders/1j09aAhfrVYpiMavajrgSvUMc89ksF9Jb"><span
+  style='color:blue'>Matlab Download Directory<o:p></o:p></span></a></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><b style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;color:#843C0C;mso-themecolor:accent2;
+  mso-themeshade:128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>ns_Izh_006.m</span></b><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Computation of the firing patterns of a single neuron using the <span
+  class=SpellE>Izhikevich</span> Quadratic Model<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width=1042 colspan=7 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%'>This article and the Scripts are based upon the papers and book by E.
+  M. <span class=SpellE>Izhikevich</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><i style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%'>Which Model to Use for Cortical
+  Spiking Neurons?</span></i><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%'><span style='mso-spacerun:yes'>&nbsp; </span>IEEE
+  Transactions on Neural Networks. Vol. 15. No. 5.<span
+  style='mso-spacerun:yes'>&nbsp; </span>September 2004.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><i style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></i></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><i style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%'>Simple Models of Neural Networks</span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>IEEE Transactions on Neural
+  Networks. Vol. 14. No. 6.<span style='mso-spacerun:yes'>&nbsp;
+  </span>November 2003.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%'><a
+  href="http://www.izhikevich.org/publications/hybrid_spiking_models.pdf"><span
+  class=SpellE><i style='mso-bidi-font-style:normal'><span style='color:blue'>Hydrid</span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='color:blue'> Spiking Models</span></i><span
+  style='color:blue'> </span></a><span style='color:blue'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;</span></span><span
+  style='color:black;mso-themecolor:text1'>Phil. Trans. R. Soc. A (2010) 368,
+  5061&#8211;5070</span><span style='color:blue'><o:p></o:p></span></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><i style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></i></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><i style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;mso-bidi-font-family:Calibri'>Dynamical
+  Systems in Neuroscience</span></i><span style='font-size:18.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri'>: </span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri'>The Geometry of
+  Excitability and Bursting</span></i><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri'>.<span
+  style='mso-spacerun:yes'>&nbsp; </span>The MIT Press. </span><span
+  style='font-size:22.0pt;mso-bidi-font-size:11.0pt;line-height:150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;color:blue'><a href="http://www.izhikevich.com/"><span class=SpellE><span
+  style='color:blue'>Izhiekvich&#8217;s</span></span><span style='color:blue'>
+  website</span></a> <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td width=1042 colspan=7 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+  14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;mso-bidi-font-family:Calibri'>The
+  model of a neuron described in the book, <i style='mso-bidi-font-style:normal'>Dynamical
+  Systems in Neuroscience</i></span><span style='font-size:18.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri'>:<i style='mso-bidi-font-style:
+  normal'> </i></span><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>The Geometry of Excitability and Bursting</span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'> by <span class=SpellE>Izhikevich</span> is not
+  based upon biophysical parameters but is a simple model that faithfully
+  reproduces all the <span class=SpellE>neurocomputational</span> dynamical
+  features of the neuron. The model is a two-dimensional systems having a fast
+  voltage variable </span><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  font-family:"Times New Roman","serif"'>v </span></i><span style='font-size:
+  14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;mso-bidi-font-family:Calibri'>and
+  a slower &#8220;recovery&#8221; variable </span><i style='mso-bidi-font-style:
+  normal'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;font-family:"Times New Roman","serif"'>u,</span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'> which may describe activation of the K<sup>+</sup>
+  current or inactivation of the Na<sup>+</sup> current or their combination.
+  The simple model to reproduce spiking and bursting behavior of many known
+  types of neurons is described by the pair of differential equations<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+  14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(1)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='mso-bidi-font-family:Calibri'><span
+  style='position:relative;top:63.0pt;mso-text-raise:-63.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1028" type="#_x0000_t75" style='width:362.25pt;height:134.25pt'
+   o:ole="">
+   <v:imagedata src="ns802_files/image002.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=483 height=179
+  src="ns802_files/image003.png" v:shapes="_x0000_i1028"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1028"
+    DrawAspect="Content" ObjectID="_1681016209">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td width=1042 colspan=7 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri'>Model parameters and dimensions:<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><i style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>t
+  </span></i><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:150%;mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>time<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>[<span class=SpellE>ms</span>]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><i style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>C<span
+  style='mso-spacerun:yes'>&nbsp; </span></span></i><span style='font-size:
+  14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>membrane
+  capacitance<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>[pF
+  = pA.ms.mV<sup>-1</sup>] <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><i style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>v
+  </span></i><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:150%;mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>membrane
+  potential<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>[mV]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='mso-bidi-font-family:Calibri'><span style='position:relative;
+  top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1025"
+   type="#_x0000_t75" style='width:42pt;height:15.75pt' o:ole="">
+   <v:imagedata src="ns802_files/image004.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=56 height=21
+  src="ns802_files/image005.png" v:shapes="_x0000_i1025"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1025"
+    DrawAspect="Content" ObjectID="_1681016210">
+   </o:OLEObject>
+  </xml><![endif]--></span><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>rate of change of membrane potential<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>[mV.ms<sup>-1</sup>
+  = V.s<sup>-1</sup>]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='mso-bidi-font-family:Calibri'><span style='position:relative;
+  top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1026"
+   type="#_x0000_t75" style='width:54pt;height:18.75pt' o:ole="">
+   <v:imagedata src="ns802_files/image006.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=72 height=25
+  src="ns802_files/image007.png" v:shapes="_x0000_i1026"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1026"
+    DrawAspect="Content" ObjectID="_1681016211">
+   </o:OLEObject>
+  </xml><![endif]--><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>capacitor current<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>[<span class=SpellE>pA</span>]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span class=SpellE><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  font-family:"Times New Roman","serif"'>v<sub>r</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Times New Roman","serif"'> </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>resting
+  membrane potential<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>[mV]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span class=SpellE><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  font-family:"Times New Roman","serif"'>v<sub>t</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Times New Roman","serif"'> </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>instantaneous
+  threshold potential<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>[mV]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><i style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>k
+  </span></i><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:150%;mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>constant
+  (&#8220;1/R&#8221;)<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>[pA.mV<sup>-1 </sup><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;</span>(10<sup>-9</sup> </span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'>&#8486;</span><sup><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>-1</span></sup><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;mso-bidi-font-family:Calibri'>)]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><i style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>u
+  </span></i><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:150%;mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>recovery
+  variable<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>[<span
+  class=SpellE>pA</span>]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><i style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>S
+  </span></i><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:150%;mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>stimulus
+  (synaptic: excitatory or inhibitory, external, noise)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>[<span class=SpellE>pA</span>]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='mso-bidi-font-family:Calibri'><span style='position:relative;
+  top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1027"
+   type="#_x0000_t75" style='width:42.75pt;height:15.75pt' o:ole="">
+   <v:imagedata src="ns802_files/image008.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=57 height=21
+  src="ns802_files/image009.png" v:shapes="_x0000_i1027"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1027"
+    DrawAspect="Content" ObjectID="_1681016212">
+   </o:OLEObject>
+  </xml><![endif]--></span><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>rate of
+  change of recovery variable<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>[pA.ms<sup>-1</sup>]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><i style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>a
+  </span></i><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:150%;mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span
+  style='mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>recovery time constant<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>[ms<sup>-1</sup>]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><i style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>b
+  </span></i><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:150%;mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>constant<span
+  style='mso-spacerun:yes'>&nbsp; </span>(&#8220;1/R&#8221;)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>[pA.mV<sup>-1</sup><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>(10<sup>-9</sup> </span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'>&#8486;</span><sup><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>-1</span></sup><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;mso-bidi-font-family:Calibri'>) ]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><i style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>c
+  </span></i><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:150%;mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>potential
+  reset value<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>[mV]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><i style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>d<span
+  style='mso-spacerun:yes'>&nbsp; </span></span></i><span style='font-size:
+  14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>outward
+  minus inward currents activated during the spike and affecting the
+  after-spike <span class=SpellE>behavior</span><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>[<span class=SpellE>pA</span>]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span class=SpellE><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  font-family:"Times New Roman","serif"'>v<sub>peak</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Times New Roman","serif"'> </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>spike
+  <span class=SpellE>cutoff</span> value<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>[mV]<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5'>
+  <td width=1042 colspan=7 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri'>The sum of all slow currents that modulate
+  the spike generation mechanism is combined in the phenomenological recovery
+  variable </span><i style='mso-bidi-font-style:normal'><span style='font-size:
+  14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>u
+  </span></i><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:150%;mso-bidi-font-family:Calibri'>with outward currents taken
+  with the plus sign. The sign of </span><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  font-family:"Times New Roman","serif"'>b </span></i><span style='font-size:
+  14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;mso-bidi-font-family:Calibri'>determines
+  whether </span><i style='mso-bidi-font-style:normal'><span style='font-size:
+  14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>u
+  </span></i><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:150%;mso-bidi-font-family:Calibri'>is an amplifying (</span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>b </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>&lt; 0) or a resonant (</span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>b </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>&gt; 0) variable. In the latter case (</span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>b </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>&gt; 0) the neuron sags in response to
+  hyperpolarized pulses of current, peaks in response to depolarized
+  subthreshold pulses, and produces rebound (<span class=SpellE>postinhibitory</span>)
+  responses. The parameters </span><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  font-family:"Times New Roman","serif"'>c </span></i><span style='font-size:
+  14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;mso-bidi-font-family:Calibri'>and
+  </span><i style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>d
+  </span></i><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:150%;mso-bidi-font-family:Calibri'>do not affect steady-state
+  subthreshold behavior. Instead, they take into account the action of
+  high-threshold voltage-gated currents activated during the spike, and affect
+  only the after-spike transient behavior. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri'>One difficulty in applying the <span
+  class=SpellE>Izhikevich</span> model is the determination of the numerical
+  values of the parameters to be used in stimulations of the time evolution of
+  the membrane potential for different stimuli. The following simulations show
+  how the model can be applied to three types of neurons.</span><span
+  style='font-size:14.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6'>
+  <td width=1042 colspan=7 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;color:#7030A0'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:18.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;color:#7030A0'>1.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Modelling Regular Spiking (RS)
+  Neurons<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'>Regular spiking
+  neurons are the major class of excitatory neurons in the neocortex (part of
+  the cortex of the brain made up of six layers, labelled from the outermost
+  inwards, I to VI). In humans, the neocortex is involved in functions such as
+  sensory perception, generation of motor commands, spatial reasoning and
+  language. RS neurons have a transient K<sup>+</sup> current </span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>I<sub>A</sub></span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'> whose
+  slow inactivation delays the onset of the first spike and increases the <span
+  class=SpellE>interspike</span> period, and a persistent K<sup>+</sup> current
+  </span><i style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>I<sub>M</sub>
+  </span></i><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:150%'>which is believed to be responsible for the spike frequency
+  adaptation.<span style='mso-spacerun:yes'>&nbsp; </span>Regular spiking
+  neurons fire tonic spikes with adapting (decreasing) frequency in response to
+  injected pulses of DC current. Most of them have Class 1 excitability in the
+  sense that the <span class=SpellE>interspike</span> frequency vanishes when
+  the amplitude of the injected current decreases. These neurons are spiny
+  stellate cells in layer 4 and pyramidal cells in layers 2, 3, 5, and 6. The
+  simulated voltage responses of the model agree quantitatively with the in
+  vitro recordings of the layer 5 pyramidal neuron.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'>Model
+  parameters for RS neurons in the neocortex:<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Membrane
+  resting membrane<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span
+  class=SpellE><i style='mso-bidi-font-style:normal'><span style='font-size:
+  14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>v<sub>r</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Times New Roman","serif"'> </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'>= &#8722;60
+  mV<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Instantaneous
+  threshold potential<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span
+  class=SpellE><i style='mso-bidi-font-style:normal'><span style='font-size:
+  14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>v<sub>t</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Times New Roman","serif"'> </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'>= &#8722;40
+  mV<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>(instantaneous
+  depolarizations above &#8722;40 mV cause the neuron to fire)<o:p></o:p></span></p>
+  <p class=MsoNoSpacing><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt'>T</span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;mso-bidi-font-family:Calibri'>he
+  minimal amplitude of injected current of infinite duration needed to fire a
+  neuron is called the <span class=SpellE>rheobase</span><o:p></o:p></span></p>
+  <p class=MsoNoSpacing><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>The parameters
+  </span><i style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;font-family:"Times New Roman","serif"'>k </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;mso-bidi-font-family:Calibri'>and
+  </span><i style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;font-family:"Times New Roman","serif"'>b </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;mso-bidi-font-family:Calibri'>can
+  be found when one knows the neuron&#8217;s <span class=SpellE>rheobase</span>
+  and input resistance </span><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+  <p class=MsoNoSpacing><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span
+  class=SpellE><i style='mso-bidi-font-style:normal'><span style='font-size:
+  14.0pt;mso-bidi-font-size:11.0pt;font-family:"Times New Roman","serif"'>rheobase</span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;font-family:"Times New Roman","serif"'> </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt'><span
+  style='mso-spacerun:yes'>&nbsp;</span>=<span style='mso-spacerun:yes'>&nbsp;
+  </span>50 <span class=SpellE>pA</span><o:p></o:p></span></p>
+  <p class=MsoNoSpacing><o:p>&nbsp;</o:p></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>Input resistance<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>R </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'>= 80 M&#8486;<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  font-family:Symbol;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+  mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;mso-char-type:
+  symbol;mso-symbol-font-family:Symbol'><span style='mso-char-type:symbol;
+  mso-symbol-font-family:Symbol'>&THORN;</span></span><span style='font-size:
+  14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><i style='mso-bidi-font-style:
+  normal'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;font-family:"Times New Roman","serif"'>k </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'>= 0.7 and
+  </span><i style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>b
+  </span></i><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:150%'>= &#8722;2.<span style='mso-spacerun:yes'>&nbsp; </span><span
+  class=GramE><span style='color:red'>how ?</span></span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Membrane
+  capacitance<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>C </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'>= 100
+  pF<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  font-family:Symbol;mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
+  mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;mso-char-type:
+  symbol;mso-symbol-font-family:Symbol'><span style='mso-char-type:symbol;
+  mso-symbol-font-family:Symbol'>&THORN;</span></span><span style='font-size:
+  14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>membrane time constant<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><i style='mso-bidi-font-style:
+  normal'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;font-family:Symbol;mso-ascii-font-family:Calibri;mso-ascii-theme-font:
+  minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;
+  mso-char-type:symbol;mso-symbol-font-family:Symbol'><span style='mso-char-type:
+  symbol;mso-symbol-font-family:Symbol'>t</span></span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'> = </span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>R C </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'>= 8 <span
+  class=SpellE>ms</span><o:p></o:p></span></p>
+  <p class=MsoNoSpacing><span style='mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;mso-bidi-font-family:Calibri'>When
+  </span><i style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;font-family:"Times New Roman","serif"'>b &lt;</span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;mso-bidi-font-family:Calibri'>
+  0, the depolarizations of </span><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;font-family:"Times New Roman","serif"'>v
+  </span></i><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  mso-bidi-font-family:Calibri'>decrease </span><i style='mso-bidi-font-style:
+  normal'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;font-family:
+  "Times New Roman","serif"'>u </span></i><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;font-family:"Times New Roman","serif"'>a</span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;mso-bidi-font-family:Calibri'>s
+  if the major slow current is the inactivating K<sup>+</sup> current </span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;font-family:"Times New Roman","serif"'>I<sub>A</sub><o:p></o:p></span></i></p>
+  <p class=MsoNoSpacing><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;font-family:"Times New Roman","serif"'><o:p>&nbsp;</o:p></span></i></p>
+  <p class=MsoNoSpacing><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>The
+  inactivation time constant of </span><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;font-family:"Times New Roman","serif"'>I<sub>A</sub>
+  </span></i><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  mso-bidi-font-family:Calibri'>is around 30 <span class=SpellE>ms</span> in
+  the <span class=SpellE>subthreshold</span> voltage range<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span style='font-size:
+  14.0pt;mso-bidi-font-size:11.0pt;font-family:Symbol;mso-ascii-font-family:
+  Calibri;mso-ascii-theme-font:minor-latin;mso-hansi-font-family:Calibri;
+  mso-hansi-theme-font:minor-latin;mso-bidi-font-family:Calibri;mso-char-type:
+  symbol;mso-symbol-font-family:Symbol'><span style='mso-char-type:symbol;
+  mso-symbol-font-family:Symbol'>&THORN;</span></span><span style='font-size:
+  14.0pt;mso-bidi-font-size:11.0pt;mso-bidi-font-family:Calibri'> </span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;font-family:"Times New Roman","serif"'>a </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;mso-bidi-font-family:Calibri'>&#8776;
+  1/30 &#8776; 0.03<o:p></o:p></span></p>
+  <p class=MsoNoSpacing><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  mso-bidi-font-family:Calibri'><span style='mso-spacerun:yes'>&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNoSpacing><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>The membrane
+  potential of a typical RS neuron reaches the peak value </span><span
+  class=SpellE><i style='mso-bidi-font-style:normal'><span style='font-size:
+  14.0pt;mso-bidi-font-size:11.0pt;font-family:"Times New Roman","serif"'>v<sub>peak</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;font-family:"Times New Roman","serif"'> </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;mso-bidi-font-family:Calibri'>=
+  +35 mV during a spike<o:p></o:p></span></p>
+  <p class=MsoNoSpacing><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>and then
+  repolarizes to </span><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;font-family:"Times New Roman","serif"'>c&nbsp;</span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;mso-bidi-font-family:Calibri'>=&nbsp;&#8722;50
+  mV or below, depending on the firing frequency<o:p></o:p></span></p>
+  <p class=MsoNoSpacing><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>The parameter </span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;font-family:"Times New Roman","serif"'>d </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;mso-bidi-font-family:Calibri'>describes
+  the total amount of outward minus inward currents activated during the spike
+  and affecting<o:p></o:p></span></p>
+  <p class=MsoNoSpacing><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>the after-spike
+  behavior<o:p></o:p></span></p>
+  <p class=MsoNoSpacing><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  mso-bidi-font-family:Calibri'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><i style='mso-bidi-font-style:normal'><span style='font-size:
+  14.0pt;mso-bidi-font-size:11.0pt;font-family:"Times New Roman","serif"'>d </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;mso-bidi-font-family:Calibri'>=
+  100 gives a reasonable </span><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;font-family:"Times New Roman","serif"'>f-I
+  </span></i><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  mso-bidi-font-family:Calibri'>(or </span><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;font-family:"Times New Roman","serif"'>f-S)</span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;mso-bidi-font-family:Calibri'>
+  relationship in the low-frequency range.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'>All the
+  figures 1&#8230; were created using the Matlab mscript <b style='mso-bidi-font-weight:
+  normal'><span style='color:#843C0C;mso-themecolor:accent2;mso-themeshade:
+  128;mso-style-textfill-fill-color:#843C0C;mso-style-textfill-fill-themecolor:
+  accent2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>ns_Izh_006.m</span></b><span style='color:black'>.</span> with
+  the parameters:<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%;mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  10.0pt;line-height:150%;font-family:"Courier New";color:black'>C = 100; <span
+  class=SpellE>vr</span> = -60; <span class=SpellE>vt</span> = -40; k =
+  0.7;<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span
+  style='mso-bidi-font-size:10.0pt;line-height:150%;font-family:"Courier New";
+  color:forestgreen'>% parameters used for RS</span><span style='font-size:
+  14.0pt;mso-bidi-font-size:12.0pt;line-height:150%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%;mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+  10.0pt;line-height:150%;font-family:"Courier New";color:black'>a = 0.03; b =
+  -2; c = -50; d = 100;<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='mso-bidi-font-size:10.0pt;line-height:150%;
+  font-family:"Courier New";color:forestgreen'>% neocortical pyramidal neurons</span><span
+  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%;mso-layout-grid-align:none;text-autospace:none'><span class=SpellE><span
+  style='mso-bidi-font-size:10.0pt;line-height:150%;font-family:"Courier New";
+  color:black'>vPeak</span></span><span style='mso-bidi-font-size:10.0pt;
+  line-height:150%;font-family:"Courier New";color:black'> = 35;<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='mso-bidi-font-size:10.0pt;line-height:150%;
+  font-family:"Courier New";color:forestgreen'>% spike cutoff<span
+  style='mso-spacerun:yes'>&nbsp; </span>[mV]</span><span style='font-size:
+  14.0pt;mso-bidi-font-size:12.0pt;line-height:150%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%;mso-layout-grid-align:none;text-autospace:none'><span class=SpellE><span
+  style='mso-bidi-font-size:10.0pt;line-height:150%;font-family:"Courier New";
+  color:black'>dt</span></span><span style='mso-bidi-font-size:10.0pt;
+  line-height:150%;font-family:"Courier New";color:black'> = 0.5;<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span
+  style='mso-bidi-font-size:10.0pt;line-height:150%;font-family:"Courier New";
+  color:forestgreen'>% time step<span style='mso-spacerun:yes'>&nbsp; </span>[<span
+  class=SpellE>ms</span>]</span><span style='font-size:14.0pt;mso-bidi-font-size:
+  12.0pt;line-height:150%;font-family:"Courier New"'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+  14.0pt;mso-bidi-font-size:12.0pt;line-height:150%;font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:7'>
+  <td width=521 colspan=4 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%;
+  tab-stops:1.0cm 70.9pt'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_23" o:spid="_x0000_i1056" type="#_x0000_t75" style='width:240.75pt;
+   height:188.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image010.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=321 height=251
+  src="ns802_files/image011.png" v:shapes="Picture_x0020_23"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>Fig. 1A.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>Input stimulus<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>S<sub>step</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Times New Roman","serif"'> </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>= 70 <span class=SpellE>pA.</span><o:p></o:p></span></p>
+  </td>
+  <td width=521 colspan=3 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%;
+  tab-stops:1.0cm 70.9pt'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_7" o:spid="_x0000_i1055" type="#_x0000_t75" style='width:240.75pt;
+   height:187.5pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image012.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=321 height=250
+  src="ns802_files/image013.png" v:shapes="Picture_x0020_7"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>Fig. 1B.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>Membrane potential.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:8'>
+  <td width=521 colspan=4 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%;
+  tab-stops:1.0cm 70.9pt'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1054" type="#_x0000_t75" style='width:240.75pt;height:188.25pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image014.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=321 height=251
+  src="ns802_files/image015.png" v:shapes="_x0000_i1054"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>Fig.1C.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Recovery variable.<o:p></o:p></span></p>
+  </td>
+  <td width=521 colspan=3 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%;
+  tab-stops:1.0cm 70.9pt'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1053" type="#_x0000_t75" style='width:240.75pt;height:188.25pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image016.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=321 height=251
+  src="ns802_files/image017.png" v:shapes="_x0000_i1053"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'>Fig.
+  1D.<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Phase plot.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:9'>
+  <td width=521 colspan=4 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:115%;
+  mso-bidi-font-family:Calibri'>Fig.1E.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Expanded view of a spike. The
+  shape of the action potential is very similar to the recording of actual
+  neocortical pyramidal neurons but with two discrepancies: recording has a
+  sharper spike upstroke and a smoother spike downstroke. The simple model generates
+  the upstroke of the spike due to the intrinsic (regenerative) properties of
+  the voltage equation. The voltage reset occurs not at the threshold, but at
+  the peak, of the spike. The firing threshold in the simple model is not a
+  parameter, but a property of the bifurcation mechanism of excitability.
+  Depending on the bifurcation of equilibrium, the model may not even have a
+  well-defined threshold, a situation similar to many conductance-based models.</span><span
+  style='font-size:16.0pt;mso-bidi-font-size:11.0pt;line-height:115%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:normal;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:12.0pt;mso-bidi-font-size:11.0pt;mso-bidi-font-family:Calibri'>Pyramidal
+  neurons (pyramidal cells) are a type of neuron found in areas of the brain
+  including the cerebral cortex, the hippocampus, and the amygdala. Pyramidal
+  neurons are the primary excitation units of the mammalian prefrontal cortex
+  and the corticospinal tract. Key features: triangular shaped soma (after which
+  the neuron is named), a single axon, a large apical dendrite, multiple basal
+  dendrites, and the presence of dendritic spines.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:normal;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:12.0pt;mso-bidi-font-size:11.0pt;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:normal;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td width=521 colspan=3 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%;
+  tab-stops:1.0cm 70.9pt'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_10" o:spid="_x0000_i1052" type="#_x0000_t75" style='width:240.75pt;
+   height:188.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image018.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=321 height=251
+  src="ns802_files/image019.png" v:shapes="Picture_x0020_10"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>Resting membrane potential<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>v<sub>r</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Times New Roman","serif"'> </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>= &#8722;60 mV<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>Instantaneous<span
+  style='mso-spacerun:yes'>&nbsp; </span>threshold potential<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>v<sub>t</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Times New Roman","serif"'> </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>= &#8722;40 mV <o:p></o:p></span></p>
+  <p class=MsoNoSpacing><span style='mso-bidi-font-family:Calibri;color:#7030A0'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;mso-bidi-font-family:Calibri;
+  color:#7030A0'>Instantaneous depolarizations above &#8722;40 mV cause the<o:p></o:p></span></p>
+  <p class=MsoNoSpacing><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  mso-bidi-font-family:Calibri;color:#7030A0'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>neuron to fire<o:p></o:p></span></p>
+  <p class=MsoNoSpacing><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  mso-bidi-font-family:Calibri;color:#7030A0'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNoSpacing><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  mso-bidi-font-family:Calibri;color:#7030A0'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>The slow <span
+  class=SpellE>afterhyperpolarization</span> (<span class=SpellE>AHP</span>)
+  following the<o:p></o:p></span></p>
+  <p class=MsoNoSpacing><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  mso-bidi-font-family:Calibri;color:#7030A0'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>reset that is due to the
+  dynamics of the recovery variable </span><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;font-family:"Times New Roman","serif";
+  color:#7030A0'>u.</span></i><span style='mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:10'>
+  <td width=344 colspan=2 valign=top style='width:258.3pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;line-height:
+  150%;font-family:"Bookman Old Style","serif";mso-bidi-font-family:"Times New Roman";
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_11" o:spid="_x0000_i1051"
+   type="#_x0000_t75" style='width:240.75pt;height:188.25pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image020.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=321 height=251
+  src="ns802_files/image021.png" v:shapes="Picture_x0020_11"><![endif]></span></b><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;line-height:
+  150%;font-family:"Bookman Old Style","serif";mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span style='font-size:14.0pt;
+  line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'>Fig.
+  1F.<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Ramp stimulus.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span><o:p></o:p></span></p>
+  </td>
+  <td width=353 colspan=3 valign=top style='width:264.65pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  style='font-size:14.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_12" o:spid="_x0000_i1050" type="#_x0000_t75" style='width:240.75pt;
+   height:188.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image022.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=321 height=251
+  src="ns802_files/image023.png" v:shapes="Picture_x0020_12"><![endif]></span><span
+  style='font-size:14.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span style='font-size:14.0pt;
+  line-height:115%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'>Fig.
+  1G.<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Membrane potential:
+  spike frequency increases as stimulus strength </span><i style='mso-bidi-font-style:
+  normal'><span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman","serif"'>S
+  </span></i><span style='font-size:14.0pt;line-height:115%;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin'>increases.<o:p></o:p></span></p>
+  </td>
+  <td width=344 colspan=2 valign=top style='width:258.25pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  style='font-size:14.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  style='font-size:14.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_13" o:spid="_x0000_i1049" type="#_x0000_t75" style='width:240.75pt;
+   height:150.75pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image024.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=321 height=201
+  src="ns802_files/image025.png" v:shapes="Picture_x0020_13"><![endif]></span><span
+  style='font-size:14.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span style='font-size:14.0pt;
+  line-height:115%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'>Fig.
+  1H.<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;line-height:
+  115%;font-family:"Times New Roman","serif"'>f-S </span></i><span
+  style='font-size:14.0pt;line-height:115%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'>curve showing how the spike frequency
+  increases with increasing stimulus strength.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='font-size:14.0pt;
+  line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:11'>
+  <td width=521 colspan=4 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;tab-stops:1.0cm'><span
+  style='font-size:14.0pt;line-height:105%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_14" o:spid="_x0000_i1048" type="#_x0000_t75" style='width:240.75pt;
+   height:188.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image026.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=321 height=251
+  src="ns802_files/image027.png" v:shapes="Picture_x0020_14"><![endif]></span><span
+  style='font-size:14.0pt;line-height:105%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;tab-stops:1.0cm'><span
+  style='font-size:14.0pt;line-height:115%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'>Fig. 1</span><span style='font-size:14.0pt;
+  line-height:115%;font-family:"Times New Roman","serif";mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>I</span><span
+  style='font-size:14.0pt;line-height:115%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'>.<span style='mso-spacerun:yes'>&nbsp;&nbsp;
+  </span>Step input<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span
+  class=SpellE><i style='mso-bidi-font-style:normal'><span style='font-size:
+  14.0pt;line-height:115%;font-family:"Times New Roman","serif"'>S<sub>step</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;line-height:
+  115%;font-family:"Times New Roman","serif"'> </span></i><span
+  style='font-size:14.0pt;line-height:115%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'>= 52 <span class=SpellE>pA</span> produces a
+  spike, but no spike is generated for </span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;line-height:
+  115%;font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+  mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>S<sub>step</sub></span></i></span><span
+  style='font-size:14.0pt;line-height:115%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'> = 51 <span class=SpellE>pA.</span><o:p></o:p></span></p>
+  </td>
+  <td width=521 colspan=3 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:150%'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_15" o:spid="_x0000_i1047" type="#_x0000_t75" style='width:240.75pt;
+   height:188.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image028.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=321 height=251
+  src="ns802_files/image029.png" v:shapes="Picture_x0020_15"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;tab-stops:1.0cm 70.9pt'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:115%'>Fig.
+  1J.<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span
+  style='font-size:14.0pt;line-height:115%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'>Step input<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;line-height:
+  115%;font-family:"Times New Roman","serif"'>S<sub>step</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;line-height:
+  115%;font-family:"Times New Roman","serif"'> </span></i><span
+  style='font-size:14.0pt;line-height:115%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin'>= 51 <span class=SpellE>pA.</span> The </span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:115%;
+  mso-bidi-font-family:Calibri'>minimal amplitude of the injected current of
+  infinite duration needed to fire a neuron is called the <span class=SpellE><b
+  style='mso-bidi-font-weight:normal'><span style='color:#7030A0'>rheobase</span></b></span>.</span><span
+  style='font-size:18.0pt;mso-bidi-font-size:11.0pt;line-height:115%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%'><span style='mso-spacerun:yes'>&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:150%'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:12'>
+  <td width=260 valign=top style='width:195.3pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_16" o:spid="_x0000_i1046" type="#_x0000_t75" style='width:184.5pt;
+   height:2in;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image030.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=246 height=192
+  src="ns802_files/image031.png" v:shapes="Picture_x0020_16"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;mso-bidi-font-family:
+  Calibri'>Fig. 1K.<span style='mso-spacerun:yes'>&nbsp; </span>Step input
+  stimulus<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span class=SpellE><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;font-family:"Times New Roman","serif"'>S<sub>step</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;font-family:"Times New Roman","serif"'> </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;mso-bidi-font-family:Calibri'>=
+  60 <span class=SpellE>pA</span><o:p></o:p></span></p>
+  </td>
+  <td width=260 colspan=3 valign=top style='width:195.3pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_17" o:spid="_x0000_i1045" type="#_x0000_t75" style='width:184.5pt;
+   height:2in;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image032.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=246 height=192
+  src="ns802_files/image033.png" v:shapes="Picture_x0020_17"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span class=SpellE><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  font-family:"Times New Roman","serif"'>S<sub>step</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Times New Roman","serif"'> </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>= 60 <span class=SpellE>pA</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri'>Mean firing rate<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><i style='mso-bidi-font-style:
+  normal'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;font-family:"Times New Roman","serif"'>f </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>= 4.4 Hz<o:p></o:p></span></p>
+  </td>
+  <td width=260 colspan=2 valign=top style='width:195.3pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_18" o:spid="_x0000_i1044" type="#_x0000_t75" style='width:184.5pt;
+   height:2in;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image034.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=246 height=192
+  src="ns802_files/image035.png" v:shapes="Picture_x0020_18"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span class=SpellE><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  font-family:"Times New Roman","serif"'>S<sub>step</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Times New Roman","serif"'> </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>= 80 <span class=SpellE>pA</span><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%;font-family:"Times New Roman","serif"'>f </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>= 8.9 Hz<o:p></o:p></span></p>
+  </td>
+  <td width=260 valign=top style='width:195.3pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_19" o:spid="_x0000_i1043" type="#_x0000_t75" style='width:184.5pt;
+   height:2in;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image036.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=246 height=192
+  src="ns802_files/image037.png" v:shapes="Picture_x0020_19"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span class=SpellE><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;font-family:"Times New Roman","serif"'>S<sub>step</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;font-family:"Times New Roman","serif"'> </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;mso-bidi-font-family:Calibri'>=
+  100 <span class=SpellE>pA</span><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;font-family:"Times New Roman","serif"'>f </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;mso-bidi-font-family:Calibri'>=
+  13.1 Hz<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;mso-bidi-font-family:
+  Calibri'>Increasing the input stimulus strength increases the firing rate</span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:13'>
+  <td width=1042 colspan=7 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:14'>
+  <td width=1042 colspan=7 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:18.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri;color:#7030A0'>2.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Modelling Intrinsically Bursting
+  (IB) Neurons<o:p></o:p></span></b></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:18.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri;color:#7030A0'><o:p>&nbsp;</o:p></span></b></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:15'>
+  <td width=1042 colspan=7 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri'>Intrinsically bursting (IB)
+  neurons generate a burst of spikes at the beginning of a strong depolarizing
+  pulse of current, then switch to tonic spiking mode. They are excitatory
+  pyramidal neurons found in all cortical layers, but are most abundant in layer
+  5.</span><span style='font-size:18.0pt;mso-bidi-font-size:11.0pt;line-height:
+  105%;mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri'>Some <span class=SpellE>IB</span>
+  neurons respond to the injected pulses of DC current with a burst of
+  high-frequency spikes followed by low-frequency tonic spiking. Many IB
+  neurons burst even when the current is barely <span class=SpellE>superthreshold</span>
+  and not strong enough to elicit a sustained response. However, other IB
+  neurons give a bursting response only to strong current stimuli and weaker
+  stimulation elicits a regular spiking response. In comparison with typical RS
+  neurons, the regular spiking response of IB neurons have a lower firing frequency
+  and higher <span class=SpellE>rheobase</span> (threshold) current, and
+  exhibits shorter latency to the first spike and noticeable
+  afterdepolarizations.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri'>The initial high-frequency
+  spiking is caused by the excess of the inward current or the deficit of the
+  outward current needed to repolarize the membrane potential below the
+  threshold. As a result, many spikes are needed to build up outward current to
+  terminate the high-frequency burst. After the neuron recovers, it fires
+  low-frequency tonic spikes because there is a residual outward current (or
+  residual inactivation of inward current) that prevents the occurrence of
+  another burst. Many IB neurons can fire two or more bursts before they switch
+  into tonic spiking mode.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri;color:#7030A0'>Default model
+  parameters for IB neurons for a step input as in figure 1K:<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+  14.0pt;mso-bidi-font-size:10.0pt;line-height:115%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>C =
+  150<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  class=SpellE>vr</span> = -75<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=SpellE>vt</span>
+  = -45<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>k =
+  1.2<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>a =
+  0.01<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>b = 5<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>c = -56<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>d = 130<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=SpellE>vPeak</span>
+  = 50<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+  14.0pt;mso-bidi-font-size:10.0pt;line-height:115%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  class=SpellE>Rheobase</span> = 350 <span class=SpellE>pA</span><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>input resistance ~
+  30 M&#8486; </span><span style='font-size:18.0pt;mso-bidi-font-size:12.0pt;
+  line-height:115%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:16'>
+  <td width=521 colspan=4 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_20" o:spid="_x0000_i1042" type="#_x0000_t75" style='width:240.75pt;
+   height:188.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image038.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=321 height=251
+  src="ns802_files/image039.png" v:shapes="Picture_x0020_20"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri'>Fig. 2A.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:105%;font-family:"Times New Roman","serif"'>S<sub>step</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:105%;font-family:"Times New Roman","serif"'> </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri'>= 300 <span class=SpellE>pA.</span> The input
+  current is less than the <span class=SpellE>rheobase</span>, therefore, the
+  neuron does not fire.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td width=521 colspan=3 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_21" o:spid="_x0000_i1041" type="#_x0000_t75" style='width:240.75pt;
+   height:188.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image040.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=321 height=251
+  src="ns802_files/image041.png" v:shapes="Picture_x0020_21"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri'>Fig. 2B.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:105%;font-family:"Times New Roman","serif"'>S<sub>step</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:105%;font-family:"Times New Roman","serif"'> </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri'>= 400 <span class=SpellE>pA</span><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>Low frequency tonic
+  spiking with adaptation since the input stimulus is only slightly greater
+  than the <span class=SpellE>rheobase</span> value.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:17'>
+  <td width=521 colspan=4 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_22" o:spid="_x0000_i1040" type="#_x0000_t75" style='width:240.75pt;
+   height:188.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image042.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=321 height=251
+  src="ns802_files/image043.png" v:shapes="Picture_x0020_22"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_29" o:spid="_x0000_i1039" type="#_x0000_t75" style='width:240.75pt;
+   height:188.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image044.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=321 height=251
+  src="ns802_files/image045.png" v:shapes="Picture_x0020_29"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri'>Fig. 2C.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:105%;font-family:"Times New Roman","serif"'>S<sub>step</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:105%;font-family:"Times New Roman","serif"'> </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri'>= 500 <span class=SpellE>pA.</span> The first
+  spike is a doublet.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td width=521 colspan=3 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_24" o:spid="_x0000_i1038" type="#_x0000_t75" style='width:240.75pt;
+   height:188.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image046.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=321 height=251
+  src="ns802_files/image047.png" v:shapes="Picture_x0020_24"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_28" o:spid="_x0000_i1037" type="#_x0000_t75" style='width:240.75pt;
+   height:188.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image048.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=321 height=251
+  src="ns802_files/image049.png" v:shapes="Picture_x0020_28"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri'>Fig. 2D.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:105%;font-family:"Times New Roman","serif"'>S<sub>step</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:105%;font-family:"Times New Roman","serif"'> </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri'>= 600 <span class=SpellE>pA.</span> the first
+  spike is a triplet.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:18'>
+  <td width=1042 colspan=7 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:19'>
+  <td width=1042 colspan=7 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:18.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri;color:#7030A0'>3.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Modelling Chattering (CH)
+  Neurons<o:p></o:p></span></b></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:20'>
+  <td width=1042 colspan=7 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%'><span style='font-size:14.0pt;
+  line-height:150%;mso-bidi-font-family:Calibri'>Chattering (CH) or fast
+  rhythmic bursting (FRB) neurons generate high-frequency repetitive bursts in response
+  to injected depolarizing currents. The magnitude of the DC current determines
+  the <span class=SpellE>interburst</span> period, which could be as long as
+  100 <span class=SpellE>ms</span> or as short as 15 <span class=SpellE>ms</span>
+  and the number of spikes within each burst is typically from two to five. </span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'>CH neurons are found in visual cortex of adult
+  cats, and morphologically they are spiny stellate or pyramidal neurons of
+  layers 2 - 4, mainly layer 3.</span><span style='font-size:18.0pt;mso-bidi-font-size:
+  14.0pt;line-height:150%;mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='font-size:14.0pt;
+  line-height:150%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri;color:#7030A0'>Default model
+  parameters for IB neurons for a step input as in figure 1K:<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+  14.0pt;mso-bidi-font-size:10.0pt;line-height:115%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>C =
+  50<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  class=SpellE>vr</span> = -60<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=SpellE>vt</span>
+  = -40<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>k =
+  1.5<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>a =
+  0.03<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>b = 1<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>c = -40<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>d = 150<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=SpellE>vPeak</span>
+  = 35<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+  14.0pt;mso-bidi-font-size:10.0pt;line-height:115%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+  14.0pt;mso-bidi-font-size:10.0pt;line-height:115%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black'>The results of the simulations
+  are shown in figures 3&#8230;. The plots are very similar to </span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:115%;
+  mso-bidi-font-family:Calibri'>vivo recordings from cat primary visual cortex.</span><span
+  style='font-size:18.0pt;mso-bidi-font-size:10.0pt;line-height:115%;
+  mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;color:black'><span
+  style='mso-spacerun:yes'>&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%;mso-layout-grid-align:none;text-autospace:none'><b style='mso-bidi-font-weight:
+  normal'><span style='font-size:14.0pt;line-height:115%;mso-bidi-font-family:
+  Calibri;color:#7030A0'><o:p>&nbsp;</o:p></span></b></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:21'>
+  <td width=521 colspan=4 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_30" o:spid="_x0000_i1036" type="#_x0000_t75" style='width:240.75pt;
+   height:188.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image050.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=321 height=251
+  src="ns802_files/image051.png" v:shapes="Picture_x0020_30"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_35" o:spid="_x0000_i1035" type="#_x0000_t75" style='width:240.75pt;
+   height:188.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image052.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=321 height=251
+  src="ns802_files/image053.png" v:shapes="Picture_x0020_35"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri'>Fig. 3A.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:105%;font-family:"Times New Roman","serif"'>S<sub>step</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:105%;font-family:"Times New Roman","serif"'> </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri'>= 200 <span class=SpellE>pA.</span><span
+  style='mso-spacerun:yes'>&nbsp; </span>Doublet spikes.<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td width=521 colspan=3 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_31" o:spid="_x0000_i1034" type="#_x0000_t75" style='width:240.75pt;
+   height:188.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image054.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=321 height=251
+  src="ns802_files/image055.png" v:shapes="Picture_x0020_31"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_32" o:spid="_x0000_i1033" type="#_x0000_t75" style='width:240.75pt;
+   height:188.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image056.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=321 height=251
+  src="ns802_files/image057.png" v:shapes="Picture_x0020_32"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri'>Fig. 3B.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:105%;font-family:"Times New Roman","serif"'>S<sub>step</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:105%;font-family:"Times New Roman","serif"'> </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri'>= 300 <span class=SpellE>pA.</span><span
+  style='mso-spacerun:yes'>&nbsp; </span>Triplet first spike.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:22'>
+  <td width=521 colspan=4 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_36" o:spid="_x0000_i1032" type="#_x0000_t75" style='width:240.75pt;
+   height:188.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image058.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=321 height=251
+  src="ns802_files/image059.png" v:shapes="Picture_x0020_36"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_37" o:spid="_x0000_i1031" type="#_x0000_t75" style='width:240.75pt;
+   height:188.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image060.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=321 height=251
+  src="ns802_files/image061.png" v:shapes="Picture_x0020_37"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri'>Fig. 3A.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:105%;font-family:"Times New Roman","serif"'>S<sub>step</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:105%;font-family:"Times New Roman","serif"'> </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri'>= 500 <span class=SpellE>pA.</span><span
+  style='mso-spacerun:yes'>&nbsp; </span>Multiple spikes.<o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td width=521 colspan=3 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_33" o:spid="_x0000_i1030" type="#_x0000_t75" style='width:240.75pt;
+   height:188.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image062.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=321 height=251
+  src="ns802_files/image063.png" v:shapes="Picture_x0020_33"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_34" o:spid="_x0000_i1029" type="#_x0000_t75" style='width:240.75pt;
+   height:188.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ns802_files/image064.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=321 height=251
+  src="ns802_files/image065.png" v:shapes="Picture_x0020_34"><![endif]></span><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri'><o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span style='font-size:14.0pt;mso-bidi-font-size:11.0pt;
+  line-height:105%;mso-bidi-font-family:Calibri'>Fig. 3A.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span class=SpellE><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:105%;font-family:"Times New Roman","serif"'>S<sub>step</sub></span></i></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+  11.0pt;line-height:105%;font-family:"Times New Roman","serif"'> </span></i><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:105%;
+  mso-bidi-font-family:Calibri'>= 600 <span class=SpellE>pA.</span><span
+  style='mso-spacerun:yes'>&nbsp; </span>Multiple spikes.<o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  style='font-size:14.0pt;mso-bidi-font-size:11.0pt;line-height:150%;
+  mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:23'>
+  <td width=1042 colspan=7 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:115%'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:115%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span style='font-size:18.0pt;
+  mso-bidi-font-size:11.0pt;line-height:115%;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='font-size:14.0pt;
+  mso-bidi-font-size:11.0pt;line-height:150%;mso-bidi-font-family:Calibri'>The
+  model described by equation 1 can quantitatively reproduces subthreshold,
+  spiking, and bursting activity of all known types of cortical and thalamic
+  neurons in response to pulses of DC current.<span
+  style='mso-spacerun:yes'>&nbsp; </span>The simple model makes testable
+  hypotheses on the dynamic mechanisms of excitability in these neurons and the
+  model is especially suitable for simulations of large-scale models of the
+  brain.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:24'>
+  <td width=1042 colspan=7 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:115%'><span style='font-size:14.0pt;line-height:
+  115%;font-family:"Times New Roman","serif";mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:25'>
+  <td width=1042 colspan=7 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  115%'><span style='font-size:14.0pt;line-height:115%;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:26'>
+  <td width=1042 colspan=7 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;line-height:150%;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:27'>
+  <td width=521 colspan=4 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'></td>
+  <td width=521 colspan=3 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'></td>
+ </tr>
+ <tr style='mso-yfti-irow:28'>
+  <td width=1042 colspan=7 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;line-height:150%;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:29'>
+  <td width=1042 colspan=7 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;line-height:150%;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:30'>
+  <td width=521 colspan=4 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;line-height:150%;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td width=521 colspan=3 valign=top style='width:390.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:150%'><span style='font-size:14.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;mso-no-proof:
+  yes'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:31'>
+  <td width=1042 colspan=7 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;line-height:150%;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:32;mso-yfti-lastrow:yes'>
+  <td width=1042 colspan=7 valign=top style='width:781.2pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  150%'><span style='font-size:14.0pt;line-height:150%;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <![if !supportMisalignedColumns]>
+ <tr height=0>
+  <td width=260 style='border:none'></td>
+  <td width=84 style='border:none'></td>
+  <td width=13 style='border:none'></td>
+  <td width=163 style='border:none'></td>
+  <td width=176 style='border:none'></td>
+  <td width=84 style='border:none'></td>
+  <td width=260 style='border:none'></td>
+ </tr>
+ <![endif]>
+</table>
+
+<p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>
