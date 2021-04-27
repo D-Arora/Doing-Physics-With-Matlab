@@ -1,4 +1,4 @@
-%eSIR_INDIA.m
+%eSIR_AUS.m
 
 clear
 close all
@@ -15,21 +15,31 @@ global a b
 %  D = zeros(num,1);       % Dead population
   
 % Model Parameters  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-  cn = 'INDIA';
-  a = 0.084;
-  b = 0.052;
-  f = 12e6;
+  cn = 'AUSTRALIA';
+  a = 0.20560;
+  b = 0.0346;
+  f = 4.85e3;
   
-  k0 = 1.1e-7;
-  D0 = 22e4;
+  k0 = 2.8e-4;
+  D0 = 120;
+    
+  k1 = 1.9e-4;
+  D1 = 470;
+  ds1 = 1800;
+  
+  k2 = 1.5e-4;
+  D2 = 600;
+  ds2 = 2100;
+  
   
   tMax = 500;
   
-  I(1) = 1e-3;
-  R(1) = 10e-6;
+  I(1) = 1.0e-5;
+  R(1) = 0;
+  
   
 % Starting Date
-  zSTART = datenum([2020 3 14]);  
+  zSTART = datenum([2020 01 22]);  
   
   
 % Setup  ==============================================================
@@ -41,7 +51,23 @@ global a b
 % SOLVE ODEs with RK4  ================================================
 for n = 1 : num-1
     
+  if n == 561; S(n) = 1.2; end
+  if n == 1320; S(n) = 0.200; end
 
+  if n > 1450 && n < 2050
+      S(n) = 0.40;
+  end
+  
+%   if n > 1999
+%        S(n) = 0.06;
+%   end
+  
+  if n > 2700 && n < 3500
+       S(n) = 0.20;
+  end
+  
+  if n == 3300; S(n) = 0.44; end
+    
    kS1 = SDOT(t(n), S(n), I(n), R(n));
    kI1 = IDOT(t(n), S(n), I(n), R(n));
    kR1 = RDOT(t(n), S(n), I(n), R(n));
@@ -62,17 +88,18 @@ for n = 1 : num-1
    I(n+1) = I(n) + h*(kI1+2*kI2+2*kI3+kI4)/6;
    R(n+1) = R(n) + h*(kR1+2*kR2+2*kR3+kR4)/6;
    
- %   if n == 1500; S(n+1) = 0.8; end
- %  if n > 2300 && n < 2600; S(n+1) = 0.8; end 
-   
-  % if S(n+1) < 0.3; S(n+1) = 0.3; end 
-   
 end
   
   I = f.*I;
   R = f.*R;
   
   D = D0.*(1 - exp(-k0.*R));
+   
+  D(ds1:ds2) = D(ds1) + D1.*(1 - exp(-k1.*(R(ds1:ds2)-R(ds1))));
+  D(ds2:end) = D(ds2) + D2.*(1 - exp(-k2.*(R(ds2:end)-R(ds2))));
+  
+  
+% D = 0.055.*R;
   
   C = R - D;
   Itot = I + R;
@@ -82,18 +109,18 @@ end
   pC = 100*C(end) / Itot(end);
   pD = 100*D(end) / Itot(end);
   
-Re = (a/b).*S;
+% effective reproductive rate
+  Re = (a/b).*S;
 
-
-
+  Idot = a.*S.*I - b.*I;
 
 % =====================================================================
 % DATA: Id Rd Dd / Number of data days for covid19 
   load('covid19.mat')
-  Ndays  = length(covid19(:,1));  
-  Idtot  = covid19(53:Ndays,13);
-  Id     = covid19(53:Ndays,14);
-  Dd     = covid19(53:Ndays,15);  
+  Ndays  = length(covid19); %find(covid19 == 0,1) - 1;  
+  Idtot  = covid19(1:Ndays,10);
+  Id     = covid19(1:Ndays,11);
+  Dd     = covid19(1:Ndays,12);  
   
   Cd = Idtot - Id - Dd;
   Rd = Cd + Dd;
@@ -115,9 +142,7 @@ Re = (a/b).*S;
   pCd = 100*Cd(end) / Idtot(end);
   pDd = 100*Dd(end) / Idtot(end);
   
-  
-  
-EI = 0; Edead = 0; ER = 0; EItot = 0;
+ EI = 0; Edead = 0; ER = 0; EItot = 0;
   for c = 1 : Ndays
    z = find(t>c,1);
    EItot = EItot + (Itot(z) - Idtot(c))^2;
@@ -125,12 +150,24 @@ EI = 0; Edead = 0; ER = 0; EItot = 0;
    ER = ER + (R(z) - Rd(c))^2;
    Edead = Edead + (D(z) - Dd(c))^2;
   end
-  E = (EItot + EI + ER);
-  fprintf('EItot    = %2.2e \n',sqrt(EItot))
-  fprintf('EI       = %2.2e \n',sqrt(EI))
-  fprintf('ER       = %2.2e \n',sqrt(ER))
-  fprintf('Edead    = %2.2e \n',sqrt(Edead))
-  fprintf('E        = %2.2e \n',sqrt(E))
+  E = sqrt(EItot + EI + ER);
+  EItot = sqrt(EItot);
+  EI    = sqrt(EI);
+  ER    = sqrt(ER);
+  Edead    = sqrt(Edead);
+  
+  zz = zSTART;
+  zz = datetime(zz,'ConvertFrom','datenum');
+  zz.Format = 'dd-MMM-yyyy';
+  fprintf('Start date %s \n',zz)
+ %disp('   ')
+  fprintf('EItot    = %2.2e \n',EItot)
+  fprintf('EI       = %2.2e \n',EI)
+  fprintf('ER       = %2.2e \n',ER)
+  fprintf('Edead    = %2.2e \n',Edead)
+  fprintf('E        = %2.2e \n',E)
+  
+ 
   
 % GRAPHICS  ===========================================================
 
@@ -141,10 +178,9 @@ figure(1)
    FS = 14;
    
 subplot(5,1,1)   
-   H = plot(1:Ndays,Idtot,'b+','linewidth',1);
+   plot(1:Ndays,Idtot,'b+','linewidth',1);
 %   set(H,'markersize',3,'markerfacecolor','b')
-   
-  % xlabel('Days elapsed')
+% xlabel('Days elapsed')
    ylabel('Total  infections')
    title(cn)
    hold on
@@ -166,7 +202,7 @@ subplot(5,1,1)
  %  xlabel('Days elapsed')
    ylabel('Active  infections')
    hold on
-   H = plot(1:Ndays,Id,'b+','linewidth',1);
+   plot(1:Ndays,Id,'b+','linewidth',1);
  %  set(H,'markersize',3,'markerfacecolor','b')
    set(gca,'fontsize',FS)
    set(gca,'fontName','times')
@@ -177,7 +213,7 @@ subplot(5,1,1)
    
       
   subplot(5,1,3)   
-   H = plot(1:Ndays,Rd,'b+','linewidth',1);
+   plot(1:Ndays,Rd,'b+','linewidth',1);
  % set(H,'markersize',3,'markerfacecolor','b')
    grid on; box on;
  %  xlabel('Days elapsed')
@@ -192,7 +228,7 @@ subplot(5,1,1)
    xlim([0 tMax])
    
    subplot(5,1,4)   
-   H = plot(1:Ndays, Cd,'b+','linewidth',1);
+   plot(1:Ndays, Cd,'b+','linewidth',1);
  % set(H,'markersize',3,'markerfacecolor','b')
    grid on; box on;
  %  xlabel('Days elapsed')
@@ -207,14 +243,14 @@ subplot(5,1,1)
    xlim([0 tMax])
    
   subplot(5,1,5)   
-   H = plot(1:Ndays,Dd,'b+','linewidth',1);
+   plot(1:Ndays,Dd,'b+','linewidth',1);
 %   set(H,'markersize',3,'markerfacecolor','b')
    grid on; box on;
    xlabel('Days elapsed')
    ylabel('Deaths')
    hold on
    plot(t,D,'r','linewidth',2)
-   text(-30,-45e3,'14 Mar 2020')
+   text(-30,-300,'22 Jan 2020')
  %  ytickformat('%2.1e')
    set(gca,'fontsize',FS)
    set(gca,'fontName','times')
@@ -233,7 +269,7 @@ figure(2)  % =========================================================
 subplot(5,1,1)   
    plot(t,S,'r','linewidth',2)
    xlabel('Days elapsed')
-   ylabel('Susceptible  S')
+   ylabel('Susceptible')
    title(cn)
    xlim([0 tMax])
    ylim([0 1.1])
@@ -249,16 +285,16 @@ subplot(5,1,1)
    
    plot([0 tMax],[b/a b/a],'m','linewidth',1)
    txt = sprintf('S_C = %2.2f',b/a);
-   Htext = text(50,0.40,txt);
+   Htext = text(400,0.40,txt);
    set(Htext,'fontName','times','fontSize',12,'BackgroundColor','w')
    
    z = find(t >Ndays,1);
    Htext = plot(t(z),S(z),'ro');
    set(Htext,'markersize',6,'MarkerFaceColor','r')
-   text(-30,-0.6,'14 Mar 2020')
+   text(-30,-0.3,'15 Feb 2020')
    
 subplot(5,1,2)
-   plot(t,a.*S.*I - b.*I,'m')
+   plot(t,Idot,'m')
    hold on
    plot(t,gradient(I,h),'r','linewidth',2)
    ylabel('dI/dt')
@@ -294,7 +330,7 @@ subplot(5,1,2)
 %    text(-30,-3,'22  Jan 2020')
 
  subplot(5,1,3)   
-   H = plot(Rd,Dd,'b+','linewidth',1);
+   plot(Rd,Dd,'b+','linewidth',1);
  %  set(H,'markersize',3,'markerfacecolor','b')
    grid on; box on;
    xlabel('Removals')
@@ -305,7 +341,7 @@ subplot(5,1,2)
    set(gca,'fontName','times')
    
 subplot(5,1,4)   
-   H = plot(Id,Rd,'b+','linewidth',1);
+   plot(Id,Rd,'b+','linewidth',1);
  %  set(H,'markersize',3,'markerfacecolor','b')
    grid on; box on;
    xlabel('Active infections')
@@ -325,7 +361,6 @@ subplot(5,1,4)
    plot(Itot,R,'r','linewidth',2)
    set(gca,'fontsize',FS)
    set(gca,'fontName','times')
-   
    
    
 figure(9)  % ===========================================================
@@ -358,11 +393,11 @@ figure(9)  % ===========================================================
    txt = sprintf('I(0) = %3.2e  R(0) = %2.2e  f = %2.2e  a = %2.3f  b = %2.3f', I(1)/f, R(1)/f, f,a ,b);
    text(0,hh,txt,'fontsize',12)
    
-   hh = hh+dh;
- % txt = 'D = D_0 (1-exp(-k_0 R))';
- %  text(0,hh,txt,'fontsize',12)
-   txt = sprintf('D_0 = %3.2e   k_0 = %3.2e', D0, k0);
-   text(0,hh,txt,'fontsize',12)
+%    hh = hh+dh;
+%    txt = 'D = D_0 (1-exp(-k_0 R))';
+%    text(0,hh,txt,'fontsize',12)
+%    txt = sprintf('D_0 = %3.2e   k_0 = %3.2e', D0, k0);
+%    text(50,hh,txt,'fontsize',12)
    
    hh = hh+2*dh; 
    txt = 'DATA';
@@ -400,19 +435,19 @@ figure(9)  % ===========================================================
      txt = sprintf('I = %5.0f    C = %5.0f    D = %5.0f    I_{tot} = %5.0f', z1,z2,z3,z4);
      text(6,hh,txt,'fontsize',12)
 
-     hh = hh+dh;
-     txt = 'Peak';
-     text(10,hh,txt,'fontsize',12)
-     z = find(I == Imax,1);
-     z = t(z) + zSTART;
-     z = datetime(z,'ConvertFrom','datenum');
-     z.Format = 'dd-MMM-yyyy';
-     txt = cellstr(z) ; 
-     text(30,hh,txt,'fontsize',12)
-   
-     txt = sprintf('I_{peak} = %5.0f',Imax);
-     text(60,hh,txt,'fontsize',12)
-   
+%      hh = hh+dh;
+%      txt = 'Peak';
+%      text(10,hh,txt,'fontsize',12)
+%      z = find(I == Imax,1);
+%      z = t(z) + zSTART;
+%      z = datetime(z,'ConvertFrom','datenum');
+%      z.Format = 'dd-MMM-yyyy';
+%      txt = cellstr(z) ; 
+%      text(30,hh,txt,'fontsize',12)
+%    
+%      txt = sprintf('I_{peak} = %5.0f',Imax);
+%      text(60,hh,txt,'fontsize',12)
+%    
      hh = hh+dh;
      txt = sprintf('percent: Active = %2.1f  ReCoveries = %2.1f    Deaths = %2.1f   ',pI,pC,pD);
      text(2,hh,txt,'fontsize',12)   
@@ -471,27 +506,27 @@ function  plotMonths(z)
        yMax = z;
      % Months
      
-       m1 = [2020 03 14];    % day zero
-       m2 = [2020 04 1];      % Feb
-       m3 = [2020 05  1];    % Mar
-       m4 = [2020 06  1];    % Apr
-       m5 = [2020 07  1];    % May
-       m6 = [2020 08  1];    % Jun
-       m7 = [2020 09  1];    % Jul
-       m8 = [2020 10  1];    % Aug
-       m9 = [2020 11  1];    % Sep
-       m10 = [2020 12  1];    % Oct
-       m11 = [2021 1  1];    % Nov
-       m12 = [2021 2  1];   % Dec
-       m13 = [2021 3  1];   % Jan
-       m14 = [2021 4  1];
-       m15 = [2021 5  1];
-       m16 = [2021 6  1];
-       m17 = [2021 7  1];
-       m18 = [2021 8  1];
-       m19 = [2021 9  1];
-       m20 = [2021 10  1];
-       m21 = [2021 11  1];   
+       m1 = [2020 01 22];    % day zero
+       m2 = [2020 02 1];      
+       m3 = [2020 03  1];    
+       m4 = [2020 04  1];    
+       m5 = [2020 05  1];    
+       m6 = [2020 06  1];    
+       m7 = [2020 07  1];   
+       m8 = [2020 08  1];    
+       m9 = [2020 09  1];    
+       m10 = [2020 10  1];   
+       m11 = [2020 11  1];  
+       m12 = [2020 12  1];   
+       m13 = [2021 1  1];   
+       m14 = [2021 2  1];
+       m15 = [2021 3  1];
+       m16 = [2021 4  1];
+       m17 = [2021 5  1];
+       m18 = [2021 6  1];
+       m19 = [2021 7  1];
+       m20 = [2021 8  1];
+       m21 = [2021 9  1];   
           
        
    
@@ -524,21 +559,24 @@ function  plotMonths(z)
       end
       
       ys = 0.9;
-      text(30, ys*yMax,'A')
-      text(60, ys*yMax,'M')
-      text(90, ys*yMax,'J')
-      text(120,ys*yMax,'J')
-      text(150,ys*yMax,'A')
-      text(180,ys*yMax,'S')
-      text(210,ys*yMax,'0')
-      text(240,ys*yMax,'N')
-      text(270,ys*yMax,'D')
-      text(300,ys*yMax,'J')
-      text(330,ys*yMax,'F')
-      text(360,ys*yMax,'M')
-      text(390,ys*yMax,'A')
-      text(420,ys*yMax,'M')
-      text(450,ys*yMax,'J')
-      text(480,ys*yMax,'J')
+      
+      text(24, ys*yMax,'F')
+      text(54, ys*yMax,'M')
+      text(84, ys*yMax,'A')
+      text(114,ys*yMax,'M')
+      text(144,ys*yMax,'J')
+      text(174,ys*yMax,'J')
+      text(204,ys*yMax,'A')
+      text(234,ys*yMax,'S')
+      text(264,ys*yMax,'O')
+      text(294,ys*yMax,'N')
+      text(324,ys*yMax,'D')
+      text(354,ys*yMax,'J')
+      text(384,ys*yMax,'F')
+      text(414,ys*yMax,'M')
+      text(444,ys*yMax,'A')
+      text(474,ys*yMax,'M')
+      text(504,ys*yMax,'J')
       
    end
+

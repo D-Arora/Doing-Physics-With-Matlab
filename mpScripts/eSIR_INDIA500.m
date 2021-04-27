@@ -16,8 +16,8 @@ global a b
   
 % Model Parameters  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
   cn = 'INDIA';
-  a = 0.084;
-  b = 0.052;
+  a = 0.2;
+  b = 0.08;
   f = 12e6;
   
   k0 = 1.1e-7;
@@ -28,12 +28,13 @@ global a b
   I(1) = 1e-3;
   R(1) = 10e-6;
   
+  
 % Starting Date
   zSTART = datenum([2020 3 14]);  
   
   
 % Setup  ==============================================================
-  S(1) = 1;
+  S(1) = 0.55;
   t = linspace(0,tMax,num);
   h = t(2) - t(1);
   
@@ -41,7 +42,11 @@ global a b
 % SOLVE ODEs with RK4  ================================================
 for n = 1 : num-1
     
-
+  if n > 1000 && n < 1300; S(n) = 0.55; end 
+  if n > 1600 && n < 1800; S(n) = 0.50; end 
+ 
+  if n > 2000; S(n) = 0.32; end
+    
    kS1 = SDOT(t(n), S(n), I(n), R(n));
    kI1 = IDOT(t(n), S(n), I(n), R(n));
    kR1 = RDOT(t(n), S(n), I(n), R(n));
@@ -62,10 +67,7 @@ for n = 1 : num-1
    I(n+1) = I(n) + h*(kI1+2*kI2+2*kI3+kI4)/6;
    R(n+1) = R(n) + h*(kR1+2*kR2+2*kR3+kR4)/6;
    
- %   if n == 1500; S(n+1) = 0.8; end
- %  if n > 2300 && n < 2600; S(n+1) = 0.8; end 
-   
-  % if S(n+1) < 0.3; S(n+1) = 0.3; end 
+
    
 end
   
@@ -76,6 +78,8 @@ end
   
   C = R - D;
   Itot = I + R;
+  
+  Idot = a.*S.*I - b.*I;
   
 % Percentages: model
   pI = 100*I(end) / Itot(end);
@@ -258,7 +262,7 @@ subplot(5,1,1)
    text(-30,-0.6,'14 Mar 2020')
    
 subplot(5,1,2)
-   plot(t,a.*S.*I - b.*I,'m')
+   plot(t,Idot,'m')
    hold on
    plot(t,gradient(I,h),'r','linewidth',2)
    ylabel('dI/dt')

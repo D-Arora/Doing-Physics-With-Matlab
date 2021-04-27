@@ -9,7 +9,7 @@ global a b
   a = 0.2;
   b = 0.05;
   num = 5000;
-  tMax = 200;
+  tMax = 300;
   
 % Initialize matrices
   S  = zeros(num,1);       % Susceptible population
@@ -68,15 +68,16 @@ figure(1)
    set(gcf,'color','w');
    FS = 10;
    
+   
 subplot(2,1,1)
    yyaxis left
    plot(t,S,'b','linewidth',2)
    hold on
    plot(t,R,'r-','linewidth',2)
    grid on; box on;
- %  xlabel('t')
-   title('S and R Populations','Fontweight','normal')
-   ylabel('S & R','fontname','times')
+   xlabel('Days elapsed','fontname','times')
+ %  title('S and R populations','Fontweight','normal')
+   ylabel('S, R','fontname','times')
    ylim([0 1.1])
    set(gca,'ytick',0:0.2:1)
    text(180,0.87,'R','color','r','fontname','times','fontsize',FS)
@@ -84,13 +85,15 @@ subplot(2,1,1)
    text(38,0.9,'R_e','color','k','fontname','times','fontsize',FS)
    ytickformat('%,0.1f')
    set(gca,'YColor',[0 0 1]);
+   set(gca,'fontsize',FS)
    
    yyaxis right
    plot(t,S.*a./b,'k','linewidth',2)
    set(gca,'YColor',[0 0 0]);
    ylabel('R_e','fontname','times')
    set(gca,'fontsize',FS)
-
+   set(gca,'fontname','times')
+   
    
  subplot(2,1,2)
    yyaxis left
@@ -100,9 +103,9 @@ subplot(2,1,1)
    plot(tdec,Idec,'k-')
    
    grid on; box on;
-   xlabel('days elapsed')
-   title('Active Infections','Fontweight','normal')
-   ylabel('I','fontname','times')
+   xlabel('Days elapsed','fontname','times')
+ %  title('Active infections','Fontweight','normal')
+   ylabel('Active infections','fontname','times')
    ylim([0 1.1])
    set(gca,'ytick',0:0.2:1)
    set(gca,'YColor',[0 0 1]);
@@ -119,7 +122,7 @@ subplot(2,1,1)
    set(gca,'fontsize',12) 
    set(gca,'YColor',[1 0 0]);
    set(gca,'fontsize',FS)
-   
+   set(gca,'fontname','times')
 % subplot(3,1,3)   
 %    plot(t,R,'b','linewidth',2)
 %    grid on; box on;

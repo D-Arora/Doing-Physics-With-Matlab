@@ -8,7 +8,7 @@
 % Model specified by the variables in the INPUT SECTION of the Script
 
 % DOING PHYSICS WITH MATLAB: 
-%   https://d-arora.github.io/Doing-Physics-With-Matlab/
+%   http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
 % Documentation
 %   http://www.physics.usyd.edu.au/teach_res/mp/doc/sird19EA.htm
 % Download Scripts
@@ -651,14 +651,20 @@ T = [177938 28842 8506];
     covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
 T = [180156 28909 8584];
     covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
-% T = [];
-%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
-% T = [];
-%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
-% T = [];
-%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
-% T = [];
-%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [182525 29217 8659];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [184955 29477 8730];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [187427 29916 8837];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [189876 30336 8950];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [192439 30699 9065];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [195051 31054 9185];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [197647 31384 9272];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
 % T = [];
 %    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
 % T = [];
