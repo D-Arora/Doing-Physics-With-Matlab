@@ -6,7 +6,7 @@
 % Sets of First-Order Equations
 
 % DOING PHYSICS WITH MATLAB: 
-%   https://d-arora.github.io/Doing-Physics-With-Matlab/
+%   http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
 % Documentation
 %   http://www.physics.usyd.edu.au/teach_res/mp/doc/RK.htm
 % Download Scripts
@@ -40,9 +40,9 @@ clc
   h = t(2) - t(1);
 % xDot & yDot variables as a function of t
 %      at x(nX) & y(nY) (calls function XDOT & YDOT)   
-  nX = 1; nY = 1;
-  xDot = XDOT(t,x(nX), y(nY));
-  yDot = YDOT(t,x(nX),y(nY));
+%  nX = 1; nY = 1;
+%  xDot = XDOT(t,x(nX), y(nY));
+%  yDot = YDOT(t,x(nX),y(nY));
   
   
 % Compute y and yDdot values as a function of time =====================
@@ -67,8 +67,8 @@ end
 
 
 % xDOT & yDot variables (calls functions XDOT YDOT) 
-  xDot = XDOT(t,x(1),y(1));
-  yDot = YDOT(t,x(1),y(1));
+%  xDot = XDOT(t,x(1),y(1));
+%  yDot = YDOT(t,x(1),y(1));
  
 
 % [2D] plots  =========================================================   
@@ -116,28 +116,28 @@ subplot(3,1,3)
   % title(txt,'fontweight','normal')
    set(gca,'fontsize',12)   
    
-% figure(2)
-%    set(gcf,'units','normalized');
-%    set(gcf,'position',[0.380 0.10 0.25 0.5]);
-%    set(gcf,'color','w');
-%    
-% subplot(2,1,1)
-%    pcolor(tt,yy,YYDot)
-%    shading interp
-%    colorbar
-%    title('dy / dt','fontweight','normal')
-%    xlabel('t')
-%    ylabel('y')
-%    set(gca,'fontsize',12)
-%  
-%  subplot(2,1,2)  
-%    surf(tt,yy,YYDot)
-%    shading interp
-%    colorbar
-%    title('dy / dt','fontweight','normal')
-%    xlabel('t')
-%    ylabel('y')
-%    set(gca,'fontsize',12)
+figure(2)
+   set(gcf,'units','normalized');
+   set(gcf,'position',[0.380 0.10 0.25 0.5]);
+   set(gcf,'color','w');
+   
+subplot(2,1,1)
+   pcolor(tt,yy,YYDot)
+   shading interp
+   colorbar
+   title('dy / dt','fontweight','normal')
+   xlabel('t')
+   ylabel('y')
+   set(gca,'fontsize',12)
+ 
+ subplot(2,1,2)  
+   surf(tt,yy,YYDot)
+   shading interp
+   colorbar
+   title('dy / dt','fontweight','normal')
+   xlabel('t')
+   ylabel('y')
+   set(gca,'fontsize',12)
    
    
 % FUNCTION  ===========================================================

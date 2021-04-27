@@ -19,7 +19,7 @@
 % 200429 / Matlab version R2020a
 
 % DOING PHYSICS WITH MATLAB 
-%    https://d-arora.github.io/Doing-Physics-With-Matlab/
+%    http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
 % Reference page for documentation and notes
 %    http://www.physics.usyd.edu.au/teach_res/mp/doc/qm2DA.htm
 % Download Location

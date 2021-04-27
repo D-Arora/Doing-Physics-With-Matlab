@@ -7,7 +7,7 @@
 % Higher order ODE
 
 % DOING PHYSICS WITH MATLAB: 
-%   https://d-arora.github.io/Doing-Physics-With-Matlab/
+%   http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
 % Documentation
 %   http://www.physics.usyd.edu.au/teach_res/mp/doc/RK.htm
 % Download Scripts

@@ -8,7 +8,7 @@
 % Model specified by the variables in the INPUT SECTION of the Script
 
 % DOING PHYSICS WITH MATLAB: 
-%   https://d-arora.github.io/Doing-Physics-With-Matlab/
+%   http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
 % Documentation
 %   http://www.physics.usyd.edu.au/teach_res/mp/doc/sird19EA.htm
 % Download Scripts
@@ -48,11 +48,11 @@ global Imax Rmax Dmax ITmax Smax
 % Initial number of infections   [5e-2] 
   I(1) = 1.3e-3;
 % Population scaling factor   [1e4]
-  f = 2.4e5;
+  f = 2.4e5;%222373
 % S --> I  [0.40] 
-   a = 0.18;
+   a = 0.18;%0.1331276
 % I --> Rm  [0.039]
-   b = 0.037;
+   b = 0.037;%0.026
 
 % Starting Date
   zSTART = datenum([2020 2 26]);
@@ -82,8 +82,8 @@ end
   I = f.*I;
   Rm = f.*Rm;
   k0 = 1.6e-5;
-  D0 = 3.55e4;
-  D = D0.*(1 - exp(-k0.*Rm));
+  D0 = 35072;%3.55e4;
+  D = D0*(1 - exp(-k0.*Rm));
   R = Rm - D;
   Itot = I + Rm;
  
@@ -131,10 +131,10 @@ end
 
 figure(1)
   set(gcf,'units','normalized');
-  set(gcf,'position',[0.02 0.02 0.435 0.80]);
+  set(gcf,'position',[0.1 0.1 0.72 0.6])
   set(gcf,'color','w');
 
-subplot(3,2,1)   % Total infections
+subplot(2,3,1)   % Total infections
     xP = tE;
     yP = v;
     plot(xP,yP,'r','linewidth',1.2)
@@ -153,13 +153,13 @@ subplot(3,2,1)   % Total infections
     ylabel('I_{tot}','FontName','Times New Roman')
     title('Total Infections I_{tot}','fontweight','normal');
     set(gca,'fontsize',12)  
-    set(gca,'Position', [0.0850 0.7093+0.04 0.3347 0.2157]);
+ %  set(gca,'Position', [0.0850 0.7093+0.04 0.3347 0.2157]);
     yMax = ylim;
     z = yMax(2);
     plotMonths(z)
     
     
-subplot(3,2,2)  % INFECTIONS
+subplot(2,3,2)  % INFECTIONS
     xP = 1: Ndays;
     yP = Id;
     plot(xP,yP,'b+')   
@@ -176,13 +176,13 @@ subplot(3,2,2)  % INFECTIONS
     ylabel('I','FontName','Times New Roman') 
     xlabel('days elapsed')
     set(gca,'fontsize',12)
-    set(gca,'Position', [0.5703-0.04 0.7093+0.04 0.3347 0.2157]);
+ %   set(gca,'Position', [0.5703-0.04 0.7093+0.04 0.3347 0.2157]);
     yMax = ylim;
     z = yMax(2);
     plotMonths(z)
     
     
-subplot(3,2,3)   % RECOVERIES
+subplot(2,3,3)   % RECOVERIES
     xP = 1: Ndays;
     yP = Rd; 
     plot(xP,yP,'k+')
@@ -199,13 +199,13 @@ subplot(3,2,3)   % RECOVERIES
     xlabel('days elapsed')
     title('Recoveries  R','fontweight','normal')
     set(gca,'fontsize',12)
-    set(gca,'Position', [0.0800 0.4096+0.04 0.3347 0.2157]);
+ %   set(gca,'Position', [0.0800 0.4096+0.04 0.3347 0.2157]);
     yMax = ylim;
     z = yMax(2);
     plotMonths(z)
     
     
- subplot(3,2,4)    % DEATHS
+ subplot(2,3,4)    % DEATHS
     xP = 1: Ndays;
     yP = Dd; 
     plot(xP,yP,'r+')
@@ -222,13 +222,13 @@ subplot(3,2,3)   % RECOVERIES
     xlabel('days elapsed')
     title('Deaths  D','fontweight','normal')
     set(gca,'fontsize',12) 
-    set(gca,'Position', [0.5703-0.04 0.4096+0.04 0.3347 0.2157]);
+ %   set(gca,'Position', [0.5703-0.04 0.4096+0.04 0.3347 0.2157]);
     yMax = ylim;
     z = yMax(2);
     plotMonths(z)
  
 
- subplot(3,2,5)
+ subplot(2,3,5)
     xP = t; yP = S;
     plot(xP,yP,'b','linewidth',2)
     hold on
@@ -240,25 +240,27 @@ subplot(3,2,3)   % RECOVERIES
     ylabel('S') 
     title('Susceptible Population S','fontweight','normal')
     set(gca,'fontsize',12)    
-    set(gca,'Position', [0.0800 0.1100+0.04 0.3347 0.2157]);   
+%    set(gca,'Position', [0.0800 0.1100+0.04 0.3347 0.2157]);   
      yMax = ylim;
     z = yMax(2);
     plotMonths(z)
     
     
-subplot(3,2,6)  
+subplot(2,3,6)  
    xlim([0 120])
    ylim([0 250])
    hh = 250; dh = -28;
    
+   txt = 'Start date' ; 
+   Htext = text(0,hh,txt,'fontsize',12);
    z = zSTART;
    z = datetime(z,'ConvertFrom','datenum');
    z.Format = 'dd-MMM-yyyy';
    txt = cellstr(z) ; 
-   Htext = text(0,hh,txt,'fontsize',12);
+   Htext = text(35,hh,txt,'fontsize',12);
    set(Htext,'color','k')
    
-   hh = hh+2*dh;
+   hh = hh+dh;
    txt = 'MODEL PARAMETERS';
    text(0,hh,txt,'fontsize',12)
    
@@ -266,7 +268,7 @@ subplot(3,2,6)
    txt = sprintf('I(1) = %3.0e   f = %2.2e   a = %2.3f   b = %2.3f', I(1)/f, f,a ,b);
    text(0,hh,txt,'fontsize',12)
       
-   hh = hh+2*dh; 
+   hh = hh+dh; 
    txt = 'DATA';
    text(0,hh,txt,'fontsize',12)
    
@@ -321,63 +323,69 @@ subplot(3,2,6)
      text(2,hh,txt,'fontsize',12)   
         
      axis off
-     set(gca,'Position', [0.5703-0.08 0.1100+0.04 0.3347 0.2157]);
+%     set(gca,'Position', [0.5703-0.08 0.1100+0.04 0.3347 0.2157]);
      
 
- figure(2)  % ----------------------------------------------------------
-   set(gcf,'units','normalized');
-   set(gcf,'position',[0.460 0.05 0.2 0.25]);
-   set(gcf,'color','w');
-
-   xP = Rd+Dd; yP = Dd;
-   plot( xP,yP,'b+')
-   hold on
-   xP = Rm; yP = D;
-   plot( xP,yP,'r','linewidth',2)
-   grid on
-   ylabel('deaths D')
-   xlabel('removals R_m ')
- %  title('D = D_0 [1 - exp( - k R_m)]','fontweight','normal')
-   txt = sprintf('D_0 = %2.0f', D0);
-   text(1.5e5,12e3,txt,'fontsize',12)
-   txt = sprintf('k = %2.1e',k0);
-   text(1.5e5,6e3,txt,'fontsize',12)
-   set(gca,'fontsize',12) 
-   
-
-figure(3)  % ----------------------------------------------------------
-   set(gcf,'units','normalized');
-   set(gcf,'position',[0.670 0.05 0.2 0.50]);
-   set(gcf,'color','w');
-
-subplot(2,1,1)   
-   yP = Rd+Dd; xP = Idtot;
-   plot( xP,yP,'b+')
-   hold on
-   yP = Rm; xP = Itot;
-   plot( xP,yP,'r','linewidth',2)
-   grid on
-   xlabel('infections   I_{tot}')
-   ylabel('removals   R_m')
-   set(gca,'fontsize',12)   
-
- subplot(2,1,2)   
-   yP = Rd+Dd; xP = Id;
-   plot( xP,yP,'b+')
-   hold on
-   yP = Rm; xP = I;
-   plot( xP,yP,'r','linewidth',2)
-   grid on
-   xlabel('active infections   I')
-   ylabel('removals   R_m')
-   set(gca,'fontsize',12)   
-   
 figure(9)
   set(gcf,'units','normalized');
   set(gcf,'position',[0.46 0.4 0.2 0.50]);
   set(gcf,'color','w');
 
   subplot(3,1,1)
+%  figure(2)  % ----------------------------------------------------------
+%    set(gcf,'units','normalized');
+%    set(gcf,'position',[0.460 0.05 0.2 0.25]);
+%    set(gcf,'color','w');
+% 
+%    xP = Rd+Dd; yP = Dd;
+%    plot( xP,yP,'b+')
+%    hold on
+%    xP = Rm; yP = D;
+%    plot( xP,yP,'r','linewidth',2)
+%    grid on
+%    ylabel('deaths D')
+%    xlabel('removals R_m ')
+%  %  title('D = D_0 [1 - exp( - k R_m)]','fontweight','normal')
+%    txt = sprintf('D_0 = %2.0f', D0);
+%    text(1.5e5,12e3,txt,'fontsize',12)
+%    txt = sprintf('k = %2.1e',k0);
+%    text(1.5e5,6e3,txt,'fontsize',12)
+%    set(gca,'fontsize',12) 
+%    
+% 
+% figure(3)  % ----------------------------------------------------------
+%    set(gcf,'units','normalized');
+%    set(gcf,'position',[0.670 0.05 0.2 0.50]);
+%    set(gcf,'color','w');
+% 
+% subplot(2,1,1)   
+%    yP = Rd+Dd; xP = Idtot;
+%    plot( xP,yP,'b+')
+%    hold on
+%    yP = Rm; xP = Itot;
+%    plot( xP,yP,'r','linewidth',2)
+%    grid on
+%    xlabel('infections   I_{tot}')
+%    ylabel('removals   R_m')
+%    set(gca,'fontsize',12)   
+% 
+%  subplot(2,1,2)   
+%    yP = Rd+Dd; xP = Id;
+%    plot( xP,yP,'b+')
+%    hold on
+%    yP = Rm; xP = I;
+%    plot( xP,yP,'r','linewidth',2)
+%    grid on
+%    xlabel('active infections   I')
+%    ylabel('removals   R_m')
+%    set(gca,'fontsize',12)   
+%    
+  figure(9)
+  set(gcf,'units','normalized');
+  set(gcf,'position',[0.4 0.1 0.40 0.40]);
+  set(gcf,'color','w');
+
+  subplot('position',[0.1 0.4 0.3 0.3])
     xP = Rd+Dd; yP = Dd;
    plot( xP,yP,'b+')
    hold on
@@ -388,12 +396,12 @@ figure(9)
    xlabel('removals R_m ')
  %  title('D = D_0 [1 - exp( - k R_m)]','fontweight','normal')
    txt = sprintf('D_0 = %2.0f', D0);
-   text(1.65e5,15e3,txt,'fontsize',12)
+   text(1.25e5,15e3,txt,'fontsize',12)
    txt = sprintf('k = %2.2e',k0);
-   text(1.65e5,6e3,txt,'fontsize',12)
+   text(1.25e5,6e3,txt,'fontsize',12)
    set(gca,'fontsize',12)
    
- subplot(3,1,2)  
+ subplot('position',[0.55 0.15 0.35 0.3])  
    yP = Rd+Dd; xP = Id;
    plot( xP,yP,'b+')
    hold on
@@ -404,7 +412,7 @@ figure(9)
    ylabel('removals   R_m')
    set(gca,'fontsize',12)   
 
- subplot(3,1,3)  
+ subplot('position',[0.55 0.65 0.35 0.3])  
    yP = Rd+Dd; xP = Idtot;
    plot( xP,yP,'b+')
    hold on
@@ -415,7 +423,7 @@ figure(9)
    ylabel('removals   R_m')
    set(gca,'fontsize',12)   
 
-   
+      
       
    
 % FUNCTIONS ============================================================
@@ -638,20 +646,20 @@ T = [235763 31710 34114];
     covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
 T = [236142 30637 34167];
     covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
-% T = [];
-%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
-% T = [];
-%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
-% T = [];
-%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
-% T = [];
-%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
-% T = [];
-%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
-% T = [];
-%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
-% T = [];
-%    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [236305 28997 34223];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [236651 27485 34301];
+   covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [236989 26274 34345];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [237290 25909 34371];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [237500 24569 34405];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
+T = [237828 23925 34448];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
+T = [238159 23101 34514];
+    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1;
 % T = [];
 %    covid(c,1) = T(1); covid(c,2) = T(2); covid(c,3) = T(3); c = c+1; 
 % T = [];

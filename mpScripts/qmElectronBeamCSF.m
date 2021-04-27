@@ -10,7 +10,7 @@
 % conversion of units:  eV <---> J   nm <---> m
 
 % DOING PHYSICS WITH MATLAB: 
-%   https://d-arora.github.io/Doing-Physics-With-Matlab/
+%   http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
 % Documentation
 %   http://www.physics.usyd.edu.au/teach_res/mp/doc/qmElectronBeamC.htm
 % Download Scripts

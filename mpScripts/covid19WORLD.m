@@ -1,4 +1,4 @@
-% covid19CHINA.m
+% covid19WORLD.m
 
 % Revised:  2020 05 16
 
@@ -9,7 +9,7 @@
 % Model specified by the variables in the INPUT SECTION of the Script
 
 % DOING PHYSICS WITH MATLAB: 
-%   https://d-arora.github.io/Doing-Physics-With-Matlab/
+%   http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
 % Documentation
 %   http://www.physics.usyd.edu.au/teach_res/mp/doc/sird19EA.htm
 % Download Scripts
@@ -75,7 +75,7 @@ Ndays  = find(covid19 == 0,1) - 1;
 % Model: number of time steps 
   num = 5000;
 % Maximum number of days for model   [200]
-  tMax = 200;
+  tMax = 300;
 
 % Initial number of infections   [0.004] 
   I = zeros(num,1);
@@ -112,7 +112,8 @@ Ndays  = find(covid19 == 0,1) - 1;
     
 % Model: Initial values for populations
   S(1) = 1;
-  
+
+
 % MODEL: Time Evolution  ==============================================
 for n = 1:num-1
   dS = -a*S(n)*I(n)*dt;
@@ -120,11 +121,41 @@ for n = 1:num-1
   dRm = b*I(n)*dt;
   S(n+1) =  S(n) + dS;
    
-  if n == 1700; S(n+1) = 0.70; end
-  if n == 2500; S(n+1) = 0.40; end
-  if n == 2700; S(n+1) = 0.35; end
-  if n == 3100; S(n+1) = 0.38; end
-  if n == 3400; S(n+1) = 0.42; end
+  if n == 1133; S(n+1) = 0.70; end
+  if n == 1667; S(n+1) = 0.40; end
+  if n == 1800; S(n+1) = 0.35; end
+  if n == 2067; S(n+1) = 0.38; end
+  if n == 2267; S(n+1) = 0.38; end
+  if n == 2467; S(n+1) = 0.38; end
+  if n == 2533; S(n+1) = 0.45; end
+  if n == 2600; S(n+1) = 0.35; end
+  if n == 2667; S(n+1) = 0.30; end
+  if n == 2733; S(n+1) = 0.30; end
+  if n == 2800; S(n+1) = 0.40; end
+  if n == 2867; S(n+1) = 0.40; end
+  if n == 2933; S(n+1) = 0.30; end
+  if n == 300; S(n+1) = 0.40; end
+  if n == 3067; S(n+1) = 0.40; end
+  if n == 3133; S(n+1) = 0.40; end
+  if n == 3200; S(n+1) = 0.40; end 
+  
+%   if n == 1700; S(n+1) = 0.70; end
+%   if n == 2500; S(n+1) = 0.40; end
+%   if n == 2700; S(n+1) = 0.35; end
+%   if n == 3100; S(n+1) = 0.38; end
+%   if n == 3400; S(n+1) = 0.38; end
+%   if n == 3700; S(n+1) = 0.38; end
+%   if n == 3800; S(n+1) = 0.45; end
+%   if n == 3900; S(n+1) = 0.35; end
+%   if n == 4000; S(n+1) = 0.30; end
+%   if n == 4100; S(n+1) = 0.30; end
+%   if n == 4200; S(n+1) = 0.40; end
+%   if n == 4300; S(n+1) = 0.40; end
+%   if n == 4400; S(n+1) = 0.30; end
+%   if n == 4500; S(n+1) = 0.40; end
+%   if n == 4600; S(n+1) = 0.40; end
+%   if n == 4700; S(n+1) = 0.40; end
+%   if n == 4800; S(n+1) = 0.40; end 
   
   I(n+1) =  I(n) + dI - dRm;
   Rm(n+1) = Rm(n)+ dRm;
@@ -133,8 +164,8 @@ end
 % Scale populations
   I = f.*I;
   Rm = f.*Rm;
-  k0 = 0.5e-6;
-  D0 = 5e5;
+  k0 = 0.30e-6;
+  D0 = 6.8e5;
   D = D0.*(1 - exp(-k0.*Rm));
   R = Rm - D;
   Itot = I + Rm;
@@ -356,54 +387,54 @@ subplot(3,2,6)
      axis off
   %   set(gca,'Position', [0.5703-0.08 0.1100+0.04 0.3347 0.2157]);
      
-     
- figure(2)  % ----------------------------------------------------------
-   set(gcf,'units','normalized');
-   set(gcf,'position',[0.460 0.05 0.2 0.25]);
-   set(gcf,'color','w');
-
-   xP = Rd+Dd; yP = Dd;
-   plot( xP,yP,'b+')
-   hold on
-   xP = Rm; yP = D;
-   plot( xP,yP,'r','linewidth',2)
-   grid on
-   ylabel('deaths D')
-   xlabel('removals R_m')
-   set(gca,'fontsize',12)     
-     
-
-figure(3)  % ----------------------------------------------------------
-   set(gcf,'units','normalized');
-   set(gcf,'position',[0.670 0.05 0.2 0.50]);
-   set(gcf,'color','w');
-
-subplot(2,1,1)   
-   yP = Rd+Dd; xP = Idtot;
-   plot( xP,yP,'b+')
-   hold on
-   yP = Rm; xP = Itot;
-   plot( xP,yP,'r','linewidth',2)
-   grid on
-   xlabel('infections   I_{tot}')
-   ylabel('removals   R_m')
-   set(gca,'fontsize',12)   
-
- subplot(2,1,2)   
-   yP = Rd+Dd; xP = Id;
-   plot( xP,yP,'b+')
-   hold on
-   yP = Rm; xP = I;
-   plot( xP,yP,'r','linewidth',2)
-   grid on
-   xlabel('active infections   I')
-   ylabel('removals   R_m')
-   set(gca,'fontsize',12)   
-   
+%      
+%  figure(2)  % ----------------------------------------------------------
+%    set(gcf,'units','normalized');
+%    set(gcf,'position',[0.460 0.05 0.2 0.25]);
+%    set(gcf,'color','w');
+% 
+%    xP = Rd+Dd; yP = Dd;
+%    plot( xP,yP,'b+')
+%    hold on
+%    xP = Rm; yP = D;
+%    plot( xP,yP,'r','linewidth',2)
+%    grid on
+%    ylabel('deaths D')
+%    xlabel('removals R_m')
+%    set(gca,'fontsize',12)     
+%      
+% 
+% figure(3)  % ----------------------------------------------------------
+%    set(gcf,'units','normalized');
+%    set(gcf,'position',[0.670 0.05 0.2 0.50]);
+%    set(gcf,'color','w');
+% 
+% subplot(2,1,1)   
+%    yP = Rd+Dd; xP = Idtot;
+%    plot( xP,yP,'b+')
+%    hold on
+%    yP = Rm; xP = Itot;
+%    plot( xP,yP,'r','linewidth',2)
+%    grid on
+%    xlabel('infections   I_{tot}')
+%    ylabel('removals   R_m')
+%    set(gca,'fontsize',12)   
+% 
+%  subplot(2,1,2)   
+%    yP = Rd+Dd; xP = Id;
+%    plot( xP,yP,'b+')
+%    hold on
+%    yP = Rm; xP = I;
+%    plot( xP,yP,'r','linewidth',2)
+%    grid on
+%    xlabel('active infections   I')
+%    ylabel('removals   R_m')
+%    set(gca,'fontsize',12)   
+%    
      
 figure(9)
   set(gcf,'units','normalized');
-  set(gcf,'position',[0.46 0.4 0.2 0.50]);
+  set(gcf,'position',[0.6 0.2 0.2 0.50]);
   set(gcf,'color','w');
 
   subplot(3,1,1)

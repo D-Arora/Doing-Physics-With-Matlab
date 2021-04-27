@@ -10,8 +10,8 @@ clc
 
 % INPUTS -----------------------------------------------------------------
    R = 10e6;                % membrane resistance  [10e6 ohms]
-   tau = 30;                % time constant  [20 s] 
-   I0 = 1.3e-6;               % external current amplitude  [mA]
+   tau = 10;                % time constant  [20 s] 
+   I0 = 1.2e-6;               % external current amplitude  [mA]
    N = 5000;                % number of data points for calculations [5000]
 
    vTH = -50;               % threshold voltage
@@ -35,13 +35,14 @@ clc
    nARP = round(tARP / dt);
    
 % EXTERNAL STIMULUS  -----------------------------------------------------
-  flagS = 1;        % enter value for type of external input
+ 
+flagS = 4;        % enter value for type of external input
 
 switch flagS
     
     case 1  % free solutions
         Iext = zeros(1,N);
-        V(1) = -50;
+        V(1) = -80;
         
     case 2   % series of pulses - subthreshold repsonse
         num_start = 0.05 * N;

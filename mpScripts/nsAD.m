@@ -12,20 +12,21 @@ tic
 % INPUTS ==============================================================
  
   C = 100; vr = -60; vt = -40; k = 0.7; 
-  a = 0.03; b = -2; c = -50; d = 100; 
-  vPeak = 35;        
+  a = 0.02; b = -1; c = -60; d = 8; 
+  vPeak = 30;        
 
   dx = 0.5;
-  dt = 0.1;
+  dt = 0.01;
   N = 101;
-  NT = 500;
-  Dv = 0.5; 
-  Du = 0;
+  NT = 30;
+  Dv = 10; 
+  Du = 0.1;
   
   
 % SETUP =============================================================== 
 % Grid
   xG = linspace(0,dx*N,N);
+  yG = xG;
   [x, y] = meshgrid(xG,xG);
 
 % Time
@@ -38,8 +39,9 @@ tic
 % Arrays
  
   
-  Iext = zeros(N,N);
-  Iext(38:68, 38:68) = 300 + 100.*rand(31,31); 
+%  Iext = zeros(N,N);
+   Iext = 84.9*ones(N,N);
+%  Iext(38:68, 38:68) = 300 + 100.*rand(31,31); 
 %  Iext(38:48, 45:55) = 80 + 40.*rand(11,11); 
 %  Iext(52:62, 45:55) = 80 + 30.*rand(11,11);
 %  Iext(52:52, 45:55) =  82;
@@ -48,25 +50,31 @@ tic
   
 % Potentials
 % Current values / Next values / Initial values / boundary values
+  v1 = zeros(N,N); 
   v2 = zeros(N,N); u2 = zeros(N,N);
   UT = zeros(3,NT);
   
-  v1 = vr.*ones(N,N);
-  u1 = a.*(b.*v1 - vr); 
   
-% Boundary Conditions  
+  for nx = 1:N
+      for ny = 1: N
+        v1(nx,ny) = -63 + 30.*cos(2*pi*xG(nx)*yG(ny));
+      end
+  end
+       u1 = b.*v1; 
+  
+% % Boundary Conditions  
 %   v1(1,1) = v1(2,2);
 %   v1(1,N) = v1(2,N-1);
 %   v1(N,1) = v1(N-1,2);
 %   v1(N,N) = v1(N-1,N-1);
-  
-  u1(1,1) = u1(2,2);
-  u1(1,N) = u1(2,N-1);
-  u1(N,1) = u1(N-1,2);
-  u1(N,N) = u1(N-1,N-1);
-    
-  v1(1,1) = -60; v(1,N) = -60;
-  v1(N,N) = -60; v(N,1) = -60;
+%   
+%   u1(1,1) = u1(2,2);
+%   u1(1,N) = u1(2,N-1);
+%   u1(N,1) = u1(N-1,2);
+%   u1(N,N) = u1(N-1,N-1);
+%     
+%   v1(1,1) = -60; v(1,N) = -60;
+%   v1(N,N) = -60; v(N,1) = -60;
 
 % Update u and v variables
 
@@ -94,16 +102,25 @@ for ct = 1:NT
       end
   end
   
-  for c1 = 2:N-1
-      u1(1,c1) = u1(2,c1);
-      u1(c1,1) = u1(c1,2);
-      u1(N,c1) = u1(N-1,c1);
-      u1(c1,N) = u1(c1,N-1);
-      v1(1,c1) = v1(2,c1);
-      v1(c1,1) = v1(c1,2);
-      v1(N,c1) = v1(N-1,c1);
-      v1(c1,N) = v1(c1,N-1);
-  end
+  
+  
+ % for c1 = 1:N
+      v1(:,1) = v1(:,2);
+      u1(:,1) = u1(:,2);
+      v1(:,N) = v1(:,N-1);
+      u1(:,N) = u1(:,N-1);
+      
+      v1(1,:) = v1(2,:);
+      u1(1,:) = u1(2,:);
+      
+%       u1(c1,1) = u1(c1,2);
+%       u1(N,c1) = u1(N-1,c1);
+%       u1(c1,N) = u1(c1,N-1);
+%       v1(1,c1) = v1(2,c1);
+%       v1(c1,1) = v1(c1,2);
+%       v1(N,c1) = v1(N-1,c1);
+%       v1(c1,N) = v1(c1,N-1);
+%  end
  
   % Single neurons
      UT(1,ct) = v1(50,50);
@@ -118,7 +135,7 @@ for ct = 1:NT
     axis square
 %     Hcolorbar = colorbar;
 %     set(Hcolorbar,'ylim',[-60 40])
-    zlim([-60 40])
+%    zlim([-60 40])
     txt = sprintf('t_{step} = %4.0f   max %2.1f   min  %2.1f', ct, max(max(v1)), min(min(v1)));
     title(txt)
     set(gca,'fontsize',12)
