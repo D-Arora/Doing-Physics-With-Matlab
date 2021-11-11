@@ -1,0 +1,2280 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 14">
+<meta name=Originator content="Microsoft Word 14">
+<link rel=File-List href="climateG_files/filelist.xml">
+<link rel=Edit-Time-Data href="climateG_files/editdata.mso">
+<link rel=OLE-Object-Data href="climateG_files/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>PHYSCIS OF THE ATMOPSHERE</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Subject>PHYSICS</o:Subject>
+  <o:Author>iAN COOPER</o:Author>
+  <o:Keywords>atmospheric physics, atmosphere profile, lapse rate, pressure with altitude, temperature with altitude, density with altitude, hydrostatic equation, atmospheric dynamics, ideal gas laws, matlab physics, hydrostatic balance</o:Keywords>
+  <o:LastAuthor>Owner</o:LastAuthor>
+  <o:Revision>33</o:Revision>
+  <o:TotalTime>2397</o:TotalTime>
+  <o:Created>2021-11-07T22:18:00Z</o:Created>
+  <o:LastSaved>2021-11-11T03:01:00Z</o:LastSaved>
+  <o:Pages>8</o:Pages>
+  <o:Words>1341</o:Words>
+  <o:Characters>7646</o:Characters>
+  <o:Category>atmospheric physics</o:Category>
+  <o:Lines>63</o:Lines>
+  <o:Paragraphs>17</o:Paragraphs>
+  <o:CharactersWithSpaces>8970</o:CharactersWithSpaces>
+  <o:Version>14.00</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+<link rel=themeData href="climateG_files/themedata.thmx">
+<link rel=colorSchemeMapping href="climateG_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-AU</w:LidThemeOther>
+  <w:LidThemeAsian>ZH-CN</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-469750017 -1073732485 9 0 511 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-520081665 -1073717157 41 0 66047 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	mso-themecolor:hyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:purple;
+	mso-themecolor:followedhyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Balloon Text Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Balloon Text";
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-ascii-font-family:Tahoma;
+	mso-hansi-font-family:Tahoma;
+	mso-bidi-font-family:Tahoma;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:16.0pt;
+	mso-ansi-font-size:16.0pt;
+	mso-bidi-font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 939.05pt 72.0pt 72.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-AU link=blue vlink=purple style='tab-interval:36.0pt'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal align=center style='margin-top:0cm;margin-right:715.05pt;
+margin-bottom:10.0pt;margin-left:1.0cm;text-align:center'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-GB style='font-size:20.0pt;mso-bidi-font-size:11.0pt;
+line-height:115%;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:accent6;
+mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+lumm=50000;mso-ansi-language:EN-GB'>A NUMERICAL APPROACH TO THE PHYSICS OF THE ENVIRONMENT
+AND CLIMATE</span></b><b style='mso-bidi-font-weight:normal'><span lang=EN-GB
+style='font-size:18.0pt;mso-bidi-font-size:11.0pt;line-height:115%;mso-ansi-language:
+EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+10.0pt;margin-left:1.0cm'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-GB style='font-size:18.0pt;mso-bidi-font-size:11.0pt;line-height:115%;
+mso-ansi-language:EN-GB'>Ian Cooper<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+10.0pt;margin-left:1.0cm'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-GB style='font-size:18.0pt;mso-bidi-font-size:11.0pt;line-height:115%;
+mso-ansi-language:EN-GB'>matlabvisualphysics@gmail.com<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+10.0pt;margin-left:1.0cm'><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-top:0cm;margin-right:715.05pt;
+margin-bottom:10.0pt;margin-left:1.0cm;text-align:center'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-GB style='font-size:18.0pt;line-height:115%;color:#984807;
+mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;
+mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:100.0%;
+mso-style-textfill-fill-colortransforms:lumm=50000;mso-ansi-language:EN-GB'>THE
+VERTICAL PROFILE OF THE ATMOSPHERE<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+10.0pt;margin-left:1.0cm'><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+10.0pt;margin-left:1.0cm'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-GB style='font-size:18.0pt;mso-bidi-font-size:11.0pt;line-height:115%;
+color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+#984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;mso-ansi-language:
+EN-GB'>MATLAB <o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+10.0pt;margin-left:1.0cm'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-GB style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:accent6;
+mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+lumm=50000;mso-ansi-language:EN-GB'>Download directory<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+10.0pt;margin-left:1.0cm'><span lang=EN-GB style='mso-ansi-language:EN-GB'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>https://drive.google.com/drive/u/3/folders/1j09aAhfrVYpiMavajrgSvUMc89ksF9Jb<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+10.0pt;margin-left:1.0cm'><span lang=EN-GB style='mso-ansi-language:EN-GB'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>https://github.com/D-Arora/Doing-Physics-With-Matlab/tree/master/mpScripts<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+10.0pt;margin-left:1.0cm'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-GB style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:accent6;
+mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+lumm=50000;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+10.0pt;margin-left:1.0cm'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-GB style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:accent6;
+mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+lumm=50000;mso-ansi-language:EN-GB'>Scripts</span></b><b style='mso-bidi-font-weight:
+normal'><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+10.0pt;margin-left:1.0cm'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-GB style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:accent6;
+mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+lumm=50000;mso-ansi-language:EN-GB'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span class=SpellE>climate.m</span><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+10.0pt;margin-left:1.0cm'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast;mso-ansi-language:EN-GB'><span
+style='mso-spacerun:yes'>&nbsp; </span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;</span>The atmospheric temperature profile
+data is stored in the vectors <span class=SpellE>ZD</span> and TD.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+10.0pt;margin-left:1.0cm'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast;mso-ansi-language:EN-GB'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>Using this data, the
+pressure and density profiles are calculated and plotted.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+10.0pt;margin-left:1.0cm'><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+10.0pt;margin-left:1.0cm'><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+10.0pt;margin-left:1.0cm'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-GB style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:accent6;
+mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+lumm=50000;mso-ansi-language:EN-GB'>MODEL PARAMETERS: symbol<span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span>quantity<span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span>[<span class=GramE>value<span
+style='mso-spacerun:yes'>&nbsp; </span>units</span>]<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt'><span lang=EN-GB style='mso-ansi-language:
+EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><span
+class=GramE><i style='mso-bidi-font-style:normal'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+mso-ansi-language:EN-GB'>m</span></i></span><span lang=EN-GB style='font-family:
+"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:
+minor-fareast;mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'><span
+style='mso-tab-count:1'> </span>mass of a parcel of air<span style='mso-tab-count:
+1'> </span>[kg]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><span
+class=GramE><i style='mso-bidi-font-style:normal'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+mso-ansi-language:EN-GB'>n</span></i></span><i style='mso-bidi-font-style:normal'><span
+lang=EN-GB style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+mso-ansi-language:EN-GB'><span style='mso-tab-count:1'> </span></span></i><span
+lang=EN-GB style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+mso-ansi-language:EN-GB'>number of moles<span style='mso-tab-count:1'> </span>[<span
+class=SpellE>mol</span>]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><i
+style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>N<span
+style='mso-tab-count:1'> </span></span></i><span lang=EN-GB style='font-family:
+"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:
+minor-fareast;mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>number
+of molecules<span style='mso-tab-count:1'> </span><span class=GramE>[ -</span>
+]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><i
+style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>M<span
+style='mso-tab-count:1'> </span></span></i><span lang=EN-GB style='font-family:
+"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:
+minor-fareast;mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>molar
+mass <span style='mso-tab-count:1'> </span>[kg.mol<sup>-1</sup>]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><i
+style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>M<sub>A</sub></span></i><span
+lang=EN-GB style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+mso-ansi-language:EN-GB'><span style='mso-tab-count:1'> </span>molar mass dry
+air<span style='mso-tab-count:1'> </span>[<i style='mso-bidi-font-style:normal'>M<sub>A</sub></i>
+= 0.029 kg.mol<sup>-1</sup>]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><i
+style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>M<sub>w</sub></span></i><span
+lang=EN-GB style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+mso-ansi-language:EN-GB'><span style='mso-tab-count:1'> </span>molar mass water
+vapour<span style='mso-tab-count:1'> </span>[<i style='mso-bidi-font-style:
+normal'>M<sub>w</sub></i> = 0.018 kg.mol<sup>-1</sup>]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><span
+class=GramE><i style='mso-bidi-font-style:normal'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+mso-ansi-language:EN-GB'>x</span></i></span><i style='mso-bidi-font-style:normal'><span
+lang=EN-GB style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+mso-ansi-language:EN-GB'>, y, z</span></i><span lang=EN-GB style='font-family:
+"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:
+minor-fareast;mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'><span
+style='mso-tab-count:1'> </span>Cartesian coordinates<span style='mso-tab-count:
+1'> </span>[m<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>km]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><span
+class=GramE><i style='mso-bidi-font-style:normal'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+mso-ansi-language:EN-GB'>u</span></i></span><i style='mso-bidi-font-style:normal'><span
+lang=EN-GB style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+mso-ansi-language:EN-GB'>, v, w <span style='mso-tab-count:1'> </span></span></i><span
+lang=EN-GB style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+mso-ansi-language:EN-GB'>Cartesian velocity components<span style='mso-tab-count:
+1'> </span>[m.s<sup>-1</sup>]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><i
+style='mso-bidi-font-style:normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+mso-bidi-theme-font:minor-fareast;mso-ansi-language:EN-GB'>V</span></i><span
+lang=EN-GB style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+mso-ansi-language:EN-GB'><span style='mso-tab-count:1'> </span>volume<span
+style='mso-tab-count:1'> </span>[m<sup>3</sup>]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><span
+class=SpellE><span class=GramE><i style='mso-bidi-font-style:normal'><span
+lang=EN-GB style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+mso-ansi-language:EN-GB'>dV</span></i></span></span><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:minor-fareast;
+mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+mso-ansi-language:EN-GB'><span style='mso-tab-count:1'> </span>volume element<span
+style='mso-tab-count:1'> </span>[<span class=SpellE><i style='mso-bidi-font-style:
+normal'>dV</i></span><i style='mso-bidi-font-style:normal'> = dx <span
+class=SpellE>dy</span> <span class=SpellE>dz</span></i>]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><span
+style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:14.25pt;
+ height:15.75pt' o:ole="">
+ <v:imagedata src="climateG_files/image001.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=19 height=21
+src="climateG_files/image002.png" v:shapes="_x0000_i1025"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1025"
+  DrawAspect="Content" ObjectID="_1698144852">
+ </o:OLEObject>
+</xml><![endif]--><span style='mso-tab-count:1'> </span><span class=GramE>density</span>
+of air parcel<span style='mso-tab-count:1'> </span>[kg.m<sup>-3</sup>]<span
+style='mso-tab-count:1'> </span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><span
+style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1026" type="#_x0000_t75" style='width:21pt;height:21.75pt' o:ole="">
+ <v:imagedata src="climateG_files/image003.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=28 height=29
+src="climateG_files/image004.png" v:shapes="_x0000_i1026"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1026"
+  DrawAspect="Content" ObjectID="_1698144854">
+ </o:OLEObject>
+</xml><![endif]--><span style='mso-tab-count:1'> </span><span class=GramE><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>dry</span></span><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'> air density<span
+style='mso-tab-count:1'> </span>[</span><span style='position:relative;
+top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1027"
+ type="#_x0000_t75" style='width:21pt;height:21.75pt' o:ole="">
+ <v:imagedata src="climateG_files/image005.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=28 height=29
+src="climateG_files/image004.png" v:shapes="_x0000_i1027"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1027"
+  DrawAspect="Content" ObjectID="_1698144855">
+ </o:OLEObject>
+</xml><![endif]--><span style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast'><span
+style='mso-spacerun:yes'>&nbsp;</span>= 1.29 kg.m<sup>-3</sup><span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span><i style='mso-bidi-font-style:
+normal'>T</i> = 0 <span class=SpellE><sup>o</sup>C</span> = 273 K]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><span
+style='mso-tab-count:1'> </span><span style='mso-tab-count:1'> </span>[</span><span
+style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1028" type="#_x0000_t75" style='width:21pt;height:21.75pt' o:ole="">
+ <v:imagedata src="climateG_files/image005.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=28 height=29
+src="climateG_files/image004.png" v:shapes="_x0000_i1028"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1028"
+  DrawAspect="Content" ObjectID="_1698144856">
+ </o:OLEObject>
+</xml><![endif]--><span style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast'><span
+style='mso-spacerun:yes'>&nbsp;</span>= 1.19 kg.m<sup>-3</sup><span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span><i style='mso-bidi-font-style:
+normal'>T</i> = 25 <span class=SpellE><sup>o</sup>C</span> = 288 K]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><i
+style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast'>T</span></i><span style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast'><span style='mso-tab-count:1'> </span>temperature<span
+style='mso-tab-count:1'> </span>[K<span style='mso-spacerun:yes'>&nbsp;&nbsp;
+</span><span class=SpellE><sup>o</sup>C</span>]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><span
+class=GramE><i style='mso-bidi-font-style:normal'><span style='font-family:
+"Times New Roman","serif";mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:
+major-fareast;mso-bidi-theme-font:major-fareast'>p</span></i></span><i
+style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast'><span style='mso-tab-count:1'> </span></span></i><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>pressure<span
+style='mso-tab-count:1'> </span>[Pa<span style='mso-spacerun:yes'>&nbsp;
+</span><span class=SpellE>hPa</span>]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><span
+style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1051" type="#_x0000_t75" style='width:27pt;height:15.75pt' o:ole="">
+ <v:imagedata src="climateG_files/image006.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=36 height=21
+src="climateG_files/image007.png" v:shapes="_x0000_i1051"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1051"
+  DrawAspect="Content" ObjectID="_1698144857">
+ </o:OLEObject>
+</xml><![endif]--><span style='mso-tab-count:1'> </span><span class=GramE><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>change</span></span><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'> in
+internal energy</span><span style='mso-tab-count:1'> </span>[J]</p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><i
+style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast'>W<span style='mso-tab-count:1'> </span></span></i><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>work<span
+style='mso-tab-count:1'> </span>[J]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><i
+style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast'>Q<span style='mso-tab-count:1'> </span></span></i><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>heat exchanged
+with system<span style='mso-tab-count:1'> </span>[J]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><span
+class=GramE><i style='mso-bidi-font-style:normal'><span style='font-family:
+"Times New Roman","serif";mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:
+major-fareast;mso-bidi-theme-font:major-fareast'>p<sub>0</sub></span></i></span><i
+style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast'><span style='mso-tab-count:1'> </span></span></i><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>atmospheric
+pressure at<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><span
+style='mso-tab-count:1'> </span>Earth&#8217;s surface<span style='mso-tab-count:
+1'> </span>[<i style='mso-bidi-font-style:normal'>p<sub>0</sub></i> = 1013.25 <span
+class=SpellE>hPa</span> = 1.01325</span><span style='mso-bidi-font-family:Calibri;
+mso-bidi-theme-font:minor-latin'>x</span><span style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast'>10<sup>5</sup> Pa]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><span
+class=GramE><i style='mso-bidi-font-style:normal'><span style='font-family:
+"Times New Roman","serif";mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:
+major-fareast;mso-bidi-theme-font:major-fareast'>g</span></i></span><i
+style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast'><span style='mso-tab-count:1'> </span></span></i><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>acceleration
+due to gravity<span style='mso-tab-count:1'> </span>[m.s<sup>-2</sup>]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:normal;tab-stops:99.25pt 12.0cm'><span
+class=GramE><i style='mso-bidi-font-style:normal'><span style='font-family:
+"Times New Roman","serif";mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:
+major-fareast;mso-bidi-theme-font:major-fareast'>g<sub>0</sub></span></i></span><i
+style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast'><span style='mso-tab-count:1'> </span></span></i><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>acceleration
+due to gravity<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><i
+style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast'><span style='mso-tab-count:1'> </span></span></i><span
+class=GramE><span style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>at</span></span><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>
+Earth&#8217;s surface<span style='mso-tab-count:1'> </span>[<i
+style='mso-bidi-font-style:normal'>g<sub>0</sub></i> = 9.80665 m.s<sup>-2</sup>]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><i
+style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast'>R</span></i><span style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast'><span style='mso-tab-count:1'> </span>Universal
+gas constant<span style='mso-tab-count:1'> </span>[<i style='mso-bidi-font-style:
+normal'>R</i> = 8.314 J.K<sup>-1</sup>.mol<sup>-1</sup>]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><i
+style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast'>R<sub>d<span style='mso-tab-count:1'> </span></sub></span></i><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>gas
+constant dry air<span style='mso-tab-count:1'> </span>[<i style='mso-bidi-font-style:
+normal'>R<sub>d</sub></i> = 287 J.K<sup>-1</sup>.kg<sup>-1</sup>]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><span
+class=SpellE><span class=GramE><i style='mso-bidi-font-style:normal'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>k<sub>B</sub></span></i></span></span><i
+style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast'><span style='mso-tab-count:1'> </span></span></i><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>Boltzmann
+constant<span style='mso-tab-count:1'> </span>[<span class=SpellE><i
+style='mso-bidi-font-style:normal'>k<sub>B</sub></i></span> = 1.38065x10<sup>-23</sup><span
+style='mso-spacerun:yes'>&nbsp; </span>J.K<sup>-1</sup>]<span
+style='mso-spacerun:yes'>&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><i
+style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast'>NA<span style='mso-tab-count:1'> </span></span></i><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>Avogadro&#8217;s
+number<span style='mso-tab-count:1'> </span>[<i style='mso-bidi-font-style:
+normal'>NA</i> = 6.02214 molecules. mol<sup>-1</sup>]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:normal;tab-stops:99.25pt 12.0cm'><span
+class=SpellE><span class=GramE><i style='mso-bidi-font-style:normal'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>c<sub>pd</sub></span></i></span></span><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><span
+style='mso-tab-count:1'> </span>constant-pressure specific heat<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><span
+style='mso-tab-count:1'> </span><span style='mso-spacerun:yes'>&nbsp;</span><span
+class=GramE>for</span> dry air<span style='mso-tab-count:1'> </span>[<span
+class=SpellE><i style='mso-bidi-font-style:normal'>c<sub>pd</sub></i></span><i
+style='mso-bidi-font-style:normal'> </i>= 1004.65805 J.kg<sup>-1</sup>.K<sup>-1</sup>]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><i
+style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast'>M<sub>E</sub></span></i><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><span
+style='mso-tab-count:1'> </span>mass of Earth<span style='mso-tab-count:1'> </span>[<i
+style='mso-bidi-font-style:normal'>M<sub>E</sub></i> = 5.9722</span><span
+style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'>x10</span><sup><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>24</span></sup><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'> kg]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><i
+style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast'>R<sub>E</sub></span></i><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><span
+style='mso-tab-count:1'> </span>radius of Earth<span style='mso-tab-count:1'> </span>[<i
+style='mso-bidi-font-style:normal'>R<sub>E</sub></i> = 6.3743</span><span
+style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'>x10</span><sup><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>6</span></sup><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'> m]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><i
+style='mso-bidi-font-style:normal'><span style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast'>G</span></i><span style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast'><span style='mso-tab-count:1'> </span>
+Gravitation constant <span style='mso-tab-count:1'> </span>[<i
+style='mso-bidi-font-style:normal'>G</i> = 6.67408</span><span
+style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'> x10</span><sup><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>-11 </span></sup><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>N.m<sup>2</sup>.kg<sup>-2</sup>]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:99.25pt 12.0cm'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+10.0pt;margin-left:1.0cm'><span lang=EN-GB style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+10.0pt;margin-left:1.0cm'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-GB style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+#984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;mso-ansi-language:
+EN-GB'>THE ATMOSPHERE<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+10.0pt;margin-left:1.0cm'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ansi-language:EN-GB'>The
+atmosphere contains a few highly concentrated gases, such as nitrogen (78%),
+oxygen (21%), and argon (0.93%), carbon dioxide (0.035%) and many trace gases,
+such as methane, ozone and nitrous oxide. To a good approximation the gases of
+the atmosphere can be assumed to obey the laws for an ideal gas.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ansi-language:EN-GB'>The most
+characteristic feature of the atmosphere is its vertical temperature distribution
+profile. From the ground up to a mean altitude of 11 km (8 km at the poles and
+17 km at the equator) lies the <b style='mso-bidi-font-weight:normal'><span
+style='color:#7030A0'>troposphere</span></b>. Nearly all meteorological
+phenomena occur within this layer (wind, cloud formation and precipitation).
+Above the troposphere is the <b style='mso-bidi-font-weight:normal'><span
+style='color:#7030A0'>stratosphere</span></b> (~11 km to ~ 50 km) where airflow
+is primarily horizontal. The narrow layer separating the troposphere and
+stratosphere is called the <span class=SpellE><b style='mso-bidi-font-weight:
+normal'><span style='color:#7030A0'>tropopause</span></b></span>. Beyond the
+stratosphere is are the layers <span class=SpellE><b style='mso-bidi-font-weight:
+normal'><span style='color:#7030A0'>stratopause</span></b></span> (~ 50 km), <b
+style='mso-bidi-font-weight:normal'><span style='color:#7030A0'>mesosphere </span></b>(~50
+km to ~90 km), <span class=SpellE><b style='mso-bidi-font-weight:normal'><span
+style='color:#7030A0'>mesopause</span></b></span> (~90 km) and the <b
+style='mso-bidi-font-weight:normal'><span style='color:#7030A0'>thermosphere</span></b>
+(&gt; ~90 km).<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ansi-language:EN-GB'>The
+temperature profile of the atmosphere is shown in figure 1. The figure is
+generated using the Matlab script <span class=SpellE><b style='mso-bidi-font-weight:
+normal'><span style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:accent6;
+mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+lumm=50000'>climateG.m</span></b></span> using the temperature data from <i
+style='mso-bidi-font-style:normal'>Fundamentals of Atmospheric Modelling</i> by
+Mark Z. Jacobson<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-top:0cm;margin-right:715.05pt;
+margin-bottom:0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-align:center;
+line-height:150%'><span style='font-family:"Times New Roman","serif";
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_5" o:spid="_x0000_i1057"
+ type="#_x0000_t75" style='width:416.25pt;height:469.5pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="climateG_files/image008.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=555 height=626
+src="climateG_files/image009.png" v:shapes="Picture_x0020_5"><![endif]></span><span
+lang=EN-GB style='font-family:"Times New Roman","serif";mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ansi-language:EN-GB'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=GramE>Fig.
+1.</span><span style='mso-spacerun:yes'>&nbsp;&nbsp; </span><span class=GramE>Vertical
+temperature profile of the atmosphere.</span> (Script <span class=SpellE><b
+style='mso-bidi-font-weight:normal'><span style='color:#984807;mso-themecolor:
+accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+lumm=50000'>climateG.m</span></b></span>)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ansi-language:EN-GB'>Other
+important characteristics of air are its pressure and density. These parameters
+vary with altitude, latitude, longitude, and season. Using the equation for an ideal
+gas, it is possible to calculate the vertical profiles of the pressure and
+density numerically from the temperature profile.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ansi-language:EN-GB'>Consider
+a parcel of air in static equilibrium as shown in figure 2. The forces acting
+upon the parcel are the gravitational force <span class=SpellE><i
+style='mso-bidi-font-style:normal'>F<sub>G</sub></i></span> and the pressure
+gradient force <i style='mso-bidi-font-style:normal'>F<sub>P </sub></i>such
+that the net force is <span class=GramE>zero </span></span><span
+style='position:relative;top:11.0pt;mso-text-raise:-11.0pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1029" type="#_x0000_t75" style='width:108.75pt;height:30pt' o:ole="">
+ <v:imagedata src="climateG_files/image010.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=145 height=40
+src="climateG_files/image011.png" v:shapes="_x0000_i1029"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1029"
+  DrawAspect="Content" ObjectID="_1698144858">
+ </o:OLEObject>
+</xml><![endif]--><span lang=EN-GB style='font-family:"Times New Roman","serif";
+mso-ansi-language:EN-GB'>.<span style='mso-spacerun:yes'>&nbsp; </span>The
+pressure gradient force at any altitude is due to the weight of the entire
+column of air vertically above it.<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-top:0cm;margin-right:715.05pt;
+margin-bottom:0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-align:center;
+line-height:150%'><span style='font-family:"Times New Roman","serif";
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="_x0000_i1056" type="#_x0000_t75"
+ style='width:307.5pt;height:393.75pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="climateG_files/image012.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=410 height=525
+src="climateG_files/image013.png" v:shapes="_x0000_i1056"><![endif]></span><span
+lang=EN-GB style='font-family:"Times New Roman","serif";mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ansi-language:EN-GB'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=GramE>Fig.
+2.</span><span style='mso-spacerun:yes'>&nbsp; </span><span class=GramE>Forces
+acting on a parcel of air.</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ansi-language:EN-GB'>Hence,
+the vertical pressure gradient is <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:47.1pt;margin-bottom:.0001pt;line-height:150%'>(1)<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='position:relative;top:15.0pt;mso-text-raise:-15.0pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1030" type="#_x0000_t75" style='width:72.75pt;height:39.75pt'
+ o:ole="">
+ <v:imagedata src="climateG_files/image014.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=97 height=53
+src="climateG_files/image015.png" v:shapes="_x0000_i1030"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1030"
+  DrawAspect="Content" ObjectID="_1698144859">
+ </o:OLEObject>
+</xml><![endif]--></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:47.1pt;margin-bottom:.0001pt;line-height:150%'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+class=GramE><span style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>and</span></span><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'> the
+horizontal pressure at any altitude is a constant. Equation (1) is known the <b
+style='mso-bidi-font-weight:normal'><span style='color:#7030A0'>hydrostatic
+equation</span></b>. Since the density </span><span style='position:relative;
+top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1031"
+ type="#_x0000_t75" style='width:14.25pt;height:15.75pt' o:ole="">
+ <v:imagedata src="climateG_files/image016.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=19 height=21
+src="climateG_files/image002.png" v:shapes="_x0000_i1031"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1031"
+  DrawAspect="Content" ObjectID="_1698144860">
+ </o:OLEObject>
+</xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>is a
+function of altitude, we need to express the density as a function of
+temperature <i style='mso-bidi-font-style:normal'>T</i>.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ansi-language:EN-GB'>The <b
+style='mso-bidi-font-weight:normal'><span style='color:#7030A0'>equation of
+state</span></b> for an ideal gas describes the relationship among pressure,
+volume, and absolute temperature.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:15.0pt;line-height:
+150%'><span lang=EN-GB style='font-family:"Times New Roman","serif";mso-ansi-language:
+EN-GB'><span style='mso-spacerun:yes'>&nbsp; </span>(2)<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1032" type="#_x0000_t75" style='width:75pt;height:18.75pt' o:ole="">
+ <v:imagedata src="climateG_files/image017.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=100 height=25
+src="climateG_files/image018.png" v:shapes="_x0000_i1032"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1032"
+  DrawAspect="Content" ObjectID="_1698144861">
+ </o:OLEObject>
+</xml><![endif]--></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:15.0pt;line-height:
+150%'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='position:relative;top:19.0pt;mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1033" type="#_x0000_t75" style='width:99pt;height:44.25pt' o:ole="">
+ <v:imagedata src="climateG_files/image019.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=132 height=59
+src="climateG_files/image020.png" v:shapes="_x0000_i1033"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1033"
+  DrawAspect="Content" ObjectID="_1698144862">
+ </o:OLEObject>
+</xml><![endif]--></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>(3)</span><span
+lang=EN-GB style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast;
+mso-ansi-language:EN-GB'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='position:relative;top:19.0pt;mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1034" type="#_x0000_t75" style='width:192.75pt;height:44.25pt'
+ o:ole="">
+ <v:imagedata src="climateG_files/image021.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=257 height=59
+src="climateG_files/image022.png" v:shapes="_x0000_i1034"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1034"
+  DrawAspect="Content" ObjectID="_1698144863">
+ </o:OLEObject>
+</xml><![endif]--></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>Combining
+equations (1) and (3), we obtain<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>(4)<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='position:relative;top:21.0pt;mso-text-raise:-21.0pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1035" type="#_x0000_t75" style='width:113.25pt;height:50.25pt'
+ o:ole="">
+ <v:imagedata src="climateG_files/image023.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=151 height=67
+src="climateG_files/image024.png" v:shapes="_x0000_i1035"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1035"
+  DrawAspect="Content" ObjectID="_1698144864">
+ </o:OLEObject>
+</xml><![endif]--></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>Equation
+(4) can be solved to find the variation in pressure and density as functions of
+altitude. However, equation (4) is difficult to solve since the temperature <i
+style='mso-bidi-font-style:normal'>T</i> is also a function of altitude <i
+style='mso-bidi-font-style:normal'>z</i>.<span style='mso-spacerun:yes'>&nbsp;
+</span>Often many approximations are used to find a solution to equation (4)
+such as assuming <i style='mso-bidi-font-style:normal'>T</i> = constant.<span
+style='mso-spacerun:yes'>&nbsp; </span>Equation (4) can be solved using
+numerical methods to directly integrate the equation from the Earth&#8217;s
+surface (<i style='mso-bidi-font-style:normal'>p</i> = <i style='mso-bidi-font-style:
+normal'>p<sub>0</sub></i>, <i style='mso-bidi-font-style:normal'>z</i> = 0) to
+an altitude z.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='position:relative;top:20.0pt;mso-text-raise:-20.0pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1036" type="#_x0000_t75" style='width:2in;height:48pt' o:ole="">
+ <v:imagedata src="climateG_files/image025.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=192 height=64
+src="climateG_files/image026.png" v:shapes="_x0000_i1036"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1036"
+  DrawAspect="Content" ObjectID="_1698144865">
+ </o:OLEObject>
+</xml><![endif]--></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='position:relative;top:21.0pt;mso-text-raise:-21.0pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1037" type="#_x0000_t75" style='width:216.75pt;height:50.25pt'
+ o:ole="">
+ <v:imagedata src="climateG_files/image027.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=289 height=67
+src="climateG_files/image028.png" v:shapes="_x0000_i1037"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1037"
+  DrawAspect="Content" ObjectID="_1698144866">
+ </o:OLEObject>
+</xml><![endif]--></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>(5)<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='position:relative;top:21.0pt;mso-text-raise:-21.0pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1038" type="#_x0000_t75" style='width:198pt;height:50.25pt' o:ole="">
+ <v:imagedata src="climateG_files/image029.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=264 height=67
+src="climateG_files/image030.png" v:shapes="_x0000_i1038"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1038"
+  DrawAspect="Content" ObjectID="_1698144867">
+ </o:OLEObject>
+</xml><![endif]--></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>Once the
+variation of pressure with altitude is known, then the variation in density is
+given by<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>(3)<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='position:relative;top:19.0pt;mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1039" type="#_x0000_t75" style='width:192.75pt;height:44.25pt'
+ o:ole="">
+ <v:imagedata src="climateG_files/image021.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=257 height=59
+src="climateG_files/image022.png" v:shapes="_x0000_i1039"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1039"
+  DrawAspect="Content" ObjectID="_1698144868">
+ </o:OLEObject>
+</xml><![endif]--></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>To
+evaluate equation (5), the published data<sup>*</sup> for the variation in
+temperature <i style='mso-bidi-font-style:normal'>T</i> with altitude <i
+style='mso-bidi-font-style:normal'>z</i> is used.<span
+style='mso-spacerun:yes'>&nbsp; </span>Part of the Script <span class=SpellE><b
+style='mso-bidi-font-weight:normal'><span style='color:#984807;mso-themecolor:
+accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+lumm=50000'>climateG.m</span></b></span><span style='color:#984807;mso-themecolor:
+accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+lumm=50000'> </span>to evaluate equation (5) is <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><span
+style='mso-spacerun:yes'>&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt'><span style='mso-bidi-font-size:
+10.0pt;line-height:115%;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span><span class=SpellE><span
+class=GramE>num</span></span> = length(<span class=SpellE>zD</span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:0cm;margin-bottom:.0001pt'><span style='mso-bidi-font-size:
+10.0pt;line-height:115%;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE>PD</span> = <span class=GramE>zeros(</span>num,1);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:0cm;margin-bottom:.0001pt'><span style='mso-bidi-font-size:
+10.0pt;line-height:115%;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE><span class=GramE>PD</span></span><span class=GramE>(</span>1)
+= p0;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:0cm;margin-bottom:.0001pt'><span style='mso-bidi-font-size:
+10.0pt;line-height:115%;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin'><span style='mso-spacerun:yes'>&nbsp;
+</span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class=GramE><span style='color:#0E00FF'>for</span></span><span
+style='color:#0E00FF'> </span>c = 1:num-1<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:0cm;margin-bottom:.0001pt'><span style='mso-bidi-font-size:
+10.0pt;line-height:115%;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE>PD</span>(c+1) = <span class=SpellE>PD</span>(c) * <span
+class=SpellE><span class=GramE>exp</span></span><span class=GramE>(</span>(-2*<span
+class=SpellE>gD</span>(c)./<span class=SpellE>R_d</span>)*(<span class=SpellE>zD</span>(c+1)-<span
+class=SpellE>zD</span>(c)) / (TD(c+1) + TD(c)));<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:0cm;margin-bottom:.0001pt'><span style='mso-bidi-font-size:
+10.0pt;line-height:115%;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=GramE><span style='color:#0E00FF'>end</span></span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:0cm;margin-bottom:.0001pt'><span style='mso-bidi-font-size:
+10.0pt;line-height:115%;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE><span class=GramE>rhoD</span></span> = PD./(<span
+class=SpellE>R_d</span>.*TD');<span style='mso-spacerun:yes'>&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt'><span style='font-size:24.0pt;
+mso-bidi-font-size:11.0pt;line-height:115%;mso-bidi-font-family:Calibri;
+mso-bidi-theme-font:minor-latin'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt'><span class=SpellE><span
+class=GramE><span style='mso-bidi-font-size:16.0pt;line-height:115%;font-family:
+"Times New Roman","serif";mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:
+major-fareast;mso-bidi-theme-font:major-fareast'>zD</span></span></span><span
+style='mso-bidi-font-size:16.0pt;line-height:115%;font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast'> and TD are the vectors for the published
+data<sup>*</sup>.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>*<span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><i style='mso-bidi-font-style:
+normal'><span lang=EN-GB style='font-family:"Times New Roman","serif";
+mso-ansi-language:EN-GB'>Fundamentals of Atmospheric Modelling</span></i><span
+lang=EN-GB style='font-family:"Times New Roman","serif";mso-ansi-language:EN-GB'>
+by Mark Z. Jacobson<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast;
+mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast;
+mso-ansi-language:EN-GB'>The acceleration due to gravity <i style='mso-bidi-font-style:
+normal'>g</i> is also a function of altitude <i style='mso-bidi-font-style:
+normal'>z</i> and is calculated from Newton&#8217;s Law of Gravitation<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast;
+mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast;
+mso-ansi-language:EN-GB'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>(6)<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='position:relative;top:23.0pt;mso-text-raise:-23.0pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1040" type="#_x0000_t75" style='width:171.75pt;height:48pt' o:ole="">
+ <v:imagedata src="climateG_files/image031.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=229 height=64
+src="climateG_files/image032.png" v:shapes="_x0000_i1040"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1040"
+  DrawAspect="Content" ObjectID="_1698144869">
+ </o:OLEObject>
+</xml><![endif]--></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>The
+change in <i style='mso-bidi-font-style:normal'>g</i> with <i style='mso-bidi-font-style:
+normal'>z</i> is insignificant since <i style='mso-bidi-font-style:normal'>z</i>
+&lt;&lt; <i style='mso-bidi-font-style:normal'>R<sub>E</sub></i>.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>Figures 3
+and 4 show the variation in the acceleration due to gravity, atmospheric
+temperature, atmospheric pressure and density as functions of altitude.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-top:0cm;margin-right:715.05pt;
+margin-bottom:0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-align:center;
+line-height:150%'><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+ id="Picture_x0020_3" o:spid="_x0000_i1055" type="#_x0000_t75" style='width:503.25pt;
+ height:314.25pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="climateG_files/image033.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=671 height=419
+src="climateG_files/image034.png" v:shapes="Picture_x0020_3"><![endif]></span><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt'><span style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast'><span style='mso-spacerun:yes'>&nbsp;</span><span
+class=GramE>Fig. 3.</span><span style='mso-spacerun:yes'>&nbsp;&nbsp;
+</span>Variation of the acceleration due to gravity <i style='mso-bidi-font-style:
+normal'>g</i>, temperature <i style='mso-bidi-font-style:normal'>T</i>,
+pressure <i style='mso-bidi-font-style:normal'>P</i> and density </span><span
+style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1041" type="#_x0000_t75" style='width:14.25pt;height:15.75pt'
+ o:ole="">
+ <v:imagedata src="climateG_files/image035.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=19 height=21
+src="climateG_files/image002.png" v:shapes="_x0000_i1041"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1041"
+  DrawAspect="Content" ObjectID="_1698144870">
+ </o:OLEObject>
+</xml><![endif]-->with altitude <i style='mso-bidi-font-style:normal'>z</i>. <span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>The <span
+style='color:red'>red curves </span>in the pressure and density show that there
+is an excellent fit for exponential decreases in both the pressure and density
+with altitude.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal align=center style='margin-top:0cm;margin-right:715.05pt;
+margin-bottom:0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-align:center;
+line-height:150%'><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+ id="Picture_x0020_21" o:spid="_x0000_i1054" type="#_x0000_t75" style='width:503.25pt;
+ height:314.25pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="climateG_files/image036.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=671 height=419
+src="climateG_files/image037.png" v:shapes="Picture_x0020_21"><![endif]></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt'><span class=GramE><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>Fig. 4.</span></span><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Variation of the acceleration due
+to gravity <i style='mso-bidi-font-style:normal'>g</i>, temperature <i
+style='mso-bidi-font-style:normal'>T</i>, pressure <i style='mso-bidi-font-style:
+normal'>P</i> and density </span><span style='position:relative;top:6.0pt;
+mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1042" type="#_x0000_t75"
+ style='width:14.25pt;height:15.75pt' o:ole="">
+ <v:imagedata src="climateG_files/image035.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=19 height=21
+src="climateG_files/image002.png" v:shapes="_x0000_i1042"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1042"
+  DrawAspect="Content" ObjectID="_1698144871">
+ </o:OLEObject>
+</xml><![endif]-->with altitude <i style='mso-bidi-font-style:normal'>z </i>in
+the troposphere.</p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>The
+pressure diagram shows air in the atmosphere is concentrated in a thin shell
+above the Earth</span><span lang=EN-GB style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast;mso-ansi-language:EN-GB'>&#8217;s</span><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'> surface.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:4.0cm'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><span
+style='mso-tab-count:1'> </span>99.7% atmosphere below 40 km<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:4.0cm'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><span
+style='mso-tab-count:1'> </span>95%<span style='mso-spacerun:yes'>&nbsp;&nbsp;
+</span>atmosphere below 20 km<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:4.0cm'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><span
+style='mso-tab-count:1'> </span>74<span class=GramE>%<span
+style='mso-spacerun:yes'>&nbsp; </span>atmosphere</span> below 10 km<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:4.0cm'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><span
+style='mso-tab-count:1'> </span>47% atmosphere below 5 km<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%;tab-stops:4.0cm'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast;
+mso-ansi-language:EN-GB'>In figure (3) exponential decay curves (<span
+style='color:red'>red</span>) were added to the plots for the pressure and
+density. The <span style='color:#984807;mso-themecolor:accent6;mso-themeshade:
+128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+lumm=50000'>Matlab Curve Fitting Tool </span>was used to find the exponential
+equations for the fits<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast;
+mso-ansi-language:EN-GB'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1043" type="#_x0000_t75" style='width:81.75pt;height:24.75pt'
+ o:ole="">
+ <v:imagedata src="climateG_files/image038.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=109 height=33
+src="climateG_files/image039.png" v:shapes="_x0000_i1043"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1043"
+  DrawAspect="Content" ObjectID="_1698144872">
+ </o:OLEObject>
+</xml><![endif]--></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+class=GramE><span style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>where</span></span><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'> <i
+style='mso-bidi-font-style:normal'>H</i> is known as the <b style='mso-bidi-font-weight:
+normal'><span style='color:#7030A0'>scale height</span></b>.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast;
+mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:15.0pt;line-height:
+150%'><span lang=EN-GB style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast;
+mso-ansi-language:EN-GB'>Pressure<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='position:relative;top:11.0pt;mso-text-raise:-11.0pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1044" type="#_x0000_t75" style='width:278.25pt;height:30.75pt'
+ o:ole="">
+ <v:imagedata src="climateG_files/image040.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=371 height=41
+src="climateG_files/image041.png" v:shapes="_x0000_i1044"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1044"
+  DrawAspect="Content" ObjectID="_1698144873">
+ </o:OLEObject>
+</xml><![endif]--></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:15.0pt;line-height:
+150%'><span style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:15.0pt;line-height:
+150%'><span style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>Density<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1045" type="#_x0000_t75" style='width:258pt;height:26.25pt' o:ole="">
+ <v:imagedata src="climateG_files/image042.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=344 height=35
+src="climateG_files/image043.png" v:shapes="_x0000_i1045"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1045"
+  DrawAspect="Content" ObjectID="_1698144874">
+ </o:OLEObject>
+</xml><![endif]--><span style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:15.0pt;line-height:
+150%'><span style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>We can
+now easily estimate the mass <span class=SpellE><i style='mso-bidi-font-style:
+normal'>M<sub>atm</sub></i></span> of the atmosphere<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:15.0pt;line-height:
+150%'><span style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>At the Earth&#8217;s surface<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:15.0pt;line-height:
+150%'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='position:relative;top:39.0pt;mso-text-raise:-39.0pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1052" type="#_x0000_t75" style='width:246pt;height:86.25pt' o:ole="">
+ <v:imagedata src="climateG_files/image044.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=328 height=115
+src="climateG_files/image045.png" v:shapes="_x0000_i1052"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1052"
+  DrawAspect="Content" ObjectID="_1698144875">
+ </o:OLEObject>
+</xml><![endif]--><span style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:15.0pt;line-height:
+150%'><span style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:15.0pt;line-height:
+150%'><span style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>In the
+troposphere the temperature falls linearly with increasing altitude<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:15.0pt;line-height:
+150%'><span style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1046" type="#_x0000_t75" style='width:77.25pt;height:21.75pt'
+ o:ole="">
+ <v:imagedata src="climateG_files/image046.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=103 height=29
+src="climateG_files/image047.png" v:shapes="_x0000_i1046"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1046"
+  DrawAspect="Content" ObjectID="_1698144876">
+ </o:OLEObject>
+</xml><![endif]--></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:15.0pt;line-height:
+150%'><span style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+class=GramE><span lang=EN-GB style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast;mso-ansi-language:EN-GB'>where</span></span><span
+lang=EN-GB style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast;
+mso-ansi-language:EN-GB'> </span><span style='position:relative;top:7.0pt;
+mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1047" type="#_x0000_t75"
+ style='width:15.75pt;height:21.75pt' o:ole="">
+ <v:imagedata src="climateG_files/image048.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=21 height=29
+src="climateG_files/image049.png" v:shapes="_x0000_i1047"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1047"
+  DrawAspect="Content" ObjectID="_1698144877">
+ </o:OLEObject>
+</xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>is the
+surface temperature and </span><span style='position:relative;top:2.0pt;
+mso-text-raise:-2.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1048" type="#_x0000_t75"
+ style='width:39pt;height:15pt' o:ole="">
+ <v:imagedata src="climateG_files/image050.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=52 height=20
+src="climateG_files/image051.png" v:shapes="_x0000_i1048"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1048"
+  DrawAspect="Content" ObjectID="_1698144878">
+ </o:OLEObject>
+</xml><![endif]--><span style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast'><span
+style='mso-spacerun:yes'>&nbsp;</span>is the <b style='mso-bidi-font-weight:
+normal'><span style='color:#7030A0'>vertical thermal lapse rate</span></b>.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>The
+values for the <i style='mso-bidi-font-style:normal'>T</i><sub>0</sub> and <span
+class=SpellE><i style='mso-bidi-font-style:normal'>L<sub>env</sub></i></span>
+(environmental lapse rate) as shown in figure 4 are calculated using the Matlab
+function <span class=SpellE><b style='mso-bidi-font-weight:normal'><span
+style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+#984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>fitlm</span></b></span><b
+style='mso-bidi-font-weight:normal'><span style='color:#984807;mso-themecolor:
+accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+lumm=50000'><o:p></o:p></span></b></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:15.0pt;line-height:
+150%'><span style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+#984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'><span
+style='mso-spacerun:yes'>&nbsp; </span>F = <span class=GramE>find(</span><span
+class=SpellE>zD</span>&gt;1e4,1);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:15.0pt;line-height:
+150%'><span style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+#984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'><span
+style='mso-spacerun:yes'>&nbsp; </span>F = 1<span class=GramE>:F</span>;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:15.0pt;line-height:
+150%'><span style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+#984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'><span
+style='mso-spacerun:yes'>&nbsp; </span><span class=SpellE>LR</span> = <span
+class=SpellE><span class=GramE>fitlm</span></span><span class=GramE>(</span><span
+class=SpellE>zD</span>(F),TD(F)) <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:15.0pt;line-height:
+150%'><span style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+#984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'><span
+style='mso-spacerun:yes'>&nbsp; </span><span class=SpellE>Lcoeff</span> = <span
+class=SpellE>LR.Coefficients.Estimate</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:15.0pt;line-height:
+150%'><span style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+#984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'><span
+style='mso-spacerun:yes'>&nbsp; </span><span class=SpellE>Lintercept</span> = <span
+class=SpellE><span class=GramE>Lcoeff</span></span><span class=GramE>(</span>1)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:15.0pt;line-height:
+150%'><span style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+#984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'><span
+style='mso-spacerun:yes'>&nbsp; </span><span class=SpellE>Lslope</span> = <span
+class=SpellE><span class=GramE>Lcoeff</span></span><span class=GramE>(</span>2)*1e3<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:15.0pt;line-height:
+150%'><span lang=EN-GB style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast;
+mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast;
+mso-ansi-language:EN-GB'>The results are:<span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span><i style='mso-bidi-font-style:
+normal'>T</i><sub>0</sub> = 288 K and <span class=SpellE><i style='mso-bidi-font-style:
+normal'>L<sub>env</sub></i></span> = - 6.49 K.km<sup>-1</sup><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast;
+mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast;
+mso-ansi-language:EN-GB'>We can calculate the <b style='mso-bidi-font-weight:
+normal'><span style='color:#7030A0'>dry air lapse</span></b><span
+style='color:#7030A0'> <b style='mso-bidi-font-weight:normal'>rate</b></span>
+using the <b style='mso-bidi-font-weight:normal'><span style='color:#7030A0'>first
+law of thermodynamics</span></b><span style='color:#7030A0'> </span>and the
+ideal gas equations. The first law of thermodynamics states that when heat <i
+style='mso-bidi-font-style:normal'>Q </i>is exchanged with an isolated system,
+the system does work <i style='mso-bidi-font-style:normal'>W</i> and the
+internal energy of the system changes </span><span style='position:relative;
+top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1049"
+ type="#_x0000_t75" style='width:27pt;height:15.75pt' o:ole="">
+ <v:imagedata src="climateG_files/image052.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=36 height=21
+src="climateG_files/image007.png" v:shapes="_x0000_i1049"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1049"
+  DrawAspect="Content" ObjectID="_1698144879">
+ </o:OLEObject>
+</xml><![endif]--><span style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast'>(when there is a change in the internal
+energy of the system, its temperature changes).<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast;
+mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast;
+mso-ansi-language:EN-GB'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1050" type="#_x0000_t75" style='width:267pt;height:21.75pt' o:ole="">
+ <v:imagedata src="climateG_files/image053.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=356 height=29
+src="climateG_files/image054.png" v:shapes="_x0000_i1050"><![endif]></span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1050"
+  DrawAspect="Content" ObjectID="_1698144880">
+ </o:OLEObject>
+</xml><![endif]--><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>Consider
+a parcel of air that is displaced upward without any exchange of heat with the
+surrounding air <i style='mso-bidi-font-style:normal'>Q</i> = 0. This process
+when <i style='mso-bidi-font-style:normal'>Q</i> = 0 is called <b
+style='mso-bidi-font-weight:normal'><span style='color:#7030A0'>adiabatic</span></b>.
+Since the pressure decreases with height, the parcel of air will expand and do
+work on its surroundings which results in a fall in its temperature and
+decrease in its internal energy.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>For an adiabatic
+process<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal align=center style='margin-top:0cm;margin-right:715.05pt;
+margin-bottom:0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-align:center;
+line-height:150%'><span style='font-family:"Times New Roman","serif";
+mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+mso-bidi-theme-font:major-fareast;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+ id="Picture_x0020_1" o:spid="_x0000_i1053" type="#_x0000_t75" style='width:226.5pt;
+ height:405.75pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="climateG_files/image055.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=302 height=541
+src="climateG_files/image056.png" v:shapes="Picture_x0020_1"><![endif]></span><span
+lang=EN-GB style='font-family:"Times New Roman","serif";mso-ascii-theme-font:
+major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast;
+mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast;
+mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast;
+mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast;
+mso-ansi-language:EN-GB'>The adiabatic dry air lapse rate within the troposphere
+is <span class=GramE>-9.8 K.km<sup>-1</sup></span>. The adiabatic dry air lapse
+rate has a larger magnitude than the environmental lapse rate <span
+class=GramE>-6.5 K.km<sup>-1</sup></span>. With humid air the lapse rate varies
+between &#8211; 5 to -10 K.km<sup>-1</sup>.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast;
+mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast;
+mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:1.0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast;
+mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:715.05pt;margin-bottom:
+0cm;margin-left:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB
+style='font-family:"Times New Roman","serif";mso-ascii-theme-font:major-fareast;
+mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast;
+mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+</body>
+
+</html>
