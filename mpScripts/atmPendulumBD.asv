@@ -1,0 +1,132 @@
+% atmPendulumBD.m
+
+% DOING PHYSICS WITH MATLAB
+%    https://d-arora.github.io/Doing-Physics-With-Matlab/
+% IAN COOPER
+%    matlabvisualphysics@gmail.com
+% LINK: DOWNLOAD MATLAB SCRIPTS 
+%    https://github.com/D-Arora/Doing-Physics-With-Matlab/tree/master/mpScripts
+%    https://drive.google.com/drive/u/3/folders/1j09aAhfrVYpiMavajrgSvUMc89ksF9Jb
+% MATLAB VERSIOB R2021b
+% 211204
+
+% Bifurcation diagran for a damped driven pendulum
+% SI units are for all variables
+%  theta - angular displacement / gamma - drive strength
+%  For each gamma - thetas found using findpeak function
+%  ode45 solves the equation of motion
+
+%  Ouput:  Bifurcation diagram  theta vs gamma
+%          
+% Supporting documentation
+%  https://d-arora.github.io/Doing-Physics-With-Matlab/mpDocs/atmDDP.htm 
+
+clear
+close all
+clc
+
+tic
+
+
+% INPUTS & SETUP >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+% Time 
+  tMax = 500; tMin = 0;
+ 
+% Driving signal: strength / period / angular frequency
+%  gamma = 1.060:0.0001:1.087;
+  gamma = 1:0.0001:1.5;
+  TD = 1;
+  wD = 2*pi/TD;
+
+% Natutal frequency
+  wN = 1.5*wD;
+  TN = 2*pi/wN;
+
+% Damping   
+  beta = wN/4;
+
+% Initial conditions: displacement / velocity
+% X = theta  / w = omega  
+  X0 = -pi/2; 
+  w0 = 0;
+  s0 = [X0 w0];
+
+
+%  SETUP  ============================================================= 
+%  tSpan = [tMin tMax];
+   tSpan = 0: 0.01: 500;  
+   tL = length(tSpan);
+   Lgamma = length(gamma);
+
+% Coefficient vector
+  K(1) = wN^2;
+  K(2) = 2*beta;
+  K(4) = wD;
+  
+% Number of cycle steps for finding peaks;
+  nT = 100;
+% Peak values  
+ pks = zeros(Lgamma,nT);
+% Solve ODE
+  opts = odeset('RelTol',1e-10); 
+
+% Solutions X and w stored as a [2D] array
+ for k = 1 : Lgamma
+     K(3) = gamma(k)*wN^2;
+     [t, sol] = ode45(@(t,s) EM(t,s,K), tSpan,s0); 
+    
+% Angular displacement and Velocity
+     X = sol(:,1);
+     w = sol(:,2);
+% Find peak values 
+    [a, b] = findpeaks(X(tL-10000:tL),t(tL-10000:tL));
+    pks(k,:) = a;
+% Restrict angular displacement to range -pi to +pi    
+    pks = atan2(tan(pks),1);
+end
+
+
+% GRAPHICS  ===========================================================
+   figure(1)
+   pos = [0.05 0.05 0.30 0.30];
+   set(gcf,'Units','normalized');
+   set(gcf,'Position',pos);
+   set(gcf,'color','w');
+   
+   hold on
+
+    for k = 1:1080 % Lgamma
+      HP = plot(gamma(k),pks(k,:),'bo');
+      set(HP,'markerfacecolor','b','markersize',1)
+      hold on
+    end
+
+ %  xlim([1.06 1.087])
+ %  ylim([-2 0])
+
+   ylabel('\theta  [ rad ]') 
+   xlabel('\gamma')
+   grid on
+   box on
+   xtickformat('%2.3f')
+   ytickformat('%2.2f')
+   set(gca,'fontsize',12)
+   
+   toc
+
+
+
+%  FUNCTIONS  =========================================================
+
+function sDot = EM(t,s,K)
+
+  X = s(1);
+  w = s(2);
+  sDot(1) = w;
+  sDot(2) = -K(1)*sin(X) - K(2)*w + K(3)*cos(K(4)*t);
+
+  sDot = sDot';
+
+
+end
+
