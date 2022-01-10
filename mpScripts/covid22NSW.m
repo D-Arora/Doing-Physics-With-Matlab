@@ -43,25 +43,25 @@ clc
 
 tic
 
-% Select COUNTRY:  AUSTRALIA 1  /  UK 2   =============================
+% Select COUNTRY:  NSW   =============================
 
   flagC = 1;
 
 
 % LOAD DATA from saved file ============================================
-    load('covid21M.mat')
-    
+    load('covid22NSWM.mat')
+    M = covid22NSWM; 
    switch flagC 
     case 1
-      cn = '      AUSTRALIA';
-      pop = 25862611;           % Population 
-      Ndays  = find(covid21M(:,1) == 0,1) - 1;   % Days 
-      Idtot  = covid21M(1:Ndays,1);   % Total infections
-      Id     = covid21M(1:Ndays,2);   % Current (active) infections
-      Dd     = covid21M(1:Ndays,3);   % Deaths
-      Hd     = covid21M(:,4);         % Hosipitalizations
-      Vd     = covid21M(:,5);         % Number of vaccinations 
-      DCd    = covid21M(:,6);         % Daily new cases of infection
+      cn = '      NSW';
+      pop = 8.18e6;           % Population NSW
+      Ndays  = find(M(:,1) == 0,1) - 1;   % Days 
+      Idtot  = M(1:Ndays,1);   % Total infections
+      Id     = M(1:Ndays,2);   % Current (active) infections
+      Dd     = M(1:Ndays,3);   % Deaths
+      Hd     = M(:,4);         % Hosipitalizations
+      Vd     = M(:,5);         % Number of vaccinations 
+      DCd    = M(:,6);         % Daily new cases of infection
        
      case 2  
       cn = '    U.K.';   
@@ -121,28 +121,28 @@ tic
 % Setting reproduction factor increment delta  ========================
 switch flagC  
   
-  case 1    % AUSTRALIA
-    RE(1) = 0.8;   
-    a = 1e-5.*ones(nT,1);    
+  case 1    % NSW
+    RE(1) = 1;   
+    a = 4e-6.*ones(nT,1);    
     b = 0.07.*ones(nT,1);
 
-    delta(1000:1200) = 0.3e-2; 
-    delta(1200:1400) = 0.2e-2;
-    delta(1400:1600) = 0.1e-2;
-    delta(1600:1800) = 0.1e-2;
-    delta(1800:2000) = 0.3e-2;
-    delta(2000:2200) = 0.3e-2;
-    delta(2200:2600) = 1.5e-2;
-    delta(2600:2800) = 3.0e-2;
-    delta(2800:3000) = 3.3e-2;
-    delta(3000:3200) = 1e-2;
-    delta(3200:3300) = 1e-2;
-    delta(3300:3400) = 2e-2;
-    delta(3400:3500) = 3e-2;
-    delta(3500:3600) = 3e-2;
-    delta(3600:3650) = 5e-2;
-    delta(3650:3700) = 180e-2;
-    delta(3700:3800) = 220e-2;
+      delta(1:100)   = 20e-2; 
+      delta(100:200) = 20e-2;
+      delta(200:300) = 20e-2;
+%     delta(1600:1800) = 0.1e-2;
+%     delta(1800:2000) = 0.3e-2;
+%     delta(2000:2200) = 0.3e-2;
+%     delta(2200:2600) = 1.5e-2;
+%     delta(2600:2800) = 3.0e-2;
+%     delta(2800:3000) = 3.3e-2;
+%     delta(3000:3200) = 1e-2;
+%     delta(3200:3300) = 1e-2;
+%     delta(3300:3400) = 2e-2;
+%     delta(3400:3500) = 3e-2;
+%     delta(3500:3600) = 3e-2;
+%     delta(3600:3650) = 5e-2;
+%     delta(3650:3700) = 150e-2;
+%     delta(3700:3800) = 100e-2;
 %    delta(3800:3900) = 10e-2; 
  
   case 2   % UK
@@ -168,9 +168,8 @@ switch flagC
      delta(3400:3500) = 2e-2;
      delta(3500:3550) = 5e-2;
      delta(3550:3600) = 7e-2;
-     delta(3600:3650) = 7e-2;
-     delta(3650:3700) = 12e-2;
-     delta(3700:3750) = 15e-2;
+     delta(3600:3650) = 15e-2;
+     delta(3650:3700) = 20e-2;
 end
 
  
@@ -222,7 +221,7 @@ end
      tp1 = 10*(Ndays-1);         % Model: time span
      tp = tp1:nT; 
      Isp = I(tp)./maxI;
-     sf = mean(Hd(ts1-10:ts1)./Id(ts1-10:ts1));
+     sf = mean(Hd(ts1-2:ts1)./Id(ts1-2:ts1));
      Hp = I(tp).* sf;
      dH = Hp(1) - Hd(Ndays-1);
      Hp = Hp - dH;

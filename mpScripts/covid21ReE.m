@@ -1,15 +1,11 @@
-% covid21Re.m
-
+% covid21ReE.m
 % MINIMAL MODEL FOR THE TIME EVOLUTION OF THE COVID-19 ENDEMIC
 %  (1) AUSTRALIA    (2) UNITED KINGDOM
 
 % AUSTRALIA DATA
 % Download: https://www.worldometers.info/coronavirus/
+
 % Download: https://covidlive.com.au/report/daily-vaccinations/aus
-
-% NSW
-%  https://covidlive.com.au/report/daily-active-cases/nsw
-
 % Data Matrix  covid21M
 %   col 1:  Itot
 %   col 2:  Iactive
@@ -115,8 +111,8 @@ tic
             Dindex(k:k+9) = Ddindex(c);
             k = k + 10;     
       end
-       Dindex(10*Ndays:nT) = Dindex(k-1);
-    %   Dindex(10*Ndays:end) = mean(Dd(Ndays-10:Ndays)./Idtot(Ndays-10:Ndays));
+       Dindex(10*Ndays:end) = Dindex(k-1);
+
 
 % Setting reproduction factor increment delta  ========================
 switch flagC  
@@ -135,15 +131,14 @@ switch flagC
     delta(2200:2600) = 1.5e-2;
     delta(2600:2800) = 3.0e-2;
     delta(2800:3000) = 3.3e-2;
-    delta(3000:3200) = 1e-2;
+    delta(3000:3200) = 0.5e-2;
     delta(3200:3300) = 1e-2;
     delta(3300:3400) = 2e-2;
     delta(3400:3500) = 3e-2;
-    delta(3500:3600) = 3e-2;
-    delta(3600:3650) = 5e-2;
-    delta(3650:3700) = 180e-2;
-    delta(3700:3800) = 220e-2;
-%    delta(3800:3900) = 10e-2; 
+    delta(3500:3600) = 10e-2;
+    delta(3600:3700) = 14e-2;
+    delta(3700:3800) = 16e-2;
+     
  
   case 2   % UK
     RE(1) = 6;
@@ -166,11 +161,10 @@ switch flagC
      delta(3000:3200) = 1.10e-2;
      delta(3200:3400) = 1.20e-2;
      delta(3400:3500) = 2e-2;
-     delta(3500:3550) = 5e-2;
-     delta(3550:3600) = 7e-2;
-     delta(3600:3650) = 7e-2;
-     delta(3650:3700) = 12e-2;
-     delta(3700:3750) = 15e-2;
+     delta(3500:3600) = 3.0e-2;
+     delta(3600:3700) = 4.0e-2;
+     delta(3700:3800) = 1.5e-2;
+
 end
 
  
@@ -187,7 +181,7 @@ end
 % Total Infections
   Itot = I + R;
 % Deaths  
-  D = smooth(Dindex .* Itot,10); 
+  D = Dindex .* Itot; 
 % ReCoveries      
   C = R - D;
 
@@ -198,15 +192,15 @@ end
   tS = datetime(2021,1,1);
   tC = tS + Ndays-1;
   
-% New Daily Cases  DC
-%   Its = smooth(Itot,10);
-%  tDC = 1:500;
-   DC = zeros(5000,1);
-   for c = 2:5000
-    DC(c) = Itot(c) - Itot(c-1); 
+% Daily New Cases
+   Its = smooth(Itot,7);
+   tDC = 1:500;
+   DC = zeros(500,1);
+   for c = 2:500
+     DC(c) = Its(10*c) - Its(10*((c-1)));  
    end
    DC(1) = DC(2);
- %  DC = smooth(DC,7);
+   DC = smooth(DC,7);
 
 % Scaled active infections
    maxI = max([max(Id), max(I)]);
@@ -214,18 +208,19 @@ end
    Is  =  I./maxI;    % Model: scaled curremt infections
 
 %   DATA: HOSPITALIZATIONS
+   
+        
      ts1 = find(Hd == 0, 1) - 2; % Data:  time span
      if ts1 > Ndays; ts1 = Ndays; end
      ts = 1:ts1;         
     
 %  Model prediction: Hospitalizations;
-     tp1 = 10*(Ndays-1);         % Model: time span
+     tp1 = 10*(Ndays-2);         % Model: time span
      tp = tp1:nT; 
      Isp = I(tp)./maxI;
-     sf = mean(Hd(ts1-10:ts1)./Id(ts1-10:ts1));
+     sf = mean(Hd(ts1-7:ts1)./Id(ts1-7:ts1));
      Hp = I(tp).* sf;
-     dH = Hp(1) - Hd(Ndays-1);
-     Hp = Hp - dH;
+
      maxH = max([max(Hd), max(Hp)]);
      Hs  = Hd./maxH;    % Scaled data hospitalizations
      Hps = Hp./maxH;    % Scaled model predictions
@@ -263,19 +258,20 @@ subplot('Position',[h1 v1 width height])
   xP = t; yP = I; 
   plot(xP,yP,'r','linewidth',2)
  
+ 
   xlim([0 500])
   yMax = ylim;
   ylim([0.6*yMax(1) yMax(2)])
   ax = gca;ax.FontSize = FS;
   
   Htitle = title(strcat(cn,{'     '},datestr(tC)));
-  set(Htitle,'fontweight','normal','fontsize',12)
+  set(Htitle,'fontweight','normal','fontsize',10)
   plotMonths(xtxt, ytxt)
   
   
 % 2 Itot  
 subplot('Position',[h2 v1 width height])
-  xtxt = 'days';
+   xtxt = 'days';
   ytxt = 'I_{tot}';
   xP = dayR; yP = Idtot; 
   plot(xP,yP,'b+')
@@ -286,34 +282,33 @@ subplot('Position',[h2 v1 width height])
   xlim([0 500])
   yMax = ylim;
   ylim([0.6*yMax(1) yMax(2)])
+  
+  
   ylim([0 yMax(2)])
-
-  FS = 14;
+  
   ax = gca;ax.FontSize = FS;
 
   plotMonths(xtxt, ytxt)
-    
-  txt = sprintf('days     ( I_{tot} / pop )_{final} = %3.1f %%  \n',IP);
-  xlabel(txt,'fontweight','normal','fontsize',FS,'fontname','times')
+  
+   txt = sprintf('   (I_{tot} / pop)_{final} = %3.1f %% \n',IP);
+  title(txt,'fontweight','normal','fontsize',FS)
    
-% 3 New Daily Cases
+% 3 New
 subplot('Position',[h1 v2 width height])
-  xP = t; yP = 10.*DC./1000;
+  xP = tDC; yP = DC;
    plot(xP,yP,'r','linewidth',2)
    hold on
    temp = find(DCd == 0, 1)-1; 
-   xP = 1:temp; yP = DCd(xP)./1000;
+   xP = 1:temp; yP = DCd(xP);
    plot(xP,yP,'b','linewidth',1)
    grid off; box on
 
-   xlim([0 500])
    yMax = ylim;
    ylim([0 yMax(2)])
    plotMonths(xtxt, ytxt)
    
-   FS = 14;
    xtxt = 'days';
-   ytxt = 'I_{new} / 1000';
+   ytxt = 'I_{new}';
    xlabel(xtxt,'fontname','times','Fontsize',FS);
    ylabel(ytxt,'fontname','times','Fontsize',FS);
    set(gca,'fontsize',FS)
@@ -328,20 +323,21 @@ subplot('Position',[h2 v2 width height])
 %   xP = t; yP = D./1000; 
 %   plot(xP,yP,'r','linewidth',2)
 
-%   xP = t(10*Ndays:end); yP = D(10*Ndays:end)./1000;
-xP = t; yP = smooth(D./1000,10);
+   xP = t(10*Ndays:end); yP = D(10*Ndays:end)./1000;
    plot(xP,yP,'r','linewidth',2)
    
  %  plot(t,D/1000,'m','linewidth',2)
   xlim([0 500])
   yMax = ylim;
-%  ylim([0.2*yMax(2) yMax(2)])
-  ylim([0 yMax(2)])
-  plotMonths(xtxt, ytxt)
-
-  txt = sprintf('days      ( D / I_{tot} )_{final} = %2.1f %% \n',100*D(end)/Itot(end));
-  xlabel(txt,'FontName','times','FontSize',FS)
+  ylim([0.2*yMax(2) yMax(2)])
+  
+ % txt = sprintf('  D_{data} = %1.1f %%   D_{model} = %1.1f %% \n',Ddp, Dp);
+ txt = sprintf('     ( D / I_{tot} )_{final} = %1.1f %% \n',100*D(end)/Itot(end));
+ % title(txt,'fontweight','normal','fontsize',10)
+ text(80,1.02*yMax(2),txt,'fontsize',FS)
   ax = gca;ax.FontSize = FS;
+
+  plotMonths(xtxt, ytxt)
 
 % 5 RE  
 subplot('Position',[h1 v3 width height]) 
@@ -383,9 +379,7 @@ figure(9)  % 9999999999999999999999999999999999999999999999999999999999
    set(gcf,'color','w');
    FS = 14;
    
-  %  xtxt = 'days';
-    xtxt = sprintf('days   ( pop = %2.1f M   vac = %2.1f M  vac/pop = %2.1f ) \n' ...
-        ,pop/1e6, Vd(Ndays)/1e6,Vd(Ndays)/pop);
+    xtxt = 'days';
     ytxt = 'scaled pop.';grid on; box on;
    
    hold on
@@ -410,7 +404,7 @@ figure(9)  % 9999999999999999999999999999999999999999999999999999999999
 
    plotMonths(xtxt, ytxt)
    
-   hL = legend('I^d_S','V^d_S','H^d_S','H_{pS}');
+   hL = legend('I_{dS}','V_{dS}','H_{dS}','H_{pS}');
    set(hL,'orientation','horizontal','location','northoutside','box','off')
 
 figure(1)  % 11111111111111111111111111111111111111111111111111111111
@@ -463,9 +457,7 @@ figure(2)  % 222222222222222222222222222222222222222222222222222222222
    xlim([0 500])
    xticks(0:100:500)
    grid on
-  % xtxt = 'days';
-   xtxt = sprintf('days   ( Hd_{max} = %2.0f    Hp_{max} = %2.0f  ) \n' ...
-        ,max(Hd(ts)),max(Hp));
+   xtxt = 'days';
    ytxt = 'H';
    xlabel(xtxt,'fontname','times','Fontsize',FS);
    ylabel(ytxt,'fontname','times','Fontsize',FS);
