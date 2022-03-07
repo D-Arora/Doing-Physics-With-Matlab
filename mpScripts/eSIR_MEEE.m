@@ -37,7 +37,7 @@ global a b
 %   disp('  ')
 %flagC = input('  Country = ');
 
-flagC = 4;
+flagC = 11;
 
 
 % COUNTRIES  ==========================================================   
@@ -158,24 +158,43 @@ case 3   %   TEXAS ***************************************************
          k(3) = 0.06e-5;
          
          k(3) = 0.03e-5;
-         mD(4) = 5000;
+         mD(4) = 3900;
          nD(4) = 50e3;
          k(4) = 0.03e-5;
          
+         k(4) = 0.02e-5;
+         mD(5) = 4200;
+         nD(5) = 120e3;
+         k(5) = 0.03e-5;
+         
+         k(5) = 0.03e-5;
+         mD(6) = 4300;
+         nD(6) = 80e3;
+         k(6) = 0.03e-5;
+         
+         k(7) = 0.07e-5;
+         mD(7) = 5000;
+         nD(7) = 150e3;
+         k(7) = 0.03e-5;
          
          segments = length(k)-1;
         
          a = 0.20;
-         b = 0.08;  
+         b = 0.0819; %0.08;  
          A = a.*ones(num,1);
          B = b.*ones(num,1);
          
+         B(3500:end) = 0.0919;
+         
          n1 = 800;  n2 = 2001; P(n1:n2) = 3.2e-4;
          n1 = 2000; n2 = 3201; P(n1:n2) = 2.0e-4;
-         n1 = 3200; n2 = 4001; P(n1:n2) = 11.0e-4;
-        
+         n1 = 3200; n2 = 3701; P(n1:n2) = 12.0e-4;
+         n1 = 3700; n2 = 4101; P(n1:n2) = 19e-4;
+     
+       %  n1 = 4300; n2 = 4501; P(n1:n2) = 50e-4;
+          
          m1 = 1800; m2 = 3001; Q(m1:m2) = 3.2e-5;
-         
+      %   m1 = 4100; m2 = 4500; Q(m1:m2) = 40e-5;
       
     
          
@@ -388,8 +407,10 @@ case 3   %   TEXAS ***************************************************
         n1 = 2700; n2 = 2801; P(n1:n2) = 80e-4;
         n1 = 2800; n2 = 3001; P(n1:n2) = 120e-4;
         n1 = 3000; n2 = 3401; P(n1:n2) = 30e-4;
-        n1 = 3400; n2 = 4000; P(n1:n2) = 50e-4;
-       
+        n1 = 3400; n2 = 4001; P(n1:n2) = 50e-4;
+        n1 = 4000; n2 = 4300; P(n1:n2) = 80e-4;
+        
+        
       %  m1 = 2000; m2 = 2801; Q(m1:m2) = 50e-5;
       %  m1 = 2900; m2 = 4001; Q(m1:m2) = 550e-5;
         
@@ -437,13 +458,13 @@ end
 %   Estimate a and b from data ==========================================
 %     Change tN and dt for different estimates
 %       and view answers in Command Window
-    tN =291; dt = 10;
+    tN = 400; dt = 10;
     
     Rdot = ( Rd(tN+dt) - Rd(tN-dt) )/(2*dt);
     bD = Rdot/Id(tN);
     
  % At a peak  a = b/S
-    tN = 291;
+    tN = 406;
     aD = b/S(10*tN);
     
     
@@ -460,7 +481,6 @@ end
 % Deaths
   for c = 1 : segments
       D(mD(c): mD(c+1)) = D(mD(c)) + nD(c+1).*(1 - exp(-k(c).*(R(mD(c) : mD(c+1)) - R(mD(c)))));
-      
   end
    
    C = R - D;
@@ -502,7 +522,7 @@ end
 
 figure(9)
    set(gcf,'units','normalized');
-   set(gcf,'position',[0.2 0.2 0.45 0.55]);
+   set(gcf,'position',[0.52 0.52 0.3 0.42]);
    set(gcf,'color','w');
    FS = 14;
 
@@ -514,9 +534,10 @@ figure(9)
   zz = find(t > Ndays,1);
 
 subplot(3,1,1)   
-   plot(t,S,'r','linewidth',2)
+   plot(t,S,'b','linewidth',2)
  
-   ylabel('S     ');
+   HyL = ylabel('S     ');
+   set(HyL,'Color',[0 0 1])
    title(cn)
    xlim([0 tMax])
    set(gca,'xtick',0:50:tMax)
@@ -563,11 +584,9 @@ subplot(3,1,1)
    set(gca,'fontsize',FS)
    yLH = get(gca,'ylabel');
    set(yLH,'rotation',0)
-   ylim([0 1])
+   ylim([0 0.2])
    
-  
-  
- 
+   
  subplot(3,1,3) 
    yMax = ylim;
    z = yMax(2);
@@ -579,7 +598,8 @@ subplot(3,1,1)
    xP = t; yP = P;
    plot(xP,yP,'b','linewidth',2)
    hold on   
-   ylabel('P     ')
+   HyL = ylabel('\DeltaS     ');
+   set(HyL,'Color',[0 0 1])
    xlabel('Days elapsed')
    set(gca,'fontsize',FS)
    yLH = get(gca,'ylabel');
@@ -588,21 +608,20 @@ subplot(3,1,1)
    
   
    yyaxis right
-   xP = t; yP = Q;
+   xP = t; yP = f*Q;
    plot(xP,yP,'r','linewidth',2)
       
-   ylabel('     Q')
+   ylabel('     \DeltaI')
    set(gca,'fontsize',FS)  
    yLH = get(gca,'ylabel');
    set(yLH,'rotation',0)
    
-  
-   
+    
    
 % ---------------------------------------------------------------------
 figure(1)
    set(gcf,'units','normalized');
-   set(gcf,'position',[0.00 0.01 0.45 0.85]);
+   set(gcf,'position',[0.05 0.05 0.35 0.55]);
    set(gcf,'color','w');
    FS = 14;
    
@@ -646,34 +665,34 @@ subplot(4,1,1)
    
 figure(2)  % =========================================================
    set(gcf,'units','normalized');
-   set(gcf,'position',[0.52 0.01 0.40 0.85]);
+   set(gcf,'position',[0.52 0.05 0.30 0.4]);
    set(gcf,'color','w');
    FS = 16;
    
    zz = find(t > Ndays,1);
 
-subplot(4,1,1)   
-   plot(t,S,'r','linewidth',2)
- %  area(t,S,'facecolor',[1 0.6 0.6])
-   xlabel('Days elapsed')
-   ylabel('S');
-   title(cn)
-   xlim([0 tMax])
- %  ylim([0 1.1])
- %  set(gca,'ytick',0:2:8)
-   set(gca,'xtick',0:50:tMax)
-   set(gca,'fontsize',FS)
-   set(gca,'fontName','times')
-   hold on
-   grid on; box on
-   yMax = ylim;
-   z = yMax(2);
-   plotMonths(z)
-   
-   Htext = plot(t(zz),S(zz),'o');
-   set(Htext,'markersize',8,'MarkerFaceColor','r')
-     
- subplot(4,1,2)   
+% subplot(4,1,1)   
+%    plot(t,S,'r','linewidth',2)
+%  %  area(t,S,'facecolor',[1 0.6 0.6])
+%    xlabel('Days elapsed')
+%    ylabel('S');
+%    title(cn)
+%    xlim([0 tMax])
+%  %  ylim([0 1.1])
+%  %  set(gca,'ytick',0:2:8)
+%    set(gca,'xtick',0:50:tMax)
+%    set(gca,'fontsize',FS)
+%    set(gca,'fontName','times')
+%    hold on
+%    grid on; box on
+%    yMax = ylim;
+%    z = yMax(2);
+%    plotMonths(z)
+%    
+%    Htext = plot(t(zz),S(zz),'o');
+%    set(Htext,'markersize',8,'MarkerFaceColor','r')
+%      
+ subplot(3,1,1)   
    plot(Rd,Dd,'b+','linewidth',1);
    grid on; box on;
    xlabel('Removals')
@@ -688,7 +707,7 @@ subplot(4,1,1)
    set(gca,'fontName','times')
    
    
-subplot(4,1,3)   
+subplot(3,1,2)   
    plot(Id,Rd,'b+','linewidth',1);
    grid on; box on;
    xlabel('Active infections')
@@ -703,7 +722,7 @@ subplot(4,1,3)
    set(gca,'fontName','times')
    
 
- subplot(4,1,4)   
+ subplot(3,1,3)   
    H = plot(Idtot,Rd,'b+','linewidth',1);
   % set(H,'markersize',3,'markerfacecolor','b')
    grid on; box on;

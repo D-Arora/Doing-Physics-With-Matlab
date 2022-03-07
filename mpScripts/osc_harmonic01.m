@@ -10,7 +10,7 @@
 % School of Physics, University of Sydney
 
 % DOING PHYSICS WITH MATLAB 
-%    https://d-arora.github.io/Doing-Physics-With-Matlab/
+%    http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
 
 
 close all
@@ -21,11 +21,11 @@ clc
 % INPUTS   SI values unless stated otherwise  default values  [  ]
 % =======================================================================
 % mass  [0.506606]
-   m = 0.506606; 
+   m = 5; 
 % spring constant   [20]
-   k = 20; 
- 
-clc
+   k = 100; 
+% amplitude
+   A = 8.0; 
 
 disp('   ')
    f0 = sqrt(k/m)/(2*pi);       % resonance (natural) frequency
@@ -71,7 +71,7 @@ end
     
 if flagF == 1
    wD = 2*pi*fD;
-   FD = 10*sin(wD*t);     %   sinusoidal driving force
+   FD = A*sin(wD*t);     %   sinusoidal driving force
    x(2) = x(1)*sin(2*pi*dt/T0);
 end
 
@@ -149,7 +149,7 @@ figure(3)
    set(gcf,'color','w'); 
 plot(t,a,'LineWidth',3);
 title(s)
-ylabel('acceleration  a  (m/sï¿½)','FontSize',18)
+ylabel('acceleration  a  (m/s²)','FontSize',18)
 xlabel('time  t  (s)','FontSize',18)
 grid on
 set(gca,'fontsize',14)
@@ -187,7 +187,7 @@ set(gca,'fontsize',14)
 
 subplot(3,1,3), plot(t,a,'LineWidth',3);
 %title(s)
-ylabel('accleration  a  (m/sï¿½)','FontSize',18)
+ylabel('accleration  a  (m/s²)','FontSize',18)
 xlabel('time  t  (s)','FontSize',18)
 grid on
 set(gca,'fontsize',14)

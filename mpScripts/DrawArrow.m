@@ -1,7 +1,7 @@
 function DrawArrow(zT,magV,angleV,L,W,LW,col)
 
 % Draw Arrow ==========================================================
-% zT       position of vector tail
+% zT       position of vector tail (x,y): compex number zT = x + 1i*y
 % magR     magnitude of vector
 % angleV   angle of vector  [rad]
 % L        length of arrow head

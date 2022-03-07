@@ -9,7 +9,7 @@
 % 190228 / Matlab version R2018b
 
 % DOING PHYSICS WITH MATLAB 
-%    https://d-arora.github.io/Doing-Physics-With-Matlab/
+%    http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
 % Reference page for documentation and notes
 %    http://www.physics.usyd.edu.au/teach_res/mp/doc/math_ODE_A.htm
 
@@ -23,17 +23,17 @@ tic
 % default values and units  [ ]
 
 % mass  [ m = 10 kg]
-   m = 0.506606; 
+   m = 5; 
 % spring constant [k = 20 N/m]  
-   k = 20;
+   k = 100;
 % Damping constant  [b = 2  kg/s]
-   b = 1;
+   b = 0;
 % Amplitude of driving force  [A = 10 N]
-   A = 2;
+   A = 7.5;
 % frequency of driving force  [fD = 1  hz]
-   fD = 1;
+   fD = 0.5;
 % Initial conditions [y = 0 m   v = 0 m/s]
-   u0 = [1; 0];
+   u0 = [0; 0];
 % Time span  [0 20 s]
   tSpan = [0 10];
 
@@ -49,7 +49,9 @@ tic
 % Resonance frequency and driving frequency  [Hz and rad/s]
   w0 = sqrt(k/m);
   f0 = w0 / (2*pi);
+  T0 = 1/f0;
   wD = 2*pi*fD;
+  
 %   
 % Constants for differential equation
 %   yDotDot = -(k/m)y - (b/m)yDot + (A/m)sin(wDt);
@@ -131,12 +133,12 @@ subplot(2,1,2)
    ylim([20 130])
    
    t1 = 'm  =  ';
-   t2 = num2str(k,'%2.4f  kg \n');
+   t2 = num2str(m,'%2.4f  kg \n');
    tm = [t1 t2];
    text(10,90,tm,'fontsize',14)
    
    t1 = 'k  =  ';
-   t2 = num2str(m,'%2.4f  N.m^{-1} \n');
+   t2 = num2str(k,'%2.4f  N.m^{-1} \n');
    tm = [t1 t2];
    text(50,90,tm,'fontsize',14)
    

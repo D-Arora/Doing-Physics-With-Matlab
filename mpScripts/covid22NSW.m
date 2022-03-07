@@ -43,7 +43,7 @@ clc
 
 tic
 
-% Select COUNTRY:  NSW   =============================
+% Select COUNTRY:  NSW 1  / VIC 2   =============================
 
   flagC = 1;
 
@@ -64,15 +64,15 @@ tic
       DCd    = M(:,6);         % Daily new cases of infection
        
      case 2  
-      cn = '    U.K.';   
-      pop = 68323609;          % Population 
-      Ndays  = find(covid21M(:,7) == 0,1) - 1;   % Days 
-      Idtot  = covid21M(1:Ndays,7);    % Total infections
-      Id     = covid21M(1:Ndays,8);    % Current (active) infections
-      Dd     = covid21M(1:Ndays,9);    % Deaths
-      Hd     = covid21M(:,10);         % Hosipitalizations
-      Vd     = covid21M(:,11);         % Number of vaccinations 
-      DCd    = covid21M(:,12);         % Daily new cases of infection
+      cn = '    VIC.';   
+      pop = 6.681e6;          % Population 
+      Ndays  = find(M(:,7) == 0,1) - 1;   % Days 
+      Idtot  = M(1:Ndays,7);    % Total infections
+      Id     = M(1:Ndays,8);    % Current (active) infections
+      Dd     = M(1:Ndays,9);    % Deaths
+      Hd     = M(:,10);         % Hosipitalizations
+      Vd     = M(:,11);         % Number of vaccinations 
+      DCd    = M(:,12);         % Daily new cases of infection
    end
 
     Cd = Idtot - Id - Dd;    % ReCoveries
@@ -115,8 +115,8 @@ tic
             Dindex(k:k+9) = Ddindex(c);
             k = k + 10;     
       end
-       Dindex(10*Ndays:nT) = Dindex(k-1);
-    %   Dindex(10*Ndays:end) = mean(Dd(Ndays-10:Ndays)./Idtot(Ndays-10:Ndays));
+   %    Dindex(10*Ndays:nT) = Dindex(k-1);
+       Dindex(10*Ndays:end) = mean(Dd(Ndays-10:Ndays)./Idtot(Ndays-10:Ndays));
 
 % Setting reproduction factor increment delta  ========================
 switch flagC  
@@ -126,10 +126,10 @@ switch flagC
     a = 4e-6.*ones(nT,1);    
     b = 0.07.*ones(nT,1);
 
-      delta(1:100)   = 20e-2; 
+      delta(1:100)   = 22e-2; 
       delta(100:200) = 20e-2;
-      delta(200:300) = 20e-2;
-%     delta(1600:1800) = 0.1e-2;
+      delta(200:230) = 7e-2;
+      delta(230:330) = 6e-2;
 %     delta(1800:2000) = 0.3e-2;
 %     delta(2000:2200) = 0.3e-2;
 %     delta(2200:2600) = 1.5e-2;
@@ -145,31 +145,22 @@ switch flagC
 %     delta(3700:3800) = 100e-2;
 %    delta(3800:3900) = 10e-2; 
  
-  case 2   % UK
-    RE(1) = 6;
-    a = 1e-7.*ones(nT,1);      
-    
+  case 2   % VIC
+       RE(1) = 1;   
+    a = 3.8e-6.*ones(nT,1);    
+    b = 0.08.*ones(nT,1);
+
+
+      delta(1:100)   = 18e-2; 
+      delta(100:200) = 8e-2;
+      delta(200:230) = 6e-2;
+      delta(230:330) = 5e-2;
+%     delta(1800:2000) = 0.3e-2;
+%     delta(2000:2200) = 0.3e-2;
    %  b0 = 0.04;
    %   b = b0.*ones(nT,1);
-     delta(50:200) = 5.5e-2;
-     delta(200:1000) = 0.1e-2;
-     delta(1400:1600) = 1.5e-2;
-     delta(1600:1800) = 1.5e-2;
-     delta(1800:2000) = 0.8e-2;
-     delta(2000:2200) = 0.1e-2;
-     delta(2200:2400) = 1e-2;
-     delta(2400:2600) = 0.85e-2;
-     delta(2600:2700) = 1.2e-2;
-     delta(2700:2800) = 1e-2;
-     delta(2800:2900) = 1.5e-2;
-     delta(2900:3000) = 0.5e-2;
-     delta(3000:3200) = 1.10e-2;
-     delta(3200:3400) = 1.20e-2;
-     delta(3400:3500) = 2e-2;
-     delta(3500:3550) = 5e-2;
-     delta(3550:3600) = 7e-2;
-     delta(3600:3650) = 15e-2;
-     delta(3650:3700) = 20e-2;
+
+    
 end
 
  
@@ -194,7 +185,7 @@ end
 % Percentage of population infected
   IP = 100*Itot(end)/pop;
 % Dates: tS start date . tC last ddate for data 
-  tS = datetime(2021,1,1);
+  tS = datetime(2022,1,1);
   tC = tS + Ndays-1;
   
 % New Daily Cases  DC
@@ -223,8 +214,11 @@ end
      Isp = I(tp)./maxI;
      sf = mean(Hd(ts1-2:ts1)./Id(ts1-2:ts1));
      Hp = I(tp).* sf;
+    
      dH = Hp(1) - Hd(Ndays-1);
      Hp = Hp - dH;
+
+     Hp(Hp<0) = 0;
      maxH = max([max(Hd), max(Hp)]);
      Hs  = Hd./maxH;    % Scaled data hospitalizations
      Hps = Hp./maxH;    % Scaled model predictions
@@ -328,10 +322,11 @@ subplot('Position',[h2 v2 width height])
 %   plot(xP,yP,'r','linewidth',2)
 
 %   xP = t(10*Ndays:end); yP = D(10*Ndays:end)./1000;
-xP = t; yP = smooth(D./1000,10);
-   plot(xP,yP,'r','linewidth',2)
-   
- %  plot(t,D/1000,'m','linewidth',2)
+% xP = t; yP = smooth(D./1000,10);
+%   plot(xP,yP,'r','linewidth',2)
+  xP = t(10*Ndays:nT);
+  yP = ( D(10*Ndays:nT) - (D(10*Ndays) - Dd(Ndays)) )/1000;
+  plot(xP,yP,'r','linewidth',2)
   xlim([0 500])
   yMax = ylim;
 %  ylim([0.2*yMax(2) yMax(2)])
@@ -486,8 +481,8 @@ figure(2)  % 222222222222222222222222222222222222222222222222222222222
 % FUNCTIONS ============================================================
 function  plotMonths(xtxt,ytxt) %plotMonths(z)
          hold on
-         zz = [31 59 90 121 152 182 213 244 275 306 336 367 398 426 457 488];
-         
+         zz = [31 59 90 120 151 181 212 243 273 304 334 365 396 424 455 485];
+
          yMax = ylim;
          y2 = 1*yMax(2);
         

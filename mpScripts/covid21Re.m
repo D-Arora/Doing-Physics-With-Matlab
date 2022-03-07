@@ -45,7 +45,7 @@ tic
 
 % Select COUNTRY:  AUSTRALIA 1  /  UK 2   =============================
 
-  flagC = 1;
+  flagC = 2;
 
 
 % LOAD DATA from saved file ============================================
@@ -115,8 +115,8 @@ tic
             Dindex(k:k+9) = Ddindex(c);
             k = k + 10;     
       end
-       Dindex(10*Ndays:nT) = Dindex(k-1);
-    %   Dindex(10*Ndays:end) = mean(Dd(Ndays-10:Ndays)./Idtot(Ndays-10:Ndays));
+    %   Dindex(10*Ndays:nT) = Dindex(k-1);
+       Dindex(10*Ndays:end) = mean(Dd(Ndays-10:Ndays)./Idtot(Ndays-10:Ndays));
 
 % Setting reproduction factor increment delta  ========================
 switch flagC  
@@ -142,9 +142,11 @@ switch flagC
     delta(3500:3600) = 3e-2;
     delta(3600:3650) = 5e-2;
     delta(3650:3700) = 180e-2;
-    delta(3700:3800) = 220e-2;
-%    delta(3800:3900) = 10e-2; 
- 
+    delta(3700:3800) = 150e-2;
+    delta(3800:3880) = 50e-2; 
+    delta(3880:4000) = 80e-2;
+
+
   case 2   % UK
     RE(1) = 6;
     a = 1e-7.*ones(nT,1);      
@@ -169,8 +171,9 @@ switch flagC
      delta(3500:3550) = 5e-2;
      delta(3550:3600) = 7e-2;
      delta(3600:3650) = 7e-2;
-     delta(3650:3700) = 12e-2;
-     delta(3700:3750) = 15e-2;
+     delta(3650:3700) = 7e-2;
+     delta(3700:3750) = 6e-2;
+     delta(3750:3860) = 2e-2;
 end
 
  
@@ -226,6 +229,7 @@ end
      Hp = I(tp).* sf;
      dH = Hp(1) - Hd(Ndays-1);
      Hp = Hp - dH;
+     Hp(Hp<0) = 0;
      maxH = max([max(Hd), max(Hp)]);
      Hs  = Hd./maxH;    % Scaled data hospitalizations
      Hps = Hp./maxH;    % Scaled model predictions
@@ -303,7 +307,8 @@ subplot('Position',[h1 v2 width height])
    hold on
    temp = find(DCd == 0, 1)-1; 
    xP = 1:temp; yP = DCd(xP)./1000;
-   plot(xP,yP,'b','linewidth',1)
+  % plot(xP,yP,'b','linewidth',1)
+   plot(xP,yP,'b+')
    grid off; box on
 
    xlim([0 500])
@@ -329,10 +334,13 @@ subplot('Position',[h2 v2 width height])
 %   plot(xP,yP,'r','linewidth',2)
 
 %   xP = t(10*Ndays:end); yP = D(10*Ndays:end)./1000;
-xP = t; yP = smooth(D./1000,10);
-   plot(xP,yP,'r','linewidth',2)
-   
- %  plot(t,D/1000,'m','linewidth',2)
+%xP = t; yP = smooth(D./1000,10);
+%   plot(xP,yP,'r','linewidth',2)
+  %  plot(t,D/1000,'m','linewidth',2)
+
+  xP = t(10*Ndays:nT);
+  yP = ( D(10*Ndays:nT) - (D(10*Ndays) - Dd(Ndays)) )/1000;
+  plot(xP,yP,'r','linewidth',2)
   xlim([0 500])
   yMax = ylim;
 %  ylim([0.2*yMax(2) yMax(2)])
@@ -477,7 +485,63 @@ figure(2)  % 222222222222222222222222222222222222222222222222222222222
 
    set(gca,'fontsize',FS)
 
+figure(6)  % 666666666666666666666666666666666666666666666666
+   set(gcf,'units','normalized');
+   set(gcf,'Position', [0.52 0.50 0.35 0.40])
+   set(gcf,'color','w');
+   FS = 14;   
+
+ subplot(2,1,1)  
+   xP = ts; yP = Dd(ts)./1e3;
+     plot(xP, yP,'b-','linewidth',2); 
+   hold on
+%  xP = tp./10; yP = Hp;
+ %    plot(xP, yP,'r-','linewidth',2); 
+ %  ylim([0.9*max(a) 1.1*max(a)])
+   xlim([0 500])
+   xticks(0:100:500)
+   grid on
+  xtxt = 'days';
+ %  xtxt = sprintf('days   ( Hd_{max} = %2.0f    Hp_{max} = %2.0f  ) \n' ...
+ %       ,max(Hd(ts)),max(Hp));
+   ytxt = 'D / 1000';
+   xlabel(xtxt,'fontname','times','Fontsize',FS);
+   ylabel(ytxt,'fontname','times','Fontsize',FS);
+   title(cn,'FontWeight','normal')
+   yMax = ylim;
+   ylim([0 yMax(2)])
+  
+   plotMonths(xtxt, ytxt)
+
+   set(gca,'fontsize',FS)   
+
+subplot(2,1,2)  
+   xP = ts;
+   Dds = smooth(ts,Dd(ts),7);
+   dDdt = gradient(Dds,1);
+   dDdt = smooth(ts,dDdt,7);
+   yP = 1e6.*dDdt./pop;
+     plot(xP, yP,'b-','linewidth',2); 
+   hold on
+%  xP = tp./10; yP = Hp;
+ %    plot(xP, yP,'r-','linewidth',2); 
+ %  ylim([0.9*max(a) 1.1*max(a)])
+   xlim([0 500])
+   xticks(0:100:500)
+   grid on
+  xtxt = 'days';
+ %  xtxt = sprintf('days   ( Hd_{max} = %2.0f    Hp_{max} = %2.0f  ) \n' ...
+ %       ,max(Hd(ts)),max(Hp));
+   ytxt = 'dD/dt  [/ pop/M]';
+   xlabel(xtxt,'fontname','times','Fontsize',FS);
+   ylabel(ytxt,'fontname','times','Fontsize',FS);
    
+   yMax = ylim;
+   ylim([0 yMax(2)])
+  
+   plotMonths(xtxt, ytxt)
+
+   set(gca,'fontsize',FS)     
 
 % =======================================================================  
   toc
@@ -487,7 +551,7 @@ figure(2)  % 222222222222222222222222222222222222222222222222222222222
 % FUNCTIONS ============================================================
 function  plotMonths(xtxt,ytxt) %plotMonths(z)
          hold on
-         zz = [31 59 90 121 152 182 213 244 275 306 336 367 398 426 457 488];
+         zz = [31 59 90 120 151 181 212 243 273 304 334 365 396 424 455 485];
          
          yMax = ylim;
          y2 = 1*yMax(2);
