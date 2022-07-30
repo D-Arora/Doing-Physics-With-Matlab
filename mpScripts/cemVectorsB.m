@@ -1,8 +1,9 @@
 % cemVectorsB.m
-% 10 march 2016
+
 % Ian Cooper
-% School of Physics, University of Sydney
-% https://d-arora.github.io/Doing-Physics-With-Matlab/
+% Email      matlabvisualphysics@gmail.com
+% Website    https://d-arora.github.io/Doing-Physics-With-Matlab/
+% Documentation   https://d-arora.github.io/Doing-Physics-With-Matlab/mpDocs/cem001.pdf
 
 % Scalar (dot) product and vector (cross) product of vectors
 % Vectros specified in Cartseain components
@@ -26,25 +27,28 @@ clc
       Amag = norm(A)
       Bmag = norm(B)
       Cmag = norm(C)
-% dot products      
+% dot products
+      AdotA = dot(A,A)
       AdotB = dot(A,B)
       BdotA = dot(B,A)
       BdotC = dot(B,C)
       CdotA = dot(C,A)
       
-% cross products      
+% cross products 
+      AA = cross(A,A)
       AB = cross(A,B)
       BA = cross(B,A)
       BC = cross(B,C)
       CA = cross(C,A)
       
 % magnitude of cross products
+      AAmag = norm(AA)
       ABmag = norm(AB)
       BAmag = norm(BA)
       BCmag = norm(BC)
       CAmag = norm(CA)
       
- % angle between vectors [radians] and [degrees]    
+ % Angle between vectors [radians] and [degrees]    
      ABangle = asin(norm(AB) /(Amag * Bmag))
      ABangle_deg = rad2deg(ABangle)
      

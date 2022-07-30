@@ -2,7 +2,7 @@
 % 10 march 2016
 % Ian Cooper
 % School of Physics, University of Sydney
-% https://d-arora.github.io/Doing-Physics-With-Matlab/
+% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
 
 % Orthogonal components of a [3D] vector
 % Inputs: V(1)   V(2)   V(3)   Cartesian component of vector V
@@ -32,14 +32,14 @@ figure(1)
    pos = [0.5 0.3 0.5 0.6];
    subplot('Position',pos);
 
-   % vector V
+% vector V
    xP = [0 V(1)]; yP = [0 V(2)]; zP = [0, V(3)];
    h = plot3(xP,yP,zP);
    set(h,'color',[0 0 1],'linewidth',3);
   
    hold on
 % Vx
-   xP = [0 V(1)]; yP = [0 0];     % 
+   xP = [0 V(1)]; yP = [0 0];      
    h = plot(xP,yP);
    set(h,'color',[1 0 1],'linewidth',2);
 % Vy
@@ -69,30 +69,30 @@ figure(1)
    d = 15; tx = 2; ty = 80;
      
    tm1 = 'V_x  =  ';
-   tm2 = num2str(V(1),'%2.3e\n');
+   tm2 = num2str(V(1),'%2.3f\n');
    tm = [tm1 tm2];
    text(tx,ty,tm,'fontsize',fs);
    
    tm1 = 'V_y  =  ';
-   tm2 = num2str(V(2),'%2.3e\n');
+   tm2 = num2str(V(2),'%2.3f\n');
    tm = [tm1 tm2];
    ty = ty-d;
    text(tx,ty,tm,'fontsize',fs);
    
    tm1 = 'V_z  =  ';
-   tm2 = num2str(V(3),'%2.3e\n');
+   tm2 = num2str(V(3),'%2.3f\n');
    tm = [tm1 tm2];
    ty = ty-d;
    text(tx,ty,tm,'fontsize',fs);
    
    tm1 = 'magnitude V_R  =  ';
-   tm2 = num2str(VR,'%2.3e\n');
+   tm2 = num2str(VR,'%2.3f\n');
    tm = [tm1 tm2];
    ty = ty-d;
    text(tx,ty,tm,'fontsize',fs);
    
    tm1 = 'XY magnitude,  V_\rho   =  ';
-   tm2 = num2str(Vrho,'%2.3e\n');
+   tm2 = num2str(Vrho,'%2.3f\n');
    tm = [tm1 tm2];
    ty = ty-d;
    text(tx,ty,tm,'fontsize',fs);

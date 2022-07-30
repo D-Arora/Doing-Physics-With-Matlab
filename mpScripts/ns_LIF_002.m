@@ -36,7 +36,7 @@ clc
    
 % EXTERNAL STIMULUS  -----------------------------------------------------
  
-flagS = 4;        % enter value for type of external input
+flagS = 2;        % enter value for type of external input
 
 switch flagS
     
