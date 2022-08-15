@@ -2,7 +2,7 @@
 % 19 march 2016
 % Ian Cooper
 % School of Physics, University of Sydney
-% https://d-arora.github.io/Doing-Physics-With-Matlab/
+% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
 
 % Numerical differentation
 %    1st derivative dy/dx   forward   backward   central  difference methods
@@ -71,6 +71,28 @@ end
 % del2 function: second derivative of y 
 
 del2y = 4*del2(y,dx);
+
+
+% Symbolic (analytical) differentiation ================================
+
+syms z t
+
+% First Derivatives - symbolic functions to array values
+  df_dz = diff(3*sin(2*z),z)   % w.r.t z
+  u = 1:8;            % range
+  v = subs(df_dz,u)   % symbolic  values  
+  v = double(v)       % numerical values
+
+  df_dz = diff(sin(3*z - 5*t),z)  % w.r.t  z
+ 
+  df_dt = diff(sin(3*z - 5*t),t)  % w.r.t  t
+
+  % Second Derivatives
+    df2_dz2 = diff(sin(3*z - 5*t),z,2)  % w.r.t z
+
+    df2_dt2 = diff(sin(3*z - 5*t),t,2)  % w.r.t t  
+
+
 
 % GRAPHICS ===============================================================
 

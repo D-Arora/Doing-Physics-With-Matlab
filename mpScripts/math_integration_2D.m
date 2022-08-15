@@ -48,7 +48,7 @@ set(gcf,'Units','normalized');
 set(gcf,'Position',[0.2 0.2 0.4 0.4]);
 plot(xx,yy,'o')
 axis([-1 3 0 6])
-set(gcf,'Xlim',[-1 3]);
+set(gca,'Xlim',[-1 3]);
 axis equal
 xlabel(tx,'fontsize',fs);
 ylabel(ty,'fontsize',fs);

@@ -2,7 +2,7 @@
 % 18 march 2016
 % Ian Cooper
 % School of Physics, University of Sydney
-% https://d-arora.github.io/Doing-Physics-With-Matlab/
+% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
 
 % DIVERGENCE and CURL OF A VECTOR FIELD
    
@@ -89,6 +89,7 @@ figure(2);  %  divergence ------------------------------------------------
     
     h = quiver3(p1, p2, p3, p4, p5, p6);
     set(h,'color',[0 0 1],'linewidth', 2);
+    set(h,'AutoScale','on', 'AutoScaleFactor',0.5)
     axis tight
      set(gca,'xLim',[minX, maxX]);
      set(gca,'yLim',[minY, maxY]);
