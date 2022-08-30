@@ -1,0 +1,2486 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 15">
+<meta name=Originator content="Microsoft Word 15">
+<link rel=File-List href="cemEDR_files/filelist.xml">
+<link rel=Edit-Time-Data href="cemEDR_files/editdata.mso">
+<link rel=OLE-Object-Data href="cemEDR_files/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>generating electromagnetic waves</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Subject>electromagnetism</o:Subject>
+  <o:Author>Ian Cooper</o:Author>
+  <o:Keywords>electric dipole, electric dipole radiation, Hertzian dipole, electromagnetic waves, matlab physics, matlab simulations</o:Keywords>
+  <o:LastAuthor>Ian Cooper</o:LastAuthor>
+  <o:Revision>36</o:Revision>
+  <o:TotalTime>1312</o:TotalTime>
+  <o:Created>2022-08-26T20:03:00Z</o:Created>
+  <o:LastSaved>2022-08-30T21:34:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>1716</o:Words>
+  <o:Characters>9783</o:Characters>
+  <o:Category>generating electromagnetic waves</o:Category>
+  <o:Lines>81</o:Lines>
+  <o:Paragraphs>22</o:Paragraphs>
+  <o:CharactersWithSpaces>11477</o:CharactersWithSpaces>
+  <o:Version>16.00</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+<link rel=themeData href="cemEDR_files/themedata.thmx">
+<link rel=colorSchemeMapping href="cemEDR_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-AU</w:LidThemeOther>
+  <w:LidThemeAsian>ZH-CN</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:UseWord2010TableStyleRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
+  DefSemiHidden="false" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="376">
+  <w:LsdException Locked="false" Priority="0" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="0" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 7"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 8"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 9"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 9"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal Indent"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footnote text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="header"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footer"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index heading"/>
+  <w:LsdException Locked="false" Priority="35" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="table of figures"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="envelope address"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="envelope return"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footnote reference"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation reference"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="line number"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="page number"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="endnote reference"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="endnote text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="table of authorities"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="macro"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="toa heading"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 5"/>
+  <w:LsdException Locked="false" Priority="10" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Closing"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Signature"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="true"
+   UnhideWhenUsed="true" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Message Header"/>
+  <w:LsdException Locked="false" Priority="11" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Salutation"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Date"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text First Indent"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text First Indent 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Note Heading"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Block Text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Hyperlink"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="FollowedHyperlink"/>
+  <w:LsdException Locked="false" Priority="22" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Document Map"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Plain Text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="E-mail Signature"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Top of Form"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Bottom of Form"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal (Web)"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Acronym"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Address"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Cite"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Code"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Definition"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Keyboard"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Preformatted"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Sample"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Typewriter"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Variable"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal Table"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation subject"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="No List"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 7"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 8"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 7"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 8"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Contemporary"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Elegant"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Professional"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Subtle 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Subtle 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Balloon Text"/>
+  <w:LsdException Locked="false" Priority="59" Name="Table Grid"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Theme"/>
+  <w:LsdException Locked="false" SemiHidden="true" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" QFormat="true"
+   Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" QFormat="true"
+   Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" QFormat="true"
+   Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" QFormat="true"
+   Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" QFormat="true"
+   Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" QFormat="true"
+   Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" SemiHidden="true"
+   UnhideWhenUsed="true" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="TOC Heading"/>
+  <w:LsdException Locked="false" Priority="41" Name="Plain Table 1"/>
+  <w:LsdException Locked="false" Priority="42" Name="Plain Table 2"/>
+  <w:LsdException Locked="false" Priority="43" Name="Plain Table 3"/>
+  <w:LsdException Locked="false" Priority="44" Name="Plain Table 4"/>
+  <w:LsdException Locked="false" Priority="45" Name="Plain Table 5"/>
+  <w:LsdException Locked="false" Priority="40" Name="Grid Table Light"/>
+  <w:LsdException Locked="false" Priority="46" Name="Grid Table 1 Light"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark"/>
+  <w:LsdException Locked="false" Priority="51" Name="Grid Table 6 Colorful"/>
+  <w:LsdException Locked="false" Priority="52" Name="Grid Table 7 Colorful"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 1"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 1"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 1"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 2"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 2"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 2"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 3"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 3"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 3"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 4"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 4"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 5"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 5"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 5"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 6"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 6"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 6"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 6"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 6"/>
+  <w:LsdException Locked="false" Priority="46" Name="List Table 1 Light"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark"/>
+  <w:LsdException Locked="false" Priority="51" Name="List Table 6 Colorful"/>
+  <w:LsdException Locked="false" Priority="52" Name="List Table 7 Colorful"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 1"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 1"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 1"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 2"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 2"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 2"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 3"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 3"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 3"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 4"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 4"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 5"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 5"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 5"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 6"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 6"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 6"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 6"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Mention"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Smart Hyperlink"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Hashtag"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Unresolved Mention"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Smart Link"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:\5B8B\4F53;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 680460288 22 0 262145 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-469750017 -1073732485 9 0 511 0;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-520081665 -1073717157 41 0 66047 0;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 680460288 22 0 262145 0;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:modern;
+	mso-font-pitch:fixed;
+	mso-font-signature:-536869121 64767 1 0 415 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:105%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-ansi-language:EN-AU;}
+h1
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 1 Char";
+	mso-style-next:Normal;
+	margin:0cm;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:12.0pt;
+	font-family:"Arial",sans-serif;
+	mso-fareast-font-family:SimSun;
+	mso-font-kerning:0pt;
+	mso-ansi-language:EN-AU;
+	mso-fareast-language:EN-US;}
+a:link, span.MsoHyperlink
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:purple;
+	mso-themecolor:followedhyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	line-height:105%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-ansi-language:EN-AU;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	line-height:105%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-ansi-language:EN-AU;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	line-height:105%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-ansi-language:EN-AU;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	line-height:105%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-ansi-language:EN-AU;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 1";
+	mso-ansi-font-size:12.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Arial",sans-serif;
+	mso-ascii-font-family:Arial;
+	mso-fareast-font-family:SimSun;
+	mso-hansi-font-family:Arial;
+	mso-bidi-font-family:Arial;
+	mso-fareast-language:EN-US;
+	font-weight:bold;}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{mso-style-name:msonormal;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:16.0pt;
+	mso-ansi-font-size:16.0pt;
+	mso-bidi-font-size:16.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-ansi-language:EN-AU;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-ansi-language:EN-AU;}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-priority:59;
+	mso-style-unhide:no;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0cm;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-ansi-language:EN-AU;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-GB link=blue vlink=purple style='tab-interval:36.0pt;word-wrap:
+break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:20.9pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=850 valign=top style='width:637.85pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
+  lang=EN-AU><a href="https://d-arora.github.io/Doing-Physics-With-Matlab/"><span
+  lang=EN-GB style='font-size:20.0pt;line-height:150%;font-family:"Bookman Old Style",serif;
+  mso-bidi-font-family:"Times New Roman";mso-ansi-language:EN-GB'>DOING PHYSICS
+  WITH MATLAB</span></a></span></b><b><span style='font-size:20.0pt;line-height:
+  150%;font-family:"Bookman Old Style",serif;mso-bidi-font-family:"Times New Roman";
+  color:blue;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
+  style='font-family:"Times New Roman",serif;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
+  style='font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'>Ian Cooper<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
+  style='font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'>matlabvisualphysics@gmail.com<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  style='font-family:"Times New Roman",serif;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><b><span style='font-size:20.0pt;line-height:150%;
+  font-family:"Bookman Old Style",serif;mso-bidi-font-family:"Times New Roman";
+  color:#632423;mso-themecolor:accent2;mso-themeshade:128;mso-ansi-language:
+  EN-GB'>A COMPUTATIONAL APPROACH TO <o:p></o:p></span></b></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><b><span style='font-size:20.0pt;line-height:150%;
+  font-family:"Bookman Old Style",serif;mso-bidi-font-family:"Times New Roman";
+  color:#632423;mso-themecolor:accent2;mso-themeshade:128;mso-ansi-language:
+  EN-GB'>ELECTROMAGNETIC THEORY<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
+  style='mso-bidi-font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style",serif;
+  mso-bidi-font-family:"Times New Roman";color:#632423;mso-themecolor:accent2;
+  mso-themeshade:128;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><b><span style='font-size:20.0pt;line-height:150%;
+  font-family:"Bookman Old Style",serif;mso-bidi-font-family:"Times New Roman";
+  color:#632423;mso-themecolor:accent2;mso-themeshade:128;mso-ansi-language:
+  EN-GB'>ELECTRIC DIPOLE RADIATION<o:p></o:p></span></b></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><b><span style='font-size:20.0pt;line-height:150%;
+  font-family:"Bookman Old Style",serif;mso-bidi-font-family:"Times New Roman";
+  color:#632423;mso-themecolor:accent2;mso-themeshade:128;mso-ansi-language:
+  EN-GB'>Generation of EM waves<o:p></o:p></span></b></p>
+  <h1 style='line-height:150%'><span style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></h1>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;font-family:"Bookman Old Style",serif;mso-bidi-font-family:
+  Tahoma;color:#943634;mso-themecolor:accent2;mso-themeshade:191'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;font-family:"Bookman Old Style",serif;mso-bidi-font-family:
+  Tahoma;color:#943634;mso-themecolor:accent2;mso-themeshade:191'>DOWNLOAD
+  DIRECTORIES FOR MATLAB SCRIPTS</span></b><b style='mso-bidi-font-weight:normal'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style",serif;
+  mso-bidi-font-family:Tahoma;color:#984806;mso-themecolor:accent6;mso-themeshade:
+  128'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;font-family:"Bookman Old Style",serif;mso-bidi-font-family:
+  Tahoma;color:#984806;mso-themecolor:accent6;mso-themeshade:128'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;font-family:"Bookman Old Style",serif;mso-bidi-font-family:
+  Tahoma'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></b><span
+  lang=EN-AU><a
+  href="https://drive.google.com/drive/u/3/folders/1j09aAhfrVYpiMavajrgSvUMc89ksF9Jb"><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style",serif;
+  mso-bidi-font-family:Tahoma'>Google drive</span></a></span><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;font-family:"Bookman Old Style",serif;mso-bidi-font-family:
+  Tahoma'><o:p></o:p></span></b></p>
+  <h1 style='line-height:150%'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;font-family:"Bookman Old Style",serif;mso-bidi-font-weight:
+  normal'><o:p>&nbsp;</o:p></span></h1>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;font-family:"Bookman Old Style",serif;mso-fareast-language:
+  EN-US'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></b><span
+  lang=EN-AU><a
+  href="https://github.com/D-Arora/Doing-Physics-With-Matlab/tree/master/mpScripts"><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style",serif'>GitHub</span></a></span><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;font-family:"Bookman Old Style",serif;mso-fareast-language:
+  EN-US'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;color:#984807;mso-themecolor:
+  accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>cemEDR01.m<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>E field and B field
+  plots generated by an oscillating electric dipole. Vector diagrams and
+  contour plots.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;color:#984807;mso-themecolor:
+  accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>cemEDR02.m<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>E field, B field,
+  Poynting vector plots generated by an oscillating electric dipole.<span
+  style='mso-spacerun:yes'>&nbsp; </span>Animation of E field and B field as a
+  function of the radial displacement from the dipole.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;color:#984807;mso-themecolor:
+  accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>cemEDR03.m<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>Animation of the E field
+  in the YZ plane.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;color:#984807;mso-themecolor:
+  accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>cemEDR04.m<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>E-field and B field as
+  functions of radial displacement and polar angle.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;color:#984807;mso-themecolor:
+  accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>DrawArrow.m<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>This function is used to
+  add arrows to a plot.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:115%'><span
+  style='font-size:14.0pt;line-height:115%;font-family:Consolas;mso-fareast-font-family:
+  "Times New Roman";mso-bidi-font-family:"Times New Roman";mso-ansi-language:
+  EN-GB'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>zT = 2+2.5i; zTmag
+  = 1.3; zTA = pi/2+atan2(2.5,2);<o:p></o:p></span></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:115%'><span
+  style='font-size:14.0pt;line-height:115%;font-family:Consolas;mso-fareast-font-family:
+  "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#984807;
+  mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;mso-ansi-language:
+  EN-GB'><span style='mso-spacerun:yes'>&nbsp;&nbsp; </span><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;</span>HL = 0.2; HW = 0.2; LW = 2; col =
+  [0 0 1];<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:115%'><span
+  style='font-size:14.0pt;line-height:115%;font-family:Consolas;mso-fareast-font-family:
+  "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#984807;
+  mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;mso-ansi-language:
+  EN-GB'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>DrawArrow(zT, zTmag, zTA, HL, HW, LW, col)<span
+  style='mso-spacerun:yes'>&nbsp; </span>% B<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:115%'><span
+  style='font-size:14.0pt;line-height:115%;font-family:Consolas;mso-fareast-font-family:
+  "Times New Roman";mso-bidi-font-family:"Times New Roman";color:#984807;
+  mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;</span>zT<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Tail of the arrow expressed as a
+  complex number;<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>zTmag<span
+  style='mso-spacerun:yes'>&nbsp; </span><span
+  style='mso-spacerun:yes'>&nbsp;</span>magnitude of the vector;<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>zTA<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>angle of the vector w.r.t.
+  &#8220;X axis&#8221; in radians;<span style='mso-spacerun:yes'>&nbsp;&nbsp;
+  </span>HL<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>arrow head
+  length;<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>HW<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>arrow head width;<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>LW<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>line width;<span
+  style='mso-spacerun:yes'>&nbsp; </span>col<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>colour of arrow.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
+  lang=EN-AU style='font-size:18.0pt;line-height:150%;font-family:"Bookman Old Style",serif;
+  color:#632523;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #632523;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
+  lang=EN-AU style='font-size:18.0pt;line-height:150%;font-family:"Bookman Old Style",serif;
+  color:#632523;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #632523;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>INTRODUCTION<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>Maxwell's equations
+  imply that classical electromagnetic radiation is generated by accelerating
+  electrical charges. As an example, we will consider the generation of
+  electromagnetic waves from an <b><span style='color:#7030A0'>oscillating
+  electric dipole</span></b>. Although this is an idealized system, it provides
+  a basic building block for constructing realistic sources of radiation from
+  antenna systems. An infinitesimal electric dipole oscillating at a single
+  frequency is known as an <b><span style='color:#7030A0'>Hertzian dipole</span></b>.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>Matlab can be used extensively
+  to de-mystify much of the complicated mathematics describing the generation
+  of electromagnetic waves. Such an approach may be helpful for students to
+  understand better radiation phenomena.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
+  lang=EN-AU style='font-size:18.0pt;line-height:150%;font-family:"Bookman Old Style",serif;
+  color:#632523;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #632523;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>ELECTRIC DIPOLE<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>Consider two point-like
+  particles located on the Z axis, and close to each other on opposite sides of
+  the Origin. Suppose an electric current (charge) flows between the two
+  particles. The charge oscillates on each particle oscillates as<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>(1A)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span lang=EN-AU><span style='position:relative;top:7.0pt;
+  mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+   coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+   filled="f" stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:78pt;
+   height:24pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image001.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=104 height=32
+  src="cemEDR_files/image002.png" v:shapes="_x0000_i1025"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1025"
+    DrawAspect="Content" ObjectID="_1723436495">
+   </o:OLEObject>
+  </xml><![endif]--></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span lang=EN-AU style='font-size:16.0pt;line-height:150%'>(1B)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span lang=EN-AU><span style='position:relative;top:7.0pt;
+  mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1026" type="#_x0000_t75"
+   style='width:89.25pt;height:24pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image003.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=119 height=32
+  src="cemEDR_files/image004.png" v:shapes="_x0000_i1026"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1026"
+    DrawAspect="Content" ObjectID="_1723436496">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>The current between the
+  charges is<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>(2)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span lang=EN-AU><span style='position:relative;top:19.0pt;
+  mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1027" type="#_x0000_t75"
+   style='width:321.75pt;height:44.25pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image005.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=429 height=59
+  src="cemEDR_files/image006.png" v:shapes="_x0000_i1027"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1027"
+    DrawAspect="Content" ObjectID="_1723436497">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>We can calculate the
+  vector potential </span><span lang=EN-AU><span style='position:relative;
+  top:2.0pt;mso-text-raise:-2.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1028"
+   type="#_x0000_t75" style='width:14.25pt;height:18.75pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image007.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=19 height=25
+  src="cemEDR_files/image009.png" v:shapes="_x0000_i1028"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1028"
+    DrawAspect="Content" ObjectID="_1723436498">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>at a point </span><span
+  lang=EN-AU><span style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1029" type="#_x0000_t75" style='width:50.25pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image011.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=67 height=32
+  src="cemEDR_files/image012.png" v:shapes="_x0000_i1029"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1029"
+    DrawAspect="Content" ObjectID="_1723436499">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'>taking into account the time delay </span><span lang=EN-AU><span
+  style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1030" type="#_x0000_t75" style='width:41.25pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image014.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=55 height=32
+  src="cemEDR_files/image015.png" v:shapes="_x0000_i1030"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1030"
+    DrawAspect="Content" ObjectID="_1723436500">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>for the EM wave
+  travelling at the speed of light </span><i><span lang=EN-AU style='font-size:
+  16.0pt;line-height:150%;font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>c</span></i><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'> to reach P from the
+  dipole.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%;
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_11" o:spid="_x0000_i1114"
+   type="#_x0000_t75" style='width:470.25pt;height:207pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="cemEDR_files/image013.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=627 height=276
+  src="cemEDR_files/image016.png" v:shapes="Picture_x0020_11"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>Fig. 1.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Radiating dipole: dipole moment </span><span
+  lang=EN-AU><span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1032" type="#_x0000_t75" style='width:66pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image017.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=88 height=29
+  src="cemEDR_files/image018.png" v:shapes="_x0000_i1032"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1032"
+    DrawAspect="Content" ObjectID="_1723436501">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>and dipole current </span><span
+  lang=EN-AU><span style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1033" type="#_x0000_t75" style='width:21pt;height:24pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image019.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=28 height=32
+  src="cemEDR_files/image020.png" v:shapes="_x0000_i1033"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1033"
+    DrawAspect="Content" ObjectID="_1723436502">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'><span style='mso-spacerun:yes'>&nbsp;</span></span><span lang=EN-AU
+  style='font-size:22.0pt;line-height:150%'>.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>Wave parameters:<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-AU><span style='position:relative;top:15.0pt;mso-text-raise:-15.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1034" type="#_x0000_t75" style='width:215.25pt;height:39.75pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image021.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=287 height=53
+  src="cemEDR_files/image022.png" v:shapes="_x0000_i1034"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1034"
+    DrawAspect="Content" ObjectID="_1723436503">
+   </o:OLEObject>
+  </xml><![endif]-->.</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>Vector potential:<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span lang=EN-AU><span style='position:relative;top:19.0pt;
+  mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1035" type="#_x0000_t75"
+   style='width:339pt;height:44.25pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image023.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=452 height=59
+  src="cemEDR_files/image024.png" v:shapes="_x0000_i1035"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1035"
+    DrawAspect="Content" ObjectID="_1723436504">
+   </o:OLEObject>
+  </xml><![endif]--></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span lang=EN-AU><span style='position:relative;top:12.0pt;
+  mso-text-raise:-12.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1036" type="#_x0000_t75"
+   style='width:149.25pt;height:32.25pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image025.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=199 height=43
+  src="cemEDR_files/image026.png" v:shapes="_x0000_i1036"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1036"
+    DrawAspect="Content" ObjectID="_1723436505">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>(3)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-AU><span style='position:relative;top:22.0pt;mso-text-raise:-22.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1037" type="#_x0000_t75" style='width:272.25pt;height:51.75pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image027.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=363 height=69
+  src="cemEDR_files/image028.png" v:shapes="_x0000_i1037"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1037"
+    DrawAspect="Content" ObjectID="_1723436506">
+   </o:OLEObject>
+  </xml><![endif]--></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>The B-field is easy to
+  calculate since<span style='mso-spacerun:yes'>&nbsp; </span></span><span
+  lang=EN-AU><span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1038" type="#_x0000_t75" style='width:96pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image029.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=128 height=29
+  src="cemEDR_files/image030.png" v:shapes="_x0000_i1038"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1038"
+    DrawAspect="Content" ObjectID="_1723436507">
+   </o:OLEObject>
+  </xml><![endif]--></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='mso-spacerun:yes'>&nbsp;&nbsp;</span><span
+  style='position:relative;top:19.0pt;mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1039" type="#_x0000_t75" style='width:243pt;height:44.25pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image031.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=324 height=59
+  src="cemEDR_files/image032.png" v:shapes="_x0000_i1039"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1039"
+    DrawAspect="Content" ObjectID="_1723436508">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;text-indent:14.25pt;line-height:
+  150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%'>(4A)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-AU><span style='position:relative;top:22.0pt;mso-text-raise:-22.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1040" type="#_x0000_t75" style='width:234pt;height:51.75pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image033.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=312 height=69
+  src="cemEDR_files/image037.png" v:shapes="_x0000_i1040"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1040"
+    DrawAspect="Content" ObjectID="_1723436509">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:14.0pt;line-height:
+  150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;text-indent:14.25pt;line-height:
+  150%'><span lang=EN-AU style='font-size:14.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;text-indent:14.25pt;line-height:
+  150%'><span lang=EN-AU style='font-size:14.0pt;line-height:150%'>(4B)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-AU><span style='position:relative;top:20.0pt;mso-text-raise:-20.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1041" type="#_x0000_t75" style='width:378.75pt;height:48pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image039.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=505 height=64
+  src="cemEDR_files/image041.png" v:shapes="_x0000_i1041"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1041"
+    DrawAspect="Content" ObjectID="_1723436510">
+   </o:OLEObject>
+  </xml><![endif]--></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;text-indent:14.25pt;line-height:
+  150%'><span lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;text-indent:14.25pt;line-height:
+  150%'><span lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>The electric field can
+  be obtained from one of Maxwell&#8217;s equations in free space<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;text-indent:14.25pt;line-height:
+  150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span lang=EN-AU><span style='position:relative;top:19.0pt;
+  mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1042" type="#_x0000_t75"
+   style='width:92.25pt;height:45.75pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image042.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=123 height=61
+  src="cemEDR_files/image043.png" v:shapes="_x0000_i1042"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1042"
+    DrawAspect="Content" ObjectID="_1723436511">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>Using the fact that </span><span
+  lang=EN-AU><span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1043" type="#_x0000_t75" style='width:90.75pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image045.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=121 height=29
+  src="cemEDR_files/image046.png" v:shapes="_x0000_i1043"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1043"
+    DrawAspect="Content" ObjectID="_1723436512">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;</span></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>and in spherical
+  coordinates<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;text-indent:14.25pt;line-height:
+  150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span lang=EN-AU><span style='position:relative;top:20.0pt;
+  mso-text-raise:-20.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1044" type="#_x0000_t75"
+   style='width:279pt;height:48pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image047.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=372 height=64
+  src="cemEDR_files/image049.png" v:shapes="_x0000_i1044"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1044"
+    DrawAspect="Content" ObjectID="_1723436513">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;text-indent:14.25pt;line-height:
+  150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>The electric field is <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;text-indent:14.25pt;line-height:
+  150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(5A)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span lang=EN-AU><span style='position:relative;top:8.0pt;
+  mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1045" type="#_x0000_t75"
+   style='width:141pt;height:26.25pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image050.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=188 height=35
+  src="cemEDR_files/image051.png" v:shapes="_x0000_i1045"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1045"
+    DrawAspect="Content" ObjectID="_1723436514">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;text-indent:14.25pt;line-height:
+  150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>(5B)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1046" type="#_x0000_t75" style='width:141pt;height:26.25pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image052.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=188 height=35
+  src="cemEDR_files/image051.png" v:shapes="_x0000_i1046"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1046"
+    DrawAspect="Content" ObjectID="_1723436515">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;text-indent:14.25pt;line-height:
+  150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>To convert spherical
+  coordinates to Cartesian coordinates use<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;text-indent:14.25pt;line-height:
+  150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span lang=EN-AU><span style='position:relative;top:6.0pt;
+  mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1047" type="#_x0000_t75"
+   style='width:243pt;height:24pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image053.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=324 height=32
+  src="cemEDR_files/image055.png" v:shapes="_x0000_i1047"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1047"
+    DrawAspect="Content" ObjectID="_1723436516">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;text-indent:14.25pt;line-height:
+  150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span lang=EN-AU><span style='position:relative;top:6.0pt;
+  mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1048" type="#_x0000_t75"
+   style='width:243pt;height:24pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image056.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=324 height=32
+  src="cemEDR_files/image119.png" v:shapes="_x0000_i1048"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1048"
+    DrawAspect="Content" ObjectID="_1723436517">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;text-indent:14.25pt;line-height:
+  150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span lang=EN-AU><span style='position:relative;top:6.0pt;
+  mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1049" type="#_x0000_t75"
+   style='width:132pt;height:24pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image151.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=176 height=32
+  src="cemEDR_files/image153.png" v:shapes="_x0000_i1049"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1049"
+    DrawAspect="Content" ObjectID="_1723436518">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;text-indent:14.25pt;line-height:
+  150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;text-indent:14.25pt;line-height:
+  150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(5C)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-AU><span style='position:relative;top:20.0pt;mso-text-raise:-20.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1050" type="#_x0000_t75" style='width:198.75pt;height:48pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image155.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=265 height=64
+  src="cemEDR_files/image157.png" v:shapes="_x0000_i1050"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1050"
+    DrawAspect="Content" ObjectID="_1723436519">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;text-indent:14.25pt;line-height:
+  150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;text-indent:14.25pt;line-height:
+  150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(5D)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-AU><span style='position:relative;top:21.0pt;mso-text-raise:-21.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1051" type="#_x0000_t75" style='width:308.25pt;height:50.25pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image159.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=411 height=67
+  src="cemEDR_files/image161.png" v:shapes="_x0000_i1051"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1051"
+    DrawAspect="Content" ObjectID="_1723436520">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;text-indent:14.25pt;line-height:
+  150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;text-indent:14.25pt;line-height:
+  150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(5E)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-AU><span style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1052" type="#_x0000_t75" style='width:44.25pt;height:23.25pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image163.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=59 height=31
+  src="cemEDR_files/image165.png" v:shapes="_x0000_i1052"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1052"
+    DrawAspect="Content" ObjectID="_1723436521">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'><span style='mso-spacerun:yes'>&nbsp;&nbsp;</span></span><span
+  style='font-size:22.0pt;line-height:150%;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;text-indent:14.25pt;line-height:
+  150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>The field equation all
+  involve the <b><span style='color:#7030A0'>phase factor</span></b><span
+  style='color:#7030A0'><span style='mso-spacerun:yes'>&nbsp; </span></span><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1053" type="#_x0000_t75" style='width:48pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image169.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=64 height=27
+  src="cemEDR_files/image171.png" v:shapes="_x0000_i1053"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1053"
+    DrawAspect="Content" ObjectID="_1723436522">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;&nbsp;</span>and additional
+  factors for the radial displacement and polar angle from the dipole. The
+  phase factor means that the field propagate as an electromagnetic wave away
+  from the dipole at the speed of light in the radial direction with a
+  frequency </span><span lang=EN-AU><span style='position:relative;top:3.0pt;
+  mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1054" type="#_x0000_t75"
+   style='width:14.25pt;height:12.75pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image173.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=19 height=17
+  src="cemEDR_files/image175.png" v:shapes="_x0000_i1054"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1054"
+    DrawAspect="Content" ObjectID="_1723436523">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'><span style='mso-spacerun:yes'>&nbsp;</span>which is equal to the
+  dipole oscillation frequency.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;text-indent:14.25pt;line-height:
+  150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>In the far field region </span><span
+  lang=EN-AU><span style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1055" type="#_x0000_t75" style='width:63pt;height:24pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image177.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=84 height=32
+  src="cemEDR_files/image179.png" v:shapes="_x0000_i1055"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1055"
+    DrawAspect="Content" ObjectID="_1723436524">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'><span style='mso-spacerun:yes'>&nbsp;</span>the E and B fields are
+  observed at distances large compared to the wavelength from the dipole where
+  the dominant field components are </span><span lang=EN-AU><span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1056" type="#_x0000_t75" style='width:18.75pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image181.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=25 height=29
+  src="cemEDR_files/image184.png" v:shapes="_x0000_i1056"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1056"
+    DrawAspect="Content" ObjectID="_1723436525">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>and </span><span
+  lang=EN-AU><span style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1057" type="#_x0000_t75" style='width:18pt;height:23.25pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image188.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=24 height=31
+  src="cemEDR_files/image192.png" v:shapes="_x0000_i1057"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1057"
+    DrawAspect="Content" ObjectID="_1723436526">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'>.<span style='mso-spacerun:yes'>&nbsp; </span>Figure 2 shows these
+  dominant components.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%;
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_32" o:spid="_x0000_i1113"
+   type="#_x0000_t75" style='width:287.25pt;height:449.25pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="cemEDR_files/image193.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=383 height=599
+  src="cemEDR_files/image194.png" v:shapes="Picture_x0020_32"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>Fig. 2.<span
+  style='mso-spacerun:yes'>&nbsp; </span>The E and B fields components are
+  perpendicular to each other and to the direction of energy transfer (Poynting
+  vector &#8211; radial direction </span><span lang=EN-AU><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1059" type="#_x0000_t75" style='width:14.25pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image206.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=19 height=27
+  src="cemEDR_files/image207.png" v:shapes="_x0000_i1059"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1059"
+    DrawAspect="Content" ObjectID="_1723436527">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'>).<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span><span
+  style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>cemEDR01.m<o:p></o:p></span></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>The energy radiated from
+  the dipole is given by the Poynting vector </span><span lang=EN-AU><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1060" type="#_x0000_t75" style='width:14.25pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image208.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=19 height=27
+  src="cemEDR_files/image207.png" v:shapes="_x0000_i1060"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1060"
+    DrawAspect="Content" ObjectID="_1723436528">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>which gives the amount
+  of energy in a electromagnetic field crossing unit area perpendicular to </span><span
+  lang=EN-AU><span style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1061" type="#_x0000_t75" style='width:14.25pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image209.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=19 height=27
+  src="cemEDR_files/image207.png" v:shapes="_x0000_i1061"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1061"
+    DrawAspect="Content" ObjectID="_1723436529">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'><span style='mso-spacerun:yes'>&nbsp;</span>per unit time.<span
+  style='mso-spacerun:yes'>&nbsp; </span>The Poynting vector averaged over one
+  complete cycle can be expressed as<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>(6A)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:21.0pt;mso-text-raise:-21.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1062" type="#_x0000_t75" style='width:321.75pt;height:50.25pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image210.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=429 height=67
+  src="cemEDR_files/image211.png" v:shapes="_x0000_i1062"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1062"
+    DrawAspect="Content" ObjectID="_1723436530">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>and the instantaneous
+  Poynting vector as<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>(6B)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span lang=EN-AU><span style='position:relative;top:21.0pt;
+  mso-text-raise:-21.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1063" type="#_x0000_t75"
+   style='width:405pt;height:50.25pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image212.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=540 height=67
+  src="cemEDR_files/image213.png" v:shapes="_x0000_i1063"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1063"
+    DrawAspect="Content" ObjectID="_1723436531">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>There is zero radiation
+  along the axis of the dipole </span><span lang=EN-AU><span style='position:
+  relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1064"
+   type="#_x0000_t75" style='width:122.25pt;height:24pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image214.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=163 height=32
+  src="cemEDR_files/image215.png" v:shapes="_x0000_i1064"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1064"
+    DrawAspect="Content" ObjectID="_1723436532">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>and is a maximum in the
+  equatorial plane </span><span lang=EN-AU><span style='position:relative;
+  top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1065"
+   type="#_x0000_t75" style='width:141pt;height:24pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image216.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=188 height=32
+  src="cemEDR_files/image217.png" v:shapes="_x0000_i1065"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1065"
+    DrawAspect="Content" ObjectID="_1723436533">
+   </o:OLEObject>
+  </xml><![endif]-->. </span><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%'>The energy transferred is thus proportional to the fourth
+  power of the frequency <span style='position:relative;top:10.0pt;mso-text-raise:
+  -10.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1066" type="#_x0000_t75"
+   style='width:60.75pt;height:27.75pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image218.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=81 height=37
+  src="cemEDR_files/image219.png" v:shapes="_x0000_i1066"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1066"
+    DrawAspect="Content" ObjectID="_1723436534">
+   </o:OLEObject>
+  </xml><![endif]-->.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
+  lang=EN-AU style='font-size:18.0pt;line-height:150%;font-family:"Bookman Old Style",serif;
+  color:#632523;mso-themecolor:accent2;mso-themeshade:128;mso-style-textfill-fill-color:
+  #632523;mso-style-textfill-fill-themecolor:accent2;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>MODELLING<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>The usual textbook
+  treatment is mainly mathematical with images or detailed plots of the fields
+  barely shown.<span style='mso-spacerun:yes'>&nbsp; </span>Using Matlab as a
+  tool, you gain a much greater insight to EM wave generation than with the
+  mathematics alone.<span style='mso-spacerun:yes'>&nbsp; </span>Also, much of
+  the algebra can be avoided. For example, given the electric field as a
+  complex quantity, there is no need to do all the &#8220;hard work&#8221; in
+  finding the real part. The electric field given by equation (5D) can be
+  computed and only the real part plotted. The many figures below indicate some
+  of the possibilities of giving a more visual picture of the EM radiation
+  emitted from an electric dipole. The default wavelength for the modelling is </span><span
+  lang=EN-AU><span style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1067" type="#_x0000_t75" style='width:1in;height:18.75pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image220.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=96 height=25
+  src="cemEDR_files/image221.png" v:shapes="_x0000_i1067"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1067"
+    DrawAspect="Content" ObjectID="_1723436535">
+   </o:OLEObject>
+  </xml><![endif]-->.</span><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%'> <o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%;
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_34" o:spid="_x0000_i1112"
+   type="#_x0000_t75" style='width:287.25pt;height:449.25pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="cemEDR_files/image222.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=383 height=599
+  src="cemEDR_files/image223.png" v:shapes="Picture_x0020_34"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>Fig. 3A.<span
+  style='mso-spacerun:yes'>&nbsp; </span>Plots of the components of the E and B
+  fields at time </span><span lang=EN-AU><span style='position:relative;
+  top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1069"
+   type="#_x0000_t75" style='width:51pt;height:18.75pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image224.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=68 height=25
+  src="cemEDR_files/image225.png" v:shapes="_x0000_i1069"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1069"
+    DrawAspect="Content" ObjectID="_1723436536">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'>. The <b><span style='color:red'>red</span></b> curves for the
+  envelopes show the decreases in field strengths as functions of the radial
+  displacement.<span style='mso-spacerun:yes'>&nbsp; </span>At any time, the E
+  field and B field are in phase with each other.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span lang=EN-AU><span
+  style='position:relative;top:10.0pt;mso-text-raise:-10.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1070" type="#_x0000_t75" style='width:225.75pt;height:27.75pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image226.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=301 height=37
+  src="cemEDR_files/image227.png" v:shapes="_x0000_i1070"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1070"
+    DrawAspect="Content" ObjectID="_1723436537">
+   </o:OLEObject>
+  </xml><![endif]-->.<span style='mso-spacerun:yes'>&nbsp; </span></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>The distance between
+  peaks is </span><span lang=EN-AU><span style='position:relative;top:3.0pt;
+  mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1071" type="#_x0000_t75"
+   style='width:12.75pt;height:15.75pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image228.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=17 height=21
+  src="cemEDR_files/image229.png" v:shapes="_x0000_i1071"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1071"
+    DrawAspect="Content" ObjectID="_1723436538">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'>.<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span><span
+  style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>cemEDR04.m</span><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%;
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_37" o:spid="_x0000_i1111"
+   type="#_x0000_t75" style='width:287.25pt;height:449.25pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="cemEDR_files/image230.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=383 height=599
+  src="cemEDR_files/image231.png" v:shapes="Picture_x0020_37"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>Fig. 3B.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Plots of the components of the E
+  and B fields at times </span><span lang=EN-AU><span style='position:relative;
+  top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1073"
+   type="#_x0000_t75" style='width:51pt;height:18.75pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image224.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=68 height=25
+  src="cemEDR_files/image225.png" v:shapes="_x0000_i1073"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1073"
+    DrawAspect="Content" ObjectID="_1723436539">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'><span style='mso-spacerun:yes'>&nbsp;</span>and </span><span
+  lang=EN-AU><span style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1074" type="#_x0000_t75" style='width:69pt;height:18.75pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image232.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=92 height=25
+  src="cemEDR_files/image233.png" v:shapes="_x0000_i1074"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1074"
+    DrawAspect="Content" ObjectID="_1723436540">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'>.<span style='mso-spacerun:yes'>&nbsp; </span>Showing the EM wave
+  propagating outward from the dipole source in the radial direction. <span
+  style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>cemEDR04.m</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%;
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_2" o:spid="_x0000_i1110"
+   type="#_x0000_t75" style='width:287.25pt;height:449.25pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="cemEDR_files/image234.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=383 height=599
+  src="cemEDR_files/image235.png" v:shapes="Picture_x0020_2"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>Fig. 4.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>The E and B field strengths
+  depend upon the polar angle </span><span lang=EN-AU><span style='position:
+  relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1076"
+   type="#_x0000_t75" style='width:12pt;height:15.75pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image236.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=21
+  src="cemEDR_files/image237.png" v:shapes="_x0000_i1076"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1076"
+    DrawAspect="Content" ObjectID="_1723436541">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'>. The E and B fields vanish for </span><span lang=EN-AU><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1077" type="#_x0000_t75" style='width:36pt;height:15.75pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image238.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=48 height=21
+  src="cemEDR_files/image239.png" v:shapes="_x0000_i1077"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1077"
+    DrawAspect="Content" ObjectID="_1723436542">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;&nbsp;</span></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>and<span
+  style='mso-spacerun:yes'>&nbsp; </span></span><span lang=EN-AU><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1078" type="#_x0000_t75" style='width:39pt;height:15.75pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image240.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=52 height=21
+  src="cemEDR_files/image241.png" v:shapes="_x0000_i1078"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1078"
+    DrawAspect="Content" ObjectID="_1723436543">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'><span style='mso-spacerun:yes'>&nbsp;&nbsp;</span>,i.e. in the
+  direction of oscillation of the charges in the dipole (Z direction). However,
+  the amplitudes reach a maximum for</span><span lang=EN-AU> <span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1079" type="#_x0000_t75" style='width:57.75pt;height:17.25pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image242.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=77 height=23
+  src="cemEDR_files/image243.png" v:shapes="_x0000_i1079"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1079"
+    DrawAspect="Content" ObjectID="_1723436544">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'><span style='mso-spacerun:yes'>&nbsp;</span>, i.e. in a plane through
+  the dipole and perpendicular to the direction of oscillation of the dipole.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%;
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_56" o:spid="_x0000_i1109"
+   type="#_x0000_t75" style='width:474pt;height:263.25pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="cemEDR_files/image058.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=632 height=351
+  src="cemEDR_files/image244.png" v:shapes="Picture_x0020_56"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>Fig. 5A.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>The electric field lines
+  displayed in the YZ plane at time </span><i><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Times New Roman",serif;
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>t</span></i><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Times New Roman",serif;
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'> = 0</span><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%'> and </span><i><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Times New Roman",serif;
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>t</span></i><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Times New Roman",serif;
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'> = 1.0</span><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%'> ns (period </span><i><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Times New Roman",serif;
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>T</span></i><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%'> = </span><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Times New Roman",serif;
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>3.3356</span><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%'> ns).<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span><span style='color:#984807;
+  mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>cemEDR01.m<o:p></o:p></span></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%;
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_4" o:spid="_x0000_i1108"
+   type="#_x0000_t75" style='width:359.25pt;height:314.25pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="cemEDR_files/image245.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=479 height=419
+  src="cemEDR_files/image246.png" v:shapes="Picture_x0020_4"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>Fig. 5B.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>The electric field lines
+  displayed in the YZ plane as a contour plot of </span><span lang=EN-AU><span
+  style='position:relative;top:10.0pt;mso-text-raise:-10.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1082" type="#_x0000_t75" style='width:144.75pt;height:30pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image247.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=193 height=40
+  src="cemEDR_files/image248.png" v:shapes="_x0000_i1082"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1082"
+    DrawAspect="Content" ObjectID="_1723436545">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'>. The electric field values are scaled to better observe the pattern of
+  the E field lines.<span style='mso-spacerun:yes'>&nbsp; </span>The direction
+  of the oscillating electric dipole (located at the Origin) is the Z axis.<span
+  style='mso-spacerun:yes'>&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>During one period, the
+  loop of E shown closest to the source moves out and expands to become the
+  loop shown farthest from the source.<span style='mso-spacerun:yes'>&nbsp;
+  </span><span style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>cemEDR01.m<o:p></o:p></span></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%;
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_5" o:spid="_x0000_i1107"
+   type="#_x0000_t75" style='width:359.25pt;height:314.25pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="cemEDR_files/image249.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=479 height=419
+  src="cemEDR_files/image250.png" v:shapes="Picture_x0020_5"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>Fig. 5C.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>The electric field lines
+  displayed in the YZ plane. The electric field values are scaled to better
+  observe the pattern of the E field lines. <span style='color:blue'>Blue
+  arrows </span>of unit length some the direction of the E field as random
+  points.<span style='mso-spacerun:yes'>&nbsp; </span>(<i>could not get
+  Matlab&#8217;s quiver or streamline functions to give the vector field</i>)<span
+  style='mso-spacerun:yes'>&nbsp; </span><span style='color:#984807;mso-themecolor:
+  accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>cemEDR01.m<o:p></o:p></span></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%;
+  color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%;
+  color:#F79646;mso-themecolor:accent6;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_8" o:spid="_x0000_i1106" type="#_x0000_t75" style='width:359.25pt;
+   height:224.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="cemEDR_files/image251.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=479 height=299
+  src="cemEDR_files/image252.png" v:shapes="Picture_x0020_8"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;color:#984807;mso-themecolor:
+  accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>Fig. 6.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>The time variation of the E
+  field at a point </span><span lang=EN-AU><span style='position:relative;
+  top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1085"
+   type="#_x0000_t75" style='width:36.75pt;height:24pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image253.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=49 height=32
+  src="cemEDR_files/image254.png" v:shapes="_x0000_i1085"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1085"
+    DrawAspect="Content" ObjectID="_1723436547">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'>. The E field varies sinusoidally in time with a period </span><span
+  lang=EN-AU><span style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1086" type="#_x0000_t75" style='width:179.25pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image255.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=239 height=32
+  src="cemEDR_files/image256.png" v:shapes="_x0000_i1086"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1086"
+    DrawAspect="Content" ObjectID="_1723436548">
+   </o:OLEObject>
+  </xml><![endif]-->.<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;color:#984807;mso-themecolor:
+  accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>cemEDR02.m<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%;
+  color:#F79646;mso-themecolor:accent6;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_9" o:spid="_x0000_i1105" type="#_x0000_t75" style='width:6in;
+   height:405pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="cemEDR_files/image066.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=576 height=540
+  src="cemEDR_files/image066.gif" v:shapes="Picture_x0020_9"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;color:#984807;mso-themecolor:
+  accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;color:#984807;mso-themecolor:
+  accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>Fig. 7.<span
+  style='mso-spacerun:yes'>&nbsp; </span>Animated view of the E and B fields in
+  the equatorial plane. The fields propagate at the speed of light in a radial
+  direction away from the dipole. The <span style='color:red'>red curves </span>for
+  the envelopes show the fields fall off as </span><span lang=EN-AU><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1088" type="#_x0000_t75" style='width:27pt;height:17.25pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image257.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=36 height=23
+  src="cemEDR_files/image258.png" v:shapes="_x0000_i1088"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1088"
+    DrawAspect="Content" ObjectID="_1723436549">
+   </o:OLEObject>
+  </xml><![endif]-->.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;color:#984807;mso-themecolor:
+  accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>cemEDR02.m<o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%;
+  color:#F79646;mso-themecolor:accent6;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_10" o:spid="_x0000_i1104" type="#_x0000_t75" style='width:420pt;
+   height:315pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="cemEDR_files/image067.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=560 height=420
+  src="cemEDR_files/image067.gif" v:shapes="Picture_x0020_10"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;color:#984807;mso-themecolor:
+  accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>Fig. 8.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Animated view of the E field
+  lines in the YZ plane. The E field lines were calculated from the equation<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span lang=EN-AU><span style='position:relative;top:39.0pt;
+  mso-text-raise:-39.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1090" type="#_x0000_t75"
+   style='width:258pt;height:63.75pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image259.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=344 height=85
+  src="cemEDR_files/image260.png" v:shapes="_x0000_i1090"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1090"
+    DrawAspect="Content" ObjectID="_1723436550">
+   </o:OLEObject>
+  </xml><![endif]--><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span
+  lang=EN-AU style='font-size:14.0pt;line-height:150%'>R.H. Good<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Classical Electromagnetism<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>Different values of C
+  correspond to different field lines.<span style='mso-spacerun:yes'>&nbsp;
+  </span>Propagation of the electric field lines, whose time dependence is
+  periodic with a period of </span><span lang=EN-AU><span style='position:relative;
+  top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1091"
+   type="#_x0000_t75" style='width:71.25pt;height:20.25pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image261.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=95 height=27
+  src="cemEDR_files/image262.png" v:shapes="_x0000_i1091"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1091"
+    DrawAspect="Content" ObjectID="_1723436551">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'>. It takes time for E and B fields to spread outward from oscillating
+  dipole to distant points.<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span><span
+  style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>cemEDR03.m</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%;
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_3" o:spid="_x0000_i1103"
+   type="#_x0000_t75" style='width:5in;height:270pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="cemEDR_files/image068.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=480 height=360
+  src="cemEDR_files/image068.png" v:shapes="Picture_x0020_3"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>Fig. 9.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>B field in the XY equatorial
+  plane </span><span lang=EN-AU><span style='position:relative;top:8.0pt;
+  mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1093" type="#_x0000_t75"
+   style='width:47.25pt;height:24pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image263.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=63 height=32
+  src="cemEDR_files/image264.png" v:shapes="_x0000_i1093"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1093"
+    DrawAspect="Content" ObjectID="_1723436552">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'>. The B field is characterized by its circular ring pattern.</span><span
+  lang=EN-AU> </span><span lang=EN-AU style='font-size:16.0pt;line-height:150%'>The
+  distance between adjacent rings is </span><span lang=EN-AU><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1094" type="#_x0000_t75" style='width:12.75pt;height:15.75pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image265.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=17 height=21
+  src="cemEDR_files/image229.png" v:shapes="_x0000_i1094"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1094"
+    DrawAspect="Content" ObjectID="_1723436553">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'>.<span style='mso-spacerun:yes'>&nbsp; </span>The rings expand outward
+  in time.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;color:#984807;mso-themecolor:
+  accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>cemEDR01.m<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%;
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_6" o:spid="_x0000_i1102"
+   type="#_x0000_t75" style='width:431.25pt;height:224.25pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="cemEDR_files/image266.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=575 height=299
+  src="cemEDR_files/image267.png" v:shapes="Picture_x0020_6"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><span lang=EN-AU style='font-size:16.0pt;line-height:150%;
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_7" o:spid="_x0000_i1101"
+   type="#_x0000_t75" style='width:251.25pt;height:211.5pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="cemEDR_files/image071.png" o:title="" croptop=".1875"
+    cropbottom="14746f" cropleft="14222f" cropright="13198f"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=335 height=282
+  src="cemEDR_files/image268.png" v:shapes="Picture_x0020_7"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>Fig. 10.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>The Poynting vector. Each
+  coloured line corresponds to different radial distances from the dipole (0.5
+  m to 1.0 m). The image gives the distribution of radiated power from an
+  Hertzian dipole. The current in the dipole is oriented along the z axis. The
+  distance of a point on the curves from the Origin indicate the relative power
+  density in the direction from the Origin to a pont on the curve. There is
+  zero radiation along the axis of the dipole </span><span lang=EN-AU><span
+  style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1097" type="#_x0000_t75" style='width:122.25pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="cemEDR_files/image214.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=163 height=32
+  src="cemEDR_files/image215.png" v:shapes="_x0000_i1097"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1097"
+    DrawAspect="Content" ObjectID="_1723436554">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>and is a maximum in the
+  equatorial plane </span><span lang=EN-AU><span style='position:relative;
+  top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1098"
+   type="#_x0000_t75" style='width:141pt;height:24pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image216.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=188 height=32
+  src="cemEDR_files/image217.png" v:shapes="_x0000_i1098"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1098"
+    DrawAspect="Content" ObjectID="_1723436555">
+   </o:OLEObject>
+  </xml><![endif]-->. </span><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%'><span style='mso-spacerun:yes'>&nbsp;&nbsp;</span>The
+  intensity profile takes the form of a donut, with its maximum in the
+  equatorial plane.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>There is zero<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span style='color:#984807;
+  mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>cemEDR02.m<o:p></o:p></span></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;color:#984807;mso-themecolor:
+  accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
+  lang=EN-AU style='font-size:18.0pt;line-height:150%;font-family:"Bookman Old Style",serif;
+  color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>SUMMARY<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>In the near field of the
+  oscillating dipole, the energy flow alternates regularly between outward and
+  inward directions since the E and B field are 90<sup>o</sup> out of phase due
+  to oscillating charges and current.<span style='mso-spacerun:yes'>&nbsp;
+  </span>The result is that the net energy flow is zero and this pulsating
+  field falls off as </span><span lang=EN-AU><span style='position:relative;
+  top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1099"
+   type="#_x0000_t75" style='width:30.75pt;height:20.25pt' o:ole="">
+   <v:imagedata src="cemEDR_files/image269.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=41 height=27
+  src="cemEDR_files/image270.png" v:shapes="_x0000_i1099"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1099"
+    DrawAspect="Content" ObjectID="_1723436556">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%'>. However, a changing electric field produces a changing magnetic field
+  and vice-versa. This gives rise to the in-phase oscillations of the E field
+  and B field. Thus, the total fields at a point P in space are the vector sum
+  of the out-of-phase components produces by the charges and current at the
+  dipole and the field induced locally by the time-varying fields. Since, the
+  out-of-phase components fall off rapidly, only the in-phase induced fields
+  dominate at far distances from the dipole and are responsible for the EM
+  waves propagating away from the dipole. The oscillating near field of the
+  dipole acts to launch the EM waves which produced the radiation. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>The following plot is
+  from<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><a
+  href="https://bingweb.binghamton.edu/~suzuki/SeniorLab_pdf/16_Radiation_from_electric_dipole.pdf">https://bingweb.binghamton.edu/~suzuki/SeniorLab_pdf/16_Radiation_from_electric_dipole.pdf</a><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'>I cannot produce such a
+  nice figure in Matlab.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_1" o:spid="_x0000_i1100" type="#_x0000_t75" style='width:587.25pt;
+   height:691.5pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="cemEDR_files/image195.png" o:title="" croptop="283f"
+    cropright="2804f"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=783 height=922
+  src="cemEDR_files/image271.png" v:shapes="Picture_x0020_1"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+</body>
+
+</html>
