@@ -18,11 +18,11 @@ tic
 % Number of spatial grid points
   Nx = 100;
 % Number of time steps
-  Nt = 25;
+  Nt = 200;
 % length of simulation region
    L = 100;
 % wave or propagation speed
-   v = 10;
+   v = 20;
 % Courant number
    S = 1;
 

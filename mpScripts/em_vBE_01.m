@@ -5,7 +5,7 @@
 % Default value and unit are given in ()
 % Ian Cooper   School of Physics   University of Sydney
 % ian.cooper@sydney.edu.au
-% https://d-arora.github.io/Doing-Physics-With-Matlab/
+% http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
 
 clear all
 close all
@@ -37,8 +37,8 @@ clc
    E = 25e5;
 
 % Initial velocites and displacements
-   ux = 8e5;   uy = 8e5;   uz = 1e4;
-   x0 = -0.4;   y0 = 0;   z0 = 0;
+   ux = E/(2*B);   uy = 0;   uz = 0;
+   x0 = -0.3;   y0 = 0;   z0 = 0;
 
    
 % =========================================================================
