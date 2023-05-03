@@ -1,0 +1,2061 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 15">
+<meta name=Originator content="Microsoft Word 15">
+<link rel=File-List href="QMG101_files/filelist.xml">
+<link rel=Edit-Time-Data href="QMG101_files/editdata.mso">
+<link rel=OLE-Object-Data href="QMG101_files/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Quantum Mechanics</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Subject>Quantum Mechanics</o:Subject>
+  <o:Author>Ian Cooper</o:Author>
+  <o:Keywords>quantum mechanics, Matlab, computational physics, electron diffraction, wave particlle duality</o:Keywords>
+  <o:LastAuthor>Ian Cooper</o:LastAuthor>
+  <o:Revision>18</o:Revision>
+  <o:TotalTime>2388</o:TotalTime>
+  <o:Created>2023-04-28T19:28:00Z</o:Created>
+  <o:LastSaved>2023-05-03T05:57:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>1440</o:Words>
+  <o:Characters>8211</o:Characters>
+  <o:Category>Quantum Mechanics</o:Category>
+  <o:Lines>68</o:Lines>
+  <o:Paragraphs>19</o:Paragraphs>
+  <o:CharactersWithSpaces>9632</o:CharactersWithSpaces>
+  <o:Version>16.00</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+<link rel=themeData href="QMG101_files/themedata.thmx">
+<link rel=colorSchemeMapping href="QMG101_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-AU</w:LidThemeOther>
+  <w:LidThemeAsian>ZH-CN</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:UseWord2010TableStyleRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
+  DefSemiHidden="false" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="376">
+  <w:LsdException Locked="false" Priority="0" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="0" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 7"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 8"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 9"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 9"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal Indent"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footnote text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="header"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footer"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index heading"/>
+  <w:LsdException Locked="false" Priority="35" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="table of figures"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="envelope address"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="envelope return"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footnote reference"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation reference"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="line number"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="page number"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="endnote reference"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="endnote text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="table of authorities"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="macro"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="toa heading"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 5"/>
+  <w:LsdException Locked="false" Priority="10" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Closing"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Signature"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="true"
+   UnhideWhenUsed="true" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Message Header"/>
+  <w:LsdException Locked="false" Priority="11" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Salutation"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Date"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text First Indent"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text First Indent 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Note Heading"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Block Text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Hyperlink"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="FollowedHyperlink"/>
+  <w:LsdException Locked="false" Priority="22" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Document Map"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Plain Text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="E-mail Signature"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Top of Form"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Bottom of Form"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal (Web)"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Acronym"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Address"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Cite"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Code"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Definition"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Keyboard"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Preformatted"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Sample"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Typewriter"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Variable"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal Table"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation subject"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="No List"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 7"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 8"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 7"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 8"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Contemporary"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Elegant"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Professional"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Subtle 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Subtle 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Balloon Text"/>
+  <w:LsdException Locked="false" Priority="59" Name="Table Grid"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Theme"/>
+  <w:LsdException Locked="false" SemiHidden="true" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" QFormat="true"
+   Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" QFormat="true"
+   Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" QFormat="true"
+   Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" QFormat="true"
+   Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" QFormat="true"
+   Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" QFormat="true"
+   Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" SemiHidden="true"
+   UnhideWhenUsed="true" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="TOC Heading"/>
+  <w:LsdException Locked="false" Priority="41" Name="Plain Table 1"/>
+  <w:LsdException Locked="false" Priority="42" Name="Plain Table 2"/>
+  <w:LsdException Locked="false" Priority="43" Name="Plain Table 3"/>
+  <w:LsdException Locked="false" Priority="44" Name="Plain Table 4"/>
+  <w:LsdException Locked="false" Priority="45" Name="Plain Table 5"/>
+  <w:LsdException Locked="false" Priority="40" Name="Grid Table Light"/>
+  <w:LsdException Locked="false" Priority="46" Name="Grid Table 1 Light"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark"/>
+  <w:LsdException Locked="false" Priority="51" Name="Grid Table 6 Colorful"/>
+  <w:LsdException Locked="false" Priority="52" Name="Grid Table 7 Colorful"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 1"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 1"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 1"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 2"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 2"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 2"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 3"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 3"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 3"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 4"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 4"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 5"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 5"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 5"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 6"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 6"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 6"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 6"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 6"/>
+  <w:LsdException Locked="false" Priority="46" Name="List Table 1 Light"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark"/>
+  <w:LsdException Locked="false" Priority="51" Name="List Table 6 Colorful"/>
+  <w:LsdException Locked="false" Priority="52" Name="List Table 7 Colorful"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 1"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 1"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 1"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 2"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 2"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 2"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 3"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 3"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 3"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 4"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 4"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 5"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 5"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 5"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 6"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 6"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 6"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 6"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Mention"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Smart Hyperlink"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Hashtag"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Unresolved Mention"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Smart Link"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:\5B8B\4F53;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 680460288 22 0 262145 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-469750017 -1073732485 9 0 511 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-520081665 -1073717157 41 0 66047 0;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 680460288 22 0 262145 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:SimSun;
+	mso-ansi-language:EN-AU;
+	mso-fareast-language:EN-US;}
+h1
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 1 Char";
+	mso-style-next:Normal;
+	margin:0cm;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:12.0pt;
+	font-family:"Arial",sans-serif;
+	mso-fareast-font-family:SimSun;
+	mso-font-kerning:0pt;
+	mso-ansi-language:EN-AU;
+	mso-fareast-language:EN-US;}
+a:link, span.MsoHyperlink
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:purple;
+	mso-themecolor:followedhyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 1";
+	mso-ansi-font-size:12.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Arial",sans-serif;
+	mso-ascii-font-family:Arial;
+	mso-fareast-font-family:SimSun;
+	mso-hansi-font-family:Arial;
+	mso-bidi-font-family:Arial;
+	mso-font-kerning:0pt;
+	mso-ligatures:none;
+	mso-fareast-language:EN-US;
+	font-weight:bold;}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{mso-style-name:msonormal;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:16.0pt;
+	mso-ansi-font-size:16.0pt;
+	mso-bidi-font-size:16.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-font-kerning:0pt;
+	mso-ligatures:none;
+	mso-ansi-language:EN-AU;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-ansi-language:EN-AU;}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-priority:59;
+	mso-style-unhide:no;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0cm;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-font-kerning:1.0pt;
+	mso-ligatures:standardcontextual;
+	mso-ansi-language:EN-AU;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-GB link=blue vlink=purple style='tab-interval:36.0pt;word-wrap:
+break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><span lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=841 valign=top style='width:630.4pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=EN-AU style='mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:119.4pt;margin-bottom:
+  0cm;margin-left:14.2pt;margin-bottom:.0001pt;line-height:150%'><span
+  lang=EN-AU style='mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><a
+  href="https://d-arora.github.io/Doing-Physics-With-Matlab/"><b><span
+  style='font-size:18.0pt;line-height:150%;font-family:"Bookman Old Style",serif'>DOING
+  PHYSICS WITH MATLAB</span></b></a></span><b><span lang=EN-AU
+  style='font-size:18.0pt;line-height:150%;font-family:"Bookman Old Style",serif;
+  color:blue;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p></o:p></span></b></p>
+  <p class=MsoNormal align=center style='margin-left:14.2pt;text-align:center;
+  line-height:150%'><b><span lang=EN-AU style='font-size:18.0pt;line-height:
+  150%;font-family:"Bookman Old Style",serif;color:#984806;mso-themecolor:accent6;
+  mso-themeshade:128;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>MATLAB
+  RESOURCES FOR<o:p></o:p></span></b></p>
+  <h1 align=center style='text-align:center;line-height:150%'><span lang=EN-AU
+  style='font-size:18.0pt;line-height:150%;font-family:"Bookman Old Style",serif;
+  color:#984806;mso-themecolor:accent6;mso-themeshade:128;mso-ligatures:standardcontextual'>INTRODUCTION
+  TO QUANTUM MECHANICS<o:p></o:p></span></h1>
+  <h1 align=center style='text-align:center;line-height:150%'><span lang=EN-AU
+  style='font-size:18.0pt;line-height:150%;font-family:"Bookman Old Style",serif;
+  color:#984806;mso-themecolor:accent6;mso-themeshade:128;mso-ligatures:standardcontextual'>3<sup>rd</sup>
+  Edition</span><span lang=EN-AU style='mso-ligatures:standardcontextual'><o:p></o:p></span></h1>
+  <h1 align=center style='text-align:center;line-height:150%'><span lang=EN-AU
+  style='font-size:18.0pt;line-height:150%;font-family:"Bookman Old Style",serif;
+  color:#984806;mso-themecolor:accent6;mso-themeshade:128;mso-ligatures:standardcontextual'>David
+  J Griffiths &amp; Darrel F <span class=SpellE>Schroeter</span><o:p></o:p></span></h1>
+  <h1 style='line-height:150%'><span lang=EN-AU style='font-size:20.0pt;
+  line-height:150%;font-family:"Bookman Old Style",serif;color:#984806;
+  mso-themecolor:accent6;mso-themeshade:128;mso-ligatures:standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span lang=EN-AU style='font-size:18.0pt;line-height:150%;
+  font-family:"Bookman Old Style",serif;mso-bidi-font-family:Tahoma;color:#984806;
+  mso-themecolor:accent6;mso-themeshade:128;mso-ligatures:standardcontextual'><o:p></o:p></span></h1>
+  <p class=MsoNormal style='line-height:115%;tab-stops:1.0cm'><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-AU style='font-family:"Tahoma",sans-serif;
+  color:black;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Ian
+  Cooper<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:black;mso-themecolor:text1;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual;mso-bidi-font-weight:bold'>matlabvisualphysics@gmail.com<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:16.0pt;line-height:115%;font-family:
+  "Bookman Old Style",serif;color:blue;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='line-height:115%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:18.0pt;line-height:115%;font-family:
+  "Bookman Old Style",serif;color:#984806;mso-themecolor:accent6;mso-themeshade:
+  128;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>CHAPTER 1<o:p></o:p></span></b></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:115%'><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-AU style='font-size:18.0pt;
+  line-height:115%;font-family:"Bookman Old Style",serif;color:#984806;
+  mso-themecolor:accent6;mso-themeshade:128;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'>THE WAVEFUNCTION<o:p></o:p></span></b></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:115%'><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-AU style='font-size:18.0pt;
+  line-height:115%;font-family:"Bookman Old Style",serif;color:#984806;
+  mso-themecolor:accent6;mso-themeshade:128;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'>STATISTICAL INTERPRETATION<o:p></o:p></span></b></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><b><span
+  lang=EN-AU style='font-size:18.0pt;line-height:150%;font-family:"Bookman Old Style",serif;
+  mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;color:#984807;
+  mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;mso-font-kerning:
+  1.0pt;mso-ligatures:standardcontextual'>WAVE PARTICLE DUALITY<o:p></o:p></span></b></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:115%'><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-AU style='font-size:18.0pt;
+  line-height:115%;font-family:"Bookman Old Style",serif;color:#984806;
+  mso-themecolor:accent6;mso-themeshade:128;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='line-height:115%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:16.0pt;line-height:115%;font-family:
+  "Bookman Old Style",serif;color:blue;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:
+  "Bookman Old Style",serif;mso-bidi-font-family:Tahoma;color:#984806;
+  mso-themecolor:accent6;mso-themeshade:128;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'>DOWNLOAD DIRECTORY FOR MATLAB SCRIPTS<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:
+  "Bookman Old Style",serif;mso-bidi-font-family:Tahoma;color:#E36C0A;
+  mso-themecolor:accent6;mso-themeshade:191;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><span style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span></b><span
+  lang=EN-AU style='mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><a
+  href="https://github.com/D-Arora/Doing-Physics-With-Matlab/tree/master/mpScripts"><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;line-height:
+  150%;font-family:"Bookman Old Style",serif;mso-bidi-font-family:Tahoma'>GitHub</span></b></a></span><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;font-family:"Bookman Old Style",serif;mso-bidi-font-family:
+  Tahoma;color:#E36C0A;mso-themecolor:accent6;mso-themeshade:191;mso-font-kerning:
+  1.0pt;mso-ligatures:standardcontextual'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:
+  "Bookman Old Style",serif;mso-bidi-font-family:Tahoma;color:#E36C0A;
+  mso-themecolor:accent6;mso-themeshade:191;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><span style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span></b><span
+  lang=EN-AU style='mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><a
+  href="https://drive.google.com/drive/u/3/folders/1j09aAhfrVYpiMavajrgSvUMc89ksF9Jb"><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;line-height:
+  150%;font-family:"Bookman Old Style",serif;mso-bidi-font-family:Tahoma'>Google
+  Drive</span></b></a></span><b style='mso-bidi-font-weight:normal'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Bookman Old Style",serif;
+  mso-bidi-font-family:Tahoma;color:#E36C0A;mso-themecolor:accent6;mso-themeshade:
+  191;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p></o:p></span></b></p>
+  <p class=MsoNormal><span lang=EN-AU style='mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-left:127.6pt;text-indent:-127.6pt;
+  line-height:150%;tab-stops:127.6pt'><b style='mso-bidi-font-weight:normal'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984806;mso-themecolor:accent6;mso-themeshade:128;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>diffraction_1slit.m<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-left:1.0cm;text-indent:-118.35pt;line-height:
+  150%;tab-stops:1.0cm'><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;color:#984806;
+  mso-themecolor:accent6;mso-themeshade:128;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Simulation
+  of the diffraction of visible light through a single slit. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:127.6pt;text-indent:-127.6pt;
+  line-height:150%;tab-stops:127.6pt'><b style='mso-bidi-font-weight:normal'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984806;mso-themecolor:accent6;mso-themeshade:128;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>diffraction_2slit.m<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+  150%;tab-stops:1.0cm'><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;mso-font-kerning:
+  1.0pt;mso-ligatures:standardcontextual'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Simulation
+  of the diffraction of visible light through a double slit.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:127.6pt;text-indent:-127.6pt;
+  line-height:150%;tab-stops:92.15pt 127.6pt'><span class=SpellE><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;color:#984806;
+  mso-themecolor:accent6;mso-themeshade:128;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'>diffraction_particle.m</span></b></span><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;color:#984806;
+  mso-themecolor:accent6;mso-themeshade:128;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+  150%;tab-stops:1.0cm 92.15pt'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;mso-font-kerning:
+  1.0pt;mso-ligatures:standardcontextual'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Animation
+  of the diffraction of a stream of particles passing through a double slit. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:127.6pt;text-indent:-127.6pt;
+  line-height:150%;tab-stops:127.6pt'><span class=SpellE><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:
+  "Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin;color:#984806;mso-themecolor:
+  accent6;mso-themeshade:128;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>ColorCode.m</span></b></span><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;color:#984806;
+  mso-themecolor:accent6;mso-themeshade:128;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-left:1.0cm;text-indent:-1.0cm;line-height:
+  150%;tab-stops:1.0cm 127.6pt'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;mso-font-kerning:
+  1.0pt;mso-ligatures:standardcontextual'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Returns
+  the <span class=SpellE>color</span> appropriate to a supplied wavelength. Is
+  it assumed the supplied lambda is within the range 380-780 nm. Smaller or
+  higher values are set notionally to the extreme values. All input
+  measurements are in metres. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:127.6pt;text-indent:-127.6pt;
+  line-height:150%;tab-stops:127.6pt'><span class=SpellE><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:
+  "Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin;color:#984806;mso-themecolor:
+  accent6;mso-themeshade:128;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>interference.m</span></b></span><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;color:#984806;
+  mso-themecolor:accent6;mso-themeshade:128;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><span style='mso-spacerun:yes'>&nbsp;&nbsp;
+  </span>interference1.m<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Simulation
+  of the interference pattern of water waves passing through a pair of slits. <o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:18.0pt;mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;color:#7030A0;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-AU style='font-size:18.0pt;
+  mso-bidi-font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#7030A0;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Are
+  electrons particles or <span class=GramE>waves ?</span><o:p></o:p></span></b></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-AU style='font-size:18.0pt;
+  mso-bidi-font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#7030A0;mso-font-kerning:1.0pt;mso-no-proof:yes'><!--[if gte vml 1]><v:shapetype
+   id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+   path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="Picture_x0020_5" o:spid="_x0000_i1062" type="#_x0000_t75"
+   style='width:6in;height:450pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="QMG101_files/image001.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=576 height=600
+  src="QMG101_files/image001.gif" v:shapes="Picture_x0020_5"><![endif]></span></b><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-AU style='font-size:18.0pt;
+  mso-bidi-font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#7030A0;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:18.0pt;mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;color:#7030A0;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:18.0pt;mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;color:#7030A0;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>LIGHT BEHAVING AS
+  WAVES <o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:14.2pt'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>When
+  light passes through very narrow apertures and falls on a screen, a
+  diffraction / interference pattern consisting of a band of bright and dark
+  regions is observed. The brightness (intensity) of light detected on the
+  screen is proportional to the square of the amplitude of the wave. For a
+  plane wave incident upon an aperture, we observe Fraunhofer diffraction when
+  the screen distance is much larger than the width of the apertures.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:14.2pt'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>The
+  intensity of light reaching the screen for a <b style='mso-bidi-font-weight:
+  normal'><span style='color:#7030A0'>single slit</span></b><span
+  style='color:#7030A0'> </span>is given by the equation<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 2.0cm'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(1)<span
+  style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:15.0pt;mso-text-raise:-15.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1026" type="#_x0000_t75" style='width:90.75pt;height:47.25pt'
+   o:ole="">
+   <v:imagedata src="QMG101_files/image002.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=121 height=63
+  src="QMG101_files/image003.png" v:shapes="_x0000_i1026"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1026"
+    DrawAspect="Content" ObjectID="_1744634782">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp;</span><span class=GramE>where</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>I</span></i><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>intensity
+  of the light [W.m<sup>-2</sup>]<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>I</span></i><sub><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'>o</span></sub><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>maximum
+  intensity [W.m<sup>-2</sup>]<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:5.0pt;mso-text-raise:-5.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1027" type="#_x0000_t75" style='width:16.5pt;height:22.5pt'
+   o:ole="">
+   <v:imagedata src="QMG101_files/image004.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=22 height=30
+  src="QMG101_files/image005.png" v:shapes="_x0000_i1027"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1027"
+    DrawAspect="Content" ObjectID="_1744634783">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp; </span><b
+  style='mso-bidi-font-weight:normal'><span style='position:relative;
+  top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1028"
+   type="#_x0000_t75" style='width:103.5pt;height:27pt' o:ole="">
+   <v:imagedata src="QMG101_files/image006.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=138 height=36
+  src="QMG101_files/image007.png" v:shapes="_x0000_i1028"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1028"
+    DrawAspect="Content" ObjectID="_1744634784">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp; </span></b>[rad]<b
+  style='mso-bidi-font-weight:normal'><o:p></o:p></b></span></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:
+  "Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></b><i
+  style='mso-bidi-font-style:normal'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>k</span></i><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:12.0pt;mso-text-raise:-12.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1029" type="#_x0000_t75" style='width:42.75pt;height:36pt'
+   o:ole="">
+   <v:imagedata src="QMG101_files/image008.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=57 height=48
+  src="QMG101_files/image009.png" v:shapes="_x0000_i1029"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1029"
+    DrawAspect="Content" ObjectID="_1744634785">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp; </span>[rad.m<sup>-1</sup>]<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1030" type="#_x0000_t75" style='width:17.25pt;height:22.5pt'
+   o:ole="">
+   <v:imagedata src="QMG101_files/image010.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=23 height=30
+  src="QMG101_files/image011.png" v:shapes="_x0000_i1030"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1030"
+    DrawAspect="Content" ObjectID="_1744634786">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp; </span>wavelength
+  of light [m]<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>b</span></i><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>slit
+  width [m]<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1031" type="#_x0000_t75" style='width:15pt;height:19.5pt' o:ole="">
+   <v:imagedata src="QMG101_files/image012.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=20 height=26
+  src="QMG101_files/image013.png" v:shapes="_x0000_i1031"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1031"
+    DrawAspect="Content" ObjectID="_1744634787">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>direction
+  to point on screen from aperture [rad]<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:12.0pt;mso-text-raise:-12.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1032" type="#_x0000_t75" style='width:45.75pt;height:42pt'
+   o:ole="">
+   <v:imagedata src="QMG101_files/image014.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=61 height=56
+  src="QMG101_files/image015.png" v:shapes="_x0000_i1032"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1032"
+    DrawAspect="Content" ObjectID="_1744634788">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>x</span></i><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>position
+  of screen [m]<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>D</span></i><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>aperture
+  screen distance [m]<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <span lang=EN-AU style='font-size:16.0pt;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-fareast-font-family:SimSun;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-AU;
+  mso-fareast-language:EN-US;mso-bidi-language:AR-SA'><br clear=all
+  style='mso-special-character:line-break;page-break-before:always'>
+  </span>
+  <p class=MsoNormal><span lang=EN-AU style='font-size:16.0pt;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>The
+  script <b style='mso-bidi-font-weight:normal'><span style='color:#984806;
+  mso-themecolor:accent6;mso-themeshade:128'>diffraction_1slit.m</span></b> can
+  be used to show the diffraction pattern for a single aperture. The graphical
+  output of the Script (figure 1) shows a graph of the intensity calculated by
+  equation 1 and a <span class=GramE>two dimensional</span> plot showing the
+  bright and dark bands that would be observed. The wavelength (380 &#8211; 780
+  nm) and width of the aperture can be changed in the Script to observe the
+  changes in the diffraction pattern. The script <b style='mso-bidi-font-weight:
+  normal'><span style='color:#984806;mso-themecolor:accent6;mso-themeshade:
+  128'>diffraction_1slit.m</span></b> calls the function <span class=SpellE><b
+  style='mso-bidi-font-weight:normal'><span style='color:#984806;mso-themecolor:
+  accent6;mso-themeshade:128'>ColorCode.m</span></b></span> so the <span
+  class=SpellE>color</span> of the display corresponds to the <span
+  class=SpellE>color</span> associated with the wavelength of the light. The
+  maximum intensity has been normalized to 1 W.m<sup>-2</sup>.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_9" o:spid="_x0000_i1061" type="#_x0000_t75" style='width:345pt;
+   height:288.75pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="QMG101_files/image016.png" o:title="" cropbottom="5176f"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=460 height=385
+  src="QMG101_files/image017.png" v:shapes="Picture_x0020_9"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_8" o:spid="_x0000_i1060" type="#_x0000_t75" style='width:343.5pt;
+   height:288.75pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="QMG101_files/image018.png" o:title="" cropbottom="4846f"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=458 height=385
+  src="QMG101_files/image019.png" v:shapes="Picture_x0020_8"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal style='tab-stops:1.0cm 2.0cm'><span lang=EN-AU
+  style='font-size:16.0pt;font-family:"Calibri",sans-serif;mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='tab-stops:1.0cm 2.0cm'><span lang=EN-AU
+  style='font-size:16.0pt;font-family:"Calibri",sans-serif;mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Fig. 1.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Fraunhofer diffraction from a
+  single slit.<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><b
+  style='mso-bidi-font-weight:normal'><span style='color:#984806;mso-themecolor:
+  accent6;mso-themeshade:128'>diffraction_1slit.m</span></b><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:14.2pt'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:14.2pt'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:14.2pt'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>The
+  intensity of light reaching the screen from a <b style='mso-bidi-font-weight:
+  normal'><span style='color:#7030A0'>double slit</span></b><span
+  style='color:#7030A0'> </span>is given by the equation<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 2.0cm'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(2)<span
+  style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:15.0pt;mso-text-raise:-15.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1035" type="#_x0000_t75" style='width:149.25pt;height:54pt'
+   o:ole="">
+   <v:imagedata src="QMG101_files/image020.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=199 height=72
+  src="QMG101_files/image021.png" v:shapes="_x0000_i1035"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1035"
+    DrawAspect="Content" ObjectID="_1744634789">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp;</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>where<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>slit separation<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span
+  class=GramE><i><span lang=EN-AU style='font-size:16.0pt;line-height:150%;
+  mso-ascii-font-family:"Times New Roman";mso-ascii-theme-font:minor-fareast;
+  mso-hansi-font-family:"Times New Roman";mso-hansi-theme-font:minor-fareast;
+  mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-fareast;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>a</span></i><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp; </span>[</span></span><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>m]<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b
+  style='mso-bidi-font-weight:normal'><span style='position:relative;
+  top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1036"
+   type="#_x0000_t75" style='width:89.25pt;height:23.25pt' o:ole="">
+   <v:imagedata src="QMG101_files/image022.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=119 height=31
+  src="QMG101_files/image023.png" v:shapes="_x0000_i1036"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1036"
+    DrawAspect="Content" ObjectID="_1744634790">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;&nbsp;</span></b>[rad]<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b
+  style='mso-bidi-font-weight:normal'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></b></span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;</span></span></i><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Figure 2
+  shows the graphical output for a double slit using the Script <b
+  style='mso-bidi-font-weight:normal'><span style='color:#984806;mso-themecolor:
+  accent6;mso-themeshade:128'>diffraction_2slit.m</span></b>. In the Script,
+  you can vary the wavelength, slit width and slit separation and observe the
+  resulting changes in the diffraction pattern. The maximum intensity has been
+  normalized to 1 W.m<sup>-2</sup>.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_11" o:spid="_x0000_i1059" type="#_x0000_t75" style='width:421.5pt;
+   height:289.5pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="QMG101_files/image024.png" o:title="" cropbottom="4687f"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=562 height=386
+  src="QMG101_files/image025.png" v:shapes="Picture_x0020_11"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_10" o:spid="_x0000_i1058" type="#_x0000_t75" style='width:421.5pt;
+   height:292.5pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="QMG101_files/image026.png" o:title="" cropbottom="4057f"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=562 height=390
+  src="QMG101_files/image027.png" v:shapes="Picture_x0020_10"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;tab-stops:1.0cm 2.0cm'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:115%;tab-stops:1.0cm 2.0cm'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Fig.
+  2.<span style='mso-spacerun:yes'>&nbsp; </span>Fraunhofer diffraction from a
+  double slit (<span style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1039" type="#_x0000_t75" style='width:10.5pt;height:13.5pt'
+   o:ole="">
+   <v:imagedata src="QMG101_files/image028.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=14 height=18
+  src="QMG101_files/image029.png" v:shapes="_x0000_i1039"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1039"
+    DrawAspect="Content" ObjectID="_1744634791">
+   </o:OLEObject>
+  </xml><![endif]-->= 450 nm).<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><b style='mso-bidi-font-weight:
+  normal'><span style='color:#984806;mso-themecolor:accent6;mso-themeshade:
+  128'>diffraction_2slit.m</span></b><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:18.0pt;mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;color:#7030A0;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>PARTICLES BEHAVING
+  AS WAVES<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Waves
+  are a mechanism for transferring energy via some kind of vibration without
+  any matter being transferred. One characteristic of waves but not of
+  particles, is that, diffraction / interference is observed as shown in
+  figures 1 and 2 when a wave passes through an aperture. However, in
+  experimental arrangements analogous to the <span class=GramE>two slit</span>
+  interference for light, when a beam of electrons is incident upon a biprism
+  (mimics two slits for light as the electrons can travel in two paths around a
+  filament) and are detected upon a screen, an interference pattern is
+  observed. When a few electrons hit the screen, no noticeable pattern is
+  discerned as shown in figure 3. <o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-top:0cm;margin-right:63.45pt;
+  margin-bottom:0cm;margin-left:2.0cm;margin-bottom:.0001pt;text-align:center;
+  text-indent:-2.0cm;line-height:150%;tab-stops:2.0cm 13.0cm'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_12" o:spid="_x0000_i1057" type="#_x0000_t75" style='width:6in;
+   height:88.5pt;visibility:visible;mso-wrap-style:square' o:bordertopcolor="black"
+   o:borderleftcolor="black" o:borderbottomcolor="black" o:borderrightcolor="black">
+   <v:imagedata src="QMG101_files/image030.png" o:title="" croptop="45684f"
+    cropbottom="5666f"/>
+   <w:bordertop type="single" width="10"/>
+   <w:borderleft type="single" width="10"/>
+   <w:borderbottom type="single" width="10"/>
+   <w:borderright type="single" width="10"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=578 height=120
+  src="QMG101_files/image031.png" v:shapes="Picture_x0020_12"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-right:63.45pt;text-align:justify;text-justify:
+  inter-ideograph;line-height:115%;tab-stops:13.0cm'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Fig.
+  3.<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Pattern formed by 2000
+  electrons on passing through the equivalent of a double slit. <span
+  class=SpellE><b style='mso-bidi-font-weight:normal'><span style='color:#984806;
+  mso-themecolor:accent6;mso-themeshade:128'>diffraction_particle.m</span></b></span><b
+  style='mso-bidi-font-weight:normal'><span style='color:#984806;mso-themecolor:
+  accent6;mso-themeshade:128'><o:p></o:p></span></b></span></p>
+  <p class=MsoNormal style='margin-right:63.45pt;text-align:justify;text-justify:
+  inter-ideograph;line-height:115%;tab-stops:13.0cm'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:16.0pt;line-height:115%;font-family:
+  "Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin;color:#984806;mso-themecolor:
+  accent6;mso-themeshade:128;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><span lang=EN-AU style='font-size:16.0pt;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>However,
+  for much longer exposures involving 80000 plus electrons, a very distinctive
+  two slit diffraction pattern is clearly observed as shown in Figure (4). Running
+  the Script <span class=SpellE><b style='mso-bidi-font-weight:normal'><span
+  style='color:#984806;mso-themecolor:accent6;mso-themeshade:128'>diffraction_particle.m</span></b></span>
+  you can include a <span style='color:#984806;mso-themecolor:accent6;
+  mso-themeshade:128'>pause</span> statement to animate the individual
+  electrons hitting the screen to show how the interference pattern develops.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_3" o:spid="_x0000_i1056" type="#_x0000_t75" style='width:6in;
+   height:360.75pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="QMG101_files/image032.png" o:title="" croptop="2886f"
+    cropbottom="4825f"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=576 height=481
+  src="QMG101_files/image033.png" v:shapes="Picture_x0020_3"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:63.45pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm;tab-stops:
+  1.0cm 13.0cm'><span lang=EN-AU style='font-size:16.0pt;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Fig.
+  4.<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Pattern
+  formed by 80000 electrons on passing through the equivalent of a double slit.
+  As more and more electrons hit the screen a two slit interference pattern
+  develops. <span class=SpellE><b style='mso-bidi-font-weight:normal'><span
+  style='color:#984806;mso-themecolor:accent6;mso-themeshade:128'>diffraction_particle.m</span></b></span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:63.45pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm;tab-stops:
+  1.0cm 13.0cm'><span lang=EN-AU style='font-size:16.0pt;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:63.45pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm;tab-stops:
+  1.0cm 13.0cm'><span lang=EN-AU style='font-size:16.0pt;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>The
+  electrons are individual particles when they strike a single point on the
+  detection screen, but the distribution of the points on the screen gives an
+  interference pattern which can only be attributed to a wave phenomenon.
+  Hence, we can only conclude that electrons have this dual nature &#8211; they
+  behave as particles or as waves. We can&#8217;t predict where a single
+  electron will arrive on the screen. We only know the probability of where an
+  electron will strike. This <span class=SpellE>behavior</span> is typical of
+  the quantum world and is a good example of the interplay between
+  indeterminism and determinism. <o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>The
+  electron is represented by a mathematical function called the
+  wavefunction<span style='mso-spacerun:yes'>&nbsp; </span></span><span
+  lang=EN-AU style='mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1042" type="#_x0000_t75" style='width:42pt;height:18pt' o:ole="">
+   <v:imagedata src="QMG101_files/image034.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=56 height=24
+  src="QMG101_files/image035.png" v:shapes="_x0000_i1042"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1042"
+    DrawAspect="Content" ObjectID="_1744634792">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;mso-font-kerning:
+  1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp;</span>which is a function of the position of
+  the electron and time. The evolution of the wavefunction for a single
+  electron is governed by the Schrodinger&#8217;s equation. However, this
+  wavefunction is a complex quantity and can&#8217;t be measured directly. From
+  it we can find the probability of locating the electron at some instant. The
+  probability density is proportional to the real quantity</span><span
+  lang=EN-AU style='mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1043" type="#_x0000_t75" style='width:50.25pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="QMG101_files/image036.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=67 height=32
+  src="QMG101_files/image037.png" v:shapes="_x0000_i1043"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1043"
+    DrawAspect="Content" ObjectID="_1744634793">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;mso-font-kerning:
+  1.0pt;mso-ligatures:standardcontextual'>.<o:p></o:p></span></p>
+  <span lang=EN-AU style='font-size:16.0pt;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-fareast-font-family:SimSun;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-AU;
+  mso-fareast-language:EN-US;mso-bidi-language:AR-SA'><br clear=all
+  style='mso-special-character:line-break;page-break-before:always'>
+  </span>
+  <p class=MsoNormal><span lang=EN-AU style='font-size:16.0pt;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>We can
+  now interpret the irradiance given by equation 2 as a probability density for
+  the electron striking the screen and the area under the curve being
+  proportional to the probability of finding the electron. For a
+  one-dimensional system, the probability of finding an electron between <i
+  style='mso-bidi-font-style:normal'>x</i><sub>1</sub> and <i style='mso-bidi-font-style:
+  normal'>x</i><sub>2</sub> at time <i style='mso-bidi-font-style:normal'>t</i>
+  is given by<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 2.0cm'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(3)<span
+  style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:11.0pt;mso-text-raise:-11.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1044" type="#_x0000_t75" style='width:187.5pt;height:36.75pt'
+   o:ole="">
+   <v:imagedata src="QMG101_files/image038.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=250 height=49
+  src="QMG101_files/image039.png" v:shapes="_x0000_i1044"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1044"
+    DrawAspect="Content" ObjectID="_1744634794">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>and for
+  the <span class=GramE>two slit</span> example, the probability of hitting a
+  pixel at position (<i style='mso-bidi-font-style:normal'>x</i>, <i
+  style='mso-bidi-font-style:normal'>y</i>) on the detection screen at time <i
+  style='mso-bidi-font-style:normal'>t</i> is<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 2.0cm'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(4)<span
+  style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1045" type="#_x0000_t75" style='width:246.75pt;height:33pt'
+   o:ole="">
+   <v:imagedata src="QMG101_files/image040.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=329 height=44
+  src="QMG101_files/image041.png" v:shapes="_x0000_i1045"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1045"
+    DrawAspect="Content" ObjectID="_1744634795">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>where </span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>A</span></i><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> is the
+  area of the pixel.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>We
+  can&#8217;t predict where a particular electron will strike the screen but
+  the pattern formed by many electrons is predicted by the Schrodinger equation
+  which tells how </span><span lang=EN-AU style='mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'><span style='position:relative;top:2.0pt;
+  mso-text-raise:-2.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1046" type="#_x0000_t75"
+   style='width:15pt;height:14.25pt' o:ole="">
+   <v:imagedata src="QMG101_files/image042.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=20 height=19
+  src="QMG101_files/image043.png" v:shapes="_x0000_i1046"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1046"
+    DrawAspect="Content" ObjectID="_1744634796">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;mso-font-kerning:
+  1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp;</span>spreads out from the slit to the
+  screen. When a single electron leaves the slits and just before it strikes
+  the screen, its wavefunction is spread out over a wide area which would cover
+  many pixels, but only one pixel is triggered to respond, no other pixels
+  respond. When a single pixel is <span class=GramE>triggered</span> we can
+  interpret this in terms of news spreading out instantly from the responding
+  pixel, telling all other pixels not to respond. This is an example of <b
+  style='mso-bidi-font-weight:normal'><span style='color:#7030A0'>quantum
+  non-locality</span></b><span style='color:#7030A0'> </span>&#8211; what happens
+  at one place affects what happens at other places in a manner that
+  can&#8217;t be explained by communication at the speed of light (maximum
+  speed at which any information can be transmitted). We say that when the
+  electron is detected, its <b style='mso-bidi-font-weight:normal'><span
+  style='color:#7030A0'>wavefunction collapses</span></b>. In terms of quantum
+  physics, a particle is interpreted as an entity which is found in only one
+  place when its position is measured.<span style='mso-spacerun:yes'>&nbsp;
+  </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>For a
+  free particle (total energy </span><i style='mso-bidi-font-style:normal'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'>E</span></i><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> =
+  kinetic energy </span><i style='mso-bidi-font-style:normal'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'>K</span></i><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;mso-font-kerning:
+  1.0pt;mso-ligatures:standardcontextual'>, potential energy </span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>U</span></i><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> = 0)
+  its wave nature is described by its <b style='mso-bidi-font-weight:normal'><span
+  style='color:#7030A0'>de Broglie wavelength</span></b><span style='color:
+  #7030A0'> </span><span style='position:relative;top:3.0pt;mso-text-raise:
+  -3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1047" type="#_x0000_t75"
+   style='width:13.5pt;height:17.25pt' o:ole="">
+   <v:imagedata src="QMG101_files/image044.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=18 height=23
+  src="QMG101_files/image045.png" v:shapes="_x0000_i1047"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1047"
+    DrawAspect="Content" ObjectID="_1744634797">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm 2.0cm'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>(5)<span
+  style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  style='position:relative;top:14.0pt;mso-text-raise:-14.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1048" type="#_x0000_t75" style='width:44.25pt;height:44.25pt'
+   o:ole="">
+   <v:imagedata src="QMG101_files/image046.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=59 height=59
+  src="QMG101_files/image047.png" v:shapes="_x0000_i1048"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1048"
+    DrawAspect="Content" ObjectID="_1744634798">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>where </span><i
+  style='mso-bidi-font-style:normal'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>h</span></i><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> is
+  Planck&#8217;s constant and </span><i style='mso-bidi-font-style:normal'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'>p</span></i><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> is the
+  momentum of the particle. Diffraction experiments confirm that the wavelength
+  given by equation 5 agrees with the wavelength as measured in these
+  experiments.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Classical
+  waves and matter (particle) waves have very different characteristics.
+  Consider, for example, the interference pattern produced by water waves
+  passing through two slits. If one slit was blocked a cork floating on the
+  water would simply bob up and down. For the two slits, the movement of the
+  cork is the determined by the summation of the displacement of the two waves
+  emerging from the slits. Upon passing through the slits the waves spread out.
+  At some locations, the cork would move up and down with maximum displacement
+  due to the constructive interference of the two waves. At other places, the
+  cork would remain still as the two waves cancel each other (destructive
+  interference).<span style='mso-spacerun:yes'>&nbsp; </span>Figure 5 shows a
+  typical interference pattern for two slits at one instant of time. <o:p></o:p></span></p>
+  <span lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-fareast-font-family:SimSun;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-AU;
+  mso-fareast-language:EN-US;mso-bidi-language:AR-SA'><br clear=all
+  style='mso-special-character:line-break;page-break-before:always'>
+  </span>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-fareast-language:ZH-CN;mso-no-proof:
+  yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_24" o:spid="_x0000_i1055"
+   type="#_x0000_t75" style='width:427.5pt;height:270pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="QMG101_files/image048.png" o:title="" cropleft="1472f"
+    cropright="2632f"/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=570 height=360
+  src="QMG101_files/image049.png" v:shapes="Picture_x0020_24"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:63.45pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:-1.0cm;line-height:
+  115%;tab-stops:1.0cm 13.0cm'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:115%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;mso-font-kerning:
+  1.0pt;mso-ligatures:standardcontextual'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-top:0cm;margin-right:63.45pt;
+  margin-bottom:0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-align:center;
+  text-indent:-1.0cm;line-height:115%;tab-stops:1.0cm 13.0cm'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_1" o:spid="_x0000_i1054" type="#_x0000_t75" style='width:391.5pt;
+   height:308.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="QMG101_files/image050.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=522 height=411
+  src="QMG101_files/image050.gif" v:shapes="Picture_x0020_1"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-top:0cm;margin-right:63.45pt;
+  margin-bottom:0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-align:center;
+  text-indent:-1.0cm;line-height:115%;tab-stops:1.0cm 13.0cm'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_2" o:spid="_x0000_i1053" type="#_x0000_t75" style='width:269.25pt;
+   height:201.75pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="QMG101_files/image051.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=359 height=269
+  src="QMG101_files/image051.gif" v:shapes="Picture_x0020_2"><![endif]></span><span
+  lang=EN-AU style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:63.45pt;margin-bottom:
+  0cm;margin-left:1.0cm;margin-bottom:.0001pt;text-indent:1.1pt;line-height:
+  115%;tab-stops:1.0cm 13.0cm'><span lang=EN-AU style='font-size:16.0pt;
+  line-height:115%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;mso-font-kerning:
+  1.0pt;mso-ligatures:standardcontextual'>Fig. 5.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Typical two slit
+  interference showing radiating lines for the nodes (destructive <span
+  class=GramE>interference )</span> and antinodes (constructive interference). <span
+  class=SpellE><b style='mso-bidi-font-weight:normal'><span style='color:#984806;
+  mso-themecolor:accent6;mso-themeshade:128'>interference.m</span></b></span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>The
+  position of an electron is not known until it is measured. The electron does
+  not spread out like the wave producing the interference pattern. The complex
+  wavefunction gives a complete description of the electron. It is no longer
+  sensible to think about the electron as a moving particle. </span><span
+  lang=EN-AU style='mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1052" type="#_x0000_t75" style='width:50.25pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="QMG101_files/image052.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=67 height=32
+  src="QMG101_files/image037.png" v:shapes="_x0000_i1052"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1052"
+    DrawAspect="Content" ObjectID="_1744634799">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-size:16.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;mso-font-kerning:
+  1.0pt;mso-ligatures:standardcontextual'>tells us only the probability for
+  finding the electron at a certain location.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>The
+  electrons propagate as waves (but not like classical waves) and are detected
+  as particles &#8211; they display <b style='mso-bidi-font-weight:normal'><span
+  style='color:#7030A0'>wave-particle duality</span></b>. <o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:blue;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;
+  mso-bidi-font-weight:bold'>https://stemjock.com/griffithsqm3e.htm<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:16.0pt;line-height:115%;font-family:
+  "Bookman Old Style",serif;color:blue;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=EN-AU style='mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+</body>
+
+</html>
