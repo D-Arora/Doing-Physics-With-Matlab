@@ -37,7 +37,7 @@ global a b
 %   disp('  ')
 %flagC = input('  Country = ');
 
-flagC = 11;
+flagC = 4;
 
 
 % COUNTRIES  ==========================================================   

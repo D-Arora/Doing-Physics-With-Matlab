@@ -15,7 +15,7 @@
 % =======================================================================   
 % Setup for saving images animated gif file and
 % =======================================================================
-   flagA = 1;
+   flagA =0;
    ag_name = 'ag_QMG21C.gif';
    delay = 0.1;  %  Delay in seconds before displaying the next image  
    nt = 1;%  Frame counter start

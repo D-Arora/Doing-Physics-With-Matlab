@@ -27,7 +27,7 @@ aQ = 10*wL;                   % radius of circular aperture [m]
 zP = 2;                    % z distance between aperture plan and observation plane [m]
 
 xPmin = 0;
-xPmax = 2e-1;
+xPmax = 5e-1;
 
 % Setup   SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
 ik = 1i*2*pi/wL;             % j k

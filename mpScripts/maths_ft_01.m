@@ -11,8 +11,8 @@
 % DOING PHYSICS WITH MATLAB 
 %    http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
 
-%clear 
-%close all
+clear 
+close all
 clc
 
 tic
@@ -36,7 +36,7 @@ tic
 % 11  Train Whistle
 % 12  Digital Filtering
 
-flagF = 13;
+flagF = 7;
    
    switch flagF
        case 1         % Gaussian function
@@ -136,23 +136,31 @@ flagF = 13;
        case 7         % single square pulse
           T0 = 1.0;          
           tMin = 0;
-          tMax = 5*T0;
+          tMax = 10*T0;
           fMax = 10;
+
+%            tMax = 100;
+%            fMax = 100;
+%            nT = 201;
+%            nF = 2999;
+
           fMin = - fMax;
           XTICKS = -fMax:2:fMax;
           XLIMS = [-fMax fMax];
            
+
           [t, f] = domains(tMin,tMax,nT,fMin,fMax,nF);   
           
           h = zeros(1,nT);
-          h(round(nT/3) : round(2*nT/3)) = 1;
-          h = h - 0.5;
-          
-       
+           h(round(nT/3) : round(2*nT/3)) = 1;
+%           h = h - 0.5;
+%          h = [zeros(1,50), ones(1, 101), zeros(1, 50)];
+
+         
        case 8      % Damped oscillator  
          f0 = 10;
           A = 1;
-          tau = 0.1;
+          tau = 0.10;
           T0 = 1/f0;
           tMin = 0;
           tMax = 4*T0;
@@ -196,18 +204,29 @@ flagF = 13;
 
      case 11       % Beats
           tMin = 0;
-          tMax = 4;
-          fMax = 1100;
+         % tMax = 3;
+          fMax = 1000;
           fMin = -fMax;
           XTICKS = -fMax:fMax/2:fMax;
           XLIMS = [-fMax fMax];
-          [a, b] = audioread('Train.wav');
+         [a, b] = audioread('Train.wav');
+        %  [a, b] = audioread('audioGuitar1.wav');
+     %      [a, b] = audioread('audioClarinet1.wav');
+     %  [a, b] = audioread('audioVoice1.wav');
+     %     [a, b] = audioread('audio440.wav');
           sound(a,b);
+          
+          % b is the sampling rate  Fs
+          deltat = 1/b;
           h = a(1:end-1)';
+          %h = a(1e4:1.5e5)';
           h = h - mean(h);
-          nT = length(h); nF = 7999;%length(h);
+          nT = length(h); nF = 3999; 
+          tMax = (nT-1)*deltat;
           [t, f] = domains(tMin,tMax,nT,fMin,fMax,nF);
-     
+          
+          [r, c] = size(h);
+          if c == 1; h = h'; end    % for simpson1d.m 1 row vector for h
    
     case 12          % sinusoidal function
           f0 = 1000;
@@ -336,7 +355,7 @@ figure(13);
    set(gcf,'Units','normalized');
    set(gcf,'Position',pos);
    set(gcf,'color','w');
-   xP = f; yP = Ph;
+   xP = f; yP = Ph./max(Ph);
    plot(xP,yP,'lineWidth',2);
    title('One-sided PSD');
    ylabel('PSD   P_h(f)');

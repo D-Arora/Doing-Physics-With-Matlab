@@ -22,7 +22,7 @@ clear; close all;clc
 
 % INPUTS =============================================================
 % Enter: quantum numbers M and N  /  coeff cM and cN  /  width of box L
-  M = 2; N = 4;
+  M = 1; N = 2;
   cM = 1; cN = 2;
   L = 0.5e-9;
   numX = 299;

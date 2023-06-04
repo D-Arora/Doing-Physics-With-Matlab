@@ -27,9 +27,9 @@ tic
 
 % ========================================================================
 % INPUT PARAMETERS 
-num = 50;             % number for observation space
+num = 81;             % number for observation space
 nP = num*4+1;         % observation points for P  format  integer * 4 + 1
-nQ = 59;              % aperture points for Q  must be ODD
+nQ = 99;              % aperture points for Q  must be ODD
 
 wL = 632.8e-9;        % wavelength [m]
  
@@ -249,15 +249,15 @@ ylabel('y')
 % %set(gca,'Xlim',[-4e-4 4e-4]);
 
 
-figure(5)
-x = xQ; y = yQ;
-pcolor(x,y,real(EQ));
-shading flat
-tx = 'x_Q /  \lambda';
-ty = 'y_Q /  \lambda';
-set(gca,'fontsize',fs);
-xlabel(tx,'fontsize',fs);   ylabel(ty,'fontsize',fs);
-axis square
+% figure(5)
+% x = xQ; y = yQ;
+% pcolor(x,y,real(EQ));
+% shading flat
+% tx = 'x_Q /  \lambda';
+% ty = 'y_Q /  \lambda';
+% set(gca,'fontsize',fs);
+% xlabel(tx,'fontsize',fs);   ylabel(ty,'fontsize',fs);
+% axis square
 
 % COMMAND WINDOW OUTPUTS ------------------------------------------------
 disp('Parameter summary  [SI units]');

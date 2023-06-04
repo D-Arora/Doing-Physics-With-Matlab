@@ -10,17 +10,27 @@
 % School of Physics, University of Sydney
 
 % DOING PHYSICS WITH MATLAB 
-%    https://d-arora.github.io/Doing-Physics-With-Matlab/
+%    http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
 
 clear
 close all
 clc
 tic
 
+% ANIMATION SETUP =======================================================
+% (0 no)  (1 yes) for flag1
+   flag1 = 1;    
+% file name for animated gif   
+    ag_name = 'agDiffractionParticle.gif'; 
+% Delay in seconds before displaying the next image  
+    delay = 0.00; 
+% Frame to start
+    frame1 = 0;
+
 % INPUTS --------------------------------------------------------
 
-num = 501;                    % No. observation points
-num1 = 2 000;
+num = 101;                    % No. observation points
+num1 = 2000;
 b = 2.0e-4;                   % Slit width
 a = 3*b;                    % Slit separation
 wL = 400e-9;                  % Wavelength
@@ -48,7 +58,7 @@ IRR1 = (sin(beta+eps)./(beta+eps)).^2;   % Diffraction - single slit
 IRR2 = cos(alpha).^2 .* IRR1;            % Total interference
 IRRs = (IRR2.^0.2)' ;     % scaled irradiance for simulated screen pattern
 xs = x .* 1e3;               % screen position in mm 
-xs1 = x1 * 1e3; xs2 = x2 * 1e3;
+%xs1 = x1 * 1e3; xs2 = x2 * 1e3;
 
 xs1 = -4; xs2 = +4;
 ys1 = -1; ys2 = +1;
@@ -63,7 +73,7 @@ set(gcf,'PaperType','A4');
 set(gcf,'Color',[1 1 1]);
 fs = 12;
 
-pos = [0.1 0.1 0.33 0.5];
+pos = [0.1 0.1 0.30 0.5];
 set(gcf,'Units','normalized');
 set(gcf,'Position',pos);
 
@@ -76,7 +86,8 @@ set(h_axis,'FaceColor',[0 0 0]);
 axis([xs1 xs2 0 1.1]);
 xlabel('screen position  x  (a.u.)','fontSize',fs);
 ylabel('Prob Density (a.u.)','fontSize',fs);
-title('Particle Diffraction','fontSize',fs,'fontweight','normal');
+txt = sprintf('Number of particles = %5.0f  \n ',num1);
+title(txt,'fontSize',fs,'fontweight','normal');
 set(gca,'fontsize',14)
 box on
 axes('position',[0.1 0.1 0.8 0.18]);
@@ -105,6 +116,19 @@ for cn = 1 : num1
    if SP < IRRP
     plot(xP.*1e3,yP,'o','MarkerSize',4,'MarkerFaceColor','k','MarkerEdgeColor','none');
    end
+
+   if flag1 > 0
+         frame1 = frame1 + 1;
+         frame = getframe(1);
+         im = frame2im(frame);
+         [imind,cm] = rgb2ind(im,256);
+      % On the first loop, create the file. In subsequent loops, append.
+         if frame1 == 1
+           imwrite(imind,cm,ag_name,'gif','DelayTime',delay,'loopcount',inf);
+         else
+          imwrite(imind,cm,ag_name,'gif','DelayTime',delay,'writemode','append');
+         end
+    end 
    pause(eps);
 end
 

@@ -14,6 +14,7 @@ clear all
 close all
 clc
 
+
 num = 801;             % Number of data points (odd number)
 
 % Constants ------------------------------------------------------------
@@ -236,9 +237,10 @@ s = sprintf('Potential Well: Lattice');
 
 % Colvalent bonding   V shaped potentail wells   
     case 9 
-    num = 1000;
+    L0 = 1e-9;
+    num = 1001;
     U1 = -1000;
-    x1 = 0.01;
+    x1 = 0.05;
     xMin = -0.15;
     xMax = -xMin;
     x = linspace(xMin,xMax,num);

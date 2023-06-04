@@ -24,7 +24,7 @@ clear; close all; clc
 tic
 
 % SELECT SIGNAL FUNCTION h(t)>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-  flagF = 1;
+  flagF = 15;
 
 %  1   Gausian function
 %  2   Exponential function
@@ -340,6 +340,10 @@ case 13  % audio Guitar 220 Hz
        XLIMS = [tMin  2.5]; XTICKS = tMin:0.5:2.5; 
        XLIMSF = [fMin fMax]; XTICKSF = fMin:200:fMax;
        [t, f] = domains(tMin,tMax,nT,fMin,fMax,nF);                 
+       
+       
+       % turn filtering on  flagFF = 17 otherwise flagFF = 0
+       flagFF = 15;
 
 
 case 16  % audio Train Whistle
@@ -363,8 +367,8 @@ case 16  % audio Train Whistle
        [t, f] = domains(tMin,tMax,nT,fMin,fMax,nF);  
        
 case 17  % Filtering
-     % Filter off 0 / filter on 1
-       flagFF = 1;
+     % Filter off 0 / filter on 15
+       flagFF = 15;
        txt = 'Filtering OFF';
        nT = 5001; nF = 5001;    % must be odd numbers
        if mod(nT,2) == 0; nT = nT+1; end
@@ -395,11 +399,18 @@ end
    end
  
 % #17 Filtering
-  if flagFF == 1
+  if flagFF == 17
       H(f<500) = 0;
       txt = 'Filtering ON';
       XLIMSF = [0 fMax]; XTICKSF = 0:200:fMax; 
   end
+
+% #15 Filtering  
+   if flagFF == 15
+      H(f<300) = 0;
+      txt = 'Filtering ON';
+      XLIMSF = [0 fMax]; XTICKSF = 0:200:fMax; 
+   end
 
 % INVERSE Fourier Transform  hI(t)  
  for c = 1:nT
@@ -506,7 +517,7 @@ integral = (h/3) * f * sc;
 
 else
     
-integral = 'Length of function must be an ODD number' 
+integral = 'Length of function must be an ODD number'; 
 end
 
 end
