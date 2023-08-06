@@ -1,0 +1,2041 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 15">
+<meta name=Originator content="Microsoft Word 15">
+<link rel=File-List href="chaos23_files/filelist.xml">
+<link rel=Edit-Time-Data href="chaos23_files/editdata.mso">
+<link rel=OLE-Object-Data href="chaos23_files/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Lorenz Attractor</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Subject>Chaos</o:Subject>
+  <o:Author>Ian Cooper</o:Author>
+  <o:Keywords>Lorenz attractor, chaos, chaos dynamics, matlab, computational physics</o:Keywords>
+  <o:LastAuthor>Ian Cooper</o:LastAuthor>
+  <o:Revision>35</o:Revision>
+  <o:TotalTime>2742</o:TotalTime>
+  <o:Created>2023-07-24T03:54:00Z</o:Created>
+  <o:LastSaved>2023-08-06T07:48:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>1118</o:Words>
+  <o:Characters>6379</o:Characters>
+  <o:Category>Lorenz attractor</o:Category>
+  <o:Lines>53</o:Lines>
+  <o:Paragraphs>14</o:Paragraphs>
+  <o:CharactersWithSpaces>7483</o:CharactersWithSpaces>
+  <o:Version>16.00</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+<link rel=themeData href="chaos23_files/themedata.thmx">
+<link rel=colorSchemeMapping href="chaos23_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-AU</w:LidThemeOther>
+  <w:LidThemeAsian>ZH-CN</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:UseWord2010TableStyleRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
+  DefSemiHidden="false" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="376">
+  <w:LsdException Locked="false" Priority="0" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="0" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 7"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 8"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 9"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 9"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal Indent"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footnote text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="header"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footer"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index heading"/>
+  <w:LsdException Locked="false" Priority="35" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="table of figures"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="envelope address"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="envelope return"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footnote reference"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation reference"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="line number"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="page number"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="endnote reference"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="endnote text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="table of authorities"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="macro"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="toa heading"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 5"/>
+  <w:LsdException Locked="false" Priority="10" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Closing"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Signature"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="true"
+   UnhideWhenUsed="true" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Message Header"/>
+  <w:LsdException Locked="false" Priority="11" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Salutation"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Date"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text First Indent"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text First Indent 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Note Heading"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Block Text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Hyperlink"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="FollowedHyperlink"/>
+  <w:LsdException Locked="false" Priority="22" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Document Map"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Plain Text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="E-mail Signature"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Top of Form"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Bottom of Form"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal (Web)"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Acronym"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Address"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Cite"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Code"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Definition"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Keyboard"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Preformatted"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Sample"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Typewriter"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Variable"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal Table"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation subject"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="No List"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 7"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 8"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 7"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 8"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Contemporary"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Elegant"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Professional"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Subtle 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Subtle 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Balloon Text"/>
+  <w:LsdException Locked="false" Priority="59" Name="Table Grid"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Theme"/>
+  <w:LsdException Locked="false" SemiHidden="true" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" QFormat="true"
+   Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" QFormat="true"
+   Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" QFormat="true"
+   Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" QFormat="true"
+   Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" QFormat="true"
+   Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" QFormat="true"
+   Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" SemiHidden="true"
+   UnhideWhenUsed="true" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="TOC Heading"/>
+  <w:LsdException Locked="false" Priority="41" Name="Plain Table 1"/>
+  <w:LsdException Locked="false" Priority="42" Name="Plain Table 2"/>
+  <w:LsdException Locked="false" Priority="43" Name="Plain Table 3"/>
+  <w:LsdException Locked="false" Priority="44" Name="Plain Table 4"/>
+  <w:LsdException Locked="false" Priority="45" Name="Plain Table 5"/>
+  <w:LsdException Locked="false" Priority="40" Name="Grid Table Light"/>
+  <w:LsdException Locked="false" Priority="46" Name="Grid Table 1 Light"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark"/>
+  <w:LsdException Locked="false" Priority="51" Name="Grid Table 6 Colorful"/>
+  <w:LsdException Locked="false" Priority="52" Name="Grid Table 7 Colorful"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 1"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 1"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 1"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 2"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 2"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 2"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 3"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 3"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 3"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 4"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 4"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 5"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 5"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 5"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 6"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 6"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 6"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 6"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 6"/>
+  <w:LsdException Locked="false" Priority="46" Name="List Table 1 Light"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark"/>
+  <w:LsdException Locked="false" Priority="51" Name="List Table 6 Colorful"/>
+  <w:LsdException Locked="false" Priority="52" Name="List Table 7 Colorful"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 1"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 1"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 1"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 2"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 2"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 2"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 3"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 3"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 3"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 4"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 4"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 5"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 5"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 5"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 6"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 6"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 6"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 6"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Mention"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Smart Hyperlink"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Hashtag"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Unresolved Mention"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Smart Link"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:\5B8B\4F53;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:515 680460288 22 0 262145 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:-536869121 1107305727 33554432 0 415 0;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-469750017 -1073732485 9 0 511 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-520081665 -1073717157 41 0 66047 0;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:515 680460288 22 0 262145 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-font-kerning:1.0pt;
+	mso-ligatures:standardcontextual;
+	mso-ansi-language:EN-AU;}
+h1
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 1 Char";
+	mso-style-next:Normal;
+	margin:0cm;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:12.0pt;
+	font-family:"Arial",sans-serif;
+	mso-fareast-font-family:SimSun;
+	mso-font-kerning:0pt;
+	mso-ansi-language:EN-AU;
+	mso-fareast-language:EN-US;}
+a:link, span.MsoHyperlink
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:blue;
+	mso-themecolor:hyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:purple;
+	mso-themecolor:followedhyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-font-kerning:1.0pt;
+	mso-ligatures:standardcontextual;
+	mso-ansi-language:EN-AU;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-font-kerning:1.0pt;
+	mso-ligatures:standardcontextual;
+	mso-ansi-language:EN-AU;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-font-kerning:1.0pt;
+	mso-ligatures:standardcontextual;
+	mso-ansi-language:EN-AU;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-font-kerning:1.0pt;
+	mso-ligatures:standardcontextual;
+	mso-ansi-language:EN-AU;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 1";
+	mso-ansi-font-size:12.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Arial",sans-serif;
+	mso-ascii-font-family:Arial;
+	mso-fareast-font-family:SimSun;
+	mso-hansi-font-family:Arial;
+	mso-bidi-font-family:Arial;
+	mso-fareast-language:EN-US;
+	font-weight:bold;}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{mso-style-name:msonormal;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:16.0pt;
+	mso-ansi-font-size:16.0pt;
+	mso-bidi-font-size:16.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-font-kerning:0pt;
+	mso-ligatures:none;
+	mso-ansi-language:EN-AU;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:1911230328;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1511264230 134807553 134807555 134807557 134807553 134807555 134807557 134807553 134807555 134807557;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l0:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Wingdings;}
+@list l0:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l0:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l0:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Wingdings;}
+@list l0:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l0:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l0:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Wingdings;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-ansi-language:EN-AU;}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-priority:59;
+	mso-style-unhide:no;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0cm;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-font-kerning:1.0pt;
+	mso-ligatures:standardcontextual;
+	mso-ansi-language:EN-AU;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-GB link=blue vlink=purple style='tab-interval:36.0pt;word-wrap:
+break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><span lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=859 valign=top style='width:644.6pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:119.4pt;margin-bottom:
+  10.0pt;margin-left:14.2pt;line-height:150%'><span lang=EN-AU><a
+  href="https://d-arora.github.io/Doing-Physics-With-Matlab/"><b><span
+  style='font-size:18.0pt;line-height:150%;font-family:"Bookman Old Style",serif'>DOING
+  PHYSICS WITH MATLAB</span></b></a></span><b><span lang=EN-AU
+  style='font-size:18.0pt;line-height:150%;font-family:"Bookman Old Style",serif;
+  color:blue'><o:p></o:p></span></b></p>
+  <p class=MsoNormal align=center style='margin-left:14.2pt;text-align:center;
+  line-height:150%'><a name="OLE_LINK1"><b><span lang=EN-AU style='font-size:
+  20.0pt;line-height:150%;font-family:"Bookman Old Style",serif;color:#984806;
+  mso-themecolor:accent6;mso-themeshade:128'>CHAOS DYNAMICS<o:p></o:p></span></b></a></p>
+  <h1 align=center style='text-align:center;line-height:150%'><span
+  style='mso-bookmark:OLE_LINK1'><span lang=EN-AU style='font-size:20.0pt;
+  line-height:150%;font-family:"Bookman Old Style",serif;color:#984806;
+  mso-themecolor:accent6;mso-themeshade:128;mso-ligatures:standardcontextual'>LORENZ
+  ATTRACTOR<o:p></o:p></span></span></h1>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm'><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-AU style='font-size:12.0pt;
+  line-height:150%;font-family:"Tahoma",sans-serif;color:black'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%;tab-stops:1.0cm'><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-AU style='mso-bidi-font-size:
+  16.0pt;line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:black'>Ian Cooper<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:18.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black;mso-themecolor:text1;mso-bidi-font-weight:
+  bold'>matlabvisualphysics@gmail.com<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='mso-bidi-font-size:16.0pt;line-height:150%;
+  font-family:"Bookman Old Style",serif;mso-bidi-font-family:Tahoma;color:#7030A0'>DOWNLOAD
+  DIRECTORY FOR MATLAB SCRIPTS<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='mso-bidi-font-size:16.0pt;line-height:150%;
+  font-family:"Bookman Old Style",serif;mso-bidi-font-family:Tahoma;color:#E36C0A;
+  mso-themecolor:accent6;mso-themeshade:191'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span></b><span lang=EN-AU><a
+  href="https://github.com/D-Arora/Doing-Physics-With-Matlab/tree/master/mpScripts"><b
+  style='mso-bidi-font-weight:normal'><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Bookman Old Style",serif;mso-bidi-font-family:
+  Tahoma'>GitHub</span></b></a></span><span lang=EN-AU style='font-size:12.0pt;
+  line-height:150%;font-family:"Times New Roman",serif'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='mso-bidi-font-size:16.0pt;line-height:150%;
+  font-family:"Bookman Old Style",serif;mso-bidi-font-family:Tahoma;color:#E36C0A;
+  mso-themecolor:accent6;mso-themeshade:191'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span></b><span lang=EN-AU><a
+  href="https://drive.google.com/drive/u/3/folders/1j09aAhfrVYpiMavajrgSvUMc89ksF9Jb"><b
+  style='mso-bidi-font-weight:normal'><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Bookman Old Style",serif;mso-bidi-font-family:
+  Tahoma'>Google Drive</span></b></a></span><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='mso-bidi-font-size:16.0pt;line-height:150%;
+  font-family:"Bookman Old Style",serif;mso-bidi-font-family:Tahoma;color:#E36C0A;
+  mso-themecolor:accent6;mso-themeshade:191'><o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-AU
+  style='font-size:12.0pt;line-height:150%;font-family:"Times New Roman",serif'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:200%'><b><span lang=EN-AU
+  style='mso-bidi-font-size:16.0pt;line-height:200%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:#984807;mso-themecolor:accent6;
+  mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>chaos23.m<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></b><span
+  lang=EN-AU style='mso-bidi-font-size:16.0pt;line-height:200%;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;color:black;mso-themecolor:text1'>Lorenz
+  attractor: Trajectories and animations<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:200%'><b><span lang=EN-AU
+  style='mso-bidi-font-size:16.0pt;line-height:200%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:#984807;mso-themecolor:accent6;
+  mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>chaos23A.m</span></b><span lang=EN-AU style='mso-bidi-font-size:
+  16.0pt;line-height:200%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-AU style='mso-bidi-font-size:16.0pt;line-height:200%;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;color:black;mso-themecolor:text1'>Lorenz
+  attractor: global bifurcation diagram<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
+  lang=EN-AU style='font-size:18.0pt;mso-bidi-font-size:12.0pt;color:#7030A0'>INTRODUCTION<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-AU style='mso-ligatures:none;mso-no-proof:
+  yes'><!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600"
+   o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f"
+   stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="Picture_x0020_2" o:spid="_x0000_i1432" type="#_x0000_t75"
+   style='width:6in;height:270pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="chaos23_files/image001.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=576 height=360
+  src="chaos23_files/image001.gif" v:shapes="Picture_x0020_2"><![endif]></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>In
+  this article, I will show how Matlab can be used to visualize the solution of
+  the Lorenz coupled ordinary differential equations for the Lorenz chaotic
+  attractor. This system of equations was first described by Edward Lorenz in
+  1963. He was a M.I.T. meteorologist and mathematician who was interested in
+  fluid flow models of the atmosphere.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>A
+  chaotic system is one that must show sensitivity to initial conditions, it
+  must be<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>topologically
+  mixing, its orbits must be dense, and for a short time the solutions will be
+  nearly identical to one another and as time increases the trajectories of the
+  chaotic systems will suddenly<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>have
+  no correlation with the other and solutions will diverge no matter how small
+  change is made to the initial conditions. The idea of topological mixing
+  implies that the system will evolve over time such that every open set of its
+  phase space will eventually intersect with every other open region. The
+  density of the orbits is also of importance to prove that a system is acting
+  chaotically. Orbits may never come close to anything resembling repeating
+  themselves. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>The
+  equations describing the Lorenz chaotic attractor are:<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span lang=EN-AU><span style='position:relative;top:6.0pt;
+  mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1026" type="#_x0000_t75"
+   style='width:93.75pt;height:18.75pt' o:ole="">
+   <v:imagedata src="chaos23_files/image002.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=125 height=25
+  src="chaos23_files/image021.png" v:shapes="_x0000_i1026"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1026"
+    DrawAspect="Content" ObjectID="_1752849548">
+   </o:OLEObject>
+  </xml><![endif]--></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1027" type="#_x0000_t75" style='width:105pt;height:18.75pt'
+   o:ole="">
+   <v:imagedata src="chaos23_files/image004.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=140 height=25
+  src="chaos23_files/image023.png" v:shapes="_x0000_i1027"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1027"
+    DrawAspect="Content" ObjectID="_1752849549">
+   </o:OLEObject>
+  </xml><![endif]--></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1028" type="#_x0000_t75" style='width:80.25pt;height:18.75pt'
+   o:ole="">
+   <v:imagedata src="chaos23_files/image006.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=107 height=25
+  src="chaos23_files/image025.png" v:shapes="_x0000_i1028"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1028"
+    DrawAspect="Content" ObjectID="_1752849550">
+   </o:OLEObject>
+  </xml><![endif]--></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
+  lang=EN-AU style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+  color:#7030A0'>Parameters<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><span
+  style='position:relative;top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1029" type="#_x0000_t75" style='width:14.25pt;height:12.75pt'
+   o:ole="">
+   <v:imagedata src="chaos23_files/image008.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=19 height=17
+  src="chaos23_files/image028.png" v:shapes="_x0000_i1029"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1029"
+    DrawAspect="Content" ObjectID="_1752849551">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>is the <b><span
+  style='color:#7030A0'>Prandtl number </span></b>and it represents the ratio
+  of fluid viscosity to thermal conductivity, essentially the ratio of how
+  quickly fluid flows through the system to how effective it absorbs heat in
+  contact with other molecules<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1030" type="#_x0000_t75" style='width:14.25pt;height:15.75pt'
+   o:ole="">
+   <v:imagedata src="chaos23_files/image010.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=19 height=21
+  src="chaos23_files/image029.png" v:shapes="_x0000_i1030"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1030"
+    DrawAspect="Content" ObjectID="_1752849552">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>is the <b><span
+  style='color:#7030A0'>normalized Rayleigh number</span></b><span
+  style='color:#7030A0'> </span>(main variable that is usually <span
+  class=GramE>varied) <span style='mso-spacerun:yes'>&nbsp;</span>and</span> it
+  represents the difference in temperature between the top and bottom of the
+  atmospheric column<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1031" type="#_x0000_t75" style='width:15pt;height:18.75pt'
+   o:ole="">
+   <v:imagedata src="chaos23_files/image012.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=20 height=25
+  src="chaos23_files/image035.png" v:shapes="_x0000_i1031"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1031"
+    DrawAspect="Content" ObjectID="_1752849553">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>depends upon
+  the geometry of the domain and simply describes the bounds of the system. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>The
+  most popular values for the parameters are:<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1032" type="#_x0000_t75" style='width:165.75pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="chaos23_files/image014.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=221 height=27
+  src="chaos23_files/image036.png" v:shapes="_x0000_i1032"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1032"
+    DrawAspect="Content" ObjectID="_1752849554">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
+  lang=EN-AU style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+  color:#7030A0'>x, y, z<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>The
+  x and y parameters relate to the vertical and horizontal temperature variations
+  in the atmosphere respectively, and the z component is related to the
+  convection in atmospheric flow.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>x,
+  y, z all vary dynamically in time.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>x
+  is the convective flow (motion of heat through the atmosphere as hot air
+  rises), positive x pertains to clockwise motion.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>y
+  is the horizontal temperature distribution, found by taking the difference between
+  ascending and descending currents, positive y pertains to warmer currents on
+  the right (correlates strongly with positive x)<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>z
+  is the vertical temperature distribution.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>For
+  some values of the three parameters </span><span lang=EN-AU><span
+  style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1421" type="#_x0000_t75" style='width:59.25pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="chaos23_files/image017.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=79 height=32
+  src="chaos23_files/image037.png" v:shapes="_x0000_i1421"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1421"
+    DrawAspect="Content" ObjectID="_1752849555">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-family:"Times New Roman",serif;
+  mso-ascii-theme-font:major-fareast;mso-hansi-theme-font:major-fareast;
+  mso-bidi-theme-font:major-fareast'>, the trajectory is bounded, but not
+  periodic, and not convergent as it ranges chaotically back and forth between
+  two attractors (critical points) &#8211; <b><span style='color:#7030A0'>strange
+  attractors</span></b>. For other values, the solution might diverge to
+  infinity, converge to a fixed point or oscillate periodically.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
+  lang=EN-AU style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+  color:#7030A0'>Critical points (fixed points)<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>There
+  are three fixed points, <span class=SpellE><i>x<sub>C</sub></i></span>, <span
+  class=SpellE><i>y<sub>C</sub></i></span>, and <span class=SpellE><i>z<sub>C</sub></i></span>
+  where the x, y and z parameters are constant<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span lang=EN-AU><span style='position:relative;top:6.0pt;
+  mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1033" type="#_x0000_t75"
+   style='width:465pt;height:18.75pt' o:ole="">
+   <v:imagedata src="chaos23_files/image016.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=620 height=25
+  src="chaos23_files/image039.png" v:shapes="_x0000_i1033"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1033"
+    DrawAspect="Content" ObjectID="_1752849556">
+   </o:OLEObject>
+  </xml><![endif]--></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>An
+  obvious critical point is the Origin (0, 0, 0).<span
+  style='mso-spacerun:yes'>&nbsp; </span>To find the other critical points, we
+  can take the <span class=SpellE><i>y<sub>C</sub></i></span> component as a
+  free parameter such that<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='mso-spacerun:yes'>&nbsp;&nbsp;</span><span
+  style='position:relative;top:9.0pt;mso-text-raise:-9.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1034" type="#_x0000_t75" style='width:161.25pt;height:27.75pt'
+   o:ole="">
+   <v:imagedata src="chaos23_files/image018.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=215 height=37
+  src="chaos23_files/image040.png" v:shapes="_x0000_i1034"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1034"
+    DrawAspect="Content" ObjectID="_1752849557">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>then
+  the other fixed points or critical points are<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span class=SpellE><i>x<sub>C</sub></i></span> = <span class=SpellE><span
+  class=GramE><i>y<sub>C</sub></i></span></span><span class=GramE><span
+  style='mso-spacerun:yes'>&nbsp; </span>and</span> <span style='position:relative;
+  top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1035"
+   type="#_x0000_t75" style='width:66pt;height:21.75pt' o:ole="">
+   <v:imagedata src="chaos23_files/image020.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=88 height=29
+  src="chaos23_files/image041.png" v:shapes="_x0000_i1035"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1035"
+    DrawAspect="Content" ObjectID="_1752849558">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><span
+  style='mso-spacerun:yes'>&nbsp;</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>All
+  three <b><span style='color:#7030A0'>fixed points</span></b><span
+  style='color:#7030A0'> </span>are <b><span style='color:#7030A0'>unstable</span></b>.
+  If the initial position corresponds to a fixed point, the values of x, y, and
+  z never change. However, even a small deviation in starting values from a
+  fixed point will cause the system to evolve so that the trajectory will
+  always be repelled from a fixed point if it tries to approach it. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>If<span
+  style='mso-spacerun:yes'>&nbsp; </span></span><span lang=EN-AU><span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1036" type="#_x0000_t75" style='width:35.25pt;height:18.75pt'
+   o:ole="">
+   <v:imagedata src="chaos23_files/image024.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=47 height=25
+  src="chaos23_files/image042.png" v:shapes="_x0000_i1036"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1036"
+    DrawAspect="Content" ObjectID="_1752849559">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></span><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>then
+  the Origin is a global attractor and the motion freezes at the Origin.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>The
+  system of the three coupled ordinary differential equations is solved using
+  the Matlab command <b><span style='color:#984807;mso-themecolor:accent6;
+  mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000'>ode45</span></b>. The Script </span><b><span lang=EN-AU
+  style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+  color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>chaos23.</span></b><b><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast;
+  color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>m</span></b><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast;
+  color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'> </span><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>facilitates
+  simulations with the Lorenz equations. Model parameters are changed in the
+  INPUT section of the Script and the results are displayed in a series of
+  Figure Windows.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
+  lang=EN-AU style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+  color:#7030A0'>Significance of Lorenz in Atmospheric Dynamics<o:p></o:p></span></b></p>
+  <p class=MsoListParagraphCxSpFirst style='margin-bottom:0cm;mso-add-space:
+  auto;text-indent:-18.0pt;line-height:150%;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+  lang=EN-AU style='font-family:Symbol;mso-fareast-font-family:Symbol;
+  mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>&middot;<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>Allows
+  us to see how different emissions spread by convection through the atmosphere.
+  <o:p></o:p></span></p>
+  <p class=MsoListParagraphCxSpMiddle style='margin-bottom:0cm;mso-add-space:
+  auto;text-indent:-18.0pt;line-height:150%;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+  lang=EN-AU style='font-family:Symbol;mso-fareast-font-family:Symbol;
+  mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>&middot;<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>Allows
+  us to model weather and wind more accurately.<o:p></o:p></span></p>
+  <p class=MsoListParagraphCxSpLast style='margin-bottom:0cm;mso-add-space:
+  auto;text-indent:-18.0pt;line-height:150%;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+  lang=EN-AU style='font-family:Symbol;mso-fareast-font-family:Symbol;
+  mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>&middot;<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>Allows
+  us to model the effect of anthropogenic emissions on vertical and horizontal
+  temperature gradients.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
+  lang=EN-AU style='font-size:18.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;color:#7030A0'>SIMULATION
+  1<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>The
+  Script is run with two slightly different sets of initial conditions.
+  Initially the oscillations are very similar but after about 15 time-units,
+  the motions diverge and both become chaotic.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>Parameters:<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span><span style='position:relative;
+  top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1037"
+   type="#_x0000_t75" style='width:165.75pt;height:20.25pt' o:ole="">
+   <v:imagedata src="chaos23_files/image014.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=221 height=27
+  src="chaos23_files/image036.png" v:shapes="_x0000_i1037"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1037"
+    DrawAspect="Content" ObjectID="_1752849560">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>Initial
+  <span class=GramE>displacements<span style='mso-spacerun:yes'>&nbsp; </span><b><span
+  style='color:blue'>blue</span></b></span><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-AU><span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1038" type="#_x0000_t75" style='width:245.25pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="chaos23_files/image027.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=327 height=29
+  src="chaos23_files/image044.png" v:shapes="_x0000_i1038"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1038"
+    DrawAspect="Content" ObjectID="_1752849561">
+   </o:OLEObject>
+  </xml><![endif]--></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  color:red'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>red</span></b><span lang=EN-AU style='font-family:"Times New Roman",serif;
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;color:red'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-AU><span style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1039" type="#_x0000_t75" style='width:245.25pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="chaos23_files/image034.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=327 height=29
+  src="chaos23_files/image045.png" v:shapes="_x0000_i1039"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1039"
+    DrawAspect="Content" ObjectID="_1752849562">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-family:"Times New Roman",serif;
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-AU style='mso-ligatures:none;mso-no-proof:
+  yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_11" o:spid="_x0000_i1431"
+   type="#_x0000_t75" style='width:431.25pt;height:539.25pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="chaos23_files/image083.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=575 height=719
+  src="chaos23_files/image046.png" v:shapes="Picture_x0020_11"><![endif]></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-AU style='mso-ligatures:none;mso-no-proof:
+  yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_17" o:spid="_x0000_i1430"
+   type="#_x0000_t75" style='width:6in;height:270pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="chaos23_files/image030.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=576 height=360
+  src="chaos23_files/image030.png" v:shapes="Picture_x0020_17"><![endif]></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
+  lang=EN-AU style='font-size:18.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;color:#7030A0'>SIMULATION 2<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>The
+  initial displacement is set at the fixed point<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>x0 <span class=GramE>=<span style='mso-spacerun:yes'>&nbsp;
+  </span>8.485281374238570</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>y0
+  <span class=GramE>=<span style='mso-spacerun:yes'>&nbsp;
+  </span>8.485281374238570</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>z0
+  = 27<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>for
+  the parameters <span style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1042" type="#_x0000_t75" style='width:165.75pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="chaos23_files/image014.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=221 height=27
+  src="chaos23_files/image036.png" v:shapes="_x0000_i1042"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1042"
+    DrawAspect="Content" ObjectID="_1752849563">
+   </o:OLEObject>
+  </xml><![endif]-->.<o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><span lang=EN-AU style='font-family:"Times New Roman",serif;
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ligatures:none;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_19" o:spid="_x0000_i1429" type="#_x0000_t75" style='width:330.75pt;
+   height:449.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="chaos23_files/image085.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=441 height=599
+  src="chaos23_files/image047.png" v:shapes="Picture_x0020_19"><![endif]></span><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><span lang=EN-AU style='font-family:"Times New Roman",serif;
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ligatures:none;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_20" o:spid="_x0000_i1428" type="#_x0000_t75" style='width:331.5pt;
+   height:207pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="chaos23_files/image033.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=442 height=276
+  src="chaos23_files/image033.png" v:shapes="Picture_x0020_20"><![endif]></span><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>For
+  a long period, the trajectory oscillates around the starting fixed point.
+  However, as the trajectory approaches this fixed point it is always repelled,
+  leading to chaotic motion as it later oscillates around the both of the fixed
+  points for ever. The trajectory is completely determined by the initial
+  starting position. The motion is not random but it is not predictable.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
+  lang=EN-AU style='font-size:18.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;color:#7030A0'>SIMULATION
+  3<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>For
+  the parameters <span style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1045" type="#_x0000_t75" style='width:185.25pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="chaos23_files/image087.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=247 height=27
+  src="chaos23_files/image048.png" v:shapes="_x0000_i1045"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1045"
+    DrawAspect="Content" ObjectID="_1752849564">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span>the motion
+  becomes periodic after the initial transience &#8211; the motion is not
+  chaotic.<o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><span lang=EN-AU style='font-family:"Times New Roman",serif;
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ligatures:none;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_22" o:spid="_x0000_i1427" type="#_x0000_t75" style='width:330.75pt;
+   height:449.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="chaos23_files/image089.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=441 height=599
+  src="chaos23_files/image049.png" v:shapes="Picture_x0020_22"><![endif]></span><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><span lang=EN-AU style='font-family:"Times New Roman",serif;
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ligatures:none;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_23" o:spid="_x0000_i1426" type="#_x0000_t75" style='width:331.5pt;
+   height:207pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="chaos23_files/image038.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=442 height=276
+  src="chaos23_files/image038.png" v:shapes="Picture_x0020_23"><![endif]></span><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
+  lang=EN-AU style='font-size:18.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;color:#7030A0'>SIMULATION
+  4<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>If
+  the Rayleigh number </span><span lang=EN-AU><span style='position:relative;
+  top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1048"
+   type="#_x0000_t75" style='width:35.25pt;height:18.75pt' o:ole="">
+   <v:imagedata src="chaos23_files/image024.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=47 height=25
+  src="chaos23_files/image042.png" v:shapes="_x0000_i1048"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1048"
+    DrawAspect="Content" ObjectID="_1752849565">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></span><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  major-fareast;mso-hansi-theme-font:major-fareast;mso-bidi-theme-font:major-fareast'>then
+  the Origin is a <b><span style='color:#7030A0'>global attractor</span></b><span
+  style='color:#7030A0'> </span>and the motion freezes at the Origin.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1049" type="#_x0000_t75" style='width:177.75pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="chaos23_files/image091.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=237 height=27
+  src="chaos23_files/image050.png" v:shapes="_x0000_i1049"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1049"
+    DrawAspect="Content" ObjectID="_1752849566">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><span lang=EN-AU style='font-family:"Times New Roman",serif;
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ligatures:none;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_26" o:spid="_x0000_i1425" type="#_x0000_t75" style='width:330.75pt;
+   height:449.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="chaos23_files/image093.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=441 height=599
+  src="chaos23_files/image051.png" v:shapes="Picture_x0020_26"><![endif]></span><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><span lang=EN-AU style='font-family:"Times New Roman",serif;
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ligatures:none;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1424" type="#_x0000_t75" style='width:331.5pt;height:207pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="chaos23_files/image043.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=442 height=276
+  src="chaos23_files/image043.png" v:shapes="_x0000_i1424"><![endif]></span><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
+  lang=EN-AU style='font-size:18.0pt;mso-bidi-font-size:12.0pt;line-height:
+  150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;color:#7030A0'>SIMULATION
+  5<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Global bifurcations<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1052" type="#_x0000_t75" style='width:111.75pt;height:20.25pt'
+   o:ole="">
+   <v:imagedata src="chaos23_files/image095.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=149 height=27
+  src="chaos23_files/image052.png" v:shapes="_x0000_i1052"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1052"
+    DrawAspect="Content" ObjectID="_1752849568">
+   </o:OLEObject>
+  </xml><![endif]--></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>Initial
+  conditions <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-AU><span style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1053" type="#_x0000_t75" style='width:174pt;height:24pt' o:ole="">
+   <v:imagedata src="chaos23_files/image097.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=232 height=32
+  src="chaos23_files/image053.png" v:shapes="_x0000_i1053"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1053"
+    DrawAspect="Content" ObjectID="_1752849569">
+   </o:OLEObject>
+  </xml><![endif]--></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>The
+  values <span class=SpellE><i>xE</i></span>, <span class=SpellE><i>yE</i></span>,
+  <span class=SpellE><i>zE</i></span> and </span><span lang=EN-AU><span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1054" type="#_x0000_t75" style='width:155.25pt;height:27.75pt'
+   o:ole="">
+   <v:imagedata src="chaos23_files/image099.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=207 height=37
+  src="chaos23_files/image054.png" v:shapes="_x0000_i1054"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1054"
+    DrawAspect="Content" ObjectID="_1752849570">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></span><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>are
+  the final displacement values at the end of the simulation when <span
+  class=SpellE><i>tE</i></span> = 20.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>Another
+  interesting behaviour is that there exists a <b><span style='color:#7030A0'>homoclinic
+  bifurcation</span></b>.<o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><span lang=EN-AU style='font-family:"Times New Roman",serif;
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-ligatures:none;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_1" o:spid="_x0000_i1423" type="#_x0000_t75" style='width:503.25pt;
+   height:674.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="chaos23_files/image101.emz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=671 height=899
+  src="chaos23_files/image055.png" v:shapes="Picture_x0020_1"><![endif]></span><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'>If
+  you start near the Origin and follow the unstable manifold trajectory outward,
+  you&#8217;ll eventually end up attracting to a limit cycle in one of the two
+  &#8220;lobes&#8221; when </span><span lang=EN-AU><span style='position:relative;
+  top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1205"
+   type="#_x0000_t75" style='width:14.25pt;height:15.75pt' o:ole="">
+   <v:imagedata src="chaos23_files/image068.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=19 height=21
+  src="chaos23_files/image029.png" v:shapes="_x0000_i1205"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1205"
+    DrawAspect="Content" ObjectID="_1752849571">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-family:"Times New Roman",serif;
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'><span
+  style='mso-spacerun:yes'>&nbsp;</span>is small. As </span><span lang=EN-AU><span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1249" type="#_x0000_t75" style='width:14.25pt;height:15.75pt'
+   o:ole="">
+   <v:imagedata src="chaos23_files/image069.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=19 height=21
+  src="chaos23_files/image029.png" v:shapes="_x0000_i1249"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1249"
+    DrawAspect="Content" ObjectID="_1752849572">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-family:"Times New Roman",serif;
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'><span
+  style='mso-spacerun:yes'>&nbsp;</span>increases, the limit cycle grows until
+  it intersects with the saddle point at the Origin for </span><span
+  lang=EN-AU><span style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1295" type="#_x0000_t75" style='width:14.25pt;height:15.75pt'
+   o:ole="">
+   <v:imagedata src="chaos23_files/image070.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=19 height=21
+  src="chaos23_files/image029.png" v:shapes="_x0000_i1295"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1295"
+    DrawAspect="Content" ObjectID="_1752849573">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-AU style='font-family:"Times New Roman",serif;
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'><span
+  style='mso-spacerun:yes'>&nbsp;</span>&#8776; 13.926. This is called a <b><span
+  style='color:#7030A0'>homoclinic orbit</span></b>.<span
+  style='mso-spacerun:yes'>&nbsp; </span>For </span><span lang=EN-AU><span
+  style='position:relative;top:6.0pt;mso-text-raise:-6.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1368" type="#_x0000_t75" style='width:99pt;height:18.75pt'
+   o:ole="">
+   <v:imagedata src="chaos23_files/image071.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=132 height=25
+  src="chaos23_files/image056.png" v:shapes="_x0000_i1368"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1368"
+    DrawAspect="Content" ObjectID="_1752849574">
+   </o:OLEObject>
+  </xml><![endif]-->, </span><span lang=EN-AU style='font-family:"Times New Roman",serif;
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast'>the dynamics is chaotic.</span><span
+  lang=EN-AU> </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  mso-ligatures:none;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_4"
+   o:spid="_x0000_i1422" type="#_x0000_t75" style='width:645.75pt;height:422.25pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="chaos23_files/image032.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=861 height=563
+  src="chaos23_files/image076.png" v:shapes="Picture_x0020_4"><![endif]></span><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  lang=EN-AU style='font-family:"Times New Roman",serif;mso-ascii-theme-font:
+  minor-fareast;mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
+  lang=EN-AU style='font-size:18.0pt;color:#7030A0'>REFERENCES<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-AU><a href="https://www.youtube.com/watch?v=Q_f1vRLAENA">https://www.youtube.com/watch?v=Q_f1vRLAENA</a></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-AU><a
+  href="https://ocw.mit.edu/courses/res-18-009-learn-differential-equations-up-close-with-gilbert-strang-and-cleve-moler-fall-2015/">https://ocw.mit.edu/courses/res-18-009-learn-differential-equations-up-close-with-gilbert-strang-and-cleve-moler-fall-2015/</a></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-AU><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+</body>
+
+</html>
