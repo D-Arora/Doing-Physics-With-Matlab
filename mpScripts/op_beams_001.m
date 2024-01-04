@@ -106,7 +106,7 @@ nR = 5;
 
 % Power through a circular aperture placed in beam at the waist  z = 0
    rA = linspace(0,rP,N);
-   P = P0 .* (1 - exp(-2.*rA./w0));
+   P = P0 .* (1 - exp(-2.*(rA./w0)).^2);
    
 
 % phase of the wave along the Z axis
