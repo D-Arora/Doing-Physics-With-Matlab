@@ -46,29 +46,29 @@ tStart = time.time()
 
 # INPUTS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 # Initial angular displacment  [ -360 < theta(0) < +360  deg]
-#thetaDeg0 = -0.2*180/pi     # deg
-theta0 = pi/2               # radians
+thetaDeg0 = -0.2*180/pi
+
 # initial angular velocity  [rad/s]
 omega0 = 0
 # Acceleration due to gravity
 g = 9.8     
-# length of pendulum  [m]   
-L = g/(4*pi**2)           # period = 1 s   frequency = 1 Hz
-#L = g                     # w0 = 1
-
+# length of pendulum  [m]   --> period = 1s
+L = g/(4*pi**2)
+L = g
 # Damping coefficient  0 <= b < 10
 b = 0.5
+
         
 # Driving force
 # Amplitude of driving force    0 <= AD <= 10
-AD = 50
+AD = 1.2
 # frequency of driving force   fD ~ 1 Hz                   
-fD = 1   #(2/3)/(2*pi) #0.71
+fD = (2/3)/(2*pi) #0.71
 
 # Time span
-N = 5999         # Time interval t from t1 to t2
+N = 2999         # Time interval t from t1 to t2
 t1 = 0.0
-t2 = 50
+t2 = 600
 
 
 #%%
@@ -92,7 +92,8 @@ def lorenz(t, state):
 
 tSpan = np.linspace(t1,t2,N)
 t = tSpan
-#theta0 = thetaDeg0*pi/180            # degrees to radians
+dt = t[1]-t[0]
+theta0 = thetaDeg0*pi/180            # degrees to radians
 u0 = [theta0, omega0]
 sol = odeint(lorenz, u0, tSpan, tfirst=True)
 theta = sol[:,0]/pi     # angular displacement [rad/pi]
@@ -134,8 +135,10 @@ def simpson1d(f,xMin,xMax):
     return integral
 
 p  = 1j*2*pi
-Fmax = 2
-Fmin = 0
+Fmin = -1
+
+
+Fmax = 1
 nF = 999
 F = np.linspace(Fmin,Fmax,nF)
 HR = np.zeros(nF); HI = HR; H = HR; H = HR+HR*1j
@@ -186,7 +189,6 @@ fig.subplots_adjust(top = 0.94, bottom = 0.24, left = 0.22,\
 
 xP = t; yP = theta
 plt.plot(xP,yP,linewidth=2,color='b')
-plt.plot(xP,yP,linewidth=2,color='b')
 # #yR = np.arange(0,250,100) 
 # #plt.yticks(yR)
 plt.grid('visible')
@@ -215,108 +217,125 @@ fig = plt.figure(figsize = (4, 3))
 fig.subplots_adjust(top = 0.94, bottom = 0.24, left = 0.22,\
                      right = 0.96, hspace = 0.2,wspace=0.2)
 
-xP = theta; yP = omega 
-NS = np.where(t>40)[0][0]; NF = N
-xP = theta[NS:NF]; yP = omega[NS:NF]
-plt.plot(xP,yP,linewidth = 0.5,color='b')
-xP = theta[0]; yP = omega[0] 
-plt.plot(xP,yP,'go')
-xP = theta[-1]; yP = omega[-1] 
-plt.plot(xP,yP,'ro')
+xP = theta; yP = omega
+
+for c in range(N):
+    while xP[c] > pi:
+       xP[c] = xP[c] - 2*pi 
+    while xP[c] < -pi:
+       xP[c] = xP[c] + 2*pi 
+
+xP = xP/pi; yP = omega
+plt.plot(xP,yP,linewidth=0.5,color='b')
 plt.ylabel(r'$\omega$   [ rad/s ]', fontdict = font1)
 plt.xlabel(r'$\theta$ / $\pi$', fontdict = font1)
 #plt.xlabel(r'$x$  [ m ]', fontdict = font1)
 plt.grid('visible')
 # #plt.savefig('cs003.png')
 
-#%% Fig 4  Frequency spectrum --------------------------------
+#%% Fig 4  Phase portrait  omega vs theta --------------------------------
 fig = plt.figure(figsize = (4, 3))
 
 fig.subplots_adjust(top = 0.94, bottom = 0.24, left = 0.22,\
                      right = 0.96, hspace = 0.2,wspace=0.2)
 
-xP = F[F>0]; yP = psd[F>0]
-plt.plot(xP,yP,linewidth=2,color='b')
-plt.xlabel(r'$\ f   $  [ Hz ]', fontdict = font1)
-plt.ylabel(r'$\ psd $', fontdict = font1)
-plt.grid('visible')
-plt.savefig('cs004.png')             
-
-#%% SUBPLOTS   Figure 5
-
-fig = plt.figure(figsize = (8.5, 6))
-fig.subplots_adjust(top = 0.97, bottom = 0.12, left = 0.10,\
-                     right = 0.98, hspace = 0.32,wspace=0.24)
-
-plt.subplot(2, 2, 1)
-xP = t; yP = x/L
-plt.plot(xP,yP,linewidth=2,color='b')
-xP = t; yP = xS
-plt.plot(xP,yP,linewidth=1,color='r')
-plt.grid('visible')
-plt.xlabel(r'$t$   [ s ]', fontdict = font1)
-plt.ylabel(r'$x/L  $ ', fontdict = font1)
-
-plt.subplot(2, 2, 2)
-xP = t; yP = omega
-plt.plot(xP,yP,linewidth=2,color='b')
-plt.xlabel(r'$t$   [ s ]', fontdict = font1)
-plt.ylabel(r'$\omega$  [rad/s]', fontdict = font1)
-plt.grid('visible')
-
-plt.subplot(2, 2, 3)
-xP = x; yP = omega
-plt.plot(xP,yP,linewidth=2,color='b')
+R = np.arange(0,N,47)
+R = R.astype(int)
+xP = xP[R]; yP = omega[R]
+plt.plot(xP,yP,'bo')
 plt.ylabel(r'$\omega$   [ rad/s ]', fontdict = font1)
-plt.xlabel(r'$x$  [ m ]', fontdict = font1)
+plt.xlabel(r'$\theta$ / $\pi$', fontdict = font1)
+#plt.xlabel(r'$x$  [ m ]', fontdict = font1)
 plt.grid('visible')
 
-plt.subplot(2, 2, 4)
-xP = F[F>0]; yP = psd[F>0]
-plt.plot(xP,yP,linewidth=2,color='b')
-plt.xlabel(r'$\ f   $  [ Hz ]', fontdict = font1)
-plt.ylabel(r'$\ psd $', fontdict = font1)
-plt.grid('visible')
+# #%% Fig 4  Frequency spectrum --------------------------------
+# fig = plt.figure(figsize = (4, 3))
 
-plt.savefig('cs005.png')  
+# fig.subplots_adjust(top = 0.94, bottom = 0.24, left = 0.22,\
+#                      right = 0.96, hspace = 0.2,wspace=0.2)
+
+# xP = F[F>0]; yP = psd[F>0]
+# plt.plot(xP,yP,linewidth=2,color='b')
+# plt.xlabel(r'$\ f   $  [ Hz ]', fontdict = font1)
+# plt.ylabel(r'$\ psd $', fontdict = font1)
+# plt.grid('visible')
+# plt.savefig('cs004.png')             
+
+# #%% SUBPLOTS   Figure 5
+
+# fig = plt.figure(figsize = (8.5, 6))
+# fig.subplots_adjust(top = 0.97, bottom = 0.12, left = 0.10,\
+#                      right = 0.98, hspace = 0.32,wspace=0.24)
+
+# plt.subplot(2, 2, 1)
+# xP = t; yP = x/L
+# plt.plot(xP,yP,linewidth=2,color='b')
+# xP = t; yP = xS
+# plt.plot(xP,yP,linewidth=1,color='r')
+# plt.grid('visible')
+# plt.xlabel(r'$t$   [ s ]', fontdict = font1)
+# plt.ylabel(r'$x/L  $ ', fontdict = font1)
+
+# plt.subplot(2, 2, 2)
+# xP = t; yP = omega
+# plt.plot(xP,yP,linewidth=2,color='b')
+# plt.xlabel(r'$t$   [ s ]', fontdict = font1)
+# plt.ylabel(r'$\omega$  [rad/s]', fontdict = font1)
+# plt.grid('visible')
+
+# plt.subplot(2, 2, 3)
+# xP = x; yP = omega
+# plt.plot(xP,yP,linewidth=2,color='b')
+# plt.ylabel(r'$\omega$   [ rad/s ]', fontdict = font1)
+# plt.xlabel(r'$x$  [ m ]', fontdict = font1)
+# plt.grid('visible')
+
+# plt.subplot(2, 2, 4)
+# xP = F[F>0]; yP = psd[F>0]
+# plt.plot(xP,yP,linewidth=2,color='b')
+# plt.xlabel(r'$\ f   $  [ Hz ]', fontdict = font1)
+# plt.ylabel(r'$\ psd $', fontdict = font1)
+# plt.grid('visible')
+
+# plt.savefig('cs005.png')  
 
 
 
-#%%  Figure 6  Horizontal displacement
-plt.rcParams['font.size'] = 12
-plt.rcParams["figure.figsize"] = (4,4)
+# #%%  Figure 6  Horizontal displacement
+# plt.rcParams['font.size'] = 12
+# plt.rcParams["figure.figsize"] = (4,4)
 
-fig, ax = plt.subplots(1)
-fig.subplots_adjust(top = 0.92, bottom = 0.23, left = 0.20,\
-                    right = 0.92, hspace = 0.20,wspace=0.2)
-xP = t; yP = x
-ax.xaxis.grid()
-ax.yaxis.grid()
-ax.set_ylabel('x  [m]',color= 'black')
-ax.set_xlabel('t  [s]',color = 'black')
-ax.plot(xP,yP,'b',lw = 2)
-#ax.set_xlim([0, L])
-#ax.set_ylim([-20, 80])
-#ax.set_xticks(np.arange(0,101,20))
-#ax.set_yticks(np.arange(-20,81,20))
-#ax.set_title('Trajectory', fontsize = 12)
-#ax.text(1, 70, 'y1$_{max}$ = %2.2f m' % max(y1), fontsize = 12, color = 'blue')
-#ax.text(1, -10, 'y2$_{max}$ = %2.2f m' % max(y2), fontsize = 12, color = 'red')
-#fig.tight_layout()
-#fig.savefig('a001.png')
+# fig, ax = plt.subplots(1)
+# fig.subplots_adjust(top = 0.92, bottom = 0.23, left = 0.20,\
+#                     right = 0.92, hspace = 0.20,wspace=0.2)
+# xP = t; yP = x
+# ax.xaxis.grid()
+# ax.yaxis.grid()
+# ax.set_ylabel('x  [m]',color= 'black')
+# ax.set_xlabel('t  [s]',color = 'black')
+# ax.plot(xP,yP,'b',lw = 2)
+# #ax.set_xlim([0, L])
+# #ax.set_ylim([-20, 80])
+# #ax.set_xticks(np.arange(0,101,20))
+# #ax.set_yticks(np.arange(-20,81,20))
+# #ax.set_title('Trajectory', fontsize = 12)
+# #ax.text(1, 70, 'y1$_{max}$ = %2.2f m' % max(y1), fontsize = 12, color = 'blue')
+# #ax.text(1, -10, 'y2$_{max}$ = %2.2f m' % max(y2), fontsize = 12, color = 'red')
+# #fig.tight_layout()
+# #fig.savefig('a001.png')
 
-#%%
-tEnd = time.time()
-tRun = tEnd - tStart
-print('  ')
-print('Execution time = %2.2f  s' % tRun)
+# #%%
+# tEnd = time.time()
+# tRun = tEnd - tStart
+# print('  ')
+# print('Execution time = %2.2f  s' % tRun)
 
-#%%
-fig, ax = plt.subplots(1)
-ind = find_peaks(omega>0,distance =  20)[0]
-Lind = len(ind)
-z = np.arange(0,Lind,1)
-plt.plot(z,omega[ind],'o')
+# #%%
+# fig, ax = plt.subplots(1)
+# ind = find_peaks(omega>0,distance =  20)[0]
+# Lind = len(ind)
+# z = np.arange(0,Lind,1)
+# plt.plot(z,omega[ind],'o')
 
 
 
