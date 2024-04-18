@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-qm002.py        April 2024
+qm005.py    April 2024
 
 QUANTUM MECHANICS
 Finite Difference Time Development Method
-[1D] Schrodinger Equation: Free particle - wavepacket spreading animation
+[1D] Schrodinger Equation: Free particle - wavepacket propagation animation
 
 
 Ian Cooper
@@ -14,7 +14,7 @@ DOING PHYSICS WITH MATLAB
     http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
     
 Reference page for documentation and notes
-    https://d-arora.github.io/Doing-Physics-With-Matlab/pyDocs/qm003.htm
+    https://d-arora.github.io/Doing-Physics-With-Matlab/pyDocs/qm005.htm
 
 """
 
@@ -53,18 +53,19 @@ def secondDer(N,dx):
 
 #%% SETUP
 
-Nx = 199                 #  ODD number - number of grid points [701]
-Nt = 2000              #  Number of time steps [30000]
-L = 100e-9                 #  Width of X domain [5e-9] 
-f = 200                 # number of frames
+Nx = 701             #  ODD number - number of grid points [701]
+Nt = 4200            #  Number of time steps [30000]
+L = 5e-9             #  Width of X domain [5e-9] 
+f = 100              # number of frames
 
-me = 9.10938291e-31     # electron mass
+me   = 9.10938291e-31     # electron mass
 hbar = 1.054571726e-34  # hbar Planck's constant
-e = 1.602176565e-19     # elementary charge
+h    = 6.626e-34
+e    = 1.602176565e-19     # elementary charge
 
 x = np.linspace(0,L,Nx); dx = x[2] - x[1]
 k1 = -hbar**2/(2*me)
-C1 = 1/10;
+C1 = 1/5;
 dt = C1 * 2 * me * dx**2 / hbar
 tMax = Nt*dt
 t =  np.arange(0,tMax,dt)           # 0:dt:Nt*dt;
@@ -92,13 +93,14 @@ deltaX = zeros([Nt])
 delta = zeros([Nt])
 
 # INITIAL WAVE PACKET
-nx1 = round(Nx/2)        # pulse centre   [round(Nx/2)]
-s = 5e-9 #L/15              # pulse width    [L/20]
-wL = 1.6e-10          # wavelength
-  
-yR = exp(-0.5*((x-x[nx1])/s)**2)
-#yI = exp(-0.5.*((x-x(nx1))./s).^2)
-yI = zeros(Nx)
+
+nx1 = round(Nx/10)        # pulse centre   [round(Nx/2)]
+s = L/25 #L/15              # pulse width    [L/20]
+wL = 1.5e-10          # wavelength
+
+k1 = -0.5*((x-x[nx1])/s)**2; k2 = 2*pi*(x-x[nx1])/wL  
+yR = exp(k1)*cos(k2)
+yI = exp(k1)*sin(k2)
 
 M = yR**2 + yI**2
 z = linspace(0,L,Nx)
@@ -142,11 +144,10 @@ for nt in range(0,Nt):
     
    deltaX[nt] = sqrt(X2 - xavg[nt]**2)
     
-  
+ 
    y1 = firstDer(Nx,dx)@w
    fn = np.real(np.conj(w)*y1)
    pavg = -1j*hbar*simps(fn,x)
-   
    
    y2 = secondDer(Nx,dx)@w
    fn = np.real(np.conj(w)*y2)
@@ -157,6 +158,47 @@ for nt in range(0,Nt):
 
   
    Kavg[nt] = -hbar**2*simps(fn,x)/(2*me)
+
+
+# Classical calculations
+vavg = (xavg[-10]-xavg[10]) / (t[-10]-t[10])
+Kc = 0.5*me*vavg**2/e
+pc = me*vavg
+vd = h/(wL*me)
+
+# Expection values
+Ke = np.amax(Kavg)/e
+pe = sqrt(2*me*Ke*e)
+ve = pe/me
+
+# Energy calculations  E = K + U
+Eavg = Kavg 
+
+# Group and phase velocities
+vGroup = vavg
+p0 = me*vGroup
+f0 = Ke*e/h
+vPhase = wL*f0
+vR = vGroup/vPhase
+
+# CONSOLE OUTPUT
+print('Classical values')
+print(r'   v = %2.2e   m/s ' % vavg)
+print(r'   p = %2.2e   N.s ' % pc)
+print(r'   K = %2.2f   eV ' % Kc)
+
+print('Expectation values')
+print(r'   v = %2.2e   m/s ' % ve)
+print(r'   p = %2.2e   N.s ' % pe)
+print(r'   K = %2.2f   eV ' % Ke)
+
+print('Group and Phase velocities')
+print(r'   wL_0 = %2.2e   m ' % wL)
+print(r'   p_0  = %2.2e   N.s ' % p0)
+print(r'   f_0  = %2.2e   Hz ' % f0)
+print(r'   vGroup  = %2.2e   m/s ' % vGroup)
+print(r'   vPhase  = %2.2e   m/s ' % vPhase)
+print(r'   vGroup / vPhase  = %2.2f  ' % vR)
 
 
 #%% GRAPHICS: INITIALIZE ANIMATION PLOTS 
@@ -179,19 +221,19 @@ fig.subplots_adjust(top = 0.97, bottom = 0.08, left = 0.22,\
 
 
 R = 0  # x vs y 
-ax[R].set_xlabel('$x  [nm]$',color= 'black',fontsize = 12)
+ax[R].set_xlabel('$x$  [nm]',color= 'black',fontsize = 12)
 ax[R].set_ylabel('$\psi_R$',color = 'black',fontsize = 14)
 ax[R].set_xlim([0, L*1e9])
 ax[R].set_ylim([yRmin,yRmax])
 ax[R].xaxis.grid()
 ax[R].yaxis.grid()
-line0, = ax[R].plot([], [], 'b', lw = 3)
+line0, = ax[R].plot([], [], 'b', lw = 1)
 ax[R].plot(xP, psiR[0,:],'r', lw = 1) 
 ax[R].grid('visible') 
 
 
 R = 1  # t vs deltaX 
-ax[R].set_xlabel('$x  [nm]$',color= 'black',fontsize = 12)
+ax[R].set_xlabel('$x $ [nm]',color= 'black',fontsize = 12)
 ax[R].set_ylabel('$\psi_I$',color = 'black',fontsize = 14)
 ax[R].set_xlim([0, L*1e9])
 ax[R].set_ylim([yImin,yImax])
@@ -199,21 +241,21 @@ ax[R].set_ylim([yImin,yImax])
 #ax[R].set_yticks(np.arange(-20,81,20))
 ax[R].xaxis.grid()
 ax[R].yaxis.grid()
-line1, = ax[R].plot([], [], 'b', lw = 3)
+line1, = ax[R].plot([], [], 'b', lw = 1)
 ax[R].plot(xP, psiI[0,:],'r', lw = 1) 
 ax[R].grid('visible') 
 
 
 R = 2  # x vs y 
-ax[R].set_xlabel('$x  [nm]$',color= 'black',fontsize = 12)
+ax[R].set_xlabel('$x$  [nm]',color= 'black',fontsize = 12)
 ax[R].set_ylabel('$|\psi|^2$  [$nm^{-1}$]',color = 'black',fontsize = 12)
 ax[R].set_xlim([0, L*1e9])
 ax[R].set_ylim([0,pdMax])
 #ax[R].set_xticks(np.arange(0,101,20))
-ax[R].set_yticks(np.arange(0,0.13,0.020))
+ax[R].set_yticks(np.arange(0,3,1))
 ax[R].xaxis.grid()
 ax[R].yaxis.grid()
-line, = ax[R].plot([], [], 'b', lw = 3)
+line, = ax[R].plot([], [], 'b', lw = 2)
 ax[R].plot(xP, pdI*1e-9,'r', lw = 1) 
 ax[R].grid('visible') 
 time_text = ax[R].text(8e-9,0.8*pdMax, '')
@@ -230,8 +272,8 @@ def init():
 def animate(n):
       m = round(n*Nt/f)
       u = xP
+      
       v = pd[m,:]*1e-9
-       
       line.set_data([u], [v]) 
     
       w = psiR[m,:]
@@ -241,8 +283,8 @@ def animate(n):
       line1.set_data([u], [z]) 
       
     
-      T = t[n]*1e15
-      time_text.set_text('   time = %.1f' % T + ' fs')  
+      T = t[m]*1e15
+      time_text.set_text('   time = %.3f' % T + ' fs')  
     
       time.sleep(0.1)
       return   line, line0, line1,  time_text,
@@ -250,7 +292,7 @@ def animate(n):
 anim = FuncAnimation(fig, animate, init_func = init, 
                       frames = f, interval = 2, blit = True, repeat = False)
 
-# anim.save('ag.gif', fps = 12)  
+#anim.save('ag.gif', fps = 12)  
 
 
 #%%  Time evolutin plots
@@ -261,11 +303,24 @@ fig1.subplots_adjust(top = 0.94, bottom = 0.12, left = 0.120,\
 
 tP = t*1e15
     
-R = 0; C = 0   # t vs xavg 
+R = 0; C = 0   # t vs K
 axes[R,C].set_xlabel('t  [ fs ]',color= 'black',fontsize = 12)
-axes[R,C].set_ylabel('<x>  [ nm ]',color = 'black',fontsize = 12)
-#axes[R,C].set_xlim([0, 101])
-axes[R,C].set_ylim([0, 100])
+axes[R,C].set_ylabel('< K >  [ eV ]  ',color = 'black',fontsize = 12)
+axes[R,C].set_xlim([0, 0.7])
+axes[R,C].set_ylim([0, 70])
+#axes[R,C].set_xticks(np.arange(0,101,20))
+#axes[R,C].set_yticks(np.arange(-20,81,20))
+axes[R,C].xaxis.grid()
+axes[R,C].yaxis.grid()
+yP = Kavg/e
+axes[R,C].plot(tP,yP,'b',lw = 2)
+
+
+R = 0; C = 1   # t vs x,y
+axes[R,C].set_xlabel('t  [ fs ]',color= 'black',fontsize = 12)
+axes[R,C].set_ylabel('< x >   [ nm ] ',color = 'black',fontsize = 12)
+axes[R,C].set_xlim([0, 0.7])
+axes[R,C].set_ylim([0, 5])
 #axes[R,C].set_xticks(np.arange(0,101,20))
 #axes[R,C].set_yticks(np.arange(-20,81,20))
 axes[R,C].xaxis.grid()
@@ -273,24 +328,22 @@ axes[R,C].yaxis.grid()
 yP = xavg*1e9
 axes[R,C].plot(tP,yP,'b',lw = 2)
 
-
-R = 0; C = 1   # t vs x,y
-axes[R,C].set_ylabel('$\Delta$x  [ nm ]',color= 'black',fontsize = 12)
+R = 1; C = 0  # t vs <p>
+axes[R,C].set_ylabel('< p >  [ x10$^{23}$  N.s ]',color= 'black',fontsize = 12)
 axes[R,C].set_xlabel('t  [ fs ]',color = 'black',fontsize = 12)
-#axes[R,C].set_xlim([0, 10])
-#axes[R,C].set_xticks(np.arange(0,11,2))
-axes[0,1].set_ylim([0, 20])
-#axes[0,1].set_yticks(np.arange(-20,81,20))
+axes[R,C].set_xlim([0, 0.7])
+axes[R,C].set_ylim([0, 1.0])
+# axes[R,C].set_xticks(np.arange(0,11,2))
 axes[R,C].xaxis.grid()
 axes[R,C].yaxis.grid()
-yP = deltaX*1e9
-axes[R,C].plot(tP, yP, 'b',lw = 2)
+yP = sqrt(2*me*Kavg)*1e23
+axes[R,C].plot(tP,yP, 'b',lw = 2)
 
 
-R = 1; C = 0  # t vs delta
+R = 1; C = 1  # t vs delta
 axes[R,C].set_ylabel('delta/hbar',color= 'black',fontsize = 12)
-axes[R,C].set_xlabel('t  [fs]',color = 'black',fontsize = 12)
-# axes[R,C].set_xlim([0, 10])
+axes[R,C].set_xlabel('t  [ fs ]',color = 'black',fontsize = 12)
+axes[R,C].set_xlim([0, 0.7])
 # axes[R,C].set_xticks(np.arange(0,11,2))
 axes[R,C].xaxis.grid()
 axes[R,C].yaxis.grid()
@@ -298,26 +351,55 @@ yP = delta/hbar
 axes[R,C].plot(tP,yP, 'b',lw = 2)
 axes[R,C].plot([0,np.amax(tP)],[0.5,0.5], 'r',lw = 1)
 
-R = 1; C = 1  # t vs E
-axes[R,C].set_ylabel('< E >  [ meV ]',color= 'black',fontsize = 12)
-axes[R,C].set_xlabel('t  [fs]',color = 'black',fontsize = 12)
-axes[R,C].set_ylim([0, 1])
-# axes[R,C].set_xticks(np.arange(0,11,2))
-axes[R,C].xaxis.grid()
-axes[R,C].yaxis.grid()
-yP = 1000*Kavg/e
-axes[R,C].plot(tP,yP, 'b',lw = 2)
 
-# fig1.savefig('a1.png')
+fig1.savefig('a1.png')
 
 
+#%%   Fourier transform PSI at t = 0   K = 1/wL
+KMax = 2/wL; KMin= 0; nK = 2001
+K = linspace(KMin,KMax,nK);
+hP = psiR[-10,:]   # pd[-1000,:] 
+HP = zeros(nK);HPR = zeros(nK); HPI = zeros(nK)
+for c in range(nK-1):
+     g = hP* exp(1j*2*pi*K[c]*x)
+     gR = np.real(g); gI = np.imag(g)
+     HPR[c] = simps(gR,x); HPI[c] = simps(gI,x)
+    # HP[c] = simps(g,x)
+
+HP = HPR + 1j*HPI
+#psd = HPI*HPR
+#psd = psd/max(psd)
+psd = np.conj(HP)*HP
+psd = psd/max(psd)
+
+plt.rcParams["figure.figsize"] = (5,3)
+fig, ax = plt.subplots(1)
+#fig.subplots_adjust(top = 0.92, bottom = 0.23, left = 0.20,\
+#                    right = 0.92, hspace = 0.20,wspace=0.2)
+ax.xaxis.grid()
+ax.yaxis.grid()
+ax.set_ylabel('psd  [ a. u. ]',color= 'black')
+ax.set_xlabel('p  [ N.s ]',color = 'black')
+ax.set_xlim([0, 8e-24])
+#ax.set_ylim([-20, 80])
+#ax.set_xticks(np.arange(0,101,20))
+#ax.set_yticks(np.arange(-20,81,20))
+#ax.set_title('Trajectory', fontsize = 12)
+#ax.text(1, 70, 'y1$_{max}$ = %2.2f m' % max(y1), fontsize = 12, color = 'blue')
+#ax.text(1, -10, 'y2$_{max}$ = %2.2f m' % max(y2), fontsize = 12, color = 'red')
+fig.tight_layout()
+xP = h*K; yP = psd
+ax.plot(xP,yP,'b',lw = 2)
+
+
+# fig.savefig('a2.png')
+
+
+#%%
 
 tExe = time.time() - tStart
 print('  ')
 print('Execution time')
-
-
-
 print(tExe)
 
 
