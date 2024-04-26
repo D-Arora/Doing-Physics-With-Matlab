@@ -139,67 +139,16 @@ for nt in range(0,Nt):
     Prob[nt] = simps(fn,x)
     
     fn = np.real(np.conj(w)*x*w)
-    xavg[nt] = simps(fn,x)
-    
-    fn = np.real(np.conj(w)*x*x*w)
-    X2 = simps(fn,x)
-    
-    deltaX[nt] = sqrt(X2 - xavg[nt]**2)
-    
-    y1 = firstDer(Nx,dx)@w
-    fn = np.real(np.conj(w)*y1)
-    pavg = -1j*hbar*simps(fn,x)
-   
+    xavg[nt] = simps(fn,x)  
+
     y2 = secondDer(Nx,dx)@w
     fn = np.real(np.conj(w)*y2)
-    p2avg = -hbar**2*simps(fn,x)
-    deltap = sqrt(p2avg - np.imag(pavg)**2)
-
-    delta[nt] = deltaX[nt]*deltap
-
     Kavg[nt] = -hbar**2*simps(fn,x)/(2*me)
  
     fn = np.conj(w)*U*w
     Uavg[nt] = simps(fn,x)
     
 Eavg = Kavg/e + Uavg
-
-#Classical calculations
-vavg = (xavg[-10]-xavg[10]) / (t[-10]-t[10])
-Kc = 0.5*me*vavg**2/e
-pc = me*vavg
-vd = h/(wL*me)
-
-# Expection values
-Ke = np.amax(Kavg)/e
-pe = sqrt(2*me*Ke*e)
-ve = pe/me
-
-# Group and phase velocities
-vGroup = vavg
-p0 = me*vGroup
-f0 = Ke*e/h
-vPhase = wL*f0
-vR = vGroup/vPhase
-
-#CONSOLE OUTPUT
-print('Classical values')
-print(r'   v = %2.2e   m/s ' % vavg)
-print(r'   p = %2.2e   N.s ' % pc)
-print(r'   K = %2.2f   eV ' % Kc)
-
-print('Expectation values')
-print(r'   v = %2.2e   m/s ' % ve)
-print(r'   p = %2.2e   N.s ' % pe)
-print(r'   K = %2.2f   eV ' % Ke)
-
-print('Group and Phase velocities')
-print(r'   wL_0 = %2.2e   m ' % wL)
-print(r'   p_0  = %2.2e   N.s ' % p0)
-print(r'   f_0  = %2.2e   Hz ' % f0)
-print(r'   vGroup  = %2.2e   m/s ' % vGroup)
-print(r'   vPhase  = %2.2e   m/s ' % vPhase)
-print(r'   vGroup / vPhase  = %2.2f  ' % vR)
 
 
 #%%  Time evolution plots
@@ -239,52 +188,12 @@ yP = Kavg/e + Uavg
 axes[R].plot(tP,yP,'k',lw = 2, label = 'E')
 axes[R].legend()
 
-fig1.savefig('a1.png')
-
-
-#%%
-# #%%   Fourier transform PSI at t = 0   K = 1/wL
-# KMax = 2/wL; KMin= 0; nK = 2001
-# K = linspace(KMin,KMax,nK);
-# hP = psiR[-10,:]   # pd[-1000,:] 
-# HP = zeros(nK);HPR = zeros(nK); HPI = zeros(nK)
-# for c in range(nK-1):
-#       g = hP* exp(1j*2*pi*K[c]*x)
-#       gR = np.real(g); gI = np.imag(g)
-#       HPR[c] = simps(gR,x); HPI[c] = simps(gI,x)
-#     # HP[c] = simps(g,x)
-
-# HP = HPR + 1j*HPI
-# #psd = HPI*HPR
-# #psd = psd/max(psd)
-# psd = np.conj(HP)*HP
-# psd = psd/max(psd)
-
-# plt.rcParams["figure.figsize"] = (5,3)
-# fig, ax = plt.subplots(1)
-# #fig.subplots_adjust(top = 0.92, bottom = 0.23, left = 0.20,\
-# #                    right = 0.92, hspace = 0.20,wspace=0.2)
-# ax.xaxis.grid()
-# ax.yaxis.grid()
-# ax.set_ylabel('psd  [ a. u. ]',color= 'black')
-# ax.set_xlabel('p  [ N.s ]',color = 'black')
-# ax.set_xlim([0, 8e-24])
-# #ax.set_ylim([-20, 80])
-# #ax.set_xticks(np.arange(0,101,20))
-# #ax.set_yticks(np.arange(-20,81,20))
-# #ax.set_title('Trajectory', fontsize = 12)
-# #ax.text(1, 70, 'y1$_{max}$ = %2.2f m' % max(y1), fontsize = 12, color = 'blue')
-# #ax.text(1, -10, 'y2$_{max}$ = %2.2f m' % max(y2), fontsize = 12, color = 'red')
-# fig.tight_layout()
-# xP = h*K; yP = psd
-# ax.plot(xP,yP,'b',lw = 2)
-# fig.savefig('a2.png')
+#fig1.savefig('a1.png')
 
 
 #%% GRAPHICS: INITIALIZE ANIMATION PLOTS 
 
 xP = x*1e9
-
 pdMax = np.amax(pd)*1e-9
 
 yRmax = 1.1*np.amax(psiR); yRmin = 1.1*np.amin(psiR)
@@ -383,9 +292,7 @@ def animate(n):
 anim = FuncAnimation(fig, animate, init_func = init, 
                       frames = f, interval = 2, blit = True, repeat = False)
 
-#%%
-anim.save('ag.gif', fps = 12)  
-
+#anim.save('ag.gif', fps = 6)  
 
 
 #%%
