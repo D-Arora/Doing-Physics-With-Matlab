@@ -21,9 +21,9 @@ Ian Cooper
 email: matlabvisualphysics@gmail.com
 
 DOING PHYSICS WITH MATLAB 
-    http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+    
 Reference page for documentation and notes
-    http://www.physics.usyd.edu.au/teach_res/mp/doc/qm2DA.htm
+    
 
 """
 

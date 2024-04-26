@@ -11,7 +11,7 @@ Ian Cooper
 email: matlabvisualphysics@gmail.com
 
 DOING PHYSICS WITH MATLAB 
-    http://www.physics.usyd.edu.au/teach_res/mp/mphome.htm
+    https://d-arora.github.io/Doing-Physics-With-Matlab/
     
 Reference page for documentation and notes
     https://d-arora.github.io/Doing-Physics-With-Matlab/pyDocs/qmSun.pdf
@@ -35,6 +35,8 @@ from scipy.integrate import odeint, quad, dblquad, simps
 from scipy.signal import find_peaks
 
 tStart = time.time()
+
+
 
 
 
