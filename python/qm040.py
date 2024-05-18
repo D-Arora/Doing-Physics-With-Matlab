@@ -1,20 +1,19 @@
 # -*- coding: utf-8 -*-
 """
-qm030.py            May 2024
+qm040.py            May 2024
 
 Ian Cooper         matlabvisualphysics@gmail.com
 
-Website: https://d-arora.github.io/Doing-Physics-With-Matlab/
+Website
+       https://d-arora.github.io/Doing-Physics-With-Matlab/
+Documentation
+       https://d-arora.github.io/Doing-Physics-With-Matlab/pyDocs/qm040.pdf
 
 QUANTUM MECHANICS
-   Scattering from a finite setp potential
-   Numerical solutions
+   Solution of the time independent Schrodinger equation
+   for an electron bound in a potential well by finding the eigenvalues
+   and eigenvectors
    
-   https://d-arora.github.io/Doing-Physics-With-Matlab/pyDocs/qm030.pdf
-
-https://cooperrc.github.io/computational-mechanics/module_05/03_Good_Vibrations.html
-
-# https://www.shivajicollege.ac.in/sPanel/uploads/econtent/247cb3d6399e1d4af61b59b5a12206c8.pdf
 
 """
 # LIBRARIES  ==============================================================
@@ -36,218 +35,229 @@ from numpy import *
 from scipy.linalg import *
 from scipy.optimize import fsolve
 from scipy.integrate import odeint, solve_ivp, simps
+from scipy.sparse.linalg import eigsh, eigs #Solves the Eigenvalue problem
+from scipy.sparse import diags #Allows us to construct our matrices
+import time
 
-
-
-#%% FUNCTIONS
-def lorenz(x, state):
-      
-    u, v = state
-    P = E0
-    
-    if x > 0 and x < aB:
-       P = E0 - U0
-   
-    du = v 
-    dv = C*P*u
-    return [du, dv]
-
-
-
-#%%  INPUTS
-N = 199                #  grid size
-xMin = -0.1          #  default = -0.1 nm
-xMax = +0.1          #  default = +0.1 nm
-w = 0.05             #  1/2 well width: default = 0.05 nm
-U0 = -40;            #  Depth of well (eV): default = -400 eV
-    
-# # X domain  [nm]
-# xMin = -1.0; xMax = 1.0 
-# # beam particle energy  [eV]   
-# E0 = 5  
-# # height of potential barrier [eV]         
-# U0 = -50  
-# # Barrier width [nm]         
-# aB = 1.2*0.2676280855685051    
-# # aB = 0.2
-# # Grid points
-# N = 18129                           
+tStart = time.time()
 
 #%%  CONSTANTS and VARIABLES
 e = 1.6021766208e-19           # Elementary charge [C]
-h = 6.626070040e-34            # Planck constant [ J.s]
+h = 6.626070040e-34            # Planck constant [J.s]
 hbar = 1.054571800e-34         # Reduced Planck's constant
 me = 9.10938356e-31            # Electron mass [kg]
-se = e                         # Energy scaling factor  
-sx = 1e-9                      # Length scaling factor
-C = -hbar**2/(2*me) / (sx**2*se)  # Schrodinger Eq constant  
-          
+se = e                         # Energy scaling factor   J <---> ev 
+sx = 1e-9                      # Length scaling factor   m <---> nm
+
+
+#%%  INPUTS
+N = 519                #  grid size
+
+xMin = -0.2*sx         #  default = -0.2 nm
+xMax =  0.2*sx         #  default = +0.2 nm
+U0 = -1000*se          #  Depth of well: default = -1000 eV
+w = 0.1*sx             #  Width of well: default 0.1 nm
+M = 30                 # number of eigenvalues returned
+# >>> Enter 1,2,3,4,5,6 eigenstate number for expectation calculations
+n = 1     
+
+
 #%% COMPUTATIONS
-xMin =0; xMax = 1
-x = linspace(xMin,xMax,N)           # x grid  [nm]
+x = linspace(xMin,xMax,N)           # x grid  [m]
 dx = x[2] - x[1]
-U = ones(N)                         # U  [eV]
-U = U0*U                                 
-UM = np.eye(N)
 
-
+Cse = -hbar**2/(2*me) 
+# Potential energy function  [J]
+U = zeros(N)                
+U[x>-w/2] = U0 
+U[x>w/2] = 0                               
+UM = diag(U)  
+               
+# AM (second derivative), KM (kinetic energy), HM (Hamiltonian) matrices
 off = ones(N-1)
-SDM = -2*np.eye(N) + np.diag(off,1) + np.diag(off,-1)
-HM = SDM#/dx**2
-ev, ef = eig(HM)
+AM = (-2*np.eye(N) + np.diag(off,1) + np.diag(off,-1))/(dx**2)
+KM = Cse*AM
+HM = KM + UM
 
-ev = real(sort(ev))
-z = ef[:,2]
-
-plt.plot(x,z)
+# Eigenvalues [J] and eigenfunctions (eigenvectors)
+ev, ef = eigsh(HM, which="SM", k = M)
 
 
-for c in range(N):
-    print(ev[c])
+#%% OUTPUT: negative eigenvalues and normalize eigenfunctions
+E = ev[ev<0]/se                 # negative eigenvalues [eV]
+psi = zeros([N,len(E)]); psi2 = zeros([N,len(E)])
+for c in range(len(E)):
+    psi[:,c] = ef[:,c]
+    psi2[:,c] = psi[:,c]**2
+    area = simps(psi2[:,c],x)
+    psi[:,c] = psi[:,c]/sqrt(area)
+
+probD = psi**2    # probability density [1/m]
+ 
     
+#%% GRAPHICS
+
+plt.rcParams['font.size'] = 10
+plt.rcParams["figure.figsize"] = (7,7)
+fig1, axes = plt.subplots(nrows=3, ncols=2)
+fig1.subplots_adjust(top = 0.94, bottom = 0.12, left = 0.120,\
+                    right = 0.90, hspace = 0.36,wspace=0.40)
+
+def graph(R,C,y,n,En,s):
+    axes[R,C].xaxis.grid()
+    axes[R,C].yaxis.grid()
+    axes[R,C].set_title('n = %2.0f ' % n + '  E = %2.2f ev' % En, fontsize = 10)
+    if s ==1:
+       axes[R,C].set_ylabel('$\psi$  [a.u]',color = 'black',fontsize = 12)
+       axes[R,C].set_ylim([-1.1, 1.1])
+       axes[R,C].set_yticks([-1,-0.5,0,0.5,1])
     
+    if s ==2:
+       axes[R,C].set_ylabel('$|\psi|^2$ [1/m]',color = 'black',fontsize = 12)   
+    
+    x1 = -w/(2*sx); x2 = -x1
+    axes[R,C].plot(x/sx,y, 'blue')
+    axes[R,C].plot([x1,x1],[min(y),max(y)],'r')
+    axes[R,C].plot([ x2, x2],[min(y),max(y)],'r')
+    return    
+
+# graph(R,c,psi,mode,E )
+
+# Wavefunction plots
+psiMax = amax(psi)
+graph(0,0,psi[:,0]/psiMax, 1, E[0],1)
+graph(0,1,psi[:,1]/psiMax, 2, E[1],1)
+graph(1,0,psi[:,2]/psiMax, 3, E[2],1)
+graph(1,1,psi[:,3]/psiMax, 4, E[3],1)
+graph(2,0,psi[:,4]/psiMax, 5, E[4],1)
+axes[2,0].set_xlabel('x  [nm]',color = 'black')
+graph(2,1,psi[:,5]/psiMax, 6, E[5],1)
+axes[2,1].set_xlabel('x  [nm]',color = 'black')
+
+fig1.savefig('a1.png')
+
+
+plt.rcParams['font.size'] = 10
+plt.rcParams["figure.figsize"] = (7,7)
+fig1, axes = plt.subplots(nrows=3, ncols=2)
+fig1.subplots_adjust(top = 0.94, bottom = 0.12, left = 0.120,\
+                    right = 0.90, hspace = 0.36,wspace=0.40)
+
+# graph(R,c,psi,mode,E )
+graph(0,0,probD[:,0], 1, E[0],2)
+graph(0,1,probD[:,1], 2, E[1],2)
+graph(1,0,probD[:,2], 3, E[2],2)
+graph(1,1,probD[:,3], 4, E[3],2)
+graph(2,0,probD[:,4], 5, E[4],2)
+axes[2,0].set_xlabel('x  [nm]',color = 'black')
+graph(2,1,psi[:,5], 6, E[5],2)
+axes[2,1].set_xlabel('x  [nm]',color = 'black')
+
+fig1.savefig('a2.png')
+
+
+#%% EXPECTATION VALUE CALCULATIONS
+
+def firstDer(N,dx):
+    v  = ones(N-1)
+    M1 = diag(-v,-1)
+    M2 = diag(v,1)
+    M = M1+M2
+    M[0,0] = -2; M[0,1] = 2; M[N-1,N-2] = -2; M[N-1,N-1] = 2
+    MF = M/(2*dx) 
+    return MF
+
+def secondDer(N,dx):
+     v = -2*ones(N)
+     M1 = np.diag(v)
+     v = np.ones(N-1)
+     M2 = np.diag(v,1)
+     M3 = np.diag(v,-1)
+     M = M1+M2+M3
+     M[0,0] = 1; M[0,1] = -2; M[0,2] = 1
+     M[N-1,N-3] = 1; M[N-1,N-2] = -2; M[N-1,N-1]=1
+     MS = M/(dx**2) 
+     return MS
+
+y = psi[:,n]      # eigenfunction n
+# Probability
+fn = y**2
+prob = simps(fn,x)
+# Position and its uncertainty
+fn = y*x*y
+x_avg = simps(fn,x)                 # [nm]
+fn = y*x**2*y
+x2_avg = simps(fn,x)                # [nm*nm]
+dX = sqrt(x2_avg - x_avg**2)        #  [m]
+
+# Momentum and its uncertainty
+y2 = firstDer(N,dx)@y
+fn = y*y2
+p_avg = -1j*hbar*simps(fn,x)       # [N.s]
+y2 = secondDer(N,dx)@y     # Second derivative matrix x [m]
+fn = y*y2                  # Second derivative of function y
+p2_avg = -hbar**2*simps(fn,x)   # [N^2.S^2]
+dP = sqrt(p2_avg - imag(p_avg)**2)    # [N.s]
+
+# Heisenberg Uncertainty Principle
+HUP = 2*abs(dX*dP/hbar)
+
+# Potential energy  [ev]
+fn = y*U*y
+U_avg = simps(fn,x)/se
+# Kinetic energy [ev]
+K_avg = p2_avg/(2*me)/se
+# Total energy [ev]
+E_avg = K_avg + U_avg
+
+
+#%%  CONSOLE OUTPUT
+print('  ')
+print('grid point N = %2.0f' %N + '   eigenvalues returned M = %2.0f' %M)
+s1 = xMin/sx; s2 = xMax/sx; print('xMin = %2.2f nm' % s1 + '   xMax = %2.2f nm' % s2)
+s = w/sx; print('well width w = %2.2f nm' %s)  
+s = U0/se; print('well depth U0 = %2.0f ev' %s)  
+print(' ')
+print('Energy eigenvalues [ev]')
+for c in range(6):
+    s = c+1; print('   E%0.0f' %s + ' = %2.3f' %E[c])
+print(' ')  
+print('Eigenstate n = %2.0f' % n)   
+print('  Expectation values and Uncertainty Principle') 
+print('    <x> = %2.2f m' %x_avg + '   deltax dX = %2.2e m' % dX)
+s= real(p_avg); print('    <p> = %2.2f N.s' % s + '   deltax dP = %2.2e m' % dP)
+print('    HUP = %2.2f ' % HUP + ' > 1') 
+print('  ')
+print('  Eigenstate energies' )
+print('    En = %2.2f eV'  %E[n] )
+print('    <E> = %2.2f' % E_avg + ' <K> = % 2.2f' % K_avg + ' <U> = % 2.2f' % U_avg)
+s = K_avg + U_avg; print('    <K> + <U> = %2.2f' % s )
+
+
+#%%  ENERGY PLOTS
+plt.rcParams['font.size'] = 12
+plt.rcParams["figure.figsize"] = (5,4)
+fig, ax = plt.subplots(1)
+
+ax.xaxis.grid()
+ax.yaxis.grid()
+ax.set_ylabel('U  [ ev ]',color= 'black')
+ax.set_xlabel('x  [nm]',color = 'black')
+ax.plot(x/sx,U/se,'b',lw = 2)
+xP = [xMin/sx,xMax/sx]
+for c in range(6):
+   yP = [E[c],E[c]]
+   ax.plot(xP,yP,'r',lw = 2)
+
+fig.tight_layout()
+
+fig.savefig('a3.png')
+
 #%%
-a = np.array([[2, 2, 4], 
-              [1, 3, 5],
-              [2, 3, 4]])
-w,v=eig(a)
-print('E-value:', w)
-print('E-vector', v)
-
-#%%    
-    
-# #%% SOLVE SCHRODINGER EQUATION
-# xSpan = np.flip(x)
-# # Real part
-# u1 = 0; u2 = k1
-# u0 = [u1,u2]
-# sol = odeint(lorenz, u0, xSpan,  tfirst=True)
-# psiR = sol[:,0]
-# # Imaginary part
-# u1 = 1; u2 = 0
-# u0 = [u1,u2]
-# sol = odeint(lorenz, u0, xSpan, tfirst=True)
-# psiI = sol[:,0]
-
-# psiR = np.flip(psiR)  
-# psiI = np.flip(psiI) 
-
-# probD = psiR**2 + psiI**2               # Probability density
-
-
-# # Probability per unit length
-# fn = probD[x<0]
-# z = x[x<0]
-# prob1 = simps(fn,z)
-# fn = probD[x>aB]
-# z = x[x>aB]
-# prob2 = simps(fn,z)
-# T21 = 100*(prob2/prob1)*(-xMin/(xMax-aB))   # % Transmission probability 
-
-# #%% CONSOLE DISPLAY
-# print('E0 = %2.0f  eV' % E0)
-# print('U0 = %2.0f  eV' % U0)
-# s = aB*1e9; print('a  = %2.3f  nm' % s)
-# s = L1*1e9; print('wavelength: regions 1 & 3  wL = %2.3f  nm' %s)
-# if E0 > U0:
-#       s = real(L2)*1e9; print('wavelength: region 2  wL2 = %2.3f nm' % s)
-#       s = aB/real(L2);  print('a/wL2  = %2.3f ' % s)
-# print('Transmission probability percentage T = %2.0f' % T21)
-
-# #%% GRAPHICS
-# plt.rcParams['font.size'] = 10
-# plt.rcParams["figure.figsize"] = (6,4)
-
-# fig1, axes = plt.subplots(nrows=2, ncols=1)
-# xP = x*1e9
-
-# R = 0
-# axes[R].set_ylabel('$\psi$',color = 'black',fontsize = 16)
-# axes[R].xaxis.grid()
-# axes[R].yaxis.grid()
-# axes[R].set_xlim(xMin*1e9,xMax*1e9)
-# axes[R].set_xticks(np.arange(-1.0,1.1,0.2))
-# yP = psiR
-# axes[R].plot(xP, yP,'b', lw = 2)
-# yP = psiI
-# axes[R].plot(xP, yP,'r', lw = 2)
-# xx = aB*1e9; yy = max(psiI)
-# axes[R].plot([xx,xx],[-yy,yy],'k',lw = 1)
-# axes[R].plot([0,0],[-yy,yy],'k',lw = 1)
-# R = 1
-# axes[R].set_xlabel('x  [ nm ] ',color = 'black',fontsize = 12)
-# axes[R].set_ylabel('|$\psi|^2$',color = 'black',fontsize = 14)
-# axes[R].xaxis.grid()
-# axes[R].yaxis.grid()
-# axes[R].set_xlim(xMin*1e9,xMax*1e9)
-# yP = probD
-# axes[R].plot(xP, yP,'b', lw = 2)
-# axes[R].fill_between(xP, probD,color = [1,0,1],alpha=0.2)
-# axes[R].plot([0,0],[0,max(probD)],'k',lw = 1)
-# xP = aB*1e9
-# axes[R].plot([xP,xP],[0,max(probD)],'k',lw = 1)
-# fig1.tight_layout()
-
-# fig1.savefig('a1.png')
-
-
-# #%%
-# plt.rcParams['font.size'] = 12
-# plt.rcParams["figure.figsize"] = (5,3)
-
-# fig1, axes = plt.subplots(nrows=1, ncols=1)
-# axes.set_ylabel('T, R',color = 'black',fontsize = 14)
-# axes.set_xlabel('E / U',color = 'black',fontsize = 14)
-# axes.xaxis.grid()
-# axes.yaxis.grid()
-
-# num = 599
-# U1 = 10
-# a = 10e-10
-
-# EA = 0; EB = U1-0.01
-# E1 = linspace(EA,EB,num)
-
-# T1 = sqrt(2*me*U1*e*a**2/hbar**2)
-# T2 = sqrt(1-E1/U1)
-# ka = T1*T2
-# T3 = np.sinh(ka)**2
-# T4 = 4*(E1/U1)*(1-E1/U1)
-# T5 = 1+T3/(T4+1e-16)
-# T = 1/(T5+1e-16)
-# R = 1 - T
-# axes.plot(E1/U1,T,'b',lw = 2, label ='T')
-# axes.plot(E1/U1,R,'r',lw = 1, label = 'R')
-# axes.legend()
-
-# #%%
-# EA = U1+0.1; EB = 5*EA
-# E1 = linspace(EA,EB,num)
-# T1 = sqrt(2*me*U1*e*a**2/hbar**2)
-# T2 = sqrt(E1/U1-1)
-# ka = T1*T2
-# T3 = sin(ka)**2
-# T4 = 4*(E1/U1)*(E1/U1-1)
-# T5 = 1+T3/(T4+1e-16)
-# T = 1/T5
-# R = 1 - T
-# aS = a*1e9
-# axes.plot(E1/U1,T,'b',lw = 2)
-# axes.plot(E1/U1,R,'r',lw = 1)
-# axes.set_title('a = %2.2f nm' % aS + '     $U_0$ = %2.0f eV' % U1,
-#                fontsize = 12, color = 'black')
-# fig1.tight_layout()
-
-# fig1.savefig('a2.png')
-    
+tExe = time.time() - tStart
+print('  ')
+print('Execution time = %2.0f s' % tExe)
 
     
-# #%%
-# # z = ones(7)
-# # z[5]=5
-# # zz = zeros(9)
-# # zz[1:8]=z
-# # print(z)
-# # print(zz)
 
-
+ 
