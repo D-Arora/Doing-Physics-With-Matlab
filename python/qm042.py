@@ -15,7 +15,7 @@ DOING PHYSICS WITH PYTHON
     https://d-arora.github.io/Doing-Physics-With-Matlab/
     
 Reference page for documentation 
-    https://d-arora.github.io/Doing-Physics-With-Matlab/pyDocs/qm042An.htm
+    https://d-arora.github.io/Doing-Physics-With-Matlab/pyDocs/qm042an.htm
 
     https://d-arora.github.io/Doing-Physics-With-Matlab/pyDocs/qm042.pdf
 

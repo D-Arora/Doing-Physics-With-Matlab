@@ -150,7 +150,7 @@ graph(1,0,probD[:,2], 3, E[2],2)
 graph(1,1,probD[:,3], 4, E[3],2)
 graph(2,0,probD[:,4], 5, E[4],2)
 axes[2,0].set_xlabel('x  [nm]',color = 'black')
-graph(2,1,probD[:,5], 6, E[5],2)
+graph(2,1,psi[:,5], 6, E[5],2)
 axes[2,1].set_xlabel('x  [nm]',color = 'black')
 
 fig1.savefig('a2.png')
@@ -243,7 +243,6 @@ ax.xaxis.grid()
 ax.yaxis.grid()
 ax.set_ylabel('U  [ ev ]',color= 'black')
 ax.set_xlabel('x  [nm]',color = 'black')
-ax.set_ylim([-1000,400])
 ax.plot(x/sx,U/se,'b',lw = 2)
 xP = [xMin/sx,xMax/sx]
 for c in range(6):

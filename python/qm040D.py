@@ -46,18 +46,19 @@ e = 1.6021766208e-19           # Elementary charge [C]
 h = 6.626070040e-34            # Planck constant [J.s]
 hbar = 1.054571800e-34         # Reduced Planck's constant
 me = 9.10938356e-31            # Electron mass [kg]
-se = e                         # Energy scaling factor   J <---> ev 
-sx = 1e-9                      # Length scaling factor   m <---> nm
+se = e*1e6                         # Energy scaling factor   J <---> ev 
+sx = 1e-15                      # Length scaling factor   m <---> nm
 
 
 #%%  INPUTS
-N = 519                #  grid size
+N = 919                #  grid size
+w = 1.63*sx             #  Width of well: default 0.1 nm
 
-xMin = -0.2*sx         #  default = -0.2 nm
-xMax =  0.2*sx         #  default = +0.2 nm
-U0 = -1000*se          #  Depth of well: default = -1000 eV
-w = 0.1*sx             #  Width of well: default 0.1 nm
-M = 30                 # number of eigenvalues returned
+xMin = -w         #  default = -0.2 nm
+xMax = w         #  default = +0.2 nm
+U0 = -10000*se          #  Depth of well: default = -1000 eV
+
+M = 150                # number of eigenvalues returned
 # >>> Enter 1,2,3,4,5,6 eigenstate number for expectation calculations
 n = 1     
 
