@@ -30,6 +30,9 @@ import os
 import matplotlib.pyplot as plt
 from pylab import *
 from math import *
+
+
+
 from numpy import linspace,matrix,array
 from numpy import *
 from scipy.linalg import *
@@ -56,7 +59,8 @@ N = 519                #  grid size
 xMin = -0.2*sx         #  default = -0.2 nm
 xMax =  0.2*sx         #  default = +0.2 nm
 U0 = -1000*se          #  Depth of well: default = -1000 eV
-w = 0.1*sx             #  Width of well: default 0.1 nm
+U1 = -200*se
+w = 0.2*sx             #  Width of well: default 0.1 nm
 M = 30                 # number of eigenvalues returned
 # >>> Enter 1,2,3,4,5,6 eigenstate number for expectation calculations
 n = 1     
@@ -70,6 +74,7 @@ Cse = -hbar**2/(2*me)
 # Potential energy function  [J]
 U = zeros(N)                
 U[x>-w/2] = U0 
+U[x>0] = U1
 U[x>w/2] = 0                               
 UM = diag(U)  
                
@@ -98,7 +103,7 @@ probD = psi**2    # probability density [1/m]
 #%% GRAPHICS
 
 plt.rcParams['font.size'] = 10
-plt.rcParams["figure.figsize"] = (7,7)
+plt.rcParams["figure.figsize"] = (7,7.2)
 fig1, axes = plt.subplots(nrows=3, ncols=2)
 fig1.subplots_adjust(top = 0.94, bottom = 0.12, left = 0.120,\
                     right = 0.90, hspace = 0.36,wspace=0.40)
@@ -111,32 +116,42 @@ def graph(R,C,y,n,En,s):
        axes[R,C].set_ylabel('$\psi$  [a.u]',color = 'black',fontsize = 12)
        axes[R,C].set_ylim([-1.1, 1.1])
        axes[R,C].set_yticks([-1,-0.5,0,0.5,1])
-    
+       x1 = -w/(2*sx); x2 = -x1
+       axes[R,C].plot(x/sx,y, 'blue')
+       axes[R,C].plot([x1,x1],[-1,1],'r')
+       axes[R,C].plot([ x2, x2],[-1,1],'r')
+       axes[R,C].plot([0,0],[-1,1],'m')
+       axes[R,C].set_xticks([])  
     if s ==2:
        axes[R,C].set_ylabel('$|\psi|^2$ [1/m]',color = 'black',fontsize = 12)   
-    
-    x1 = -w/(2*sx); x2 = -x1
-    axes[R,C].plot(x/sx,y, 'blue')
-    axes[R,C].plot([x1,x1],[min(y),max(y)],'r')
-    axes[R,C].plot([ x2, x2],[min(y),max(y)],'r')
+       x1 = -w/(2*sx); x2 = -x1
+       axes[R,C].plot(x/sx,y, 'blue')
+       axes[R,C].plot([x1,x1],[min(y),max(y)],'r')
+       axes[R,C].plot([ x2, x2],[min(y),max(y)],'r')
+       axes[R,C].plot([0,0],[min(y),max(y)],'m')
+       axes[R,C].set_xticks([])  
     return    
 
 # graph(R,c,psi,mode,E )
 
-# Wavefunction plots
+# FIG 1: Wavefunction plots
 psiMax = amax(psi)
-graph(0,0,psi[:,0]/psiMax, 1, E[0],1)
+graph(0,0,abs(psi[:,0]/psiMax), 1, E[0],1)
 graph(0,1,psi[:,1]/psiMax, 2, E[1],1)
 graph(1,0,psi[:,2]/psiMax, 3, E[2],1)
 graph(1,1,psi[:,3]/psiMax, 4, E[3],1)
 graph(2,0,psi[:,4]/psiMax, 5, E[4],1)
+graph(2,1,-psi[:,5]/psiMax, 6, E[5],1)
+
+axes[2,0].set_xticks(arange(-0.2,0.3,0.1))  
+axes[2,1].set_xticks(arange(-0.2,0.3,0.1))  
+
 axes[2,0].set_xlabel('x  [nm]',color = 'black')
-graph(2,1,psi[:,5]/psiMax, 6, E[5],1)
 axes[2,1].set_xlabel('x  [nm]',color = 'black')
 
 fig1.savefig('a1.png')
 
-
+# FIG 2: Probability densities
 plt.rcParams['font.size'] = 10
 plt.rcParams["figure.figsize"] = (7,7)
 fig1, axes = plt.subplots(nrows=3, ncols=2)
@@ -149,8 +164,12 @@ graph(0,1,probD[:,1], 2, E[1],2)
 graph(1,0,probD[:,2], 3, E[2],2)
 graph(1,1,probD[:,3], 4, E[3],2)
 graph(2,0,probD[:,4], 5, E[4],2)
+graph(2,1,probD[:,5], 6, E[5],2)
+
+axes[2,0].set_xticks(arange(-0.2,0.3,0.1))  
+axes[2,1].set_xticks(arange(-0.2,0.3,0.1))  
+
 axes[2,0].set_xlabel('x  [nm]',color = 'black')
-graph(2,1,psi[:,5], 6, E[5],2)
 axes[2,1].set_xlabel('x  [nm]',color = 'black')
 
 fig1.savefig('a2.png')
@@ -234,20 +253,24 @@ print('    <E> = %2.2f' % E_avg + ' <K> = % 2.2f' % K_avg + ' <U> = % 2.2f' % U_
 s = K_avg + U_avg; print('    <K> + <U> = %2.2f' % s )
 
 
-#%%  ENERGY PLOTS
+#%%  FIG 3: ENERGY PLOTS
 plt.rcParams['font.size'] = 12
-plt.rcParams["figure.figsize"] = (5,4)
+plt.rcParams["figure.figsize"] = (5,4.5)
 fig, ax = plt.subplots(1)
 
 ax.xaxis.grid()
 ax.yaxis.grid()
-ax.set_ylabel('U  [ ev ]',color= 'black')
+ax.set_ylabel('energy  [ ev ]',color= 'black')
 ax.set_xlabel('x  [nm]',color = 'black')
+ax.set_ylim([-1200,0])
 ax.plot(x/sx,U/se,'b',lw = 2)
+
 xP = [xMin/sx,xMax/sx]
 for c in range(6):
    yP = [E[c],E[c]]
    ax.plot(xP,yP,'r',lw = 2)
+
+ax.plot(x/sx,U/se,'b',lw = 3)
 
 fig.tight_layout()
 
