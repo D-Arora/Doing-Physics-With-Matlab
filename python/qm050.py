@@ -91,7 +91,7 @@ ax.plot(x/sx,Uh/se,'b',lw = 2)
 ax.plot(x/sx,Um/se,'r',lw = 2)
 fig1.tight_layout()
 
-fig1.savefig('a1.png')
+#fig1.savefig('a1.png')
 
 
 #%% EIGENVALUES AND EIGENFUNCTIONS
@@ -456,4 +456,8 @@ tExe = time.time() - tStart
 print('  ')
 print('Execution time = %2.0f s' % tExe)
 
-    
+
+#%%
+
+s = sqrt(k/mu); print('w = %2.2e' %s)  
+s = hbar*s/se; print('dE = %2.2e' %s)   
