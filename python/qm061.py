@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-qm050.py    June 2024
+qm061.py    June 2024
 
 Ian Cooper 
         matlabvisualphysics@gmail.com
@@ -9,9 +9,9 @@ Ian Cooper
 Website
        https://d-arora.github.io/Doing-Physics-With-Matlab/
 Documentation
-       https://d-arora.github.io/Doing-Physics-With-Matlab/pyDocs/qm060.pdf
+       https://d-arora.github.io/Doing-Physics-With-Matlab/pyDocs/qm061.pdf
 
-QUANTUM MECHANICS     VIBRATION - ROTATION SPECTRA: HCl molecule
+QUANTUM MECHANICS     ANGULAR MOMENTUM:  AZIMUTHAL WAVEFUNCTION
   
 """
 
@@ -39,8 +39,6 @@ from scipy.sparse import diags #Allows us to construct our matrices
 from matplotlib.animation import FuncAnimation, PillowWriter 
 import time
 
-
-
 tStart = time.time()
 
 
@@ -59,7 +57,7 @@ def graph(R,C,mL):
     ax[R,C].grid(True)
     ax[R,C].set_xticks(arange(0,2*pi, pi/6))
     ax[R,C].set_title('m$_L$ = %2.0f' % mL)
-
+    
 
 #%%
 plt.rcParams['font.size'] = 10
@@ -77,9 +75,23 @@ R = 1; C = 0; mL = 2
 graph(R,C,mL)
 R = 1; C = 1; mL = 3  
 graph(R,C,mL)
-R = 2; C = 0; mL = 4  
+R = 2; C = 0; mL = 4 
 graph(R,C,mL)
 R = 2; C = 1; mL = 5  
 graph(R,C,mL)
 
-# fig1.savefig('a1.png')
+fig1.tight_layout() 
+#fig1.savefig('a1.png')
+
+
+
+
+#%%
+tExe = time.time() - tStart
+print('  ')
+print('Execution time = %2.0f s' % tExe)
+
+
+
+
+
