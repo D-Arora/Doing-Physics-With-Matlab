@@ -46,23 +46,23 @@ tStart = time.time()
 
 
 #%%  INPUTS >>>>>
-L = 1             # ORBITAL QUANTUM NUMBER
-mL = 1            # MAGNETIC QUANTUM NUMBER
+L = 2             # ORBITAL QUANTUM NUMBER
+mL = 1           # MAGNETIC QUANTUM NUMBER
 N = 599           # number of grid points
-phi = 0         # azimuthal angle  [rad] 
+phi = 0           # azimuthal angle  [rad] 
                   # if phi = 0 --> Legendre function
 
 
 #%%  SETUP
-theta = linspace(0,pi,N)              # polar angle  [ra]
+theta = linspace(0,2*pi,N)              # polar angle  [ra]
 
 Y = sph_harm(abs(mL),L,phi,theta).real     # spherical harmonics
 
 probD = Y*Y                           # probability density
 
-fn = 2*pi*Y*Y*sin(theta)              # check normalization
-prob = simps(fn,theta)                # probability = 1 0r 0
-print('check probability = 1 or 0:  prob = %2.3f' % prob)
+#fn = 2*pi*Y*Y*sin(theta)              # check normalization
+#prob = simps(fn,theta)                # probability = 1 0r 0
+#print('check probability = 1    prob = %2.3f' % prob)
 
 
 #%% FIG 1:  theta vs Y 
@@ -75,8 +75,8 @@ ax.plot(xP,yP,'b',lw=3)
 
 ax.set_xlim([0,1])
 
-if prob < 0.9:
-   ax.set_ylim([-1,1])
+# if prob < 0.9:
+#    ax.set_ylim([-1,1])
 
 s = phi/pi
 ax.set_title('L = %2.0f' % L + '    m$_L$ = %2.0f' %mL +
@@ -93,9 +93,16 @@ plt.rcParams["figure.figsize"] = (3,2)
 fig2, ax = plt.subplots(1)
 
 xP = theta/pi; yP = probD
-ax.plot(xP,yP,'b',lw=3)    
 
-ax.set_ylim([-1,1])
+
+if mL < 0:
+     Y = sqrt(2) * (-1)**mL * Y.imag
+elif mL > 0:
+     Y = sqrt(2) * (-1)**mL * Y.real
+yP = Y
+ax.plot(xP,yP,'b',lw=3) 
+
+#ax.set_ylim([-1,1])
 ax.set_xlim([0,1])
 s = phi/pi
 ax.set_title('L = %2.0f' % L + '    m$_L$ = %2.0f' %mL +
@@ -111,8 +118,10 @@ plt.rcParams['font.size'] = 8
 plt.rcParams["figure.figsize"] = (3,3)
 fig3, ax = plt.subplots(nrows=1, ncols=1,subplot_kw={'projection': 'polar'})
 
-if prob > 0.9:
-  ax.plot(theta,probD,'b',lw=3)
+
+ax.plot(theta,probD,'b',lw=3)
+#ax.plot(theta,Y,'r',lw=3)
+
 
 ax.set_rticks([]) 
 

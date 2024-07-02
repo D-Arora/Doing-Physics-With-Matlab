@@ -38,88 +38,77 @@ from scipy.sparse.linalg import eigsh, eigs #Solves the Eigenvalue problem
 from scipy.sparse import diags #Allows us to construct our matrices
 from matplotlib.animation import FuncAnimation, PillowWriter 
 import time
-
+from scipy.special import sph_harm
 tStart = time.time()
 
 
 #%%
-phi = linspace(0,2*pi,599)         # arimuthal angle  [rad]
+N = 299
+theta = linspace(0,pi, N)
+phi   = 0
 
+#%%
 # r real part / im imaginary part / pd probability density
 
-def graph(R,C,mL):
-    r = abs(cos(mL*phi)); im = abs(sin(mL*phi)); pd = r**2 + im**2
-    ax[R,C].plot(phi, r,'b')
-    ax[R,C].plot(phi, im,'k')
-    ax[R,C].plot(phi, pd,'r',lw = 4)
-    ax[R,C].set_rmax(1)
+def graph(R,C,L,mL):
+    Y = sph_harm(abs(mL), L, mL, theta)
+
+    if mL < 0:
+         Y = np.sqrt(2) * (-1)**mL * Y.imag
+    elif mL > 0:
+         Y = np.sqrt(2) * (-1)**mL * Y.real
+
+    r = conj(Y)*Y.real
+    
+    ax[R,C].plot(theta+pi/2, r,'b',lw = 2)
+    ax[R,C].plot(-theta+pi/2, r,'r',lw = 2)
+    #ax[R,C].set_rmax(1)
     ax[R,C].set_rticks([])  
     ax[R,C].set_theta_offset(pi/2)
     ax[R,C].grid(True)
     ax[R,C].set_xticks(arange(0,2*pi, pi/6))
-    ax[R,C].set_title('m$_L$ = %2.0f' % mL)
-    
+    ax[R,C].set_title('L = %2.0f' % L + '   m$_L$ = %2.0f' % mL)
+
+
 
 #%%
 plt.rcParams['font.size'] = 10
 plt.rcParams["figure.figsize"] = (7,7.2)
 fig1, ax = plt.subplots(nrows=3, ncols=2,subplot_kw={'projection': 'polar'})
-#fig1, ax = plt.subplots(subplot_kw={'projection': 'polar'})
-#fig1.subplots_adjust(top = 0.95, bottom = 0.07, left = 0.120,\
-#                    right = 0.98, hspace = 0.60,wspace=0.40)
 
+LA = array([0.,1.,1.,1.,2.,2.])
+MA = array([0.,-1.,0.,1.,-2.,-1.])
 
-xP = phi/pi    
-R = 0; C = 0; mL = 0 
-graph(R,C,mL)
-R = 0; C = 1; mL = 1  
-graph(R,C,mL)
-R = 1; C = 0; mL = 2  
-graph(R,C,mL)
-R = 1; C = 1; mL = 3  
-graph(R,C,mL)
-R = 2; C = 0; mL = 4 
-graph(R,C,mL)
-R = 2; C = 1; mL = 5  
-graph(R,C,mL)
+# LA = array([2.,2.,2.,3.,3.,3.])
+# MA = array([0.,1.,2.,-3.,-2.,-1.])
+
+LA = array([3.,3.,3.,3.,4.,4.])
+MA = array([0.,1.,2.,3.,0.,1.])
+
+  
+R = 0; C = 0; L = LA[0];mL= MA[0] 
+graph(R,C,L,mL)
+R = 0; C = 1; L = LA[1];mL= MA[1]
+graph(R,C,L,mL)
+R = 1; C = 0; L = LA[2];mL= MA[2]
+graph(R,C,L,mL)
+R = 1; C = 1; L = LA[3];mL= MA[3]
+graph(R,C,L,mL)
+R = 2; C = 0; L = LA[4];mL= MA[4]
+graph(R,C,L,mL)
+R = 2; C = 1; L = LA[5];mL= MA[5]
+graph(R,C,L,mL)
 
 fig1.tight_layout() 
 
 
 
-#%% COSINE & SINE PLOTS
 
-def graph2(R,C,mL):
-    PHIR = cos(mL*phi);  PHII = sin(mL*phi)
-    ax[R,C].plot(xP, PHIR,'b')
-    ax[R,C].plot(xP,PHII,'r')
-    ax[R,C].grid(True)
-    ax[R,C].set_xticks(arange(0,2.2, 0.5))
-    ax[R,C].set_title('m$_L$ = %2.0f' % mL)  
-    ax[R,C].set_xlabel('$\phi / \pi$')
-    ax[R,C].set_ylabel('$\Phi$',fontsize = 14)
 
-plt.rcParams['font.size'] = 12
-plt.rcParams["figure.figsize"] = (7,5.2)
-fig2, ax = plt.subplots(nrows=2, ncols=2)
-#fig2.subplots_adjust(top = 0.95, bottom = 0.07, left = 0.120,\
-#                    right = 0.98, hspace = 0.60,wspace=0.40)
-    
-R = 0; C = 0; mL = 0 
-graph2(R,C,mL)
-R = 0; C = 1; mL = 1  
-graph2(R,C,mL)
-R = 1; C = 0; mL = 2  
-graph2(R,C,mL)
-R = 1; C = 1; mL = 3  
-graph2(R,C,mL)
-R = 2; C = 0; mL = 4  
-
-fig2.tight_layout()    
 
 #%% SAVE FIGURES
 fig1.savefig('a1.png')
-fig2.savefig('a2.png')
+
 
 
 

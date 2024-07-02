@@ -56,9 +56,9 @@ tStart = time.time()
 
 #%% INPUTS
 # oribtal quantum nuumber L (L == l)
-L = 7
+L = 1
 # magnetic quantum number mL   (mL == ml)
-mL = 6
+mL = -1
 # Grid point N
 N = 299
 
@@ -104,5 +104,5 @@ ax.set_aspect('equal')
 
 ax.axis('off')
 
-fig3.savefig('a1.png',bbox_inches='tight',dpi=800,
-             pad_inches=0.1, transparent=True)
+#fig3.savefig('a1.png',bbox_inches='tight',dpi=800,
+#             pad_inches=0.1, transparent=True)
