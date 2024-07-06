@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-qm050.py    June 2024
+qmH01.py    July 2024
 
 Ian Cooper         matlabvisualphysics@gmail.com
 
@@ -43,6 +43,8 @@ from scipy.sparse.linalg import eigsh, eigs #Solves the Eigenvalue problem
 from scipy.sparse import diags #Allows us to construct our matrices
 from matplotlib.animation import FuncAnimation, PillowWriter 
 import time
+from sys import exit
+pi = math.pi
 
 tStart = time.time()
 
@@ -59,30 +61,52 @@ mu = me*mp/(me+mp)             # reduced mass HCl molecule [kg]
 se = e                         # Energy scaling factor   J <---> ev 
 sx = 1e-9                      # Length scaling factor   m <---> nm
 ke = 1/(4*pi*eps0)             # Coulomb constant
-a0 = 5.292e-11                  # Bohr radius  [m]
-ER = hbar**2/(2*mu*a0**2)/se
+
 
 #%%  INPUTS
-L = 3              # orbital ang. mom. quantum number L == l: L < n
-mL = 1             # magnetic quantum number
+# >>> Principal quantum number: for outputs not computations
+n = 1
+# >>> ang. mom. quantum number L < n
+L = 0
+# >>> magnetic quantum number mL <= L             
+mL = 0            
+# >>> max r value  [m]  enter value in nm x sx
+rMax = 2*sx        # r range max [m]
 
-rMax = 5*sx        # r range max [m]
+# >>> nuclear charge 
+Z = 1
 
-ns = 4             #  FIG 3: Principal quantum number for wavefunction plots
-x2 = 3             #  FIG 3: max r values for wavefunction plots  [nm]
-
-Z = 1              # nuclear charge
-N = 1201           # r grid points
+N = 999           # r grid points
 num = 100          # number of eigenvalues returned  
 rMin = 1e-18       # r range min  [m]
-x1 = 0             # min r value for  wavefunction plots  [nm]
+
+
+if L > n-1 or abs(mL) > L:
+    print('Run aborted: check L < n ans |mL| < L+1')
+    exit()
+   
 
 #%% SETUP
-# n > L  -->  adjust principal quantum number for wavefunction plots
-nsp = ns
-if L > 0:
-    ns = ns - L
+# >>> max r and min r values for plots: FIG 3
+x2 = rMax/sx; x1 = 0             
 
+# Bohr: energies [eV] and radii [nm]
+a0 = h**2*eps0/(pi*mu*e**2*Z*sx)
+E1 = ( mu*e**4*Z**2/(8*eps0**2*h**2*se) )
+ 
+nq = 25
+q = arange(0,nq,1)
+#EBohr = zeros(nq); rBohr = zeros(nq)
+EBohr = E1/(q+1)**2
+rBohr = a0*(q+1)**2
+
+# WARNING: First eignsate found is n = L+! since n > L 
+# n > L  -->  adjust principal quantum number for wavefunction plots
+nA = n-1
+if L > 0:
+    nA = nA - L
+
+#%% POTENTIAL ENERGY FUNCTIONS AND PLOTS
 r = linspace(rMin,rMax,N)     # radial distance [m]
 dx = r[2] - r[1]
 # Coulomb potential energy function   [J]
@@ -92,24 +116,17 @@ UL = L*(L+1)*hbar**2/(2*mu*r**2)
 # Effective potential energy function  [J]
 U = UC + UL
 
-# Theoretical energy eigenvalues [eV] and Bohr radii  [nm]
-ne = arange(1,20,1)
-ET = ER/ne**2
-rB = (hbar**2/(sx*ke*mu*e**2))*ne**2
-a0 = rB[0]      # Bohr radius
-
-#%% FIG 1: Potential energy functions
+# FIG 1
 plt.rcParams['font.size'] = 10
-plt.rcParams["figure.figsize"] = (5,2.5)
+plt.rcParams["figure.figsize"] = (5,3)
 fig1, ax = plt.subplots(1)
 
 ax.xaxis.grid()
 ax.yaxis.grid()
 ax.set_ylabel('U  [ eV ]',fontname = 'Times New Roman',fontsize = 14)
 ax.set_xlabel('r  [nm]', fontname = 'Times New Roman', fontsize = 14)
-ax.set_ylim([-10.1,2.1])
+ax.set_ylim([-20.1,20.1])
 ax.set_xlim([0,1])
-
 
 ax.set_xlabel('r  [nm]')
 ax.set_ylabel('U   [eV]')
@@ -139,16 +156,10 @@ HM = KM + UM
 ev, ef = eigsh(HM, which="SM", k = num)
 
 # OUTPUT: negative eigenvalues and normalize eigenfunctions
-E = real(ev[ev<0]/se)                 # negative eigenvalues [eV]
-EB = E
+E = real(ev[ev<0]/se)       # Negative eigenvalues [eV]
+EB = -E                     # bINDING ENERGIES
 lenE = len(E)
-print("Energies E  [eV]")
-print('Theoretical',ET)
-print('  ')
-print('Numerical',EB)
-print('  ')
-print('Bohr radii  [nm]')
-print(rB)
+
 
 #%%  FIG 2: ENERGY PLOTS
 plt.rcParams['font.size'] = 10
@@ -182,23 +193,59 @@ for c in range(len(E)):
 probD = psi**2    # probability density [1/m]
 
 # Eigenstate (ns, L): peak value, normalization, <r>
-y = probD[:,ns-1]
+y = probD[:,nA]
 rPeak = r[max(y) == y]/sx
 
-y = psi[:,ns-1]      # eigenfunction ns
+y = psi[:,nA]      # eigenfunction ns
 # Probability
 fn = y**2
 prob = simps(fn,r)
-# Position and its uncertainty
+
 fn = y*r*y
 rAvg = simps(fn,r)/sx                 # [nm]
+#q = arange(1,lenE,1); 
 
 
+#%% Prob electron found in region r < a0 expressed as a percentage
+q = 0; s = r[0]; c = 0
+while s < a0*sx:
+    c = c+1
+    s = r[c]
+    
+y1 = psi[0:c,nA]
+r1 = r[0:c]
+fn = y1**2
+prob1 = simps(fn,r1)*100
+
+
+#%%  CONSOLE OUTPUT
+print('  ')
+print('grid point N = %2.0f' % N )
+print('Z = %2.0f' % Z )
+s = rMax/sx;print('rMax = %2.1f nm' % s)
+print('ang. mom. quantum no. L = %2.0f' % L)
+print('magnetic quantum no. mL = %2.0f' % mL)
+
+if L == 0:
+   print(' ')
+   print('Z = %2.2f ' %Z + '   Energy [eV]  separation [nm]')
+   print('State n    EBohr      Esim        rBohr  ' )
+   for q in range(len(E)):
+       s = q+1; print(' %0.0f' % s + '           %2.3f' % EBohr[q]
+                + '    %2.3f' %EB[q] + '      %2.3f' %rBohr[q])        
+print(' ') 
+
+print('Eigenstate: Z = %0.2f  ' %Z +'   n = %0.0f'  %n + '   L = %0.0f' %L 
+      +  '   mL = %0.0f' %mL)
+s = rMax/sx;print('rMax = %2.1f nm' % s)
+print('Percentage probability of electron in region r < a0 = %0.2f' % prob1)
+print('EBohr = %0.3f eV' % EBohr[n-1] + '     rBohr = %2.3f nm' % rBohr[n-1])
+print('EB    = %0.3f eV' % EB[nA] + '     rPeak = %2.3f nm' % rPeak
+      + '    <r> = %2.3f  nm' %rAvg)
+
+ 
 #%%  FIG 3:  WAVEFUNCTIONS g(R)
 # Input principal quantum number, ns and max r value, x2 [nm] for plots 
-# ns = 2
-# x2 = 2
-# x1 = 0
 plt.rcParams['font.size'] = 10
 plt.rcParams["figure.figsize"] = (7,3.2)
 fig3, axes = plt.subplots(nrows=1, ncols=2)
@@ -208,11 +255,11 @@ axes[C].xaxis.grid()
 axes[C].yaxis.grid()
 axes[C].set_xlabel('r  [ nm ]', fontname = 'Times New Roman', fontsize = 14)
 axes[C].set_ylabel('g  ', fontname = 'Times New Roman', fontsize = 14)
-axes[C].set_title('n = %2.0f   ' %nsp  +'  l = %2.0f' % L + '    E = %2.2f eV' %E[ns-1]
+axes[C].set_title('n = %2.0f   ' %n  +'  l = %2.0f' % L + '    E = %2.2f eV' %E[nA]
                   , style='italic', 
                   fontname='Cambria', fontsize = 14)
 axes[C].set_xlim([x1,x2])
-xP = r/sx; yP = psi[:,ns-1]
+xP = r/sx; yP = psi[:,nA]
 if psi[10,0] < 0:
     yP = -yP
 yP = yP/ max(yP)    
@@ -225,69 +272,24 @@ axes[C].yaxis.grid()
 axes[C].set_xlabel('r  [ nm ]', fontname = 'Times New Roman', fontsize = 14)
 axes[C].set_ylabel('g*g  ', fontname = 'Times New Roman', fontsize = 14)
 axes[C].set_xlim([x1,x2])
-xP = r/sx; yP = probD[:,ns-1]
+xP = r/sx; yP = probD[:,nA]
 axes[C].plot(xP,yP, 'blue',lw = 2)
 xP = [rPeak,rPeak]; yP = [0, max(yP)]
 axes[C].plot(xP,yP, 'r',lw =1)
 xP = [rAvg,rAvg]; yP = [0, max(yP)]
 axes[C].plot(xP,yP, 'm',lw =1)
 
-axes[C].set_title('n = %2.0f   ' % nsp  +'  l = %2.0f \n' % L +
+axes[C].set_title('n = %2.0f   ' % n  +'  l = %2.0f \n' % L +
                   'rPeak = %2.3f ' %rPeak +
                   '   <r> = %2.3f'    %rAvg,
                   style='italic', 
                   fontname='Cambria', fontsize = 12)
-
-
 fig3.tight_layout()
 
-# #%% CONSOLE OUTPUT
-# print('  ')
-# print('grid point N = %2.0f' % N + '   eigenvalues returned M = %2.0f' % num)
-# s1 = xMin/sx; s2 = xMax/sx; print('xMin = %2.2f nm' % s1 + '   xMax = %2.2f nm' % s2)
-# s = x0/sx; print('Equilibrium bond length x0 = %2.3f nm' %s)  
-# s = U0/se; print('well depth U0 = %2.3f ev' %s) 
-# print('spring constant k = %2.3f N/m' % k) 
-# print(' ')
-# print('Energies [eV]')
-# print('State n    Ew       ET      dE       E       EB')
-# for q in range(len(E)):
-#     print(' %0.0f' % q + '        %2.3f' % Ew[q] + '    %2.3f' %ET[q] 
-#           + '   %2.3f' % dE[q] + '   %2.3f' %E[q] +  '   %2.3f'  %EB[q])
-# print(' ')  
 
-
-
-
-# #%% SCATTER PLOT FOR PROBILITY
-# q = n
-# y = probD[:,q]/amax(probD)
-
-# plt.rcParams['font.size'] = 12
-# plt.rcParams["figure.figsize"] = (6,1)
-# fig11, ax = plt.subplots(1)
-# fig11.subplots_adjust(top = 0.94, bottom = 0.20, left = 0.18,\
-#                     right = 0.80, hspace = 0.20,wspace=0.2)
-
-# x1 = xMin/sx; x2 = xMax/sx
-# ax.set_xlim([x1,x2])
-# ax.set_ylim([0,1])
-# ax.set_axis_off()
-
-# random.seed()
-# num = 20000
-# for c in range(num):
-#     xP = x1+x2*random.random()        # [mm]
-#     yP = random.random()
-#     qR = random.random()
-#     qP = y[x/sx>xP]
-#     q0 = qP[0] 
-#     if qR < q0:
-#        ax.plot(xP,yP,'bo', ms = 1)
-# fig11.savefig('a11.png')
 #%% SAVE FIGURES
 #fig1.savefig('a1.png')
-#fig2.savefig('a2.png')
+fig2.savefig('a2.png')
 fig3.savefig('a3.png')
 
 
