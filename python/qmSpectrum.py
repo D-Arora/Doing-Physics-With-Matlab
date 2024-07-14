@@ -77,8 +77,7 @@ def colour(wL):
        thiscolor[2] = 0   
     return thiscolor
 
-#%%
-# Make visbile spectrum
+#%% FIG 1: Make visbile spectrum
 N = 1501
 x = linspace(380,770,N)
 y = ones(N)
@@ -99,6 +98,40 @@ axes.set_yticks([])
 fig1.tight_layout()
 
 fig1.savefig('a1.png')
+
+
+#%% BALMER SEIES   [1/m]
+# Rydberg constant
+RH = 1.097e7     
+nf = 2
+N = 10
+ni = np.arange(3,N,1)
+k = RH*(1/nf**2 - 1/ni**2)
+wL = 1e9/k
+L = len(k)
+w = np.array([4.0,2.5,1.1,0.7,0.4,0.2,0.1])
+#w = np.array([6,4.5,3.1,2.5,1.8,1.2,0.8,0.4])  
+  
+#%% FIG 2: BALMER SERIES PLOT
+
+plt.rcParams['font.size'] = 12
+plt.rcParams["figure.figsize"] = (6,2)
+
+fig2, axes = plt.subplots(nrows=1, ncols=1)
+axes.set_xlabel('$\lambda$  [ nm ]',fontsize = 12)
+
+for c in range(L):
+    x = wL[c] 
+    col = colour(wL[c])
+    xP = [x,x]; yP = [0,1]
+    axes.plot(xP,yP,color = col,lw = w[c])
+    axes.invert_xaxis()
+axes.set_yticks([])
+#axes.set_facecolor("black")
+fig2.tight_layout()
+
+fig2.savefig('a2.png')
+
 
 #%%
 tExe = time.time() - tStart
