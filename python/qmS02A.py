@@ -5,7 +5,7 @@ qmS02.py    Aug 2024
 QUANTUM MECHANICS
 Finite Difference Time Development Method
 [1D] Schrodinger Equation 
-   Conduction Band of a semiconductor   
+   Motion of electron in an electric field   
 
 
 Ian Cooper
@@ -15,7 +15,7 @@ DOING PHYSICS WITH MATLAB
     https://d-arora.github.io/Doing-Physics-With-Matlab/
     
 Reference page for documentation and notes
-    https://d-arora.github.io/Doing-Physics-With-Matlab/pyDocs/qmS01.pdf
+    https://d-arora.github.io/Doing-Physics-With-Matlab/pyDocs/qmS02.pdf
 
 """
 
@@ -56,7 +56,7 @@ def secondDer(N,dx):
 #%% SETUP
 
 N = 701            #  number of grid points [701]
-Nt = 1000           #  Number of time steps [1 - 6000]
+Nt = 6000           #  Number of time steps [1 - 6000]
 L = 40e-9          #  Width of X domain [40e-9] 
 
 mEff = 1.08         # Effective mass of semiconductor
@@ -82,10 +82,9 @@ t =  np.arange(0,tMax,dt)
 c2 = e*dt/hbar
 
 # Potential energy function
-U = zeros(N)          
-nU = round(N/2)
-U[0:nU] = 0.1
-U[nU:N] = 0.2
+U0 = 2
+U = zeros(N)              
+U = U0*(1 - x/L)
 
 
 #%% INITIAL WAVE PACKET
@@ -95,8 +94,8 @@ s = 2e-9           # pulse width
 wL = 2e-9          # wavelength
 
 k1 = -0.5*((x-xC)/s)**2; k2 = 2*pi*(x-xC)/wL  
-yR = exp(k1)*cos(k2)
-yI = exp(k1)*sin(k2)
+yR = exp(k1)#*cos(k2)
+yI = exp(k1)#*sin(k2)
 
 M = yR**2 + yI**2
 A = simps(M,x)
@@ -167,7 +166,7 @@ q = (h/wL)**2/(2*m*se); print(r'   KEpulse = %2.3f   eV ' % q)
 #%% GRAPHICS
 plt.rcParams['font.family'] = ['Tahoma']
 plt.rcParams['font.size'] = 12
-plt.rcParams["figure.figsize"] = (5.5,2.6)
+plt.rcParams["figure.figsize"] = (5.5,2.4)
 fig1, ax = plt.subplots(1)
 #fig.subplots_adjust(top = 0.92, bottom = 0.23, left = 0.20,\
 #                    right = 0.92, hspace = 0.20,wspace=0.2)
@@ -206,7 +205,7 @@ xP = x/sx; yP = probD
 ax.plot(xP,yP,'b',lw = 2)
 ax.xaxis.grid()
 ax.yaxis.grid()
-#ax.set_ylim([-1.1, 1.1])
+ax.set_ylim([0, 3e8])
 ax.set_ylabel('probD [ 1/m ]',color= 'black',fontsize=12)
 ax.set_xlabel('x  [ nm ]',color = 'black')
 
@@ -214,12 +213,12 @@ ax2 = ax.twinx()
 xP = x/sx; yP = U
 ax2.plot(xP,yP,'k',lw = 1)
 #ax.set_xlim([0, 8e-24])
-ax2.set_ylim([0, 0.25])
+ax2.set_ylim([0, 2.1])
 ax2.set_ylabel('U [ eV ]',color= 'black',fontsize=11)
 
 q = Nt*dt/st
-ax2.set_title(r't = %0.f fs' %q + '   <U> = %0.3f' %Uavg
-             + '  <K> = %0.3f' %Kavg + '  <E> = %0.3f  eV' %Eavg,fontsize = 11 )
+ax2.set_title(r't = %0.f fs' %q + '   <U> = %0.4f' %Uavg
+             + '  <K> = %0.4f' %Kavg + '  <E> = %0.4f  eV' %Eavg,fontsize = 11 )
 fig2.tight_layout()
 
 
