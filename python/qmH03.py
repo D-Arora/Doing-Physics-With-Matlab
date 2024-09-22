@@ -63,8 +63,8 @@ ke = 1/(4*pi*eps0)             # Coulomb constant
 
 #%%  INPUTS
 n = 4       # principle quantum number  n > L
-L =  3      # orbital ang. mom. quantum number L == l: L < n
-mL = 3     # magnetic quantum number mL <= L
+L =  2      # orbital ang. mom. quantum number L == l: L < n
+mL = -2     # magnetic quantum number mL <= L
 
 rMax = 6*sx       # r range max [m]
 

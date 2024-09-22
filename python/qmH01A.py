@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-qmH01.py    July 2024
+qmH01.py    June 2024
 
 Ian Cooper         matlabvisualphysics@gmail.com
 
@@ -65,7 +65,7 @@ ke = 1/(4*pi*eps0)             # Coulomb constant
 
 #%%  INPUTS
 # >>> Principal quantum number: for outputs not computations
-n = 1
+n = 2
 # >>> ang. mom. quantum number L < n
 L = 0
 # >>> magnetic quantum number mL <= L             
@@ -75,6 +75,8 @@ rMax = 2*sx        # r range max [m]
 
 # >>> nuclear charge 
 Z = 1
+            
+
 
 N = 999           # r grid points
 num = 100          # number of eigenvalues returned  
@@ -115,6 +117,7 @@ UC = -ke*Z*e**2/r
 UL = L*(L+1)*hbar**2/(2*mu*r**2)
 # Effective potential energy function  [J]
 U = UC + UL
+
 
 # FIG 1
 plt.rcParams['font.size'] = 10
@@ -170,15 +173,13 @@ ax.xaxis.grid()
 ax.yaxis.grid()
 ax.set_ylabel('energy  [ eV ]',fontname = 'Times New Roman',fontsize = 16)
 ax.set_xlabel('r  [ nm ]', fontname = 'Times New Roman', fontsize = 16)
-ax.set_ylim([-20,2])
+ax.set_ylim([-125,2])
 
 xP = [rMin/sx,rMax/sx]
 for c in range(lenE):
     yP = [E[c],E[c]]
     ax.plot(xP,yP,'r',lw = 2)
 xP = r/sx; yP = U/se
-
-
 ax.plot(xP,yP,'b',lw = 3)
 
 fig2.tight_layout()
@@ -207,17 +208,15 @@ fn = y*r*y
 rAvg = simps(fn,r)/sx                 # [nm]
 #q = arange(1,lenE,1); 
 
-
-#%% Prob electron found in region r < a0 expressed as a percentage
-q = 0; s = r[0]; c = 0
-while s < a0*sx:
-    c = c+1
-    s = r[c]
-    
-y1 = psi[0:c,nA]
-r1 = r[0:c]
-fn = y1**2
-prob1 = simps(fn,r1)*100
+#%%  For all bound states: <r> and rPeak
+# lenE = len(E)
+# Ravg = zeros(lenE); Rpeak = zeros(lenE)
+# for c in range(lenE):
+#     y = psi[:,c]
+#     fn = y*r*y
+#     Ravg[c] = simps(fn,r)/sx
+#     y = probD[:,c]
+#     Rpeak[c] = r[max(y) == y]/sx
 
 
 #%%  CONSOLE OUTPUT
@@ -240,7 +239,6 @@ print(' ')
 print('Eigenstate: Z = %0.2f  ' %Z +'   n = %0.0f'  %n + '   L = %0.0f' %L 
       +  '   mL = %0.0f' %mL)
 s = rMax/sx;print('rMax = %2.1f nm' % s)
-print('Percentage probability of electron in region r < a0 = %0.2f' % prob1)
 print('EBohr = %0.3f eV' % EBohr[n-1] + '     rBohr = %2.3f nm' % rBohr[n-1])
 print('EB    = %0.3f eV' % EB[nA] + '     rPeak = %2.3f nm' % rPeak
       + '    <r> = %2.3f  nm' %rAvg)
@@ -257,7 +255,7 @@ axes[C].xaxis.grid()
 axes[C].yaxis.grid()
 axes[C].set_xlabel('r  [ nm ]', fontname = 'Times New Roman', fontsize = 14)
 axes[C].set_ylabel('g  ', fontname = 'Times New Roman', fontsize = 14)
-axes[C].set_title('n = %2.0f   ' %n  +'  l = %2.0f' % L + '    E = %2.2f eV' %E[nA]
+axes[C].set_title('n = %2.0f   ' %n  +'  l = %2.0f' % L + '    E = %2.2f eV' %E[n-1]
                   , style='italic', 
                   fontname='Cambria', fontsize = 14)
 axes[C].set_xlim([x1,x2])

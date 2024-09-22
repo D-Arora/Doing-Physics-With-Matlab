@@ -31,8 +31,8 @@ tStart = time.time()
 
 #%% INPUT VARIABLES
 Nx = 701             #  ODD number - number of grid points [701]
-Nt = 2200            #  Number of time steps [30000]
-L = 5e-9             #  Half-width of X domain [5e-9 nm] 
+Nt = 1200            #  Number of time steps [30000]
+L = 40e-9             #  Half-width of X domain [5e-9 nm] 
 f = 100              # number of frames
 
 U0 = 60              # Potential energy  [eV]
