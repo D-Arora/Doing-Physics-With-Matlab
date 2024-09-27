@@ -38,39 +38,48 @@ def fn(B):            # Calculation of total energy of a microstate
     S = sum(E*B)
     return S
 
-nP = 3               # Number of particles
-num = 9               # Number of trials
-nE = 4                 # Number of energy levels
+#nP = 99               # Number of particles
+num = 9999               # Number of trials
+nE = 99                 # Number of energy levels
 S = 0                   # Initial total energy of a microstate 
 E = np.arange(0,nE,1)   # Energy levels
 B = zeros([num,nE])     # Microstates
 Emax = nE-1             # Total energy of a microstate
+Es = 0
+b = zeros(nE)
 for k in range(num):
-    c = 0; b = zeros(nE) 
-    while c < nP:
-      e = random.randint(0,nE-1)
-      b[e] = b[e] + 1
-      S = fn(b)   
-      if S < Emax:
-         c = c+1
-      if S > Emax:
-         c = c-1 
-         b[e] = b[e] - 1
-      if S == Emax:
-         c = 100
+    while Es != Emax:
+       e = random.randint(0,nE-1)
+       b[e] = b[e] + 1
+       Es = Es + e; 
+      
+       if Es > Emax:
+          Es = Es - e; b[e] = b[e] - 1 
     B[k,:] = b
-    print(B*E)
-    
-  
+    Es = 0; b = zeros(nE)
+        
+    # c = 0; b = zeros(nE) 
+    # while S < Emax: #c < nP:
+    #   
+    #   b[e] = b[e] + 1
+    #   S = fn(b)   
+    #   if S < Emax:
+    #      c = c+1
+    #   if S > Emax:
+    #      c = c-1 
+    #      b[e] = b[e] - 1
+    #   if S == Emax:
+    #      c = 100
+    # B[k,:] = b
+     
 Bsum = np.sum(B,axis = 0)
 Btotal = sum(Bsum)
 prob = Bsum/Btotal
 
 #%%
-k = 1
-K = 1
-EB = linspace(0.1,50,599)
-fBE = 1/(K*exp(k*EB)-1)
+k1 = 0.6
+EB = linspace(1,50,599)
+fBE = 1/(exp(k1*EB)-1)
 
 
 #%% Figure 1: Plot of Maxwell speed distribution

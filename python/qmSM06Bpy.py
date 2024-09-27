@@ -39,35 +39,51 @@ def fn(B):            # Calculation of total energy of a microstate
     return S
 
 nP = 3               # Number of particles
-num = 9               # Number of trials
-nE = 4                 # Number of energy levels
+num = 5               # Number of trials
+nE = 4                # Number of energy levels
 S = 0                   # Initial total energy of a microstate 
 E = np.arange(0,nE,1)   # Energy levels
 B = zeros([num,nE])     # Microstates
 Emax = nE-1             # Total energy of a microstate
+
+Es = 0; b = zeros(nE);b[0] = nP
 for k in range(num):
-    c = 0; b = zeros(nE) 
-    while c < nP:
-      e = random.randint(0,nE-1)
-      b[e] = b[e] + 1
-      S = fn(b)   
-      if S < Emax:
-         c = c+1
-      if S > Emax:
-         c = c-1 
-         b[e] = b[e] - 1
-      if S == Emax:
-         c = 100
-    B[k,:] = b
-    print(B*E)
-    
-  
+    for n in range(0,nP):
+        while Es != Emax:
+           e = random.randint(0,nE-1)
+           if e == 0:
+             b[e] = b[e]
+           if e > 0:
+             b[e] = b[e]+1  
+           Es = Es + e; 
+          
+           if Es > Emax:
+              Es = Es - e; b[e] = b[e] - 1; 
+        
+        B[k,:] = b
+        Es = 0; b = zeros(nE); b[0] = nP
+        
+# for k in range(num):
+#     c = 0; b = zeros(nE) 
+#     while c < nP:
+#       e = random.randint(0,nE-1)
+#       b[e] = b[e] + 1
+#       S = fn(b)   
+#       if S < Emax:
+#          c = c+1
+#       if S > Emax:
+#          c = c-1 
+#          b[e] = b[e] - 1
+#       if S == Emax:
+#          c = 100
+#     B[k,:] = b
+     
 Bsum = np.sum(B,axis = 0)
 Btotal = sum(Bsum)
 prob = Bsum/Btotal
 
 #%%
-k = 1
+k = 3
 K = 1
 EB = linspace(0.1,50,599)
 fBE = 1/(K*exp(k*EB)-1)
