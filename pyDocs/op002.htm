@@ -1,0 +1,2955 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 15">
+<meta name=Originator content="Microsoft Word 15">
+<link rel=File-List href="op002_files/filelist.xml">
+<link rel=Edit-Time-Data href="op002_files/editdata.mso">
+<link rel=OLE-Object-Data href="op002_files/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Python Optics</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Subject>Optics</o:Subject>
+  <o:Author>Ian Cooper</o:Author>
+  <o:Keywords>python, computational physics, optics, computational optics, plane wave, superposition principle, interference, standing waves, beats</o:Keywords>
+  <o:LastAuthor>Ian Cooper</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>2748</o:TotalTime>
+  <o:Created>2024-10-10T21:03:00Z</o:Created>
+  <o:LastSaved>2024-10-10T21:03:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>1527</o:Words>
+  <o:Characters>8709</o:Characters>
+  <o:Category>Optics</o:Category>
+  <o:Lines>72</o:Lines>
+  <o:Paragraphs>20</o:Paragraphs>
+  <o:CharactersWithSpaces>10216</o:CharactersWithSpaces>
+  <o:Version>16.00</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+<link rel=dataStoreItem href="op002_files/item0043.xml"
+target="op002_files/props044.xml">
+<link rel=themeData href="op002_files/themedata.thmx">
+<link rel=colorSchemeMapping href="op002_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>120</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-AU</w:LidThemeOther>
+  <w:LidThemeAsian>ZH-CN</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:UseWord2010TableStyleRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
+  DefSemiHidden="false" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="376">
+  <w:LsdException Locked="false" Priority="0" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="0" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 7"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 8"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 9"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 9"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal Indent"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footnote text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="header"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footer"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index heading"/>
+  <w:LsdException Locked="false" Priority="35" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="table of figures"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="envelope address"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="envelope return"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footnote reference"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation reference"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="line number"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="page number"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="endnote reference"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="endnote text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="table of authorities"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="macro"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="toa heading"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 5"/>
+  <w:LsdException Locked="false" Priority="10" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Closing"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Signature"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="true"
+   UnhideWhenUsed="true" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Message Header"/>
+  <w:LsdException Locked="false" Priority="11" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Salutation"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Date"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text First Indent"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text First Indent 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Note Heading"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Block Text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Hyperlink"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="FollowedHyperlink"/>
+  <w:LsdException Locked="false" Priority="22" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Document Map"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Plain Text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="E-mail Signature"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Top of Form"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Bottom of Form"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal (Web)"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Acronym"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Address"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Cite"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Code"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Definition"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Keyboard"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Preformatted"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Sample"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Typewriter"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Variable"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal Table"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation subject"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="No List"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 7"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 8"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 7"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 8"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Contemporary"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Elegant"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Professional"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Subtle 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Subtle 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Balloon Text"/>
+  <w:LsdException Locked="false" Priority="59" Name="Table Grid"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Theme"/>
+  <w:LsdException Locked="false" SemiHidden="true" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" QFormat="true"
+   Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" QFormat="true"
+   Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" QFormat="true"
+   Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" QFormat="true"
+   Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" QFormat="true"
+   Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" QFormat="true"
+   Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" SemiHidden="true"
+   UnhideWhenUsed="true" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" QFormat="true" Name="TOC Heading"/>
+  <w:LsdException Locked="false" Priority="41" Name="Plain Table 1"/>
+  <w:LsdException Locked="false" Priority="42" Name="Plain Table 2"/>
+  <w:LsdException Locked="false" Priority="43" Name="Plain Table 3"/>
+  <w:LsdException Locked="false" Priority="44" Name="Plain Table 4"/>
+  <w:LsdException Locked="false" Priority="45" Name="Plain Table 5"/>
+  <w:LsdException Locked="false" Priority="40" Name="Grid Table Light"/>
+  <w:LsdException Locked="false" Priority="46" Name="Grid Table 1 Light"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark"/>
+  <w:LsdException Locked="false" Priority="51" Name="Grid Table 6 Colorful"/>
+  <w:LsdException Locked="false" Priority="52" Name="Grid Table 7 Colorful"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 1"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 1"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 1"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 2"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 2"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 2"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 3"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 3"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 3"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 4"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 4"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 5"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 5"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 5"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 6"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 6"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 6"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 6"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 6"/>
+  <w:LsdException Locked="false" Priority="46" Name="List Table 1 Light"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark"/>
+  <w:LsdException Locked="false" Priority="51" Name="List Table 6 Colorful"/>
+  <w:LsdException Locked="false" Priority="52" Name="List Table 7 Colorful"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 1"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 1"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 1"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 2"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 2"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 2"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 3"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 3"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 3"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 4"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 4"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 5"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 5"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 5"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 6"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 6"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 6"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 6"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Mention"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Smart Hyperlink"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Hashtag"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Unresolved Mention"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Smart Link"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:\5B8B\4F53;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:515 680460288 22 0 262145 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:-536869121 1107305727 33554432 0 415 0;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-469750017 -1073732485 9 0 511 0;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:515 680460288 22 0 262145 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:SimSun;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 1 Char";
+	mso-style-next:Normal;
+	margin:0cm;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:12.0pt;
+	font-family:"Arial",sans-serif;
+	mso-fareast-font-family:SimSun;
+	mso-font-kerning:0pt;
+	mso-ansi-language:EN-AU;
+	mso-fareast-language:EN-US;}
+a:link, span.MsoHyperlink
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:blue;
+	mso-themecolor:hyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:purple;
+	mso-themecolor:followedhyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:SimSun;
+	mso-ansi-language:EN-US;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:SimSun;
+	mso-ansi-language:EN-US;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:SimSun;
+	mso-ansi-language:EN-US;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:SimSun;
+	mso-ansi-language:EN-US;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 1";
+	mso-ansi-font-size:12.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Arial",sans-serif;
+	mso-ascii-font-family:Arial;
+	mso-fareast-font-family:SimSun;
+	mso-hansi-font-family:Arial;
+	mso-bidi-font-family:Arial;
+	mso-font-kerning:0pt;
+	mso-ligatures:none;
+	mso-fareast-language:EN-US;
+	font-weight:bold;}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{mso-style-name:msonormal;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:16.0pt;
+	mso-ansi-font-size:16.0pt;
+	mso-bidi-font-size:16.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-font-kerning:0pt;
+	mso-ligatures:none;
+	mso-ansi-language:EN-AU;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:1396509688;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-851946496 134807553 134807555 134807557 134807553 134807555 134807557 134807553 134807555 134807557;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l0:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Wingdings;}
+@list l0:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l0:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l0:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Wingdings;}
+@list l0:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l0:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l0:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Wingdings;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-ansi-language:EN-AU;}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-priority:59;
+	mso-style-unhide:no;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0cm;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-font-kerning:1.0pt;
+	mso-ligatures:standardcontextual;
+	mso-ansi-language:EN-AU;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-GB link=blue vlink=purple style='tab-interval:36.0pt;word-wrap:
+break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='margin-left:13.8pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+ none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width=860 valign=top style='width:644.95pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-US style='font-size:18.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><a
+  href="https://d-arora.github.io/Doing-Physics-With-Matlab/"><b>DOING PHYSICS
+  WITH PYTHON</b></a><b><u><o:p></o:p></u></b></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><b><span
+  lang=EN-AU style='font-size:18.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#7030A0;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;
+  mso-ansi-language:EN-AU'>COMPUTATIONAL OPTICS<o:p></o:p></span></b></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><b><span
+  lang=EN-AU style='font-size:18.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#7030A0;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;
+  mso-ansi-language:EN-AU'>SUPERPOSITION OF WAVES<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-US style='font-size:16.0pt;line-height:150%;mso-font-kerning:
+  1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-US style='font-size:16.0pt;line-height:150%;font-family:
+  "Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'>Ian Cooper<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;
+  mso-bidi-font-weight:bold'>matlabvisualphysics@gmail.com<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-US style='font-size:16.0pt;line-height:150%;font-family:
+  "Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-US style='font-size:16.0pt;line-height:150%;font-family:
+  "Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'>DOWNLOAD DIRECTORY FOR PYTHON CODES<o:p></o:p></span></b></p>
+  <table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+   style='border-collapse:collapse;border:none;mso-yfti-tbllook:1184;
+   mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
+   none'>
+   <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+    <td width=301 valign=top style='width:225.4pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+    style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+    mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;
+    mso-bidi-theme-font:minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><a
+    href="https://github.com/D-Arora/Doing-Physics-With-Matlab/tree/master/mpScripts"><b
+    style='mso-bidi-font-weight:normal'>GitHub</b></a><o:p></o:p></span></p>
+    </td>
+    <td width=301 valign=top style='width:225.4pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+    style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+    mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;
+    mso-bidi-theme-font:minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><a
+    href="https://drive.google.com/drive/u/3/folders/1j09aAhfrVYpiMavajrgSvUMc89ksF9Jb"><b
+    style='mso-bidi-font-weight:normal'>Google Drive</b></a><o:p></o:p></span></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal style='line-height:150%'><span style='font-size:16.0pt;
+  line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;mso-font-kerning:
+  1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-US style='font-size:16.0pt;line-height:150%;font-family:
+  "Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin;color:#984807;mso-themecolor:
+  accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>PYTHON
+  CODES<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;
+  mso-bidi-font-weight:bold'>op002.py<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>op002B.py<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>op002C.py</span><span
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;
+  mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Superposition
+  of three waves: inputs wavelengths, amplitudes and initial phase angles<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+  style='font-size:18.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#7030A0;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>SUPERPOSITION
+  PRINCIPLE<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'>Often a number of waves arrive at the same location at
+  the same time or exist together along the same direction. On most occasions
+  you can used the superposition principle to know the resultant wavefunction.
+  The superposition principle of electromagnetic waves may be expressed in
+  terms of vector equations<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600"
+   o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f"
+   stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:152.25pt;
+   height:36pt' o:ole="">
+   <v:imagedata src="op002_files/image001.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=203 height=48
+  src="op002_files/image002.png" v:shapes="_x0000_i1025"><![endif]><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1025"
+    DrawAspect="Content" ObjectID="_1790139047">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'>However, for the present we will consider unpolarized
+  light or when the field vectors are parallel and treat the electric or
+  magnetic field as scalar quantities. So, the resultant wavefunction due to
+  the superposition of <i>N</i> harmonic waves propagating in the z direction
+  is<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><!--[if gte vml 1]><v:shape
+   id="_x0000_i1026" type="#_x0000_t75" style='width:335.25pt;height:36pt'
+   o:ole="">
+   <v:imagedata src="op002_files/image003.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=447 height=48
+  src="op002_files/image004.png" v:shapes="_x0000_i1026"><![endif]><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1026"
+    DrawAspect="Content" ObjectID="_1790139048">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'>This is a valid approach, as the scalar theory applies to
+  each component of the electric or magnetic field, but it does not account for
+  all effects of very high amplitude waves, for example, the non-linear effects
+  of high-power laser light interacting with matter.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+  style='font-size:18.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#7030A0;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Superposition
+  of waves of the same frequency<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'>The Python Code </span><span lang=EN-US style='font-size:
+  16.0pt;line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;
+  color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;mso-font-kerning:
+  1.0pt;mso-ligatures:standardcontextual'>op002.py</span><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;color:#984807;mso-themecolor:accent6;
+  mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> </span><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'>simulates the superposition of three
+  harmonics waves. The input variables are the wavelengths, amplitudes and
+  initial phase angles.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>#%%<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'># Inputs:
+  wavelength [m], amplitude, initial phase angle [<span class=GramE>rad]<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span>&gt;&gt;&gt;<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=SpellE><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>wL</span></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> = <span
+  class=GramE>zeros(</span>3); <span class=SpellE>wL</span>[0] = 500e-9; <span
+  class=SpellE>wL</span>[1] = 500e-9; <span class=SpellE>wL</span>[2] = 500e-9<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>A = <span
+  class=GramE>zeros(</span>3); A[0] = 1.2; A[1] = 0.9; A[2] = 0.5<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>phi = <span
+  class=GramE>zeros(</span>3); phi[0] = 0; phi[1] = pi/2; phi[2] = -pi/4<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Amax =
+  2<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span># max
+  amplitude for plots<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=SpellE><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Nt</span></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> =
+  299<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span># number of steps <o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=SpellE><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Nz</span></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> =
+  999<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span># Z axis grid<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=SpellE><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>tEnd</span></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> = 4<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span># number
+  of periods for simulation for time grid<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=SpellE><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>zEnd</span></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> = 4<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span># number
+  of wavelengths for z grid<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'>If the three harmonics waves have the same wavelength
+  (hence frequency) and are travelling in the same z direction, then the
+  resultant wave is another harmonics wave of the same frequency but with a
+  different amplitude and phase.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>#%%
+  COMPUTATIONS<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'># Model
+  parameters<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>c =
+  3e8<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span># speed of light in <span class=SpellE><span class=GramE>vaccum</span></span><span
+  class=GramE><span style='mso-spacerun:yes'>&nbsp; </span>[</span>m/s]<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>k = 2*pi/<span
+  class=SpellE>wL</span><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+  </span># propagation <span class=GramE>constant<span
+  style='mso-spacerun:yes'>&nbsp; </span>[</span>rad/m] <o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>f = c/<span
+  class=SpellE>wL</span><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span># <span
+  class=GramE>frequency<span style='mso-spacerun:yes'>&nbsp; </span>[</span>Hz]<span
+  style='mso-spacerun:yes'>&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>w =
+  2*pi*f<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>#
+  angular <span class=GramE>frequency<span style='mso-spacerun:yes'>&nbsp;
+  </span>[</span>rad/s]<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>T =
+  1/f<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span># <span class=GramE>period<span style='mso-spacerun:yes'>&nbsp;
+  </span>[</span>s]<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=SpellE><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>tMax</span></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> = <span
+  class=SpellE>tEnd</span>*<span class=GramE>T[</span>0]; <span class=SpellE>zMax</span>
+  = <span class=SpellE>zEnd</span>*<span class=SpellE>wL</span>[0]<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>t = <span
+  class=SpellE>linspace</span>(<span class=GramE>0,tMax</span>,Nt)<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>z = <span
+  class=SpellE>linspace</span>(<span class=GramE>0,zMax</span>,Nz)<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp;</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=SpellE><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>tG</span></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>, <span
+  class=SpellE>zG</span> = <span class=SpellE><span class=GramE>np.meshgrid</span></span>(<span
+  class=SpellE>t,z</span>)<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>#
+  Wavefunctions: --&gt; (-)<span style='mso-spacerun:yes'>&nbsp;&nbsp;
+  </span>&lt;-- (+)<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>u1 = A[<span
+  class=GramE>0]*</span>exp(1j*(k[0]*<span class=SpellE>zG</span> - w[0]*<span
+  class=SpellE>tG</span><span style='mso-spacerun:yes'>&nbsp; </span>+ phi[0]))<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>u2 = A[<span
+  class=GramE>1]*</span>exp(1j*(k[1]*<span class=SpellE>zG</span> - w[1]*<span
+  class=SpellE>tG</span><span style='mso-spacerun:yes'>&nbsp; </span>+ phi[1]))<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>u3 = A[<span
+  class=GramE>2]*</span>exp(1j*(k[2]*<span class=SpellE>zG</span> - w[2]*<span
+  class=SpellE>tG</span><span style='mso-spacerun:yes'>&nbsp; </span>+ phi[2]))<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>u = u1 +
+  u2 + u3<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="_x0000_i1054" type="#_x0000_t75"
+   style='width:339.75pt;height:170.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op002_files/image005.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=453 height=227
+  src="op002_files/image006.png" v:shapes="_x0000_i1054"><![endif]></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="_x0000_i1053" type="#_x0000_t75"
+   style='width:339.75pt;height:170.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op002_files/image007.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=453 height=227
+  src="op002_files/image008.png" v:shapes="_x0000_i1053"><![endif]></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span style='font-size:16.0pt;
+  line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;
+  mso-ansi-language:EN-GB'>Fig. 1.<span style='mso-spacerun:yes'>&nbsp;&nbsp;
+  </span>The resultant wave due to the superposition of three waves propagating
+  in the same direction with the same frequency is another harmonic wave of the
+  same frequency. </span><span lang=EN-US style='font-size:16.0pt;line-height:
+  150%;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>op002.py<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:#984807;mso-themecolor:accent6;
+  mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;color:#F79646;mso-themecolor:accent6;
+  mso-font-kerning:1.0pt;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_6"
+   o:spid="_x0000_i1052" type="#_x0000_t75" style='width:282.75pt;height:169.5pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op002_files/image009.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=377 height=226
+  src="op002_files/image009.gif" v:shapes="Picture_x0020_6"><![endif]></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;color:#984807;mso-themecolor:accent6;
+  mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Fig
+  2. Animation of the three harmonic waves of the same frequency propagating in
+  the same direction and the resultant harmonic wave.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span lang=EN-US style='font-size:16.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin;color:#984807;mso-themecolor:
+  accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>op002.py</span><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+  style='font-size:18.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#7030A0;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Random
+  and coherent sources<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'>It is important that one distinguishes two important
+  cases of superposition;<o:p></o:p></span></p>
+  <p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt;line-height:
+  150%;mso-list:l0 level1 lfo2'><![if !supportLists]><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;font-family:Symbol;mso-fareast-font-family:
+  Symbol;mso-bidi-font-family:Symbol;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-list:Ignore'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><i><span lang=EN-US style='font-size:16.0pt;
+  line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>N</span></i><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'> <span style='color:#7030A0'>coherent </span>sources
+  of the same frequency, same amplitude and same initial phase.<o:p></o:p></span></p>
+  <p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt;line-height:
+  150%;mso-list:l0 level1 lfo2'><![if !supportLists]><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;font-family:Symbol;mso-fareast-font-family:
+  Symbol;mso-bidi-font-family:Symbol;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-list:Ignore'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><i><span lang=EN-US style='font-size:16.0pt;
+  line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>N</span></i><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'> <span style='color:#7030A0'>incoherent </span>sources
+  of the same frequency, same amplitude and random initial phases.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:18.0pt;line-height:150%'><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'>The resultant wavefunction of the superposition of <i>N</i>
+  waves is<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><!--[if gte vml 1]><v:shape id="_x0000_i1030" type="#_x0000_t75"
+   style='width:335.25pt;height:36pt' o:ole="">
+   <v:imagedata src="op002_files/image003.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=447 height=48
+  src="op002_files/image004.png" v:shapes="_x0000_i1030"><![endif]><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1030"
+    DrawAspect="Content" ObjectID="_1790139049">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'>Consider the instant <i>t</i> = 0 and <i>z</i> = 0 and
+  the amplitudes <span class=GramE><i>A<sub>n</sub></i></span> = 1 for all <i>N</i>
+  waves, then<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='position:relative;top:19.0pt;mso-text-raise:-19.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1031" type="#_x0000_t75" style='width:141pt;height:45.75pt'
+   o:ole="">
+   <v:imagedata src="op002_files/image010.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=188 height=61
+  src="op002_files/image011.png" v:shapes="_x0000_i1031"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1031"
+    DrawAspect="Content" ObjectID="_1790139050">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'>The intensity <i>I</i> of a wave is proportional to the square
+  of the wavefunction<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span lang=EN-US style='mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><span style='position:relative;top:20.0pt;mso-text-raise:
+  -20.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1032" type="#_x0000_t75"
+   style='width:149.25pt;height:51.75pt' o:ole="">
+   <v:imagedata src="op002_files/image012.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=199 height=69
+  src="op002_files/image013.png" v:shapes="_x0000_i1032"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1032"
+    DrawAspect="Content" ObjectID="_1790139051">
+   </o:OLEObject>
+  </xml><![endif]--></span><span lang=EN-US style='font-size:16.0pt;line-height:
+  150%;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'>For the <b><i><span style='color:#7030A0'>N</span></i><span
+  style='color:#7030A0'> coherent sources</span></b>, let </span><span
+  lang=EN-US style='mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='position:relative;top:7.0pt;mso-text-raise:-7.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1033" type="#_x0000_t75" style='width:41.25pt;height:21.75pt'
+   o:ole="">
+   <v:imagedata src="op002_files/image014.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=55 height=29
+  src="op002_files/image015.png" v:shapes="_x0000_i1033"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1033"
+    DrawAspect="Content" ObjectID="_1790139052">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span class=SpellE><span class=GramE><i>I<sub>coherent</sub></i></span></span><span
+  class=GramE><i><span style='mso-spacerun:yes'>&nbsp; </span>=</i></span><i> N<sup>2</sup><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><o:p></o:p></i></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+  <td width=860 valign=top style='width:644.95pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Using
+  the Python code </span><b><span lang=EN-US style='font-size:16.0pt;
+  line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;color:#984807;
+  mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;mso-font-kerning:
+  1.0pt;mso-ligatures:standardcontextual'>op002.py</span></b><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>,
+  the summation for <span class=SpellE><i>N</i></span> incoherent sources can
+  be done to find the intensity by generating <i>N</i> random values for </span><span
+  lang=EN-US style='mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='position:relative;top:8.0pt;mso-text-raise:-8.0pt'><!--[if gte vml 1]><v:shape
+   id="_x0000_i1034" type="#_x0000_t75" style='width:113.25pt;height:24pt'
+   o:ole="">
+   <v:imagedata src="op002_files/image016.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=151 height=32
+  src="op002_files/image017.png" v:shapes="_x0000_i1034"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1034"
+    DrawAspect="Content" ObjectID="_1790139053">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=SpellE><span
+  lang=EN-US style='font-size:18.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>nR</span></span><span
+  lang=EN-US style='font-size:18.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> = 100<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=SpellE><span
+  lang=EN-US style='font-size:18.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>phiR</span></span><span
+  lang=EN-US style='font-size:18.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> = zeros(<span
+  class=SpellE>nR</span>)<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=SpellE><span
+  lang=EN-US style='font-size:18.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>uR</span></span><span
+  lang=EN-US style='font-size:18.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> = zeros(<span
+  class=SpellE>nR</span>) + 1j*zeros(<span class=SpellE>nR</span>)<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=SpellE><span
+  lang=EN-US style='font-size:18.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>for m</span></span><span
+  lang=EN-US style='font-size:18.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> in
+  range(<span class=SpellE>nR</span>):<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:18.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span class=SpellE>phiR</span>[m]
+  = 2*pi*<span class=SpellE><span class=GramE>random.random</span></span>() <o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:18.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span class=SpellE>uR</span>[m]
+  = exp(1j*<span class=SpellE>phiR</span>[m])<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:18.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:18.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>IR = <span
+  class=SpellE><span class=GramE>np.conj</span></span>(<span class=SpellE>uR</span>)*<span
+  class=SpellE>uR</span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=SpellE><span
+  lang=EN-US style='font-size:18.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Itot</span></span><span
+  lang=EN-US style='font-size:18.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> = real(<span
+  class=GramE>sum(</span>IR))<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=GramE><span
+  lang=EN-US style='font-size:18.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>print(</span></span><span
+  lang=EN-US style='font-size:18.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>'<span
+  style='mso-spacerun:yes'>&nbsp; </span>')<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=GramE><span
+  lang=EN-US style='font-size:18.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>print(</span></span><span
+  lang=EN-US style='font-size:18.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>'<span
+  class=SpellE>nR</span> incoherent source')<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=GramE><span
+  lang=EN-US style='font-size:18.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>print(</span></span><span
+  lang=EN-US style='font-size:18.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>'<span
+  class=SpellE>nR</span> = %2.0f' %<span class=SpellE>nR</span> + '<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span><span class=SpellE>Itot</span> =
+  %2.2f' %<span class=SpellE>Itot</span>)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-US style='font-size:18.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:18.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span class=SpellE>nR</span> incoherent source<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:18.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span class=SpellE>nR</span> = 100<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  class=SpellE>Itot</span> = 100.00<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:18.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>We
+  can conclude without lots of tedious algebra that <o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span class=SpellE><span class=GramE><i><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'>I<sub>incoherent</sub></span></i></span></span><span
+  class=GramE><i><span lang=EN-US style='font-size:16.0pt;line-height:150%;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp; </span>=</span></i></span><i><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'> N<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></i><span lang=EN-US style='font-size:16.0pt;line-height:150%;
+  mso-ascii-font-family:"Times New Roman";mso-ascii-theme-font:minor-fareast;
+  mso-hansi-font-family:"Times New Roman";mso-hansi-theme-font:minor-fareast;
+  mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-fareast;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>The
+  resultant intensity of <i>N</i> identical sources but randomly phased sources
+  is the sum of the individual intensities.<span
+  style='mso-spacerun:yes'>&nbsp; </span>However, resultant intensity of <i>N</i>
+  identical sources radiating in phase with each other, is <i>N</i><sup>2</sup>
+  times the intensity of the individual sources.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:18.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:18.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+  style='font-size:18.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#7030A0;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Inteference<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>We
+  concluded that the resultant wave of the superposition of waves travelling in
+  the same direction with identical frequencies is another harmonic wave of the
+  same frequency. But are the consequences of reversing the direction of one or
+  more of the waves? The Python code </span><span lang=EN-US style='font-size:
+  16.0pt;line-height:150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;
+  color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;mso-font-kerning:
+  1.0pt;mso-ligatures:standardcontextual'>op002.py</span><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;color:#984807;mso-themecolor:accent6;
+  mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> </span><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:
+  "Times New Roman";mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:
+  "Times New Roman";mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:
+  "Times New Roman";mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'>gives the resultant of three waves u1, u2
+  and u3. Figure 3 shows the animation when the direction <o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>of
+  the wave u2 is reversed.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:
+  "Times New Roman";mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:
+  "Times New Roman";mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:
+  "Times New Roman";mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_11" o:spid="_x0000_i1051"
+   type="#_x0000_t75" style='width:282.75pt;height:169.5pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="op002_files/image018.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=377 height=226
+  src="op002_files/image018.gif" v:shapes="Picture_x0020_11"><![endif]></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:
+  "Times New Roman";mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:
+  "Times New Roman";mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:
+  "Times New Roman";mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Fig.
+  3.<span style='mso-spacerun:yes'>&nbsp; </span>Waves u1 and u3 propagate in
+  the +z direction while wave u2 propagates in the -z direction. The resultant
+  wave is a harmonic wave of the same frequency but with a periodic oscillation
+  in its amplitude. At times the waves reinforce each other. This phenomenon is
+  known as <b><span style='color:#7030A0'>constructive interference</span></b>.
+  At other times, the waves tend to cancel each other and this is known as <b><span
+  style='color:#7030A0'>destructive interference</span></b>.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>op002.py<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+  style='font-size:18.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#7030A0;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Standing
+  waves<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>An
+  important example of interference arises when two waves with the same
+  frequency propagate in opposite directions. This may occur when the forward
+  wave experiences a reflection at some point along its path. This interference
+  between the two waves produces a <span style='color:#7030A0'>standing wave </span>(figure
+  4). <o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:
+  "Times New Roman";mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:
+  "Times New Roman";mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:
+  "Times New Roman";mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_4" o:spid="_x0000_i1050"
+   type="#_x0000_t75" style='width:282.75pt;height:169.5pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="op002_files/image019.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=377 height=226
+  src="op002_files/image019.gif" v:shapes="Picture_x0020_4"><![endif]></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:
+  "Times New Roman";mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:
+  "Times New Roman";mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:
+  "Times New Roman";mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Fig.
+  4.<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>Standing wave due to the
+  interference of two waves with the same frequency and amplitude but
+  travelling in opposite directions.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span></span><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>op002.py</span><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:
+  "Times New Roman";mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:
+  "Times New Roman";mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:
+  "Times New Roman";mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>The
+  z locations of the nodes and antinodes are fixed, independent of time. For
+  the standing wave shown in figure 4, the separation between adjacent nodes or
+  between adjacent antinodes is </span><span lang=EN-US style='mso-font-kerning:
+  1.0pt;mso-ligatures:standardcontextual'><span style='position:relative;
+  top:3.0pt;mso-text-raise:-3.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1037"
+   type="#_x0000_t75" style='width:1in;height:17.25pt' o:ole="">
+   <v:imagedata src="op002_files/image020.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=96 height=23
+  src="op002_files/image021.png" v:shapes="_x0000_i1037"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1037"
+    DrawAspect="Content" ObjectID="_1790139054">
+   </o:OLEObject>
+  </xml><![endif]--><span style='mso-spacerun:yes'>&nbsp;</span></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:
+  "Times New Roman";mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:
+  "Times New Roman";mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:
+  "Times New Roman";mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'>nm and the frequency of oscillation is same
+  as the two interfering waves. <o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Unlike
+  traveling waves, standing waves transmit zero energy. All the energy in the
+  wave goes into sustaining the oscillations between the nodes.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Often
+  a reflected wave is reduced in amplitude as energy is absorbed during the
+  reflection. In this case, the two waves do not cancel exactly at the nodes
+  nor do they add to a maximum of 2<i>A</i> at the antinodes. Hence, the
+  resultant wave will have a traveling wave component that carries energy to
+  the mirror and back (figure 5).<o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:
+  "Times New Roman";mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:
+  "Times New Roman";mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:
+  "Times New Roman";mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_5" o:spid="_x0000_i1049"
+   type="#_x0000_t75" style='width:282.75pt;height:169.5pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="op002_files/image022.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=377 height=226
+  src="op002_files/image022.gif" v:shapes="Picture_x0020_5"><![endif]></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:
+  "Times New Roman";mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:
+  "Times New Roman";mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:
+  "Times New Roman";mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Fig.
+  5.<span style='mso-spacerun:yes'>&nbsp; </span>Partial standing wave. The
+  amplitude of the wave propagating in the -z direction is smaller than the
+  wave traveling in the +z direction. The positions of the nodes and antinodes
+  are not fixed. Observing the resultant wave carefully, you will notice the
+  travelling wave component.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+  style='font-size:18.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#7030A0;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Waves
+  of comparable amplitude but differing in frequency<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>The
+  superposition of waves with different frequencies is an important topic in
+  optics. Differences in frequency imply difference in wavelength and velocity.
+  The superposition of several such waves exhibits periodic large and small
+  oscillations. <o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>The
+  Python code </span><b><span lang=EN-US style='font-size:16.0pt;line-height:
+  150%;font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;
+  mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:minor-latin;color:#984807;
+  mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;
+  mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;mso-font-kerning:
+  1.0pt;mso-ligatures:standardcontextual'>op002B.py</span></b><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;color:#984807;mso-themecolor:accent6;
+  mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> </span><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:
+  "Times New Roman";mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:
+  "Times New Roman";mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:
+  "Times New Roman";mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'>is a simulation of the phenomenon of <b><span
+  style='color:#7030A0'>beats</span></b> where two waves of the same amplitude
+  but slightly different frequency combine to give the resultant wave.<span
+  style='mso-spacerun:yes'>&nbsp; </span>Beats are the periodic fluctuations in
+  the intensity of the wave as shown in figure 6.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:
+  "Times New Roman";mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:
+  "Times New Roman";mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:
+  "Times New Roman";mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="_x0000_i1048" type="#_x0000_t75"
+   style='width:339.75pt;height:170.25pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op002_files/image023.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=453 height=227
+  src="op002_files/image024.png" v:shapes="_x0000_i1048"><![endif]></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:
+  "Times New Roman";mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:
+  "Times New Roman";mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:
+  "Times New Roman";mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:
+  "Times New Roman";mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:
+  "Times New Roman";mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:
+  "Times New Roman";mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_15" o:spid="_x0000_i1047"
+   type="#_x0000_t75" style='width:339.75pt;height:170.25pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="op002_files/image025.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=453 height=227
+  src="op002_files/image026.png" v:shapes="Picture_x0020_15"><![endif]></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:
+  "Times New Roman";mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:
+  "Times New Roman";mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:
+  "Times New Roman";mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Fig.
+  6.<span style='mso-spacerun:yes'>&nbsp; </span>A beat pattern is formed when
+  two waves of the same amplitude but slightly different frequencies interfere
+  with each other.<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span lang=EN-US style='font-size:16.0pt;line-height:150%;
+  font-family:"Calibri",sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:
+  minor-latin;mso-bidi-theme-font:minor-latin;color:#984807;mso-themecolor:
+  accent6;mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>op002B.py</span><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:
+  "Times New Roman";mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:
+  "Times New Roman";mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:
+  "Times New Roman";mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>The
+  beat pattern is characterized by a sinusoidal fast oscillation and an
+  envelope which slowly varies sinusoidal as shown in the animation (figure 7).<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Fast
+  oscillation frequency<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span lang=EN-US style='mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><span style='position:relative;top:15.0pt;mso-text-raise:
+  -15.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1041" type="#_x0000_t75"
+   style='width:93pt;height:39.75pt' o:ole="">
+   <v:imagedata src="op002_files/image027.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=124 height=53
+  src="op002_files/image028.png" v:shapes="_x0000_i1041"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1041"
+    DrawAspect="Content" ObjectID="_1790139055">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'>Slow oscillation of envelope (beat <span class=GramE>frequency)<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;</span><span style='position:relative;
+  top:18.0pt;mso-text-raise:-18.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1042"
+   type="#_x0000_t75" style='width:98.25pt;height:44.25pt' o:ole="">
+   <v:imagedata src="op002_files/image029.wmz" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=131 height=59
+  src="op002_files/image030.png" v:shapes="_x0000_i1042"><![endif]></span><!--[if gte mso 9]><xml>
+   <o:OLEObject Type="Embed" ProgID="Equation.DSMT4" ShapeID="_x0000_i1042"
+    DrawAspect="Content" ObjectID="_1790139056">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;color:#984807;mso-themecolor:accent6;
+  mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;color:#984807;mso-themecolor:accent6;
+  mso-themeshade:128;mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Simulation<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'># Inputs:
+  wavelength [m], amplitude, initial phase angle [<span class=GramE>rad]<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span>&gt;&gt;&gt;<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=SpellE><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>wL</span></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> = <span
+  class=GramE>zeros(</span>3); <span class=SpellE>wL</span>[0] = 500e-9; <span
+  class=SpellE>wL</span>[1] = 560e-9; <span class=SpellE>wL</span>[2] = 300e-9<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>A = <span
+  class=GramE>zeros(</span>3); A[0] = 1; A[1] = 1; A[2] = 0<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>phi = <span
+  class=GramE>zeros(</span>3); phi[0] = 0; phi[1] = 0; phi[2] = 0<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Amax =
+  2.2<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span># max
+  amplitude for plots<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=SpellE><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Nt</span></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> =
+  299<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span># number of steps <o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=SpellE><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Nz</span></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> =
+  999<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span># Z axis grid<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=SpellE><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>tEnd</span></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> =
+  15<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span># number of periods for simulation for time grid<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=SpellE><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>zEnd</span></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> =
+  20<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span># number of wavelengths for z grid<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'>Console output<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=SpellE><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>wL</span></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> [<span
+  class=GramE>nm]<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span>A<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>f [Hz]<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>T [fs]<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp;</span>500<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>1<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>6.000e+14<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+  </span>1.667<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp;</span>560<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>1<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>5.357e+14<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+  </span>1.867<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp;</span>300<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>0<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>1.000e+15<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+  </span>1.000<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp; </span><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=SpellE><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>f_beats</span></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> [<span
+  class=GramE>Hz]<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span
+  class=SpellE>T_beats</span> [fs]<span style='mso-spacerun:yes'>&nbsp;&nbsp;
+  </span><span class=SpellE>f_fast</span> [Hz]<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span class=SpellE>T_fast</span>
+  [fs]<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>6.429e+13<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>15.556<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>5.679e+14<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>1.761<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:20.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>If
+  you examine the time plot in figure 6, the measured periods are:<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=SpellE><i>T<sub>fast</sub></i></span><i>
+  </i>= 1.8 fs <span class=GramE>and<span style='mso-spacerun:yes'>&nbsp;
+  </span><span class=SpellE><i>T<sub>beat</sub></i></span></span><i> </i>= 16
+  fs<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>which
+  are in excellent agreement with the theoretical values<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:16.0pt;
+  line-height:150%;mso-ascii-font-family:"Times New Roman";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-font-family:"Times New Roman";mso-hansi-theme-font:
+  minor-fareast;mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:
+  minor-fareast;mso-font-kerning:1.0pt;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+   id="Picture_x0020_19" o:spid="_x0000_i1046" type="#_x0000_t75" style='width:282.75pt;
+   height:169.5pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="op002_files/image031.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=377 height=226
+  src="op002_files/image031.gif" v:shapes="Picture_x0020_19"><![endif]></span></i><i><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:
+  "Times New Roman";mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:
+  "Times New Roman";mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:
+  "Times New Roman";mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'><o:p></o:p></span></i></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Fig.
+  7. Animation of the beat waveform</span><span lang=EN-US style='font-size:
+  20.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";mso-ascii-theme-font:
+  minor-fareast;mso-hansi-font-family:"Times New Roman";mso-hansi-theme-font:
+  minor-fareast;mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:
+  minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>.</span><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:
+  "Times New Roman";mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:
+  "Times New Roman";mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:
+  "Times New Roman";mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+  style='font-size:18.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#7030A0;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Non-harmonic
+  waves<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>A
+  periodic wave which is not a harmonic wave is synthesized by the addition of
+  harmonic waves with different frequencies as shown in figures 8, 9 and 10.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Simulation
+  input parameters using Python Code </span><b><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>op002C.py<o:p></o:p></span></b></p>
+  <p class=MsoNormal style='line-height:150%'><b><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#E46C0A;mso-themecolor:accent6;mso-themeshade:191;
+  mso-style-textfill-fill-color:#E46C0A;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=75000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal style='line-height:115%'><span class=SpellE><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>wL</span></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> = <span
+  class=GramE>zeros(</span>3); <span class=SpellE>wL</span>[0] = 200e-9; <span
+  class=SpellE>wL</span>[1] = 400e-9; <span class=SpellE>wL</span>[2] = 800e-9<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>A = <span
+  class=GramE>zeros(</span>3); A[0] = 2.5; A[1] = 1.2; A[2] = 1<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>phi = <span
+  class=GramE>zeros(</span>3); phi[0] = 0; phi[1] = 0; phi[2] = 0<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Amax =
+  5<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span># max
+  amplitude for plots<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=SpellE><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Nt</span></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> =
+  299<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span># number of steps <o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=SpellE><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Nz</span></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> =
+  999<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span># Z axis grid<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=SpellE><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>tEnd</span></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> =
+  15<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span># number of periods for simulation for time grid<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=SpellE><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>zEnd</span></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> =
+  20<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span># number of wavelengths for z grid<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Console
+  output<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span class=SpellE><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>wL</span></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'> [<span
+  class=GramE>nm]<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span>A<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>f [Hz]<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>T [fs]<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp;</span>200<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>2<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>1.500e+15<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>0.667<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp;</span>400<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>1<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>7.500e+14<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>1.333<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><span
+  style='mso-spacerun:yes'>&nbsp;</span>800<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>1<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span>3.750e+14<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>2.667<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:115%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:115%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;color:#984807;mso-themecolor:accent6;mso-themeshade:128;
+  mso-style-textfill-fill-color:#984807;mso-style-textfill-fill-themecolor:
+  accent6;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+  lumm=50000;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:
+  "Times New Roman";mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:
+  "Times New Roman";mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:
+  "Times New Roman";mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_1" o:spid="_x0000_i1045"
+   type="#_x0000_t75" style='width:339.75pt;height:170.25pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="op002_files/image032.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=453 height=227
+  src="op002_files/image033.png" v:shapes="Picture_x0020_1"><![endif]></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:
+  "Times New Roman";mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:
+  "Times New Roman";mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:
+  "Times New Roman";mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Fig.
+  8.<span style='mso-spacerun:yes'>&nbsp; </span>Non-harmonic wave: waveform
+  repeats itself every 800 nm.<o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:
+  "Times New Roman";mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:
+  "Times New Roman";mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:
+  "Times New Roman";mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_2" o:spid="_x0000_i1044"
+   type="#_x0000_t75" style='width:339.75pt;height:170.25pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="op002_files/image034.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=453 height=227
+  src="op002_files/image035.png" v:shapes="Picture_x0020_2"><![endif]></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:
+  "Times New Roman";mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:
+  "Times New Roman";mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:
+  "Times New Roman";mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Fig.
+  9.<span style='mso-spacerun:yes'>&nbsp; </span>Non-harmonic wave: waveform
+  repeats itself every 2.667 fs.<o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:
+  "Times New Roman";mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:
+  "Times New Roman";mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:
+  "Times New Roman";mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;
+  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_3" o:spid="_x0000_i1043"
+   type="#_x0000_t75" style='width:282.75pt;height:169.5pt;visibility:visible;
+   mso-wrap-style:square'>
+   <v:imagedata src="op002_files/image036.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=377 height=226
+  src="op002_files/image036.gif" v:shapes="Picture_x0020_3"><![endif]></span><span
+  lang=EN-US style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:
+  "Times New Roman";mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:
+  "Times New Roman";mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:
+  "Times New Roman";mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;
+  mso-ligatures:standardcontextual'><o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'>Fig.
+  10.<span style='mso-spacerun:yes'>&nbsp; </span>Animation of non-harmonic
+  wave.<o:p></o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:16.0pt;line-height:150%;mso-ascii-font-family:"Times New Roman";
+  mso-ascii-theme-font:minor-fareast;mso-hansi-font-family:"Times New Roman";
+  mso-hansi-theme-font:minor-fareast;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='line-height:150%'><span lang=EN-US
+  style='font-size:18.0pt;line-height:150%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-theme-font:
+  minor-latin;mso-font-kerning:1.0pt;mso-ligatures:standardcontextual'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+</body>
+
+</html>
