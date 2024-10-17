@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-op002.py    oct 2024
+op002B.py    oct 2024
 
 COMPUTATIONAL OPTICS
 
@@ -15,7 +15,9 @@ Reference page for documentation and notes
     https://d-arora.github.io/Doing-Physics-With-Matlab/pyDocs/op002.htm
 
 
-SUPERPOSITION PRINCIPLE
+INTERFERENCE: BEATS
+
+
 
 """
 
@@ -30,16 +32,16 @@ tStart = time.time()
 
 #%%
 # Inputs: wavelength [m], amplitude, initial phase angle [rad]   >>>
-wL = zeros(3); wL[0] = 500e-9; wL[1] = 500e-9; wL[2] = 500e-9
-A = zeros(3); A[0] = 1.2; A[1] = 0.9; A[2] = 0.5
-phi = zeros(3); phi[0] = 0; phi[1] = pi/2; phi[2] = -pi/4
-Amax = 2.6      # max amplitude for plots
+wL = zeros(3); wL[0] = 500e-9; wL[1] = 560e-9; wL[2] = 300e-9
+A = zeros(3); A[0] = 1; A[1] = 1; A[2] = 0
+phi = zeros(3); phi[0] = 0; phi[1] = 0; phi[2] = 0
+Amax = 2.2      # max amplitude for plots
 Nt = 299        # number of steps 
 Nz = 999        # Z axis grid
-tEnd = 4       # number of periods for simulation for time grid
-zEnd = 4       # number of wavelengths for z grid
+tEnd = 15       # number of periods for simulation for time grid
+zEnd = 20       # number of wavelengths for z grid
 
-#%% COMPUTATIONS
+#%% SETUP
 # Model parameters
 c = 3e8        # speed of light in vaccum  [m/s]
 k = 2*pi/wL    # propagation constant  [rad/m] 
@@ -54,20 +56,29 @@ tG, zG = np.meshgrid(t,z)
 
 # Wavefunctions: --> (-)   <-- (+)
 u1 = A[0]*exp(1j*(k[0]*zG - w[0]*tG  + phi[0]))
-u2 = A[1]*exp(1j*(k[1]*zG + w[1]*tG  + phi[1]))
+u2 = A[1]*exp(1j*(k[1]*zG - w[1]*tG  + phi[1]))
 u3 = A[2]*exp(1j*(k[2]*zG - w[2]*tG  + phi[2]))
 
 u = u1 + u2 + u3
 
-
 #%% Console output
-wLs = 1e9*wL; Ts = 1e15*T; phis = phi/pi
-print('wL [nm]   A     f [Hz]     T [fs]     phi/pi')
+wLs = 1e9*wL; Ts = 1e15*T
+print('wL [nm]   A     f [Hz]     T [fs]')
 for m in range(3):
-    print(' %2.0f ' %wLs[m] + '    %2.1f' %A[m] + '   %2.3e' %f[m]  
-          + '   %  2.3f' %Ts[m] +'     %2.2f' %phis[m] ) 
+    print(' %2.0f ' %wLs[m] + '    %2.0f' %A[m] + '   %2.3e' %f[m]  
+          + '   %  2.3f' %Ts[m] ) 
 
+fBeat = abs(f[0]-f[1])
+TBeat = 1e15/fBeat
 
+fFast = (f[0]+f[1])/2
+TFast = 1e15/fFast
+
+print('  ')
+print('f_beats [Hz]   T_beats [fs]   f_fast [Hz]   T_fast [fs]')
+print('%2.3e' %fBeat + '      %2.3f' %TBeat + 
+      '         %2.3e' %fFast + '     %2.3f' %TFast)
+    
 #%%
 # Create a figure and axes
 fig = plt.figure(figsize=(5,3))
@@ -100,11 +111,14 @@ def drawframe(n):
     ax1.set_ylim((-Amax, Amax))
     return line1,line2,line3,line4,
 
-anim = animation.FuncAnimation(fig, drawframe, frames=Nt, interval=200, blit=False, \
+anim = animation.FuncAnimation(fig, drawframe, frames=Nt, interval=50
+                               
+                               , blit=False, \
                                repeat = False)
 
-    
+
 #%% Position and time plots
+
 plt.rcParams["figure.figsize"] = (6,3)
 fig1, ax = plt.subplots(nrows=1, ncols=1)
 #fig1.subplots_adjust(top = 0.94, bottom = 0.15, left = 0.180,\
@@ -114,7 +128,6 @@ ax.set_xlabel('z  [nm]',fontsize = 12)
 ax.set_ylabel('u  [a.u.]',fontsize = 12)
 ax.xaxis.grid()
 ax.yaxis.grid()
-ax.set_ylim((-Amax, Amax))
 xP = z*1e9; yP = real(u[:,0])
 ax.plot(xP,yP,'b',lw = 2)
 yP = real(u1[:,0])
@@ -135,7 +148,6 @@ ax.set_xlabel('t  [fs]',fontsize = 12)
 ax.set_ylabel('u  [a.u.]',fontsize = 12)
 ax.xaxis.grid()
 ax.yaxis.grid()
-ax.set_ylim((-Amax, Amax))
 xP = t*1e15; yP = np.real(u[0,:])
 ax.plot(xP,yP,'r',lw = 2)
 yP = np.real(u1[0,:])
@@ -147,6 +159,8 @@ ax.plot(xP,yP,'k',lw = 1)
 fig2.tight_layout()  
 
 
+
+
 #%% RANDOM AND COHERENT SOURCES
 nR = 100
 phiR = zeros(nR)
@@ -156,17 +170,13 @@ for m in range(nR):
     uR[m] = exp(1j*phiR[m])
 
 IR = np.conj(uR)*uR
-Itot = real(sum(IR))
-print('  ')
-print('nR incoherent source')
-print('nR = %2.0f' %nR + '   Itot = %2.2f' %Itot)
-
+Itot = sum(IR)
+#print(Itot)
   
 #%% Save figures    
 # anim.save("ag_A.gif", dpi=250, fps=8)
 # fig1.savefig('a1.png')
-# fig2.savefig('a2.png')
-
+# fig3.savefig('a2.png')
 
 #%%
 tExe = time.time() - tStart

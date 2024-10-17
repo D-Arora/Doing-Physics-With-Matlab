@@ -1,89 +1,116 @@
 # -*- coding: utf-8 -*-
 
-# op001.py             March 2024
+"""
+op001.py    oct 2024
 
-#Ian Cooper
-# https://d-arora.github.io/Doing-Physics-With-Matlab/
-# Documentation
-#    https://d-arora.github.io/Doing-Physics-With-Matlab/mpDocs/op001.pdf
+COMPUTATIONAL OPTICS
 
-# [2D] integration
+Ian Cooper
+email: matlabvisualphysics@gmail.com
+
+DOING PHYSICS WITH PYTHON 
+    https://d-arora.github.io/Doing-Physics-With-Matlab/
+    
+Reference page for documentation and notes
+    https://d-arora.github.io/Doing-Physics-With-Matlab/pyDocs/op001.htm
 
 
-# Libraries
+INTERFERENCE
+
+TRAVELLING MONOCHROMATIC WAVE
+
+"""
+
 import numpy as np
-from numpy import pi, sin, cos, linspace 
-from numpy.linalg import eig
-from scipy.integrate import odeint
 import matplotlib.pyplot as plt
+import matplotlib.animation as animation
 import time
-from mpl_toolkits.mplot3d import axes3d
+from numpy import pi, sin, cos, linspace, zeros, ones, exp, sqrt, real
 
 tStart = time.time()
 
-# >>>>> Input number of grid points: N must be odd
-N = 2999
 
-# >>>>> Setup xy meshgrid
-#ax = 0; bx = 2; ay = 1; by = 5
-#ax = 0; bx = 2; ay = 1; by = 5
-#ax = 0; bx = 2; ay = 0; by = 2*pi
-ax = -1; bx = 1; ay = -1; by = 1; a = 1
-x = linspace(ax,bx,N)
-y = linspace(ay,by,N)
-xx, yy = np.meshgrid(x,y)
+#%%
+# Input wavelength  [m]   >>>
+wL = 500e-9
 
-# Mask matrix M
-M = np.ones([N,N])
-#M[yy >= 1 - xx] = 0
-M[xx**2+yy**2>1]=0
-#M[x**2+y**2>=a**2] = 0
+# Model parameters
+c = 3e8        # speed of light in vaccum  [m/s]
+k = 2*pi/wL    # propagation constant  [rad/m] 
+f = c/wL       # frequency  [Hz]  
+w = 2*pi*f     # angular frequency  [rad/s]
+T = 1/f        # period  [s]
+A = 1          # amplitude
+Nt = 99        # number of steps 
+Nz = 999
+tMax = 3*T; zMax = 5*wL
+t = linspace(0,tMax,Nt)
+z = linspace(0,zMax,Nz)
+ 
+tG, zG = np.meshgrid(t,z)
 
-# Function 
-#f = xx**2*yy**3
-#f = 3*xx**1*yy**0
-f = cos(xx)*sin(yy)
+# Wavefunction: --> (-)   <-- (+)
+u = A*exp(1j*(k*zG + w*tG))
 
-f = np.real(a**2 - xx**2 - yy**2)
-#f[(xx**2 + yy**2) >= a**2] = 0
-#f = f**0.5
-#f = 6*np.ones([N,N])
-#f = (xx**2+yy**2)
-f = f*M
+# Create a figure and axes
+fig = plt.figure(figsize=(5,3))
+fig.subplots_adjust(top=0.85, bottom = 0.20, left = 0.15,\
+                    right = 0.95, hspace = 0.60,wspace=0.5)
+ax1 = plt.subplot(1,1,1)   
+ax1.set_xlim(( 0, zMax*1e9))            
+ax1.set_ylim((-1.1*A, 1.1*A))
+ax1.set_xlabel('z  [nm]')
+ax1.set_ylabel('u  [a.u.]')
+txt_title = ax1.set_title('')
+line1, = ax1.plot([], [], 'blue', lw=2)     
+plt.grid('visible')
+#fig.tight_layout()
 
-# Simpson [2D] coefficients
-S = np.ones(N)
-R = np.arange(1,N,2);   S[R] = 4;
-R = np.arange(2,N-1,2); S[R] = 2
-scx, scy = np.meshgrid(S,S)
-S = scx*scy
+# Animation
+def drawframe(n):
+    xf = z*1e9
+    yf = np.real(u[:,n])
+    line1.set_data(xf, yf)
+    s = t[n]/T
+    txt_title.set_text('t/T = {:.2f}'.format(s))
+    
+    ax1.set_xlim(( 0, zMax*1e9))            
+    ax1.set_ylim((-1.1*A, 1.1*A))
+    return line1
 
-# Calculate integral
-hx = (bx-ax)/(N-1); hy = (by-ay)/(N-1)
-h = hx * hy / 9
-integral = h*sum(sum(f*S))
-
-print('\n Integral  =  ',integral)
+anim = animation.FuncAnimation(fig, drawframe, frames=Nt, interval=100, blit=False, \
+                               repeat = False)
 
 
+#%% Position and time plots
+plt.rcParams["figure.figsize"] = (6,3)
+fig1, ax = plt.subplots(nrows=1, ncols=2)
+#fig1.subplots_adjust(top = 0.94, bottom = 0.15, left = 0.180,\
+#                    right = 0.92, hspace = 0.36,wspace=0.40)
+R = 0
+ax[R].set_xlabel('z  [nm]',fontsize = 12)
+ax[R].set_ylabel('u  [a.u.]',fontsize = 12)
+ax[R].xaxis.grid()
+ax[R].yaxis.grid()
+xP = z*1e9; yP = real(u[:,0])
+ax[R].plot(xP,yP,'b',lw = 2)
 
-#%% GRAPHICS
-plt.rcParams['font.size'] = 10
-fig = plt.figure(figsize=(4,3))
-ax = plt.axes(projection='3d')
-ax.plot_surface(xx, yy, f, cmap='jet',
-      edgecolor='none', alpha=1,antialiased=True)
-ax.set_xlabel('x', fontsize=12)
-ax.set_ylabel('y', fontsize=12)
-ax.set_zlabel('f', fontsize=12)
-fig.tight_layout()
-ax.view_init(14,-100,0)
-# fig.savefig('a1.png')
+R = 1
+ax[R].set_xlabel('t  [fs]',fontsize = 12)
+ax[R].set_ylabel('u  [a.u.]',fontsize = 12)
+ax[R].xaxis.grid()
+ax[R].yaxis.grid()
+xP = t*1e15; yP = u[0,:]
+ax[R].plot(xP,yP,'r',lw = 2)
+fig1.tight_layout()  
+
+  
+#%% Save figures    
+# anim.save("ag_A.gif", dpi=250, fps=10)
+# fig1.savefig('a1.png')
 
 
 #%%
 tExe = time.time() - tStart
 print('  ')
-print('Execution time')
-print(tExe)
-
+print('Execution time = %0.3f s' %tExe)

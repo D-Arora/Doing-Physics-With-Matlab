@@ -16,7 +16,7 @@ Reference page for documentation and notes
 
 
 INTERFERENCE: TWO POINT SOURCES xS = 0, yS = 0, zS1 = +s, zS2 = -s
-
+              DETECTOR  XY plane
 """
 
 import numpy as np
@@ -25,6 +25,8 @@ import matplotlib.animation as animation
 import time
 from numpy import pi, sin, cos, linspace, zeros, ones, exp, sqrt, diag, real
 import random
+from pylab import imshow,show,gray,jet,colorbar,xlabel,ylabel,title,hsv,hot
+
 tStart = time.time()
 
 
@@ -49,12 +51,13 @@ T = 1/f        # period  [s]
 
 # Detector >>>
 nP = 599
-xMin = 0*L; xMax = 50*L
-y = 0; z = 0; 
-x = linspace(xMin,xMax,nP)
-
-R1 = sqrt((x-x1)**2 + (y-y1)**2 + (z-z1)**2)
-R2 = sqrt((x-x1)**2 + (y-y1)**2 + (z-z2)**2)
+Lmin = -200*L; Lmax = 200*L
+z = 100*L 
+x = linspace(Lmin,Lmax,nP)
+y = linspace(Lmin,Lmax,nP)
+X, Y = np.meshgrid(x,y)
+R1 = sqrt((X-x1)**2 + (Y-y1)**2 + (z-z1)**2)
+R2 = sqrt((X-x1)**2 + (Y-y1)**2 + (z-z2)**2)
 
 u1 = A[0]*exp(1j*(k[0]*R1+phi[0]))/R1 
 u2 = A[1]*exp(1j*(k[1]*R2+phi[1]))/R2
@@ -63,45 +66,37 @@ u = u1 + u2
 
 I = abs(u)**2
 
+
 #%% Console output
 wLs = 1e9*wL; Ts = 1e15*T; phis = phi/pi
 print('wL [nm]   A     f [Hz]     T [fs]     phi/pi')
 for m in range(2):
     print(' %2.0f ' %wLs[m] + '    %2.1e' %A[m] + '   %2.3e' %f[m]  
           + '   %  2.3f' %Ts[m] +'     %2.2f' %phis[m] ) 
+print('  ')
 print(' ')
 xx = 2*s/L; print('source separation 2s/wL = %0.1f' %xx)
+zz = z/L; print('XY plane  zP/wL = %0.0f' %zz)
 
 #%% GRAPHICS
 # Fig 1: wavefunction u
-plt.rcParams["figure.figsize"] = (6,3)
+plt.rcParams["figure.figsize"] = (5,4)
 fig1, ax = plt.subplots(nrows=1, ncols=1)
-ax.set_xlabel('x  [nm]',fontsize = 12)
-ax.set_ylabel('u  [a.u.]',fontsize = 12)
-ax.xaxis.grid()
-ax.yaxis.grid()
-#ax.set_ylim((-Amax, Amax))
-xP = x*1e9; yP = real(u)
-ax.plot(xP,yP,'b',lw = 2)
-fig1.tight_layout()
+ax.set_xlabel('x / $\lambda$',fontsize = 12)
+ax.set_ylabel('y / $\lambda$',fontsize = 12)
 
-# Fig 2: irradiance I
-plt.rcParams["figure.figsize"] = (6,3)
-fig2, ax = plt.subplots(nrows=1, ncols=1)
-ax.set_xlabel('x  [nm]',fontsize = 12)
-ax.set_ylabel('I  [a.u.]',fontsize = 12)
-ax.xaxis.grid()
-ax.yaxis.grid()
-#ax.set_ylim((-Amax, Amax))
-xP = x*1e9; yP = I
-ax.plot(xP,yP,'b',lw = 2)
-fig2.tight_layout()
+xP = X/L; yP = Y/L; zP = I/np.amax(I)
+IM = plt.pcolor(xP,yP,zP)
+
+hot(); colorbar()
+#ax.set_yticks([Lmin,Lmin/2,0,Lmax/2,Lmax])
+ax.set_aspect('equal', 'box')
+#ax.ticklabel_format(axis='both', style='sci', scilimits=(0, 0))
+fig1.tight_layout()
 
   
 #%% Save figures    
-
-fig1.savefig('a1.png')
-fig2.savefig('a2.png')
+# fig1.savefig('a1.png')
 
 
 #%%
