@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-emRSGB01Z.py               April 2025
+emRS02.py               April 2025
  
 
 COMPUTATIONAL OPTICS
@@ -14,7 +14,7 @@ COMPUTATIONAL OPTICS
 Ian Cooper
     https://d-arora.github.io/Doing-Physics-With-Matlab/
  Documentation
-    https://d-arora.github.io/Doing-Physics-With-Matlab/pyDocs/emRS03.pdf
+    https://d-arora.github.io/Doing-Physics-With-Matlab/pyDocs/emRS02.pdf
 """
 
 import numpy as np
@@ -32,42 +32,52 @@ from mpl_toolkits.mplot3d import Axes3D
 
 tStart = time.time()
 
- 
 #%% INPUT PARAMETERS 
-# [1d]  x,y,z   [2D]  X,Y,Z
-# Grid points: Q aperture space    nQ  odd number
-#              P observation space nP  odd number 
-NQ = 100
-NP = 100
-
-nQ = 2*NQ + 1; nP = 2*NP+1 
-
+# Grid points: Q aperture space    nQ format odd number
+#              P observation space nP format integer * 4 + 1
+nQ = 99    
+num = 159;           
+nP = num*4+1
+       
 # Wavelength [m]
-wL = 632.8e-9    
-
-# Aperutre space
+wL = 632.8e-9 
+       
+# Aperutre space: radius a / XY dimensions of aperture [m]
 a = 4e-4
+aQx = 2*a; aQy = 2*a           
+
 # Gaussian beam s^2 variance
 s = 0.5*a
-xQ = linspace(-a,a,nQ)    
-yQ = linspace(-a,a,nQ)
-XQ, YQ = np.meshgrid(xQ,yQ)
-RQ = (XQ**2 + YQ**2)**0.5
-
-# Aperture electric field and intensity  [a.u.]
-EQ = exp(-RQ**2/(2*s**2))
-EQ[RQ > a] = 0
-IQ = np.real(np.conj(EQ)*EQ)
-
  
 # Observation spacehalf: h  [m] 
 xP = 0; yP = 0;
-z1 = 0.01; z2 = 1; zP = linspace(z1,z2,nP)       
+z1 = 0.01; z2 = 2; zP = linspace(z1,z2,nP)       
          
 
 #%% SETUP 
 k = 2*pi/wL            # propagation constant
 ik = k*1j              # jk
+
+# Initialise matrices
+unit = np.ones([nQ,nQ])    # unit matrix
+# rPQ = np.zeros([nQ,nQ]); rPQ3 = np.zeros([nQ,nQ])
+# MP1 = np.zeros([nQ,nQ]); MP2 = np.zeros([nQ,nQ]); kk = np.zeros([nQ,nQ]) 
+# MP = np.zeros([nQ,nQ])
+EQ = np.ones([nQ,nQ])
+
+# Aperture space
+xQmin = -aQx/2;  xQmax = aQx/2
+yQmin = -aQy/2;  yQmax = aQy/2
+xQ = linspace(xQmin,xQmax,nQ)    
+yQ = linspace(yQmin,yQmax,nQ)
+XQ, YQ = np.meshgrid(xQ,yQ)
+
+RQ = (XQ**2 + YQ**2)**0.5
+
+# Aperture electric field and intensity  [a.u.]
+#EQ[RQ > xQmax] = 0
+EQ = exp(-RQ**2/(2*s**2))
+IQ = np.real(np.conj(EQ)*EQ)
 
 # Observation space
 #xPmin = -xPmax; yPmin =  -yPmax
@@ -87,7 +97,7 @@ for c1 in range(nP):
     kk = ik * rPQ
     MP1 = exp(kk)
     MP1 = MP1 / rPQ3
-    MP2 = zP[c1] * (ik * rPQ - 1)
+    MP2 = zP[c1] * (ik * rPQ - unit)
     MP = MP1 * MP2
     EP[c1] = sum(sum(EQ*MP*S))
 
@@ -95,23 +105,8 @@ for c1 in range(nP):
 Iz = np.real(EP*np.conj(EP))
 Iz = Iz/amax(amax(Iz))
 
-
-#%%  GRAPHICS       1   z vs Iz
-
-
-
-
-
-
-# plt.rcParams['font.size'] = 12
-# plt.rcParams["figure.figsize"] = (6,3)
-
-# fig1, ax = plt.subplots(nrows=1, ncols=1)
-# ax.plot(zP, Iz,'k',lw = 2)
-# ax.set_xlabel('$z_P$  [m] ', fontsize=12)
-# ax.set_ylabel('I$_z$  [a.u.]', fontsize=12)
-# ax.grid()
-# fig1.tight_layout()
+# Rayleigh length
+dRL = 4*a**2/wL
 
 
 #%% Console summary
@@ -123,11 +118,25 @@ print('z1 = %0.2f m   '%z1 + 'z2 = %0.2f' %z2 )
 q = Iz[-1]/Iz[0]; print('Iz(z1) = %0.3f   '%Iz[0] + 'Iz(z2) = %0.3f' %Iz[-1] +
       '   Iz(z2)/Iz(z1) = %0.3f' %q) 
 
+#%%  GRAPHICS       1   z vs Iz
+plt.rcParams['font.size'] = 12
+plt.rcParams["figure.figsize"] = (6,3)
+
+fig1, ax = plt.subplots(nrows=1, ncols=1)
+ax.plot(zP, Iz,'k',lw = 2)
+ax.set_xlabel('$z_P$  [m] ', fontsize=12)
+ax.set_ylabel('I$_z$  [a.u.]', fontsize=12)
+ax.grid()
+fig1.tight_layout()
+#ax.set_xlim([0,12]); ax.set_ylim([0,100])
+
+
+#%%
+fig1.savefig('a1.png')
+
 
 #%%
 tExe = time.time() - tStart
 print('  ')
 print('Execution time')
 print(tExe)
-#%%
-# fig1.savefig('a1.png')

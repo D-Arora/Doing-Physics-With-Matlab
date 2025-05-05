@@ -124,3 +124,12 @@ tExe = time.time() - tStart
 print('  ')
 print('Execution time')
 print(tExe)
+
+
+#%%
+a = 1e-3
+q = 3
+L = a/q
+x = linspace(-a,a,199)
+y = sin(2*pi*x/L)
+plt.plot(x,y)
