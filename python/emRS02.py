@@ -151,8 +151,12 @@ for c in range(num-2):
 J1index = J1index.astype(int)
 vZeros = v[J1index]    
 
-# Rayleigh length  [m]
-RL = 4*a**2/wL  
+#  Power enclosed with a circle [a.u.]
+r  = xP[NP:nP]
+Ir  = Ix[NP:nP]
+Pr = zeros(len(r))
+
+
               
 
 #%%  GRAPHICS

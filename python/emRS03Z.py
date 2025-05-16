@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-emRS02.py               April 2025
+emRSHGZ.py               April 2025
  
 
 COMPUTATIONAL OPTICS
@@ -8,13 +8,14 @@ COMPUTATIONAL OPTICS
    RAYLEIGH-SOMMERFELD 1 DIFFRACTION INTEGRAL SOLVED
    CIRCULAR APERTURE  radius a
    IZ irradiance
+   HHERMITE-GAUSS FUNCTION
    x,y,z   [1D] variables   /   X,Y [2D] variables 
    
 
 Ian Cooper
     https://d-arora.github.io/Doing-Physics-With-Matlab/
  Documentation
-    https://d-arora.github.io/Doing-Physics-With-Matlab/pyDocs/emRS02.pdf
+    https://d-arora.github.io/Doing-Physics-With-Matlab/pyDocs/emRSHG.pdf
 """
 
 import numpy as np

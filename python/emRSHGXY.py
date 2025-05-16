@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
 """
-emRSHGXY.py               1 May 2025
+emRSFBGXY.py               6 May 2025
  
- HERMITE-GAUSS FUNCTION
+ FOCUSED BEAM  focal length rS
    BEAM PROPAGATION FROM A PLANAR APERTURE
    RAYLEIGH-SOMMERFELD 1 DIFFRACTION INTEGRAL SOLVED
    CIRCULAR APERTURE  radius a
-   IZ irradiance
+   IXY irradiance
    x,y,z   [1D] variables   /   X,Y [2D] variables 
    
 Ian Cooper
     https://d-arora.github.io/Doing-Physics-With-Matlab/
 Documentation
-    https://d-arora.github.io/Doing-Physics-With-Matlab/pyDocs/emRSHG.pdf
+    https://d-arora.github.io/Doing-Physics-With-Matlab/pyDocs/emRSFB01.pdf
 """
 
 import numpy as np
@@ -37,7 +37,7 @@ f = 1          # scaling factor for IXY plots
 # Wavelength [m]
 wL = 632.8e-9  
  
-#%% APERTURE SPACE:  HERMITRE-GAUSSS [2D] FUNCTION
+#%% APERTURE SPACE:      s
 m = 2              # x and y orders
 n = 2            
 a = 4e-4          # radius of circular aperture [m]
