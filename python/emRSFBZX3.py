@@ -29,24 +29,23 @@ plt.close('all')
 
 #%% INPUT PARAMETERS 
 # Grid points: Q aperture space   /   P observation space 
-NQ = 120
-NP = 120
+NQ = 40
+NP = 40
 
 nQ = 2*NQ + 1; nP = 2*NP+1 
 
 sf = 0.25          # scaling factor for IXY plots
 
 # Wavelength [m]
-#wL = 500e-9  
-wL = 500e-9
+wL = 500e-9  
 
 k = 2*pi/wL            # propagation constant
 ik = k*1j              # jk
  
 #%% APERTURE SPACE:  SPHERICAL CONVERGING BEAM
-xS = 0; yS = 0; zS = 1#0.2   # source point S  [m]
-a =  0.01 #7.00e-4    #0.01       # radius of aperture  [m]
-
+xS = 0; yS = 0; zS = 0.2   # source point S  [m]
+a = 0.01 #7.00e-4    #0.01       # radius of aperture  [m]
+aI = 0.85*a
 f = zS                     # focal length                 
 zQ = 0
 xQ = np.linspace(-a, a, nQ)
@@ -56,7 +55,6 @@ RQ = (XQ**2 + YQ**2)**0.5
 
 rS = sqrt(xS**2 + yS**2 + zS**2)
 rQS = sqrt((XQ-xS)**2 + (YQ-yS)**2 + (zQ-zS)**2) 
-EQ = np.zeros([nQ,nQ])+np.zeros([nQ,nQ])*1j   
 EQ = exp(-ik*rQS)/rQS
 EQ[RQ > a] = 0
 
@@ -66,17 +64,7 @@ EQ[RQ > a] = 0
 
 # Annular aperture  aI = inner radius
 aI = 0.95*a             
-#EQ[RQ < aI] = 0
-
-# Spherical aberation
-phi = -pi*RQ**4
-T = exp(ik*phi)
-#EQ = T*EQ
-
-IQ = real(np.real(np.conj(EQ)*EQ))   #   IQ(x,y,0)
-IQ = IQ/amax(IQ)
-IQx = IQ[NQ,:]                       #   IQ(x,y=0,z=0)
-IQy = IQ[:,NQ]                       #   IQ(x = 0, y,z=0)
+EQ[RQ < aI] = 0
 
 
 IQ = real(np.real(np.conj(EQ)*EQ))   #   IQ(x,y,0)
@@ -86,8 +74,8 @@ IQy = IQ[:,NQ]                       #   IQ(x = 0, y,z=0)
 
 #%% OBSERVATION SPACE   [distances m]
 
-u1 = -60.2; u2 = 60.2
-v1 = -40.2; v2 = 40.2
+u1 = -100.2; u2 = 100.2
+v1 = -100.2; v2 = 100.2
 #v1 = -25.2; v2 = -0.002
 #v1 = -25.2; v2 = 25.2
 
@@ -125,6 +113,7 @@ for c1 in range(nP):
          kk = ik * rPQ
          MP1 = exp(kk)
          MP1 = MP1 / rPQ3
+         #MP2 = zP * (ik * rPQ - 1)
          MP2 = ZP[c1,c2] * (ik * rPQ - 1)
          MP = MP1 * MP2
          EP[c1,c2] = sum(sum(EQ*MP*S))
@@ -158,13 +147,11 @@ plt.rcParams['font.size'] = 12
 plt.rcParams["figure.figsize"] = (5,3.5)
 fig2, ax = plt.subplots(nrows=1, ncols=1)
 
-#cf = ax.contourf(UP,VP,IZX**sf, 32,cmap='jet')
-
-cf = ax.contour(UP,VP,IZX**sf, 20,cmap='jet')
-#cf = ax.contour(UP,VP,IZX**sf, 16,colors='k')
-#cf = ax.pcolormesh(UP,VP,IZX**sf, cmap='hot')  
+#cf = ax.contourf(UP,VP,IZX**sf, 12,cmap='hot')
+#cf = ax.contour(UP,VP,IZX**sf, 10,cmap='hot')
+cf = ax.pcolormesh(UP,VP,IZX**sf, cmap='hot')  
 #cf = ax.pcolormesh(ZP,XP,IZX**sf, cmap='hot')  
-fig2.colorbar(cf, ax=ax, location = 'bottom',ticks = arange(0,1.1,0.2)) 
+fig2.colorbar(cf, ax=ax, location = 'bottom') 
 
 ax.set_xlabel('$u_P$ ', fontsize=12)
 ax.set_ylabel('$v_P$ ', fontsize=12)

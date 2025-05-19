@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-emRSFBZ.py               10 May 2025
+emRSFBZ3.py               16 May 2025
  
  FOCUSED BEAM  focal length f
    BEAM PROPAGATION FROM A PLANAR APERTURE
    RAYLEIGH-SOMMERFELD 1 DIFFRACTION INTEGRAL SOLVED
    CIRCULAR APERTURE  radius a
+   ANNULAR APERTURE
    IZ irradiance
    x,y,z   [1D] variables   /   X,Y [2D] variables 
    

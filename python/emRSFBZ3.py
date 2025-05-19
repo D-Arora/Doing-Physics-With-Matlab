@@ -30,8 +30,8 @@ plt.close('all')
 
 #%% INPUT PARAMETERS 
 # Grid points: Q aperture space   /   P observation space 
-NQ = 299
-NP = 299
+NQ = 99
+NP = 99
 
 nQ = 2*NQ + 1; nP = 2*NP+1 
 
@@ -44,8 +44,8 @@ k = 2*pi/wL            # propagation constant
 ik = k*1j              # jk
  
 #%% APERTURE SPACE:  SPHERICAL CONVERGING BEAM
-xS = 0; yS = 0; zS = 1  # source point S  [m]
-a =  0.02 #7.00e-4    #0.01       # radius of aperture  [m]
+xS = 0; yS = 0; zS = 0.2   # source point S  [m]
+a =  0.01 #7.00e-4    #0.01       # radius of aperture  [m]
 
 f = zS                     # focal length                 
 zQ = 0
@@ -57,6 +57,7 @@ RQ = (XQ**2 + YQ**2)**0.5
 rS = sqrt(xS**2 + yS**2 + zS**2)
 rQS = sqrt((XQ-xS)**2 + (YQ-yS)**2 + (zQ-zS)**2) 
 EQ = exp(-ik*rQS)/rQS
+EQ[RQ > a] = 0
 
 # Comment / uncomment for different aperture fields
 # Half-circular aperture
@@ -64,14 +65,8 @@ EQ = exp(-ik*rQS)/rQS
 
 # Annular aperture  aI = inner radius
 aI = 0.95*a             
-#EQ[RQ < aI] = 0
+EQ[RQ < aI] = 0
 
-# Spherical aberation
-phi = -pi*RQ**4
-T = exp(ik*phi)
-EQ = T*EQ
-
-EQ[RQ > a] = 0
 
 IQ = real(np.real(np.conj(EQ)*EQ))   #   IQ(x,y,0)
 IQ = IQ/amax(IQ)
@@ -79,9 +74,9 @@ IQx = IQ[NQ,:]                       #   IQ(x,y=0,z=0)
 IQy = IQ[:,NQ]                       #   IQ(x = 0, y,z=0)
          
 #%% OBSERVATION SPACE   [distances m]
-u1 = -60.1; u2 = 60.2
+u1 = -200.1; u2 = 200.2
 uP = linspace(u1,u2,nP)
-du = (uP[1] - uP[0])/2
+du = uP[1] - uP[0]
 K = zS**2/(k*a**2)
 zP = zS + K*uP
 xP = 0; yP = 0     
@@ -123,10 +118,7 @@ peak_uP = uP[IPzdB==0][0]
 # Find uP for minimums in irradiance 
 q = find_peaks(-IPzdB)
 dark = uP[q[0]]
-#dark = dark[dark>0]
-
-
-#xxx
+dark = dark[dark>0]
 
 #%%  GRAPHICS
 # 1   Aperture IQ(x,y=0)
@@ -192,7 +184,7 @@ fig4.tight_layout()
 
 #%% Console summary
 print('  ')
-print('emRSFBZ.py')
+print('emRSFBZ3.py')
 print('NQ = %0.0f   '%NQ + 'NP = %0.0f' %NP)
 print('nQ = %0.0f   '%nQ + 'nP = %0.0f' %nP)
 q = wL*1e9; print('wavelength  wL = %0.0f  nm' %q )
@@ -209,7 +201,7 @@ print('Uncertainty in uP, du = %0.2f' % du)
 print('Max irradiance at uP = %0.4f' %peak_uP)
 print('Min at uP')
 for q in range(len(dark)):
-     print('   %0.1f' % dark[q], end=' ')
+     print('   %0.2f' % dark[q], end=' ')
 tExe = time.time() - tStart
 print('\nExecution time %0.0f s' %tExe)
 

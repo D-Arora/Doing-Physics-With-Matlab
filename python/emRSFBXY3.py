@@ -30,8 +30,8 @@ plt.close('all')
 
 #%% INPUT PARAMETERS 
 # Grid points: Q aperture space   /   P observation space 
-NQ = 100
-NP = 100
+NQ = 30
+NP = 30
 
 nQ = 2*NQ + 1; nP = 2*NP+1 
 
@@ -44,9 +44,9 @@ k = 2*pi/wL            # propagation constant
 ik = k*1j              # jk
  
 #%% APERTURE SPACE:  SPHERICAL CONVERGING BEAM
-xS = 0; yS = 0; zS = 1   # source point S  [m]
-a =  0.01 #7.00e-4    #0.01       # radius of aperture  [m]
-
+xS = 0; yS = 0; zS = 0.2   # source point S  [m]
+a = 0.01 #7.00e-4    #0.01       # radius of aperture  [m]
+aI = 0.85*a
 f = zS                     # focal length                 
 zQ = 0
 xQ = np.linspace(-a, a, nQ)
@@ -65,22 +65,16 @@ EQ[RQ > a] = 0
 
 # Annular aperture  aI = inner radius
 aI = 0.95*a             
-#EQ[RQ < aI] = 0
-
-# Spherical aberation
-phi = -pi*RQ**4
-T = exp(ik*phi)
-#EQ = T*EQ
+EQ[RQ < aI] = 0
 
 IQ = real(np.real(np.conj(EQ)*EQ))   #   IQ(x,y,0)
 IQ = IQ/amax(IQ)
 IQx = IQ[NQ,:]                       #   IQ(x,y=0,z=0)
 IQy = IQ[:,NQ]                       #   IQ(x = 0, y,z=0)
 
-
 #%% OBSERVATION SPACE   [distances m]
-zP = zS
-v1 = 20
+zP = 0.2014502934206934#5*zS
+v1 = 100
 vP = linspace(-v1,v1,nP)
 dv = (vP[2]-vP[1])/2
 xP = vP*zS/(k*a)
