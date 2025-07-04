@@ -34,10 +34,10 @@ def lorenz(t, state):
 
 #%% INPUTS
 # Linear system A matrix
-#a11 = -0.3; a12 = 0.4; a21 = -0.2; a22 = 0.3
+a11 = -0.3; a12 = 0.4; a21 = -0.2; a22 = 0.3
 #a11 =2.0; a12 = 1.0; a21 = 1.0; a22 = 2.0
 #a11,a12,a21,a22 = array([-1,-1,1,-1])
-a11,a12,a21,a22 = array([-2,0,-4,-2])
+#a11,a12,a21,a22 = array([-2,0,-4,-2])
 # X and Y limits for plots 
 L1 = -5; L2 = 5; nL = 599
 
