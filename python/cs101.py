@@ -1,11 +1,19 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Feb 16 21:22:37 2024
+cs101.py
+Aug 25
 
-@author: Owner
+DYNAMICAL SYSTEMS:
+    Transcritical Bifurcations: subcritical
+
+# Ian Cooper
+# https://d-arora.github.io/Doing-Physics-With-Matlab/
+
+# Documentation
+#    https://d-arora.github.io/Doing-Physics-With-Matlab/dsDocs/ds25L7.pdf
+
 """
 
-# https://math.libretexts.org/Bookshelves/Scientific_Computing_Simulations_and_Modeling/Scientific_Computing_(Chasnov)/II%3A_Dynamical_Systems_and_Chaos/12%3A_Concepts_and_Tools
 
 # LIBRARIES  ================================================================
 import numpy as np
