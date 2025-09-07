@@ -66,6 +66,8 @@ xDot = funct(r,x)
 xZ = ZEROS()                # zeros xDot
 
 ax[C].set_xlabel('x',color = 'black')
+
+
 ax[C].set_ylabel('f(x) = $x_{dot}$',color= 'black')   
 ax[C].grid()
 ax[C].set_title('r = %0.1f' %r , fontsize = 11)
