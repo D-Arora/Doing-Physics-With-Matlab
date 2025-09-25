@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 '''
-# cs200.py      June 2025
+# cs210.py      Sept 2025
 # NONLINEAR [2D] DYNAMICAL SYSTEMS
-# FIXED POINTS, STABILITY ANALYSIS, BIFURCATIONS
+# FIXED POINTS, STABILITY ANALYSIS
 
 #Ian Cooper
 # https://d-arora.github.io/Doing-Physics-With-Matlab/
 # Documentation
-#    https://d-arora.github.io/Doing-Physics-With-Matlab/mpDocs/cs200.pdf
+#    https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds1502.pdf
 
 '''
 
@@ -74,7 +74,6 @@ xP = linspace(L1,L2,15); yP = xP
 xx,yy = np.meshgrid(xP,yP)
 xxDot = xx
 yyDot = xx**2 + yy**2 - 1
-
 
 # Nullclines X [0] / Y [1]
 xN0 = zeros(nL); yN0 = linspace(L1,L2,nL) 
@@ -174,10 +173,10 @@ fig2.suptitle('$\Delta$t = %0.1f' %t2,color = 'black',fontsize = 14)
 fig2.tight_layout()
 
 
-#%% FIGURE 4: Phase Portrait  quiver plot
+#%% FIGURE 3: Phase Portrait  quiver plot
 plt.rcParams['font.size'] = 10
 plt.rcParams["figure.figsize"] = (5,4)
-fig4, axes = plt.subplots(nrows=1, ncols=1)
+fig3, axes = plt.subplots(nrows=1, ncols=1)
   
 axes.set_xlabel('x',color= 'black',fontsize = 12)
 axes.set_ylabel('y',color = 'black',fontsize = 12)
@@ -191,22 +190,18 @@ axes.quiver(xx,yy,xxDot,yyDot)
 
 axes.plot(xS,yS,'g',lw = 2)
 axes.plot(x0,y0,'go', ms = 6)
-
 axes.plot(xC,yC,'ro', ms = 7)
-
-
-
 axes.plot(xN0,yN0,'r', lw = 1)
 axes.plot(xN1,yN1,'b', lw = 1)
 axes.plot(xN1,-yN1,'b', lw = 1)
 axes.set_box_aspect(1)
 
-fig4.tight_layout()
+fig3.tight_layout()
 
-#%% FIGURE 5: Phase Portrait  streamine
+#%% FIGURE 4: Phase Portrait  streamine
 plt.rcParams['font.size'] = 10
 plt.rcParams["figure.figsize"] = (5,4)
-fig5, axes = plt.subplots(nrows=1, ncols=1)
+fig4, axes = plt.subplots(nrows=1, ncols=1)
   
 axes.set_xlabel('x',color= 'black',fontsize = 12)
 axes.set_ylabel('y',color = 'black',fontsize = 12)
@@ -216,8 +211,6 @@ axes.yaxis.grid()
 axes.set_xlim([L1,L2])
 axes.set_ylim([L1,L2])
 axes.streamplot(xx,yy,xxDot,yyDot)
-
-
 
 axes.plot(xC,yC,'ro', ms = 7)
 
@@ -230,12 +223,12 @@ axes.plot(x0,y0,'go', ms = 6)
 
 axes.set_box_aspect(1)
 
-fig5.tight_layout()
+fig4.tight_layout()
 
-#%%   FIGURE 3: slope plot dy/dx
+#%%   FIGUR 5: slope plot dy/dx
 plt.rcParams['font.size'] = 12
 plt.rcParams["figure.figsize"] = (5,4)
-fig3, ax = plt.subplots(nrows=1, ncols=1)
+fig5, ax = plt.subplots(nrows=1, ncols=1)
 XP = linspace(-2,2,255); YP = XP
 XX,YY = np.meshgrid(XP,XP)
 ZZ = (XX**2+YY**2-1)/(XX+1e-16)
@@ -245,10 +238,11 @@ ax.set_ylabel('y',color = 'black',fontsize = 12)
 ax.set_title('slope function  dy/dx',color = 'black',fontsize = 14)
 ax.set_xticks([-2,-1,0,1,2])
 ax.set_yticks([-2,-1,0,1,2])
-cf = ax.pcolor(XX,YY,abs(ZZ)**0.3, cmap='jet') 
+#cf = ax.pcolor(XX,YY,abs(ZZ)**0.3, cmap='jet') 
+cf = ax.pcolor(XX,YY,(ZZ), cmap='jet') 
 ax.set_box_aspect(1)
-fig3.colorbar(cf, ax=ax)
-fig3.tight_layout()
+fig5.colorbar(cf, ax=ax)
+fig5.tight_layout()
 
 
 #%%
