@@ -1,17 +1,18 @@
 # -*- coding: utf-8 -*-
 
-# cs130.py                 Mar 2024
+'''
+ds1510.py      OCt 2025
+NONLINEAR [2D] DYNAMICAL SYSTEMS
+HOMOCLINIC BIFURCATIONS
 
-# NONLINEAR [2D] DYNAMICAL SYSTEMS
-# FIXED POINTS, STABILITY ANALYSIS, BIFURCATIONS
+Ian Cooper: matlabvisualphysics@gmail.com
 
-#Ian Cooper
-# https://d-arora.github.io/Doing-Physics-With-Matlab/
-# Documentation
-#    https://d-arora.github.io/Doing-Physics-With-Matlab/mpDocs/cs120.pdf
+   https://d-arora.github.io/Doing-Physics-With-Matlab/
 
-# Homoclinic Bifurcations
+Documentation
+   https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS1511.pdf
 
+'''
 
 
 # Libraries
@@ -22,6 +23,7 @@ from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 import time
 
+plt.close('all')
 tStart = time.time()
 
 # FUNCTIONS  Solve ODE for x,y    x = R   y = theta 
@@ -31,8 +33,8 @@ def lorenz(t, state):
     dy = r*y + x - x**2 + x*y
     return [dx, dy]  
 
-r  = 1
 #%%
+r  = 1
 x0 = 0.9
 y0 = -0.50
 # Solution ODE for x and y 
@@ -58,6 +60,8 @@ print(evP)
 JM = np.array([[0,1],[3,rJ-1]])
 evM, efPM = eig(JM)
 print(evM)
+
+
 
 #%%  GRAPHICS  Phase portrait orbits
 # Figure 1

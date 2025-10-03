@@ -19,6 +19,7 @@ from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 import time
 
+plt.close('all')
 tStart = time.time()
 
 #%% FUNCTIONS  Solve ODE for x,y    x = theta   y = omega 
@@ -80,7 +81,7 @@ C = 0
 axes[C].set_xlabel('x',color= 'black',fontsize = 12)
 axes[C].set_ylabel('$x_{dot}$',color = 'black',fontsize = 12)
 axes[C].set_title('r = %2.1f' % r, fontsize = 14)
-#axes[C].set_xlim([-5, 5])
+axes[C].set_xlim([-12, 12])
 #axes[C].set_xticks(np.arange(-5,5.1,1))
 #axes[R,C].set_ylim([-200, 200])
 #axes[R,C].set_yticks(np.arange(-20,81,20))

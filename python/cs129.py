@@ -22,6 +22,7 @@ from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 import time
 
+plt.close('all')
 tStart = time.time()
 
 # FUNCTIONS  Solve ODE for x,y    x = R   y = theta 

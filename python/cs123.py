@@ -19,6 +19,7 @@ from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 import time
 
+plt.close('all')
 tStart = time.time()
 
 #%% FUNCTIONS  Solve ODE for x,y    x = theta   y = omega 
@@ -83,7 +84,7 @@ C = 0
 axes[C].set_xlabel('x',color= 'black',fontsize = 12)
 axes[C].set_ylabel('$x_{dot}$',color = 'black',fontsize = 12)
 axes[C].set_title('r = %2.1f' % r, fontsize = 14)
-#axes[C].set_xlim([-5, 5])
+axes[C].set_xlim([-12, 12])
 #axes[C].set_xticks(np.arange(-5,5.1,1))
 #axes[R,C].set_ylim([-200, 200])
 #axes[R,C].set_yticks(np.arange(-20,81,20))
@@ -111,11 +112,10 @@ fig1.savefig('a1.png')
 # FIGURE 2: t vs x   t vs y
 plt.rcParams['font.size'] = 10
 plt.rcParams["figure.figsize"] = (7,3)
-fig1, axes = plt.subplots(nrows=1, ncols=2)
-fig1.subplots_adjust(top = 0.90, bottom = 0.18, left = 0.15,\
+fig2, axes = plt.subplots(nrows=1, ncols=2)
+fig2.subplots_adjust(top = 0.90, bottom = 0.18, left = 0.15,\
                     right = 0.95, hspace = 0.5,wspace=0.5)
-
-    
+   
 C = 0   
 axes[C].set_xlabel('t',color= 'black',fontsize = 12)
 axes[C].set_ylabel('x',color = 'black',fontsize = 12)
@@ -139,15 +139,15 @@ axes[C].set_title('r = %2.1f' % r, fontsize = 14)
 axes[C].xaxis.grid()
 axes[C].yaxis.grid()
 axes[C].plot(t, yS,'b',lw = 2)
-fig1.savefig('a2.png')
+fig2.savefig('a2.png')
 
 
 #%%
 # FIGURE 3: r vs xe
 plt.rcParams['font.size'] = 10
 plt.rcParams["figure.figsize"] = (5,3)
-fig1, axes = plt.subplots(nrows=1, ncols=1)
-fig1.subplots_adjust(top = 0.90, bottom = 0.18, left = 0.30,\
+fig3, axes = plt.subplots(nrows=1, ncols=1)
+fig3.subplots_adjust(top = 0.90, bottom = 0.18, left = 0.30,\
                     right = 0.95, hspace = 0.5,wspace=0.40)
   
 axes.set_xlabel('r',color= 'black',fontsize = 12)
@@ -163,14 +163,14 @@ axes.plot([-10,0],[-10,0],'r',lw = 2)
 axes.plot([0,10],[0,10],'b',lw = 2)
 axes.plot([0,10],[0,0],'r',lw = 2)
 
-fig1.savefig('a3.png')
+fig3.savefig('a3.png')
 
 #%%
 # FIGURE 4: Phase Portrait  quiver plot
 plt.rcParams['font.size'] = 10
 plt.rcParams["figure.figsize"] = (3.6,2.6)
-fig1, axes = plt.subplots(nrows=1, ncols=1)
-fig1.subplots_adjust(top = 0.90, bottom = 0.18, left = 0.13,\
+fig4, axes = plt.subplots(nrows=1, ncols=1)
+fig4.subplots_adjust(top = 0.90, bottom = 0.18, left = 0.13,\
                     right = 0.95, hspace = 0.5,wspace=0.40)
   
 axes.set_xlabel('x',color= 'black',fontsize = 12)
@@ -187,14 +187,14 @@ axes.plot(0,0,'bo',ms = 8)
 axes.streamplot(xx,yy,xxDot,yyDot, density = 0.8, color = 'blue')
 axes.plot(xS[0], yS[0],'go',ms = 8)
 axes.plot(xS, yS,'r',lw = 2)
-fig1.savefig('a4.png')
+fig4.savefig('a4.png')
 
 
 # FIGURE 5: Phase Portrait  quiver plot
 plt.rcParams['font.size'] = 10
 plt.rcParams["figure.figsize"] = (3.6,2.6)
-fig1, axes = plt.subplots(nrows=1, ncols=1)
-fig1.subplots_adjust(top = 0.90, bottom = 0.18, left = 0.13,\
+fig5, axes = plt.subplots(nrows=1, ncols=1)
+fig5.subplots_adjust(top = 0.90, bottom = 0.18, left = 0.13,\
                     right = 0.95, hspace = 0.5,wspace=0.40)
   
 axes.set_xlabel('x',color= 'black',fontsize = 12)
@@ -212,7 +212,7 @@ nx = -2; ny = 2
 axes.quiver(xx,yy,xxDot,yyDot)
 axes.plot(0,0,'ro',ms = 8)
 axes.plot(r,0,'bo',ms = 8)
-fig1.savefig('a5.png')
+fig5.savefig('a5.png')
 
 
 tExe = time.time() - tStart

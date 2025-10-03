@@ -19,12 +19,13 @@ from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 import time
 
+plt.close('all')
 tStart = time.time()
 
 #%% FUNCTIONS  Solve ODE for x,y    x = theta   y = omega 
 def lorenz(t, state):    
     x, y = state
-    dx = r*x + x**2
+    dx = r*x - x**2
     dy = -y
     return [dx, dy]  
 
@@ -37,7 +38,7 @@ yDot = - y
 
 x1 = -5; x2 = 15; nX = 599
 x = linspace(x1,x2,nX)
-xDot = r*x + x**2
+xDot = r*x - x**2
 
 
 # Solution ODE for x and y  ---------------------------------------------------
@@ -56,7 +57,7 @@ y1 = -5; y2 = 5; nY = 12
 yP = linspace(y1,y2,nX)
 
 xx,yy = np.meshgrid(xP,yP)
-xxDot = r*xx + xx**2
+xxDot = r*xx - xx**2
 yyDot = -yy
 
 #%%
@@ -82,7 +83,7 @@ C = 0
 axes[C].set_xlabel('x',color= 'black',fontsize = 12)
 axes[C].set_ylabel('$x_{dot}$',color = 'black',fontsize = 12)
 axes[C].set_title('r = %2.1f' % r, fontsize = 14)
-#axes[C].set_xlim([-5, 5])
+axes[C].set_xlim([-12, 12])
 #axes[C].set_xticks(np.arange(-5,5.1,1))
 #axes[R,C].set_ylim([-200, 200])
 #axes[R,C].set_yticks(np.arange(-20,81,20))
