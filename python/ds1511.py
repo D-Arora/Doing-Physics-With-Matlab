@@ -35,6 +35,8 @@ def lorenz(t, state):
 
 #%% INPUTS >>> r   x(0)   y(0)
 r  = -0.90
+
+
 x0 = 0.10
 y0 = 0.1
 
@@ -98,7 +100,7 @@ axes.set_aspect('equal', 'box')
 fig1.tight_layout()
 fig1.savefig('a1.png')
 
-
+xxx
 #%% FIG 2: Phase portrait orbits
 
 plt.rcParams['font.size'] = 10
