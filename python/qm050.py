@@ -34,12 +34,13 @@ from numpy import linspace,matrix,array
 from numpy import *
 from scipy.linalg import *
 from scipy.optimize import fsolve
-from scipy.integrate import odeint, solve_ivp, simps
+from scipy.integrate import odeint, solve_ivp, simpson
 from scipy.sparse.linalg import eigsh, eigs #Solves the Eigenvalue problem
 from scipy.sparse import diags #Allows us to construct our matrices
 from matplotlib.animation import FuncAnimation, PillowWriter 
 import time
 
+plt.close('all')
 tStart = time.time()
 
 
@@ -89,6 +90,7 @@ ax.set_ylim([-6.1,6.1])
 ax.set_xlim([0,0.5])
 ax.plot(x/sx,Uh/se,'b',lw = 2)
 ax.plot(x/sx,Um/se,'r',lw = 2)
+
 fig1.tight_layout()
 
 #fig1.savefig('a1.png')
@@ -115,7 +117,7 @@ psi = zeros([N,len(E)]); psi2 = zeros([N,len(E)])
 for c in range(len(E)):
     psi[:,c] = ef[:,c]
     psi2[:,c] = psi[:,c]**2
-    area = simps(psi2[:,c],x)
+    area = simpson(psi2[:,c],x)
     psi[:,c] = psi[:,c]/sqrt(area)
 
 probD = psi**2    # probability density [1/m]
@@ -289,8 +291,6 @@ fig56(yP,q)
 
 fig5.savefig('a5.png')
 
-
-
 q = n; yP = psi[:,n]/amax(psi)
 plt.rcParams["figure.figsize"] = (6,3)
 fig6, ax = plt.subplots(1)
@@ -344,13 +344,13 @@ fig8.savefig('a8.png')
 #%%  COMPOUND STATE  m and n
 PSI = am*psi[:,m] + an*psi[:,n]
 PROBD = PSI**2
-PROB = simps(PROBD,x)        # Check probability = 1
+PROB = simpson(PROBD,x)        # Check probability = 1
 
 # Expection value <x>
 fn = PSI*x*PSI
-xavg = simps(fn,x)/sx
+xavg = simpson(fn,x)/sx
 
-wm = Ew[m]*se/hbar; wn = E[n]*se/hbar
+wm = Ew[m]*se/hbar; wn = Ew[n]*se/hbar
 wmn = abs(wm-wn)
 Tmn = 2*pi/wmn
 fmn = 1/Tmn
@@ -359,10 +359,11 @@ Lmn = cL/fmn
 y = am*psi[:,m]*exp(-1j*wm*Tmn/2) + an*psi[:,n]*exp(-1j*wn*Tmn/2)
 yC = conj(y)
 fn = real(yC*x*y)
-xavg1 = simps(fn,x)/sx
+xavg1 = simpson(fn,x)/sx
 xD1 = x0/sx - xavg
 xD2 = x0/sx - xavg1
-xD = abs(xD1)+abs(xD2)
+xD = abs(xD1)+abs(xD2)   # nm
+xDm = xD*sx              # m
 
 # FIG 9:  Compound state
 plt.rcParams['font.size'] = 12
@@ -420,9 +421,9 @@ s = E[m] - E[n]; print('dE = %2.3f  eV' %s)
 print('osc. frequency omega = %2.3e  rad/s' %wmn) 
 print('osc. frequency f = %2.3e  Hz' %fmn) 
 print('osc. period T = %2.3e  s' %Tmn)
-s = Lmn/sx;print('photon wavelength lambda = %2.3f  nm' %s)
+s = Lmn/sx;print('photon wavelength lambda = %2.0f  nm' %s)
 s = x0/sx; print('equilibrium bond length = %2.3f  nm' %s)
-print('el. dipole separation = %2.7f  nm' %xD)
+print('el. dipole separation = %2.2e  m' %xDm)
 
 #%% SCATTER PLOT FOR PROBILITY
 q = n

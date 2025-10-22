@@ -34,12 +34,13 @@ from numpy import linspace,matrix,array
 from numpy import *
 from scipy.linalg import *
 from scipy.optimize import fsolve
-from scipy.integrate import odeint, solve_ivp, simps
+from scipy.integrate import odeint, solve_ivp, simpson
 from scipy.sparse.linalg import eigsh, eigs #Solves the Eigenvalue problem
 from scipy.sparse import diags #Allows us to construct our matrices
 from matplotlib.animation import FuncAnimation, PillowWriter 
 import time
 
+plt.close('all')
 tStart = time.time()
 
 
@@ -62,7 +63,7 @@ k = 480;                    # HCL molecule: spring constant [N/m]
 
 num = 100                  # number of eigenvalues returned  
 
-m = 4; n = 2                # quantum numbers 0,1,2,3, ...(M > n)
+m = 4; n = 3                # quantum numbers 0,1,2,3, ...(M > n)
 
 
 am = 1; an = 0.5            # Eigenstate coeffs for compound state
@@ -116,7 +117,7 @@ psi = zeros([N,len(E)]); psi2 = zeros([N,len(E)])
 for c in range(len(E)):
     psi[:,c] = ef[:,c]
     psi2[:,c] = psi[:,c]**2
-    area = simps(psi2[:,c],x)
+    area = simpson(psi2[:,c],x)
     psi[:,c] = psi[:,c]/sqrt(area)
 
 probD = psi**2    # probability density [1/m]
@@ -349,13 +350,13 @@ fig78(q)
 #%%  COMPOUND STATE  m and n
 PSI = am*psi[:,m] + an*psi[:,n]
 PROBD = PSI**2
-PROB = simps(PROBD,x)        # Check probability = 1
+PROB = simpson(PROBD,x)        # Check probability = 1
 
 # Expection value <x>
 fn = PSI*x*PSI
-xavg = simps(fn,x)/sx
+xavg = simpson(fn,x)/sx
 
-wm = Ew[m]*se/hbar; wn = E[n]*se/hbar
+wm = Ew[m]*se/hbar; wn = Ew[n]*se/hbar
 wmn = abs(wm-wn)
 Tmn = 2*pi/wmn
 fmn = 1/Tmn
@@ -364,7 +365,7 @@ Lmn = cL/fmn
 y = am*psi[:,m]*exp(-1j*wm*Tmn/2) + an*psi[:,n]*exp(-1j*wn*Tmn/2)
 yC = conj(y)
 fn = real(yC*x*y)
-xavg1 = simps(fn,x)/sx
+xavg1 = simpson(fn,x)/sx
 #xD1 = x0/sx - xavg
 #xD2 = x0/sx - xavg1
 #xD = abs(xD1)+abs(xD2)
@@ -428,7 +429,7 @@ print('osc. frequency f = %2.3e  Hz' %fmn)
 print('osc. period T = %2.3e  s' %Tmn)
 s = Lmn/sx;print('photon wavelength lambda = %2.3f  nm' %s)
 s = x0/sx; print('equilibrium bond length = %2.3f  nm' %s)
-print('xD = %2.7f  nm' %xD)
+print('el. dipole separation = %2.2e  nm' %xD)
 
 #%% SCATTER PLOT FOR PROBILITY
 q = n
