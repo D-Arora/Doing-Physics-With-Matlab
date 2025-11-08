@@ -9,9 +9,8 @@ xmlns="http://www.w3.org/TR/REC-html40">
 <meta name=ProgId content=Word.Document>
 <meta name=Generator content="Microsoft Word 15">
 <meta name=Originator content="Microsoft Word 15">
-<base target="_blank">
-<link rel=File-List href="ds25Home_files/filelist.xml">
-<link rel=Edit-Time-Data href="ds25Home_files/editdata.mso">
+<link rel=File-List href="ds2700G_files/filelist.xml">
+<link rel=Edit-Time-Data href="ds2700G_files/editdata.mso">
 <!--[if !mso]>
 <style>
 v\:* {behavior:url(#default#VML);}
@@ -19,35 +18,37 @@ o\:* {behavior:url(#default#VML);}
 w\:* {behavior:url(#default#VML);}
 .shape {behavior:url(#default#VML);}
 </style>
-<![endif]--><!--[if gte mso 9]><xml>
+<![endif]-->
+<title>Lorenz Equations</title>
+<!--[if gte mso 9]><xml>
  <o:DocumentProperties>
+  <o:Subject>Dynamical Systems</o:Subject>
   <o:Author>Ian Cooper</o:Author>
+  <o:Keywords>Lorenz eqauations, animation of Lorenz equations, strange attractors, chaos</o:Keywords>
   <o:LastAuthor>Ian Cooper</o:LastAuthor>
-  <o:Revision>58</o:Revision>
-  <o:TotalTime>1078</o:TotalTime>
-  <o:Created>2025-08-16T04:48:00Z</o:Created>
-  <o:LastSaved>2025-11-08T22:08:00Z</o:LastSaved>
-  <o:Pages>4</o:Pages>
-  <o:Words>913</o:Words>
-  <o:Characters>5206</o:Characters>
-  <o:Lines>43</o:Lines>
-  <o:Paragraphs>12</o:Paragraphs>
-  <o:CharactersWithSpaces>6107</o:CharactersWithSpaces>
+  <o:Revision>5</o:Revision>
+  <o:TotalTime>543</o:TotalTime>
+  <o:Created>2025-11-08T07:36:00Z</o:Created>
+  <o:LastSaved>2025-11-08T22:04:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>561</o:Words>
+  <o:Characters>3201</o:Characters>
+  <o:Category>Lorenz equations</o:Category>
+  <o:Lines>26</o:Lines>
+  <o:Paragraphs>7</o:Paragraphs>
+  <o:CharactersWithSpaces>3755</o:CharactersWithSpaces>
   <o:Version>16.00</o:Version>
  </o:DocumentProperties>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
 </xml><![endif]-->
-<link rel=dataStoreItem href="ds25Home_files/item0006.xml"
-target="ds25Home_files/props007.xml">
-<link rel=themeData href="ds25Home_files/themedata.thmx">
-<link rel=colorSchemeMapping href="ds25Home_files/colorschememapping.xml">
+<link rel=themeData href="ds2700G_files/themedata.thmx">
+<link rel=colorSchemeMapping href="ds2700G_files/colorschememapping.xml">
 <!--[if gte mso 9]><xml>
  <w:WordDocument>
-  <w:View>Print</w:View>
-  <w:Zoom>80</w:Zoom>
   <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
   <w:TrackMoves>false</w:TrackMoves>
   <w:TrackFormatting/>
   <w:PunctuationKerning/>
@@ -670,6 +671,13 @@ target="ds25Home_files/props007.xml">
 <!--
  /* Font Definitions */
  @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
 	{font-family:SimSun;
 	panose-1:2 1 6 0 3 1 1 1 1 1;
 	mso-font-alt:\5B8B\4F53;
@@ -699,6 +707,13 @@ target="ds25Home_files/props007.xml">
 	mso-font-pitch:variable;
 	mso-font-signature:647 0 0 0 159 0;}
 @font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-520081665 -1073717157 41 0 66047 0;}
+@font-face
 	{font-family:"\@SimSun";
 	panose-1:2 1 6 0 3 1 1 1 1 1;
 	mso-font-charset:134;
@@ -727,8 +742,6 @@ target="ds25Home_files/props007.xml">
 	mso-hansi-theme-font:minor-latin;
 	mso-bidi-font-family:"Times New Roman";
 	mso-bidi-theme-font:minor-bidi;
-	mso-font-kerning:1.0pt;
-	mso-ligatures:standardcontextual;
 	mso-ansi-language:EN-AU;}
 h1
 	{mso-style-priority:9;
@@ -1141,19 +1154,10 @@ p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
 	mso-ansi-language:EN-AU;}
 a:link, span.MsoHyperlink
 	{mso-style-priority:99;
-	font-family:"Calibri",sans-serif;
-	mso-ascii-font-family:Calibri;
-	mso-ascii-theme-font:minor-latin;
-	mso-hansi-font-family:Calibri;
-	mso-hansi-theme-font:minor-latin;
-	mso-bidi-font-family:Calibri;
 	color:blue;
 	mso-themecolor:hyperlink;
-	mso-text-animation:none;
-	text-decoration:none;
-	text-underline:none;
-	text-decoration:none;
-	text-line-through:none;}
+	text-decoration:underline;
+	text-underline:single;}
 a:visited, span.MsoHyperlinkFollowed
 	{mso-style-noshow:yes;
 	mso-style-priority:99;
@@ -1611,6 +1615,9 @@ span.IntenseQuoteChar
 span.SpellE
 	{mso-style-name:"";
 	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
 .MsoChpDefault
 	{mso-style-type:export-only;
 	mso-default-props:yes;
@@ -1637,6 +1644,87 @@ span.SpellE
 	mso-paper-source:0;}
 div.WordSection1
 	{page:WordSection1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:296449263;
+	mso-list-type:hybrid;
+	mso-list-template-ids:320241332 134807553 134807555 134807557 134807553 134807555 134807557 134807553 134807555 134807557;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:44.2pt;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:80.2pt;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l0:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:116.2pt;
+	text-indent:-18.0pt;
+	font-family:Wingdings;}
+@list l0:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:152.2pt;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l0:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:188.2pt;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l0:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:224.2pt;
+	text-indent:-18.0pt;
+	font-family:Wingdings;}
+@list l0:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:260.2pt;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l0:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:296.2pt;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l0:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:332.2pt;
+	text-indent:-18.0pt;
+	font-family:Wingdings;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
 -->
 </style>
 <!--[if gte mso 10]>
@@ -1700,473 +1788,395 @@ break-word'>
 
 <div class=WordSection1>
 
-<p class=MsoNormal style='margin-right:47.3pt;tab-stops:404.0pt'><span
-style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
 
 <table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
- style='margin-left:13.8pt;border-collapse:collapse;border:none;mso-yfti-tbllook:
- 1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:
- none'>
+ style='border-collapse:collapse;border:none;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:none'>
  <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
-  <td width=841 valign=top style='width:630.8pt;padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
-  style='font-size:20.0pt;mso-bidi-font-size:14.0pt;font-family:"Bookman Old Style",serif;
-  color:blue;mso-ansi-language:EN-GB'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDocs/S003.pdf"><span
-  style='mso-ascii-font-family:"Bookman Old Style";mso-hansi-font-family:"Bookman Old Style";
-  color:blue'>DOING PHYSICS WITH PYTHON</span></a><o:p></o:p></span></b></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
-  line-height:150%'><b><span style='mso-bidi-font-size:16.0pt;line-height:150%;
-  font-family:"Bookman Old Style",serif;mso-ansi-language:EN-GB'>PYTHON<o:p></o:p></span></b></p>
-  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
-  line-height:150%'><b><span style='mso-bidi-font-size:16.0pt;line-height:150%;
-  font-family:"Bookman Old Style",serif;mso-ansi-language:EN-GB'>DYNAMICAL
-  SYSTEMS<o:p></o:p></span></b></p>
-  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
-  line-height:150%'><b><span style='mso-bidi-font-size:16.0pt;line-height:150%;
-  font-family:"Bookman Old Style",serif;mso-ansi-language:EN-GB'>Complete
-  lecture course<o:p></o:p></span></b></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <td width=812 valign=top style='width:609.15pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNoSpacing style='line-height:200%'><span lang=EN-AU><a
+  href="https://d-arora.github.io/Doing-Physics-With-Matlab/"><b><span
+  style='font-family:"Bookman Old Style",serif;mso-bidi-font-family:"Times New Roman"'>DOING
+  PHYSICS WITH PYTHON</span></b></a></span><b><span lang=EN-AU
+  style='font-size:20.0pt;line-height:200%;font-family:"Bookman Old Style",serif;
+  mso-bidi-font-family:"Times New Roman";color:blue'><o:p></o:p></span></b></p>
+  <p class=MsoNoSpacing style='line-height:200%'><span lang=EN-AU><a
+  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds25Home.htm"><b><span
+  lang=EN-GB style='font-family:"Bookman Old Style",serif;mso-ansi-language:
+  EN-GB'>DYNAMICAL SYSTEMS</span></b></a></span><b><span style='font-size:20.0pt;
+  line-height:200%;font-family:"Bookman Old Style",serif;color:#7030A0;
+  mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+  <p class=MsoNoSpacing align=center style='text-align:center;line-height:150%'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:18.0pt;line-height:
+  150%;font-family:"Bookman Old Style",serif;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:#7030A0;mso-ansi-language:EN-GB'>LORENZ
+  EQUATIONS<o:p></o:p></span></b></p>
+  <p class=MsoNoSpacing align=center style='text-align:center;line-height:150%'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:18.0pt;line-height:
+  150%;font-family:"Bookman Old Style",serif;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:#7030A0;mso-ansi-language:EN-GB'>Animation:
+  Lorenz Attractor <o:p></o:p></span></b></p>
+  <p class=MsoNoSpacing align=center style='text-align:center;line-height:150%'><b
+  style='mso-bidi-font-weight:normal'><span style='mso-bidi-font-size:16.0pt;
+  line-height:150%;font-family:"Bookman Old Style",serif;mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin;color:black;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNoSpacing><b style='mso-bidi-font-weight:normal'><span
+  lang=EN-AU style='mso-bidi-font-size:16.0pt;mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin;color:black'>Ian Cooper<o:p></o:p></span></b></p>
+  <p class=MsoNoSpacing><span lang=EN-AU style='mso-bidi-font-size:16.0pt;
+  mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;color:black;
+  mso-themecolor:text1;mso-bidi-font-weight:bold'>matlabvisualphysics@gmail.com<o:p></o:p></span></p>
+  <p class=MsoNoSpacing><b style='mso-bidi-font-weight:normal'><span
+  lang=EN-AU style='mso-bidi-font-size:16.0pt;font-family:"Times New Roman",serif;
+  color:blue'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNoSpacing style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-size:18.0pt;mso-bidi-font-size:12.0pt;
+  line-height:150%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+  color:#7030A0'>DOWNLOAD DIRECTORIES FOR PYTHON CODE<o:p></o:p></span></b></p>
+  <p class=MsoNoSpacing style='line-height:150%'><b style='mso-bidi-font-weight:
+  normal'><span lang=EN-AU style='font-family:"Bookman Old Style",serif;
+  mso-bidi-font-family:Tahoma'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></b><span
+  lang=EN-AU><a
+  href="https://drive.google.com/drive/u/3/folders/1j09aAhfrVYpiMavajrgSvUMc89ksF9Jb"><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Bookman Old Style",serif;
+  mso-bidi-font-family:Tahoma'>Google drive</span></b></a><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><b style='mso-bidi-font-weight:normal'><span lang=EN-AU
+  style='font-family:"Bookman Old Style",serif;mso-fareast-language:EN-US'><span
+  style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp; </span></span></b><span
+  lang=EN-AU><a
+  href="https://github.com/D-Arora/Doing-Physics-With-Matlab/tree/master/mpScripts"><b
+  style='mso-bidi-font-weight:normal'><span style='font-family:"Bookman Old Style",serif;
+  mso-fareast-language:EN-US'>GitHub</span></b></a></span><span
+  class=MsoHyperlink><span lang=EN-AU style='mso-fareast-language:EN-US'><o:p></o:p></span></span></p>
+  <p class=MsoNoSpacing style='line-height:150%'><span style='font-family:"Times New Roman",serif;
+  mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
   <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
-  style='mso-ansi-language:EN-GB'>Ian Cooper<o:p></o:p></span></b></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
-  style='mso-ansi-language:EN-GB'>matlabvisualphysics@gmail.com<o:p></o:p></span></b></p>
+  lang=EN-AU style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+  color:#984806;mso-themecolor:accent6;mso-themeshade:128;mso-font-kerning:
+  1.0pt;mso-ligatures:standardcontextual'>ds2700G.py<span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>ds2700.py<span
+  style='mso-spacerun:yes'>&nbsp; </span></span></b><span lang=EN-AU
+  style='font-family:"Times New Roman",serif;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual'><o:p></o:p></span></p>
   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  style='mso-ansi-language:EN-GB'>Please email me any comments, corrections,
-  suggestions, additions<o:p></o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  lang=EN-AU>This website is under construction &#8211; additional topics are
-  continually being added</span><span style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm'><span style='mso-bidi-font-family:
-  Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'>The lecture
-  course closely follows <o:p></o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm'><b><span style='mso-bidi-font-size:
-  16.0pt;line-height:115%;mso-bidi-font-family:Calibri;mso-bidi-theme-font:
-  minor-latin;mso-ansi-language:EN-GB'>JASON <span class=SpellE>BRAMBURGER</span>
-  YouTube lecture series on dynamical systems </span></b><span
-  style='mso-bidi-font-size:16.0pt;line-height:115%;mso-bidi-font-family:Calibri;
-  mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-GB'>(Lx video ref)<o:p></o:p></span></p>
+  style='mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></p>
   <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
-  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><b><span
-  style='mso-ansi-language:EN-GB'>DOWNLOAD DIRECTORIES FOR PYTHON CODE<o:p></o:p></span></b></p>
+  style='mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'>Full documentation<o:p></o:p></span></p>
   <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
-  style='mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b><a
-  href="https://drive.google.com/drive/u/1/folders/1j09aAhfrVYpiMavajrgSvUMc89ksF9Jb">Google
-  drive</a><o:p></o:p></b></span></p>
+  style='mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span></span><span
+  style='font-size:18.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'><a
+  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds2700.pdf"
+  target="_blank">Lorenz equations<span style='font-size:16.0pt;mso-bidi-font-size:
+  11.0pt;line-height:150%'><o:p></o:p></span></a></span></p>
   <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
-  style='mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b><a
-  href="https://github.com/D-Arora/Doing-Physics-With-Matlab/tree/master/python">GitHub</a><o:p></o:p></b></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
-  lang=EN-AU><o:p>&nbsp;</o:p></span></b></p>
-  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
-  line-height:normal'><b><span lang=EN-AU>ONE DIMENSIONAL DYNAMICAL SYSTEMS<o:p></o:p></span></b></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
-  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></b></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span style='color:#3333FF;mso-ansi-language:EN-GB'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds25L1.pdf"><span
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi;
-  color:#3333FF'>Introduction to Dynamical systems (L1)</span></a><o:p></o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span style='color:#3333FF;mso-ansi-language:EN-GB'><span
-  style='mso-spacerun:yes'>&nbsp;</span><o:p></o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span style='color:#3333FF;mso-ansi-language:EN-GB'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds25L2.pdf"><span
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi;
-  color:#3333FF'>The geometry of flows on the line (L2)</span></a><o:p></o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span style='color:#3333FF;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span style='color:#3333FF;mso-ansi-language:EN-GB'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds25L3.pdf"><span
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi;
-  color:#3333FF'>Fixed points and stability</span><span lang=EN-AU
-  style='color:#3333FF;mso-ansi-language:EN-AU'> (L3)</span></a><o:p></o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span style='color:#3333FF;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span lang=EN-AU style='color:#3333FF'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds25L4.pdf"><span
-  lang=EN-GB style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:
-  minor-bidi;color:#3333FF;mso-ansi-language:EN-GB'>Existence and Uniqueness </span><span
-  style='color:#3333FF'>(L4)</span></a><o:p></o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span lang=EN-AU style='color:#3333FF'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span style='color:#3333FF;mso-ansi-language:EN-GB'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds25L5.pdf"><span
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi;
-  color:#3333FF'>P</span><span class=SpellE><span lang=EN-AU style='mso-bidi-font-family:
-  "Times New Roman";mso-bidi-theme-font:minor-bidi;color:#3333FF;mso-ansi-language:
-  EN-AU'>otential</span></span><span lang=EN-AU style='mso-bidi-font-family:
-  "Times New Roman";mso-bidi-theme-font:minor-bidi;color:#3333FF;mso-ansi-language:
-  EN-AU'> </span><span lang=EN-AU style='color:#3333FF;mso-ansi-language:EN-AU'>(L5)</span></a><o:p></o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span lang=EN-AU style='color:#3333FF'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span style='color:#3333FF;mso-ansi-language:EN-GB'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds25L6.pdf"><span
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi;
-  color:#3333FF'>Saddle Node Bifurcations (L6)</span></a><o:p></o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span style='color:#3333FF;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span style='color:#3333FF;mso-ansi-language:EN-GB'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds25L7.pdf"><span
-  class=SpellE><span style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:
-  minor-bidi;color:#3333FF'>Transcritical</span></span><span style='mso-bidi-font-family:
-  "Times New Roman";mso-bidi-theme-font:minor-bidi;color:#3333FF'> Bifurcations
-  (L7)</span></a><o:p></o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span style='color:#3333FF;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span style='color:#3333FF;mso-ansi-language:EN-GB'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds25L8.pdf"><span
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi;
-  color:#3333FF'>P</span><span style='color:#3333FF'>itchfork</span><span
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi;
-  color:#3333FF'> Bifurcations (L8)</span></a><o:p></o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span style='color:#3333FF;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span style='color:#3333FF;mso-ansi-language:EN-GB'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds25L9.pdf"><span
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi;
-  color:#3333FF'>I</span><span style='color:#3333FF'>mperfect </span><span
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi;
-  color:#3333FF'>P</span><span style='color:#3333FF'>itchfork </span><span
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi;
-  color:#3333FF'>Bifurcations</span><span lang=EN-AU style='color:#3333FF;
-  mso-ansi-language:EN-AU'> (L9)</span></a><o:p></o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span style='color:#3333FF;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span style='color:#3333FF;mso-ansi-language:EN-GB'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds25L10.pdf"><span
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi;
-  color:#3333FF'>Population dynamics 1:</span><span lang=EN-AU
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi;
-  color:#3333FF;mso-ansi-language:EN-AU'> Bifurcations in a Model for Insect
-  Outbreak<span style='mso-spacerun:yes'>&nbsp; </span></span><span lang=EN-AU
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi;
-  color:windowtext;mso-ansi-language:EN-AU'><span
-  style='mso-spacerun:yes'>&nbsp;</span></span>(L10)</a> </span><span
-  lang=EN-AU><span style='mso-spacerun:yes'>&nbsp;&nbsp;</span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span lang=EN-AU><span style='mso-spacerun:yes'>&nbsp; </span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span style='color:#3333FF;mso-ansi-language:EN-GB'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds25L10A.pdf"><span
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi;
-  color:#3333FF'>Population dynamics </span><span style='color:#3333FF'>2: </span><span
-  lang=EN-AU style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:
-  minor-bidi;color:#3333FF;mso-ansi-language:EN-AU'>Exponential growth and the
-  logistics equation<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span
-  style='color:#3333FF'>(L10)</span></a> <o:p></o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span lang=EN-AU style='color:#3333FF'><span
-  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span></span><span
-  style='color:#3333FF;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span style='color:#3333FF;mso-ansi-language:EN-GB'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDocs/ns25TumorGrowth.pdf"><span
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi'>Population
-  dynamics 3:</span><span style='mso-ansi-language:EN-AU'> </span><span
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi'><span
-  style='mso-spacerun:yes'>&nbsp;</span></span><span lang=EN-AU
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi;
-  mso-ansi-language:EN-AU'>A minimal model for tumor growth and chemotherapy</span><span
-  style='mso-bookmark:_Hlk204422467'><b><span style='font-size:18.0pt;
-  font-family:"Bookman Old Style",serif;mso-bidi-font-family:"Times New Roman";
-  mso-bidi-theme-font:minor-bidi'> </span></b></span><b><span style='font-size:
-  18.0pt;font-family:"Bookman Old Style",serif;mso-bidi-font-family:"Times New Roman";
-  mso-bidi-theme-font:minor-bidi'><span style='mso-spacerun:yes'>&nbsp;</span></span></b><span
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi'>(L10)</span></a><![if !supportNestedAnchors]><a
-  name="_Hlk204422467"></a><![endif]></span><span class=MsoHyperlink><span
-  lang=EN-AU style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:
-  minor-bidi'><o:p></o:p></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span class=MsoHyperlink><span lang=EN-AU style='mso-bidi-font-family:
-  "Times New Roman";mso-bidi-theme-font:minor-bidi;color:#3333FF'><o:p>&nbsp;</o:p></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span style='color:#3333FF;mso-ansi-language:EN-GB'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds25L11.pdf"><span
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi;
-  color:#3333FF'>Flow on a circle (L11)</span></a></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span style='color:#3333FF;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span style='mso-ansi-language:EN-GB'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds25L12.pdf"><span
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi'>G</span>hosts
-  and bottlenecks (L12)</a><o:p></o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span class=MsoHyperlink><span lang=EN-AU style='mso-bidi-font-family:
-  "Times New Roman";mso-bidi-theme-font:minor-bidi'><o:p>&nbsp;</o:p></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span class=MsoHyperlink><span style='mso-bidi-font-family:"Times New Roman";
-  mso-bidi-theme-font:minor-bidi;color:#3333FF;mso-ansi-language:EN-GB'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds25L13.pdf"><span
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi;
-  color:#3333FF'>M</span><span style='color:#3333FF'>odelling firefly
-  entrainment (L13)</span></a><o:p></o:p></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span class=MsoHyperlink><span lang=EN-AU style='mso-bidi-font-family:
-  "Times New Roman";mso-bidi-theme-font:minor-bidi;color:#3333FF'><o:p>&nbsp;</o:p></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span lang=EN-AU><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span lang=EN-AU><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
-  line-height:normal'><b><span lang=EN-AU>TWO DIMENSIONAL LINEAR DYNAMICAL
-  SYSTEMS<o:p></o:p></span></b></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
-  lang=EN-AU><o:p>&nbsp;</o:p></span></b></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span class=MsoHyperlink><span lang=EN-AU style='color:#3333FF'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds1420.pdf">Planar
-  [2D] linear dynamical systems: Theoretical considerations</a></span></span><b><span
-  lang=EN-AU style='color:#3333FF'> <o:p></o:p></span></b></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><b><span lang=EN-AU><o:p>&nbsp;</o:p></span></b></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span lang=EN-AU style='color:#3333FF'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds1421.pdf"><span
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi'>Examples:
-  Multiple fixed points</span></a>: </span><span class=MsoHyperlink><span
-  lang=EN-AU style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:
-  minor-bidi'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds1421.pdf"><span
-  style='mso-spacerun:yes'>&nbsp;</span><span style='mso-bidi-font-family:"Times New Roman";
-  mso-bidi-theme-font:minor-bidi'>Real eigenvalues, one eigenvalue equal to
-  zero</span></a><o:p></o:p></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span lang=EN-AU style='color:#3333FF'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span lang=EN-AU style='color:#3333FF'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds1422.pdf"><span
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi'>Examples:
-  S</span>ingle <span style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:
-  minor-bidi'>fixed point</span></a> at Origin: </span><span
-  class=MsoHyperlink><span lang=EN-AU style='mso-bidi-font-family:"Times New Roman";
-  mso-bidi-theme-font:minor-bidi'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds1422.pdf"><span
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi'>Real
-  n</span>on-zero <span style='mso-bidi-font-family:"Times New Roman";
-  mso-bidi-theme-font:minor-bidi'>eigenvalues</span></a><o:p></o:p></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span lang=EN-AU style='color:#3333FF'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span lang=EN-AU style='color:#3333FF'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds1423.pdf"><span
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi'>Examples:
-  S</span>ingle <span style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:
-  minor-bidi'>fixed point</span></a> at Origin: </span><span
-  class=MsoHyperlink><span lang=EN-AU style='mso-bidi-font-family:"Times New Roman";
-  mso-bidi-theme-font:minor-bidi'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds1423.pdf"><span
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi'><span
-  style='mso-spacerun:yes'>&nbsp;</span>C</span>omplex <span style='mso-bidi-font-family:
-  "Times New Roman";mso-bidi-theme-font:minor-bidi'>eigenvalues</span></a><o:p></o:p></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span class=MsoHyperlink><span lang=EN-AU style='mso-bidi-font-family:
-  "Times New Roman";mso-bidi-theme-font:minor-bidi'><o:p>&nbsp;</o:p></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span class=MsoHyperlink><span style='mso-bidi-font-family:"Times New Roman";
-  mso-bidi-theme-font:minor-bidi;color:#3333FF;mso-ansi-language:EN-GB'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds1401.pdf"><span
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi;
-  color:#3333FF'>Mass &#8211; Spring system (L14)</span></a></span></span><span
-  class=MsoHyperlink><span lang=EN-AU style='mso-bidi-font-family:"Times New Roman";
-  mso-bidi-theme-font:minor-bidi;color:#3333FF'><o:p></o:p></span></span></p>
+  style='mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></p>
   <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:18.0pt;line-height:normal;tab-stops:55.5pt'><span
-  class=MsoHyperlink><span lang=EN-AU style='mso-bidi-font-family:"Times New Roman";
-  mso-bidi-theme-font:minor-bidi;color:#3333FF'><o:p>&nbsp;</o:p></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
-  lang=EN-AU><o:p>&nbsp;</o:p></span></b></p>
-  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
-  line-height:normal'><b><span lang=EN-AU>TWO DIMENSIONAL NON-LINEAR DYNAMICAL
-  SYSTEMS<o:p></o:p></span></b></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
-  lang=EN-AU><o:p>&nbsp;</o:p></span></b></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><span lang=EN-AU style='color:#3333FF'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds1501.pdf">[2D]
-  non-linear dynamical systems: Theoretical considerations</a></span></span><span
-  class=MsoHyperlink><span lang=EN-AU style='mso-bidi-font-family:"Times New Roman";
-  mso-bidi-theme-font:minor-bidi'><o:p></o:p></span></span></p>
+  margin-left:8.2pt;line-height:150%'><span style='font-family:"Times New Roman",serif;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'>Chaos is everywhere. It can crop up in unexpected places and in
+  remarkably simple systems, and a great deal of work has been done to describe
+  the behaviour of chaotic systems. One primary characteristic of chaos is that
+  small changes in initial conditions result in large changes over time in the
+  solution curves. We can illustrate the chaotic behaviour of the Lorenz system
+  by animating the [3D] trajectory in phase space.<o:p></o:p></span></p>
   <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
-  margin-left:32.25pt;line-height:normal'><span lang=EN-AU style='color:#3333FF'><o:p>&nbsp;</o:p></span></p>
+  margin-left:8.2pt;line-height:150%'><span style='font-family:"Times New Roman",serif;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:8.2pt;line-height:150%'><span style='font-family:"Times New Roman",serif;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'>To produce the animation in Python you need to:<o:p></o:p></span></p>
+  <p class=MsoListParagraphCxSpFirst style='margin-top:0cm;margin-right:0cm;
+  margin-bottom:0cm;margin-left:44.2pt;mso-add-space:auto;text-indent:-18.0pt;
+  line-height:150%;mso-list:l0 level1 lfo2'><![if !supportLists]><span
+  style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+  Symbol;mso-ansi-language:EN-GB'><span style='mso-list:Ignore'>&middot;<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+  style='font-family:"Times New Roman",serif;mso-ansi-language:EN-GB'>Include
+  the necessary libraries - <span class=SpellE><span class=GramE>matplotlib.pyplot</span></span>,
+  mpl_<span class=GramE>toolkits.mplot</span>3d, and <span class=SpellE><span
+  class=GramE>matplotlib.animation</span></span>.<o:p></o:p></span></p>
+  <p class=MsoListParagraphCxSpMiddle style='margin-top:0cm;margin-right:0cm;
+  margin-bottom:0cm;margin-left:44.2pt;mso-add-space:auto;text-indent:-18.0pt;
+  line-height:150%;mso-list:l0 level1 lfo2'><![if !supportLists]><span
+  style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+  Symbol;mso-ansi-language:EN-GB'><span style='mso-list:Ignore'>&middot;<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+  style='font-family:"Times New Roman",serif;mso-ansi-language:EN-GB'>Solve the
+  Lorenz equations are integrated using the function <span class=SpellE><b><span
+  style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'>odeint</span></b></span><b><span
+  style='color:#984807;mso-themecolor:accent6;mso-themeshade:128;mso-style-textfill-fill-color:
+  #984807;mso-style-textfill-fill-themecolor:accent6;mso-style-textfill-fill-alpha:
+  100.0%;mso-style-textfill-fill-colortransforms:lumm=50000'> </span></b>to
+  return the solution <i>x</i>(<i>t</i>), <i>y</i>(<i>t</i>), and <i>z</i>(<i>t</i>).<o:p></o:p></span></p>
+  <p class=MsoListParagraphCxSpMiddle style='margin-top:0cm;margin-right:0cm;
+  margin-bottom:0cm;margin-left:44.2pt;mso-add-space:auto;text-indent:-18.0pt;
+  line-height:150%;mso-list:l0 level1 lfo2'><![if !supportLists]><span
+  style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+  Symbol;mso-ansi-language:EN-GB'><span style='mso-list:Ignore'>&middot;<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+  style='font-family:"Times New Roman",serif;mso-ansi-language:EN-GB'>Specify
+  the model parameters, time span and initial conditions.<o:p></o:p></span></p>
+  <p class=MsoListParagraphCxSpMiddle style='margin-top:0cm;margin-right:0cm;
+  margin-bottom:0cm;margin-left:44.2pt;mso-add-space:auto;text-indent:-18.0pt;
+  line-height:150%;mso-list:l0 level1 lfo2'><![if !supportLists]><span
+  style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+  Symbol;mso-ansi-language:EN-GB'><span style='mso-list:Ignore'>&middot;<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+  style='font-family:"Times New Roman",serif;mso-ansi-language:EN-GB'>Set up
+  the 3D plot: Create a figure and an Axes3D object.<o:p></o:p></span></p>
+  <p class=MsoListParagraphCxSpMiddle style='margin-top:0cm;margin-right:0cm;
+  margin-bottom:0cm;margin-left:44.2pt;mso-add-space:auto;text-indent:-18.0pt;
+  line-height:150%;mso-list:l0 level1 lfo2'><![if !supportLists]><span
+  style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+  Symbol;mso-ansi-language:EN-GB'><span style='mso-list:Ignore'>&middot;<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+  style='font-family:"Times New Roman",serif;mso-ansi-language:EN-GB'>Initialize
+  the plot: Create an empty 3D line object that will be updated in each
+  animation frame.<o:p></o:p></span></p>
+  <p class=MsoListParagraphCxSpMiddle style='margin-top:0cm;margin-right:0cm;
+  margin-bottom:0cm;margin-left:44.2pt;mso-add-space:auto;text-indent:-18.0pt;
+  line-height:150%;mso-list:l0 level1 lfo2'><![if !supportLists]><span
+  style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+  Symbol;mso-ansi-language:EN-GB'><span style='mso-list:Ignore'>&middot;<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+  style='font-family:"Times New Roman",serif;mso-ansi-language:EN-GB'>Animation
+  function: Define a function that takes the frame number as an argument and
+  updates the data of the 3D line object with the calculated trajectory points
+  up to that frame.<o:p></o:p></span></p>
+  <p class=MsoListParagraphCxSpMiddle style='margin-top:0cm;margin-right:0cm;
+  margin-bottom:0cm;margin-left:44.2pt;mso-add-space:auto;text-indent:-18.0pt;
+  line-height:150%;mso-list:l0 level1 lfo2'><![if !supportLists]><span
+  style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+  Symbol;mso-ansi-language:EN-GB'><span style='mso-list:Ignore'>&middot;<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+  style='font-family:"Times New Roman",serif;mso-ansi-language:EN-GB'>Create
+  the animation: Use <span class=SpellE><span class=GramE>matplotlib.animation</span>.FuncAnimation</span>
+  to link the plot, the animation function, and the data, specifying the number
+  of frames and any other relevant parameters (like interval between frames).<o:p></o:p></span></p>
+  <p class=MsoListParagraphCxSpLast style='margin-top:0cm;margin-right:0cm;
+  margin-bottom:0cm;margin-left:44.2pt;mso-add-space:auto;text-indent:-18.0pt;
+  line-height:150%;mso-list:l0 level1 lfo2'><![if !supportLists]><span
+  style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+  Symbol;mso-ansi-language:EN-GB'><span style='mso-list:Ignore'>&middot;<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+  style='font-family:"Times New Roman",serif;mso-ansi-language:EN-GB'>Save it
+  as a video file MP4 or an animated gif (e.g., MP4 or GIF) using <span
+  class=SpellE><span class=GramE>anim.save</span></span>().<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:8.2pt;line-height:150%'><span style='font-family:"Times New Roman",serif;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:8.2pt;line-height:150%'><span style='font-family:"Times New Roman",serif;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'>Figures 1 and 2 show an animation of the chaotic trajectories from two
+  initial conditions which are very close to each other (figure 1) and
+  separated (figure 2).<o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-top:0cm;margin-right:0cm;
+  margin-bottom:0cm;margin-left:8.2pt;text-align:center;line-height:150%'><span
+  style='font-family:"Times New Roman",serif;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual;mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=center style='margin-top:0cm;margin-right:0cm;
+  margin-bottom:0cm;margin-left:8.2pt;text-align:center;line-height:150%'><span
+  style='font-family:"Times New Roman",serif;mso-font-kerning:1.0pt;mso-ansi-language:
+  EN-GB;mso-no-proof:yes'><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+   coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+   filled="f" stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="Picture_x0020_3" o:spid="_x0000_i1029" type="#_x0000_t75"
+   style='width:450pt;height:375pt;visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ds2700G_files/image001.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=600 height=500
+  src="ds2700G_files/image001.gif" v:shapes="Picture_x0020_3"><![endif]></span><span
+  style='font-family:"Times New Roman",serif;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-top:0cm;margin-right:0cm;
+  margin-bottom:0cm;margin-left:8.2pt;text-align:center;line-height:150%'><span
+  style='font-family:"Times New Roman",serif;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual;mso-ansi-language:EN-GB'>Fig. 1. Chaotic <span
+  class=GramE>region,<span style='mso-spacerun:yes'>&nbsp; </span><i>r</i></span><i>
+  </i>= 28. Animation of two trajectories with slightly different initial
+  conditions <span style='color:blue'>(<b>0.10</b>, 0, 0)</span> and <span
+  style='color:#EE0000'>(<b>1.15</b>, 0, 0)</span>.<span
+  style='mso-spacerun:yes'>&nbsp; </span>For a long time at the start of the
+  flow, the two trajectories are almost identical.</span><span
+  style='font-family:"Times New Roman",serif;mso-font-kerning:1.0pt;mso-ansi-language:
+  EN-GB;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_7"
+   o:spid="_x0000_i1028" type="#_x0000_t75" style='width:450pt;height:375pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ds2700G_files/image002.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=600 height=500
+  src="ds2700G_files/image002.gif" v:shapes="Picture_x0020_7"><![endif]></span><span
+  style='font-family:"Times New Roman",serif;mso-font-kerning:1.0pt;mso-ligatures:
+  standardcontextual;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+  margin-left:8.2pt;line-height:150%'><span style='font-family:"Times New Roman",serif;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'>Fig. 2. Chaotic <span class=GramE>region,<span
+  style='mso-spacerun:yes'>&nbsp; </span><i>r</i></span><i> </i>= 28. Animation
+  of two trajectories<o:p></o:p></span></p>
   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><span lang=EN-AU style='color:#3333FF'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds1505.pdf">System
-  with real eigenvalues</a></span></span><span class=MsoHyperlink><b><span
-  lang=EN-AU style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:
-  minor-bidi'><o:p></o:p></span></b></span></p>
+  style='mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  style='font-family:"Times New Roman",serif;mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'>The trajectories have a wing (lobes) around each of the non-zero fixed
+  points with an incoming [1D] stable direction, and two unstable manifolds
+  (one positive and two negative eigenvalues). The unstable manifolds are only
+  slightly unstable, which is why a trajectory spends a long-time winding
+  around a fixed point before it escapes. Note the repulsion from the unstable
+  fixed point at the Origin.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  style='font-family:"Times New Roman",serif;mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  style='font-family:"Times New Roman",serif;mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  style='font-family:"Times New Roman",serif;mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'>Figures 3 show the trajectories in the transient chaotic region and
+  figure 4 where the trajectories spiralling inwards to the stable fixed
+  points.<o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><span style='font-family:"Times New Roman",serif;
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ansi-language:
+  EN-GB;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_4"
+   o:spid="_x0000_i1027" type="#_x0000_t75" style='width:450pt;height:375pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ds2700G_files/image003.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=600 height=500
+  src="ds2700G_files/image003.gif" v:shapes="Picture_x0020_4"><![endif]></span><span
+  style='font-family:"Times New Roman",serif;mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  style='font-family:"Times New Roman",serif;mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'>Fig. 3.<span style='mso-spacerun:yes'>&nbsp; </span>The two
+  trajectories in the transient chaotic region. Both <span class=SpellE>trjectroies</span><o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><span style='font-family:"Times New Roman",serif;
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ansi-language:
+  EN-GB;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_5"
+   o:spid="_x0000_i1026" type="#_x0000_t75" style='width:450pt;height:375pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ds2700G_files/image004.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=600 height=500
+  src="ds2700G_files/image004.gif" v:shapes="Picture_x0020_5"><![endif]></span><span
+  style='font-family:"Times New Roman",serif;mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  style='font-family:"Times New Roman",serif;mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'>Fig. 4.<span style='mso-spacerun:yes'>&nbsp; </span>The two
+  trajectories in the transient chaotic region. Both trajectories spiral
+  inwards to the stable fixed points.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  style='font-family:"Times New Roman",serif;mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  style='font-family:"Times New Roman",serif;mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  style='font-family:"Times New Roman",serif;mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'>When <i>r</i> &lt; 1 then the only fixed point is the Origin and all
+  trajectories are attracted to the stable fixed point at the Origin.<o:p></o:p></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:150%'><span style='font-family:"Times New Roman",serif;
+  mso-ascii-theme-font:minor-fareast;mso-hansi-theme-font:minor-fareast;
+  mso-bidi-theme-font:minor-fareast;mso-font-kerning:1.0pt;mso-ansi-language:
+  EN-GB;mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_6"
+   o:spid="_x0000_i1025" type="#_x0000_t75" style='width:450pt;height:375pt;
+   visibility:visible;mso-wrap-style:square'>
+   <v:imagedata src="ds2700G_files/image005.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=600 height=500
+  src="ds2700G_files/image005.gif" v:shapes="Picture_x0020_6"><![endif]></span><span
+  style='font-family:"Times New Roman",serif;mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'><o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  style='font-family:"Times New Roman",serif;mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'>Fig. 5.<span style='mso-spacerun:yes'>&nbsp; </span><i>r</i> &lt; 1,
+  the Origin is the only fixed point and is stable. All trajectories will be
+  attracted to the Origin.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:150%'><span
+  style='font-family:"Times New Roman",serif;mso-ascii-theme-font:minor-fareast;
+  mso-hansi-theme-font:minor-fareast;mso-bidi-theme-font:minor-fareast;
+  mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></p>
   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><span lang=EN-AU style='color:#3333FF'><o:p>&nbsp;</o:p></span></span></p>
+  style='mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'>Animating the Lorenz System in 3D<o:p></o:p></span></p>
   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><span lang=EN-AU style='color:#3333FF'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds1506.pdf">System
-  with complex eigenvalues</a><o:p></o:p></span></span></p>
+  style='mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'><a
+  href="https://jakevdp.github.io/blog/2013/02/16/animating-the-lorentz-system-in-3d/">https://jakevdp.github.io/blog/2013/02/16/animating-the-lorentz-system-in-3d/</a><o:p></o:p></span></p>
   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><span lang=EN-AU style='color:#3333FF'><o:p>&nbsp;</o:p></span></span></p>
+  style='mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></p>
   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><span lang=EN-AU style='color:#3333FF'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds1700.pdf">Rabbits
-  and Sheep population dynamics</a> (L17)</span></span><span
-  class=MsoHyperlink><b><span lang=EN-AU style='mso-bidi-font-family:"Times New Roman";
-  mso-bidi-theme-font:minor-bidi'><o:p></o:p></span></b></span></p>
+  style='mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></p>
   <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><span lang=EN-AU style='color:#3333FF'><o:p>&nbsp;</o:p></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><span lang=EN-AU style='color:#3333FF'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds1800.pdf">Conservative
-  systems: Double potential well (L18)</a><o:p></o:p></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><span lang=EN-AU style='color:#3333FF'><o:p>&nbsp;</o:p></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><span lang=EN-AU style='color:#3333FF'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds1900.pdf">Damped
-  Simple Pendulum (L19)</a><o:p></o:p></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><span lang=EN-AU style='color:#3333FF'><o:p>&nbsp;</o:p></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><span lang=EN-AU style='color:#3333FF'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds2100.pdf">Van
-  der Pol Oscillator and limit cycles (L21)</a><o:p></o:p></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><span lang=EN-AU style='color:#3333FF'><o:p>&nbsp;</o:p></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><span lang=EN-AU style='color:#3333FF'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds2200.pdf">Gradient
-  dynamical systems (L22, L23)</a></span><span lang=EN-AU><o:p></o:p></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><span lang=EN-AU><o:p>&nbsp;</o:p></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><span lang=EN-AU style='color:#3333FF'><o:p>&nbsp;</o:p></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><span lang=EN-AU style='color:#3333FF'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds1503.pdf">Saddle-node
-  bifurcations</a><o:p></o:p></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><span lang=EN-AU style='color:#3333FF'><o:p>&nbsp;</o:p></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><span lang=EN-AU style='color:#3333FF'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds2500.pdf">Saddle-node
-  bifurcations in planar systems (L25)</a></span><span lang=EN-AU><o:p></o:p></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span lang=EN-AU><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><span lang=EN-AU style='color:#3333FF'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds1504.pdf"><span
-  class=SpellE>Transcritical</span> bifurcations</a></span></span><span
-  class=MsoHyperlink><b><span lang=EN-AU style='mso-bidi-font-family:"Times New Roman";
-  mso-bidi-theme-font:minor-bidi'><o:p></o:p></span></b></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span lang=EN-AU><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><span lang=EN-AU style='color:#3333FF'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds1508.pdf">Pitchfork
-  bifurcations</a><o:p></o:p></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><span lang=EN-AU style='color:#3333FF'><o:p>&nbsp;</o:p></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><span lang=EN-AU style='color:#3333FF'>Pitchfork<a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds2501.pdf"><span
-  style='color:#3333FF'> </span>bifurcations in planar systems (L25)</a></span><span
-  lang=EN-AU><o:p></o:p></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span lang=EN-AU><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><span lang=EN-AU style='color:#3333FF'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds1509.pdf">Supercritical
-  Hopf bifurcations</a></span></span><span class=MsoHyperlink><b><span
-  lang=EN-AU style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:
-  minor-bidi'><o:p></o:p></span></b></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span lang=EN-AU><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><span lang=EN-AU style='color:#3333FF'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds1510.pdf">Subcritical
-  Hopf bifurcations</a></span><span lang=EN-AU><o:p></o:p></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><b><span lang=EN-AU style='mso-bidi-font-family:"Times New Roman";
-  mso-bidi-theme-font:minor-bidi;color:#3333FF'><o:p>&nbsp;</o:p></span></b></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><span lang=EN-AU style='color:#3333FF'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds1511.pdf">Homoclinic-node
-  bifurcations</a></span></span><span class=MsoHyperlink><b><span lang=EN-AU
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi'><o:p></o:p></span></b></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><b><span lang=EN-AU style='mso-bidi-font-family:"Times New Roman";
-  mso-bidi-theme-font:minor-bidi'><o:p>&nbsp;</o:p></span></b></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  class=MsoHyperlink><span lang=EN-AU style='color:#3333FF'><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds2700.pdf">Lorenz
-  equations: strange attractors (L27)<b><span style='mso-bidi-font-family:"Times New Roman";
-  mso-bidi-theme-font:minor-bidi'><o:p></o:p></span></b></a></span></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span lang=EN-AU><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  lang=EN-AU><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><a
-  href="https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/ds2700G.htm"><span
-  style='mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:minor-bidi'>ANIMATION:
-  Lorenz equations: strange attractors (L27)</span></a><o:p></o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span lang=EN-AU><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span lang=EN-AU><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal;tab-stops:
-  55.5pt'><span style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
-  0cm;margin-left:51.0pt;mso-add-space:auto;line-height:200%;tab-stops:55.5pt'><span
-  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:200%;tab-stops:55.5pt'><span
-  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:200%'><span
-  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:200%'><span
-  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-  style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
+  style='mso-font-kerning:1.0pt;mso-ligatures:standardcontextual;mso-ansi-language:
+  EN-GB'><o:p>&nbsp;</o:p></span></p>
   </td>
  </tr>
 </table>
 
-<p class=MsoNormal><span class=MsoHyperlink><span lang=EN-AU style='mso-bidi-font-family:
-"Times New Roman";mso-bidi-theme-font:minor-bidi'><o:p>&nbsp;</o:p></span></span></p>
-
-<div><!-- hitwebcounter Code START -->
-
-<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
-lang=EN-AU><a href="https://www.hitwebcounter.com/" target="_blank"><span
-lang=EN-GB style='font-size:12.0pt;mso-font-kerning:0pt;mso-ligatures:none;
-mso-ansi-language:EN-GB;mso-no-proof:yes'><img border=0 width=90 height=20
-id="_x0000_i1025"
-src="https://hitwebcounter.com/counter/counter.php?page=21441857&amp;style=0006&amp;nbdigits=6&amp;type=page&amp;initCount=1000"
-alt=Counters></span></a></span><span style='font-size:12.0pt;font-family:"Times New Roman",serif;
-mso-font-kerning:0pt;mso-ligatures:none;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
-
-</div>
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></p>
 
 </div>
 
