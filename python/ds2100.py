@@ -137,6 +137,7 @@ for c in range(N):
   sol = odeint(lorenz, u0, t, tfirst=True)
   xS = sol[:,0]     
   yS = sol[:,1]       
+  
   plt.plot(xS,yS,lw = 2)
   plt.plot(xS[0],yS[0],'go',ms = 6) 
     

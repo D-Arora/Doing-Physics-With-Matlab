@@ -128,7 +128,7 @@ axes.plot(xE,yE,'ko',ms = 6)
 fig3.tight_layout()
 fig3.savefig('a3.png')
 
-xxx
+#xxx
 #%% SOLVE ODE
 # Time span 
 t1 = 0; t2 = 40; nT = 599
@@ -151,24 +151,26 @@ x0 = 1.1; y0 = 0.6913392799487094
 u0 = 1.1, 0.6913392799487094
 '''
 
-for c in range(N):
-  u0 = [x0[c],y0[c]]
-  sol = odeint(lorenz, u0, t, tfirst=True)
-  xS = sol[:,0]     
-  yS = sol[:,1]       
-  plt.plot(xS,yS,lw = 2.5)
-  plt.plot(xS[0],yS[0],'go',ms = 6) 
+# for c in range(N):
+#   u0 = [x0[c],y0[c]]
+#   sol = odeint(lorenz, u0, t, tfirst=True)
+#   xS = sol[:,0]     
+#   yS = sol[:,1]       
+#   plt.plot(xS,yS,lw = 2.5)
+#   plt.plot(xS[0],yS[0],'go',ms = 6) 
 
+
+# y0 = 0.6913392799487094
+# V = PE(x0)
+# K = 0.5*y0**2
+# Etot = K+V
+
+# print('   x0    y0      E')
+# for c in range(N):
+#     print('  %0.2f' %x0[c] + '   %0.2f' %y0[c] + '   %0.2f  ' %Etot[c] )
+    
+    
 fig3.savefig('a3A.png')
-
-y0 = 0.690
-V = PE(x0)
-K = 0.5*y0**2
-Etot = K+V
-
-print('   x0    y0      E')
-for c in range(N):
-    print('  %0.2f' %x0[c] + '   %0.2f' %y0[c] + '   %0.2f  ' %Etot[c] )
 
 #%%
 tExe = time.time() - tStart

@@ -22,8 +22,6 @@ import time
 import random
 
 tStart = time.time()
-
-
 plt.close('all')
 
 #%% FUNCTIONS  Solve ODE for x,y    
@@ -33,9 +31,7 @@ def lorenz(t, state):
     dy = -b*y - w**2*sin(x)
     return [dx, dy]  
 
-def PE(x):
-    E = m*g*L*(1-cos(xS))
-    return E
+
 
 #%%  INPUTS and : Model parameters
 m = 1
@@ -48,34 +44,40 @@ N = 999
 x = linspace(-pi,pi,N)
 V = m*g*L*(1 - cos(x))
 
+
 #%%
-omega0 = np.sqrt( (4*g - 2*g*(1-cos(pi/8)))/L )
-print(omega0)
+W = np.sqrt( (4*g - 2*g*(1-cos(pi/8)))/L )
+
+#%%
+
 
 # FIXED POINTS xE yE
 xE = array([-pi,0,pi]); yE = array([0,0,0])
 
 #%% Solution ODE for x and y 
-x0,y0 = pi/8,10
-
+x0,y0 = pi/8,12.33
 t1 = 0; t2 = 5; nT = 9999
 t = linspace(t1,t2,nT)
 u0 = [x0,y0]
 sol = odeint(lorenz, u0, t, tfirst=True)
-xS = sol[:,0]     
-yS = sol[:,1]       
+theta = sol[:,0]     
+omega = sol[:,1]       
 
-KS = 0.5*(L*yS)**2
-VS = PE(xS)
+xS = L*sin(theta)
+yS = -L*cos(theta)
+vS = L*omega
+
+KS = 0.5*vS**2
+VS = g*L*(1-cos(theta))
 ES = KS+VS
 
-print(ES[0])
 
 #%% PHASE PORTRAIT streamplot
 x = linspace(-1.1*pi,1.1*pi,N)
 xx,yy = np.meshgrid(x,4*x)
 xxDot = yy
 yyDot = -b*yy - w**2*sin(xx)
+
 
 #%%  FIG 1: potential energy function V(x)
 plt.rcParams['font.size'] = 12
@@ -87,7 +89,7 @@ ax.set_xlim([-1,1])
 ax.plot(x/pi,V,'b',lw = 2)
 
 fig1.tight_layout()
-fig1.savefig('a1.png')
+# fig1.savefig('a1.png')
 
 #%%   FIG 2: t vs x   t vs y = v
 plt.rcParams['font.size'] = 12
@@ -120,7 +122,9 @@ ax[C].plot(t,ES,'k',lw = 2)
 #fig2.tight_layout()
 fig2.savefig('a2.png')
 
+
 #%% FIGURE 3: Phase Portrait  streamplot
+# Phase Portrait: quiver and stream plots  
 plt.rcParams['font.size'] = 12
 plt.rcParams["figure.figsize"] = (6,4)
 #plt.rcParams["figure.figsize"] = (7,3)
@@ -145,11 +149,20 @@ t = linspace(t1,t2,nT)
 N = 5    # number of initial condition points
 x0 = zeros(N); y0 = zeros(N)
 
-x0[0], y0[0] = -pi/4,3
-x0[1], y0[1] = pi/2,2
-x0[2], y0[2] = -pi/1.1,0
-x0[3], y0[3] = -pi/3,0
+x0[0], y0[0] = pi/4,0
+x0[1], y0[1] = pi/8,0
+x0[2], y0[2] = pi/16,0
+x0[3], y0[3] = pi/3,0
 x0[4], y0[4] = pi/1.3,4
+# x0[5], y0[5] = -1,0.1
+# x0[6], y0[6] = -1.8,0.1
+
+# xS = zeros([nT,N]); yS = xS
+
+# '''
+# x0 = 1.1; y0 = 0.6913392799487094
+# u0 = 1.1, 0.6913392799487094
+# '''
 
 for c in range(N):
   u0 = [x0[c],y0[c]]
@@ -158,6 +171,9 @@ for c in range(N):
   yS = sol[:,1]       
   plt.plot(xS/pi,yS,lw = 2.5)
   plt.plot(xS[0]/pi,yS[0],'go',ms = 6) 
+
+
+
     
 fig3.savefig('a3A.png')
 

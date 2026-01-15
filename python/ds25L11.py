@@ -40,8 +40,8 @@ def XDOT(x):
 #%%  CELL 1  w > a
 #  w > a   not fixed points, non uniform motion, period T
 num = 599
-w = 1
-a = 0.5
+w = 0.8
+a = 1
 wa = w/a
 x = linspace(0,2*pi,num)
 xDot = XDOT(x)
@@ -82,7 +82,7 @@ fig1A.savefig('a1A.png')
 # t vs x
 N = 9999
 tMax = 20
-x0 = 0
+x0 = 0.5
 t = linspace(0,tMax,N)
 sol = odeint(lorenz, x0, t, tfirst=True)
 xS = sol[:,0]
