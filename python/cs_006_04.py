@@ -7,7 +7,7 @@
 
 # Website: https://d-arora.github.io/Doing-Physics-With-Matlab/
 
-# Documentation: https://d-arora.github.io/Doing-Physics-With-Matlab/mpDocs/cs_006A.htm
+# Documentation: https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/cs_006D.pdf
 
 
 # LIBRARIES  ================================================================
@@ -154,10 +154,7 @@ axes.xaxis.grid()
 axes.yaxis.grid()
 xP = theta/pi; yP = omega
 axes.plot(xP, yP, 'b',lw = 1)
-xP = theta[-10000:-1]/pi; yP = omega[-10
-                                     
-                                     
-                                     000:-1]
+xP = theta[-10000:-1]/pi; yP = omega[-10000:-1]
 axes.plot(xP, yP, 'r',lw = 2)
 xP = theta[0]/pi; yP = omega[0]
 axes.plot(xP, yP, 'og',ms = 8)

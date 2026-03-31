@@ -1,25 +1,26 @@
-# cs_006_01.py
-# Ian Cooper     Feb 2024
-# COMPLEX SYSTEMS
-#  TIME DEPENDENT DYNAMICAL SYSTEMS
-#      	PENDULUM: free, damped, forced motion 
-#       CHAOTIC DYNAMICS
+'''
+cs_006_01.py
+Ian Cooper     Apr 2026
+ COMPLEX SYSTEMS
+   TIME DEPENDENT DYNAMICAL SYSTEMS
+   	PENDULUM: free, damped, forced motion 
+    CHAOTIC DYNAMICS
 
 # Website: https://d-arora.github.io/Doing-Physics-With-Matlab/
 
-# Documentation: https://d-arora.github.io/Doing-Physics-With-Matlab/mpDocs/cs_006A.htm
+# Documentation: https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/cs_006D.pdf
 
+'''
 
-# LIBRARIES  ================================================================
+#%%LIBRARIES
 import numpy as np
 from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 from scipy.signal import find_peaks
 import time
-from numpy import pi, sin, cos
+from numpy import pi, sin, cos, linspace
 
 tStart = time.time()
-
 plt.close('all')
 
 #%%   SETUP
@@ -27,16 +28,19 @@ plt.close('all')
 #  SI units
 #  angular displacement theta  [rad]
 #  angular velocity (angular frequency) omega  [rad/s]
+
 # Initial angular displacment [radian]  
 theta0 = 0.     
-# initial angular velocity  [rad/s]
-omega0 = 0.
+# Initial angular velocity  [rad/s]
+omega0 = 0
 
 # Driving force: Amplitude / drive strength (gamma)  / Frequency
+#   For free motion: gamma = 0
 gamma = 0.9
-fD = 1.0   
+fD = 1   
 wD = 2*pi*fD
 TD = 1/fD
+
 
 # Time span: t1 to t2  / restircted time span t[NS]
 N = 5999          
@@ -44,7 +48,7 @@ t1 = 0.0
 t2 = 20
 NS = -1000    # Frequency spectrum
 ns = -1000        # Start time for restricted phase space plot
-t = np.linspace(t1,t2,N)
+t = linspace(t1,t2,N)
 dt = t[1] - t[0]
 
 # Natural frequency and period
@@ -53,13 +57,13 @@ f0 = w0/(2*pi)
 T0 = 1/f0
 
 # Damping constant  beta --> b
-b =  w0/4
+#b =  w0/4
 # b = w0/8
 b = 3
+
 # Pendulum length
 g = 9.8
 L = g/w0**2
-
  
 #%%  SOLVE ODE
 # Solve ODE for x,y    x = theta   y = omega 
@@ -165,8 +169,8 @@ plt.rcParams['font.size'] = 12
 
 #%% Fig 0   Time evolution theta
 plt.rcParams["figure.figsize"] = (4,3)
-fig1, axes = plt.subplots(nrows=1, ncols=1)
-fig1.subplots_adjust(top = 0.91, bottom = 0.18, left = 0.180,\
+fig0, axes = plt.subplots(nrows=1, ncols=1)
+fig0.subplots_adjust(top = 0.91, bottom = 0.18, left = 0.180,\
                     right = 0.96, hspace = 0.36,wspace=0.50)
 
 R = 0;   # t Vs theta 
@@ -183,6 +187,7 @@ axes.yaxis.grid()
 xP = t; yP = theta/pi
 axes.plot(xP, yP, 'b')
 
+fig0.tight_layout()
 plt.savefig('a0.png') 
 
 #%% Fig 1  Time evolution      
@@ -230,14 +235,15 @@ if gamma > 0:
    xP = t; yP = cos(wD*t)
 #  axes[R].plot(xP, yP, 'r',lw = 1)
 
+fig1.tight_layout()
 plt.savefig('a1.png') 
 
 #%% Fig 2  Phase space plots
             
 
 plt.rcParams["figure.figsize"] = (5,5)
-fig1, axes = plt.subplots(nrows=2, ncols=1)
-fig1.subplots_adjust(top = 0.94, bottom = 0.12, left = 0.180,\
+fig2, axes = plt.subplots(nrows=2, ncols=1)
+fig2.subplots_adjust(top = 0.94, bottom = 0.12, left = 0.180,\
                     right = 0.95, hspace = 0.36,wspace=0.40)
 
 R = 0;   # theta vs omega
@@ -277,12 +283,13 @@ axes[R].plot(xP, yP, 'go', ms = 8)
 xP = theta[-1]/pi; yP = omega[-1]
 axes[R].plot(xP, yP, 'ro', ms = 8)
 
+fig2.tight_layout()
 plt.savefig('a2.png') 
 
 #%% Fig 3  Frequency spectrum 
 plt.rcParams["figure.figsize"] = (5,5)
-fig1, axes = plt.subplots(nrows=2, ncols=1)
-fig1.subplots_adjust(top = 0.94, bottom = 0.12, left = 0.180,\
+fig3, axes = plt.subplots(nrows=2, ncols=1)
+fig3.subplots_adjust(top = 0.94, bottom = 0.12, left = 0.180,\
                     right = 0.95, hspace = 0.36,wspace=0.40)
 
 R = 0;   # f vs psd 
@@ -301,7 +308,8 @@ axes[R].plot(xP, yP, 'blue')
 xP = [f0,f0]; yP = [0,1]
 axes[R].plot(xP, yP, 'r')
 xP = [fD,fD]; yP = [0,1]
-axes[R].plot(xP, yP, 'm')
+if gamma > 0:
+   axes[R].plot(xP, yP, 'm')
 
 R = 1;   # f vs log(psd) 
 axes[R].set_ylabel('$log(psd)$',color= 'black',fontsize = 12)
@@ -316,9 +324,11 @@ xP = F[F>0]; yP = np.log(psd[F>0])
 axes[R].plot(xP, yP, 'blue')
 xP = [f0,f0]; yP = [-20,0]
 axes[R].plot(xP, yP, 'r')
-xP = [fD,fD]; yP = [-20,0]
-axes[R].plot(xP, yP, 'm')
+if gamma > 0:
+  xP = [fD,fD]; yP = [-20,0]
+  axes[R].plot(xP, yP, 'm')
 
+fig3.tight_layout()
 plt.savefig('a3.png')    
 
 #%%  Find and plot peaks
@@ -360,10 +370,7 @@ font1 = {'family':'Tahoma','color':'black','size':12}
 plt.rcParams['font.family'] = ['Tahoma']
 plt.rcParams['font.size'] = 12
 
-fig = plt.figure(figsize = (3, 2))
-
-fig.subplots_adjust(top = 0.94, bottom = 0.27, left = 0.22,\
-                     right = 0.96, hspace = 0.2,wspace=0.2)
+fig5 = plt.figure(figsize = (5,3))
    
 xP = tP; yP = y
 plt.plot(xP,yP,linewidth=2,color='b')
@@ -377,7 +384,8 @@ plt.grid('visible')
 plt.xlabel(r'$t$   [ s ]', fontdict = font1)
 plt.ylabel(r'$\omega$ [rad.$s{^1}$]',color= 'black',fontsize = 12)
 #plt.ylabel(r'$\theta$ / $\pi$',color= 'black',fontsize = 12)
-plt.savefig('a4.png')    
+fig5.tight_layout()
+plt.savefig('a5.png')    
 
 for c in range(len(yP)-1):
     print(r'   %2.3f ' %xP[c], '    %2.3f  ' %yP[c])

@@ -8,7 +8,7 @@
 
 # Website: https://d-arora.github.io/Doing-Physics-With-Matlab/
 
-# Documentation: https://d-arora.github.io/Doing-Physics-With-Matlab/mpDocs/cs_006.pdf
+# Documentation: https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/cs_006D.pdf
 
 
 # LIBRARIES  ================================================================
@@ -20,6 +20,7 @@ import time
 import math
 from numpy import pi, sin, cos
 
+plt.close('all')
 tStart = time.time()
 
 #%%

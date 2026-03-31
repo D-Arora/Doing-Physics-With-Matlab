@@ -8,7 +8,7 @@
 
 # Website: https://d-arora.github.io/Doing-Physics-With-Matlab/
 
-# Documentation: https://d-arora.github.io/Doing-Physics-With-Matlab/mpDocs/cs_006.pdf
+# Documentation: https://d-arora.github.io/Doing-Physics-With-Matlab/pyDS/cs_006D.pdf
 
 
 # https://scipython.com/book/chapter-6-numpy/examples/finding-a-best-fit-straight-line/
@@ -24,7 +24,7 @@ import math
 from numpy import pi, sin, cos
 Polynomial = np.polynomial.Polynomial
 
-
+plt.close('all')
 tStart = time.time()
 
 #%%
