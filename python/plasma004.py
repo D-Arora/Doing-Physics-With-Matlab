@@ -1,0 +1,141 @@
+# -*- coding: utf-8 -*-
+"""
+Oct 2026         plasma04.py
+
+Motion of charged particles in magnetic and electric field
+  [3D] motion of a proton in a constatn magnetic field
+
+
+Ian Cooper
+ https://d-arora.github.io/Doing-Physics-With-Matlab/
+Documentation
+    https://d-arora.github.io/Doing-Physics-With-Matlab/pyDocs/plasma001.py
+"""
+
+import numpy as np
+from numpy import pi, arange, linspace, zeros, array, ones, sqrt, exp, tan, sin 
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+from scipy.integrate import solve_ivp
+from scipy.signal import find_peaks
+import time
+
+tStart = time.time()
+plt.close('all')
+
+#%% Particle properties 
+Bz = 0.1
+t2 = 0.12e-6
+
+q = 1.602e-19       # charge (C)
+m = 1.67e-27         # mass (kg)
+#m = 3.34e-27
+# Initial position and velocity
+r0 = np.array([-0.5, 0, 0.0])       # m
+v0 = np.array([8e6,0,0])       # m/s
+
+# Electric and magnetic fields
+E = np.array([0.0, 0.0, 0.0])        # N/C
+B = np.array([0.0, 0.0, Bz])        # T
+
+#%%  Equations of motion
+def equations(t, S):
+    r = S[:3]       # position
+    v = S[3:]       # velocity
+    Bs = B #np.array([0,0,2])
+    if r[0] < -0.3: Bs = np.array([0,0,0])
+    if r[0] > 0.3: Bs = np.array([0,0,0])
+    if r[1] < -0.3: Bs = np.array([0,0,0])
+    if r[1] > 0.3: Bs = np.array([0,0,0])
+    # Lorentz force
+    F = q * (E + np.cross(v, Bs))
+    # Acceleration
+    a = F / m
+    return np.concatenate((v, a))
+
+# Initial state: [x, y, z, vx, vy, vz]
+S0 = np.concatenate((r0, v0))
+
+# Time interval
+t1 = 0
+N = 10000
+
+t_eval = np.linspace(t1, t2, N)
+
+# Solve ODE
+solution = solve_ivp(
+    equations,
+    (t1, t2),
+    S0,
+    t_eval=t_eval,
+    rtol=1e-8,
+    atol=1e-10)
+
+# Extract position, velocities and kinetic energy
+x = solution.y[0]
+y = solution.y[1]
+z = solution.y[2]
+
+vx = solution.y[3]
+vy = solution.y[4]
+vz = solution.y[5]
+
+v_xy = (vx**2+vy**2)**0.5
+
+#xxx
+
+#%%  GRAPHICS
+plt.rcParams['font.size'] = 10
+
+fig1, ax = plt.subplots(nrows=1, ncols=1,figsize = (4.3,4))
+ax.set_xlabel(' x  [ m ]')
+ax.set_ylabel('y  [ m ]')
+ax.grid()
+ax.plot([-0.5,0.5],[0,0],'m',lw =2)
+ax.plot(x[0],y[0],'go',ms = 6)
+
+ax.plot(x,y,'b',lw = 2)
+
+ax.axis("equal")
+rect = patches.Rectangle((-0.3,-0.3), 0.6,0.6, 
+                         facecolor='blue', 
+                         alpha=0.3,       # Transparency (0 to 1)
+                         edgecolor='none') # Remove border if desired
+ax.add_patch(rect)
+fig1.tight_layout()
+
+#%%
+fig2, ax = plt.subplots(nrows=1, ncols=1)
+ax.set_xlabel(' t  [ $\mu$s ]')
+ax.set_ylabel('x,y  [ m ]')
+ax.grid()
+xP = t_eval*1e6; yP = x
+ax.plot(xP,yP,'b',lw = 2,label = 'x')
+yP = y; ax.plot(xP,yP,'r',lw = 2,label = 'y')
+ax.legend()
+fig2.tight_layout()
+
+#%%
+fig3, ax = plt.subplots(nrows=1, ncols=1)
+ax.set_xlabel(' t  [ $\mu$s ]')
+ax.set_ylabel('vx, vy  [ m/s ]')
+ax.grid()
+xP = t_eval*1e6; yP = vx
+ax.plot(xP,yP,'b',lw = 2,label = 'x')
+yP = vy; ax.plot(xP,yP,'r',lw = 2,label = 'y')
+ax.legend()
+fig3.tight_layout()
+
+
+#%%
+tExe = time.time() - tStart
+print('  ')
+print('Execution time = %0.2f s' %tExe)
+
+#%%
+'''
+fig1.savefig('a1.png')
+fig2.savefig('a2.png') 
+fig3.savefig('a3.png') 
+ 
+'''
